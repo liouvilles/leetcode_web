@@ -1,0 +1,12 @@
+const g=165,n="compare-version-numbers",i="Compare Version Numbers",d="中等",f="字符串",e=["双指针","字符串"],u=!1,t="https://leetcode.cn/problems/compare-version-numbers/",s="比较版本号",r=["字符串解析","双指针","分段比较"],o="逐段比较两个点分十进制版本号，忽略每段前导零以及末尾缺省的零段。",l="把两个版本拆成修订号数组，逐位置解析数值；缺少的修订号视为零，第一次不同即决定大小。",c=["不能按字符串字典序比较数字段","前导零不影响数值","较短版本的缺失段等价于零"],a=[{id:"revision-by-revision",title:"逐修订号数值比较",kind:"最优",idea:"同步遍历最长段数，每次取对应数值或零并比较。",steps:["按点拆分两个版本","枚举到较长数组末尾","解析对应段，首次不同返回 -1 或 1，否则返回 0"],complexity:{time:"O(m+n)",space:"O(m+n)"},code:{java:`class Solution {
+    public int compareVersion(String version1, String version2) { String[] first = version1.split("[.]"); String[] second = version2.split("[.]"); int count = Math.max(first.length, second.length); for (int index = 0; index < count; index++) { long left = index < first.length ? Long.parseLong(first[index]) : 0; long right = index < second.length ? Long.parseLong(second[index]) : 0; if (left < right) return -1; if (left > right) return 1; } return 0; }
+}
+`,kotlin:`class Solution {
+    fun compareVersion(version1: String, version2: String): Int { val first = version1.split('.'); val second = version2.split('.'); for (index in 0 until maxOf(first.size, second.size)) { val left = if (index < first.size) first[index].toLong() else 0L; val right = if (index < second.size) second[index].toLong() else 0L; if (left < right) return -1; if (left > right) return 1 }; return 0 }
+}
+`,cpp:`class Solution {
+    vector<long long> parse(const string& version) { vector<long long> values; string part; stringstream stream(version); while (getline(stream, part, '.')) values.push_back(stoll(part)); return values; }
+public:
+    int compareVersion(string version1, string version2) { vector<long long> first = parse(version1), second = parse(version2); for (int index = 0; index < (int)max(first.size(), second.size()); ++index) { long long left = index < (int)first.size() ? first[index] : 0, right = index < (int)second.size() ? second[index] : 0; if (left < right) return -1; if (left > right) return 1; } return 0; }
+};
+`}}],p={id:165,slug:n,titleEn:i,difficulty:"中等",category:"字符串",officialTags:e,paidOnly:!1,sourceUrl:t,title:s,studyTags:r,summary:o,insight:l,pitfalls:c,solutions:a};export{f as category,p as default,d as difficulty,g as id,l as insight,e as officialTags,u as paidOnly,c as pitfalls,n as slug,a as solutions,t as sourceUrl,r as studyTags,o as summary,s as title,i as titleEn};

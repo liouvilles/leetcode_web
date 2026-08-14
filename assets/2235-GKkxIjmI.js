@@ -1,0 +1,4 @@
+const a=2235,n="add-two-integers",t="Add Two Integers",d="简单",r="数学",s=["数学"],p=!1,i="https://leetcode.cn/problems/add-two-integers/",o="两整数相加",u=["数学"],c="返回两个整数 num1 与 num2 的和。",e="直接使用整数加法。",l=["允许负数","约束保证结果在 int 范围","无需额外数据结构"],m=[{id:"direct-addition",title:"直接相加",kind:"最优",idea:"使用语言内置整数加法。",steps:["计算 num1+num2","返回结果"],complexity:{time:"O(1)",space:"O(1)"},code:{java:`class Solution { public int sum(int num1,int num2){return num1+num2;} }
+`,kotlin:`class Solution { fun sum(num1:Int,num2:Int)=num1+num2 }
+`,cpp:`class Solution { public:int sum(int num1,int num2){return num1+num2;} };
+`}}],f={id:2235,slug:n,titleEn:t,difficulty:"简单",category:"数学",officialTags:s,paidOnly:!1,sourceUrl:i,title:o,studyTags:u,summary:c,insight:e,pitfalls:l,solutions:m};export{r as category,f as default,d as difficulty,a as id,e as insight,s as officialTags,p as paidOnly,l as pitfalls,n as slug,m as solutions,i as sourceUrl,u as studyTags,c as summary,o as title,t as titleEn};

@@ -1,0 +1,8 @@
+const a=83,e="remove-duplicates-from-sorted-list",t="Remove Duplicates from Sorted List",d="简单",x="链表",n=["链表"],p=!1,r="https://leetcode.cn/problems/remove-duplicates-from-sorted-list/",c="删除排序链表中的重复元素",s=["链表","有序去重","原地修改"],l="删除有序链表中的重复节点，使每个数值只保留一个节点。",u="相同值必定相邻；若当前节点与后继相同，直接绕过后继，否则推进当前节点。",i=["每种重复值仍要保留一个节点","连续多个相同值需要反复比较","空链表无需处理"],o=[{id:"adjacent-skip",title:"跳过相邻重复节点",kind:"最优",idea:"单指针沿链表扫描，并原地修改 next 指针。",steps:["current 从头节点开始","相邻值相同则 current.next=current.next.next","否则 current 前进"],complexity:{time:"O(n)",space:"O(1)"},code:{java:`class Solution {
+    public ListNode deleteDuplicates(ListNode head) { ListNode current = head; while (current != null && current.next != null) { if (current.val == current.next.val) current.next = current.next.next; else current = current.next; } return head; }
+}
+`,kotlin:"class Solution {\n    fun deleteDuplicates(head: ListNode?): ListNode? { var current = head; while (current?.next != null) { if (current.`val` == current.next!!.`val`) current.next = current.next!!.next else current = current.next }; return head }\n}\n",cpp:`class Solution {
+public:
+    ListNode* deleteDuplicates(ListNode* head) { ListNode* current = head; while (current && current->next) { if (current->val == current->next->val) current->next = current->next->next; else current = current->next; } return head; }
+};
+`}}],f={id:83,slug:e,titleEn:t,difficulty:"简单",category:"链表",officialTags:n,paidOnly:!1,sourceUrl:r,title:c,studyTags:s,summary:l,insight:u,pitfalls:i,solutions:o};export{x as category,f as default,d as difficulty,a as id,u as insight,n as officialTags,p as paidOnly,i as pitfalls,e as slug,o as solutions,r as sourceUrl,s as studyTags,l as summary,c as title,t as titleEn};
