@@ -1,0 +1,1 @@
+class Solution { public: string modifyString(string text){for(int i=0;i<(int)text.size();++i)if(text[i]=='?')for(char value='a';value<='c';++value)if((i==0||text[i-1]!=value)&&(i+1==(int)text.size()||text[i+1]!=value)){text[i]=value;break;}return text;} };

@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxCoins",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "六堆可得九枚硬币",
+      "args": [
+        [
+          2,
+          4,
+          1,
+          2,
+          7,
+          8
+        ]
+      ],
+      "expected": 9
+    },
+    {
+      "name": "三堆取第二大四",
+      "args": [
+        [
+          2,
+          4,
+          5
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "九堆可得十八",
+      "args": [
+        [
+          9,
+          8,
+          7,
+          6,
+          5,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": 18
+    }
+  ]
+}

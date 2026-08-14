@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1531,
+  "slug": "string-compression-ii",
+  "title": "压缩字符串 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-022",
+  "studyTags": [
+    "字符串",
+    "动态规划"
+  ],
+  "summary": "删除字符串中至多 k 个字符后，按连续字符及频次压缩，求压缩串最短长度。",
+  "insight": "记忆化 dfs(index,k) 枚举保留 s[index] 作为下一段字符，并向右统计同字符数 same 与需删除的异字符数 removed；也可直接删除当前字符。",
+  "pitfalls": [
+    "频次一只写字符不写数字",
+    "频次位数在 2、10、100 处变化",
+    "可以删除当前字符开启另一种方案"
+  ],
+  "solutions": [
+    {
+      "id": "run-choice-deletion-dp",
+      "title": "连续段选择删除动态规划",
+      "kind": "最优",
+      "idea": "枚举下一压缩段覆盖范围并删除其中异字符。",
+      "steps": [
+        "dfs(index,k)，剩余长度<=k 返回零",
+        "answer=dfs(index+1,k-1) 表示删除当前；向右枚举 end，same 与 removed",
+        "removed<=k 时 cost=1+digits(same)+dfs(end+1,k-removed)，取最小并记忆化"
+      ],
+      "complexity": {
+        "time": "O(n³)",
+        "space": "O(nk)"
+      },
+      "files": {
+        "java": "solutions/run-choice-deletion-dp/Solution.java",
+        "kotlin": "solutions/run-choice-deletion-dp/Solution.kt",
+        "cpp": "solutions/run-choice-deletion-dp/solution.cpp"
+      }
+    }
+  ]
+}

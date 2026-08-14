@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2138,
+  "slug": "divide-a-string-into-groups-of-size-k",
+  "title": "将字符串拆分为若干长度为 K 的组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-031",
+  "studyTags": [
+    "字符串",
+    "模拟"
+  ],
+  "summary": "依次把字符串分成长度 k 的组，最后不足时用指定字符补满。",
+  "insight": "按步长 k 截取；为最后一段逐字符追加 fill，直到长度达到 k。",
+  "pitfalls": [
+    "只给最后一组补字符",
+    "原串长度整除时不得额外加组",
+    "保持原字符顺序"
+  ],
+  "solutions": [
+    {
+      "id": "fixed-size-chunking",
+      "title": "固定长度分组",
+      "kind": "最优",
+      "idea": "按起点逐块构造恰好 k 个字符。",
+      "steps": [
+        "answer 大小为 ceil(n/k)",
+        "每个 start 取 min(start+k,n) 子串",
+        "while group.length<k 追加 fill"
+      ],
+      "complexity": {
+        "time": "O(n+k)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/fixed-size-chunking/Solution.java",
+        "kotlin": "solutions/fixed-size-chunking/Solution.kt",
+        "cpp": "solutions/fixed-size-chunking/solution.cpp"
+      }
+    }
+  ]
+}

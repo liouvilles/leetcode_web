@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumPopulation",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一九九三人口首次最多",
+      "args": [
+        [
+          [
+            1993,
+            1999
+          ],
+          [
+            2000,
+            2010
+          ]
+        ]
+      ],
+      "expected": 1993
+    },
+    {
+      "name": "一九六零三人同时存活",
+      "args": [
+        [
+          [
+            1950,
+            1961
+          ],
+          [
+            1960,
+            1971
+          ],
+          [
+            1970,
+            1981
+          ]
+        ]
+      ],
+      "expected": 1960
+    },
+    {
+      "name": "单人出生年即答案",
+      "args": [
+        [
+          [
+            2000,
+            2001
+          ]
+        ]
+      ],
+      "expected": 2000
+    }
+  ]
+}

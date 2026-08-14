@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 135,
+  "slug": "candy",
+  "title": "分发糖果",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-004",
+  "studyTags": [
+    "贪心",
+    "双向扫描",
+    "相邻约束"
+  ],
+  "summary": "给每个孩子至少一颗糖，评分高于相邻孩子者必须拿到更多糖，求最少糖果总数。",
+  "insight": "从左到右满足相对左邻的约束，再从右到左用最大值补足相对右邻的约束。",
+  "pitfalls": [
+    "两个方向的约束都必须满足",
+    "相同评分不要求糖果更多",
+    "第二遍应取 max 而不是覆盖"
+  ],
+  "solutions": [
+    {
+      "id": "two-direction-greedy",
+      "title": "左右两遍贪心",
+      "kind": "最优",
+      "idea": "第一遍确定递增段需求，第二遍补齐从右侧看递增的需求。",
+      "steps": [
+        "糖果数组初始化为一",
+        "左到右遇到评分上升则 candies[i]=candies[i-1]+1",
+        "右到左按右邻约束取最大值并求和"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/two-direction-greedy/Solution.java",
+        "kotlin": "solutions/two-direction-greedy/Solution.kt",
+        "cpp": "solutions/two-direction-greedy/solution.cpp"
+      }
+    }
+  ]
+}

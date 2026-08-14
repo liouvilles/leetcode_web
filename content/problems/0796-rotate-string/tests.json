@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "rotateString",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "旋转两位可达",
+      "args": [
+        "abcde",
+        "cdeab"
+      ],
+      "expected": true
+    },
+    {
+      "name": "排列但不是旋转",
+      "args": [
+        "abcde",
+        "abced"
+      ],
+      "expected": false
+    },
+    {
+      "name": "单字符零次旋转",
+      "args": [
+        "a",
+        "a"
+      ],
+      "expected": true
+    }
+  ]
+}

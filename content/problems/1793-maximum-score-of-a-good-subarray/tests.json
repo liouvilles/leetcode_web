@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumScore",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "包含三号下标最大分数十五",
+      "args": [
+        [
+          1,
+          4,
+          3,
+          7,
+          4,
+          5
+        ],
+        3
+      ],
+      "expected": 15
+    },
+    {
+      "name": "全数组最小值一得二十",
+      "args": [
+        [
+          5,
+          5,
+          4,
+          5,
+          4,
+          1,
+          1,
+          1
+        ],
+        0
+      ],
+      "expected": 20
+    },
+    {
+      "name": "单元素分数为自身",
+      "args": [
+        [
+          8
+        ],
+        0
+      ],
+      "expected": 8
+    }
+  ]
+}

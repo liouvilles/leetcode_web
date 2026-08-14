@@ -1,0 +1,1 @@
+class Solution { bool palindrome(string& s,int left,int right){while(left<right)if(s[left++]!=s[right--])return false;return true;}public:bool validPalindrome(string s){int left=0,right=s.size()-1;while(left<right&&s[left]==s[right]){++left;--right;}return left>=right||palindrome(s,left+1,right)||palindrome(s,left,right-1);} };

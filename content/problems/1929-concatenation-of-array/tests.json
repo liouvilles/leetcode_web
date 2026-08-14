@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getConcatenation",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "三项数组串联自身",
+      "args": [
+        [
+          1,
+          2,
+          1
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        1,
+        1,
+        2,
+        1
+      ]
+    },
+    {
+      "name": "四项数组串联",
+      "args": [
+        [
+          1,
+          3,
+          2,
+          1
+        ]
+      ],
+      "expected": [
+        1,
+        3,
+        2,
+        1,
+        1,
+        3,
+        2,
+        1
+      ]
+    },
+    {
+      "name": "单项数组重复两次",
+      "args": [
+        [
+          7
+        ]
+      ],
+      "expected": [
+        7,
+        7
+      ]
+    }
+  ]
+}

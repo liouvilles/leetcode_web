@@ -1,0 +1,1 @@
+class Solution { int answer=0;pair<int,int> dfs(TreeNode* node){if(!node)return {-1,-1};auto left=dfs(node->left),right=dfs(node->right);int goLeft=left.second+1,goRight=right.first+1;answer=max({answer,goLeft,goRight});return {goLeft,goRight};}public:int longestZigZag(TreeNode* root){dfs(root);return answer;} };

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 203,
+  "slug": "remove-linked-list-elements",
+  "title": "移除链表元素",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-003",
+  "studyTags": [
+    "虚拟头结点",
+    "链表删除",
+    "单次遍历"
+  ],
+  "summary": "删除单链表中所有值等于指定值的节点，并返回新的头节点。",
+  "insight": "虚拟头结点让删除原头节点与删除中间节点使用完全相同的前驱改线逻辑。",
+  "pitfalls": [
+    "可能连续删除多个节点",
+    "删除时 previous 不应前进",
+    "所有节点都被删除时返回空链表"
+  ],
+  "solutions": [
+    {
+      "id": "dummy-head",
+      "title": "虚拟头结点迭代删除",
+      "kind": "最优",
+      "idea": "让 current 始终检查 previous 的下一个节点，按条件跳过或前进。",
+      "steps": [
+        "dummy.next=head",
+        "若 previous.next 值命中则跨过它",
+        "否则 previous 向前移动"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/dummy-head/Solution.java",
+        "kotlin": "solutions/dummy-head/Solution.kt",
+        "cpp": "solutions/dummy-head/solution.cpp"
+      }
+    }
+  ]
+}

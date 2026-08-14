@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findGoodStrings",
+  "parameterTypes": [
+    "int",
+    "string",
+    "string",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两位范围排除含 b 字符串",
+      "args": [
+        2,
+        "aa",
+        "da",
+        "b"
+      ],
+      "expected": 51
+    },
+    {
+      "name": "所有候选均含 evil",
+      "args": [
+        8,
+        "leetcode",
+        "leetgoes",
+        "leet"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "gx 到 gz 排除 x",
+      "args": [
+        2,
+        "gx",
+        "gz",
+        "x"
+      ],
+      "expected": 2
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumMoves",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "XXX 一次操作",
+      "args": [
+        "XXX"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "XXOX 需要两次",
+      "args": [
+        "XXOX"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "全 O 无需操作",
+      "args": [
+        "OOOO"
+      ],
+      "expected": 0
+    }
+  ]
+}

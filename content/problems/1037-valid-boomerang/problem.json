@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1037,
+  "slug": "valid-boomerang",
+  "title": "有效的回旋镖",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-015",
+  "studyTags": [
+    "数组",
+    "数学",
+    "几何"
+  ],
+  "summary": "判断平面上三个点是否互不相同且不在同一直线上。",
+  "insight": "三个点不共线当且仅当从第一个点到另外两点的二维叉积不为零；点重复时叉积也为零。",
+  "pitfalls": [
+    "不能用斜率除法以免垂直线和精度问题",
+    "叉积计算可直接用整数",
+    "顺逆时针符号均有效，只要求非零"
+  ],
+  "solutions": [
+    {
+      "id": "nonzero-cross-product",
+      "title": "非零叉积判定",
+      "kind": "最优",
+      "idea": "用两向量面积判断三点是否共线。",
+      "steps": [
+        "令向量 u=p1-p0、v=p2-p0",
+        "cross=u.x*v.y-u.y*v.x",
+        "返回 cross!=0"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/nonzero-cross-product/Solution.java",
+        "kotlin": "solutions/nonzero-cross-product/Solution.kt",
+        "cpp": "solutions/nonzero-cross-product/solution.cpp"
+      }
+    }
+  ]
+}

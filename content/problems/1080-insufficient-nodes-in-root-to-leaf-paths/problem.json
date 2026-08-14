@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1080,
+  "slug": "insufficient-nodes-in-root-to-leaf-paths",
+  "title": "根到叶路径上的不足节点",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-016",
+  "studyTags": [
+    "树",
+    "深度优先搜索",
+    "剪枝"
+  ],
+  "summary": "若节点所在的每条根到叶路径总和都小于 limit，则删除该不足节点及其子树；返回剪枝后的树。",
+  "insight": "后序递归携带已累加路径和；原始叶节点直接按总和决定保留，非叶先剪孩子，若两个孩子都被删则当前节点也不足。",
+  "pitfalls": [
+    "叶节点判断基于原树的叶状态",
+    "内部节点剪完变叶不应仅用当前前缀重新判断，而应依据其所有原叶路径结果",
+    "根也可能被全部删除"
+  ],
+  "solutions": [
+    {
+      "id": "postorder-path-sum-pruning",
+      "title": "后序路径和剪枝",
+      "kind": "最优",
+      "idea": "让子树返回是否还存在满足限制的根叶路径。",
+      "steps": [
+        "prune(node,sum)：空返回空，current=sum+node.val",
+        "若节点原本是叶，current>=limit 则保留否则返回空",
+        "递归更新 left、right；若两者都为空返回空，否则返回 node"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(height)"
+      },
+      "files": {
+        "java": "solutions/postorder-path-sum-pruning/Solution.java",
+        "kotlin": "solutions/postorder-path-sum-pruning/Solution.kt",
+        "cpp": "solutions/postorder-path-sum-pruning/solution.cpp"
+      }
+    }
+  ]
+}

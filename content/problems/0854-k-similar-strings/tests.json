@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "kSimilarity",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "交换一次",
+      "args": [
+        "ab",
+        "ba"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "三字符循环两次",
+      "args": [
+        "abc",
+        "bca"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "四字符两次",
+      "args": [
+        "abac",
+        "baca"
+      ],
+      "expected": 2
+    }
+  ]
+}

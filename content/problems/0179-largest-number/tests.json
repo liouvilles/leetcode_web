@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "largestNumber",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "两个数字比较拼接顺序",
+      "args": [
+        [
+          10,
+          2
+        ]
+      ],
+      "expected": "210"
+    },
+    {
+      "name": "多种前缀关系",
+      "args": [
+        [
+          3,
+          30,
+          34,
+          5,
+          9
+        ]
+      ],
+      "expected": "9534330"
+    },
+    {
+      "name": "全零压缩为一个零",
+      "args": [
+        [
+          0,
+          0
+        ]
+      ],
+      "expected": "0"
+    }
+  ]
+}

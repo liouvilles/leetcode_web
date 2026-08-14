@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "hammingDistance",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一与四",
+      "args": [
+        1,
+        4
+      ],
+      "expected": 2
+    },
+    {
+      "name": "三与一",
+      "args": [
+        3,
+        1
+      ],
+      "expected": 1
+    },
+    {
+      "name": "相同数字",
+      "args": [
+        7,
+        7
+      ],
+      "expected": 0
+    }
+  ]
+}

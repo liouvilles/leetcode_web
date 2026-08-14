@@ -1,0 +1,1 @@
+class Solution { public:int countTexts(string pressedKeys){const int mod=1000000007;int n=pressedKeys.size();vector<long long> dp(n+1);dp[0]=1;for(int i=1;i<=n;++i){char key=pressedKeys[i-1];int limit=key=='7'||key=='9'?4:3;for(int length=1;length<=limit&&i-length>=0&&pressedKeys[i-length]==key;++length)dp[i]=(dp[i]+dp[i-length])%mod;}return dp[n];} };

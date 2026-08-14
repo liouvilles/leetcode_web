@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findBestValue",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "并列时选择三",
+      "args": [
+        [
+          4,
+          9,
+          3
+        ],
+        10
+      ],
+      "expected": 3
+    },
+    {
+      "name": "无需截断选择五",
+      "args": [
+        [
+          2,
+          3,
+          5
+        ],
+        10
+      ],
+      "expected": 5
+    },
+    {
+      "name": "目标远大于总和取最大值",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        100
+      ],
+      "expected": 3
+    }
+  ]
+}

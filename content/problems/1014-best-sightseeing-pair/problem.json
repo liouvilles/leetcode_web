@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1014,
+  "slug": "best-sightseeing-pair",
+  "title": "最佳观光组合",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-015",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "贪心"
+  ],
+  "summary": "选择 i<j 最大化 values[i]+values[j]+i-j。",
+  "insight": "式子拆成 (values[i]+i)+(values[j]-j)；扫描 j 时维护此前最大的 values[i]+i，即可常数时间求当前最佳搭档。",
+  "pitfalls": [
+    "必须选择两个不同且有序下标",
+    "先用旧 bestLeft 计算答案再加入当前位置",
+    "答案初值可为负无穷"
+  ],
+  "solutions": [
+    {
+      "id": "running-best-left-score",
+      "title": "维护最佳左端分数",
+      "kind": "最优",
+      "idea": "按拆分后的两个独立项在线求最大值。",
+      "steps": [
+        "bestLeft=values[0]，answer 为极小值",
+        "j 从一开始，answer=max(answer,bestLeft+values[j]-j)",
+        "bestLeft=max(bestLeft,values[j]+j)，返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/running-best-left-score/Solution.java",
+        "kotlin": "solutions/running-best-left-score/Solution.kt",
+        "cpp": "solutions/running-best-left-score/solution.cpp"
+      }
+    }
+  ]
+}

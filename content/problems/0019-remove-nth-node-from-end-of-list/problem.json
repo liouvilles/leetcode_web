@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 19,
+  "slug": "remove-nth-node-from-end-of-list",
+  "title": "删除链表的倒数第 N 个结点",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-001",
+  "studyTags": [
+    "快慢指针",
+    "固定间距",
+    "虚拟头结点"
+  ],
+  "summary": "删除单链表中从末尾数第 n 个节点，并返回删除后的链表头节点。",
+  "insight": "让快指针先领先 n 步，再与慢指针同步移动，就能让慢指针停在待删除节点的前一个位置。",
+  "pitfalls": [
+    "删除头节点时需要统一处理",
+    "快慢指针的初始间距要从虚拟头结点计算",
+    "n 在有效范围内但链表可能只有一个节点"
+  ],
+  "solutions": [
+    {
+      "id": "fast-slow-pointers",
+      "title": "固定间距双指针",
+      "kind": "最优",
+      "idea": "虚拟头结点消除删除头节点的特判，两个指针保持 n 个节点的间距。",
+      "steps": [
+        "创建 dummy 并连接原链表",
+        "fast 先向前走 n 步",
+        "同步移动到 fast 位于尾节点，再删除 slow 的下一个节点"
+      ],
+      "complexity": {
+        "time": "O(L)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/fast-slow-pointers/Solution.java",
+        "kotlin": "solutions/fast-slow-pointers/Solution.kt",
+        "cpp": "solutions/fast-slow-pointers/solution.cpp"
+      }
+    }
+  ]
+}

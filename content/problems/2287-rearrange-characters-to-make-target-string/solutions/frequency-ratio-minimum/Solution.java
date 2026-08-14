@@ -1,0 +1,1 @@
+class Solution { public int rearrangeCharacters(String s,String target){int[] source=new int[26],need=new int[26];for(char ch:s.toCharArray())source[ch-'a']++;for(char ch:target.toCharArray())need[ch-'a']++;int answer=Integer.MAX_VALUE;for(int i=0;i<26;i++)if(need[i]>0)answer=Math.min(answer,source[i]/need[i]);return answer;} }

@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "id": 70,
+  "slug": "climbing-stairs",
+  "title": "爬楼梯",
+  "status": "published",
+  "qualityGate": "compile",
+  "batch": "legacy-001",
+  "studyTags": [
+    "斐波那契型 DP",
+    "状态压缩",
+    "矩阵快速幂"
+  ],
+  "summary": "每次可以走一级或两级台阶，计算恰好到达第 n 级的不同走法数量。",
+  "insight": "到达第 i 级的最后一步只有两种来源，因此 ways[i] = ways[i-1] + ways[i-2]。",
+  "pitfalls": [
+    "n 从 1 开始",
+    "ways[1] 与 ways[2] 的初值要匹配定义",
+    "矩阵法内部乘法宜使用更宽整数类型"
+  ],
+  "solutions": [
+    {
+      "id": "dp-array",
+      "title": "动态规划数组",
+      "kind": "基础",
+      "idea": "显式记录从第 0 级到第 n 级的走法数，直接套用递推式。",
+      "steps": [
+        "定义 dp[0] = dp[1] = 1",
+        "从 2 开始递推",
+        "返回 dp[n]"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/dp-array/Solution.java",
+        "kotlin": "solutions/dp-array/Solution.kt",
+        "cpp": "solutions/dp-array/solution.cpp"
+      }
+    },
+    {
+      "id": "rolling-dp",
+      "title": "滚动变量",
+      "kind": "最优",
+      "idea": "递推只依赖前两个状态，用两个变量滚动保存即可。",
+      "steps": [
+        "previous 与 current 表示相邻两个状态",
+        "计算 next 后整体前移",
+        "循环结束返回 current"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/rolling-dp/Solution.java",
+        "kotlin": "solutions/rolling-dp/Solution.kt",
+        "cpp": "solutions/rolling-dp/solution.cpp"
+      }
+    },
+    {
+      "id": "matrix-power",
+      "title": "矩阵快速幂",
+      "kind": "进阶",
+      "idea": "把斐波那契递推写成 2×2 矩阵乘法，再用二进制快速幂计算第 n 项。",
+      "steps": [
+        "以单位矩阵初始化 result",
+        "指数当前位为 1 时乘入 base",
+        "base 自乘且指数右移"
+      ],
+      "complexity": {
+        "time": "O(log n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/matrix-power/Solution.java",
+        "kotlin": "solutions/matrix-power/Solution.kt",
+        "cpp": "solutions/matrix-power/solution.cpp"
+      }
+    }
+  ]
+}

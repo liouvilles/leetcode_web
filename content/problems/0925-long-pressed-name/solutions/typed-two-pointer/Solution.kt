@@ -1,0 +1,1 @@
+class Solution { fun isLongPressedName(name:String,typed:String):Boolean{var i=0;for(j in typed.indices){if(i<name.length&&typed[j]==name[i])i++ else if(j==0||typed[j]!=typed[j-1])return false};return i==name.length} }

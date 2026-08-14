@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "rearrangeSticks",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三根中恰有两根可见",
+      "args": [
+        3,
+        2
+      ],
+      "expected": 3
+    },
+    {
+      "name": "全部可见只有升序一种",
+      "args": [
+        5,
+        5
+      ],
+      "expected": 1
+    },
+    {
+      "name": "四根中恰有两根可见十一种",
+      "args": [
+        4,
+        2
+      ],
+      "expected": 11
+    }
+  ]
+}

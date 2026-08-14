@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "visiblePoints",
+  "parameterTypes": [
+    "intListMatrix",
+    "int",
+    "intList"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "九十度内可见三个点",
+      "args": [
+        [
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            3
+          ]
+        ],
+        90,
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "重合点始终可见",
+      "args": [
+        [
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        90,
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "一度视角只覆盖同方向两点",
+      "args": [
+        [
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        1,
+        [
+          0,
+          0
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

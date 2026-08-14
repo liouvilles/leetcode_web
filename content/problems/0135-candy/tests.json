@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "candy",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "中间评分低",
+      "args": [
+        [
+          1,
+          0,
+          2
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "相同评分无额外要求",
+      "args": [
+        [
+          1,
+          2,
+          2
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "长上升后下降",
+      "args": [
+        [
+          1,
+          3,
+          4,
+          5,
+          2
+        ]
+      ],
+      "expected": 11
+    }
+  ]
+}

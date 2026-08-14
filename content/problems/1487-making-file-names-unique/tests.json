@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getFolderNames",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "stringArray",
+  "cases": [
+    {
+      "name": "多次 gta 冲突",
+      "args": [
+        [
+          "pes",
+          "fifa",
+          "gta",
+          "pes(2019)",
+          "gta",
+          "gta(1)",
+          "gta"
+        ]
+      ],
+      "expected": [
+        "pes",
+        "fifa",
+        "gta",
+        "pes(2019)",
+        "gta(1)",
+        "gta(1)(1)",
+        "gta(2)"
+      ]
+    },
+    {
+      "name": "已存在后缀时跳到二",
+      "args": [
+        [
+          "gta",
+          "gta(1)",
+          "gta",
+          "avalon"
+        ]
+      ],
+      "expected": [
+        "gta",
+        "gta(1)",
+        "gta(2)",
+        "avalon"
+      ]
+    },
+    {
+      "name": "连续占用后缀一到三",
+      "args": [
+        [
+          "onepiece",
+          "onepiece(1)",
+          "onepiece(2)",
+          "onepiece(3)",
+          "onepiece"
+        ]
+      ],
+      "expected": [
+        "onepiece",
+        "onepiece(1)",
+        "onepiece(2)",
+        "onepiece(3)",
+        "onepiece(4)"
+      ]
+    }
+  ]
+}

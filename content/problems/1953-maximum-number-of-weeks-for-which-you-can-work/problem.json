@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1953,
+  "slug": "maximum-number-of-weeks-for-which-you-can-work",
+  "title": "你可以工作的最大周数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-028",
+  "studyTags": [
+    "数组",
+    "贪心"
+  ],
+  "summary": "多个项目各有若干周工作，不能连续两周做同一项目，求最多可工作周数。",
+  "insight": "设最大项目周数为 maximum，其余总和为 rest。若 maximum<=rest+1，所有周可交错完成；否则最多用其余每周夹住最大项目，得到 2*rest+1 周。",
+  "pitfalls": [
+    "不要求完成所有项目",
+    "答案使用 long",
+    "最大项目只需与所有其余总量比较"
+  ],
+  "solutions": [
+    {
+      "id": "dominant-project-balance",
+      "title": "最大项目与其余平衡",
+      "kind": "最优",
+      "idea": "由能否交错最大类别决定答案。",
+      "steps": [
+        "sum 与 maximum",
+        "rest=sum-maximum",
+        "返回 maximum<=rest+1 ? sum : 2*rest+1"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/dominant-project-balance/Solution.java",
+        "kotlin": "solutions/dominant-project-balance/Solution.kt",
+        "cpp": "solutions/dominant-project-balance/solution.cpp"
+      }
+    }
+  ]
+}

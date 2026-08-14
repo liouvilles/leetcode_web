@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "areOccurrencesEqual",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "abacbc 每字符两次",
+      "args": [
+        "abacbc"
+      ],
+      "expected": true
+    },
+    {
+      "name": "aaabb 频次不同",
+      "args": [
+        "aaabb"
+      ],
+      "expected": false
+    },
+    {
+      "name": "单种字符始终相等",
+      "args": [
+        "zzzz"
+      ],
+      "expected": true
+    }
+  ]
+}

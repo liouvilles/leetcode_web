@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": 1758,
+  "slug": "minimum-changes-to-make-alternating-binary-string",
+  "title": "生成交替二进制字符串的最少操作数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-025",
+  "studyTags": [
+    "字符串"
+  ],
+  "summary": "每次可翻转任一位，求把二进制字符串变成相邻字符均不同的交替串所需最少操作数。",
+  "insight": "交替串只有 0101... 和 1010... 两种。统计原串与第一种的不同位数，另一种的不同数恰为 n 减前者，取较小值。",
+  "pitfalls": [
+    "每个位置只需独立比较",
+    "两种目标模式互补",
+    "长度一答案为零"
+  ],
+  "solutions": [
+    {
+      "id": "two-pattern-mismatch-count",
+      "title": "两种模式失配计数",
+      "kind": "最优",
+      "idea": "只计算一种目标即可推导另一种代价。",
+      "steps": [
+        "mismatch=0",
+        "i 位置期望字符为 i%2 对应的 0/1，失配则计数",
+        "返回 min(mismatch,n-mismatch)"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/two-pattern-mismatch-count/Solution.java",
+        "kotlin": "solutions/two-pattern-mismatch-count/Solution.kt",
+        "cpp": "solutions/two-pattern-mismatch-count/solution.cpp"
+      }
+    }
+  ]
+}

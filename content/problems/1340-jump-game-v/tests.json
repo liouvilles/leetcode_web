@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxJumps",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典数组最长四",
+      "args": [
+        [
+          6,
+          4,
+          14,
+          6,
+          8,
+          13,
+          9,
+          7,
+          10,
+          6,
+          12
+        ],
+        2
+      ],
+      "expected": 4
+    },
+    {
+      "name": "所有值相同只能一步",
+      "args": [
+        [
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        3
+      ],
+      "expected": 1
+    },
+    {
+      "name": "严格递减逐步跳七次",
+      "args": [
+        [
+          7,
+          6,
+          5,
+          4,
+          3,
+          2,
+          1
+        ],
+        1
+      ],
+      "expected": 7
+    }
+  ]
+}

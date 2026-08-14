@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getOrder",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "四任务按短作业顺序执行",
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        0,
+        2,
+        3,
+        1
+      ]
+    },
+    {
+      "name": "同入队时按时长和下标",
+      "args": [
+        [
+          [
+            7,
+            10
+          ],
+          [
+            7,
+            12
+          ],
+          [
+            7,
+            5
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            7,
+            2
+          ]
+        ]
+      ],
+      "expected": [
+        4,
+        3,
+        2,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "单任务直接执行",
+      "args": [
+        [
+          [
+            5,
+            3
+          ]
+        ]
+      ],
+      "expected": [
+        0
+      ]
+    }
+  ]
+}

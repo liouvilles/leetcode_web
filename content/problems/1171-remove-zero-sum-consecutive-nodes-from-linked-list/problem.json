@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1171,
+  "slug": "remove-zero-sum-consecutive-nodes-from-linked-list",
+  "title": "从链表中删去总和值为零的连续节点",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-016",
+  "studyTags": [
+    "链表",
+    "哈希表",
+    "前缀和"
+  ],
+  "summary": "反复删除链表中和为零的连续节点，返回不存在零和连续段的最终链表。",
+  "insight": "若两个位置的前缀和相同，它们之间节点和为零。第一遍把每个前缀和映射到最后出现节点；第二遍直接把当前节点 next 接到同前缀最后节点之后，一次跳过所有可删除区间。",
+  "pitfalls": [
+    "虚拟头节点的前缀和为零",
+    "映射必须保留最后一次出现位置",
+    "第二遍沿修改后的 next 前进即可"
+  ],
+  "solutions": [
+    {
+      "id": "last-prefix-node-relink",
+      "title": "末次前缀节点重连",
+      "kind": "最优",
+      "idea": "用相同前缀和的最远位置批量删除零和区间。",
+      "steps": [
+        "创建值为零的 dummy 指向 head；第一遍从 dummy 开始累计 prefix，并令 last[prefix]=当前节点",
+        "第二遍重新累计 prefix，把 node.next 改为 last[prefix].next",
+        "沿重连后的链表继续，最后返回 dummy.next"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/last-prefix-node-relink/Solution.java",
+        "kotlin": "solutions/last-prefix-node-relink/Solution.kt",
+        "cpp": "solutions/last-prefix-node-relink/solution.cpp"
+      }
+    }
+  ]
+}

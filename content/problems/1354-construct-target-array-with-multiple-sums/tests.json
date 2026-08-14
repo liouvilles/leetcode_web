@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isPossible",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "九三五可以构造",
+      "args": [
+        [
+          9,
+          3,
+          5
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "总和关系不合法",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          2
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "两个数可按欧几里得式恢复",
+      "args": [
+        [
+          8,
+          5
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "areNumbersAscending",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "一二三四严格递增",
+      "args": [
+        "1 box has 2 blue 3 red 4 green and 5 yellow marbles"
+      ],
+      "expected": true
+    },
+    {
+      "name": "五后出现二不递增",
+      "args": [
+        "hello 5 world 5 x"
+      ],
+      "expected": false
+    },
+    {
+      "name": "没有数字视为递增",
+      "args": [
+        "hello world"
+      ],
+      "expected": true
+    }
+  ]
+}

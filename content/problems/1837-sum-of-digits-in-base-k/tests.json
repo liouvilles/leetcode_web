@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sumBase",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三十四六进制五四数位和九",
+      "args": [
+        34,
+        6
+      ],
+      "expected": 9
+    },
+    {
+      "name": "十的十进制数位和一",
+      "args": [
+        10,
+        10
+      ],
+      "expected": 1
+    },
+    {
+      "name": "七的二进制数位和三",
+      "args": [
+        7,
+        2
+      ],
+      "expected": 3
+    }
+  ]
+}

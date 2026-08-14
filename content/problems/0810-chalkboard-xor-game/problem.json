@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 810,
+  "slug": "chalkboard-xor-game",
+  "title": "黑板异或游戏",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-011",
+  "studyTags": [
+    "数组",
+    "数学",
+    "博弈",
+    "位运算"
+  ],
+  "summary": "两人轮流删除一个数，若轮到自己前所有数异或为零则获胜，删除后异或为零则失败，判断先手能否必胜。",
+  "insight": "博弈结论是总异或为零时立即获胜；否则只有数组长度为偶数时先手必胜。",
+  "pitfalls": [
+    "判断的是回合开始前的异或",
+    "偶数长度结论不依赖具体数值",
+    "单元素非零时先手必败"
+  ],
+  "solutions": [
+    {
+      "id": "xor-zero-or-even-length",
+      "title": "总异或与长度奇偶结论",
+      "kind": "最优",
+      "idea": "根据博弈不变量常数时间判定。",
+      "steps": [
+        "计算所有 nums 的 xor",
+        "若 xor==0 返回真",
+        "否则返回 nums.length 为偶数"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/xor-zero-or-even-length/Solution.java",
+        "kotlin": "solutions/xor-zero-or-even-length/Solution.kt",
+        "cpp": "solutions/xor-zero-or-even-length/solution.cpp"
+      }
+    }
+  ]
+}

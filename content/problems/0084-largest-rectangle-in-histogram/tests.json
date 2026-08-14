@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "largestRectangleArea",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "中间两柱形成最大矩形",
+      "args": [
+        [
+          2,
+          1,
+          5,
+          6,
+          2,
+          3
+        ]
+      ],
+      "expected": 10
+    },
+    {
+      "name": "两柱高度递增",
+      "args": [
+        [
+          2,
+          4
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "全等高柱子",
+      "args": [
+        [
+          2,
+          2,
+          2
+        ]
+      ],
+      "expected": 6
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sumSubarrayMins",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典和十七",
+      "args": [
+        [
+          3,
+          1,
+          2,
+          4
+        ]
+      ],
+      "expected": 17
+    },
+    {
+      "name": "五元素和四百四十四",
+      "args": [
+        [
+          11,
+          81,
+          94,
+          43,
+          3
+        ]
+      ],
+      "expected": 444
+    },
+    {
+      "name": "两个相等元素",
+      "args": [
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": 3
+    }
+  ]
+}

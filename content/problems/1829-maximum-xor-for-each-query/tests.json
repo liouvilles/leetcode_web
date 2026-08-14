@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getMaximumXor",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "四次查询的最大异或选择",
+      "args": [
+        [
+          0,
+          1,
+          1,
+          3
+        ],
+        2
+      ],
+      "expected": [
+        0,
+        3,
+        2,
+        3
+      ]
+    },
+    {
+      "name": "三次查询两位掩码",
+      "args": [
+        [
+          2,
+          3,
+          4,
+          7
+        ],
+        3
+      ],
+      "expected": [
+        5,
+        2,
+        6,
+        5
+      ]
+    },
+    {
+      "name": "单元素一位掩码",
+      "args": [
+        [
+          0
+        ],
+        1
+      ],
+      "expected": [
+        1
+      ]
+    }
+  ]
+}

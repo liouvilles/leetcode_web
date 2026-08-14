@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isCompleteTree",
+  "parameterTypes": [
+    "treeNode"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "完整最后层前缀",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "缺口后仍有节点",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          null,
+          7
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "单节点树",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

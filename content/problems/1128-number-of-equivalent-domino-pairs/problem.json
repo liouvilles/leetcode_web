@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1128,
+  "slug": "number-of-equivalent-domino-pairs",
+  "title": "等价多米诺骨牌对的数量",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-016",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "计数"
+  ],
+  "summary": "两张多米诺骨牌若数字顺序相同或互换后相同则等价，统计下标对 i<j 的等价数量。",
+  "insight": "把每张牌规范为 (min,max) 并编码；扫描时此前相同键频次就是当前新增配对数，然后频次加一。",
+  "pitfalls": [
+    "[a,b] 与 [b,a] 必须映射到同一键",
+    "先累加旧频次再增加当前频次",
+    "数字范围一到九可用十进制编码"
+  ],
+  "solutions": [
+    {
+      "id": "normalized-domino-frequency",
+      "title": "规范化骨牌频次",
+      "kind": "最优",
+      "idea": "在线统计每个无序数字对的已有数量。",
+      "steps": [
+        "frequency[100] 与 answer=0",
+        "对 domino，a=min，b=max，key=10*a+b",
+        "answer+=frequency[key]，frequency[key]++；返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/normalized-domino-frequency/Solution.java",
+        "kotlin": "solutions/normalized-domino-frequency/Solution.kt",
+        "cpp": "solutions/normalized-domino-frequency/solution.cpp"
+      }
+    }
+  ]
+}

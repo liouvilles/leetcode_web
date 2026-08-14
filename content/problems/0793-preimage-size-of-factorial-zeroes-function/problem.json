@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 793,
+  "slug": "preimage-size-of-factorial-zeroes-function",
+  "title": "阶乘函数后 K 个零",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-010",
+  "studyTags": [
+    "数学",
+    "二分查找"
+  ],
+  "summary": "函数 f(x) 表示 x! 末尾零的数量，求满足 f(x)=k 的非负整数 x 的个数。",
+  "insight": "f 单调不减；满足 f(x)=k 的区间长度等于 lowerBound(k+1)-lowerBound(k)，结果自然是零或五。",
+  "pitfalls": [
+    "x 和二分边界要用长整型",
+    "末尾零数为 x/5+x/25+...",
+    "lowerBound 查找第一个 f(x)>=target 的 x"
+  ],
+  "solutions": [
+    {
+      "id": "two-factorial-lower-bounds",
+      "title": "两次阶乘零下界二分",
+      "kind": "最优",
+      "idea": "用两个单调下界之差计算原像大小。",
+      "steps": [
+        "实现 zeroes(x) 累加 x/=5",
+        "实现 lowerBound(target)，在 [0,5*(target+1)) 二分第一个 zeroes(x)>=target",
+        "返回 lowerBound(k+1)-lowerBound(k)"
+      ],
+      "complexity": {
+        "time": "O(log² k)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/two-factorial-lower-bounds/Solution.java",
+        "kotlin": "solutions/two-factorial-lower-bounds/Solution.kt",
+        "cpp": "solutions/two-factorial-lower-bounds/solution.cpp"
+      }
+    }
+  ]
+}

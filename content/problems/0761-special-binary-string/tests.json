@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "makeLargestSpecial",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "交换得到更大序列",
+      "args": [
+        "11011000"
+      ],
+      "expected": "11100100"
+    },
+    {
+      "name": "最小特殊序列",
+      "args": [
+        "10"
+      ],
+      "expected": "10"
+    },
+    {
+      "name": "两个顶层块重排",
+      "args": [
+        "101100"
+      ],
+      "expected": "110010"
+    }
+  ]
+}

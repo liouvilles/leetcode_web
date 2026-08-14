@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1568,
+  "slug": "minimum-number-of-days-to-disconnect-island",
+  "title": "使陆地分离的最少天数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-022",
+  "studyTags": [
+    "数组",
+    "深度优先搜索",
+    "矩阵"
+  ],
+  "summary": "每天可把一个陆地格变成水，求使网格不再恰好只有一个岛的最少天数。",
+  "insight": "若当前岛数不是一答案零；逐个尝试删除一个陆地，若岛数变为非一答案一；否则根据网格连通性质最多两天即可断开。",
+  "pitfalls": [
+    "零个岛也视为已断开",
+    "测试删除后必须恢复格子",
+    "岛按四方向相邻"
+  ],
+  "solutions": [
+    {
+      "id": "try-each-land-cell",
+      "title": "枚举单格删除",
+      "kind": "最优",
+      "idea": "直接验证零天和一天是否可行，否则返回理论上界二。",
+      "steps": [
+        "countIslands 用 DFS 统计连通分量",
+        "初始 count!=1 返回 0",
+        "枚举每个 land 暂置零，若 count!=1 返回 1，否则恢复；全部失败返回 2"
+      ],
+      "complexity": {
+        "time": "O((mn)²)",
+        "space": "O(mn)"
+      },
+      "files": {
+        "java": "solutions/try-each-land-cell/Solution.java",
+        "kotlin": "solutions/try-each-land-cell/Solution.kt",
+        "cpp": "solutions/try-each-land-cell/solution.cpp"
+      }
+    }
+  ]
+}

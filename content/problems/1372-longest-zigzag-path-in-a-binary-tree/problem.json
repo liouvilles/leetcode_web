@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1372,
+  "slug": "longest-zigzag-path-in-a-binary-tree",
+  "title": "二叉树中的最长交错路径",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-019",
+  "studyTags": [
+    "树",
+    "深度优先搜索",
+    "动态规划"
+  ],
+  "summary": "求二叉树中相邻边方向左右交替的最长路径边数。",
+  "insight": "后序 DFS 对每个节点返回从它出发先向左、先向右的最长交错长度；向左后必须接左孩子的向右状态，反之亦然。",
+  "pitfalls": [
+    "答案按边数而不是节点数",
+    "路径可从任意节点开始",
+    "空孩子对应可延伸长度零"
+  ],
+  "solutions": [
+    {
+      "id": "two-direction-tree-dp",
+      "title": "双方向树形动态规划",
+      "kind": "最优",
+      "idea": "每个节点维护下一步选择左右方向的两个状态。",
+      "steps": [
+        "空节点返回 (-1,-1)，使父节点加一得到零",
+        "goLeft=left.goRight+1，goRight=right.goLeft+1",
+        "用两状态更新全局最大值并返回"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(h)"
+      },
+      "files": {
+        "java": "solutions/two-direction-tree-dp/Solution.java",
+        "kotlin": "solutions/two-direction-tree-dp/Solution.kt",
+        "cpp": "solutions/two-direction-tree-dp/solution.cpp"
+      }
+    }
+  ]
+}

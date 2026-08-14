@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "distinctNames",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "经典四创意得到六种名称",
+      "args": [
+        [
+          "coffee",
+          "donuts",
+          "time",
+          "toffee"
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "共同后缀无法交换",
+      "args": [
+        [
+          "lack",
+          "back"
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "三个共同后缀组与独立组",
+      "args": [
+        [
+          "aaa",
+          "baa",
+          "caa",
+          "ddd"
+        ]
+      ],
+      "expected": 6
+    }
+  ]
+}

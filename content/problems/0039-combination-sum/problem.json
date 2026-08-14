@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 39,
+  "slug": "combination-sum",
+  "title": "组合总和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-001",
+  "studyTags": [
+    "回溯",
+    "可重复选择",
+    "排序剪枝"
+  ],
+  "summary": "从互不相同的正整数候选值中选取若干个数，使总和等于目标值；每个候选值可以重复使用。",
+  "insight": "回溯时继续从当前下标选择即可允许重复，同时避免因选择顺序不同而产生重复组合。",
+  "pitfalls": [
+    "同一个候选值允许选多次",
+    "下一层从当前下标而不是下一个下标开始",
+    "排序后当前值超过剩余目标即可停止枚举"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-backtracking",
+      "title": "排序剪枝回溯",
+      "kind": "最优",
+      "idea": "维护剩余目标和起始下标，以非递减顺序构造组合。",
+      "steps": [
+        "候选数组排序",
+        "从 start 开始尝试不超过 remaining 的值",
+        "选择后仍传入当前下标，返回时撤销选择"
+      ],
+      "complexity": {
+        "time": "O(S)",
+        "space": "O(target / min(candidates))"
+      },
+      "files": {
+        "java": "solutions/sorted-backtracking/Solution.java",
+        "kotlin": "solutions/sorted-backtracking/Solution.kt",
+        "cpp": "solutions/sorted-backtracking/solution.cpp"
+      }
+    }
+  ]
+}

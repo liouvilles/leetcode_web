@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2302,
+  "slug": "count-subarrays-with-score-less-than-k",
+  "title": "统计得分小于 K 的子数组数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "数组",
+    "滑动窗口",
+    "前缀和"
+  ],
+  "summary": "正整数数组的子数组得分定义为元素和乘长度，统计得分严格小于 k 的非空子数组数量。",
+  "insight": "固定右端点时，随着左端点右移，窗口和与长度都不增，因此得分单调下降。维护最小合法左端点后，所有以 right 结尾且起点不早于 left 的窗口都合法。",
+  "pitfalls": [
+    "条件是严格小于 k",
+    "窗口和、乘积与答案都需 long",
+    "数组元素均为正数保证滑窗单调性"
+  ],
+  "solutions": [
+    {
+      "id": "positive-window-score",
+      "title": "正数滑窗计分",
+      "kind": "最优",
+      "idea": "收缩到当前窗口合法并累计合法后缀数量。",
+      "steps": [
+        "left=0、sum=0、answer=0",
+        "右移 right 并加入 nums[right]",
+        "while sum*(right-left+1)>=k，减 nums[left++]",
+        "answer+=right-left+1"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/positive-window-score/Solution.java",
+        "kotlin": "solutions/positive-window-score/Solution.kt",
+        "cpp": "solutions/positive-window-score/solution.cpp"
+      }
+    }
+  ]
+}

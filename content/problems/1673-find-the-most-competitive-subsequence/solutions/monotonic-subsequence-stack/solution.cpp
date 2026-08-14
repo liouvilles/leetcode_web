@@ -1,0 +1,1 @@
+class Solution { public: vector<int> mostCompetitive(vector<int>& nums,int k){vector<int> stack;for(int i=0;i<(int)nums.size();++i){while(!stack.empty()&&stack.back()>nums[i]&&(int)stack.size()-1+nums.size()-i>=k)stack.pop_back();if((int)stack.size()<k)stack.push_back(nums[i]);}return stack;} };

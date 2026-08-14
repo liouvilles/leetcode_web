@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1712,
+  "slug": "ways-to-split-array-into-three-subarrays",
+  "title": "将数组分成三个子数组的方案数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-024",
+  "studyTags": [
+    "数组",
+    "双指针",
+    "二分查找",
+    "前缀和"
+  ],
+  "summary": "把非负数组分成三个非空连续部分，要求 leftSum<=midSum<=rightSum，统计切分方案数并取模。",
+  "insight": "固定第一刀后的前缀和 L，第二刀前缀 P 必须满足 P>=2L 且 P<=(total+L)/2。前缀和单调，可用两次二分找到合法 P 下标区间。",
+  "pitfalls": [
+    "三个部分都必须非空，所以第二刀最晚在 n-1 前",
+    "数组含零，前缀和可能重复",
+    "区间计数与总答案取模"
+  ],
+  "solutions": [
+    {
+      "id": "prefix-binary-search",
+      "title": "前缀和区间二分",
+      "kind": "最优",
+      "idea": "固定左段后查找中段结束位置的合法范围。",
+      "steps": [
+        "构造 prefix[0..n]",
+        "firstEnd 从一到 n-2",
+        "在 [firstEnd+1,n) 找首个 prefix>=2*left；找首个 prefix>(total+left)/2；差值累加"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/prefix-binary-search/Solution.java",
+        "kotlin": "solutions/prefix-binary-search/Solution.kt",
+        "cpp": "solutions/prefix-binary-search/solution.cpp"
+      }
+    }
+  ]
+}

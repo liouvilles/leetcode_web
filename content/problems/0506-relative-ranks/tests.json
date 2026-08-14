@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findRelativeRanks",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "stringArray",
+  "cases": [
+    {
+      "name": "五名运动员",
+      "args": [
+        [
+          5,
+          4,
+          3,
+          2,
+          1
+        ]
+      ],
+      "expected": [
+        "Gold Medal",
+        "Silver Medal",
+        "Bronze Medal",
+        "4",
+        "5"
+      ]
+    },
+    {
+      "name": "原顺序非排名顺序",
+      "args": [
+        [
+          10,
+          3,
+          8,
+          9,
+          4
+        ]
+      ],
+      "expected": [
+        "Gold Medal",
+        "5",
+        "Bronze Medal",
+        "Silver Medal",
+        "4"
+      ]
+    },
+    {
+      "name": "单人比赛",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": [
+        "Gold Medal"
+      ]
+    }
+  ]
+}

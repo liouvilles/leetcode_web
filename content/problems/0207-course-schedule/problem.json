@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 207,
+  "slug": "course-schedule",
+  "title": "课程表",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-001",
+  "studyTags": [
+    "拓扑排序",
+    "入度",
+    "环检测"
+  ],
+  "summary": "课程之间存在先修关系，判断能否完成全部课程；若依赖关系形成有向环则无法完成。",
+  "insight": "不断移除入度为零的课程；若最终所有课程都被移除，依赖图就是无环图。",
+  "pitfalls": [
+    "关系 [a,b] 表示 b 指向 a",
+    "同一课程可能解锁多个后续课程",
+    "最终判断应比较已处理课程数而不是队列是否曾经非空"
+  ],
+  "solutions": [
+    {
+      "id": "kahn-topological-sort",
+      "title": "Kahn 拓扑排序",
+      "kind": "最优",
+      "idea": "建立邻接表和入度数组，从所有零入度课程开始逐层删除依赖边。",
+      "steps": [
+        "统计每门课程入度并建立后继列表",
+        "把所有零入度课程加入队列",
+        "弹出课程、减少后继入度并统计已完成数量"
+      ],
+      "complexity": {
+        "time": "O(V + E)",
+        "space": "O(V + E)"
+      },
+      "files": {
+        "java": "solutions/kahn-topological-sort/Solution.java",
+        "kotlin": "solutions/kahn-topological-sort/Solution.kt",
+        "cpp": "solutions/kahn-topological-sort/solution.cpp"
+      }
+    }
+  ]
+}

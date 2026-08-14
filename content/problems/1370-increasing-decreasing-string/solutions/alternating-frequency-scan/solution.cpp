@@ -1,0 +1,1 @@
+class Solution { public: string sortString(string text){int count[26]={};for(char value:text)++count[value-'a'];string answer;while(answer.size()<text.size()){for(int i=0;i<26;++i)if(count[i]){answer+=char('a'+i);--count[i];}for(int i=25;i>=0;--i)if(count[i]){answer+=char('a'+i);--count[i];}}return answer;} };

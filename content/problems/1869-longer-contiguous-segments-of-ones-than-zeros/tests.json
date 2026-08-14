@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "checkZeroOnes",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "最长一段二大于零段一",
+      "args": [
+        "1101"
+      ],
+      "expected": true
+    },
+    {
+      "name": "两类最长段相等不满足",
+      "args": [
+        "111000"
+      ],
+      "expected": false
+    },
+    {
+      "name": "最长零段更长",
+      "args": [
+        "110100010"
+      ],
+      "expected": false
+    }
+  ]
+}

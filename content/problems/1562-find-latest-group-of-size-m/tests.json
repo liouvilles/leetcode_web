@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findLatestStep",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "长度一分组最后出现在第四步",
+      "args": [
+        [
+          3,
+          5,
+          1,
+          2,
+          4
+        ],
+        1
+      ],
+      "expected": 4
+    },
+    {
+      "name": "从未出现长度二分组",
+      "args": [
+        [
+          3,
+          1,
+          5,
+          4,
+          2
+        ],
+        2
+      ],
+      "expected": -1
+    },
+    {
+      "name": "单位置第一步形成分组",
+      "args": [
+        [
+          1
+        ],
+        1
+      ],
+      "expected": 1
+    }
+  ]
+}

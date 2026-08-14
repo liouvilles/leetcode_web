@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numSub",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两段一共九个子串",
+      "args": [
+        "0110111"
+      ],
+      "expected": 9
+    },
+    {
+      "name": "两个孤立一",
+      "args": [
+        "101"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "六个连续一有二十一个",
+      "args": [
+        "111111"
+      ],
+      "expected": 21
+    }
+  ]
+}

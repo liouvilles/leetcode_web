@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2384,
+  "slug": "largest-palindromic-number",
+  "title": "最大的回文数字",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-035",
+  "studyTags": [
+    "哈希表",
+    "字符串",
+    "贪心",
+    "计数"
+  ],
+  "summary": "重排数字串中的部分字符组成无前导零的最大回文整数，至少使用一个数字。",
+  "insight": "从九到零尽量把成对数字放在左半；左半为空时跳过零对以免前导零。剩余数字中选最大的一个作中心，再镜像左半。",
+  "pitfalls": [
+    "可以不使用全部数字",
+    "回文首位不能为零，单个零除外",
+    "中心只需一个最大剩余数字"
+  ],
+  "solutions": [
+    {
+      "id": "descending-digit-pairs-and-center",
+      "title": "降序数字对与中心",
+      "kind": "最优",
+      "idea": "贪心构造字典序最大的左半与中心。",
+      "steps": [
+        "统计 count[10]",
+        "digit 从9到0取 count/2 对；若 digit0 且 left 空则跳过",
+        "扣除已用对数",
+        "从9到0选仍有剩余的最大 digit 作 center",
+        "返回 left+center+reverse(left)"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/descending-digit-pairs-and-center/Solution.java",
+        "kotlin": "solutions/descending-digit-pairs-and-center/Solution.kt",
+        "cpp": "solutions/descending-digit-pairs-and-center/solution.cpp"
+      }
+    }
+  ]
+}

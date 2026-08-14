@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumSum",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "十八与三十六得到五十四",
+      "args": [
+        [
+          18,
+          43,
+          36,
+          13,
+          7
+        ]
+      ],
+      "expected": 54
+    },
+    {
+      "name": "没有相同数位和数对",
+      "args": [
+        [
+          10,
+          12,
+          19,
+          14
+        ]
+      ],
+      "expected": -1
+    },
+    {
+      "name": "五十一与四十二得到九十三",
+      "args": [
+        [
+          51,
+          71,
+          17,
+          42
+        ]
+      ],
+      "expected": 93
+    }
+  ]
+}

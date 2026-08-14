@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countNodes",
+  "parameterTypes": [
+    "treeNode"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "六节点完全树",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "空树",
+      "args": [
+        []
+      ],
+      "expected": 0
+    },
+    {
+      "name": "满二叉树",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "expected": 7
+    }
+  ]
+}

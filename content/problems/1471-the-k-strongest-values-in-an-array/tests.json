@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getStrongest",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "中位数三最强五与一",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        2
+      ],
+      "expected": [
+        5,
+        1
+      ]
+    },
+    {
+      "name": "重复五是最强值",
+      "args": [
+        [
+          1,
+          1,
+          3,
+          5,
+          5
+        ],
+        2
+      ],
+      "expected": [
+        5,
+        5
+      ]
+    },
+    {
+      "name": "负七不如二十二与十七",
+      "args": [
+        [
+          -7,
+          22,
+          17,
+          3
+        ],
+        2
+      ],
+      "expected": [
+        22,
+        17
+      ]
+    }
+  ]
+}

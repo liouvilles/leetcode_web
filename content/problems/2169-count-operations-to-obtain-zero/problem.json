@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2169,
+  "slug": "count-operations-to-obtain-zero",
+  "title": "得到零的操作数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-031",
+  "studyTags": [
+    "数学",
+    "模拟"
+  ],
+  "summary": "两个非负整数中每次用较大者减去较小者，统计直到至少一个变为零的操作次数。",
+  "insight": "按定义模拟即可；每次和严格减小，因此过程必然结束。",
+  "pitfalls": [
+    "两数相等时一次操作就得到零",
+    "初始已有零时答案为零",
+    "比较后修改对应较大值"
+  ],
+  "solutions": [
+    {
+      "id": "direct-subtraction-simulation",
+      "title": "直接减法模拟",
+      "kind": "最优",
+      "idea": "逐步执行题目指定操作并计数。",
+      "steps": [
+        "operations=0",
+        "while num1>0 且 num2>0",
+        "较大数减较小数，operations++；返回计数"
+      ],
+      "complexity": {
+        "time": "O(num1+num2) 上界",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/direct-subtraction-simulation/Solution.java",
+        "kotlin": "solutions/direct-subtraction-simulation/Solution.kt",
+        "cpp": "solutions/direct-subtraction-simulation/solution.cpp"
+      }
+    }
+  ]
+}

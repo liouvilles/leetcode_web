@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "scheduleCourse",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典选择三门",
+      "args": [
+        [
+          [
+            100,
+            200
+          ],
+          [
+            200,
+            1300
+          ],
+          [
+            1000,
+            1250
+          ],
+          [
+            2000,
+            3200
+          ]
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "单门可完成",
+      "args": [
+        [
+          [
+            1,
+            2
+          ]
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "所有课程均超期",
+      "args": [
+        [
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            3
+          ]
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

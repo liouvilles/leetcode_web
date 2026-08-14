@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2433,
+  "slug": "find-the-original-array-of-prefix-xor",
+  "title": "找出前缀异或的原始数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-036",
+  "studyTags": [
+    "数组",
+    "位运算"
+  ],
+  "summary": "给定 pref[i] 为原数组前 i+1 项异或，恢复原数组。",
+  "insight": "首项不变；相邻两个前缀异或会抵消共同部分，所以 arr[i]=pref[i-1] xor pref[i]。",
+  "pitfalls": [
+    "首元素等于 pref[0]",
+    "异或自身抵消",
+    "可直接构造新数组"
+  ],
+  "solutions": [
+    {
+      "id": "adjacent-prefix-xor",
+      "title": "相邻前缀异或",
+      "kind": "最优",
+      "idea": "利用前缀差恢复单项。",
+      "steps": [
+        "answer[0]=pref[0]",
+        "i 从1开始 answer[i]=pref[i-1]^pref[i]",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/adjacent-prefix-xor/Solution.java",
+        "kotlin": "solutions/adjacent-prefix-xor/Solution.kt",
+        "cpp": "solutions/adjacent-prefix-xor/solution.cpp"
+      }
+    }
+  ]
+}

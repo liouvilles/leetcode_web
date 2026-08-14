@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2203,
+  "slug": "minimum-weighted-subgraph-with-the-required-paths",
+  "title": "得到要求路径的最小带权子图",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-032",
+  "studyTags": [
+    "图论",
+    "堆（优先队列）",
+    "最短路"
+  ],
+  "summary": "有向带权图中选最小权边集，使 src1 和 src2 都能到达 dest，返回最小权重和或负一。",
+  "insight": "两条路径可在某个汇合点 meeting 后共享到 dest 的后缀。分别求 src1、src2 到各点的最短路，并在反图上从 dest 求各点到 dest 的最短路；枚举汇合点求三段距离和。",
+  "pitfalls": [
+    "图是有向图",
+    "共享边只计一次由汇合模型处理",
+    "距离使用 long 且不可达点跳过"
+  ],
+  "solutions": [
+    {
+      "id": "three-dijkstra-meeting-node",
+      "title": "三次 Dijkstra 枚举汇合点",
+      "kind": "最优",
+      "idea": "把最优子图分解成两条前缀与一条共享后缀。",
+      "steps": [
+        "建正图与反图",
+        "Dijkstra(src1,正图)、Dijkstra(src2,正图)、Dijkstra(dest,反图)",
+        "枚举 node，三距离均有限时最小化 d1[node]+d2[node]+toDest[node]"
+      ],
+      "complexity": {
+        "time": "O((V+E) log V)",
+        "space": "O(V+E)"
+      },
+      "files": {
+        "java": "solutions/three-dijkstra-meeting-node/Solution.java",
+        "kotlin": "solutions/three-dijkstra-meeting-node/Solution.kt",
+        "cpp": "solutions/three-dijkstra-meeting-node/solution.cpp"
+      }
+    }
+  ]
+}

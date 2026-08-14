@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sortArrayByParityII",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "四个元素交替",
+      "args": [
+        [
+          4,
+          2,
+          5,
+          7
+        ]
+      ],
+      "expected": [
+        4,
+        5,
+        2,
+        7
+      ]
+    },
+    {
+      "name": "已经交替",
+      "args": [
+        [
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        2,
+        3
+      ]
+    },
+    {
+      "name": "先奇后偶",
+      "args": [
+        [
+          3,
+          4
+        ]
+      ],
+      "expected": [
+        4,
+        3
+      ]
+    }
+  ]
+}

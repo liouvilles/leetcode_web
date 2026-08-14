@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "id": 20,
+  "slug": "valid-parentheses",
+  "title": "有效的括号",
+  "status": "published",
+  "qualityGate": "compile",
+  "batch": "legacy-001",
+  "studyTags": [
+    "配对消除",
+    "后进先出",
+    "边界检查"
+  ],
+  "summary": "判断只含三类括号的字符串是否满足类型匹配且闭合顺序正确。",
+  "insight": "右括号只能和最近一个尚未匹配的左括号配对，这正是栈的后进先出语义。",
+  "pitfalls": [
+    "右括号出现时栈可能为空",
+    "遍历结束后栈也必须为空",
+    "字符数量为奇数时一定无效"
+  ],
+  "solutions": [
+    {
+      "id": "repeated-removal",
+      "title": "反复消除相邻括号",
+      "kind": "基础",
+      "idea": "任何合法括号串都能通过不断删除相邻的 ()、[]、{} 最终变为空串。",
+      "steps": [
+        "循环替换三种相邻括号对",
+        "某一轮长度不变时停止",
+        "检查剩余字符串是否为空"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/repeated-removal/Solution.java",
+        "kotlin": "solutions/repeated-removal/Solution.kt",
+        "cpp": "solutions/repeated-removal/solution.cpp"
+      }
+    },
+    {
+      "id": "stack",
+      "title": "栈匹配",
+      "kind": "最优",
+      "idea": "遇到左括号时压入期待的右括号；遇到右括号时必须与栈顶一致。",
+      "steps": [
+        "奇数长度提前失败",
+        "左括号压入对应的右括号",
+        "右括号弹栈匹配，最终要求栈为空"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/stack/Solution.java",
+        "kotlin": "solutions/stack/Solution.kt",
+        "cpp": "solutions/stack/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 334,
+  "slug": "increasing-triplet-subsequence",
+  "title": "递增的三元子序列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-005",
+  "studyTags": [
+    "贪心",
+    "子序列",
+    "最小结尾"
+  ],
+  "summary": "判断数组中是否存在下标递增且数值严格递增的三个元素。",
+  "insight": "维护长度一和长度二递增子序列能达到的最小结尾；出现大于第二个结尾的值时即可形成三元组。",
+  "pitfalls": [
+    "子序列不要求连续",
+    "相等值不能构成严格递增",
+    "更新时先比较 first 再比较 second"
+  ],
+  "solutions": [
+    {
+      "id": "two-thresholds",
+      "title": "两个最小结尾阈值",
+      "kind": "最优",
+      "idea": "贪心压低 first 和 second，为后续第三个值保留最大机会。",
+      "steps": [
+        "first/second 初始化为无穷",
+        "value<=first 时更新 first，否则 value<=second 更新 second",
+        "再大的 value 说明存在三元递增子序列"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/two-thresholds/Solution.java",
+        "kotlin": "solutions/two-thresholds/Solution.kt",
+        "cpp": "solutions/two-thresholds/solution.cpp"
+      }
+    }
+  ]
+}

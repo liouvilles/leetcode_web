@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "WordDictionary",
+  "constructorTypes": [],
+  "cases": [
+    {
+      "name": "普通搜索与单点通配",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "addWord",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "bad"
+          ]
+        },
+        {
+          "method": "addWord",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "dad"
+          ]
+        },
+        {
+          "method": "addWord",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "mad"
+          ]
+        },
+        {
+          "method": "search",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "pad"
+          ],
+          "returnType": "boolean",
+          "expected": false
+        },
+        {
+          "method": "search",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "bad"
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "search",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            ".ad"
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "search",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "b.."
+          ],
+          "returnType": "boolean",
+          "expected": true
+        }
+      ]
+    },
+    {
+      "name": "长度必须匹配",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "addWord",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "method": "search",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "."
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "search",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            ".."
+          ],
+          "returnType": "boolean",
+          "expected": false
+        }
+      ]
+    },
+    {
+      "name": "前缀不是完整单词",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "addWord",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "apple"
+          ]
+        },
+        {
+          "method": "search",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "app"
+          ],
+          "returnType": "boolean",
+          "expected": false
+        }
+      ]
+    }
+  ]
+}

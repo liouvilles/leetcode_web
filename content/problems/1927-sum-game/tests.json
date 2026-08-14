@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sumGame",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "两边已知和相等 Bob 获胜",
+      "args": [
+        "5023"
+      ],
+      "expected": false
+    },
+    {
+      "name": "两个问号无法补平已知差",
+      "args": [
+        "25??"
+      ],
+      "expected": true
+    },
+    {
+      "name": "问号与和差恰能平衡",
+      "args": [
+        "?3295???"
+      ],
+      "expected": false
+    }
+  ]
+}

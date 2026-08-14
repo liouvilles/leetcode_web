@@ -1,0 +1,1 @@
+class Solution { public int[] decode(int[] encoded){int n=encoded.length+1,first=0;for(int value=1;value<=n;value++)first^=value;for(int i=1;i<encoded.length;i+=2)first^=encoded[i];int[] answer=new int[n];answer[0]=first;for(int i=0;i<encoded.length;i++)answer[i+1]=answer[i]^encoded[i];return answer;} }

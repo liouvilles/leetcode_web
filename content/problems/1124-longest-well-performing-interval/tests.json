@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "longestWPI",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典最长三天",
+      "args": [
+        [
+          9,
+          9,
+          6,
+          0,
+          6,
+          6,
+          9
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "全非劳累",
+      "args": [
+        [
+          6,
+          6,
+          6
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "单个劳累日",
+      "args": [
+        [
+          9
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

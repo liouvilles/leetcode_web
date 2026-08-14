@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumRefill",
+  "parameterTypes": [
+    "intArray",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两人各补一次共两次",
+      "args": [
+        [
+          2,
+          2,
+          3,
+          3
+        ],
+        5,
+        5
+      ],
+      "expected": 1
+    },
+    {
+      "name": "容量足够无需补水",
+      "args": [
+        [
+          2,
+          2,
+          3,
+          3
+        ],
+        10,
+        10
+      ],
+      "expected": 0
+    },
+    {
+      "name": "单株需求超过两人剩余需补一次",
+      "args": [
+        [
+          5
+        ],
+        3,
+        4
+      ],
+      "expected": 1
+    }
+  ]
+}

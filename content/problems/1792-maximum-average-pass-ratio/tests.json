@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxAverageRatio",
+  "parameterTypes": [
+    "intMatrix",
+    "int"
+  ],
+  "returnType": "double",
+  "cases": [
+    {
+      "name": "分配两名学生后的最大平均率",
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            2,
+            2
+          ]
+        ],
+        2
+      ],
+      "expected": 0.7833333333333333
+    },
+    {
+      "name": "四班分四人",
+      "args": [
+        [
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            9
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            2,
+            10
+          ]
+        ],
+        4
+      ],
+      "expected": 0.5348484848484848
+    },
+    {
+      "name": "满通过班平均率为一",
+      "args": [
+        [
+          [
+            1,
+            1
+          ]
+        ],
+        3
+      ],
+      "expected": 1
+    }
+  ]
+}

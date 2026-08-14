@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2034,
+  "slug": "stock-price-fluctuation",
+  "title": "股票价格波动",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-029",
+  "studyTags": [
+    "设计",
+    "哈希表",
+    "有序集合",
+    "堆（优先队列）"
+  ],
+  "summary": "维护时间戳价格并允许更正，查询最新时间价格、当前最高价与最低价。",
+  "insight": "哈希表保存时间到价格；有序频次表保存所有当前价格。更正时先减少旧价格频次再加入新价格，最新时间取最大时间戳。",
+  "pitfalls": [
+    "update 可覆盖已有时间戳",
+    "current 按最大时间戳而非最近调用",
+    "重复价格需维护频次"
+  ],
+  "solutions": [
+    {
+      "id": "timestamp-map-and-price-multiset",
+      "title": "时间映射与价格有序多重集",
+      "kind": "最优",
+      "idea": "同步维护最新时间与可取首尾价格的频次树。",
+      "steps": [
+        "pricesByTime 与 TreeMap priceCounts、latestTime",
+        "update：若时间已有则移除旧价格一次；写新价并增加频次，更新 latestTime",
+        "current 查最新时间；maximum lastKey；minimum firstKey"
+      ],
+      "complexity": {
+        "time": "O(log n) 每次更新/极值查询",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/timestamp-map-and-price-multiset/Solution.java",
+        "kotlin": "solutions/timestamp-map-and-price-multiset/Solution.kt",
+        "cpp": "solutions/timestamp-map-and-price-multiset/solution.cpp"
+      }
+    }
+  ]
+}

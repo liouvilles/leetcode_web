@@ -1,0 +1,1 @@
+class Solution { fun minDeletionSize(strs:Array<String>):Int{var deleted=0;for(col in strs[0].indices){for(row in 1 until strs.size)if(strs[row-1][col]>strs[row][col]){deleted++;break}};return deleted} }

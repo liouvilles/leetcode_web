@@ -1,0 +1,1 @@
+class Solution { public boolean areNumbersAscending(String s){int previous=-1;for(String token:s.split(" "))if(Character.isDigit(token.charAt(0))){int current=Integer.parseInt(token);if(current<=previous)return false;previous=current;}return true;} }

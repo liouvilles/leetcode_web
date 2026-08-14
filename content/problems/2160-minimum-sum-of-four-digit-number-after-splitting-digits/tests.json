@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumSum",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "二九三二拆分最小和五十二",
+      "args": [
+        2932
+      ],
+      "expected": 52
+    },
+    {
+      "name": "含两个零可得十三",
+      "args": [
+        4009
+      ],
+      "expected": 13
+    },
+    {
+      "name": "三个零与一结果为一",
+      "args": [
+        1000
+      ],
+      "expected": 1
+    }
+  ]
+}

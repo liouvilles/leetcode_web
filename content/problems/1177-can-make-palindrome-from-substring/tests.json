@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "canMakePaliQueries",
+  "parameterTypes": [
+    "string",
+    "intMatrix"
+  ],
+  "returnType": "booleanList",
+  "cases": [
+    {
+      "name": "经典五次查询",
+      "args": [
+        "abcda",
+        [
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            1,
+            2,
+            0
+          ],
+          [
+            0,
+            3,
+            1
+          ],
+          [
+            0,
+            3,
+            2
+          ],
+          [
+            0,
+            4,
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        true,
+        false,
+        false,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "整段只需一次替换",
+      "args": [
+        "abc",
+        [
+          [
+            0,
+            2,
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        true
+      ]
+    },
+    {
+      "name": "偶数频次无需替换",
+      "args": [
+        "aabb",
+        [
+          [
+            0,
+            3,
+            0
+          ]
+        ]
+      ],
+      "expected": [
+        true
+      ]
+    }
+  ]
+}

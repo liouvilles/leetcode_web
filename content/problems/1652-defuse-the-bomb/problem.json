@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1652,
+  "slug": "defuse-the-bomb",
+  "title": "拆炸弹",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-024",
+  "studyTags": [
+    "数组",
+    "滑动窗口"
+  ],
+  "summary": "循环数组中每个数按 k 的符号替换为之后或之前 |k| 个数之和，k 为零则全为零。",
+  "insight": "直接在环上枚举每个位置的 |k| 个邻居；用取模把正负偏移映射回合法下标。",
+  "pitfalls": [
+    "所有结果基于原数组而非边算边改",
+    "k>0 看后面，k<0 看前面",
+    "负下标取模需先加 n"
+  ],
+  "solutions": [
+    {
+      "id": "circular-neighbor-sum",
+      "title": "环形邻居求和",
+      "kind": "最优",
+      "idea": "对每个位置累加指定方向的固定数量元素。",
+      "steps": [
+        "新建 answer，k=0 直接返回",
+        "direction=sign(k)，count=abs(k)",
+        "对每个 index 枚举 step=1..count，累加 code[(index+direction*step+n)%n]"
+      ],
+      "complexity": {
+        "time": "O(n|k|)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/circular-neighbor-sum/Solution.java",
+        "kotlin": "solutions/circular-neighbor-sum/Solution.kt",
+        "cpp": "solutions/circular-neighbor-sum/solution.cpp"
+      }
+    }
+  ]
+}

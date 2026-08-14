@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findIntegers",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "五以内合法数",
+      "args": [
+        5
+      ],
+      "expected": 5
+    },
+    {
+      "name": "上界为一",
+      "args": [
+        1
+      ],
+      "expected": 2
+    },
+    {
+      "name": "上界为二",
+      "args": [
+        2
+      ],
+      "expected": 3
+    }
+  ]
+}

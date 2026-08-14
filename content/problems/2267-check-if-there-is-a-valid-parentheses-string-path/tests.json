@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "hasValidPath",
+  "parameterTypes": [
+    "charMatrix"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "三乘四网格存在合法路径",
+      "args": [
+        [
+          [
+            "(",
+            "(",
+            "("
+          ],
+          [
+            ")",
+            "(",
+            ")"
+          ],
+          [
+            "(",
+            "(",
+            ")"
+          ],
+          [
+            "(",
+            "(",
+            ")"
+          ]
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "起点右括号必无解",
+      "args": [
+        [
+          [
+            ")"
+          ]
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "一行左右括号合法",
+      "args": [
+        [
+          [
+            "(",
+            ")"
+          ]
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2025,
+  "slug": "maximum-number-of-ways-to-partition-an-array",
+  "title": "分割数组的最多方案数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-029",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "前缀和"
+  ],
+  "summary": "可把至多一个元素改为 k，求左右和相等的分割位置最大数量。",
+  "insight": "对每个分割 k 记录差 diff=2*prefix-total。改变下标 j、增量 delta 后，j 左侧的分割需要 diff=delta，j 右侧的分割需要 diff=-delta。扫描改变位置并用左右频次表维护分割差。",
+  "pitfalls": [
+    "分割位置在一到 n-1",
+    "可不做修改，所以原方案数也参与最大值",
+    "前缀和与差使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "partition-difference-two-maps",
+      "title": "分割差左右频次",
+      "kind": "最优",
+      "idea": "移动分割点集合并 O(1) 评估每个修改位置。",
+      "steps": [
+        "计算所有 pivot 的 diff=2prefix-total，初始全放 right；answer=right[0]",
+        "扫描 index；index>0 时把 pivot=index 的 diff 从 right 移到 left",
+        "delta=k-nums[index]，candidate=left[delta]+right[-delta]，更新最大"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/partition-difference-two-maps/Solution.java",
+        "kotlin": "solutions/partition-difference-two-maps/Solution.kt",
+        "cpp": "solutions/partition-difference-two-maps/solution.cpp"
+      }
+    }
+  ]
+}

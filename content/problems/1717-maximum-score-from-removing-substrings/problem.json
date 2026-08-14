@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1717,
+  "slug": "maximum-score-from-removing-substrings",
+  "title": "删除子字符串的最大得分",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-024",
+  "studyTags": [
+    "字符串",
+    "栈",
+    "贪心"
+  ],
+  "summary": "删除一次 ab 得 x 分、删除一次 ba 得 y 分，字符消失后相邻关系变化，求最大总分。",
+  "insight": "两类模式互相竞争时，应先尽可能删除分值较高者，再在剩余字符串删除另一类。固定模式可用栈线性删除所有匹配。",
+  "pitfalls": [
+    "若 y 更高需先处理 ba",
+    "第一次删除后的剩余串仍保持原相对顺序",
+    "栈顶与当前字符形成模式时立即消除"
+  ],
+  "solutions": [
+    {
+      "id": "higher-score-pattern-first",
+      "title": "高分模式优先栈消除",
+      "kind": "最优",
+      "idea": "交换处理顺序后分别做两次确定模式消除。",
+      "steps": [
+        "remove(text,first,second) 用字符栈消除 first+second，返回剩余串与次数",
+        "若 x>=y 先 remove ab，再 remove ba；否则反向",
+        "两次删除次数乘各自分值后相加"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/higher-score-pattern-first/Solution.java",
+        "kotlin": "solutions/higher-score-pattern-first/Solution.kt",
+        "cpp": "solutions/higher-score-pattern-first/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "setZeroes",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "void",
+  "cases": [
+    {
+      "name": "内部零清除一行一列",
+      "args": [
+        [
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ]
+      ],
+      "expectedArgs": [
+        {
+          "index": 0,
+          "type": "intMatrix",
+          "expected": [
+            [
+              1,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "首行与内部都含零",
+      "args": [
+        [
+          [
+            0,
+            1,
+            2,
+            0
+          ],
+          [
+            3,
+            4,
+            5,
+            2
+          ],
+          [
+            1,
+            3,
+            1,
+            5
+          ]
+        ]
+      ],
+      "expectedArgs": [
+        {
+          "index": 0,
+          "type": "intMatrix",
+          "expected": [
+            [
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              4,
+              5,
+              0
+            ],
+            [
+              0,
+              3,
+              1,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "单元素非零矩阵",
+      "args": [
+        [
+          [
+            1
+          ]
+        ]
+      ],
+      "expectedArgs": [
+        {
+          "index": 0,
+          "type": "intMatrix",
+          "expected": [
+            [
+              1
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

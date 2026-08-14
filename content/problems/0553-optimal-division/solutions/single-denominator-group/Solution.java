@@ -1,0 +1,1 @@
+class Solution { public String optimalDivision(int[] nums){if(nums.length==1)return String.valueOf(nums[0]);StringBuilder answer=new StringBuilder().append(nums[0]).append('/');if(nums.length>2)answer.append('(');for(int i=1;i<nums.length;i++){if(i>1)answer.append('/');answer.append(nums[i]);}if(nums.length>2)answer.append(')');return answer.toString();} }

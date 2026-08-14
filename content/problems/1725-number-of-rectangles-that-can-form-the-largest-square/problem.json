@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": 1725,
+  "slug": "number-of-rectangles-that-can-form-the-largest-square",
+  "title": "可以形成最大正方形的矩形数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-025",
+  "studyTags": [
+    "数组"
+  ],
+  "summary": "每个矩形可切出边长 min(length,width) 的正方形，统计能切出全局最大边长正方形的矩形数量。",
+  "insight": "逐矩形计算可切正方形边长，维护当前最大边长及其出现次数；出现更大值时重置计数。",
+  "pitfalls": [
+    "正方形边长由矩形较短边决定",
+    "统计矩形数量而非正方形面积",
+    "最大值相同时累加计数"
+  ],
+  "solutions": [
+    {
+      "id": "running-maximum-count",
+      "title": "在线最大值计数",
+      "kind": "最优",
+      "idea": "一次扫描同时维护最大可切边长和频次。",
+      "steps": [
+        "maximum=answer=0",
+        "side=min(length,width)",
+        "side>maximum 时 maximum=side、answer=1；相等时 answer++，返回"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/running-maximum-count/Solution.java",
+        "kotlin": "solutions/running-maximum-count/Solution.kt",
+        "cpp": "solutions/running-maximum-count/solution.cpp"
+      }
+    }
+  ]
+}

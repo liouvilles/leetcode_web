@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1305,
+  "slug": "all-elements-in-two-binary-search-trees",
+  "title": "两棵二叉搜索树中的所有元素",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "树",
+    "二叉搜索树",
+    "中序遍历",
+    "归并"
+  ],
+  "summary": "返回两棵二叉搜索树中全部元素组成的升序列表。",
+  "insight": "每棵 BST 的中序遍历都是非递减序列；分别收集两个序列后按归并排序的合并步骤线性生成最终列表。",
+  "pitfalls": [
+    "任一树可为空",
+    "值可重复且都要保留",
+    "归并尾部剩余元素不能遗漏"
+  ],
+  "solutions": [
+    {
+      "id": "two-inorders-and-merge",
+      "title": "双中序序列归并",
+      "kind": "最优",
+      "idea": "利用 BST 中序有序性把排序降为线性归并。",
+      "steps": [
+        "中序遍历 root1、root2 得 first、second",
+        "i=j=0，比较两序列当前值，将较小者加入答案并推进",
+        "一序列耗尽后追加另一序列剩余，返回"
+      ],
+      "complexity": {
+        "time": "O(n+m)",
+        "space": "O(n+m)"
+      },
+      "files": {
+        "java": "solutions/two-inorders-and-merge/Solution.java",
+        "kotlin": "solutions/two-inorders-and-merge/Solution.kt",
+        "cpp": "solutions/two-inorders-and-merge/solution.cpp"
+      }
+    }
+  ]
+}

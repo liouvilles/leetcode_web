@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "gcdSort",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "七二十一三全部连通可排序",
+      "args": [
+        [
+          7,
+          21,
+          3
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "五无法与二六分量交换",
+      "args": [
+        [
+          5,
+          2,
+          6,
+          2
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "十五星三九可经因子连接排序",
+      "args": [
+        [
+          10,
+          5,
+          9,
+          3,
+          15
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

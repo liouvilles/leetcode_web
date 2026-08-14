@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1601,
+  "slug": "maximum-number-of-achievable-transfer-requests",
+  "title": "最多可达成的换楼请求数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-023",
+  "studyTags": [
+    "数组",
+    "位运算",
+    "枚举"
+  ],
+  "summary": "每个请求让一名员工从一栋楼调到另一栋楼，选择最多请求使每栋楼净人数变化为零。",
+  "insight": "请求数最多十六，可枚举所有子集。对选中请求计算各楼净变化，全部为零时用子集位数更新答案。",
+  "pitfalls": [
+    "自环请求净变化为零且应尽量选择",
+    "每栋楼都必须平衡",
+    "子集数量为 2^requests"
+  ],
+  "solutions": [
+    {
+      "id": "request-subset-enumeration",
+      "title": "请求子集枚举",
+      "kind": "最优",
+      "idea": "暴力验证每个请求选择集合的净流量。",
+      "steps": [
+        "answer=0,total=1<<requests.length",
+        "枚举 mask，若 bitCount<=answer 可跳过",
+        "balance[n]=0；选中请求 from--、to++；若全部零更新 answer"
+      ],
+      "complexity": {
+        "time": "O(2^r·(r+n))",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/request-subset-enumeration/Solution.java",
+        "kotlin": "solutions/request-subset-enumeration/Solution.kt",
+        "cpp": "solutions/request-subset-enumeration/solution.cpp"
+      }
+    }
+  ]
+}

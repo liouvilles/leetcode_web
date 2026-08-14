@@ -1,0 +1,1 @@
+class Solution { public long maxMatrixSum(int[][] matrix){long sum=0;int negatives=0,minimum=Integer.MAX_VALUE;for(int[] row:matrix)for(int value:row){if(value<0)negatives++;int absolute=Math.abs(value);sum+=absolute;minimum=Math.min(minimum,absolute);}return negatives%2==0?sum:sum-2L*minimum;} }

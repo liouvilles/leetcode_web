@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1177,
+  "slug": "can-make-palindrome-from-substring",
+  "title": "构建回文串检测",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-017",
+  "studyTags": [
+    "字符串",
+    "位运算",
+    "前缀和"
+  ],
+  "summary": "每次查询可重排子串并最多替换 k 个字符，判断能否把它变成回文串。",
+  "insight": "回文只关心奇数频次字符数量。用 26 位前缀异或保存每个字母频次奇偶；区间掩码的置位数为 odd，需要替换 floor(odd/2) 对字符。",
+  "pitfalls": [
+    "查询区间左右端点都包含",
+    "偶数长度不能保留奇数中心，但 odd 本身必为偶数",
+    "替换一次可同时消掉两个奇数频次"
+  ],
+  "solutions": [
+    {
+      "id": "prefix-parity-bitmask",
+      "title": "前缀奇偶位掩码",
+      "kind": "最优",
+      "idea": "常数时间取得区间奇数字母数。",
+      "steps": [
+        "prefix[i+1]=prefix[i] xor (1<<(s[i]-a))",
+        "每个查询 [left,right,k] 计算 mask=prefix[right+1] xor prefix[left]",
+        "若 bitCount(mask)/2<=k 则为真，按查询顺序返回"
+      ],
+      "complexity": {
+        "time": "O(n+q)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/prefix-parity-bitmask/Solution.java",
+        "kotlin": "solutions/prefix-parity-bitmask/Solution.kt",
+        "cpp": "solutions/prefix-parity-bitmask/solution.cpp"
+      }
+    }
+  ]
+}

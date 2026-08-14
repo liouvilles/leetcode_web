@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findRotation",
+  "parameterTypes": [
+    "intMatrix",
+    "intMatrix"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "顺时针一次即可一致",
+      "args": [
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "元素分布无法经旋转得到",
+      "args": [
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "原矩阵已经等于目标",
+      "args": [
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

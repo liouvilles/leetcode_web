@@ -1,0 +1,181 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "StockPrice",
+  "constructorTypes": [],
+  "cases": [
+    {
+      "name": "经典更新更正与三类查询",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "update",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            1,
+            10
+          ]
+        },
+        {
+          "method": "update",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            2,
+            5
+          ]
+        },
+        {
+          "method": "current",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 5
+        },
+        {
+          "method": "maximum",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 10
+        },
+        {
+          "method": "update",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            1,
+            3
+          ]
+        },
+        {
+          "method": "maximum",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 5
+        },
+        {
+          "method": "update",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            4,
+            2
+          ]
+        },
+        {
+          "method": "minimum",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 2
+        }
+      ]
+    },
+    {
+      "name": "同时间戳更正最新价格",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "update",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            5,
+            7
+          ]
+        },
+        {
+          "method": "update",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            5,
+            9
+          ]
+        },
+        {
+          "method": "current",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 9
+        },
+        {
+          "method": "minimum",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 9
+        }
+      ]
+    },
+    {
+      "name": "重复价格频次正确保留",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "update",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            1,
+            4
+          ]
+        },
+        {
+          "method": "update",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            2,
+            4
+          ]
+        },
+        {
+          "method": "update",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            1,
+            6
+          ]
+        },
+        {
+          "method": "minimum",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 4
+        },
+        {
+          "method": "maximum",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 6
+        }
+      ]
+    }
+  ]
+}

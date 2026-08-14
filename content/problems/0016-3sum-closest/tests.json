@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "threeSumClosest",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "最接近目标二",
+      "args": [
+        [
+          -1,
+          2,
+          1,
+          -4
+        ],
+        1
+      ],
+      "expected": 2
+    },
+    {
+      "name": "全零数组",
+      "args": [
+        [
+          0,
+          0,
+          0
+        ],
+        1
+      ],
+      "expected": 0
+    },
+    {
+      "name": "恰好命中目标",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          0
+        ],
+        -100
+      ],
+      "expected": 2
+    }
+  ]
+}

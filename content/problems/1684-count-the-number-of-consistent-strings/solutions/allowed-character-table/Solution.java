@@ -1,0 +1,1 @@
+class Solution { public int countConsistentStrings(String allowed,String[] words){boolean[] valid=new boolean[26];for(char letter:allowed.toCharArray())valid[letter-'a']=true;int answer=0;for(String word:words){boolean consistent=true;for(char letter:word.toCharArray())if(!valid[letter-'a']){consistent=false;break;}if(consistent)answer++;}return answer;} }

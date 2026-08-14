@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 131,
+  "slug": "palindrome-partitioning",
+  "title": "分割回文串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-004",
+  "studyTags": [
+    "回溯",
+    "回文判断",
+    "字符串分割"
+  ],
+  "summary": "把字符串分割为若干连续子串，返回所有使每个子串都是回文串的分割方案。",
+  "insight": "从当前起点枚举下一段的终点，只有该段为回文时才递归处理剩余后缀。",
+  "pitfalls": [
+    "必须覆盖原字符串的全部字符",
+    "单字符总是回文",
+    "记录方案时需要复制当前路径"
+  ],
+  "solutions": [
+    {
+      "id": "palindrome-backtracking",
+      "title": "枚举回文前缀回溯",
+      "kind": "最优",
+      "idea": "递归选择每个后缀的一个回文前缀，走到字符串末尾即形成方案。",
+      "steps": [
+        "枚举 end 从 start 到末尾",
+        "双指针检查 s[start..end] 是否回文",
+        "选择子串、递归 end+1、撤销选择"
+      ],
+      "complexity": {
+        "time": "O(n·2^n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/palindrome-backtracking/Solution.java",
+        "kotlin": "solutions/palindrome-backtracking/Solution.kt",
+        "cpp": "solutions/palindrome-backtracking/solution.cpp"
+      }
+    }
+  ]
+}

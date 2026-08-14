@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 771,
+  "slug": "jewels-and-stones",
+  "title": "宝石与石头",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-010",
+  "studyTags": [
+    "字符串",
+    "哈希集合",
+    "计数"
+  ],
+  "summary": "jewels 中的字符表示宝石种类，统计 stones 中有多少字符属于宝石。",
+  "insight": "把所有宝石字符加入集合，再线性扫描石头并计数。",
+  "pitfalls": [
+    "字符大小写敏感",
+    "jewels 中字符互不相同",
+    "统计的是石头数量而非宝石种类数"
+  ],
+  "solutions": [
+    {
+      "id": "jewel-set-count",
+      "title": "宝石集合计数",
+      "kind": "最优",
+      "idea": "用集合做常数时间的成员判断。",
+      "steps": [
+        "把 jewels 的字符放入集合",
+        "扫描 stones",
+        "字符属于集合时 answer++，返回计数"
+      ],
+      "complexity": {
+        "time": "O(j+s)",
+        "space": "O(j)"
+      },
+      "files": {
+        "java": "solutions/jewel-set-count/Solution.java",
+        "kotlin": "solutions/jewel-set-count/Solution.kt",
+        "cpp": "solutions/jewel-set-count/solution.cpp"
+      }
+    }
+  ]
+}

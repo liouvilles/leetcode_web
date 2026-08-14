@@ -1,0 +1,1 @@
+class Solution { public:int deleteString(string s){int n=s.size();vector lcp(n+1,vector<int>(n+1));for(int i=n-1;i>=0;--i)for(int j=n-1;j>i;--j)if(s[i]==s[j])lcp[i][j]=lcp[i+1][j+1]+1;vector<int> dp(n);for(int i=n-1;i>=0;--i){dp[i]=1;for(int length=1;i+2*length<=n;++length)if(lcp[i][i+length]>=length)dp[i]=max(dp[i],1+dp[i+length]);}return dp[0];} };

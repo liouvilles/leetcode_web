@@ -1,0 +1,1 @@
+class Solution { fun makeConnected(n:Int,connections:Array<IntArray>):Int{if(connections.size<n-1)return -1;val parent=IntArray(n){it};fun find(value:Int):Int{if(parent[value]!=value)parent[value]=find(parent[value]);return parent[value]};for(edge in connections){val a=find(edge[0]);val b=find(edge[1]);if(a!=b)parent[b]=a};return (0 until n).count{find(it)==it}-1} }

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1775,
+  "slug": "equal-sum-arrays-with-minimum-number-of-operations",
+  "title": "通过最少操作次数使数组的和相等",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-025",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "贪心",
+    "计数"
+  ],
+  "summary": "两个数组元素均在一到六之间，每次可把任一元素改为一到六，求使两数组和相等的最少操作数，不可能返回负一。",
+  "insight": "先让 firstSum 小于 secondSum。低和数组每个值最大增益为 6-value，高和数组每个值最大降益为 value-1；把所有增益从大到小使用直到覆盖差值。",
+  "pitfalls": [
+    "长度差过大时可能无解",
+    "若两和相等答案为零",
+    "每次操作应优先取最大可缩小差值"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-potential-gains",
+      "title": "潜在增益降序贪心",
+      "kind": "最优",
+      "idea": "把任意改值操作抽象为最多可消除的和差。",
+      "steps": [
+        "若 6*len1<len2 或反向则 -1",
+        "交换引用使 sum1<=sum2，difference=sum2-sum1",
+        "收集 first 的 6-value 与 second 的 value-1，降序排序，依次扣 difference 并计数"
+      ],
+      "complexity": {
+        "time": "O((n+m) log(n+m))",
+        "space": "O(n+m)"
+      },
+      "files": {
+        "java": "solutions/sorted-potential-gains/Solution.java",
+        "kotlin": "solutions/sorted-potential-gains/Solution.kt",
+        "cpp": "solutions/sorted-potential-gains/solution.cpp"
+      }
+    }
+  ]
+}

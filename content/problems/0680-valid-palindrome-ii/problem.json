@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 680,
+  "slug": "valid-palindrome-ii",
+  "title": "验证回文串 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-009",
+  "studyTags": [
+    "双指针",
+    "字符串",
+    "贪心"
+  ],
+  "summary": "最多删除字符串中的一个字符，判断能否使其成为回文串。",
+  "insight": "双指针首次出现不匹配时，唯一可能是跳过左字符或跳过右字符；检查这两个剩余区间是否为回文即可。",
+  "pitfalls": [
+    "只能删除至多一个字符",
+    "首个不匹配之前无需做选择",
+    "后续回文检查不能再允许删除"
+  ],
+  "solutions": [
+    {
+      "id": "first-mismatch-two-branches",
+      "title": "首个不匹配处分两支检查",
+      "kind": "最优",
+      "idea": "双指针收缩并只在必要时验证两个删除选择。",
+      "steps": [
+        "left、right 向内跳过相同字符",
+        "若相遇返回真",
+        "首次不同返回 palindrome(left+1,right) 或 palindrome(left,right-1)"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/first-mismatch-two-branches/Solution.java",
+        "kotlin": "solutions/first-mismatch-two-branches/Solution.kt",
+        "cpp": "solutions/first-mismatch-two-branches/solution.cpp"
+      }
+    }
+  ]
+}

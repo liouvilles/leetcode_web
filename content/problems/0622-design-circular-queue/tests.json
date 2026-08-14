@@ -1,0 +1,181 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "MyCircularQueue",
+  "constructorTypes": [
+    "int"
+  ],
+  "cases": [
+    {
+      "name": "容量三的经典流程",
+      "constructorArgs": [
+        3
+      ],
+      "calls": [
+        {
+          "method": "enQueue",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "enQueue",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "enQueue",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            3
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "enQueue",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            4
+          ],
+          "returnType": "boolean",
+          "expected": false
+        },
+        {
+          "method": "Rear",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 3
+        },
+        {
+          "method": "isFull",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "deQueue",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "enQueue",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            4
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "Rear",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 4
+        }
+      ]
+    },
+    {
+      "name": "空队列读写",
+      "constructorArgs": [
+        2
+      ],
+      "calls": [
+        {
+          "method": "Front",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": -1
+        },
+        {
+          "method": "Rear",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": -1
+        },
+        {
+          "method": "deQueue",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "boolean",
+          "expected": false
+        },
+        {
+          "method": "isEmpty",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "boolean",
+          "expected": true
+        }
+      ]
+    },
+    {
+      "name": "容量一循环复用",
+      "constructorArgs": [
+        1
+      ],
+      "calls": [
+        {
+          "method": "enQueue",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            7
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "deQueue",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "enQueue",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            9
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "Front",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 9
+        }
+      ]
+    }
+  ]
+}

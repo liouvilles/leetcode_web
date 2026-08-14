@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2099,
+  "slug": "find-subsequence-of-length-k-with-the-largest-sum",
+  "title": "和最大的长度为 K 的子序列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "数组",
+    "排序"
+  ],
+  "summary": "返回长度 k 且元素和最大的子序列，并保持它们在原数组中的相对顺序。",
+  "insight": "给每项附原下标，按值降序选前 k 项，再把所选项按下标升序排列并输出值。",
+  "pitfalls": [
+    "子序列必须保留原序",
+    "重复值按不同下标处理",
+    "可返回任一最大和子序列"
+  ],
+  "solutions": [
+    {
+      "id": "select-values-restore-index-order",
+      "title": "按值选取后恢复下标序",
+      "kind": "最优",
+      "idea": "排序二元组实现选择与子序列顺序两个要求。",
+      "steps": [
+        "pairs=[value,index]",
+        "按 value 降序选前 k",
+        "选中项按 index 升序，输出 value"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/select-values-restore-index-order/Solution.java",
+        "kotlin": "solutions/select-values-restore-index-order/Solution.kt",
+        "cpp": "solutions/select-values-restore-index-order/solution.cpp"
+      }
+    }
+  ]
+}

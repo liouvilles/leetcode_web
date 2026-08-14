@@ -1,0 +1,1 @@
+class Solution { fun findRelativeRanks(score:IntArray):Array<String>{val indices=score.indices.sortedByDescending{score[it]};val medals=arrayOf("Gold Medal","Silver Medal","Bronze Medal");val answer=Array(score.size){""};for(rank in indices.indices)answer[indices[rank]]=if(rank<3)medals[rank] else (rank+1).toString();return answer} }

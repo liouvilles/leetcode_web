@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 935,
+  "slug": "knight-dialer",
+  "title": "骑士拨号器",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-013",
+  "studyTags": [
+    "动态规划",
+    "图论"
+  ],
+  "summary": "国际象棋骑士从任意数字键出发走 n-1 步，统计可形成的长度 n 数字串数量并取模。",
+  "insight": "十个数字是固定图节点；dp[digit] 表示当前长度以该数字结尾的序列数，每轮沿骑士边转移。",
+  "pitfalls": [
+    "数字五没有可达邻居",
+    "长度一时十个起点都有效",
+    "每次加法都要取模"
+  ],
+  "solutions": [
+    {
+      "id": "digit-graph-dp",
+      "title": "数字图滚动动态规划",
+      "kind": "最优",
+      "idea": "在固定骑士邻接表上逐步转移。",
+      "steps": [
+        "dp 十个位置初始化为一",
+        "重复 n-1 轮，为每个 from 把 dp[from] 加到所有邻接 to",
+        "滚动替换 dp，求和取模返回"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/digit-graph-dp/Solution.java",
+        "kotlin": "solutions/digit-graph-dp/Solution.kt",
+        "cpp": "solutions/digit-graph-dp/solution.cpp"
+      }
+    }
+  ]
+}

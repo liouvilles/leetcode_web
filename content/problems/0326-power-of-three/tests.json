@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isPowerOfThree",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "二十七",
+      "args": [
+        27
+      ],
+      "expected": true
+    },
+    {
+      "name": "零",
+      "args": [
+        0
+      ],
+      "expected": false
+    },
+    {
+      "name": "四十五",
+      "args": [
+        45
+      ],
+      "expected": false
+    }
+  ]
+}

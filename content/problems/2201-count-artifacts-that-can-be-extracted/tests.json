@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "digArtifacts",
+  "parameterTypes": [
+    "int",
+    "intMatrix",
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两个工件都完整挖出",
+      "args": [
+        2,
+        [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            1,
+            1
+          ]
+        ],
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "长工件只挖一部分",
+      "args": [
+        2,
+        [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            1,
+            1
+          ]
+        ],
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "未挖任何格",
+      "args": [
+        3,
+        [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        []
+      ],
+      "expected": 0
+    }
+  ]
+}

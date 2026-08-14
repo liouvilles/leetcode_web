@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "shortestPathAllKeys",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两把钥匙八步",
+      "args": [
+        [
+          "@.a..",
+          "###.#",
+          "b.A.B"
+        ]
+      ],
+      "expected": 8
+    },
+    {
+      "name": "两把钥匙六步",
+      "args": [
+        [
+          "@..aA",
+          "..B#.",
+          "....b"
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "钥匙被锁阻隔",
+      "args": [
+        [
+          "@Aa"
+        ]
+      ],
+      "expected": -1
+    }
+  ]
+}

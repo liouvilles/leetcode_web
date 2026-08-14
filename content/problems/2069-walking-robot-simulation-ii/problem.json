@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2069,
+  "slug": "walking-robot-simulation-ii",
+  "title": "模拟行走机器人 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "设计",
+    "模拟"
+  ],
+  "summary": "机器人沿宽高矩形边界逆时针行走，支持前进若干步并查询位置和朝向。",
+  "insight": "把边界展开为长度 2(width+height)-4 的循环进度。步数取模更新进度，再按其落在哪条边映射坐标与移动方向；初始原点方向是东，完成整圈回原点方向是南。",
+  "pitfalls": [
+    "角点方向是到达该点时的移动方向",
+    "正步数整圈后原点方向为南",
+    "step 可很大"
+  ],
+  "solutions": [
+    {
+      "id": "perimeter-progress-mapping",
+      "title": "周长进度映射",
+      "kind": "最优",
+      "idea": "用单个循环坐标替代逐步模拟。",
+      "steps": [
+        "perimeter=2(w+h)-4，progress=0，moved=false",
+        "step：progress=(progress+num)%perimeter，moved=true",
+        "getPos/getDir 按四段 [东边、北边、西边、南边] 映射，progress=0 特判初始东或移动后南"
+      ],
+      "complexity": {
+        "time": "O(1) 每次操作",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/perimeter-progress-mapping/Solution.java",
+        "kotlin": "solutions/perimeter-progress-mapping/Solution.kt",
+        "cpp": "solutions/perimeter-progress-mapping/solution.cpp"
+      }
+    }
+  ]
+}

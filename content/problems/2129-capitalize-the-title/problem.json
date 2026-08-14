@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": 2129,
+  "slug": "capitalize-the-title",
+  "title": "将标题首字母大写",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-031",
+  "studyTags": [
+    "字符串"
+  ],
+  "summary": "标题中长度不超过二的单词全部小写，其余单词首字母大写且其余字母小写。",
+  "insight": "按空格拆词，先统一转小写，再仅对长度大于二的词提升第一个字符。",
+  "pitfalls": [
+    "一到两个字符的词不能大写",
+    "其余字母必须转小写",
+    "保持单词顺序和单空格"
+  ],
+  "solutions": [
+    {
+      "id": "normalize-each-word",
+      "title": "逐词规范化",
+      "kind": "最优",
+      "idea": "独立转换每个单词后重新连接。",
+      "steps": [
+        "按空格拆分",
+        "word lowercase",
+        "若长度>2，把首字符 uppercase；以单空格连接"
+      ],
+      "complexity": {
+        "time": "O(total characters)",
+        "space": "O(total characters)"
+      },
+      "files": {
+        "java": "solutions/normalize-each-word/Solution.java",
+        "kotlin": "solutions/normalize-each-word/Solution.kt",
+        "cpp": "solutions/normalize-each-word/solution.cpp"
+      }
+    }
+  ]
+}

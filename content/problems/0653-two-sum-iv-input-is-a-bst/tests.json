@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findTarget",
+  "parameterTypes": [
+    "treeNode",
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "二与七组成九",
+      "args": [
+        [
+          5,
+          3,
+          6,
+          2,
+          4,
+          null,
+          7
+        ],
+        9
+      ],
+      "expected": true
+    },
+    {
+      "name": "不存在二十八",
+      "args": [
+        [
+          5,
+          3,
+          6,
+          2,
+          4,
+          null,
+          7
+        ],
+        28
+      ],
+      "expected": false
+    },
+    {
+      "name": "单节点不能复用",
+      "args": [
+        [
+          1
+        ],
+        2
+      ],
+      "expected": false
+    }
+  ]
+}

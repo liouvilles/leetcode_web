@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "hitBricks",
+  "parameterTypes": [
+    "intMatrix",
+    "intMatrix"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "一击掉落两块",
+      "args": [
+        [
+          [
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            1,
+            0
+          ]
+        ]
+      ],
+      "expected": [
+        2
+      ]
+    },
+    {
+      "name": "连续敲击无额外掉落",
+      "args": [
+        [
+          [
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            0,
+            0
+          ]
+        ],
+        [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      ],
+      "expected": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "敲击空格",
+      "args": [
+        [
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        0
+      ]
+    }
+  ]
+}

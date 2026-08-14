@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 513,
+  "slug": "find-bottom-left-tree-value",
+  "title": "找树左下角的值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-007",
+  "studyTags": [
+    "二叉树",
+    "广度优先搜索",
+    "层序遍历"
+  ],
+  "summary": "返回二叉树最深一层最左侧节点的值。",
+  "insight": "层序遍历每层开始时记录队首节点值；正常按左后右入队，最后一次记录就是答案。",
+  "pitfalls": [
+    "目标是最深层而非整棵树最小值",
+    "每层只记录第一个节点",
+    "题目保证根节点非空"
+  ],
+  "solutions": [
+    {
+      "id": "level-first-node",
+      "title": "层序记录每层首节点",
+      "kind": "最优",
+      "idea": "队列逐层处理并覆盖 answer 为当前层第一个值。",
+      "steps": [
+        "根入队",
+        "每轮 size 固定当前层，answer=queue.peek.val",
+        "依次出队并按左、右孩子入队，结束返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(w)"
+      },
+      "files": {
+        "java": "solutions/level-first-node/Solution.java",
+        "kotlin": "solutions/level-first-node/Solution.kt",
+        "cpp": "solutions/level-first-node/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countWords",
+  "parameterTypes": [
+    "stringArray",
+    "stringArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "leetcode 与 amazing 各恰出现一次",
+      "args": [
+        [
+          "leetcode",
+          "is",
+          "amazing",
+          "as",
+          "is"
+        ],
+        [
+          "amazing",
+          "leetcode",
+          "is"
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "重复 b 在第二数组不计",
+      "args": [
+        [
+          "b",
+          "bb",
+          "bbb"
+        ],
+        [
+          "a",
+          "b",
+          "b"
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "一个共同唯一词",
+      "args": [
+        [
+          "a"
+        ],
+        [
+          "a"
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

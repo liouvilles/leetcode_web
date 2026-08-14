@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1027,
+  "slug": "longest-arithmetic-subsequence",
+  "title": "最长等差数列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-015",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "哈希表"
+  ],
+  "summary": "求数组中保持原下标顺序的最长等差子序列长度。",
+  "insight": "dp[i][difference] 记录以 i 结尾且公差为 difference 的最长长度；枚举前驱 j，把 dp[j][difference] 延长一，若不存在则从二开始。",
+  "pitfalls": [
+    "子序列不要求连续",
+    "公差可以为负数或零",
+    "每个状态至少由两个元素构成"
+  ],
+  "solutions": [
+    {
+      "id": "ending-index-difference-dp",
+      "title": "结尾下标与公差动态规划",
+      "kind": "最优",
+      "idea": "枚举最后两项更新等差链长度。",
+      "steps": [
+        "为每个 i 创建 difference->length 映射",
+        "枚举 j<i，difference=nums[i]-nums[j]",
+        "length=dp[j].getOrDefault(difference,1)+1，用其更新 dp[i][difference] 和全局最大值"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/ending-index-difference-dp/Solution.java",
+        "kotlin": "solutions/ending-index-difference-dp/Solution.kt",
+        "cpp": "solutions/ending-index-difference-dp/solution.cpp"
+      }
+    }
+  ]
+}

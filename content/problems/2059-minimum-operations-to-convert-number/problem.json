@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2059,
+  "slug": "minimum-operations-to-convert-number",
+  "title": "转化数字的最小运算数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "广度优先搜索",
+    "数组"
+  ],
+  "summary": "从 start 出发，每步选 nums 中一数执行加、减或异或；只有中间值在零到一千时可继续操作，求到 goal 的最少步数。",
+  "insight": "状态空间只有 1001 个可继续值，用 BFS 保证最短。每次生成三种结果，先检查是否等于 goal；仅把范围内且未访问的结果入队。",
+  "pitfalls": [
+    "goal 可在范围外",
+    "范围外值可作为最后一步但不能继续",
+    "异或也是一种操作"
+  ],
+  "solutions": [
+    {
+      "id": "bounded-state-bfs",
+      "title": "有限数值状态 BFS",
+      "kind": "最优",
+      "idea": "在可继续区间上做无权最短路搜索。",
+      "steps": [
+        "queue 放 start、visited[start]=true",
+        "按层弹出 value，对每个 num 生成 value+num、value-num、value^num",
+        "任一等于 goal 返回 steps+1；范围内未访问则入队，队空返回 -1"
+      ],
+      "complexity": {
+        "time": "O(1001·n)",
+        "space": "O(1001)"
+      },
+      "files": {
+        "java": "solutions/bounded-state-bfs/Solution.java",
+        "kotlin": "solutions/bounded-state-bfs/Solution.kt",
+        "cpp": "solutions/bounded-state-bfs/solution.cpp"
+      }
+    }
+  ]
+}

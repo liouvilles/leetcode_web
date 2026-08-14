@@ -1,0 +1,1 @@
+class Solution { public: ListNode* swapNodes(ListNode* head,int k){ListNode* front=head;for(int i=1;i<k;++i)front=front->next;ListNode* back=head,*runner=front;while(runner->next){runner=runner->next;back=back->next;}swap(front->val,back->val);return head;} };

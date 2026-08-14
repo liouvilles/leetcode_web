@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 891,
+  "slug": "sum-of-subsequence-widths",
+  "title": "子序列宽度之和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "数组",
+    "数学",
+    "排序"
+  ],
+  "summary": "非空子序列宽度是最大值减最小值，求所有子序列宽度之和对 1e9+7 取模。",
+  "insight": "排序后 nums[i] 作为最大值出现在 2^i 个子序列，作为最小值出现在 2^(n-1-i) 个子序列；净贡献乘 nums[i] 后求和。",
+  "pitfalls": [
+    "子序列按下标选择，重复值仍分别计数",
+    "模减法可能为负，最终加模规范化",
+    "乘法使用长整型"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-extreme-contributions",
+      "title": "排序后极值贡献计数",
+      "kind": "最优",
+      "idea": "分别计算每个元素作为最大和最小的出现次数。",
+      "steps": [
+        "排序 nums，预计算 powers[i]=2^i mod MOD",
+        "answer 累加 nums[i]*(powers[i]-powers[n-1-i])",
+        "每步取模，最终 (answer+MOD)%MOD 返回"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/sorted-extreme-contributions/Solution.java",
+        "kotlin": "solutions/sorted-extreme-contributions/Solution.kt",
+        "cpp": "solutions/sorted-extreme-contributions/solution.cpp"
+      }
+    }
+  ]
+}

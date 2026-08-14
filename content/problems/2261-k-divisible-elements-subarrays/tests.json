@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countDistinct",
+  "parameterTypes": [
+    "intArray",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典数组有十一种不同子数组",
+      "args": [
+        [
+          2,
+          3,
+          3,
+          2,
+          2
+        ],
+        2,
+        2
+      ],
+      "expected": 11
+    },
+    {
+      "name": "全部不可整除允许所有值序列",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        0,
+        5
+      ],
+      "expected": 6
+    },
+    {
+      "name": "重复单元素子数组去重",
+      "args": [
+        [
+          1,
+          1
+        ],
+        0,
+        2
+      ],
+      "expected": 2
+    }
+  ]
+}

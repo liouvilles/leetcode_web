@@ -1,0 +1,1 @@
+class Solution { public int minimizeXor(int num1,int num2){int need=Integer.bitCount(num2),answer=0;for(int bit=30;bit>=0&&need>0;bit--)if((num1&(1<<bit))!=0){answer|=1<<bit;need--;}for(int bit=0;bit<=30&&need>0;bit++)if((answer&(1<<bit))==0){answer|=1<<bit;need--;}return answer;} }

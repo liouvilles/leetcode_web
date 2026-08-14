@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "divisorSubstrings",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "二四零的两位因子有两个",
+      "args": [
+        240,
+        2
+      ],
+      "expected": 2
+    },
+    {
+      "name": "四三零零四三有两个因子窗口",
+      "args": [
+        430043,
+        2
+      ],
+      "expected": 2
+    },
+    {
+      "name": "零窗口不计",
+      "args": [
+        100,
+        1
+      ],
+      "expected": 1
+    }
+  ]
+}

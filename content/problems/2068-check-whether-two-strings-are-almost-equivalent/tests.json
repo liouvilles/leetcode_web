@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "checkAlmostEquivalent",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "aaaa 与 bccb 差值超过三",
+      "args": [
+        "aaaa",
+        "bccb"
+      ],
+      "expected": false
+    },
+    {
+      "name": "abcdeef 与abaaacc 差值可接受",
+      "args": [
+        "abcdeef",
+        "abaaacc"
+      ],
+      "expected": true
+    },
+    {
+      "name": "相同字符串当然几乎相等",
+      "args": [
+        "xyz",
+        "xyz"
+      ],
+      "expected": true
+    }
+  ]
+}

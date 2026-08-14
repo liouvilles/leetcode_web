@@ -1,0 +1,1 @@
+class Solution { public: vector<bool> canMakePaliQueries(string s,vector<vector<int>>& queries){vector<int> prefix(s.size()+1);for(int i=0;i<(int)s.size();++i)prefix[i+1]=prefix[i]^(1<<(s[i]-'a'));vector<bool> answer;for(auto& query:queries){int odd=__builtin_popcount(prefix[query[1]+1]^prefix[query[0]]);answer.push_back(odd/2<=query[2]);}return answer;} };

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "kthSmallestPath",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "第一条路径先走完横向",
+      "args": [
+        [
+          2,
+          3
+        ],
+        1
+      ],
+      "expected": "HHHVV"
+    },
+    {
+      "name": "第二条路径",
+      "args": [
+        [
+          2,
+          3
+        ],
+        2
+      ],
+      "expected": "HHVHV"
+    },
+    {
+      "name": "第三条路径",
+      "args": [
+        [
+          2,
+          3
+        ],
+        3
+      ],
+      "expected": "HHVVH"
+    }
+  ]
+}

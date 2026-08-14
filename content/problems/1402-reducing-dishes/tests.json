@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxSatisfaction",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典混合满意度",
+      "args": [
+        [
+          -1,
+          -8,
+          0,
+          5,
+          -9
+        ]
+      ],
+      "expected": 14
+    },
+    {
+      "name": "全正数全部选择",
+      "args": [
+        [
+          4,
+          3,
+          2
+        ]
+      ],
+      "expected": 20
+    },
+    {
+      "name": "全负数不做菜",
+      "args": [
+        [
+          -1,
+          -4,
+          -5
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

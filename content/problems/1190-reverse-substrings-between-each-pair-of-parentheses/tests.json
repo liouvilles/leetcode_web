@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "reverseParentheses",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "单层反转",
+      "args": [
+        "(abcd)"
+      ],
+      "expected": "dcba"
+    },
+    {
+      "name": "两层嵌套",
+      "args": [
+        "(u(love)i)"
+      ],
+      "expected": "iloveu"
+    },
+    {
+      "name": "三层得到 leetcode",
+      "args": [
+        "(ed(et(oc))el)"
+      ],
+      "expected": "leetcode"
+    }
+  ]
+}

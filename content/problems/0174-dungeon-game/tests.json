@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "calculateMinimumHP",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典地下城",
+      "args": [
+        [
+          [
+            -2,
+            -3,
+            3
+          ],
+          [
+            -5,
+            -10,
+            1
+          ],
+          [
+            10,
+            30,
+            -5
+          ]
+        ]
+      ],
+      "expected": 7
+    },
+    {
+      "name": "单个正房间",
+      "args": [
+        [
+          [
+            5
+          ]
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "单个负房间",
+      "args": [
+        [
+          [
+            -8
+          ]
+        ]
+      ],
+      "expected": 9
+    }
+  ]
+}

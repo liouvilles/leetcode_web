@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minCostToMoveChips",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两个奇数一个偶数",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "全部同奇偶",
+      "args": [
+        [
+          2,
+          2,
+          2,
+          3,
+          3
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "单个筹码",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

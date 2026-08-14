@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": 1880,
+  "slug": "check-if-word-equals-summation-of-two-words",
+  "title": "检查某单词是否等于两单词之和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-027",
+  "studyTags": [
+    "字符串"
+  ],
+  "summary": "把 a 到 j 分别映射为数字零到九并连接成十进制数，判断前两个单词数值和是否等于目标单词。",
+  "insight": "逐字符按十进制折叠：value=value*10+(char-a)。输入数值范围很小，直接整数运算即可。",
+  "pitfalls": [
+    "字母 a 对应零",
+    "单词首部的 a 等价于前导零",
+    "映射后是数字拼接而非各位求和"
+  ],
+  "solutions": [
+    {
+      "id": "decimal-fold-word-value",
+      "title": "字符数字十进制折叠",
+      "kind": "最优",
+      "idea": "分别计算三个单词表示的数字后比较加法。",
+      "steps": [
+        "value=0",
+        "遍历字符令 value=value*10+character-a",
+        "返回 value(first)+value(second)==value(target)"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/decimal-fold-word-value/Solution.java",
+        "kotlin": "solutions/decimal-fold-word-value/Solution.kt",
+        "cpp": "solutions/decimal-fold-word-value/solution.cpp"
+      }
+    }
+  ]
+}

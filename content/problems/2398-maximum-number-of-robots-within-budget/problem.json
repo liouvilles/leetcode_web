@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2398,
+  "slug": "maximum-number-of-robots-within-budget",
+  "title": "预算内的最多机器人数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-035",
+  "studyTags": [
+    "数组",
+    "滑动窗口",
+    "单调队列"
+  ],
+  "summary": "连续运行一段机器人开销为最大启动费加段长乘运行费之和，求预算内最大连续段长度。",
+  "insight": "右移窗口并用单调递减队列维护启动费最大值，同时维护运行费和；超预算时左端收缩并同步移出队首。",
+  "pitfalls": [
+    "启动费只取最大值",
+    "运行费和再乘窗口长度",
+    "乘法与预算使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "sliding-window-with-max-deque",
+      "title": "滑窗与最大值单调队列",
+      "kind": "最优",
+      "idea": "正费用保证超预算后可单调收缩。",
+      "steps": [
+        "left=0、runningSum=0、deque 存启动费下标递减",
+        "加入 right 并维护队尾",
+        "while charge[front]+length*runningSum>budget，移出 left 并 left++",
+        "更新最大窗口长度"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/sliding-window-with-max-deque/Solution.java",
+        "kotlin": "solutions/sliding-window-with-max-deque/Solution.kt",
+        "cpp": "solutions/sliding-window-with-max-deque/solution.cpp"
+      }
+    }
+  ]
+}

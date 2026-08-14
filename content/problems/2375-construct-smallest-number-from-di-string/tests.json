@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "smallestNumber",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "混合模式得到最小数字",
+      "args": [
+        "IIIDIDDD"
+      ],
+      "expected": "123549876"
+    },
+    {
+      "name": "全下降模式整体反转",
+      "args": [
+        "DDD"
+      ],
+      "expected": "4321"
+    },
+    {
+      "name": "单个上升模式",
+      "args": [
+        "I"
+      ],
+      "expected": "12"
+    }
+  ]
+}

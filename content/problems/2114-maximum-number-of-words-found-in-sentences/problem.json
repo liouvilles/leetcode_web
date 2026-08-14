@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2114,
+  "slug": "maximum-number-of-words-found-in-sentences",
+  "title": "句子中的最多单词数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-031",
+  "studyTags": [
+    "数组",
+    "字符串"
+  ],
+  "summary": "给定若干由单空格分隔单词的句子，返回任一句子所含单词数的最大值。",
+  "insight": "非空句子的单词数等于空格数加一，逐句扫描即可。",
+  "pitfalls": [
+    "句子保证非空",
+    "分隔符为单个空格",
+    "返回最大值而非总数"
+  ],
+  "solutions": [
+    {
+      "id": "count-spaces-per-sentence",
+      "title": "逐句统计空格",
+      "kind": "最优",
+      "idea": "利用规范输入直接以空格数加一计词。",
+      "steps": [
+        "answer 初始化零",
+        "每句从 one 开始，遇空格递增",
+        "更新最大值"
+      ],
+      "complexity": {
+        "time": "O(total characters)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/count-spaces-per-sentence/Solution.java",
+        "kotlin": "solutions/count-spaces-per-sentence/Solution.kt",
+        "cpp": "solutions/count-spaces-per-sentence/solution.cpp"
+      }
+    }
+  ]
+}

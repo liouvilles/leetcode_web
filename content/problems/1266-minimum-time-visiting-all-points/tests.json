@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minTimeToVisitAllPoints",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三点共七秒",
+      "args": [
+        [
+          [
+            1,
+            1
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            -1,
+            0
+          ]
+        ]
+      ],
+      "expected": 7
+    },
+    {
+      "name": "两点五秒",
+      "args": [
+        [
+          [
+            3,
+            2
+          ],
+          [
+            -2,
+            2
+          ]
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "单点无需移动",
+      "args": [
+        [
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2039,
+  "slug": "the-time-when-the-network-becomes-idle",
+  "title": "网络空闲的时刻",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-029",
+  "studyTags": [
+    "广度优先搜索",
+    "图论",
+    "数组"
+  ],
+  "summary": "服务器零回复其他节点周期重发的消息，求所有回复到达且不再有消息传输后的最早秒数。",
+  "insight": "BFS 求每个节点到零的最短边数 d，消息往返耗时 2d。若耐心值 p 小于往返时间，最后一次重发时刻为 floor((2d-1)/p)*p，其回复到达后下一秒网络才空闲。",
+  "pitfalls": [
+    "恰在首次回复到达时不会再重发",
+    "求所有节点中的最晚回复",
+    "最终答案加一"
+  ],
+  "solutions": [
+    {
+      "id": "bfs-distance-last-resend",
+      "title": "BFS 距离与最后重发时刻",
+      "kind": "最优",
+      "idea": "由最短往返时间直接计算每个节点的最后消息到达时间。",
+      "steps": [
+        "建无向图并 BFS 得 distance",
+        "node 从一：roundTrip=2*distance，lastSend=(roundTrip-1)/patience[node]*patience[node]",
+        "answer=max(answer,lastSend+roundTrip+1)"
+      ],
+      "complexity": {
+        "time": "O(V+E)",
+        "space": "O(V+E)"
+      },
+      "files": {
+        "java": "solutions/bfs-distance-last-resend/Solution.java",
+        "kotlin": "solutions/bfs-distance-last-resend/Solution.kt",
+        "cpp": "solutions/bfs-distance-last-resend/solution.cpp"
+      }
+    }
+  ]
+}

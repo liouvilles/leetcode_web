@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2255,
+  "slug": "count-prefixes-of-a-given-string",
+  "title": "统计是给定字符串前缀的字符串数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-033",
+  "studyTags": [
+    "数组",
+    "字符串"
+  ],
+  "summary": "统计 words 中有多少字符串是 s 的前缀。",
+  "insight": "逐词检查 s 是否以该 word 开头即可。",
+  "pitfalls": [
+    "检查方向是 word 为 s 的前缀",
+    "完整等于 s 也算",
+    "重复单词分别计数"
+  ],
+  "solutions": [
+    {
+      "id": "starts-with-scan",
+      "title": "逐词 startsWith 检查",
+      "kind": "最优",
+      "idea": "线性统计所有合法前缀词。",
+      "steps": [
+        "answer=0",
+        "遍历 word",
+        "s.startsWith(word) 时 answer++"
+      ],
+      "complexity": {
+        "time": "O(total compared characters)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/starts-with-scan/Solution.java",
+        "kotlin": "solutions/starts-with-scan/Solution.kt",
+        "cpp": "solutions/starts-with-scan/solution.cpp"
+      }
+    }
+  ]
+}

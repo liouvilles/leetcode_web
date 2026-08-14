@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 881,
+  "slug": "boats-to-save-people",
+  "title": "救生艇",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "数组",
+    "双指针",
+    "贪心",
+    "排序"
+  ],
+  "summary": "每艘船最多载两人且总重量不超过 limit，求运送所有人的最少船数。",
+  "insight": "最重者一定需要一艘船；若还能与当前最轻者同船就配对，否则最重者独乘，这个局部选择不会减少后续配对机会。",
+  "pitfalls": [
+    "每船最多两人，不是任意多人",
+    "排序后用双指针",
+    "无论能否配对，右指针每轮都要左移"
+  ],
+  "solutions": [
+    {
+      "id": "lightest-heaviest-two-pointers",
+      "title": "最轻最重双指针",
+      "kind": "最优",
+      "idea": "让每个最重者尽可能携带最轻者。",
+      "steps": [
+        "排序 people，left=0,right=n-1,boats=0",
+        "若 people[left]+people[right]<=limit 则 left++",
+        "right--、boats++，直到 left>right，返回 boats"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/lightest-heaviest-two-pointers/Solution.java",
+        "kotlin": "solutions/lightest-heaviest-two-pointers/Solution.kt",
+        "cpp": "solutions/lightest-heaviest-two-pointers/solution.cpp"
+      }
+    }
+  ]
+}

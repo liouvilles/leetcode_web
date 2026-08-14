@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2449,
+  "slug": "minimum-number-of-operations-to-make-arrays-similar",
+  "title": "使数组相似的最少操作次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-036",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "排序"
+  ],
+  "summary": "每次给一个元素加二、另一个元素减二，重排后使 nums 与 target 相同，求最少操作数。",
+  "insight": "奇偶性不变，分别排序两数组的奇数和偶数并对应匹配。全部绝对差之和中一次操作同时消除两个方向各二，总操作数为差和除四。",
+  "pitfalls": [
+    "必须按奇偶分组",
+    "同组排序匹配最优",
+    "答案使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "sort-by-parity-and-quarter-distance",
+      "title": "奇偶分组排序与四分之一差和",
+      "kind": "最优",
+      "idea": "对应秩匹配最小化绝对差。",
+      "steps": [
+        "提取 nums/target 的奇数、偶数并分别排序",
+        "对应位置累加 abs difference",
+        "返回 totalDifference/4"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/sort-by-parity-and-quarter-distance/Solution.java",
+        "kotlin": "solutions/sort-by-parity-and-quarter-distance/Solution.kt",
+        "cpp": "solutions/sort-by-parity-and-quarter-distance/solution.cpp"
+      }
+    }
+  ]
+}

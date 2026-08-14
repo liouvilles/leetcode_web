@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 179,
+  "slug": "largest-number",
+  "title": "最大数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-003",
+  "studyTags": [
+    "自定义排序",
+    "字符串拼接",
+    "全零处理"
+  ],
+  "summary": "重新排列非负整数数组，使拼接得到的十进制字符串表示最大的数。",
+  "insight": "两个字符串 a、b 的相对顺序应比较 a+b 与 b+a，较大的拼接组合放在前面。",
+  "pitfalls": [
+    "不能按数值大小或普通字典序排序",
+    "全部为零时只返回一个零",
+    "结果可能超过整数范围，必须以字符串返回"
+  ],
+  "solutions": [
+    {
+      "id": "concatenation-comparator",
+      "title": "拼接比较器排序",
+      "kind": "最优",
+      "idea": "把数字转成字符串后按 b+a 与 a+b 的降序关系排列。",
+      "steps": [
+        "转换所有数字为字符串",
+        "自定义比较器决定两两顺序",
+        "首字符为零时返回 0，否则连接全部字符串"
+      ],
+      "complexity": {
+        "time": "O(n log n · k)",
+        "space": "O(nk)"
+      },
+      "files": {
+        "java": "solutions/concatenation-comparator/Solution.java",
+        "kotlin": "solutions/concatenation-comparator/Solution.kt",
+        "cpp": "solutions/concatenation-comparator/solution.cpp"
+      }
+    }
+  ]
+}

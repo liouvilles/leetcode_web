@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "id": 3,
+  "slug": "longest-substring-without-repeating-characters",
+  "title": "无重复字符的最长子串",
+  "status": "published",
+  "qualityGate": "compile",
+  "batch": "legacy-001",
+  "studyTags": [
+    "不定长窗口",
+    "维护区间合法性",
+    "下标跳跃"
+  ],
+  "summary": "寻找字符串中不包含重复字符的最长连续片段，返回它的长度。",
+  "insight": "窗口右端持续扩展；一旦重复，只需让左端越过冲突字符上一次出现的位置。",
+  "pitfalls": [
+    "子串必须连续",
+    "左边界只能向右移动，不能被旧记录拉回",
+    "Java 与 Kotlin 的 Char 可直接作为哈希键"
+  ],
+  "solutions": [
+    {
+      "id": "window-set",
+      "title": "集合维护窗口",
+      "kind": "基础",
+      "idea": "集合保存当前窗口内的字符；遇到重复时逐个移除左端字符。",
+      "steps": [
+        "尝试加入右端字符",
+        "若重复则收缩左端直至合法",
+        "更新最大窗口长度"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(|Σ|)"
+      },
+      "files": {
+        "java": "solutions/window-set/Solution.java",
+        "kotlin": "solutions/window-set/Solution.kt",
+        "cpp": "solutions/window-set/solution.cpp"
+      }
+    },
+    {
+      "id": "last-position",
+      "title": "记录最后位置",
+      "kind": "最优",
+      "idea": "保存每个字符最近出现的下标，让左边界一步跳过冲突点。",
+      "steps": [
+        "读取当前字符的最近位置",
+        "令 left = max(left, last + 1)",
+        "记录新位置并更新答案"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(|Σ|)"
+      },
+      "files": {
+        "java": "solutions/last-position/Solution.java",
+        "kotlin": "solutions/last-position/Solution.kt",
+        "cpp": "solutions/last-position/solution.cpp"
+      }
+    }
+  ]
+}

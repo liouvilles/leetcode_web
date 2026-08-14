@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "partition",
+  "parameterTypes": [
+    "listNode",
+    "int"
+  ],
+  "returnType": "listNode",
+  "cases": [
+    {
+      "name": "两组均有多个节点",
+      "args": [
+        [
+          1,
+          4,
+          3,
+          2,
+          5,
+          2
+        ],
+        3
+      ],
+      "expected": [
+        1,
+        2,
+        2,
+        4,
+        3,
+        5
+      ]
+    },
+    {
+      "name": "小节点移到前方",
+      "args": [
+        [
+          2,
+          1
+        ],
+        2
+      ],
+      "expected": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "空链表",
+      "args": [
+        [],
+        3
+      ],
+      "expected": []
+    }
+  ]
+}

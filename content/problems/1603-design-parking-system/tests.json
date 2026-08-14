@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "ParkingSystem",
+  "constructorTypes": [
+    "int",
+    "int",
+    "int"
+  ],
+  "cases": [
+    {
+      "name": "经典三类车辆停车",
+      "constructorArgs": [
+        1,
+        1,
+        0
+      ],
+      "calls": [
+        {
+          "method": "addCar",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "addCar",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "addCar",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            3
+          ],
+          "returnType": "boolean",
+          "expected": false
+        },
+        {
+          "method": "addCar",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ],
+          "returnType": "boolean",
+          "expected": false
+        }
+      ]
+    },
+    {
+      "name": "两个小车位依次占满",
+      "constructorArgs": [
+        0,
+        0,
+        2
+      ],
+      "calls": [
+        {
+          "method": "addCar",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            3
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "addCar",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            3
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "addCar",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            3
+          ],
+          "returnType": "boolean",
+          "expected": false
+        }
+      ]
+    },
+    {
+      "name": "空停车场均失败",
+      "constructorArgs": [
+        0,
+        0,
+        0
+      ],
+      "calls": [
+        {
+          "method": "addCar",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ],
+          "returnType": "boolean",
+          "expected": false
+        },
+        {
+          "method": "addCar",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ],
+          "returnType": "boolean",
+          "expected": false
+        }
+      ]
+    }
+  ]
+}

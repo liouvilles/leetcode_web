@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "uniqueOccurrences",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "次数一二三互异",
+      "args": [
+        [
+          1,
+          2,
+          2,
+          1,
+          1,
+          3
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "两个值均一次",
+      "args": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "含负数仍互异",
+      "args": [
+        [
+          -3,
+          0,
+          1,
+          -3,
+          1,
+          1,
+          1,
+          -3,
+          10,
+          0
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

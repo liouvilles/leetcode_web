@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2166,
+  "slug": "design-bitset",
+  "title": "设计位集",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-031",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "设计"
+  ],
+  "summary": "设计固定大小位集，支持置一、置零、整体翻转、全一判断、任一为一、统计一数和输出字符串。",
+  "insight": "保存底层位与全局 flipped 标志，逻辑位等于底层位异或 flipped。整体翻转只切换标志并令 ones=size-ones；单点更新按逻辑值判断后写入对应底层值。",
+  "pitfalls": [
+    "重复 fix 或 unfix 不改变计数",
+    "flip 后单点写入要考虑懒标志",
+    "toString 输出逻辑位"
+  ],
+  "solutions": [
+    {
+      "id": "lazy-global-flip-bitset",
+      "title": "全局懒翻转位集",
+      "kind": "最优",
+      "idea": "一个翻转标志把 O(n) flip 降为 O(1)。",
+      "steps": [
+        "bits 保存未应用全局 flip 的布尔值，ones 保存逻辑一数量",
+        "fix/unfix 先求 bits[idx] xor flipped，仅状态变化时更新底层位和 ones",
+        "flip 切换标志并 ones=size-ones；查询直接使用 ones；toString 逐位异或输出"
+      ],
+      "complexity": {
+        "time": "O(1) 更新与查询，O(n) toString",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/lazy-global-flip-bitset/Solution.java",
+        "kotlin": "solutions/lazy-global-flip-bitset/Solution.kt",
+        "cpp": "solutions/lazy-global-flip-bitset/solution.cpp"
+      }
+    }
+  ]
+}

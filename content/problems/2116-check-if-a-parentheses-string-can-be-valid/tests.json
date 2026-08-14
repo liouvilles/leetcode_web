@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "canBeValid",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "可修改位置补成有效序列",
+      "args": [
+        "))()))",
+        "010100"
+      ],
+      "expected": true
+    },
+    {
+      "name": "全部可修改的短串可行",
+      "args": [
+        "()",
+        "00"
+      ],
+      "expected": true
+    },
+    {
+      "name": "奇数长度必不可行",
+      "args": [
+        ")",
+        "0"
+      ],
+      "expected": false
+    }
+  ]
+}

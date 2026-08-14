@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "replaceWords",
+  "parameterTypes": [
+    "stringList",
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "三个词根替换句子",
+      "args": [
+        [
+          "cat",
+          "bat",
+          "rat"
+        ],
+        "the cattle was rattled by the battery"
+      ],
+      "expected": "the cat was rat by the bat"
+    },
+    {
+      "name": "多个词根取最短",
+      "args": [
+        [
+          "a",
+          "b",
+          "c"
+        ],
+        "aadsfasf absbs bbab cadsfafs"
+      ],
+      "expected": "a a b c"
+    },
+    {
+      "name": "没有匹配词根",
+      "args": [
+        [
+          "x"
+        ],
+        "hello world"
+      ],
+      "expected": "hello world"
+    }
+  ]
+}

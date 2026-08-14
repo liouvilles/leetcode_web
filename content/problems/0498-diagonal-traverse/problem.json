@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 498,
+  "slug": "diagonal-traverse",
+  "title": "对角线遍历",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-007",
+  "studyTags": [
+    "矩阵模拟",
+    "方向切换",
+    "边界"
+  ],
+  "summary": "按右上、左下方向交替遍历矩阵的所有元素并返回顺序。",
+  "insight": "用 direction=±1 同时控制行列变化，越界时根据当前方向修正到下一条对角线起点并反转方向。",
+  "pitfalls": [
+    "右上方向遇上边或右边的修正不同",
+    "左下方向遇下边或左边的修正不同",
+    "每个位置恰好写入一次"
+  ],
+  "solutions": [
+    {
+      "id": "direction-simulation",
+      "title": "方向状态模拟",
+      "kind": "最优",
+      "idea": "维护当前 row/column 和方向符号逐格移动。",
+      "steps": [
+        "写入当前元素",
+        "尝试 nextRow=row-direction,nextColumn=column+direction",
+        "越界时按方向选择向右或向下的新起点并翻转 direction"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(1) excluding output"
+      },
+      "files": {
+        "java": "solutions/direction-simulation/Solution.java",
+        "kotlin": "solutions/direction-simulation/Solution.kt",
+        "cpp": "solutions/direction-simulation/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "commonChars",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "stringList",
+  "cases": [
+    {
+      "name": "bella 集合",
+      "args": [
+        [
+          "bella",
+          "label",
+          "roller"
+        ]
+      ],
+      "expected": [
+        "e",
+        "l",
+        "l"
+      ]
+    },
+    {
+      "name": "cool 集合",
+      "args": [
+        [
+          "cool",
+          "lock",
+          "cook"
+        ]
+      ],
+      "expected": [
+        "c",
+        "o"
+      ]
+    },
+    {
+      "name": "没有共同字符",
+      "args": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "expected": []
+    }
+  ]
+}

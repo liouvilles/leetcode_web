@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "secondGreaterElement",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "经典五元素第二更大值",
+      "args": [
+        [
+          2,
+          4,
+          0,
+          9,
+          6
+        ]
+      ],
+      "expected": [
+        9,
+        6,
+        6,
+        -1,
+        -1
+      ]
+    },
+    {
+      "name": "相等元素不算严格更大",
+      "args": [
+        [
+          3,
+          3
+        ]
+      ],
+      "expected": [
+        -1,
+        -1
+      ]
+    },
+    {
+      "name": "递增三元素首项第二更大为三",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        3,
+        -1,
+        -1
+      ]
+    }
+  ]
+}

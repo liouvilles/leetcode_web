@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "closestMeetingNode",
+  "parameterTypes": [
+    "intArray",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两个起点最近汇合于二",
+      "args": [
+        [
+          2,
+          2,
+          3,
+          -1
+        ],
+        0,
+        1
+      ],
+      "expected": 2
+    },
+    {
+      "name": "链尾节点二是共同可达点",
+      "args": [
+        [
+          1,
+          2,
+          -1
+        ],
+        0,
+        2
+      ],
+      "expected": 2
+    },
+    {
+      "name": "二节点环并列取下标零",
+      "args": [
+        [
+          1,
+          0
+        ],
+        0,
+        1
+      ],
+      "expected": 0
+    }
+  ]
+}

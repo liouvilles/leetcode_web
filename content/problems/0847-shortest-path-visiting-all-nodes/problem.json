@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 847,
+  "slug": "shortest-path-visiting-all-nodes",
+  "title": "访问所有节点的最短路径",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-011",
+  "studyTags": [
+    "图论",
+    "广度优先搜索",
+    "状态压缩"
+  ],
+  "summary": "连通无向图可从任意节点出发、重复经过节点，求访问所有节点的最短路径长度。",
+  "insight": "状态由当前位置和已访问节点位掩码组成；把每个节点作为零步起点同时入队，多源 BFS 首次得到全掩码就是全局最短。",
+  "pitfalls": [
+    "路径可重复节点和边",
+    "起点可任意选择，所以全部单节点状态都是 BFS 源",
+    "visited 要区分相同节点下不同掩码"
+  ],
+  "solutions": [
+    {
+      "id": "multi-source-mask-bfs",
+      "title": "多源状态压缩 BFS",
+      "kind": "最优",
+      "idea": "在节点乘访问集合的状态图上求最短路。",
+      "steps": [
+        "targetMask=(1<<n)-1；为每个 node 入队 (node,1<<node,0) 并标记",
+        "弹出状态，mask==target 返回 distance",
+        "对每个邻居生成 nextMask=mask|1<<neighbor，未访问状态入队 distance+1"
+      ],
+      "complexity": {
+        "time": "O((v+e)·2^v)",
+        "space": "O(v·2^v)"
+      },
+      "files": {
+        "java": "solutions/multi-source-mask-bfs/Solution.java",
+        "kotlin": "solutions/multi-source-mask-bfs/Solution.kt",
+        "cpp": "solutions/multi-source-mask-bfs/solution.cpp"
+      }
+    }
+  ]
+}

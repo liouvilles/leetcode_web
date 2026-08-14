@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1545,
+  "slug": "find-kth-bit-in-nth-binary-string",
+  "title": "找出第 N 个二进制字符串中的第 K 位",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-022",
+  "studyTags": [
+    "字符串",
+    "递归"
+  ],
+  "summary": "S1=0，Sn=S(n-1)+1+reverse(invert(S(n-1)))，返回 Sn 第 k 位。",
+  "insight": "中点为一；左半递归对应 S(n-1)，右半位置镜像到左半后值取反，无需构造指数长度字符串。",
+  "pitfalls": [
+    "k 从一开始",
+    "Sn 长度为 2^n-1、中点为 2^(n-1)",
+    "右半镜像位置是 length-k+1"
+  ],
+  "solutions": [
+    {
+      "id": "recursive-symmetry",
+      "title": "递归对称定位",
+      "kind": "最优",
+      "idea": "利用右半是左半反转取反的结构缩小 n。",
+      "steps": [
+        "n==1 返回 0，length=(1<<n)-1,middle=1<<(n-1)",
+        "k==middle 返回 1，k<middle 递归 n-1,k",
+        "否则递归 n-1,length-k+1 并取反"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/recursive-symmetry/Solution.java",
+        "kotlin": "solutions/recursive-symmetry/Solution.kt",
+        "cpp": "solutions/recursive-symmetry/solution.cpp"
+      }
+    }
+  ]
+}

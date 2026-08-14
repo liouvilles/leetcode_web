@@ -1,0 +1,1 @@
+class Solution { public: int minimumLength(string text){int left=0,right=text.size()-1;while(left<right&&text[left]==text[right]){char target=text[left];while(left<=right&&text[left]==target)++left;while(left<=right&&text[right]==target)--right;}return max(0,right-left+1);} };

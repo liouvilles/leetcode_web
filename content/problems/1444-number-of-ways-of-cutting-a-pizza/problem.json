@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 1444,
+  "slug": "number-of-ways-of-cutting-a-pizza",
+  "title": "切披萨的方案数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-020",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "记忆化搜索",
+    "矩阵",
+    "前缀和"
+  ],
+  "summary": "把披萨横切或竖切成 k 块，每块至少一个苹果；每次把切下的上方或左方给出，统计切法。",
+  "insight": "二维后缀和可常数时间判断任意上方或左方切片是否含苹果。记忆化状态为剩余披萨左上角与还需切的次数。",
+  "pitfalls": [
+    "只有被切下的上或左部分先验证，剩余部分由递归验证",
+    "无苹果状态立即为零",
+    "k 块需要执行 k-1 刀"
+  ],
+  "solutions": [
+    {
+      "id": "suffix-sum-memoized-cuts",
+      "title": "二维后缀和记忆化切分",
+      "kind": "最优",
+      "idea": "枚举第一刀位置并递归处理保留的右下部分。",
+      "steps": [
+        "构造 apples[row][col] 为从该点到右下苹果数",
+        "dfs(row,col,cuts)：无苹果返回零，cuts==0 返回一",
+        "枚举 nextRow，若上片有苹果则递归；枚举 nextCol 同理，求和取模"
+      ],
+      "complexity": {
+        "time": "O(kmn(m+n))",
+        "space": "O(kmn)"
+      },
+      "files": {
+        "java": "solutions/suffix-sum-memoized-cuts/Solution.java",
+        "kotlin": "solutions/suffix-sum-memoized-cuts/Solution.kt",
+        "cpp": "solutions/suffix-sum-memoized-cuts/solution.cpp"
+      }
+    }
+  ]
+}

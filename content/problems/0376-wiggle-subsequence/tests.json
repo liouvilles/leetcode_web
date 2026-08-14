@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "wiggleMaxLength",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典六长度摆动",
+      "args": [
+        [
+          1,
+          7,
+          4,
+          9,
+          2,
+          5
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "部分单调",
+      "args": [
+        [
+          1,
+          17,
+          5,
+          10,
+          13,
+          15,
+          10,
+          5,
+          16,
+          8
+        ]
+      ],
+      "expected": 7
+    },
+    {
+      "name": "完全递增",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

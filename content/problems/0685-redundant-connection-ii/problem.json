@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 685,
+  "slug": "redundant-connection-ii",
+  "title": "冗余连接 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-009",
+  "studyTags": [
+    "并查集",
+    "图论",
+    "有向树"
+  ],
+  "summary": "有向图由一棵有根树额外加入一条边形成，删除一条边恢复有根树；存在多个答案时返回输入中最后出现者。",
+  "insight": "非法结构只可能是某节点有两个父节点、存在环或两者兼有；先找双父候选，再跳过后出现候选用并查集检测环即可区分。",
+  "pitfalls": [
+    "双父且仍有环时应删除较早的父边",
+    "双父但无环时删除较晚的父边",
+    "只有环时返回形成环的当前边"
+  ],
+  "solutions": [
+    {
+      "id": "two-parent-plus-union-find",
+      "title": "双父检测与并查集判环",
+      "kind": "最优",
+      "idea": "将两种违规条件组合成常数次扫描。",
+      "steps": [
+        "扫描边记录每个节点父亲，若重复得到 firstCandidate 和 secondCandidate",
+        "重新初始化并查集，跳过 secondCandidate 扫描其余边",
+        "若发现环：有双父返回 firstCandidate，否则返回当前边；无环返回 secondCandidate"
+      ],
+      "complexity": {
+        "time": "O(n α(n))",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/two-parent-plus-union-find/Solution.java",
+        "kotlin": "solutions/two-parent-plus-union-find/Solution.kt",
+        "cpp": "solutions/two-parent-plus-union-find/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 129,
+  "slug": "sum-root-to-leaf-numbers",
+  "title": "求根节点到叶节点数字之和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-004",
+  "studyTags": [
+    "二叉树",
+    "深度优先搜索",
+    "路径累积"
+  ],
+  "summary": "树中每个节点保存一位数字，把每条根到叶路径视为一个十进制数，返回这些数的总和。",
+  "insight": "沿路径进入新节点时令当前值乘十再加节点数字；到叶子时把完整数字计入总和。",
+  "pitfalls": [
+    "只有叶子才结束一个数字",
+    "路径上的前导零自然有效",
+    "空树贡献零"
+  ],
+  "solutions": [
+    {
+      "id": "dfs-number-building",
+      "title": "深度优先构造路径数字",
+      "kind": "最优",
+      "idea": "递归参数携带父路径数值，每深入一层追加一位。",
+      "steps": [
+        "空节点返回零",
+        "current=prefix*10+node.val",
+        "叶子返回 current，否则返回左右子树和"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(h)"
+      },
+      "files": {
+        "java": "solutions/dfs-number-building/Solution.java",
+        "kotlin": "solutions/dfs-number-building/Solution.kt",
+        "cpp": "solutions/dfs-number-building/solution.cpp"
+      }
+    }
+  ]
+}

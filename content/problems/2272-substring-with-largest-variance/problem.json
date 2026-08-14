@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2272,
+  "slug": "substring-with-largest-variance",
+  "title": "最大波动的子字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-033",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "字符串"
+  ],
+  "summary": "子串波动值为其中出现次数最多字符与最少字符的次数差，求所有至少含两种字符子串的最大波动。",
+  "insight": "枚举有序字符对 (major,minor)，把 major 视为加一、minor 视为减一做 Kadane；必须至少见过一个 minor，且只有在后方仍有 minor 时才可在负和处重置。",
+  "pitfalls": [
+    "字符对有方向，需枚举 a,b 与 b,a",
+    "合法子串必须包含 minor",
+    "重置时要保留后续出现 minor 的可能"
+  ],
+  "solutions": [
+    {
+      "id": "ordered-character-pair-kadane",
+      "title": "有序字符对 Kadane",
+      "kind": "最优",
+      "idea": "把两字符频次差转为带约束最大子段和。",
+      "steps": [
+        "统计全局频次",
+        "枚举 major!=minor 且两者均出现",
+        "扫描 s：majorCount、minorCount；遇 minor 减 remainingMinor；minorCount>0 时更新差",
+        "majorCount<minorCount 且 remainingMinor>0 时两计数清零"
+      ],
+      "complexity": {
+        "time": "O(alphabet²·n)",
+        "space": "O(alphabet)"
+      },
+      "files": {
+        "java": "solutions/ordered-character-pair-kadane/Solution.java",
+        "kotlin": "solutions/ordered-character-pair-kadane/Solution.kt",
+        "cpp": "solutions/ordered-character-pair-kadane/solution.cpp"
+      }
+    }
+  ]
+}

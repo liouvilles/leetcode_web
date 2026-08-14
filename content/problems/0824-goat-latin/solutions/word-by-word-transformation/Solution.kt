@@ -1,0 +1,1 @@
+class Solution { fun toGoatLatin(sentence:String):String{val vowels="aeiouAEIOU".toSet();return sentence.split(' ').mapIndexed{index,input->var word=input;if(word[0] !in vowels)word=word.substring(1)+word[0];word+"ma"+"a".repeat(index+1)}.joinToString(" ")} }

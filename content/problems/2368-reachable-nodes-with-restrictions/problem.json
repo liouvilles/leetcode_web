@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2368,
+  "slug": "reachable-nodes-with-restrictions",
+  "title": "受限条件下可到达节点的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-035",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "树",
+    "广度优先搜索",
+    "图论"
+  ],
+  "summary": "无向树从节点零出发，禁止经过 restricted 中的节点，求可到达节点数量。",
+  "insight": "把受限节点预先标记，随后从零做 BFS，只把未受限且未访问的邻居加入队列。",
+  "pitfalls": [
+    "零保证不受限",
+    "树边是双向的",
+    "受限节点及其后方分支都不可达"
+  ],
+  "solutions": [
+    {
+      "id": "bfs-skipping-restricted-nodes",
+      "title": "跳过受限节点的 BFS",
+      "kind": "最优",
+      "idea": "在树上遍历零所在的可用连通分量。",
+      "steps": [
+        "建无向邻接表并标记 restricted",
+        "队列从 0 开始，seen[0]=true",
+        "弹出节点计数，邻居未见且不受限时入队",
+        "返回计数"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/bfs-skipping-restricted-nodes/Solution.java",
+        "kotlin": "solutions/bfs-skipping-restricted-nodes/Solution.kt",
+        "cpp": "solutions/bfs-skipping-restricted-nodes/solution.cpp"
+      }
+    }
+  ]
+}

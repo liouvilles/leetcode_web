@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "canJump",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "可以跨过中间位置到终点",
+      "args": [
+        [
+          2,
+          3,
+          1,
+          1,
+          4
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "被零阻断无法到达",
+      "args": [
+        [
+          3,
+          2,
+          1,
+          0,
+          4
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "单元素已经到达终点",
+      "args": [
+        [
+          0
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

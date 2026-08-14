@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1925,
+  "slug": "count-square-sum-triples",
+  "title": "统计平方和三元组的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-028",
+  "studyTags": [
+    "数学",
+    "枚举"
+  ],
+  "summary": "统计一到 n 中满足 a²+b²=c² 的有序三元组数量。",
+  "insight": "约束很小，枚举 a、b，再检查平方和是否为不超过 n 的整数平方；a、b 顺序自然分别计数。",
+  "pitfalls": [
+    "a 与 b 交换算不同三元组",
+    "三个数都在一到 n",
+    "平方根需回代避免浮点误判"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-two-legs",
+      "title": "枚举两条直角边",
+      "kind": "最优",
+      "idea": "二重循环并验证平方和的整数平方根。",
+      "steps": [
+        "a、b 从 1 到 n",
+        "square=a*a+b*b，c=floor(sqrt(square))",
+        "若 c<=n 且 c*c==square 则计数"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/enumerate-two-legs/Solution.java",
+        "kotlin": "solutions/enumerate-two-legs/Solution.kt",
+        "cpp": "solutions/enumerate-two-legs/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "widthOfBinaryTree",
+  "parameterTypes": [
+    "treeNode"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "第三层宽度四",
+      "args": [
+        [
+          1,
+          3,
+          2,
+          5,
+          3,
+          null,
+          9
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "深层宽度七",
+      "args": [
+        [
+          1,
+          3,
+          2,
+          5,
+          null,
+          null,
+          9,
+          6,
+          null,
+          7
+        ]
+      ],
+      "expected": 7
+    },
+    {
+      "name": "单节点",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

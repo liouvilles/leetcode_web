@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "lengthOfLIS",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典数组最长受限递增序列五",
+      "args": [
+        [
+          4,
+          2,
+          1,
+          4,
+          3,
+          4,
+          5,
+          8,
+          15
+        ],
+        3
+      ],
+      "expected": 5
+    },
+    {
+      "name": "第二组数组最长四",
+      "args": [
+        [
+          7,
+          4,
+          5,
+          1,
+          8,
+          12,
+          4,
+          7
+        ],
+        5
+      ],
+      "expected": 4
+    },
+    {
+      "name": "差值过大只能选一个",
+      "args": [
+        [
+          1,
+          5
+        ],
+        3
+      ],
+      "expected": 1
+    }
+  ]
+}

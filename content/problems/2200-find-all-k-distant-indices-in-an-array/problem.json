@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2200,
+  "slug": "find-all-k-distant-indices-in-an-array",
+  "title": "找出数组中的所有 K 近邻下标",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-032",
+  "studyTags": [
+    "数组",
+    "双指针"
+  ],
+  "summary": "若某下标 i 到至少一个值为 key 的下标 j 的距离不超过 k，则 i 为 K 近邻下标，按升序返回全部。",
+  "insight": "每个 key 位置覆盖闭区间 [j-k,j+k]。用布尔数组标记这些区间，再顺序收集即可；约束允许直接覆盖。",
+  "pitfalls": [
+    "距离条件包含等于 k",
+    "答案下标不可重复",
+    "范围裁剪到数组边界"
+  ],
+  "solutions": [
+    {
+      "id": "mark-key-centered-intervals",
+      "title": "标记 Key 中心区间",
+      "kind": "最优",
+      "idea": "合并语义通过布尔标记自然去重。",
+      "steps": [
+        "nearby[n]=false",
+        "遇 nums[j]==key，遍历 max(0,j-k)..min(n-1,j+k) 标真",
+        "顺序收集所有 true 下标"
+      ],
+      "complexity": {
+        "time": "O(nk)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/mark-key-centered-intervals/Solution.java",
+        "kotlin": "solutions/mark-key-centered-intervals/Solution.kt",
+        "cpp": "solutions/mark-key-centered-intervals/solution.cpp"
+      }
+    }
+  ]
+}

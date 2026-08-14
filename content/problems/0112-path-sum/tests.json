@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "hasPathSum",
+  "parameterTypes": [
+    "treeNode",
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "存在根到叶目标路径",
+      "args": [
+        [
+          5,
+          4,
+          8,
+          11,
+          null,
+          13,
+          4,
+          7,
+          2,
+          null,
+          null,
+          null,
+          1
+        ],
+        22
+      ],
+      "expected": true
+    },
+    {
+      "name": "相同前缀但叶节点不满足",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        5
+      ],
+      "expected": false
+    },
+    {
+      "name": "空树没有路径",
+      "args": [
+        [],
+        0
+      ],
+      "expected": false
+    }
+  ]
+}

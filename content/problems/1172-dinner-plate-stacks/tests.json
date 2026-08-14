@@ -1,0 +1,235 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "DinnerPlates",
+  "constructorTypes": [
+    "int"
+  ],
+  "cases": [
+    {
+      "name": "经典空洞填充与右侧弹出",
+      "constructorArgs": [
+        2
+      ],
+      "calls": [
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ]
+        },
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ]
+        },
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            3
+          ]
+        },
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            4
+          ]
+        },
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            5
+          ]
+        },
+        {
+          "method": "popAtStack",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            0
+          ],
+          "returnType": "int",
+          "expected": 2
+        },
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            20
+          ]
+        },
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            21
+          ]
+        },
+        {
+          "method": "popAtStack",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            0
+          ],
+          "returnType": "int",
+          "expected": 20
+        },
+        {
+          "method": "popAtStack",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ],
+          "returnType": "int",
+          "expected": 21
+        },
+        {
+          "method": "pop",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 5
+        },
+        {
+          "method": "pop",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 4
+        },
+        {
+          "method": "pop",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 3
+        },
+        {
+          "method": "pop",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "pop",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": -1
+        }
+      ]
+    },
+    {
+      "name": "容量一优先填左洞",
+      "constructorArgs": [
+        1
+      ],
+      "calls": [
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ]
+        },
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ]
+        },
+        {
+          "method": "popAtStack",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            0
+          ],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            3
+          ]
+        },
+        {
+          "method": "pop",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 2
+        },
+        {
+          "method": "pop",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 3
+        }
+      ]
+    },
+    {
+      "name": "空栈与无效下标",
+      "constructorArgs": [
+        2
+      ],
+      "calls": [
+        {
+          "method": "pop",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": -1
+        },
+        {
+          "method": "popAtStack",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            3
+          ],
+          "returnType": "int",
+          "expected": -1
+        }
+      ]
+    }
+  ]
+}

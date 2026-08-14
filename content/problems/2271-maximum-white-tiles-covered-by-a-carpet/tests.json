@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumWhiteTiles",
+  "parameterTypes": [
+    "intMatrix",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典区间长度十最多覆盖九块",
+      "args": [
+        [
+          [
+            1,
+            5
+          ],
+          [
+            10,
+            11
+          ],
+          [
+            12,
+            18
+          ],
+          [
+            20,
+            25
+          ],
+          [
+            30,
+            32
+          ]
+        ],
+        10
+      ],
+      "expected": 9
+    },
+    {
+      "name": "两格毯子覆盖连续两砖",
+      "args": [
+        [
+          [
+            10,
+            11
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        2
+      ],
+      "expected": 2
+    },
+    {
+      "name": "毯子长于单段可覆盖全部",
+      "args": [
+        [
+          [
+            5,
+            7
+          ]
+        ],
+        10
+      ],
+      "expected": 3
+    }
+  ]
+}

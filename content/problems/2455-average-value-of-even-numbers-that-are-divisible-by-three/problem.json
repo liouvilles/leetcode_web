@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2455,
+  "slug": "average-value-of-even-numbers-that-are-divisible-by-three",
+  "title": "可被三整除的偶数的平均值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-036",
+  "studyTags": [
+    "数组",
+    "数学"
+  ],
+  "summary": "求数组中同时为偶数且能被三整除元素的整数平均值，不存在返回零。",
+  "insight": "条件等价于能被六整除，累计和与数量后做整数除法。",
+  "pitfalls": [
+    "只取同时满足两个条件的元素",
+    "平均值保证向下取整",
+    "空集合返回零"
+  ],
+  "solutions": [
+    {
+      "id": "sum-and-count-multiples-of-six",
+      "title": "六的倍数求和计数",
+      "kind": "最优",
+      "idea": "一次扫描计算整数平均值。",
+      "steps": [
+        "sum=count=0",
+        "value%6==0 时累加并计数",
+        "count==0 返回0，否则 sum/count"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/sum-and-count-multiples-of-six/Solution.java",
+        "kotlin": "solutions/sum-and-count-multiples-of-six/Solution.kt",
+        "cpp": "solutions/sum-and-count-multiples-of-six/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sufficientSubset",
+  "parameterTypes": [
+    "treeNode",
+    "int"
+  ],
+  "returnType": "treeNode",
+  "cases": [
+    {
+      "name": "剪掉不足左叶",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        4
+      ],
+      "expected": [
+        1,
+        null,
+        3
+      ]
+    },
+    {
+      "name": "两叶都不足删除整树",
+      "args": [
+        [
+          1,
+          2,
+          -3
+        ],
+        5
+      ],
+      "expected": []
+    },
+    {
+      "name": "两条路径都足够",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          null,
+          null,
+          5
+        ],
+        7
+      ],
+      "expected": [
+        1,
+        2,
+        3,
+        4,
+        null,
+        null,
+        5
+      ]
+    }
+  ]
+}

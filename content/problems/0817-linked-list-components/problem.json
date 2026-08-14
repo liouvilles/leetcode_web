@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 817,
+  "slug": "linked-list-components",
+  "title": "链表组件",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-011",
+  "studyTags": [
+    "链表",
+    "哈希集合"
+  ],
+  "summary": "链表节点值互不相同，nums 是其中部分值；若选中节点在链表中连续相邻则属于同一组件，求组件数量。",
+  "insight": "每个组件恰有一个尾节点：当前值在集合中，且下一节点为空或不在集合中；扫描链表统计这种边界即可。",
+  "pitfalls": [
+    "nums 的输入顺序与链表顺序无关",
+    "单个选中节点也是一个组件",
+    "只统计选中连续段的结束位置"
+  ],
+  "solutions": [
+    {
+      "id": "selected-run-end-count",
+      "title": "统计选中连续段尾部",
+      "kind": "最优",
+      "idea": "用集合判断当前和下一节点是否选中。",
+      "steps": [
+        "把 nums 放入集合",
+        "沿链表扫描",
+        "若当前值在集合且 next 为空或 next.val 不在集合，answer++；返回答案"
+      ],
+      "complexity": {
+        "time": "O(n+m)",
+        "space": "O(m)"
+      },
+      "files": {
+        "java": "solutions/selected-run-end-count/Solution.java",
+        "kotlin": "solutions/selected-run-end-count/Solution.kt",
+        "cpp": "solutions/selected-run-end-count/solution.cpp"
+      }
+    }
+  ]
+}

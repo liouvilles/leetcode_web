@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 826,
+  "slug": "most-profit-assigning-work",
+  "title": "安排工作以达到最大收益",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-011",
+  "studyTags": [
+    "数组",
+    "排序",
+    "双指针",
+    "贪心"
+  ],
+  "summary": "每个工人至多完成一份难度不超过其能力的工作，同类工作可重复安排，求总最大收益。",
+  "insight": "按难度排序工作、按能力排序工人；扫描工人时持续纳入可完成工作并维护历史最高利润，每人取该最高值。",
+  "pitfalls": [
+    "工作可被多个工人重复选择",
+    "利润不保证随难度递增，要维护前缀最大",
+    "能力不足任何工作时贡献零"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-workers-job-sweep",
+      "title": "排序工人与工作双指针",
+      "kind": "最优",
+      "idea": "一次扫描维护当前能力可达的最高利润。",
+      "steps": [
+        "把 difficulty/profit 配对并按难度排序，worker 排序",
+        "对每个 ability，推进 job 指针纳入 difficulty<=ability 的工作，更新 bestProfit",
+        "answer+=bestProfit，返回总和"
+      ],
+      "complexity": {
+        "time": "O((j+w) log(j+w))",
+        "space": "O(j)"
+      },
+      "files": {
+        "java": "solutions/sorted-workers-job-sweep/Solution.java",
+        "kotlin": "solutions/sorted-workers-job-sweep/Solution.kt",
+        "cpp": "solutions/sorted-workers-job-sweep/solution.cpp"
+      }
+    }
+  ]
+}

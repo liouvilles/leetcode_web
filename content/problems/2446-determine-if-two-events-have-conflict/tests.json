@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "haveConflict",
+  "parameterTypes": [
+    "stringArray",
+    "stringArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "两个事件时间重叠",
+      "args": [
+        [
+          "01:15",
+          "02:00"
+        ],
+        [
+          "02:00",
+          "03:00"
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "两个事件完全分离",
+      "args": [
+        [
+          "01:00",
+          "02:00"
+        ],
+        [
+          "03:00",
+          "04:00"
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "一个事件包含另一个",
+      "args": [
+        [
+          "10:00",
+          "12:00"
+        ],
+        [
+          "10:30",
+          "11:00"
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

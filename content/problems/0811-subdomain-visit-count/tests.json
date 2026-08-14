@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "subdomainVisits",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "stringList",
+  "cases": [
+    {
+      "name": "三级域名",
+      "args": [
+        [
+          "9001 discuss.leetcode.com"
+        ]
+      ],
+      "expected": [
+        "9001 com",
+        "9001 discuss.leetcode.com",
+        "9001 leetcode.com"
+      ]
+    },
+    {
+      "name": "两项共享顶级域",
+      "args": [
+        [
+          "900 google.mail.com",
+          "50 yahoo.com"
+        ]
+      ],
+      "expected": [
+        "950 com",
+        "900 google.mail.com",
+        "900 mail.com",
+        "50 yahoo.com"
+      ]
+    },
+    {
+      "name": "两个二级域",
+      "args": [
+        [
+          "1 a.com",
+          "2 b.com"
+        ]
+      ],
+      "expected": [
+        "1 a.com",
+        "2 b.com",
+        "3 com"
+      ]
+    }
+  ]
+}

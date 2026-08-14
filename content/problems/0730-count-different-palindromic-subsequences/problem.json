@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 730,
+  "slug": "count-different-palindromic-subsequences",
+  "title": "统计不同回文子序列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-009",
+  "studyTags": [
+    "字符串",
+    "区间动态规划",
+    "计数"
+  ],
+  "summary": "统计字符串中不同的非空回文子序列数量，结果对 10^9+7 取模。",
+  "insight": "区间两端不同用容斥合并子区间；两端相同时，内部同字符出现零次、一次或多次决定新增两个、一个或需减去被重复计算的内部区间。",
+  "pitfalls": [
+    "统计不同字符串而非下标选择数",
+    "减法取模后要恢复非负",
+    "两端相同分支需寻找内部首个与末个同字符位置"
+  ],
+  "solutions": [
+    {
+      "id": "interval-dp-with-inner-equals",
+      "title": "按内部同端字符数量分类的区间 DP",
+      "kind": "最优",
+      "idea": "从短区间到长区间计算不同回文子序列数。",
+      "steps": [
+        "dp[i][i]=1",
+        "若 s[i]!=s[j]，dp=dp[i+1][j]+dp[i][j-1]-dp[i+1][j-1]",
+        "若相同，找 low/high：无同字符为 2*inner+2，恰一为 +1，多于一为 2*inner-dp[low+1][high-1]；统一取模"
+      ],
+      "complexity": {
+        "time": "O(n³) worst case",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/interval-dp-with-inner-equals/Solution.java",
+        "kotlin": "solutions/interval-dp-with-inner-equals/Solution.kt",
+        "cpp": "solutions/interval-dp-with-inner-equals/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1854,
+  "slug": "maximum-population-year",
+  "title": "人口最多的年份",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-027",
+  "studyTags": [
+    "数组",
+    "计数",
+    "前缀和"
+  ],
+  "summary": "每人从 birth 年开始存活，到 death 年不再计入，返回人口最多的最早年份。",
+  "insight": "用年份差分：birth 加一、death 减一，前缀和得每年人口；只在严格超过最大值时更新即可保留最早年份。",
+  "pitfalls": [
+    "死亡年份不计入",
+    "平局返回最早年份",
+    "年份范围固定 1950..2050"
+  ],
+  "solutions": [
+    {
+      "id": "year-difference-prefix",
+      "title": "年份差分前缀",
+      "kind": "最优",
+      "idea": "把每个人对连续年份的贡献转成两个端点更新。",
+      "steps": [
+        "difference[101]",
+        "对 log：difference[birth-1950]++，difference[death-1950]--",
+        "前缀人口严格超过 maximum 时记录 year，返回"
+      ],
+      "complexity": {
+        "time": "O(n+years)",
+        "space": "O(years)"
+      },
+      "files": {
+        "java": "solutions/year-difference-prefix/Solution.java",
+        "kotlin": "solutions/year-difference-prefix/Solution.kt",
+        "cpp": "solutions/year-difference-prefix/solution.cpp"
+      }
+    }
+  ]
+}

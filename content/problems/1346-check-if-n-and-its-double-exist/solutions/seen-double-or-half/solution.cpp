@@ -1,0 +1,1 @@
+class Solution { public: bool checkIfExist(vector<int>& arr){unordered_set<int> seen;for(int value:arr){if(seen.count(value*2)||(value%2==0&&seen.count(value/2)))return true;seen.insert(value);}return false;} };

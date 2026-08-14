@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "buddyStrings",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "交换两字符",
+      "args": [
+        "ab",
+        "ba"
+      ],
+      "expected": true
+    },
+    {
+      "name": "相同但无重复字符",
+      "args": [
+        "ab",
+        "ab"
+      ],
+      "expected": false
+    },
+    {
+      "name": "相同且有重复字符",
+      "args": [
+        "aa",
+        "aa"
+      ],
+      "expected": true
+    }
+  ]
+}

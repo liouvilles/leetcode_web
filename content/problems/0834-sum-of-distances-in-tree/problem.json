@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 834,
+  "slug": "sum-of-distances-in-tree",
+  "title": "树中距离之和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-011",
+  "studyTags": [
+    "树",
+    "深度优先搜索",
+    "动态规划",
+    "换根"
+  ],
+  "summary": "无向树有 n 个节点，返回每个节点到其余所有节点的距离总和。",
+  "insight": "以零为根先求每棵子树大小和根零的距离和；从父节点换根到子节点时，子树内 size 个节点距离减一，其余 n-size 个节点距离加一。",
+  "pitfalls": [
+    "边是无向的，DFS 要跳过父节点",
+    "第一次 DFS 同时累计子树大小",
+    "换根公式为 answer[child]=answer[parent]-size[child]+(n-size[child])"
+  ],
+  "solutions": [
+    {
+      "id": "two-pass-reroot-dp",
+      "title": "两遍 DFS 换根动态规划",
+      "kind": "最优",
+      "idea": "先聚合子树，再向下传播每个根的答案。",
+      "steps": [
+        "建无向邻接表，count 初始一",
+        "post(node,parent)：递归子节点，count[node]+=count[child]，answer[node]+=answer[child]+count[child]",
+        "pre(node,parent)：对每个 child 计算 answer[child]=answer[node]-count[child]+n-count[child] 并递归"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/two-pass-reroot-dp/Solution.java",
+        "kotlin": "solutions/two-pass-reroot-dp/Solution.kt",
+        "cpp": "solutions/two-pass-reroot-dp/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minScoreTriangulation",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三角形单一得分",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "四边形最低一百四十四",
+      "args": [
+        [
+          3,
+          7,
+          4,
+          5
+        ]
+      ],
+      "expected": 144
+    },
+    {
+      "name": "六边形最低十三",
+      "args": [
+        [
+          1,
+          3,
+          1,
+          4,
+          1,
+          5
+        ]
+      ],
+      "expected": 13
+    }
+  ]
+}

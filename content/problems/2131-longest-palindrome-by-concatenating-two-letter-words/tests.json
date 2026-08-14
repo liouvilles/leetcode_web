@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "longestPalindrome",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "反向对与中心组成六长度",
+      "args": [
+        [
+          "lc",
+          "cl",
+          "gg"
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "重复对称单词与反向对",
+      "args": [
+        [
+          "ab",
+          "ty",
+          "yt",
+          "lc",
+          "cl",
+          "ab"
+        ]
+      ],
+      "expected": 8
+    },
+    {
+      "name": "三个相同对称词",
+      "args": [
+        [
+          "cc",
+          "cc",
+          "cc"
+        ]
+      ],
+      "expected": 6
+    }
+  ]
+}

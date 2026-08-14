@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "addToArrayForm",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "intList",
+  "cases": [
+    {
+      "name": "一二零零加三十四",
+      "args": [
+        [
+          1,
+          2,
+          0,
+          0
+        ],
+        34
+      ],
+      "expected": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "name": "九百九十九加一",
+      "args": [
+        [
+          9,
+          9,
+          9
+        ],
+        1
+      ],
+      "expected": [
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "零加大数",
+      "args": [
+        [
+          0
+        ],
+        23
+      ],
+      "expected": [
+        2,
+        3
+      ]
+    }
+  ]
+}

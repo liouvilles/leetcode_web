@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minSwaps",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三一三零一次交换",
+      "args": [
+        "111000"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "已经交替无需交换",
+      "args": [
+        "010"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "字符数量差过大无解",
+      "args": [
+        "1110"
+      ],
+      "expected": -1
+    }
+  ]
+}

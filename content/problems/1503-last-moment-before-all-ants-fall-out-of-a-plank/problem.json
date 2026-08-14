@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1503,
+  "slug": "last-moment-before-all-ants-fall-out-of-a-plank",
+  "title": "所有蚂蚁掉下木板前的最后一刻",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-021",
+  "studyTags": [
+    "数组",
+    "脑筋急转弯",
+    "模拟"
+  ],
+  "summary": "蚂蚁以单位速度在长度 n 木板上移动，相遇时各自反向，求最后一只掉落时刻。",
+  "insight": "相遇反向等价于两只蚂蚁穿过彼此并交换身份，所以只需看每只左行蚂蚁到零的距离和右行蚂蚁到 n 的距离。",
+  "pitfalls": [
+    "身份交换不影响最后掉落时间",
+    "左行时间等于当前位置",
+    "右行时间等于 n-position"
+  ],
+  "solutions": [
+    {
+      "id": "identity-swap-equivalence",
+      "title": "相遇等价穿越",
+      "kind": "最优",
+      "idea": "忽略身份后独立计算每只蚂蚁的离板时间。",
+      "steps": [
+        "answer=0",
+        "对 left 位置更新 max(answer,position)",
+        "对 right 位置更新 max(answer,n-position)，返回"
+      ],
+      "complexity": {
+        "time": "O(l+r)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/identity-swap-equivalence/Solution.java",
+        "kotlin": "solutions/identity-swap-equivalence/Solution.kt",
+        "cpp": "solutions/identity-swap-equivalence/solution.cpp"
+      }
+    }
+  ]
+}

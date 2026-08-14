@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 629,
+  "slug": "k-inverse-pairs-array",
+  "title": "K 个逆序对数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-008",
+  "studyTags": [
+    "动态规划",
+    "前缀和",
+    "排列计数"
+  ],
+  "summary": "统计由 1 到 n 组成且恰好有 k 个逆序对的不同数组数量，结果对 10^9+7 取模。",
+  "insight": "把新最大数 n 插入长度 n-1 的排列，可新增 0 到 n-1 个逆序对；用滑动窗口前缀和把转移优化为 O(nk)。",
+  "pitfalls": [
+    "只需计算到 k 个逆序对",
+    "窗口左端超过 i-1 个新增逆序对时要减去",
+    "减法取模后需恢复非负"
+  ],
+  "solutions": [
+    {
+      "id": "sliding-window-dp",
+      "title": "逆序对数量滚动窗口 DP",
+      "kind": "最优",
+      "idea": "对每个长度用上一层连续区间和生成当前计数。",
+      "steps": [
+        "previous[0]=1",
+        "长度 length 从 1 到 n，维护 window 累加 previous[inversions]",
+        "当 inversions>=length 时减 previous[inversions-length]，写入 current 后滚动"
+      ],
+      "complexity": {
+        "time": "O(nk)",
+        "space": "O(k)"
+      },
+      "files": {
+        "java": "solutions/sliding-window-dp/Solution.java",
+        "kotlin": "solutions/sliding-window-dp/Solution.kt",
+        "cpp": "solutions/sliding-window-dp/solution.cpp"
+      }
+    }
+  ]
+}

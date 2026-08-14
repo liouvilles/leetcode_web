@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numberOfWays",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "经典建筑串有六种选法",
+      "args": [
+        "001101"
+      ],
+      "expected": 6
+    },
+    {
+      "name": "分块串没有交替三元组",
+      "args": [
+        "11100"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "零一零只有一种",
+      "args": [
+        "010"
+      ],
+      "expected": 1
+    }
+  ]
+}

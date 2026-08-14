@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2022,
+  "slug": "convert-1d-array-into-2d-array",
+  "title": "将一维数组转变成二维数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-029",
+  "studyTags": [
+    "数组",
+    "矩阵",
+    "模拟"
+  ],
+  "summary": "按原顺序把一维数组填入 m 行 n 列矩阵，元素数不匹配返回空矩阵。",
+  "insight": "长度恰等于 m*n 时，原下标 i 映射到 [i/n][i%n]。",
+  "pitfalls": [
+    "顺序按行优先",
+    "尺寸不匹配返回空数组",
+    "m 与 n 均为正"
+  ],
+  "solutions": [
+    {
+      "id": "row-major-index-mapping",
+      "title": "行优先下标映射",
+      "kind": "最优",
+      "idea": "按一维下标计算目标行列。",
+      "steps": [
+        "若 original.length!=m*n 返回空",
+        "创建 m×n result",
+        "遍历 i：result[i/n][i%n]=original[i]，返回"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(mn)"
+      },
+      "files": {
+        "java": "solutions/row-major-index-mapping/Solution.java",
+        "kotlin": "solutions/row-major-index-mapping/Solution.kt",
+        "cpp": "solutions/row-major-index-mapping/solution.cpp"
+      }
+    }
+  ]
+}

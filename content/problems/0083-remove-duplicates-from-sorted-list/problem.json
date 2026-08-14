@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 83,
+  "slug": "remove-duplicates-from-sorted-list",
+  "title": "删除排序链表中的重复元素",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-004",
+  "studyTags": [
+    "链表",
+    "有序去重",
+    "原地修改"
+  ],
+  "summary": "删除有序链表中的重复节点，使每个数值只保留一个节点。",
+  "insight": "相同值必定相邻；若当前节点与后继相同，直接绕过后继，否则推进当前节点。",
+  "pitfalls": [
+    "每种重复值仍要保留一个节点",
+    "连续多个相同值需要反复比较",
+    "空链表无需处理"
+  ],
+  "solutions": [
+    {
+      "id": "adjacent-skip",
+      "title": "跳过相邻重复节点",
+      "kind": "最优",
+      "idea": "单指针沿链表扫描，并原地修改 next 指针。",
+      "steps": [
+        "current 从头节点开始",
+        "相邻值相同则 current.next=current.next.next",
+        "否则 current 前进"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/adjacent-skip/Solution.java",
+        "kotlin": "solutions/adjacent-skip/Solution.kt",
+        "cpp": "solutions/adjacent-skip/solution.cpp"
+      }
+    }
+  ]
+}

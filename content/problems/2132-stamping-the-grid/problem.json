@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2132,
+  "slug": "stamping-the-grid",
+  "title": "用邮票贴满网格图",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-031",
+  "studyTags": [
+    "数组",
+    "矩阵",
+    "前缀和",
+    "差分数组"
+  ],
+  "summary": "可重复放置固定大小矩形邮票且不得覆盖占用格，判断能否覆盖所有空格。",
+  "insight": "二维前缀和 O(1) 判断每个候选矩形是否全空；每个合法放置用二维差分标记覆盖区域。恢复覆盖次数后检查每个空格至少被某个合法矩形覆盖。",
+  "pitfalls": [
+    "邮票允许互相重叠",
+    "占用格无需覆盖",
+    "候选矩形必须完全在网格内"
+  ],
+  "solutions": [
+    {
+      "id": "obstacle-prefix-and-coverage-difference",
+      "title": "障碍前缀和与覆盖差分",
+      "kind": "最优",
+      "idea": "枚举所有合法邮票左上角并批量累计覆盖。",
+      "steps": [
+        "构建 grid 二维前缀和",
+        "枚举 r+h<=rows、c+w<=cols；矩形和为零则对 coverage 差分四角更新",
+        "恢复 coverage 二维前缀；若任一 grid=0 且 coverage=0 返回 false，否则 true"
+      ],
+      "complexity": {
+        "time": "O(rows·columns)",
+        "space": "O(rows·columns)"
+      },
+      "files": {
+        "java": "solutions/obstacle-prefix-and-coverage-difference/Solution.java",
+        "kotlin": "solutions/obstacle-prefix-and-coverage-difference/Solution.kt",
+        "cpp": "solutions/obstacle-prefix-and-coverage-difference/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minSteps",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "leetcode 与 coats 需七步",
+      "args": [
+        "leetcode",
+        "coats"
+      ],
+      "expected": 7
+    },
+    {
+      "name": "night 与 thing 已互为异位词",
+      "args": [
+        "night",
+        "thing"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "单边多三个字符",
+      "args": [
+        "aaa",
+        "a"
+      ],
+      "expected": 2
+    }
+  ]
+}

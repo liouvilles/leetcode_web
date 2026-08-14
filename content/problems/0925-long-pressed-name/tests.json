@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isLongPressedName",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "e 被长按",
+      "args": [
+        "alex",
+        "aaleex"
+      ],
+      "expected": true
+    },
+    {
+      "name": "缺少一个 e",
+      "args": [
+        "saeed",
+        "ssaaedd"
+      ],
+      "expected": false
+    },
+    {
+      "name": "多段长按",
+      "args": [
+        "leelee",
+        "lleeelee"
+      ],
+      "expected": true
+    }
+  ]
+}

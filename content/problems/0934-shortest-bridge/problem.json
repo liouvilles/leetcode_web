@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 934,
+  "slug": "shortest-bridge",
+  "title": "最短的桥",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-013",
+  "studyTags": [
+    "数组",
+    "深度优先搜索",
+    "广度优先搜索",
+    "矩阵"
+  ],
+  "summary": "二进制方阵恰有两座岛，求最少把多少个零翻成一才能连接它们。",
+  "insight": "先洪泛标记第一座岛并把其所有格作为多源 BFS 起点；逐层扩张海水，首次碰到第二座岛的层数就是最短桥长。",
+  "pitfalls": [
+    "第一座岛的全部边界都应作为搜索源",
+    "已访问海水要立即标记避免重复",
+    "碰到未标记的一才是第二座岛"
+  ],
+  "solutions": [
+    {
+      "id": "island-marking-multisource-bfs",
+      "title": "岛屿标记与多源 BFS",
+      "kind": "最优",
+      "idea": "从第一座岛同时向外扩张。",
+      "steps": [
+        "找到第一个一，用队列洪泛其连通岛并标记为二，所有岛格加入 frontier",
+        "从 frontier 按层 BFS；零格标记为二并入队",
+        "若邻居仍是一则返回当前 distance，扩完一层 distance++"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/island-marking-multisource-bfs/Solution.java",
+        "kotlin": "solutions/island-marking-multisource-bfs/Solution.kt",
+        "cpp": "solutions/island-marking-multisource-bfs/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "checkIfPrerequisite",
+  "parameterTypes": [
+    "int",
+    "intMatrix",
+    "intMatrix"
+  ],
+  "returnType": "booleanList",
+  "cases": [
+    {
+      "name": "单向先修关系",
+      "args": [
+        2,
+        [
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      ],
+      "expected": [
+        false,
+        true
+      ]
+    },
+    {
+      "name": "直接和间接关系均成立",
+      "args": [
+        3,
+        [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ]
+        ],
+        [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            2
+          ]
+        ]
+      ],
+      "expected": [
+        true,
+        true
+      ]
+    },
+    {
+      "name": "无先修课程",
+      "args": [
+        2,
+        [],
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      ],
+      "expected": [
+        false,
+        false
+      ]
+    }
+  ]
+}

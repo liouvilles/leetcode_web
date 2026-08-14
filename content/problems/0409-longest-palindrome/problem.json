@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 409,
+  "slug": "longest-palindrome",
+  "title": "最长回文串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-006",
+  "studyTags": [
+    "字符计数",
+    "贪心",
+    "回文"
+  ],
+  "summary": "使用给定大小写字母中的字符重新排列，求能构造出的最长回文串长度。",
+  "insight": "每种字符尽量成对放在两侧；若存在任意剩余奇数字符，还能在中心额外放一个。",
+  "pitfalls": [
+    "大小写字符不同",
+    "中心最多使用一个奇数频次字符",
+    "每个偶数对都可以全部使用"
+  ],
+  "solutions": [
+    {
+      "id": "pair-counting",
+      "title": "频次成对累加",
+      "kind": "最优",
+      "idea": "累计所有频次的最大偶数部分，若有剩余再加一个中心。",
+      "steps": [
+        "统计字符频次",
+        "answer 累加 count/2*2",
+        "若 answer<s.length 说明存在奇数剩余，返回 answer+1"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/pair-counting/Solution.java",
+        "kotlin": "solutions/pair-counting/Solution.kt",
+        "cpp": "solutions/pair-counting/solution.cpp"
+      }
+    }
+  ]
+}

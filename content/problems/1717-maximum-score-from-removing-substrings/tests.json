@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumGain",
+  "parameterTypes": [
+    "string",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "先删高分 ba 得十九分",
+      "args": [
+        "cdbcbbaaabab",
+        4,
+        5
+      ],
+      "expected": 19
+    },
+    {
+      "name": "先删高分 ab 得二十分",
+      "args": [
+        "aabbaaxybbaabb",
+        5,
+        4
+      ],
+      "expected": 20
+    },
+    {
+      "name": "单个 ab 得一分",
+      "args": [
+        "abc",
+        1,
+        1
+      ],
+      "expected": 1
+    }
+  ]
+}

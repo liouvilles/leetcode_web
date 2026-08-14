@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 886,
+  "slug": "possible-bipartition",
+  "title": "可能的二分法",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "图论",
+    "广度优先搜索",
+    "二分图"
+  ],
+  "summary": "n 个人之间有互相不喜欢的无向关系，判断能否分成两组，使每对不喜欢的人都在不同组。",
+  "insight": "问题等价于无向图是否二分图；对每个未染色连通分量 BFS 双色染色，若相邻节点同色则失败。",
+  "pitfalls": [
+    "图可能不连通",
+    "人员编号从一开始",
+    "孤立节点可任意分组"
+  ],
+  "solutions": [
+    {
+      "id": "component-two-color-bfs",
+      "title": "连通分量双色 BFS",
+      "kind": "最优",
+      "idea": "逐分量染成正负两色并检查冲突。",
+      "steps": [
+        "建立 1..n 无向邻接表，color 初始零",
+        "对每个未染色 person 设一并入队",
+        "弹出节点，对邻居：未染色设为相反色；若已同色返回假，全部完成返回真"
+      ],
+      "complexity": {
+        "time": "O(n+e)",
+        "space": "O(n+e)"
+      },
+      "files": {
+        "java": "solutions/component-two-color-bfs/Solution.java",
+        "kotlin": "solutions/component-two-color-bfs/Solution.kt",
+        "cpp": "solutions/component-two-color-bfs/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1736,
+  "slug": "latest-time-by-replacing-hidden-digits",
+  "title": "替换隐藏数字得到的最晚时间",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-025",
+  "studyTags": [
+    "字符串",
+    "贪心"
+  ],
+  "summary": "时间格式 hh:mm 中部分数字为问号，替换后得到合法 24 小时制时间，求最晚可能时间。",
+  "insight": "各位置从高位到低位贪心取最大合法数字：小时十位根据个位能否超过三选择二或一，小时个位根据十位选三或九，分钟取五九。",
+  "pitfalls": [
+    "小时范围零零到二三",
+    "小时十位和个位约束相互关联",
+    "分钟十位最大为五"
+  ],
+  "solutions": [
+    {
+      "id": "position-wise-latest-greedy",
+      "title": "逐位最晚贪心",
+      "kind": "最优",
+      "idea": "按时间数值高位优先填最大合法字符。",
+      "steps": [
+        "复制字符数组",
+        "hour tens 为 ? 时，若 hour ones 为 ? 或<=3 填2，否则填1",
+        "hour ones 为 ? 时按 tens==2 填3否则9；minute tens 填5，ones 填9"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/position-wise-latest-greedy/Solution.java",
+        "kotlin": "solutions/position-wise-latest-greedy/Solution.kt",
+        "cpp": "solutions/position-wise-latest-greedy/solution.cpp"
+      }
+    }
+  ]
+}

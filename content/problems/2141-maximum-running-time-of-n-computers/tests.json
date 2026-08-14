@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxRunTime",
+  "parameterTypes": [
+    "int",
+    "intArray"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "三块三电量供两台四分钟",
+      "args": [
+        2,
+        [
+          3,
+          3,
+          3
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "四块一电量供两台两分钟",
+      "args": [
+        2,
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "单电脑使用全部电量",
+      "args": [
+        1,
+        [
+          10
+        ]
+      ],
+      "expected": 10
+    }
+  ]
+}

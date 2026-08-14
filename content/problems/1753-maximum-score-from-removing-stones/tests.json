@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumScore",
+  "parameterTypes": [
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "二四六可得六分",
+      "args": [
+        2,
+        4,
+        6
+      ],
+      "expected": 6
+    },
+    {
+      "name": "四四六可得七分",
+      "args": [
+        4,
+        4,
+        6
+      ],
+      "expected": 7
+    },
+    {
+      "name": "一八八可得八分",
+      "args": [
+        1,
+        8,
+        8
+      ],
+      "expected": 8
+    }
+  ]
+}

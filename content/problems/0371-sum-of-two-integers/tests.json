@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getSum",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两个正数",
+      "args": [
+        1,
+        2
+      ],
+      "expected": 3
+    },
+    {
+      "name": "正数与负数",
+      "args": [
+        -2,
+        3
+      ],
+      "expected": 1
+    },
+    {
+      "name": "两个负数",
+      "args": [
+        -5,
+        -7
+      ],
+      "expected": -12
+    }
+  ]
+}

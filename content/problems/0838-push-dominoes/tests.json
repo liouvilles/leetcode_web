@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "pushDominoes",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "混合受力",
+      "args": [
+        ".L.R...LR..L.."
+      ],
+      "expected": "LL.RR.LLRRLL.."
+    },
+    {
+      "name": "相向推力平衡",
+      "args": [
+        "RR.L"
+      ],
+      "expected": "RR.L"
+    },
+    {
+      "name": "没有推力",
+      "args": [
+        "...."
+      ],
+      "expected": "...."
+    }
+  ]
+}

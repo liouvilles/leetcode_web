@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1572,
+  "slug": "matrix-diagonal-sum",
+  "title": "矩阵对角线元素的和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-022",
+  "studyTags": [
+    "数组",
+    "矩阵"
+  ],
+  "summary": "求方阵主对角线与副对角线元素之和，中心元素若重合只计一次。",
+  "insight": "逐行加入 matrix[row][row] 与 matrix[row][n-1-row]；奇数阶中心在最后减去一次。",
+  "pitfalls": [
+    "副对角列号为 n-1-row",
+    "奇数阶中心重复",
+    "矩阵是方阵"
+  ],
+  "solutions": [
+    {
+      "id": "two-diagonal-scan",
+      "title": "双对角线扫描",
+      "kind": "最优",
+      "idea": "按行读取两条对角线并修正中心重复。",
+      "steps": [
+        "answer=0",
+        "row=0..n-1 加两项",
+        "若 n 为奇数，减 matrix[n/2][n/2]"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/two-diagonal-scan/Solution.java",
+        "kotlin": "solutions/two-diagonal-scan/Solution.kt",
+        "cpp": "solutions/two-diagonal-scan/solution.cpp"
+      }
+    }
+  ]
+}

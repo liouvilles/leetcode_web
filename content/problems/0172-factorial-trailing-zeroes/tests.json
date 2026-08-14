@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "trailingZeroes",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "不足五",
+      "args": [
+        3
+      ],
+      "expected": 0
+    },
+    {
+      "name": "一个五因子",
+      "args": [
+        5
+      ],
+      "expected": 1
+    },
+    {
+      "name": "包含二十五倍数",
+      "args": [
+        100
+      ],
+      "expected": 24
+    }
+  ]
+}

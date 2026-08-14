@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "checkIfPangram",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "包含全部字母的句子",
+      "args": [
+        "thequickbrownfoxjumpsoverthelazydog"
+      ],
+      "expected": true
+    },
+    {
+      "name": "缺少多个字母",
+      "args": [
+        "leetcode"
+      ],
+      "expected": false
+    },
+    {
+      "name": "字母表本身是全字母句",
+      "args": [
+        "abcdefghijklmnopqrstuvwxyz"
+      ],
+      "expected": true
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numberOfArrays",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一千可作为一个数",
+      "args": [
+        "1000",
+        10000
+      ],
+      "expected": 1
+    },
+    {
+      "name": "前导零导致无方案",
+      "args": [
+        "1000",
+        10
+      ],
+      "expected": 0
+    },
+    {
+      "name": "一三一七有八种切分",
+      "args": [
+        "1317",
+        2000
+      ],
+      "expected": 8
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "hasValidPath",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "弯道相互连通",
+      "args": [
+        [
+          [
+            2,
+            4,
+            3
+          ],
+          [
+            6,
+            5,
+            2
+          ]
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "纵横接口不匹配",
+      "args": [
+        [
+          [
+            1,
+            2,
+            1
+          ],
+          [
+            1,
+            2,
+            1
+          ]
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "末端街道方向不接通",
+      "args": [
+        [
+          [
+            1,
+            1,
+            2
+          ]
+        ]
+      ],
+      "expected": false
+    }
+  ]
+}

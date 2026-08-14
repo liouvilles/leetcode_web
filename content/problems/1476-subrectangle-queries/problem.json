@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1476,
+  "slug": "subrectangle-queries",
+  "title": "子矩形查询",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-021",
+  "studyTags": [
+    "数组",
+    "设计",
+    "矩阵"
+  ],
+  "summary": "设计二维矩形，支持把指定闭合子矩形全部更新为同一值，并查询任意单元格。",
+  "insight": "约束允许每次更新直接遍历目标区域；查询即可常数时间读取当前矩阵。",
+  "pitfalls": [
+    "更新边界 row2、col2 都包含",
+    "后更新覆盖先更新",
+    "构造时复制矩阵避免外部修改影响"
+  ],
+  "solutions": [
+    {
+      "id": "eager-subrectangle-update",
+      "title": "立即更新子矩形",
+      "kind": "最优",
+      "idea": "每次操作把矩形范围内所有单元格直接改写。",
+      "steps": [
+        "构造时深拷贝 rectangle",
+        "updateSubrectangle 双循环 row1..row2、col1..col2 赋 newValue",
+        "getValue 返回 rectangle[row][col]"
+      ],
+      "complexity": {
+        "time": "O(area) update, O(1) query",
+        "space": "O(mn)"
+      },
+      "files": {
+        "java": "solutions/eager-subrectangle-update/Solution.java",
+        "kotlin": "solutions/eager-subrectangle-update/Solution.kt",
+        "cpp": "solutions/eager-subrectangle-update/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1828,
+  "slug": "queries-on-number-of-points-inside-a-circle",
+  "title": "统计一个圆中点的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-026",
+  "studyTags": [
+    "数组",
+    "数学",
+    "几何"
+  ],
+  "summary": "对每个圆心和半径查询，统计给定点中位于圆内或圆周上的点数。",
+  "insight": "比较平方欧氏距离与半径平方，避免开方和浮点误差；每个查询独立枚举所有点。",
+  "pitfalls": [
+    "圆周上的点也计入",
+    "使用平方距离",
+    "坐标差平方在 int 范围内但 long 更稳妥"
+  ],
+  "solutions": [
+    {
+      "id": "squared-distance-enumeration",
+      "title": "平方距离枚举",
+      "kind": "最优",
+      "idea": "逐点执行精确整数圆内判定。",
+      "steps": [
+        "对 query 取 centerX、centerY、radius",
+        "对 point 计算 dx²+dy²",
+        "不大于 radius² 时计数，加入答案"
+      ],
+      "complexity": {
+        "time": "O(pq)",
+        "space": "O(q)"
+      },
+      "files": {
+        "java": "solutions/squared-distance-enumeration/Solution.java",
+        "kotlin": "solutions/squared-distance-enumeration/Solution.kt",
+        "cpp": "solutions/squared-distance-enumeration/solution.cpp"
+      }
+    }
+  ]
+}

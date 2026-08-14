@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1958,
+  "slug": "check-if-move-is-legal",
+  "title": "检查操作是否合法",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-028",
+  "studyTags": [
+    "数组",
+    "矩阵",
+    "枚举"
+  ],
+  "summary": "在黑白棋盘空格落下指定颜色，若某方向上夹住至少一个连续异色棋子且以同色棋子收尾，则操作合法。",
+  "insight": "枚举八个方向，从落点下一格开始统计连续异色棋子；只有数量至少一且随后仍在棋盘内并为己方颜色时合法。",
+  "pitfalls": [
+    "中间必须至少有一个异色棋子",
+    "八个方向都要检查",
+    "遇空格或越界不能形成好线段"
+  ],
+  "solutions": [
+    {
+      "id": "scan-eight-directions",
+      "title": "八方向直线扫描",
+      "kind": "最优",
+      "idea": "逐方向验证异色段后是否有同色端点。",
+      "steps": [
+        "directions 八组增量",
+        "沿方向跳过连续 opponent 并计数",
+        "count>0 且最终格为 color 时返回 true；全部失败返回 false"
+      ],
+      "complexity": {
+        "time": "O(rows+cols)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/scan-eight-directions/Solution.java",
+        "kotlin": "solutions/scan-eight-directions/Solution.kt",
+        "cpp": "solutions/scan-eight-directions/solution.cpp"
+      }
+    }
+  ]
+}

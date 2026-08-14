@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getHint",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "一个公牛三个奶牛",
+      "args": [
+        "1807",
+        "7810"
+      ],
+      "expected": "1A3B"
+    },
+    {
+      "name": "重复数字",
+      "args": [
+        "1123",
+        "0111"
+      ],
+      "expected": "1A1B"
+    },
+    {
+      "name": "全部命中",
+      "args": [
+        "1",
+        "1"
+      ],
+      "expected": "1A0B"
+    }
+  ]
+}

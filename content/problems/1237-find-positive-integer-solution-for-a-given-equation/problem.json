@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1237,
+  "slug": "find-positive-integer-solution-for-a-given-equation",
+  "title": "找出给定方程的正整数解",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-017",
+  "studyTags": [
+    "双指针",
+    "交互接口",
+    "单调性"
+  ],
+  "summary": "CustomFunction 对 x、y 均严格递增，找出一到一千范围内所有满足 f(x,y)=z 的正整数对。",
+  "insight": "从左下角 (x=1,y=1000) 开始：函数值小于 z 时只能增大 x，大于 z 时只能减小 y；相等时记录并同时移动，单调性保证不会漏解。",
+  "pitfalls": [
+    "x、y 范围均包含一和一千",
+    "CustomFunction 只能通过 f 调用",
+    "结果按 x 递增自然生成"
+  ],
+  "solutions": [
+    {
+      "id": "monotone-staircase-two-pointers",
+      "title": "单调阶梯双指针",
+      "kind": "最优",
+      "idea": "沿单调矩阵等值边界线性扫描。",
+      "steps": [
+        "x=1、y=1000，answer 为空",
+        "当 x<=1000 且 y>=1，计算 value=f(x,y)",
+        "value==z 时加入 [x,y] 并 x++、y--；value<z 时 x++；否则 y--，返回 answer"
+      ],
+      "complexity": {
+        "time": "O(1000)",
+        "space": "O(答案数)"
+      },
+      "files": {
+        "java": "solutions/monotone-staircase-two-pointers/Solution.java",
+        "kotlin": "solutions/monotone-staircase-two-pointers/Solution.kt",
+        "cpp": "solutions/monotone-staircase-two-pointers/solution.cpp"
+      }
+    }
+  ]
+}

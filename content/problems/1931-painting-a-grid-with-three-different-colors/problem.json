@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1931,
+  "slug": "painting-a-grid-with-three-different-colors",
+  "title": "用三种不同颜色为网格涂色",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-028",
+  "studyTags": [
+    "动态规划",
+    "状态压缩"
+  ],
+  "summary": "用三色给 m×n 网格涂色，要求上下左右相邻颜色不同，求方案数并取模。",
+  "insight": "m 至多五，可枚举一列的所有三进制着色并过滤竖向冲突。预计算任意两列逐行颜色不同的兼容关系，然后沿列做状态 DP。",
+  "pitfalls": [
+    "同列上下不同、相邻列同行也不同",
+    "n 可达一千需滚动数组",
+    "结果取模"
+  ],
+  "solutions": [
+    {
+      "id": "valid-column-state-dp",
+      "title": "合法列状态压缩 DP",
+      "kind": "最优",
+      "idea": "把二维约束转为合法列之间的转移。",
+      "steps": [
+        "枚举 0..3^m-1，保留相邻三进制位不同的状态",
+        "预计算 compatible(previous,current)",
+        "首列每状态方案一；后续列按兼容状态求和，最终汇总"
+      ],
+      "complexity": {
+        "time": "O(n·S²·m)",
+        "space": "O(S²)"
+      },
+      "files": {
+        "java": "solutions/valid-column-state-dp/Solution.java",
+        "kotlin": "solutions/valid-column-state-dp/Solution.kt",
+        "cpp": "solutions/valid-column-state-dp/solution.cpp"
+      }
+    }
+  ]
+}

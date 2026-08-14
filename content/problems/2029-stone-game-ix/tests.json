@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "stoneGameIX",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "余二余一组合 Alice 获胜",
+      "args": [
+        [
+          2,
+          1
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "单颗余二石子 Alice 失败",
+      "args": [
+        [
+          2
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "三类余数平衡 Bob 获胜",
+      "args": [
+        [
+          5,
+          1,
+          2,
+          4,
+          3
+        ]
+      ],
+      "expected": false
+    }
+  ]
+}

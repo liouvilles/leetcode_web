@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2359,
+  "slug": "find-closest-node-to-given-two-nodes",
+  "title": "找到离给定两个节点最近的节点",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "深度优先搜索",
+    "图论"
+  ],
+  "summary": "每个节点至多一条出边，找一个能被 node1 和 node2 都到达且两者距离最大值最小的节点，并列取下标最小。",
+  "insight": "沿唯一出边分别从两个起点走，记录首次到达距离，遇已访问或负一停止。随后按下标扫描共同可达节点并比较 max(dist1,dist2)。",
+  "pitfalls": [
+    "图可能包含环",
+    "目标必须从两个起点都可达",
+    "并列时返回较小下标"
+  ],
+  "solutions": [
+    {
+      "id": "two-functional-path-distance-arrays",
+      "title": "两条函数图路径距离",
+      "kind": "最优",
+      "idea": "唯一出边使每个起点只需线性追踪一次。",
+      "steps": [
+        "distance(start) 初始化 -1，沿 edges 记录递增步数直到终止或重复",
+        "得到 first 与 second",
+        "从下标零开始扫描两者均非负的位置",
+        "更小 maximumDistance 时更新答案；顺序扫描自然保留最小下标"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/two-functional-path-distance-arrays/Solution.java",
+        "kotlin": "solutions/two-functional-path-distance-arrays/Solution.kt",
+        "cpp": "solutions/two-functional-path-distance-arrays/solution.cpp"
+      }
+    }
+  ]
+}

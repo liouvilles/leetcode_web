@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1402,
+  "slug": "reducing-dishes",
+  "title": "做菜顺序获得最大满意度",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-020",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "排序"
+  ],
+  "summary": "可选择部分菜并安排顺序，第 i 道菜贡献 satisfaction×完成时刻，求最大总和。",
+  "insight": "排序后从满意度最高的菜逆向加入。若当前选菜总和为正，把新菜放到最前会让所有已选菜时刻加一，总收益增加该总和。",
+  "pitfalls": [
+    "可以完全不做负收益的菜",
+    "逆向累加的 suffix 必须为正才继续",
+    "排序改变的是烹饪顺序选择"
+  ],
+  "solutions": [
+    {
+      "id": "positive-suffix-greedy",
+      "title": "正后缀贪心",
+      "kind": "最优",
+      "idea": "从高到低扩张被选后缀并累计每次整体时移收益。",
+      "steps": [
+        "升序排序 satisfaction",
+        "从末尾向前更新 suffix+=value",
+        "suffix<=0 时停止，否则 answer+=suffix"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/positive-suffix-greedy/Solution.java",
+        "kotlin": "solutions/positive-suffix-greedy/Solution.kt",
+        "cpp": "solutions/positive-suffix-greedy/solution.cpp"
+      }
+    }
+  ]
+}

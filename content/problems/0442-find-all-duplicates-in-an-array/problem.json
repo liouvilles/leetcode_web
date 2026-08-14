@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 442,
+  "slug": "find-all-duplicates-in-an-array",
+  "title": "数组中重复的数据",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-006",
+  "studyTags": [
+    "原地标记",
+    "数组",
+    "下标映射"
+  ],
+  "summary": "数组长度为 n、值在一到 n 且每个值出现一或两次，返回所有出现两次的值。",
+  "insight": "把值 value 映射到下标 value-1，首次访问将该位置取负，第二次发现已为负即可确认重复。",
+  "pitfalls": [
+    "读取当前值时要取绝对值",
+    "修改数组符号不影响值域映射",
+    "结果顺序不限，本实现排序后返回"
+  ],
+  "solutions": [
+    {
+      "id": "sign-marking",
+      "title": "符号原地标记",
+      "kind": "最优",
+      "idea": "利用输入值域与下标一一映射，把数组本身作为访问位图。",
+      "steps": [
+        "遍历 nums 并取 value=abs(item)",
+        "index=value-1",
+        "nums[index]<0 时记录 value，否则取负，最后排序"
+      ],
+      "complexity": {
+        "time": "O(n+k log k)",
+        "space": "O(1) excluding output"
+      },
+      "files": {
+        "java": "solutions/sign-marking/Solution.java",
+        "kotlin": "solutions/sign-marking/Solution.kt",
+        "cpp": "solutions/sign-marking/solution.cpp"
+      }
+    }
+  ]
+}

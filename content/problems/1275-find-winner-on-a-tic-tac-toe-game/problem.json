@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1275,
+  "slug": "find-winner-on-a-tic-tac-toe-game",
+  "title": "找出井字棋的获胜者",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "数组",
+    "矩阵",
+    "模拟"
+  ],
+  "summary": "A、B 依次在三乘三棋盘落子，给定合法移动序列，返回获胜者、平局或仍待继续。",
+  "insight": "A 的每步记 +1、B 记 -1，累计各行、各列和两条对角线；任何绝对值达到三即对应玩家获胜。",
+  "pitfalls": [
+    "移动按输入顺序交替",
+    "未获胜且九步走满才是 Draw",
+    "不足九步且无人胜出返回 Pending"
+  ],
+  "solutions": [
+    {
+      "id": "signed-line-counters",
+      "title": "带符号行线计数",
+      "kind": "最优",
+      "idea": "用八条可能获胜线的代数和即时判断。",
+      "steps": [
+        "rows[3]、columns[3]、diagonal、antiDiagonal 初始化零",
+        "第 move 项分数 A 为一、B 为负一，更新对应行列与可能对角线",
+        "若任一绝对值为三返回当前玩家；扫描完按步数返回 Draw 或 Pending"
+      ],
+      "complexity": {
+        "time": "O(moves)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/signed-line-counters/Solution.java",
+        "kotlin": "solutions/signed-line-counters/Solution.kt",
+        "cpp": "solutions/signed-line-counters/solution.cpp"
+      }
+    }
+  ]
+}

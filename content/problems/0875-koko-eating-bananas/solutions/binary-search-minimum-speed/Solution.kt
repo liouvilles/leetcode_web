@@ -1,0 +1,1 @@
+class Solution { fun minEatingSpeed(piles:IntArray,h:Int):Int{var low=1;var high=piles.maxOrNull()!!;while(low<high){val middle=low+(high-low)/2;var hours=0L;for(pile in piles)hours+=(pile+middle-1)/middle;if(hours<=h)high=middle else low=middle+1};return low} }

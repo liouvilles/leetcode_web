@@ -1,0 +1,1 @@
+class Solution { fun isValid(s:String):Boolean{val stack=StringBuilder();for(ch in s){stack.append(ch);val n=stack.length;if(n>=3&&stack[n-3]=='a'&&stack[n-2]=='b'&&stack[n-1]=='c')stack.setLength(n-3)};return stack.isEmpty()} }

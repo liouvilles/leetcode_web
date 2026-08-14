@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1034,
+  "slug": "coloring-a-border",
+  "title": "边界着色",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-015",
+  "studyTags": [
+    "数组",
+    "深度优先搜索",
+    "矩阵"
+  ],
+  "summary": "从给定格出发找到同色四连通分量，把该分量的边界格改为指定颜色，内部格保持原色。",
+  "insight": "先 DFS 访问整个原色分量；格子位于网格边缘或任一邻格越界/颜色不同就是边界，收集后统一改色避免影响遍历判断。",
+  "pitfalls": [
+    "与分量内部未访问邻格仍是同色，不应判成外部",
+    "先收集后着色",
+    "网格外也使当前格成为边界"
+  ],
+  "solutions": [
+    {
+      "id": "component-dfs-deferred-recolor",
+      "title": "分量 DFS 延迟着色",
+      "kind": "最优",
+      "idea": "按原始颜色识别边界并最后统一修改。",
+      "steps": [
+        "保存 original，visited 与 borders 列表",
+        "DFS 同色未访问格；检查四邻，越界或颜色不同令 border=true，同色未访问则递归",
+        "若 border 加入列表；DFS 完后把列表格子改 color 并返回 grid"
+      ],
+      "complexity": {
+        "time": "O(rows·cols)",
+        "space": "O(rows·cols)"
+      },
+      "files": {
+        "java": "solutions/component-dfs-deferred-recolor/Solution.java",
+        "kotlin": "solutions/component-dfs-deferred-recolor/Solution.kt",
+        "cpp": "solutions/component-dfs-deferred-recolor/solution.cpp"
+      }
+    }
+  ]
+}

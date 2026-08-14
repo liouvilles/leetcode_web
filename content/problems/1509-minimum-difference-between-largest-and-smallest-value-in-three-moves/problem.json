@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1509,
+  "slug": "minimum-difference-between-largest-and-smallest-value-in-three-moves",
+  "title": "三次操作后最大值与最小值的最小差",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-021",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "排序"
+  ],
+  "summary": "每次可把一个元素改成任意值，最多三次，求最终数组最大值与最小值之差的最小值。",
+  "insight": "排序后若长度大于四，最优只需考虑把三次修改分配给最小端和最大端：删 i 个最小值、3-i 个最大值，共四种。",
+  "pitfalls": [
+    "长度不超过四时可全部改为相同值",
+    "只需考虑两端极值",
+    "四种分配 i=0..3 都要比较"
+  ],
+  "solutions": [
+    {
+      "id": "four-extreme-removal-cases",
+      "title": "四种极端删除分配",
+      "kind": "最优",
+      "idea": "把任意修改等价为移除影响极差的三个端点。",
+      "steps": [
+        "n<=4 返回 0，否则排序 nums",
+        "answer=INF",
+        "i=0..3，候选 nums[n-4+i]-nums[i]，取最小"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/four-extreme-removal-cases/Solution.java",
+        "kotlin": "solutions/four-extreme-removal-cases/Solution.kt",
+        "cpp": "solutions/four-extreme-removal-cases/solution.cpp"
+      }
+    }
+  ]
+}

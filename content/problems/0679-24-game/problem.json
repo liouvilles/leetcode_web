@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 679,
+  "slug": "24-game",
+  "title": "24 点游戏",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-009",
+  "studyTags": [
+    "数组",
+    "数学",
+    "回溯"
+  ],
+  "summary": "用四个数字各一次，通过加减乘除和括号判断能否得到 24。",
+  "insight": "每次从当前数字集合任选两个，尝试六种有序运算结果并递归缩小集合；最后一个数接近 24 即成功。",
+  "pitfalls": [
+    "减法和除法需要考虑两种顺序",
+    "除数接近零时跳过",
+    "浮点比较使用误差阈值"
+  ],
+  "solutions": [
+    {
+      "id": "pairwise-value-search",
+      "title": "两两合并数值回溯",
+      "kind": "最优",
+      "idea": "枚举所有二元运算构成完整表达式树搜索空间。",
+      "steps": [
+        "把输入转成 double 列表",
+        "若只剩一个数，判断与 24 差值小于 epsilon",
+        "枚举 i<j，移除两数，生成 a+b、a-b、b-a、a*b、a/b、b/a 中合法结果，递归后回退"
+      ],
+      "complexity": {
+        "time": "O(6^n·n!)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/pairwise-value-search/Solution.java",
+        "kotlin": "solutions/pairwise-value-search/Solution.kt",
+        "cpp": "solutions/pairwise-value-search/solution.cpp"
+      }
+    }
+  ]
+}

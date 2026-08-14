@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1318,
+  "slug": "minimum-flips-to-make-a-or-b-equal-to-c",
+  "title": "或运算的最小翻转次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "位运算",
+    "逐位贪心"
+  ],
+  "summary": "每次可翻转 a 或 b 的任一二进制位，求使 a OR b 等于 c 的最少翻转次数。",
+  "insight": "各二进制位彼此独立。c 位为一时，a、b 都为零才需翻一次；c 位为零时，a、b 中每个一都必须分别翻零。",
+  "pitfalls": [
+    "c 为零位可能需要两次翻转",
+    "只需遍历整数有效位或固定三十二位",
+    "右移后同时处理三数"
+  ],
+  "solutions": [
+    {
+      "id": "independent-bit-counting",
+      "title": "独立位翻转计数",
+      "kind": "最优",
+      "idea": "逐位计算满足目标或值所需的最小修改。",
+      "steps": [
+        "answer=0",
+        "当 a、b、c 任一非零，取最低位 bitA、bitB、bitC",
+        "bitC==1 时若 bitA|bitB==0 则加一；bitC==0 时加 bitA+bitB；三数右移，返回"
+      ],
+      "complexity": {
+        "time": "O(log maxValue)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/independent-bit-counting/Solution.java",
+        "kotlin": "solutions/independent-bit-counting/Solution.kt",
+        "cpp": "solutions/independent-bit-counting/solution.cpp"
+      }
+    }
+  ]
+}

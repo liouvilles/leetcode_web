@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1376,
+  "slug": "time-needed-to-inform-all-employees",
+  "title": "通知所有员工所需的时间",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-019",
+  "studyTags": [
+    "树",
+    "深度优先搜索",
+    "广度优先搜索"
+  ],
+  "summary": "公司管理关系构成树，负责人通知直属下属耗时 informTime，求消息传到所有员工的总时间。",
+  "insight": "从 headID 沿管理树传播，孩子收到消息的时刻等于父亲收到时刻加父亲通知耗时；遍历过程中取最大到达时刻。",
+  "pitfalls": [
+    "使用的是父节点的 informTime",
+    "同一经理的下属并行收到消息",
+    "叶子通知时间通常为零"
+  ],
+  "solutions": [
+    {
+      "id": "management-tree-traversal",
+      "title": "管理树传播遍历",
+      "kind": "最优",
+      "idea": "建立经理到下属邻接表并累计每个节点的到达时间。",
+      "steps": [
+        "由 manager 构造 children 列表",
+        "栈从 (headID,0) 开始，弹出后更新最大时间",
+        "每个 child 以 time+informTime[node] 入栈，返回最大值"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/management-tree-traversal/Solution.java",
+        "kotlin": "solutions/management-tree-traversal/Solution.kt",
+        "cpp": "solutions/management-tree-traversal/solution.cpp"
+      }
+    }
+  ]
+}

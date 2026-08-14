@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "largestInteger",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一二三四组内交换得三四一二",
+      "args": [
+        1234
+      ],
+      "expected": 3412
+    },
+    {
+      "name": "六五八七五得到八七六五五",
+      "args": [
+        65875
+      ],
+      "expected": 87655
+    },
+    {
+      "name": "二四七交换偶数得四二七",
+      "args": [
+        247
+      ],
+      "expected": 427
+    }
+  ]
+}

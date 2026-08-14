@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "invalidTransactions",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "stringList",
+  "cases": [
+    {
+      "name": "同名跨城两笔均无效",
+      "args": [
+        [
+          "alice,20,800,mtv",
+          "alice,50,100,beijing"
+        ]
+      ],
+      "expected": [
+        "alice,20,800,mtv",
+        "alice,50,100,beijing"
+      ]
+    },
+    {
+      "name": "仅金额超限",
+      "args": [
+        [
+          "alice,20,800,mtv",
+          "alice,50,1200,mtv"
+        ]
+      ],
+      "expected": [
+        "alice,50,1200,mtv"
+      ]
+    },
+    {
+      "name": "跨城与金额规则并存",
+      "args": [
+        [
+          "bob,10,100,mtv",
+          "bob,50,200,beijing",
+          "alex,20,1200,mtv"
+        ]
+      ],
+      "expected": [
+        "bob,10,100,mtv",
+        "bob,50,200,beijing",
+        "alex,20,1200,mtv"
+      ]
+    }
+  ]
+}

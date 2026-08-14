@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 1735,
+  "slug": "count-ways-to-make-array-with-product",
+  "title": "生成乘积数组的方案数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-025",
+  "studyTags": [
+    "数组",
+    "数学",
+    "动态规划",
+    "组合数学",
+    "数论"
+  ],
+  "summary": "每个查询 [n,k] 统计长度 n 的正整数数组，其所有元素乘积恰为 k 的方案数，结果取模。",
+  "insight": "质因数分解 k。若某质数指数为 e，把 e 个相同质因子分配到 n 个位置的方案为 C(n+e-1,e)；不同质因数独立，方案数相乘。",
+  "pitfalls": [
+    "数组元素有序，分配到不同位置算不同方案",
+    "k=1 时空质因数分解给出一种方案",
+    "组合数计算全程取模"
+  ],
+  "solutions": [
+    {
+      "id": "prime-exponents-stars-bars",
+      "title": "质因数指数隔板法",
+      "kind": "最优",
+      "idea": "对每个质因数分别做可重复组合分配。",
+      "steps": [
+        "factorize k 得每个 exponent",
+        "ways 乘 C(n+exponent-1,exponent)",
+        "组合数用逐项乘 numerator 与费马逆元除 denominator，返回各查询结果"
+      ],
+      "complexity": {
+        "time": "O(q√k log MOD)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/prime-exponents-stars-bars/Solution.java",
+        "kotlin": "solutions/prime-exponents-stars-bars/Solution.kt",
+        "cpp": "solutions/prime-exponents-stars-bars/solution.cpp"
+      }
+    }
+  ]
+}

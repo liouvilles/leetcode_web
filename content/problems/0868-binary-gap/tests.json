@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "binaryGap",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "二十二最大间距二",
+      "args": [
+        22
+      ],
+      "expected": 2
+    },
+    {
+      "name": "只有一个一",
+      "args": [
+        8
+      ],
+      "expected": 0
+    },
+    {
+      "name": "一零一间距二",
+      "args": [
+        5
+      ],
+      "expected": 2
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "distanceK",
+  "parameterTypes": [
+    "treeNode",
+    "treeNode",
+    "int"
+  ],
+  "returnType": "intList",
+  "cases": [
+    {
+      "name": "目标五距离二",
+      "args": [
+        [
+          3,
+          5,
+          1,
+          6,
+          2,
+          0,
+          8,
+          null,
+          null,
+          7,
+          4
+        ],
+        [
+          5
+        ],
+        2
+      ],
+      "expected": [
+        7,
+        4,
+        1
+      ]
+    },
+    {
+      "name": "距离零",
+      "args": [
+        [
+          3,
+          5,
+          1
+        ],
+        [
+          1
+        ],
+        0
+      ],
+      "expected": [
+        1
+      ]
+    },
+    {
+      "name": "单节点距离一",
+      "args": [
+        [
+          1
+        ],
+        [
+          1
+        ],
+        1
+      ],
+      "expected": []
+    }
+  ]
+}

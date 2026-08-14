@@ -1,0 +1,1 @@
+class Solution { public List<Boolean> canMakePaliQueries(String s,int[][] queries){int[] prefix=new int[s.length()+1];for(int i=0;i<s.length();i++)prefix[i+1]=prefix[i]^(1<<(s.charAt(i)-'a'));List<Boolean> answer=new ArrayList<>();for(int[] query:queries){int odd=Integer.bitCount(prefix[query[1]+1]^prefix[query[0]]);answer.add(odd/2<=query[2]);}return answer;} }

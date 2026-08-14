@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1415,
+  "slug": "the-k-th-lexicographical-string-of-all-happy-strings-of-length-n",
+  "title": "长度为 n 的开心字符串中字典序第 k 小的字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-020",
+  "studyTags": [
+    "字符串",
+    "回溯"
+  ],
+  "summary": "开心字符串只含 a、b、c 且相邻字符不同，返回长度 n 的字典序第 k 个，不足 k 个则返回空串。",
+  "insight": "按 a、b、c 顺序回溯生成，完整字符串自然是字典序；计数到 k 时保存并提前终止。",
+  "pitfalls": [
+    "相邻字符不能相同",
+    "k 从一开始计数",
+    "候选不足时返回空串"
+  ],
+  "solutions": [
+    {
+      "id": "lexicographic-backtracking",
+      "title": "字典序回溯",
+      "kind": "最优",
+      "idea": "按字母升序枚举所有合法前缀并在第 k 个停止。",
+      "steps": [
+        "current 为空、count=0",
+        "递归中枚举 a..c，跳过等于末字符的字母",
+        "长度为 n 时 count++，等于 k 保存答案并向上传播停止"
+      ],
+      "complexity": {
+        "time": "O(3·2^(n-1))",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/lexicographic-backtracking/Solution.java",
+        "kotlin": "solutions/lexicographic-backtracking/Solution.kt",
+        "cpp": "solutions/lexicographic-backtracking/solution.cpp"
+      }
+    }
+  ]
+}

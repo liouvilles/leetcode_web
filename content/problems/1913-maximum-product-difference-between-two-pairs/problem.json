@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1913,
+  "slug": "maximum-product-difference-between-two-pairs",
+  "title": "两个数对之间的最大乘积差",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-027",
+  "studyTags": [
+    "数组",
+    "排序"
+  ],
+  "summary": "选择四个不同下标，最大化两数乘积减去另两数乘积。",
+  "insight": "所有数为正，最大乘积由最大的两个数取得，最小乘积由最小的两个数取得；排序后直接相减。",
+  "pitfalls": [
+    "四个下标必须不同",
+    "数组至少四项",
+    "正数条件保证极值配对成立"
+  ],
+  "solutions": [
+    {
+      "id": "four-sorted-extremes",
+      "title": "排序取四个极值",
+      "kind": "最优",
+      "idea": "最大两项乘积减最小两项乘积。",
+      "steps": [
+        "升序排序",
+        "maximum=nums[n-1]*nums[n-2]",
+        "minimum=nums[0]*nums[1]，返回 maximum-minimum"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/four-sorted-extremes/Solution.java",
+        "kotlin": "solutions/four-sorted-extremes/Solution.kt",
+        "cpp": "solutions/four-sorted-extremes/solution.cpp"
+      }
+    }
+  ]
+}

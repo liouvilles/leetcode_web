@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1492,
+  "slug": "the-kth-factor-of-n",
+  "title": "N 的第 K 个因子",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-021",
+  "studyTags": [
+    "数学",
+    "数论"
+  ],
+  "summary": "按升序返回正整数 n 的第 k 个正因子，不足 k 个返回负一。",
+  "insight": "从一到 n 顺序枚举，整除时递减 k，归零的当前值就是第 k 个因子。",
+  "pitfalls": [
+    "一和 n 都是因子",
+    "k 从一开始",
+    "找不到返回负一"
+  ],
+  "solutions": [
+    {
+      "id": "ascending-divisor-scan",
+      "title": "升序因子扫描",
+      "kind": "最优",
+      "idea": "按自然顺序计数整除 n 的整数。",
+      "steps": [
+        "value 从一到 n",
+        "若 n%value==0 则 k--",
+        "k==0 返回 value；结束返回 -1"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/ascending-divisor-scan/Solution.java",
+        "kotlin": "solutions/ascending-divisor-scan/Solution.kt",
+        "cpp": "solutions/ascending-divisor-scan/solution.cpp"
+      }
+    }
+  ]
+}

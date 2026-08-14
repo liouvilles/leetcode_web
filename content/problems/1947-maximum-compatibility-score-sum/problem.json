@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1947,
+  "slug": "maximum-compatibility-score-sum",
+  "title": "最大兼容性评分和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-028",
+  "studyTags": [
+    "位运算",
+    "数组",
+    "动态规划",
+    "状态压缩"
+  ],
+  "summary": "把学生与导师一一配对，兼容分为问卷相同答案数，求总兼容分最大值。",
+  "insight": "先算所有学生导师配对分数。用掩码表示已使用导师，当前学生下标等于掩码置位数，枚举未使用导师并记忆最大剩余得分。",
+  "pitfalls": [
+    "每名导师只能匹配一次",
+    "问卷答案相同才得一分",
+    "人数最多八适合位压缩"
+  ],
+  "solutions": [
+    {
+      "id": "bitmask-assignment-dp",
+      "title": "状态压缩配对 DP",
+      "kind": "最优",
+      "idea": "对已用导师集合求剩余学生最优匹配。",
+      "steps": [
+        "计算 score[student][mentor]",
+        "dfs(mask)，student=bitCount(mask)",
+        "枚举 mask 中未用 mentor，取 score+dfs(newMask) 最大并记忆"
+      ],
+      "complexity": {
+        "time": "O(m²2^m)",
+        "space": "O(2^m)"
+      },
+      "files": {
+        "java": "solutions/bitmask-assignment-dp/Solution.java",
+        "kotlin": "solutions/bitmask-assignment-dp/Solution.kt",
+        "cpp": "solutions/bitmask-assignment-dp/solution.cpp"
+      }
+    }
+  ]
+}

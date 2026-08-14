@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1849,
+  "slug": "splitting-a-string-into-descending-consecutive-values",
+  "title": "将字符串拆分为递减的连续值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-026",
+  "studyTags": [
+    "字符串",
+    "回溯"
+  ],
+  "summary": "把数字字符串拆成至少两个非空子串，允许前导零，使其数值依次恰好比前一个小一，判断是否可行。",
+  "insight": "枚举第一段结束位置，再回溯后续段；固定 previous 后下一段目标唯一为 previous-1，逐位解析直到等于或超过目标。",
+  "pitfalls": [
+    "必须至少拆成两段",
+    "前导零不影响数值",
+    "解析需防 long 溢出"
+  ],
+  "solutions": [
+    {
+      "id": "first-cut-targeted-backtracking",
+      "title": "首段枚举与定值回溯",
+      "kind": "最优",
+      "idea": "后续目标固定使搜索分支很少。",
+      "steps": [
+        "firstEnd 从一到 n-1，增量解析 first 并防溢出",
+        "dfs(position,previous)：到末尾返回 true，target=previous-1<0 则 false",
+        "从 position 增量解析 value；等于 target 时递归，超过 target 停止"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/first-cut-targeted-backtracking/Solution.java",
+        "kotlin": "solutions/first-cut-targeted-backtracking/Solution.kt",
+        "cpp": "solutions/first-cut-targeted-backtracking/solution.cpp"
+      }
+    }
+  ]
+}

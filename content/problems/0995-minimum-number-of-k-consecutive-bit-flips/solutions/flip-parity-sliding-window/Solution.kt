@@ -1,0 +1,1 @@
+class Solution { fun minKBitFlips(nums:IntArray,k:Int):Int{val started=IntArray(nums.size);var parity=0;var answer=0;for(i in nums.indices){if(i>=k)parity=parity xor started[i-k];if(nums[i] xor parity==0){if(i+k>nums.size)return -1;started[i]=1;parity=parity xor 1;answer++}};return answer} }

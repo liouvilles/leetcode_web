@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "topKFrequent",
+  "parameterTypes": [
+    "stringArray",
+    "int"
+  ],
+  "returnType": "stringList",
+  "cases": [
+    {
+      "name": "两个高频词",
+      "args": [
+        [
+          "i",
+          "love",
+          "leetcode",
+          "i",
+          "love",
+          "coding"
+        ],
+        2
+      ],
+      "expected": [
+        "i",
+        "love"
+      ]
+    },
+    {
+      "name": "同频按字典序",
+      "args": [
+        [
+          "the",
+          "day",
+          "is",
+          "sunny",
+          "the",
+          "the",
+          "the",
+          "sunny",
+          "is",
+          "is"
+        ],
+        4
+      ],
+      "expected": [
+        "the",
+        "is",
+        "sunny",
+        "day"
+      ]
+    },
+    {
+      "name": "单个结果",
+      "args": [
+        [
+          "a",
+          "b",
+          "a"
+        ],
+        1
+      ],
+      "expected": [
+        "a"
+      ]
+    }
+  ]
+}

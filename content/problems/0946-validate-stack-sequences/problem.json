@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 946,
+  "slug": "validate-stack-sequences",
+  "title": "验证栈序列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-013",
+  "studyTags": [
+    "数组",
+    "栈",
+    "模拟"
+  ],
+  "summary": "给定互不相同元素的入栈顺序 pushed 和候选出栈顺序 popped，判断后者能否由一个栈产生。",
+  "insight": "按 pushed 顺序模拟入栈；每次入栈后尽可能弹出与 popped 当前元素相同的栈顶，最终全部弹出即合法。",
+  "pitfalls": [
+    "一次入栈后可能连续弹出多个元素",
+    "只能比较当前栈顶",
+    "元素互异使贪心弹出没有歧义"
+  ],
+  "solutions": [
+    {
+      "id": "greedy-stack-simulation",
+      "title": "贪心栈模拟",
+      "kind": "最优",
+      "idea": "匹配时立即弹出不会损失可行性。",
+      "steps": [
+        "创建空栈，popIndex=0",
+        "逐个压入 pushed 元素",
+        "当栈顶等于 popped[popIndex] 时持续弹栈并递增下标；返回 popIndex==popped.length"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/greedy-stack-simulation/Solution.java",
+        "kotlin": "solutions/greedy-stack-simulation/Solution.kt",
+        "cpp": "solutions/greedy-stack-simulation/solution.cpp"
+      }
+    }
+  ]
+}

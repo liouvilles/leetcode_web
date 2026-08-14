@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "longestPalindrome",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "存在两个等长答案时保留先发现者",
+      "args": [
+        "babad"
+      ],
+      "expected": "bab"
+    },
+    {
+      "name": "偶数长度回文",
+      "args": [
+        "cbbd"
+      ],
+      "expected": "bb"
+    },
+    {
+      "name": "单字符字符串",
+      "args": [
+        "a"
+      ],
+      "expected": "a"
+    }
+  ]
+}

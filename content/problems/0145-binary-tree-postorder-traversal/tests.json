@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "postorderTraversal",
+  "parameterTypes": [
+    "treeNode"
+  ],
+  "returnType": "intList",
+  "cases": [
+    {
+      "name": "含右子树的后序",
+      "args": [
+        [
+          1,
+          null,
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        3,
+        2,
+        1
+      ]
+    },
+    {
+      "name": "空树",
+      "args": [
+        []
+      ],
+      "expected": []
+    },
+    {
+      "name": "单节点",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": [
+        1
+      ]
+    }
+  ]
+}

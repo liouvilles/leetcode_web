@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numWays",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三步长度二四种",
+      "args": [
+        3,
+        2
+      ],
+      "expected": 4
+    },
+    {
+      "name": "两步长度四两种",
+      "args": [
+        2,
+        4
+      ],
+      "expected": 2
+    },
+    {
+      "name": "四步长度二八种",
+      "args": [
+        4,
+        2
+      ],
+      "expected": 8
+    }
+  ]
+}

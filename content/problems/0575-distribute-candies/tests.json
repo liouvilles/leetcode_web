@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "distributeCandies",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三种类型容量三",
+      "args": [
+        [
+          1,
+          1,
+          2,
+          2,
+          3,
+          3
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "类型多于容量",
+      "args": [
+        [
+          1,
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "只有一种类型",
+      "args": [
+        [
+          6,
+          6,
+          6,
+          6
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

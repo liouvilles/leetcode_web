@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "longestMountain",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "最长山脉长度五",
+      "args": [
+        [
+          2,
+          1,
+          4,
+          7,
+          3,
+          2,
+          5
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "全平台",
+      "args": [
+        [
+          2,
+          2,
+          2
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "完整长山脉",
+      "args": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          4,
+          3,
+          2,
+          1,
+          0
+        ]
+      ],
+      "expected": 11
+    }
+  ]
+}

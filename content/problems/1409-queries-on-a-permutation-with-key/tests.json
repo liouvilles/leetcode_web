@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "processQueries",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "经典查询序列",
+      "args": [
+        [
+          3,
+          1,
+          2,
+          1
+        ],
+        5
+      ],
+      "expected": [
+        2,
+        1,
+        2,
+        1
+      ]
+    },
+    {
+      "name": "重复查询二",
+      "args": [
+        [
+          4,
+          1,
+          2,
+          2
+        ],
+        4
+      ],
+      "expected": [
+        3,
+        1,
+        2,
+        0
+      ]
+    },
+    {
+      "name": "长度八的排列",
+      "args": [
+        [
+          7,
+          5,
+          5,
+          8,
+          3
+        ],
+        8
+      ],
+      "expected": [
+        6,
+        5,
+        0,
+        7,
+        5
+      ]
+    }
+  ]
+}

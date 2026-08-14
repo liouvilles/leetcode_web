@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 673,
+  "slug": "number-of-longest-increasing-subsequence",
+  "title": "最长递增子序列的个数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-009",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "最长递增子序列"
+  ],
+  "summary": "统计数组中最长严格递增子序列的数量，不同下标选择视为不同子序列。",
+  "insight": "对每个结尾 i 同时维护最长长度 length[i] 和达到该长度的方案数 count[i]；从所有更小前驱转移。",
+  "pitfalls": [
+    "递增条件是严格小于",
+    "相同长度前驱的方案数要累加",
+    "最终要汇总所有达到全局最长长度的结尾"
+  ],
+  "solutions": [
+    {
+      "id": "length-and-count-dp",
+      "title": "结尾长度与方案数 DP",
+      "kind": "最优",
+      "idea": "二重循环同时维护 LIS 长度和计数。",
+      "steps": [
+        "length、count 初始化为一",
+        "对 i 枚举 j<i 且 nums[j]<nums[i]；更长则覆盖长度和计数，同长则累加计数",
+        "维护全局最长值，最后累加所有对应 count"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/length-and-count-dp/Solution.java",
+        "kotlin": "solutions/length-and-count-dp/Solution.kt",
+        "cpp": "solutions/length-and-count-dp/solution.cpp"
+      }
+    }
+  ]
+}

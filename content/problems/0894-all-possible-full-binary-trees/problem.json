@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 894,
+  "slug": "all-possible-full-binary-trees",
+  "title": "所有可能的真二叉树",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "树",
+    "动态规划",
+    "递归",
+    "记忆化"
+  ],
+  "summary": "真二叉树每个节点恰有零或两个孩子，节点值均为零，返回由 n 个节点组成的所有不同真二叉树。",
+  "insight": "n 为偶数时无解；对奇数 n，根占一节点，枚举左子树奇数节点数，右侧取剩余节点数，递归结果做笛卡尔积并缓存。",
+  "pitfalls": [
+    "只有奇数 n 才可能构成真二叉树",
+    "n=1 返回单叶节点",
+    "不同左右结构顺序视为不同树"
+  ],
+  "solutions": [
+    {
+      "id": "memoized-odd-size-composition",
+      "title": "奇数规模递归组合",
+      "kind": "最优",
+      "idea": "按左右子树节点数拆分并组合所有结构。",
+      "steps": [
+        "trees(1)=[new TreeNode(0)]，偶数返回空",
+        "leftCount 从一到 n-2 每次加二，rightCount=n-1-leftCount",
+        "组合 trees(leftCount) 与 trees(rightCount)，为每对创建新根连接，缓存并返回"
+      ],
+      "complexity": {
+        "time": "O(number of generated trees·n)",
+        "space": "O(number of generated trees·n)"
+      },
+      "files": {
+        "java": "solutions/memoized-odd-size-composition/Solution.java",
+        "kotlin": "solutions/memoized-odd-size-composition/Solution.kt",
+        "cpp": "solutions/memoized-odd-size-composition/solution.cpp"
+      }
+    }
+  ]
+}

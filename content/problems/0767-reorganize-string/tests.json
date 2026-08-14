@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "reorganizeString",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "两个 a 与一个 b",
+      "args": [
+        "aab"
+      ],
+      "expected": "aba"
+    },
+    {
+      "name": "无法分隔三个 a",
+      "args": [
+        "aaab"
+      ],
+      "expected": ""
+    },
+    {
+      "name": "单字符",
+      "args": [
+        "a"
+      ],
+      "expected": "a"
+    }
+  ]
+}

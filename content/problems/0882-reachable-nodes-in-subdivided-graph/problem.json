@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 882,
+  "slug": "reachable-nodes-in-subdivided-graph",
+  "title": "细分图中的可到达节点",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "图论",
+    "Dijkstra",
+    "最短路"
+  ],
+  "summary": "每条原边被插入 cnt 个新节点，从节点零出发最多走 maxMoves 步，求可到达的原节点和新节点总数。",
+  "insight": "先在原节点图上用边权 cnt+1 求最短路；一条边从两端最多分别进入 maxMoves-distance 级，边上可达新节点数是两端余步之和与 cnt 的较小值。",
+  "pitfalls": [
+    "原边权是新增节点数加一",
+    "不可达端的剩余步数按零",
+    "每个细分节点在对应边只计一次"
+  ],
+  "solutions": [
+    {
+      "id": "dijkstra-plus-edge-remainders",
+      "title": "原图最短路与边内余步",
+      "kind": "最优",
+      "idea": "分别统计可达原节点和每条边可覆盖的新节点。",
+      "steps": [
+        "建邻接表边权 count+1，从零 Dijkstra 得 distance",
+        "distance<=maxMoves 的原节点各贡献一",
+        "对每条 [u,v,count]，fromU=max(0,maxMoves-distance[u])，fromV 对称，贡献 min(count,fromU+fromV)"
+      ],
+      "complexity": {
+        "time": "O((n+e) log n)",
+        "space": "O(n+e)"
+      },
+      "files": {
+        "java": "solutions/dijkstra-plus-edge-remainders/Solution.java",
+        "kotlin": "solutions/dijkstra-plus-edge-remainders/Solution.kt",
+        "cpp": "solutions/dijkstra-plus-edge-remainders/solution.cpp"
+      }
+    }
+  ]
+}

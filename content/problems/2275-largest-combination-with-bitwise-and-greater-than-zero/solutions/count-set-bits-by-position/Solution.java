@@ -1,0 +1,1 @@
+class Solution { public int largestCombination(int[] candidates){int answer=0;for(int bit=0;bit<31;bit++){int count=0;for(int value:candidates)if((value&(1<<bit))!=0)count++;answer=Math.max(answer,count);}return answer;} }

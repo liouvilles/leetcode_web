@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "prefixCount",
+  "parameterTypes": [
+    "stringArray",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "at 前缀命中两个单词",
+      "args": [
+        [
+          "pay",
+          "attention",
+          "practice",
+          "attend"
+        ],
+        "at"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "code 前缀命中两个",
+      "args": [
+        [
+          "leetcode",
+          "win",
+          "loops",
+          "success"
+        ],
+        "code"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "完整单词也是前缀命中",
+      "args": [
+        [
+          "a",
+          "ab",
+          "b"
+        ],
+        "a"
+      ],
+      "expected": 2
+    }
+  ]
+}

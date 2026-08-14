@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1487,
+  "slug": "making-file-names-unique",
+  "title": "保证文件名唯一",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-021",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "字符串"
+  ],
+  "summary": "依次创建文件夹；重名时附加最小正整数后缀 (k)，使所有实际名称唯一。",
+  "insight": "哈希表记录每个基础名称下一次应尝试的 k。冲突时从该值开始递增查找未占用候选，并同时登记新名称。",
+  "pitfalls": [
+    "输入本身可能已经带括号后缀",
+    "候选名称也需要写入哈希表",
+    "基础名称的下一尝试值应跳过已检查后缀"
+  ],
+  "solutions": [
+    {
+      "id": "next-suffix-hash-map",
+      "title": "下一后缀哈希表",
+      "kind": "最优",
+      "idea": "缓存每个已用名称的最小待尝试后缀。",
+      "steps": [
+        "若 name 未出现，直接输出并记录 next[name]=1",
+        "否则 k=next[name]，递增直到 name(k) 未占用",
+        "输出候选，更新 next[name]=k+1，并记录 next[candidate]=1"
+      ],
+      "complexity": {
+        "time": "O(n) amortized",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/next-suffix-hash-map/Solution.java",
+        "kotlin": "solutions/next-suffix-hash-map/Solution.kt",
+        "cpp": "solutions/next-suffix-hash-map/solution.cpp"
+      }
+    }
+  ]
+}

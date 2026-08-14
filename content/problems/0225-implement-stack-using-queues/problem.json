@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 225,
+  "slug": "implement-stack-using-queues",
+  "title": "用队列实现栈",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-005",
+  "studyTags": [
+    "设计",
+    "队列",
+    "旋转"
+  ],
+  "summary": "只使用队列的基本操作实现后进先出的栈，支持压入、弹出、查看栈顶和判空。",
+  "insight": "每次压入新元素后，把此前所有元素依次移到队尾，新元素就始终位于队首。",
+  "pitfalls": [
+    "只能使用队列允许的操作",
+    "pop 和 top 调用时栈非空",
+    "每次 push 需要旋转旧元素数量次"
+  ],
+  "solutions": [
+    {
+      "id": "rotate-on-push",
+      "title": "入栈时旋转队列",
+      "kind": "最优",
+      "idea": "保持队首始终是最近压入的元素，使 pop 和 top 为常数时间。",
+      "steps": [
+        "新值入队尾",
+        "把 size-1 个旧元素逐个出队再入队",
+        "pop 取队首，top 查看队首"
+      ],
+      "complexity": {
+        "time": "push O(n), pop O(1)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/rotate-on-push/Solution.java",
+        "kotlin": "solutions/rotate-on-push/Solution.kt",
+        "cpp": "solutions/rotate-on-push/solution.cpp"
+      }
+    }
+  ]
+}

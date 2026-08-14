@@ -1,0 +1,1 @@
+class Solution { public int countSquares(int[][] matrix){int rows=matrix.length,columns=matrix[0].length,answer=0;int[][] dp=new int[rows+1][columns+1];for(int r=1;r<=rows;r++)for(int c=1;c<=columns;c++)if(matrix[r-1][c-1]==1){dp[r][c]=1+Math.min(dp[r-1][c-1],Math.min(dp[r-1][c],dp[r][c-1]));answer+=dp[r][c];}return answer;} }

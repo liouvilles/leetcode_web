@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2421,
+  "slug": "number-of-good-paths",
+  "title": "好路径的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-035",
+  "studyTags": [
+    "数组",
+    "树",
+    "并查集",
+    "图论",
+    "排序"
+  ],
+  "summary": "树上路径若两端值相同且路径中所有节点值不超过端点值则为好路径，统计不同好路径。",
+  "insight": "按节点值升序激活。处理同值组时，与所有已激活邻居合并；此时每个并查集内该值节点任意两两形成好路径，贡献 c(c-1)/2，单节点路径先计 n。",
+  "pitfalls": [
+    "路径无方向",
+    "必须整组同值合并后再统计",
+    "所有单节点天然是好路径"
+  ],
+  "solutions": [
+    {
+      "id": "activate-by-value-union-find",
+      "title": "按值激活并查集",
+      "kind": "最优",
+      "idea": "在当前值阈值下统计同分量端点对。",
+      "steps": [
+        "节点按 vals 排序并按相同值分组",
+        "激活组内节点并与 active 邻居 union",
+        "统计组内节点按 root 的频次",
+        "answer 初始 n，每个频次 c 加 c(c-1)/2"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/activate-by-value-union-find/Solution.java",
+        "kotlin": "solutions/activate-by-value-union-find/Solution.kt",
+        "cpp": "solutions/activate-by-value-union-find/solution.cpp"
+      }
+    }
+  ]
+}

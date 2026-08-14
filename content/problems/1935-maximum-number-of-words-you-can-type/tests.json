@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "canBeTypedWords",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "hello 因损坏键不可输入",
+      "args": [
+        "hello world",
+        "ad"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "三个单词只有一个可输入",
+      "args": [
+        "leet code",
+        "lt"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "无损坏键可输入全部单词",
+      "args": [
+        "a b c",
+        ""
+      ],
+      "expected": 3
+    }
+  ]
+}

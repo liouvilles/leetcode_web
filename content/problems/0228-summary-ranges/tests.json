@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "summaryRanges",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "stringList",
+  "cases": [
+    {
+      "name": "单点与连续段",
+      "args": [
+        [
+          0,
+          1,
+          2,
+          4,
+          5,
+          7
+        ]
+      ],
+      "expected": [
+        "0->2",
+        "4->5",
+        "7"
+      ]
+    },
+    {
+      "name": "多个单点",
+      "args": [
+        [
+          0,
+          2,
+          3,
+          4,
+          6,
+          8,
+          9
+        ]
+      ],
+      "expected": [
+        "0",
+        "2->4",
+        "6",
+        "8->9"
+      ]
+    },
+    {
+      "name": "空数组",
+      "args": [
+        []
+      ],
+      "expected": []
+    }
+  ]
+}

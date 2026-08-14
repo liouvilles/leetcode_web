@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sumRootToLeaf",
+  "parameterTypes": [
+    "treeNode"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "七节点总和二十二",
+      "args": [
+        [
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "expected": 22
+    },
+    {
+      "name": "单节点零",
+      "args": [
+        [
+          0
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "路径一零为二",
+      "args": [
+        [
+          1,
+          0
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

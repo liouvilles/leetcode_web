@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 106,
+  "slug": "construct-binary-tree-from-inorder-and-postorder-traversal",
+  "title": "从中序与后序遍历序列构造二叉树",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-004",
+  "studyTags": [
+    "二叉树",
+    "递归分治",
+    "哈希索引"
+  ],
+  "summary": "根据无重复节点值的中序遍历和后序遍历数组，还原唯一的二叉树。",
+  "insight": "后序数组从末尾取根；由于消费顺序是根、右、左，递归时必须先构建右子树，再构建左子树。",
+  "pitfalls": [
+    "中序位置决定左右子树边界",
+    "后序下标应全局递减",
+    "递归构建顺序不能写反"
+  ],
+  "solutions": [
+    {
+      "id": "reverse-postorder-recursion",
+      "title": "逆后序递归分治",
+      "kind": "最优",
+      "idea": "预存中序下标，按后序的根右左逆序消费节点。",
+      "steps": [
+        "建立 value 到 inorder 下标的映射",
+        "取 postorder[postIndex--] 为根",
+        "先递归右区间，再递归左区间"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/reverse-postorder-recursion/Solution.java",
+        "kotlin": "solutions/reverse-postorder-recursion/Solution.kt",
+        "cpp": "solutions/reverse-postorder-recursion/solution.cpp"
+      }
+    }
+  ]
+}

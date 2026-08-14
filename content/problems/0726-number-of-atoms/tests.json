@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countOfAtoms",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "水分子",
+      "args": [
+        "H2O"
+      ],
+      "expected": "H2O"
+    },
+    {
+      "name": "括号倍率",
+      "args": [
+        "Mg(OH)2"
+      ],
+      "expected": "H2MgO2"
+    },
+    {
+      "name": "嵌套括号",
+      "args": [
+        "K4(ON(SO3)2)2"
+      ],
+      "expected": "K4N2O14S4"
+    }
+  ]
+}

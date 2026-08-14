@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "colorTheGrid",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "单格有三种颜色",
+      "args": [
+        1,
+        1
+      ],
+      "expected": 3
+    },
+    {
+      "name": "一行两格有六种",
+      "args": [
+        1,
+        2
+      ],
+      "expected": 6
+    },
+    {
+      "name": "二乘二网格有十八种",
+      "args": [
+        2,
+        2
+      ],
+      "expected": 18
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1754,
+  "slug": "largest-merge-of-two-strings",
+  "title": "构造字典序最大的合并字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-025",
+  "studyTags": [
+    "双指针",
+    "字符串",
+    "贪心"
+  ],
+  "summary": "每次从 word1 或 word2 的首字符取一个追加到 merge，直到两串为空，求字典序最大的合并结果。",
+  "insight": "每一步应从当前剩余后缀字典序更大的一侧取首字符；若首字符相同，后续第一个差异决定当前选择。",
+  "pitfalls": [
+    "不能只比较当前首字符",
+    "一侧用尽后直接追加另一侧剩余",
+    "相同后缀任选一侧都可"
+  ],
+  "solutions": [
+    {
+      "id": "suffix-comparison-greedy",
+      "title": "后缀比较贪心",
+      "kind": "最优",
+      "idea": "在每个位置选择能产生更大剩余合并的字符串。",
+      "steps": [
+        "i=j=0，builder 为空",
+        "两侧均未结束时比较 word1.substring(i) 与 word2.substring(j)",
+        "从更大后缀取一个字符；最后追加任一剩余后缀"
+      ],
+      "complexity": {
+        "time": "O((m+n)²)",
+        "space": "O(m+n)"
+      },
+      "files": {
+        "java": "solutions/suffix-comparison-greedy/Solution.java",
+        "kotlin": "solutions/suffix-comparison-greedy/Solution.kt",
+        "cpp": "solutions/suffix-comparison-greedy/solution.cpp"
+      }
+    }
+  ]
+}

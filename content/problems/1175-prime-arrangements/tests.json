@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numPrimeArrangements",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "五以内三质数",
+      "args": [
+        5
+      ],
+      "expected": 12
+    },
+    {
+      "name": "一百取模结果",
+      "args": [
+        100
+      ],
+      "expected": 682289015
+    },
+    {
+      "name": "只有一",
+      "args": [
+        1
+      ],
+      "expected": 1
+    }
+  ]
+}

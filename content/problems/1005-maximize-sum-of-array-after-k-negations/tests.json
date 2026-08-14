@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "largestSumAfterKNegations",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "翻转最小负数",
+      "args": [
+        [
+          4,
+          2,
+          3
+        ],
+        1
+      ],
+      "expected": 5
+    },
+    {
+      "name": "零吸收剩余操作",
+      "args": [
+        [
+          3,
+          -1,
+          0,
+          2
+        ],
+        3
+      ],
+      "expected": 6
+    },
+    {
+      "name": "翻转两个最负元素",
+      "args": [
+        [
+          2,
+          -3,
+          -1,
+          5,
+          -4
+        ],
+        2
+      ],
+      "expected": 13
+    }
+  ]
+}

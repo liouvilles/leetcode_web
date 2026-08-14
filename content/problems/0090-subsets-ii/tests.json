@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "subsetsWithDup",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intListMatrix",
+  "cases": [
+    {
+      "name": "含一个重复值",
+      "args": [
+        [
+          1,
+          2,
+          2
+        ]
+      ],
+      "expected": [
+        [],
+        [
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2,
+          2
+        ]
+      ]
+    },
+    {
+      "name": "空数组",
+      "args": [
+        []
+      ],
+      "expected": [
+        []
+      ]
+    },
+    {
+      "name": "单元素",
+      "args": [
+        [
+          0
+        ]
+      ],
+      "expected": [
+        [],
+        [
+          0
+        ]
+      ]
+    }
+  ]
+}

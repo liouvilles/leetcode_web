@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "superpalindromesInRange",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四到一千有四个",
+      "args": [
+        "4",
+        "1000"
+      ],
+      "expected": 4
+    },
+    {
+      "name": "一到二只有一",
+      "args": [
+        "1",
+        "2"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "四百到五百",
+      "args": [
+        "400",
+        "500"
+      ],
+      "expected": 1
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "shiftingLetters",
+  "parameterTypes": [
+    "string",
+    "intMatrix"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "三个区间移位得到 ace",
+      "args": [
+        "abc",
+        [
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            2,
+            1
+          ],
+          [
+            0,
+            2,
+            1
+          ]
+        ]
+      ],
+      "expected": "ace"
+    },
+    {
+      "name": "单点前后移动得到 catz",
+      "args": [
+        "dztz",
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": "catz"
+    },
+    {
+      "name": "z 向后循环为 a",
+      "args": [
+        "z",
+        [
+          [
+            0,
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": "a"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1703,
+  "slug": "minimum-adjacent-swaps-for-k-consecutive-ones",
+  "title": "得到连续 K 个 1 的最少相邻交换次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-024",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "滑动窗口",
+    "前缀和"
+  ],
+  "summary": "通过相邻交换让数组中至少有 k 个一连续，求最少交换次数。",
+  "insight": "记录一的位置 position[i]，减去其序号 i 后，目标连续位置的固定间隔被消去。任取 k 个连续的一，其最小移动代价是这些调整位置到中位数的绝对差和。",
+  "pitfalls": [
+    "选择的一在原序列中必是连续的一段",
+    "减去序号可免去奇偶 k 的额外间隔修正",
+    "绝对差和用 long 计算"
+  ],
+  "solutions": [
+    {
+      "id": "adjusted-one-positions-median",
+      "title": "调整后位置中位数窗口",
+      "kind": "最优",
+      "idea": "把连续目标转换为所有调整坐标相等。",
+      "steps": [
+        "收集 adjusted[j]=onePosition-j，并建前缀和",
+        "枚举长度 k 的 adjusted 窗口，mid=(left+right)/2",
+        "用前缀和计算左右到 adjusted[mid] 的距离和，取最小"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(number of ones)"
+      },
+      "files": {
+        "java": "solutions/adjusted-one-positions-median/Solution.java",
+        "kotlin": "solutions/adjusted-one-positions-median/Solution.kt",
+        "cpp": "solutions/adjusted-one-positions-median/solution.cpp"
+      }
+    }
+  ]
+}

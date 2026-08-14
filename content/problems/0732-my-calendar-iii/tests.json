@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "MyCalendarThree",
+  "constructorTypes": [],
+  "cases": [
+    {
+      "name": "经典最大三重重叠",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "book",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            10,
+            20
+          ],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "book",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            50,
+            60
+          ],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "book",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            10,
+            40
+          ],
+          "returnType": "int",
+          "expected": 2
+        },
+        {
+          "method": "book",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            5,
+            15
+          ],
+          "returnType": "int",
+          "expected": 3
+        },
+        {
+          "method": "book",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            5,
+            10
+          ],
+          "returnType": "int",
+          "expected": 3
+        },
+        {
+          "method": "book",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            25,
+            55
+          ],
+          "returnType": "int",
+          "expected": 3
+        }
+      ]
+    },
+    {
+      "name": "相同区间叠加",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "book",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            1,
+            2
+          ],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "book",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            1,
+            2
+          ],
+          "returnType": "int",
+          "expected": 2
+        },
+        {
+          "method": "book",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            1,
+            2
+          ],
+          "returnType": "int",
+          "expected": 3
+        }
+      ]
+    },
+    {
+      "name": "相邻日程不重叠",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "book",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            1,
+            2
+          ],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "book",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            2,
+            3
+          ],
+          "returnType": "int",
+          "expected": 1
+        }
+      ]
+    }
+  ]
+}

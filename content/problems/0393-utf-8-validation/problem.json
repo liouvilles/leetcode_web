@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 393,
+  "slug": "utf-8-validation",
+  "title": "UTF-8 编码验证",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-006",
+  "studyTags": [
+    "位运算",
+    "状态计数",
+    "数组"
+  ],
+  "summary": "判断整数数组的低八位是否构成合法 UTF-8 字节序列。",
+  "insight": "首字节的连续前导一决定总字节数，后续指定数量的字节必须以二进制 10 开头。",
+  "pitfalls": [
+    "多字节字符长度只能为二到四",
+    "单独一个前导一非法",
+    "序列末尾不能缺少延续字节"
+  ],
+  "solutions": [
+    {
+      "id": "leading-bit-state",
+      "title": "前导位状态扫描",
+      "kind": "最优",
+      "idea": "remaining 记录当前字符仍需要的 10xxxxxx 延续字节数。",
+      "steps": [
+        "remaining=0 时按首字节统计前导一",
+        "长度为一或大于四返回假，设置 remaining=count-1",
+        "remaining>0 时检查最高两位为 10 并递减，最终需为零"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/leading-bit-state/Solution.java",
+        "kotlin": "solutions/leading-bit-state/Solution.kt",
+        "cpp": "solutions/leading-bit-state/solution.cpp"
+      }
+    }
+  ]
+}

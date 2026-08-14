@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1702,
+  "slug": "maximum-binary-string-after-change",
+  "title": "修改后的最大二进制字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-024",
+  "studyTags": [
+    "字符串",
+    "贪心"
+  ],
+  "summary": "可把 00 变为 10，或把 10 变为 01，反复操作后求字典序最大的二进制字符串。",
+  "insight": "若存在零，利用操作可把从第一个零开始的所有零合并成唯一一个零；这个零最终位于 firstZero+zeroCount-1，其余位置均可变成一。",
+  "pitfalls": [
+    "原串全一时保持不变",
+    "最终至多保留一个零",
+    "零的位置由第一个零与零总数共同确定"
+  ],
+  "solutions": [
+    {
+      "id": "single-zero-position",
+      "title": "唯一零位置构造",
+      "kind": "最优",
+      "idea": "直接刻画所有操作能达到的最大规范形。",
+      "steps": [
+        "寻找 firstZero 并统计 zeroCount",
+        "若没有零返回原串",
+        "answer 全填一，在 firstZero+zeroCount-1 处放零"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/single-zero-position/Solution.java",
+        "kotlin": "solutions/single-zero-position/Solution.kt",
+        "cpp": "solutions/single-zero-position/solution.cpp"
+      }
+    }
+  ]
+}

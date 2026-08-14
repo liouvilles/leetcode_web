@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1186,
+  "slug": "maximum-subarray-sum-with-one-deletion",
+  "title": "删除一次得到子数组最大和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-017",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "状态机"
+  ],
+  "summary": "选择非空连续子数组，并可从中删除至多一个元素，求能得到的最大元素和。",
+  "insight": "扫描到当前位置时维护两个状态：keep 表示尚未删除且必须以当前元素结尾，removed 表示已经删除一次。removed 可由之前已删除后加当前值，或删除当前元素而直接继承旧 keep。",
+  "pitfalls": [
+    "最终子数组必须非空，不能把唯一元素删除",
+    "删除是至多一次，所以答案同时比较两个状态",
+    "全负数组应返回最大的单个元素"
+  ],
+  "solutions": [
+    {
+      "id": "two-state-ending-dp",
+      "title": "双状态结尾动态规划",
+      "kind": "最优",
+      "idea": "滚动维护以当前下标为右端点的未删和已删最优和。",
+      "steps": [
+        "keep=arr[0]，removed 设为不可达负无穷，answer=arr[0]",
+        "对每个 x：nextRemoved=max(removed+x,keep)，nextKeep=max(x,keep+x)",
+        "更新两状态与 answer=max(answer,keep,removed)，返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/two-state-ending-dp/Solution.java",
+        "kotlin": "solutions/two-state-ending-dp/Solution.kt",
+        "cpp": "solutions/two-state-ending-dp/solution.cpp"
+      }
+    }
+  ]
+}

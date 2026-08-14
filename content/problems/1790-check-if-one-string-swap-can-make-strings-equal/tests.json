@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "areAlmostEqual",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "交换首尾可变相等",
+      "args": [
+        "bank",
+        "kanb"
+      ],
+      "expected": true
+    },
+    {
+      "name": "字符集合不同无法修复",
+      "args": [
+        "attack",
+        "defend"
+      ],
+      "expected": false
+    },
+    {
+      "name": "原本相等可交换同下标",
+      "args": [
+        "kelb",
+        "kelb"
+      ],
+      "expected": true
+    }
+  ]
+}

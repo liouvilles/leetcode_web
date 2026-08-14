@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1263,
+  "slug": "minimum-moves-to-move-a-box-to-their-target-location",
+  "title": "推箱子",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-017",
+  "studyTags": [
+    "数组",
+    "广度优先搜索",
+    "状态图",
+    "矩阵"
+  ],
+  "summary": "玩家可在空地行走并推动相邻箱子，不能拉箱子；求把箱子推到目标位置的最少推动次数，玩家普通移动不计数。",
+  "insight": "外层 BFS 的边代表一次推箱子。对每个箱子与玩家状态，先做一次普通可达性搜索（把箱子当墙），确定玩家能站到箱子哪些方向；再生成相应推后状态，保证首次到目标的推数最少。",
+  "pitfalls": [
+    "玩家移动不增加答案，只有推箱子增加一",
+    "推之前玩家必须能到箱子反方向相邻格",
+    "箱子目标格和玩家站位都不能是墙或越界"
+  ],
+  "solutions": [
+    {
+      "id": "push-level-bfs-with-player-reachability",
+      "title": "按推动分层 BFS 与玩家可达域",
+      "kind": "最优",
+      "idea": "把任意多次免费行走压缩到每次推箱子前的可达性判断。",
+      "steps": [
+        "定位 S、B、T；队列状态为 [boxRow,boxCol,playerRow,playerCol,pushes]，访问键包含箱子和玩家位置",
+        "弹出状态后 BFS 计算玩家在避开箱子时可到达的所有格",
+        "枚举四个推方向：新箱位可走且玩家能到旧箱反方向时，生成箱子前移、玩家到旧箱位的新状态；首次箱子到 T 返回 pushes，耗尽返回 -1"
+      ],
+      "complexity": {
+        "time": "O((rows·cols)²)",
+        "space": "O((rows·cols)²)"
+      },
+      "files": {
+        "java": "solutions/push-level-bfs-with-player-reachability/Solution.java",
+        "kotlin": "solutions/push-level-bfs-with-player-reachability/Solution.kt",
+        "cpp": "solutions/push-level-bfs-with-player-reachability/solution.cpp"
+      }
+    }
+  ]
+}

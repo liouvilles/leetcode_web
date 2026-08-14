@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 1467,
+  "slug": "probability-of-a-two-boxes-having-the-same-number-of-distinct-balls",
+  "title": "两个盒子中球的颜色数相同的概率",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-021",
+  "studyTags": [
+    "数组",
+    "数学",
+    "回溯",
+    "组合数学",
+    "概率"
+  ],
+  "summary": "每种颜色有若干相同球，随机把总数一半放入每个盒子，求两盒不同颜色数量相同的概率。",
+  "insight": "枚举每种颜色放入盒一的数量 x，其组合权重是 C(count,x)；盒二得到剩余。累计球数恰为一半且两边非空颜色种数相同的权重，再除以 C(total,total/2)。",
+  "pitfalls": [
+    "同色球在概率模型中仍按具体球组合计数",
+    "某颜色分到零个时不增加该盒颜色数",
+    "总球数保证为偶数"
+  ],
+  "solutions": [
+    {
+      "id": "weighted-color-allocation-dfs",
+      "title": "带组合权重的颜色分配回溯",
+      "kind": "最优",
+      "idea": "按颜色枚举分配数量并累计等可能具体选球方案。",
+      "steps": [
+        "预计算 C(n,k)，half=total/2",
+        "dfs(color,used,distinct1,distinct2,weight)，枚举 take=0..balls[color]",
+        "末尾 used==half 且 distinct1==distinct2 时返回 weight；有利权重/ C(total,half)"
+      ],
+      "complexity": {
+        "time": "O(∏(balls[i]+1))",
+        "space": "O(colors)"
+      },
+      "files": {
+        "java": "solutions/weighted-color-allocation-dfs/Solution.java",
+        "kotlin": "solutions/weighted-color-allocation-dfs/Solution.kt",
+        "cpp": "solutions/weighted-color-allocation-dfs/solution.cpp"
+      }
+    }
+  ]
+}

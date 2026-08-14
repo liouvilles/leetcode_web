@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2364,
+  "slug": "count-number-of-bad-pairs",
+  "title": "统计坏数对的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "数学",
+    "计数"
+  ],
+  "summary": "下标对 i<j 若 j-i 不等于 nums[j]-nums[i] 则为坏数对，统计坏数对数量。",
+  "insight": "好数对等式可改写为 nums[i]-i=nums[j]-j。扫描到 j 时，所有此前下标共有 j 个，其中相同键频次为好数对，其余都是新坏数对。",
+  "pitfalls": [
+    "答案可能超过 int",
+    "下标从零开始",
+    "可直接累计坏对而无需先算总对数"
+  ],
+  "solutions": [
+    {
+      "id": "difference-key-frequency",
+      "title": "数值减下标频次",
+      "kind": "最优",
+      "idea": "用等式不变量识别好对并从前缀总数扣除。",
+      "steps": [
+        "frequency 为空、answer=0",
+        "对 index：key=nums[index]-index",
+        "answer+=index-frequency[key]",
+        "frequency[key]++"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/difference-key-frequency/Solution.java",
+        "kotlin": "solutions/difference-key-frequency/Solution.kt",
+        "cpp": "solutions/difference-key-frequency/solution.cpp"
+      }
+    }
+  ]
+}

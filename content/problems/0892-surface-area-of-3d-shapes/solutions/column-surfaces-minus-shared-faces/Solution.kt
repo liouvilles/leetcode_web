@@ -1,0 +1,1 @@
+class Solution { fun surfaceArea(grid:Array<IntArray>):Int{var answer=0;for(r in grid.indices)for(c in grid[0].indices){val height=grid[r][c];if(height>0)answer+=4*height+2;if(r>0)answer-=2*minOf(height,grid[r-1][c]);if(c>0)answer-=2*minOf(height,grid[r][c-1])};return answer} }

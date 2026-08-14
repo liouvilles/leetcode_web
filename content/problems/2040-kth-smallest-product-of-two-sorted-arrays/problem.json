@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2040,
+  "slug": "kth-smallest-product-of-two-sorted-arrays",
+  "title": "两个有序数组的第 K 小乘积",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-029",
+  "studyTags": [
+    "数组",
+    "二分查找"
+  ],
+  "summary": "从两个有序整数数组各选一项形成乘积，返回所有乘积中的第 k 小值。",
+  "insight": "二分答案 x，并计算乘积不超过 x 的数对数。固定 a：a>0 时需要 b<=floor(x/a)；a<0 时需要 b>=ceil(x/a)；a=0 取决于 x 是否非负。",
+  "pitfalls": [
+    "除法必须使用数学向下与向上取整",
+    "答案和乘积使用 long",
+    "数组含负数、零与正数"
+  ],
+  "solutions": [
+    {
+      "id": "binary-search-product-value",
+      "title": "乘积值域二分",
+      "kind": "最优",
+      "idea": "用有序数组二分统计每个候选上界下的数对数量。",
+      "steps": [
+        "count(x)：遍历 nums1；正数用 upperBound(floorDiv)，负数用 m-lowerBound(ceilDiv)，零单独处理",
+        "二分 [-10^10,10^10]",
+        "count(mid)>=k 收缩右端，否则左端加一，返回"
+      ],
+      "complexity": {
+        "time": "O(n log m log V)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/binary-search-product-value/Solution.java",
+        "kotlin": "solutions/binary-search-product-value/Solution.kt",
+        "cpp": "solutions/binary-search-product-value/solution.cpp"
+      }
+    }
+  ]
+}

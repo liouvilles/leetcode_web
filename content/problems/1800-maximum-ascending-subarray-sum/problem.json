@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": 1800,
+  "slug": "maximum-ascending-subarray-sum",
+  "title": "最大升序子数组和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-026",
+  "studyTags": [
+    "数组"
+  ],
+  "summary": "求严格升序连续子数组的最大元素和。",
+  "insight": "扫描维护当前严格升序段的和；当前值大于前一值则延长，否则从当前值重新开始。",
+  "pitfalls": [
+    "必须严格递增，相等会断开",
+    "子数组连续",
+    "所有数为正所以完整升序段和最大"
+  ],
+  "solutions": [
+    {
+      "id": "ascending-run-sum",
+      "title": "升序段和扫描",
+      "kind": "最优",
+      "idea": "在线累计当前严格升序连续段。",
+      "steps": [
+        "current=answer=nums[0]",
+        "i 从一：nums[i]>nums[i-1] 时 current+=nums[i]，否则 current=nums[i]",
+        "answer=max(answer,current)"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/ascending-run-sum/Solution.java",
+        "kotlin": "solutions/ascending-run-sum/Solution.kt",
+        "cpp": "solutions/ascending-run-sum/solution.cpp"
+      }
+    }
+  ]
+}

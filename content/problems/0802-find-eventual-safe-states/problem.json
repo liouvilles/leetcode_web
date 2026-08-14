@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 802,
+  "slug": "find-eventual-safe-states",
+  "title": "找到最终的安全状态",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-010",
+  "studyTags": [
+    "图论",
+    "深度优先搜索",
+    "拓扑排序",
+    "染色"
+  ],
+  "summary": "有向图中若从某节点出发的每条路径最终都到达终点，则该节点安全；返回所有安全节点升序列表。",
+  "insight": "DFS 三色判环：访问中节点表示当前路径，若遇到它则存在环；一个节点只有所有后继都已证实安全时才安全，否则它和所有依赖它的节点都不安全。",
+  "pitfalls": [
+    "终点节点没有出边，天然安全",
+    "访问中与已判不安全要区分",
+    "按节点升序启动 DFS，加入答案即天然升序"
+  ],
+  "solutions": [
+    {
+      "id": "dfs-color-cycle-propagation",
+      "title": "DFS 染色传播环风险",
+      "kind": "最优",
+      "idea": "缓存每个节点最终安全或不安全的结论。",
+      "steps": [
+        "颜色零未访问、一访问中、二安全、三不安全",
+        "dfs 遇二返回真，遇一或三返回假；先标一并递归所有后继",
+        "任一后继不安全则标三；全部安全标二，主循环把 dfs 为真的节点加入答案"
+      ],
+      "complexity": {
+        "time": "O(v+e)",
+        "space": "O(v)"
+      },
+      "files": {
+        "java": "solutions/dfs-color-cycle-propagation/Solution.java",
+        "kotlin": "solutions/dfs-color-cycle-propagation/Solution.kt",
+        "cpp": "solutions/dfs-color-cycle-propagation/solution.cpp"
+      }
+    }
+  ]
+}

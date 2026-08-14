@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2410,
+  "slug": "maximum-matching-of-players-with-trainers",
+  "title": "运动员和训练师的最大匹配数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-035",
+  "studyTags": [
+    "数组",
+    "双指针",
+    "贪心",
+    "排序"
+  ],
+  "summary": "每名运动员需匹配能力不低于其要求的不同训练师，求最大匹配数。",
+  "insight": "双方升序排序，用当前最弱训练师尝试满足当前最弱未匹配运动员；能满足就配对并同时前进，否则换更强训练师。",
+  "pitfalls": [
+    "每人和训练师至多使用一次",
+    "优先满足较弱运动员保留强者",
+    "能力相等可以匹配"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-two-pointer-matching",
+      "title": "排序双指针匹配",
+      "kind": "最优",
+      "idea": "最小可行训练师贪心分配给当前运动员。",
+      "steps": [
+        "排序 players、trainers",
+        "player=trainer=matches=0",
+        "若 trainer>=player，matches++ 且 player++；无论如何 trainer++",
+        "返回 matches"
+      ],
+      "complexity": {
+        "time": "O(n log n+m log m)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/sorted-two-pointer-matching/Solution.java",
+        "kotlin": "solutions/sorted-two-pointer-matching/Solution.kt",
+        "cpp": "solutions/sorted-two-pointer-matching/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { int gcd(int a,int b){while(b){int t=a%b;a=b;b=t;}return a;}public:int minOperations(vector<int>& nums,vector<int>& numsDivide){int divisor=0;for(int value:numsDivide)divisor=gcd(divisor,value);sort(nums.begin(),nums.end());for(int i=0;i<(int)nums.size();++i)if(divisor%nums[i]==0)return i;return -1;} };

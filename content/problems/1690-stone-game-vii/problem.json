@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1690,
+  "slug": "stone-game-vii",
+  "title": "石子游戏 VII",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-024",
+  "studyTags": [
+    "数组",
+    "数学",
+    "动态规划",
+    "博弈"
+  ],
+  "summary": "两人轮流移除两端石子，获得移除后剩余石子总和，双方最优；求 Alice 与 Bob 最终分差。",
+  "insight": "区间 DP 直接记录当前玩家从区间 [left,right] 开始能取得的最大净胜分。移除一端的即时得分减去对手在剩余区间的净胜分，二者取大。",
+  "pitfalls": [
+    "得分是移除后剩余石子之和",
+    "DP 值是当前玩家相对对手的分差",
+    "单石区间无法获得分数，状态为零"
+  ],
+  "solutions": [
+    {
+      "id": "interval-score-difference-dp",
+      "title": "区间分差动态规划",
+      "kind": "最优",
+      "idea": "用零和博弈的净胜分消去玩家维度。",
+      "steps": [
+        "前缀和支持区间求和，dp 单点为零",
+        "区间长度从二递增",
+        "removeLeft=sum(left+1,right)-dp[left+1][right]，removeRight=sum(left,right-1)-dp[left][right-1]，取最大"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/interval-score-difference-dp/Solution.java",
+        "kotlin": "solutions/interval-score-difference-dp/Solution.kt",
+        "cpp": "solutions/interval-score-difference-dp/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1629,
+  "slug": "slowest-key",
+  "title": "按键持续时间最长的键",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-023",
+  "studyTags": [
+    "数组",
+    "字符串"
+  ],
+  "summary": "按顺序给出每次按键释放时刻与按键字符，求单次持续时间最长的键；并列时取字母较大者。",
+  "insight": "当前持续时间是当前释放时刻减上一次释放时刻。扫描并维护最大时长及对应字符，在更长或等长但字符更大时更新。",
+  "pitfalls": [
+    "第一次按键从时刻零开始",
+    "比较单次按键而非同字符总时长",
+    "并列选择字典序较大的字符"
+  ],
+  "solutions": [
+    {
+      "id": "duration-scan",
+      "title": "相邻释放时刻差扫描",
+      "kind": "最优",
+      "idea": "在线比较每次按键持续时间。",
+      "steps": [
+        "previous=0，bestDuration=0",
+        "计算 duration=releaseTimes[i]-previous",
+        "若更长或等长且字符更大则更新；previous=当前释放时刻"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/duration-scan/Solution.java",
+        "kotlin": "solutions/duration-scan/Solution.kt",
+        "cpp": "solutions/duration-scan/solution.cpp"
+      }
+    }
+  ]
+}

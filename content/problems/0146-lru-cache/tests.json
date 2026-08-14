@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "LRUCache",
+  "constructorTypes": ["int"],
+  "cases": [
+    {
+      "name": "读取刷新顺序并淘汰最旧项",
+      "constructorArgs": [2],
+      "calls": [
+        { "method": "put", "parameterTypes": ["int", "int"], "args": [1, 1] },
+        { "method": "put", "parameterTypes": ["int", "int"], "args": [2, 2] },
+        { "method": "get", "parameterTypes": ["int"], "args": [1], "returnType": "int", "expected": 1 },
+        { "method": "put", "parameterTypes": ["int", "int"], "args": [3, 3] },
+        { "method": "get", "parameterTypes": ["int"], "args": [2], "returnType": "int", "expected": -1 },
+        { "method": "put", "parameterTypes": ["int", "int"], "args": [4, 4] },
+        { "method": "get", "parameterTypes": ["int"], "args": [1], "returnType": "int", "expected": -1 },
+        { "method": "get", "parameterTypes": ["int"], "args": [3], "returnType": "int", "expected": 3 },
+        { "method": "get", "parameterTypes": ["int"], "args": [4], "returnType": "int", "expected": 4 }
+      ]
+    },
+    {
+      "name": "更新已有键不占用新容量",
+      "constructorArgs": [2],
+      "calls": [
+        { "method": "put", "parameterTypes": ["int", "int"], "args": [2, 1] },
+        { "method": "put", "parameterTypes": ["int", "int"], "args": [2, 2] },
+        { "method": "get", "parameterTypes": ["int"], "args": [2], "returnType": "int", "expected": 2 }
+      ]
+    },
+    {
+      "name": "容量一持续淘汰",
+      "constructorArgs": [1],
+      "calls": [
+        { "method": "put", "parameterTypes": ["int", "int"], "args": [1, 10] },
+        { "method": "put", "parameterTypes": ["int", "int"], "args": [2, 20] },
+        { "method": "get", "parameterTypes": ["int"], "args": [1], "returnType": "int", "expected": -1 },
+        { "method": "get", "parameterTypes": ["int"], "args": [2], "returnType": "int", "expected": 20 }
+      ]
+    }
+  ]
+}

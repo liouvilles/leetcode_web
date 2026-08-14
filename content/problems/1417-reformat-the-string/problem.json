@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": 1417,
+  "slug": "reformat-the-string",
+  "title": "重新格式化字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-020",
+  "studyTags": [
+    "字符串"
+  ],
+  "summary": "重排由小写字母和数字组成的字符串，使字母与数字严格交替；无法做到则返回空串。",
+  "insight": "分别收集字母和数字；数量差超过一无解，否则让数量更多的一类先放并交替取字符。",
+  "pitfalls": [
+    "只需返回任一合法重排",
+    "两类数量相等时本实现从字母开始",
+    "每个原字符恰好使用一次"
+  ],
+  "solutions": [
+    {
+      "id": "split-and-interleave",
+      "title": "分类后交错合并",
+      "kind": "最优",
+      "idea": "按字符类型分组并根据较长组决定起始类型。",
+      "steps": [
+        "收集 letters 与 digits",
+        "若长度差绝对值大于一返回空串",
+        "从较长组开始，按索引交替追加两组字符"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/split-and-interleave/Solution.java",
+        "kotlin": "solutions/split-and-interleave/Solution.kt",
+        "cpp": "solutions/split-and-interleave/solution.cpp"
+      }
+    }
+  ]
+}

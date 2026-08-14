@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 493,
+  "slug": "reverse-pairs",
+  "title": "翻转对",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-007",
+  "studyTags": [
+    "归并排序",
+    "分治",
+    "双指针"
+  ],
+  "summary": "统计下标 i<j 且 nums[i] 大于 nums[j] 两倍的数对数量。",
+  "insight": "归并排序使左右两半有序，对每个左侧元素用单调右指针统计满足条件的右侧前缀，再正常合并。",
+  "pitfalls": [
+    "两倍乘法要用长整型",
+    "计数发生在合并前的两个有序半区",
+    "右指针无需为每个左元素重置"
+  ],
+  "solutions": [
+    {
+      "id": "merge-sort-count",
+      "title": "归并排序计数",
+      "kind": "最优",
+      "idea": "分治统计两侧内部翻转对，并在线性时间统计跨半区翻转对。",
+      "steps": [
+        "递归排序并统计左右半区",
+        "对 left..middle 单调推进 right while nums[i]>2*nums[right]",
+        "归并两个有序半区并返回总数"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/merge-sort-count/Solution.java",
+        "kotlin": "solutions/merge-sort-count/Solution.kt",
+        "cpp": "solutions/merge-sort-count/solution.cpp"
+      }
+    }
+  ]
+}

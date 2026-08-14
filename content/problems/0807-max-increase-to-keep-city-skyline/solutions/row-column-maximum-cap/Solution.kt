@@ -1,0 +1,1 @@
+class Solution { fun maxIncreaseKeepingSkyline(grid:Array<IntArray>):Int{val n=grid.size;val rowMax=IntArray(n);val columnMax=IntArray(n);for(r in 0 until n)for(c in 0 until n){rowMax[r]=maxOf(rowMax[r],grid[r][c]);columnMax[c]=maxOf(columnMax[c],grid[r][c])};var answer=0;for(r in 0 until n)for(c in 0 until n)answer+=minOf(rowMax[r],columnMax[c])-grid[r][c];return answer} }

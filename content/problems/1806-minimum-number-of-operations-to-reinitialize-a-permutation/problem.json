@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1806,
+  "slug": "minimum-number-of-operations-to-reinitialize-a-permutation",
+  "title": "还原排列的最少操作步数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-026",
+  "studyTags": [
+    "数组",
+    "数学",
+    "模拟"
+  ],
+  "summary": "偶数 n 的排列按指定奇偶下标规则反复重排，求首次恢复初始排列的操作次数。",
+  "insight": "只跟踪初始值 1 的位置即可；一次变换后，旧位置偶数映射为 position/2，奇数映射为 n/2+(position-1)/2。它回到一时整个排列周期结束。",
+  "pitfalls": [
+    "至少执行一次操作",
+    "跟踪的是元素位置的映射",
+    "n=2 答案为一"
+  ],
+  "solutions": [
+    {
+      "id": "track-single-position-cycle",
+      "title": "单位置周期模拟",
+      "kind": "最优",
+      "idea": "排列变换的整体周期等于元素一的位置周期。",
+      "steps": [
+        "position=1，operations=0",
+        "do 根据 position 奇偶更新位置，operations++",
+        "while position!=1，返回 operations"
+      ],
+      "complexity": {
+        "time": "O(answer)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/track-single-position-cycle/Solution.java",
+        "kotlin": "solutions/track-single-position-cycle/Solution.kt",
+        "cpp": "solutions/track-single-position-cycle/solution.cpp"
+      }
+    }
+  ]
+}

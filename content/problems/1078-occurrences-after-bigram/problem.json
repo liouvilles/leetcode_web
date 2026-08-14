@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1078,
+  "slug": "occurrences-after-bigram",
+  "title": "Bigram 分词",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-016",
+  "studyTags": [
+    "字符串",
+    "数组"
+  ],
+  "summary": "在按单空格分隔的文本中，每当连续单词 first、second 出现，收集紧随其后的第三个单词。",
+  "insight": "分词后扫描三元窗口，前两项匹配时加入第三项即可。",
+  "pitfalls": [
+    "匹配区分大小写",
+    "相邻匹配可重叠",
+    "末尾只有两个词时没有第三词可收集"
+  ],
+  "solutions": [
+    {
+      "id": "three-word-window-scan",
+      "title": "三词窗口扫描",
+      "kind": "最优",
+      "idea": "逐个检查相邻三词的前两项。",
+      "steps": [
+        "words=text.split 空格",
+        "i 从零到 words.length-3",
+        "若 words[i]==first 且 words[i+1]==second，加入 words[i+2]；返回字符串数组"
+      ],
+      "complexity": {
+        "time": "O(text length)",
+        "space": "O(text length)"
+      },
+      "files": {
+        "java": "solutions/three-word-window-scan/Solution.java",
+        "kotlin": "solutions/three-word-window-scan/Solution.kt",
+        "cpp": "solutions/three-word-window-scan/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "pruneTree",
+  "parameterTypes": [
+    "treeNode"
+  ],
+  "returnType": "treeNode",
+  "cases": [
+    {
+      "name": "剪除右侧零叶",
+      "args": [
+        [
+          1,
+          null,
+          0,
+          0,
+          1
+        ]
+      ],
+      "expected": [
+        1,
+        null,
+        0,
+        null,
+        1
+      ]
+    },
+    {
+      "name": "保留含一的两条路径",
+      "args": [
+        [
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "expected": [
+        1,
+        null,
+        1,
+        null,
+        1
+      ]
+    },
+    {
+      "name": "全零树被剪空",
+      "args": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected": []
+    }
+  ]
+}

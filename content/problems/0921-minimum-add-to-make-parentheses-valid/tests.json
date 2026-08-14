@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minAddToMakeValid",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "末尾多一个右括号",
+      "args": [
+        "())"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "三个左括号",
+      "args": [
+        "((("
+      ],
+      "expected": 3
+    },
+    {
+      "name": "已经有效",
+      "args": [
+        "()"
+      ],
+      "expected": 0
+    }
+  ]
+}

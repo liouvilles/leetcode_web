@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1766,
+  "slug": "tree-of-coprimes",
+  "title": "互质树",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-025",
+  "studyTags": [
+    "树",
+    "深度优先搜索",
+    "数论"
+  ],
+  "summary": "对树中每个节点，找其祖先中与节点值互质且距离最近者的下标，不存在返回负一。",
+  "insight": "节点值仅 1..50。DFS 路径上为每个值维护最近节点及深度，进入节点时枚举 50 个值找互质且深度最大的候选，递归子树后恢复路径状态。",
+  "pitfalls": [
+    "祖先不包括节点自身",
+    "同值路径状态需用栈以便回溯恢复",
+    "最近祖先对应最大深度"
+  ],
+  "solutions": [
+    {
+      "id": "dfs-value-ancestor-stacks",
+      "title": "值域祖先栈 DFS",
+      "kind": "最优",
+      "idea": "利用小值域快速查询当前根到节点路径上的最近互质值。",
+      "steps": [
+        "建树，stacks[51] 保存 [node,depth] 路径记录",
+        "DFS node 时枚举 value=1..50，gcd(nums[node],value)==1 且栈非空时取深度最大者",
+        "写答案后压入本节点，递归孩子，再弹出"
+      ],
+      "complexity": {
+        "time": "O(50n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/dfs-value-ancestor-stacks/Solution.java",
+        "kotlin": "solutions/dfs-value-ancestor-stacks/Solution.kt",
+        "cpp": "solutions/dfs-value-ancestor-stacks/solution.cpp"
+      }
+    }
+  ]
+}

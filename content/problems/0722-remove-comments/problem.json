@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 722,
+  "slug": "remove-comments",
+  "title": "删除注释",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-009",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "状态机"
+  ],
+  "summary": "从 C++ 源代码行中删除行注释和块注释；块注释可跨行，删除后保留非空代码行。",
+  "insight": "维护是否处于块注释 inBlock；非注释状态识别 // 后忽略本行，识别 /* 后进入块状态；块状态只寻找 */。",
+  "pitfalls": [
+    "块注释跨行时前后代码要拼在同一输出行",
+    "块注释内的 // 没有特殊含义",
+    "只在不处于块注释且缓冲区非空时输出一行"
+  ],
+  "solutions": [
+    {
+      "id": "block-comment-state-machine",
+      "title": "块注释状态扫描",
+      "kind": "最优",
+      "idea": "逐字符解析并用跨行缓冲区拼接块注释两侧代码。",
+      "steps": [
+        "inBlock=false、buffer 空",
+        "每行扫描：块内遇 */ 退出；块外遇 // 结束本行，遇 /* 进入块，否则追加字符",
+        "行末若不在块内且 buffer 非空则输出并清空"
+      ],
+      "complexity": {
+        "time": "O(total characters)",
+        "space": "O(line length)"
+      },
+      "files": {
+        "java": "solutions/block-comment-state-machine/Solution.java",
+        "kotlin": "solutions/block-comment-state-machine/Solution.kt",
+        "cpp": "solutions/block-comment-state-machine/solution.cpp"
+      }
+    }
+  ]
+}

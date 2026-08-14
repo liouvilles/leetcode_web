@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1792,
+  "slug": "maximum-average-pass-ratio",
+  "title": "最大平均通过率",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-026",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "堆（优先队列）"
+  ],
+  "summary": "把 extraStudents 个必通过学生分配到班级，使各班通过率的平均值最大。",
+  "insight": "每次应分给增加一名通过学生后通过率增益最大的班级。用最大堆动态维护 gain=(p+1)/(t+1)-p/t。",
+  "pitfalls": [
+    "比较的是边际增益而非当前通过率",
+    "同一班可分配多名学生",
+    "最终返回各班通过率平均值"
+  ],
+  "solutions": [
+    {
+      "id": "marginal-gain-max-heap",
+      "title": "边际增益最大堆",
+      "kind": "最优",
+      "idea": "逐学生执行最优的可交换贪心分配。",
+      "steps": [
+        "最大堆存 [passed,total] 并按 gain 降序",
+        "重复 extraStudents 次：弹出最佳班，二者加一后重新入堆",
+        "累加所有 passed/total 并除以班数"
+      ],
+      "complexity": {
+        "time": "O((n+extra) log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/marginal-gain-max-heap/Solution.java",
+        "kotlin": "solutions/marginal-gain-max-heap/Solution.kt",
+        "cpp": "solutions/marginal-gain-max-heap/solution.cpp"
+      }
+    }
+  ]
+}

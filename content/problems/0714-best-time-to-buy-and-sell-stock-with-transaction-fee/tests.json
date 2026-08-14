@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxProfit",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两笔交易利润八",
+      "args": [
+        [
+          1,
+          3,
+          2,
+          8,
+          4,
+          9
+        ],
+        2
+      ],
+      "expected": 8
+    },
+    {
+      "name": "多次波动利润六",
+      "args": [
+        [
+          1,
+          3,
+          7,
+          5,
+          10,
+          3
+        ],
+        3
+      ],
+      "expected": 6
+    },
+    {
+      "name": "价格持续下降",
+      "args": [
+        [
+          5,
+          4,
+          3,
+          2
+        ],
+        1
+      ],
+      "expected": 0
+    }
+  ]
+}

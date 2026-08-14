@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "MedianFinder",
+  "constructorTypes": [],
+  "cases": [
+    {
+      "name": "奇偶数量交替查询",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "addNum",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ]
+        },
+        {
+          "method": "addNum",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ]
+        },
+        {
+          "method": "findMedian",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "double",
+          "expected": 1.5
+        },
+        {
+          "method": "addNum",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            3
+          ]
+        },
+        {
+          "method": "findMedian",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "double",
+          "expected": 2
+        }
+      ]
+    },
+    {
+      "name": "包含负数",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "addNum",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            -1
+          ]
+        },
+        {
+          "method": "addNum",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            -2
+          ]
+        },
+        {
+          "method": "findMedian",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "double",
+          "expected": -1.5
+        }
+      ]
+    },
+    {
+      "name": "单元素数据流",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "addNum",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            7
+          ]
+        },
+        {
+          "method": "findMedian",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "double",
+          "expected": 7
+        }
+      ]
+    }
+  ]
+}

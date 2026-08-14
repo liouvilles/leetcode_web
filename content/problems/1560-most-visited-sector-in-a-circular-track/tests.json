@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "mostVisited",
+  "parameterTypes": [
+    "int",
+    "intArray"
+  ],
+  "returnType": "intList",
+  "cases": [
+    {
+      "name": "起点一终点二访问最多",
+      "args": [
+        4,
+        [
+          1,
+          3,
+          1,
+          2
+        ]
+      ],
+      "expected": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "两扇区中二访问最多",
+      "args": [
+        2,
+        [
+          2,
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "expected": [
+        2
+      ]
+    },
+    {
+      "name": "从一到七全部并列",
+      "args": [
+        7,
+        [
+          1,
+          3,
+          5,
+          7
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findKthBit",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "char",
+  "cases": [
+    {
+      "name": "第三个字符串首位为零",
+      "args": [
+        3,
+        1
+      ],
+      "expected": "0"
+    },
+    {
+      "name": "第四个字符串第十一位为一",
+      "args": [
+        4,
+        11
+      ],
+      "expected": "1"
+    },
+    {
+      "name": "第一个字符串唯一位",
+      "args": [
+        1,
+        1
+      ],
+      "expected": "0"
+    }
+  ]
+}

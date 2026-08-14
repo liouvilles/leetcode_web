@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getTargetCopy",
+  "parameterTypes": [
+    "treeNode",
+    "treeNode",
+    "treeNode"
+  ],
+  "returnType": "treeNode",
+  "cases": [
+    {
+      "name": "返回节点三的克隆子树",
+      "args": [
+        [
+          7,
+          4,
+          3,
+          null,
+          null,
+          6,
+          19
+        ],
+        [
+          7,
+          4,
+          3,
+          null,
+          null,
+          6,
+          19
+        ],
+        [
+          3
+        ]
+      ],
+      "expected": [
+        3,
+        6,
+        19
+      ]
+    },
+    {
+      "name": "返回叶节点四",
+      "args": [
+        [
+          7,
+          4,
+          3,
+          null,
+          null,
+          6,
+          19
+        ],
+        [
+          7,
+          4,
+          3,
+          null,
+          null,
+          6,
+          19
+        ],
+        [
+          4
+        ]
+      ],
+      "expected": [
+        4
+      ]
+    },
+    {
+      "name": "返回克隆根",
+      "args": [
+        [
+          7,
+          4,
+          3
+        ],
+        [
+          7,
+          4,
+          3
+        ],
+        [
+          7
+        ]
+      ],
+      "expected": [
+        7,
+        4,
+        3
+      ]
+    }
+  ]
+}

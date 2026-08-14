@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1416,
+  "slug": "restore-the-array",
+  "title": "恢复数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-020",
+  "studyTags": [
+    "字符串",
+    "动态规划"
+  ],
+  "summary": "把数字字符串切分为若干 1 到 k 的整数且不得有前导零，统计切分方案数。",
+  "insight": "dp[i] 表示后缀 s[i..] 的方案数；从 i 向右逐位组成 value，未超过 k 时累加 dp[j+1]，超过立即停止。",
+  "pitfalls": [
+    "以零开头的后缀没有合法切分",
+    "组成数字用 long 避免临时溢出",
+    "答案按十亿零七取模"
+  ],
+  "solutions": [
+    {
+      "id": "suffix-partition-dp",
+      "title": "后缀切分动态规划",
+      "kind": "最优",
+      "idea": "枚举每个切分起点可形成的合法首个整数。",
+      "steps": [
+        "dp[n]=1",
+        "i 从 n-1 向前；若 s[i] 非零，向右构造 value",
+        "value<=k 时 dp[i]+=dp[j+1]，超过 k break；返回 dp[0]"
+      ],
+      "complexity": {
+        "time": "O(n log k)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/suffix-partition-dp/Solution.java",
+        "kotlin": "solutions/suffix-partition-dp/Solution.kt",
+        "cpp": "solutions/suffix-partition-dp/solution.cpp"
+      }
+    }
+  ]
+}

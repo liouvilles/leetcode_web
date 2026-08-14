@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 105,
+  "slug": "construct-binary-tree-from-preorder-and-inorder-traversal",
+  "title": "从前序与中序遍历序列构造二叉树",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-001",
+  "studyTags": [
+    "递归建树",
+    "中序分割",
+    "下标映射"
+  ],
+  "summary": "根据一棵无重复值二叉树的前序遍历和中序遍历序列，还原并返回这棵树。",
+  "insight": "前序序列按顺序提供每棵子树的根；根在中序序列中的位置则把左右子树区间准确分开。",
+  "pitfalls": [
+    "前序下标应按根、左、右的递归顺序递增",
+    "中序区间使用闭区间时边界要一致",
+    "节点值互不重复才能建立唯一位置映射"
+  ],
+  "solutions": [
+    {
+      "id": "preorder-index-map",
+      "title": "前序指针 + 中序下标表",
+      "kind": "最优",
+      "idea": "哈希表保存每个值在中序序列的位置，用单调递增的前序指针依次创建根节点。",
+      "steps": [
+        "建立中序值到下标的映射",
+        "读取当前前序值创建根节点",
+        "按中序根位置递归构造左区间和右区间"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/preorder-index-map/Solution.java",
+        "kotlin": "solutions/preorder-index-map/Solution.kt",
+        "cpp": "solutions/preorder-index-map/solution.cpp"
+      }
+    }
+  ]
+}

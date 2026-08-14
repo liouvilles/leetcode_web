@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "canConstruct",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "annabelle 可构造两个",
+      "args": [
+        "annabelle",
+        2
+      ],
+      "expected": true
+    },
+    {
+      "name": "三个中心不足以容纳奇频",
+      "args": [
+        "leetcode",
+        3
+      ],
+      "expected": false
+    },
+    {
+      "name": "四字符各成一个回文",
+      "args": [
+        "true",
+        4
+      ],
+      "expected": true
+    },
+    {
+      "name": "回文数量超过字符数",
+      "args": [
+        "true",
+        5
+      ],
+      "expected": false
+    }
+  ]
+}

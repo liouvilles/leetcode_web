@@ -1,0 +1,1 @@
+class Solution { public int countGoodRectangles(int[][] rectangles){int maximum=0,answer=0;for(int[] rectangle:rectangles){int side=Math.min(rectangle[0],rectangle[1]);if(side>maximum){maximum=side;answer=1;}else if(side==maximum)answer++;}return answer;} }

@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "threeSum",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intListMatrix",
+  "cases": [
+    {
+      "name": "包含两个不重复答案",
+      "args": [
+        [
+          -1,
+          0,
+          1,
+          2,
+          -1,
+          -4
+        ]
+      ],
+      "expected": [
+        [
+          -1,
+          -1,
+          2
+        ],
+        [
+          -1,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "不存在零和三元组",
+      "args": [
+        [
+          0,
+          1,
+          1
+        ]
+      ],
+      "expected": []
+    },
+    {
+      "name": "多个零只保留一个组合",
+      "args": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    }
+  ]
+}

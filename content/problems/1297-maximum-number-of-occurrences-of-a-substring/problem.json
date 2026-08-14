@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1297,
+  "slug": "maximum-number-of-occurrences-of-a-substring",
+  "title": "子串的最大出现次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "字符串",
+    "滑动窗口",
+    "哈希表",
+    "计数"
+  ],
+  "summary": "在长度介于 minSize 与 maxSize、不同字符数不超 maxLetters 的子串中，返回某个子串的最大出现次数。",
+  "insight": "任何较长合法子串的每次出现都包含其长度 minSize 的前缀出现，且前缀不同字符不会更多；因此只需统计固定长度 minSize 的合法窗口。",
+  "pitfalls": [
+    "相同子串的重叠出现也计数",
+    "maxSize 无需枚举",
+    "窗口不同字符数通过频次数组维护"
+  ],
+  "solutions": [
+    {
+      "id": "minimum-size-window-frequency",
+      "title": "最小长度窗口频次",
+      "kind": "最优",
+      "idea": "只统计固定 minSize 合法子串并取最高频次。",
+      "steps": [
+        "维护长度 minSize 的滑动窗口、26 频次与 distinct",
+        "每加入右字符，窗口过长时移除左字符并更新 distinct",
+        "窗口长度等于 minSize 且 distinct<=maxLetters 时对 substring 计数并更新 answer"
+      ],
+      "complexity": {
+        "time": "O(n·minSize) 含构造子串",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/minimum-size-window-frequency/Solution.java",
+        "kotlin": "solutions/minimum-size-window-frequency/Solution.kt",
+        "cpp": "solutions/minimum-size-window-frequency/solution.cpp"
+      }
+    }
+  ]
+}

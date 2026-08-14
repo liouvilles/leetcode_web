@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1584,
+  "slug": "min-cost-to-connect-all-points",
+  "title": "连接所有点的最小费用",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-023",
+  "studyTags": [
+    "数组",
+    "图论",
+    "最小生成树",
+    "Prim"
+  ],
+  "summary": "完全图中两点边权为曼哈顿距离，求连接所有点的最小总费用。",
+  "insight": "直接在隐式完全图上运行 Prim：每次选尚未加入树且到当前树距离最小的点，再用它更新其他点的最短连接边。",
+  "pitfalls": [
+    "无需显式存 O(n²) 条边",
+    "每轮恰加入一个新点",
+    "距离使用坐标差绝对值之和"
+  ],
+  "solutions": [
+    {
+      "id": "dense-prim",
+      "title": "稠密图 Prim",
+      "kind": "最优",
+      "idea": "用数组实现 O(n²) 最小生成树。",
+      "steps": [
+        "distance[0]=0，其余无穷，used 全 false",
+        "重复 n 次选未用且 distance 最小的 node，加入答案并标记",
+        "对每个未用 next，用曼哈顿距离松弛 distance[next]"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/dense-prim/Solution.java",
+        "kotlin": "solutions/dense-prim/Solution.kt",
+        "cpp": "solutions/dense-prim/solution.cpp"
+      }
+    }
+  ]
+}

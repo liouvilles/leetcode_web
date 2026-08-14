@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2213,
+  "slug": "longest-substring-of-one-repeating-character",
+  "title": "由单个重复字符组成的最长子字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-032",
+  "studyTags": [
+    "字符串",
+    "线段树",
+    "有序集合"
+  ],
+  "summary": "对字符串执行多次单点字符更新，每次返回当前最长同字符连续子串长度。",
+  "insight": "线段树节点维护区间长度、左右端字符、同字符前缀长、后缀长和区间最佳值。合并时若左右子区间边界字符相同，可拼接后缀与前缀并延长端部。",
+  "pitfalls": [
+    "更新字符可能与原字符相同",
+    "跨中点答案只由左后缀加右前缀构成",
+    "根节点 best 即每次答案"
+  ],
+  "solutions": [
+    {
+      "id": "segment-tree-run-metadata",
+      "title": "连续段信息线段树",
+      "kind": "最优",
+      "idea": "单点更新后沿路径重算五项区间摘要。",
+      "steps": [
+        "build 叶节点 prefix=suffix=best=length=1",
+        "pull：先继承左右端；边界字符相等时尝试拼接 best，并在整侧同字符时延长 prefix/suffix",
+        "每次 update 对应下标叶字符，回溯 pull，记录 best[1]"
+      ],
+      "complexity": {
+        "time": "O((n+q) log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/segment-tree-run-metadata/Solution.java",
+        "kotlin": "solutions/segment-tree-run-metadata/Solution.kt",
+        "cpp": "solutions/segment-tree-run-metadata/solution.cpp"
+      }
+    }
+  ]
+}

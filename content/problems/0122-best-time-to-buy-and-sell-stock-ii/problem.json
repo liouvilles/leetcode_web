@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 122,
+  "slug": "best-time-to-buy-and-sell-stock-ii",
+  "title": "买卖股票的最佳时机 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-004",
+  "studyTags": [
+    "贪心",
+    "股票",
+    "正差分"
+  ],
+  "summary": "每天最多持有一股且可以买卖多次，计算价格序列中能获得的最大总利润。",
+  "insight": "任意上涨区间的首尾利润等于其中所有相邻正差之和，因此累加每次上涨即可实现最优。",
+  "pitfalls": [
+    "同一天可以卖出后再买入",
+    "下降差值不能计入利润",
+    "无需显式寻找完整波谷和波峰"
+  ],
+  "solutions": [
+    {
+      "id": "sum-positive-differences",
+      "title": "累加相邻正收益",
+      "kind": "最优",
+      "idea": "把每段上涨拆成若干天的一步交易，利润总和不变。",
+      "steps": [
+        "从第二天开始扫描",
+        "若 price[i]>price[i-1] 则累加差值",
+        "返回累计利润"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/sum-positive-differences/Solution.java",
+        "kotlin": "solutions/sum-positive-differences/Solution.kt",
+        "cpp": "solutions/sum-positive-differences/solution.cpp"
+      }
+    }
+  ]
+}

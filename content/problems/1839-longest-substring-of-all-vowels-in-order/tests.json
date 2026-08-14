@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "longestBeautifulSubstring",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典字符串最长美丽段十三",
+      "args": [
+        "aeiaaioaaaaeiiiiouuuooaauuaeiu"
+      ],
+      "expected": 13
+    },
+    {
+      "name": "完整元音序列长度五",
+      "args": [
+        "aeeeiiiioooauuuaeiou"
+      ],
+      "expected": 5
+    },
+    {
+      "name": "缺少部分元音答案零",
+      "args": [
+        "a"
+      ],
+      "expected": 0
+    }
+  ]
+}

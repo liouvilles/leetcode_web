@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "canSeePersonsCount",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "经典队列可见人数",
+      "args": [
+        [
+          10,
+          6,
+          8,
+          5,
+          11,
+          9
+        ]
+      ],
+      "expected": [
+        3,
+        1,
+        2,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "首人能看到其后所有递增者",
+      "args": [
+        [
+          5,
+          1,
+          2,
+          3,
+          10
+        ]
+      ],
+      "expected": [
+        4,
+        1,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "严格递减每人只见下一位",
+      "args": [
+        [
+          3,
+          2,
+          1
+        ]
+      ],
+      "expected": [
+        1,
+        1,
+        0
+      ]
+    }
+  ]
+}

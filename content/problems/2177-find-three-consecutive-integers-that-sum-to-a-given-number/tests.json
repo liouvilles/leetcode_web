@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sumOfThree",
+  "parameterTypes": [
+    "long"
+  ],
+  "returnType": "longArray",
+  "cases": [
+    {
+      "name": "三十三分解为十十一十二",
+      "args": [
+        33
+      ],
+      "expected": [
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "name": "四不能分解",
+      "args": [
+        4
+      ],
+      "expected": []
+    },
+    {
+      "name": "六分解为一二三",
+      "args": [
+        6
+      ],
+      "expected": [
+        1,
+        2,
+        3
+      ]
+    }
+  ]
+}

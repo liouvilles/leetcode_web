@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 743,
+  "slug": "network-delay-time",
+  "title": "网络延迟时间",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-010",
+  "studyTags": [
+    "图论",
+    "最短路",
+    "Dijkstra"
+  ],
+  "summary": "有向加权网络中信号从节点 k 发出，求所有 n 个节点收到信号所需时间；若有节点不可达返回 -1。",
+  "insight": "所有边权为正，使用 Dijkstra 求源点到每个节点最短路；最大最短距离就是全网延迟。",
+  "pitfalls": [
+    "节点编号从一开始",
+    "可能有重复路径，堆中旧距离要跳过",
+    "任一距离仍为无穷大则返回 -1"
+  ],
+  "solutions": [
+    {
+      "id": "dijkstra-min-heap",
+      "title": "小根堆 Dijkstra",
+      "kind": "最优",
+      "idea": "按当前最短距离扩展节点并松弛有向边。",
+      "steps": [
+        "建立邻接表 [to,weight]",
+        "distance[k]=0，堆压入源点",
+        "弹出旧状态则跳过，遍历边松弛并入堆；最后取距离最大值，不可达返回 -1"
+      ],
+      "complexity": {
+        "time": "O((n+e) log n)",
+        "space": "O(n+e)"
+      },
+      "files": {
+        "java": "solutions/dijkstra-min-heap/Solution.java",
+        "kotlin": "solutions/dijkstra-min-heap/Solution.kt",
+        "cpp": "solutions/dijkstra-min-heap/solution.cpp"
+      }
+    }
+  ]
+}

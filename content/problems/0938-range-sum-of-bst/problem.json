@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 938,
+  "slug": "range-sum-of-bst",
+  "title": "二叉搜索树的范围和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-013",
+  "studyTags": [
+    "树",
+    "深度优先搜索",
+    "二叉搜索树"
+  ],
+  "summary": "给定二叉搜索树和闭区间 [low,high]，求所有值落在区间内节点的值之和。",
+  "insight": "利用搜索树有序性剪枝：节点值小于等于 low 时无需搜索左侧，大于等于 high 时无需搜索右侧。",
+  "pitfalls": [
+    "边界值要计入答案",
+    "空树贡献为零",
+    "剪枝条件仍要允许边界另一侧搜索"
+  ],
+  "solutions": [
+    {
+      "id": "bst-pruned-dfs",
+      "title": "二叉搜索树剪枝 DFS",
+      "kind": "最优",
+      "idea": "只递归可能含区间值的子树。",
+      "steps": [
+        "空节点返回零",
+        "当前值在区间内则计入",
+        "若 node.val>low 搜左子树；若 node.val<high 搜右子树，返回总和"
+      ],
+      "complexity": {
+        "time": "O(visited nodes)",
+        "space": "O(height)"
+      },
+      "files": {
+        "java": "solutions/bst-pruned-dfs/Solution.java",
+        "kotlin": "solutions/bst-pruned-dfs/Solution.kt",
+        "cpp": "solutions/bst-pruned-dfs/solution.cpp"
+      }
+    }
+  ]
+}

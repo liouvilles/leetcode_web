@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 669,
+  "slug": "trim-a-binary-search-tree",
+  "title": "修剪二叉搜索树",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-008",
+  "studyTags": [
+    "二叉搜索树",
+    "递归",
+    "树修改"
+  ],
+  "summary": "修剪二叉搜索树，使所有节点值都在闭区间 [low,high] 内，并保持剩余节点相对结构。",
+  "insight": "若节点值小于 low，其左子树也全部过小，只需递归修剪右子树；大于 high 时对称处理左子树。",
+  "pitfalls": [
+    "被删除节点的合法子树要向上接回",
+    "区间端点值需要保留",
+    "可原地修改孩子指针"
+  ],
+  "solutions": [
+    {
+      "id": "bst-pruning-recursion",
+      "title": "利用 BST 有序性剪枝",
+      "kind": "最优",
+      "idea": "根据当前值与区间关系整棵跳过不可能的一侧。",
+      "steps": [
+        "空节点返回空",
+        "node.val<low 返回 trim(node.right)，node.val>high 返回 trim(node.left)",
+        "区间内节点递归修剪两个孩子后返回自身"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(h)"
+      },
+      "files": {
+        "java": "solutions/bst-pruning-recursion/Solution.java",
+        "kotlin": "solutions/bst-pruning-recursion/Solution.kt",
+        "cpp": "solutions/bst-pruning-recursion/solution.cpp"
+      }
+    }
+  ]
+}

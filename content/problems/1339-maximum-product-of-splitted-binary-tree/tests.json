@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxProduct",
+  "parameterTypes": [
+    "treeNode"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "六节点树最大一百一十",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "expected": 110
+    },
+    {
+      "name": "完全七节点树最大一百九十二",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "expected": 192
+    },
+    {
+      "name": "两个一乘积一",
+      "args": [
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

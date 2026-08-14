@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 637,
+  "slug": "average-of-levels-in-binary-tree",
+  "title": "二叉树的层平均值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-008",
+  "studyTags": [
+    "二叉树",
+    "广度优先搜索",
+    "层序遍历"
+  ],
+  "summary": "返回二叉树每一层所有节点值的平均数。",
+  "insight": "层序 BFS 在每轮开始记录当前队列长度，只弹出这一层并累加为长整数，然后计算平均值。",
+  "pitfalls": [
+    "每层大小要在入队下一层前固定",
+    "求和使用长整数避免溢出",
+    "结果使用浮点除法"
+  ],
+  "solutions": [
+    {
+      "id": "level-order-sums",
+      "title": "层序遍历逐层求和",
+      "kind": "最优",
+      "idea": "队列按层消费并计算每层平均值。",
+      "steps": [
+        "根节点入队",
+        "每轮记录 size，弹出 size 个节点并累加，同时加入孩子",
+        "把 sum/size 追加到结果，直到队列为空"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(width)"
+      },
+      "files": {
+        "java": "solutions/level-order-sums/Solution.java",
+        "kotlin": "solutions/level-order-sums/Solution.kt",
+        "cpp": "solutions/level-order-sums/solution.cpp"
+      }
+    }
+  ]
+}

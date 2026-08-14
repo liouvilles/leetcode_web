@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2416,
+  "slug": "sum-of-prefix-scores-of-strings",
+  "title": "字符串的前缀分数和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-035",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "字典树",
+    "计数"
+  ],
+  "summary": "某非空前缀分数为 words 中以它为前缀的字符串数，对每个单词求其所有非空前缀分数和。",
+  "insight": "字典树节点记录经过它的单词数。插入时沿每个字符把 count 加一；查询单词时沿路径累加节点 count。",
+  "pitfalls": [
+    "每个非空前缀都计分",
+    "重复单词分别插入并增加计数",
+    "根节点不计分"
+  ],
+  "solutions": [
+    {
+      "id": "prefix-trie-pass-counts",
+      "title": "前缀树经过计数",
+      "kind": "最优",
+      "idea": "节点经过次数直接就是对应前缀分数。",
+      "steps": [
+        "Trie Node 含 children[26]、count",
+        "插入每个 word：进入字符节点后 count++",
+        "查询每个 word：沿字符节点累加 count",
+        "返回各单词结果"
+      ],
+      "complexity": {
+        "time": "O(total characters)",
+        "space": "O(total characters)"
+      },
+      "files": {
+        "java": "solutions/prefix-trie-pass-counts/Solution.java",
+        "kotlin": "solutions/prefix-trie-pass-counts/Solution.kt",
+        "cpp": "solutions/prefix-trie-pass-counts/solution.cpp"
+      }
+    }
+  ]
+}

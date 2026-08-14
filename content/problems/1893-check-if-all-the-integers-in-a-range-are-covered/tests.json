@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isCovered",
+  "parameterTypes": [
+    "intMatrix",
+    "int",
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "相邻区间覆盖二到五",
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            5,
+            6
+          ]
+        ],
+        2,
+        5
+      ],
+      "expected": true
+    },
+    {
+      "name": "二十一不在任何区间",
+      "args": [
+        [
+          [
+            1,
+            10
+          ],
+          [
+            10,
+            20
+          ]
+        ],
+        21,
+        21
+      ],
+      "expected": false
+    },
+    {
+      "name": "单点区间覆盖自身",
+      "args": [
+        [
+          [
+            1,
+            1
+          ]
+        ],
+        1,
+        1
+      ],
+      "expected": true
+    }
+  ]
+}

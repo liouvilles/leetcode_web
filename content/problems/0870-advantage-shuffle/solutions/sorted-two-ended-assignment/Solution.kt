@@ -1,0 +1,1 @@
+class Solution { fun advantageCount(nums1:IntArray,nums2:IntArray):IntArray{nums1.sort();val order=nums2.indices.sortedBy{nums2[it]};val answer=IntArray(nums1.size);var left=0;var right=nums1.lastIndex;for(value in nums1)if(value>nums2[order[left]])answer[order[left++]]=value else answer[order[right--]]=value;return answer} }

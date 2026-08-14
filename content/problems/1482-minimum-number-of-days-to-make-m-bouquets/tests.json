@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minDays",
+  "parameterTypes": [
+    "intArray",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "单花花束最早第三天",
+      "args": [
+        [
+          1,
+          10,
+          3,
+          10,
+          2
+        ],
+        3,
+        1
+      ],
+      "expected": 3
+    },
+    {
+      "name": "花数不足制作三束",
+      "args": [
+        [
+          1,
+          10,
+          3,
+          10,
+          2
+        ],
+        3,
+        2
+      ],
+      "expected": -1
+    },
+    {
+      "name": "相邻三花需等到十二天",
+      "args": [
+        [
+          7,
+          7,
+          7,
+          7,
+          12,
+          7,
+          7
+        ],
+        2,
+        3
+      ],
+      "expected": 12
+    }
+  ]
+}

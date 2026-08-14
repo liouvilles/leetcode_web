@@ -1,0 +1,1 @@
+class Solution { public: vector<int> addToArrayForm(vector<int>& num,int k){vector<int> digits;for(int i=num.size()-1;i>=0||k>0;--i){if(i>=0)k+=num[i];digits.push_back(k%10);k/=10;}reverse(digits.begin(),digits.end());return digits;} };

@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumEffortPath",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典矩阵最小体力二",
+      "args": [
+        [
+          [
+            1,
+            2,
+            2
+          ],
+          [
+            3,
+            8,
+            2
+          ],
+          [
+            5,
+            3,
+            5
+          ]
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "绕行可把最大高度差降为一",
+      "args": [
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            3,
+            8,
+            4
+          ],
+          [
+            5,
+            3,
+            5
+          ]
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "单格矩阵无需体力",
+      "args": [
+        [
+          [
+            7
+          ]
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

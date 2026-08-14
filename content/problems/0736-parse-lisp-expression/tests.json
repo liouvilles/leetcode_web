@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "evaluate",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "嵌套作用域遮蔽",
+      "args": [
+        "(let x 2 (mult x (let x 3 y 4 (add x y))))"
+      ],
+      "expected": 14
+    },
+    {
+      "name": "同层重新绑定变量",
+      "args": [
+        "(let x 3 x 2 x)"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "简单加法",
+      "args": [
+        "(add 1 2)"
+      ],
+      "expected": 3
+    }
+  ]
+}

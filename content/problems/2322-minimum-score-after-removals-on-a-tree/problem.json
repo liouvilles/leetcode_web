@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2322,
+  "slug": "minimum-score-after-removals-on-a-tree",
+  "title": "从树中删除边的最小分数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "数组",
+    "位运算",
+    "树",
+    "深度优先搜索"
+  ],
+  "summary": "树上每点有数值，删除两条边形成三个连通分量，分数为三者异或值最大值减最小值，求最小分数。",
+  "insight": "根树后每条可删除边对应一个非根节点的子树。预处理 DFS 时间戳与子树异或；枚举两个子树，根据祖先、后代或互不包含三种关系直接算出三个分量异或。",
+  "pitfalls": [
+    "异或不能用普通和的减法，但可用再次异或移除子集",
+    "两条边可能形成嵌套子树",
+    "每个非根节点唯一代表其父边"
+  ],
+  "solutions": [
+    {
+      "id": "subtree-xor-and-edge-pair-enumeration",
+      "title": "子树异或与边对枚举",
+      "kind": "最优",
+      "idea": "时间戳判断两棵子树的包含关系。",
+      "steps": [
+        "建邻接表，DFS 得 tin、tout、subtreeXor 与 total",
+        "枚举非根节点 a<b",
+        "若 a 是 b 祖先：三值为 sub[b]、sub[a]^sub[b]、total^sub[a]；反向同理",
+        "否则为 sub[a]、sub[b]、total^sub[a]^sub[b]；更新极差"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/subtree-xor-and-edge-pair-enumeration/Solution.java",
+        "kotlin": "solutions/subtree-xor-and-edge-pair-enumeration/Solution.kt",
+        "cpp": "solutions/subtree-xor-and-edge-pair-enumeration/solution.cpp"
+      }
+    }
+  ]
+}

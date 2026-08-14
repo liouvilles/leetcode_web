@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 867,
+  "slug": "transpose-matrix",
+  "title": "转置矩阵",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "数组",
+    "矩阵"
+  ],
+  "summary": "返回矩阵沿主对角线翻转后的转置矩阵。",
+  "insight": "原矩阵 rows×columns，结果为 columns×rows，并令 answer[c][r]=matrix[r][c]。",
+  "pitfalls": [
+    "输入不一定是方阵",
+    "结果行列数互换",
+    "每个元素只复制一次"
+  ],
+  "solutions": [
+    {
+      "id": "direct-index-transpose",
+      "title": "直接下标转置",
+      "kind": "最优",
+      "idea": "按原矩阵坐标写入交换后的结果坐标。",
+      "steps": [
+        "读取 rows、columns",
+        "创建 answer[columns][rows]",
+        "双循环令 answer[column][row]=matrix[row][column]，返回"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(mn)"
+      },
+      "files": {
+        "java": "solutions/direct-index-transpose/Solution.java",
+        "kotlin": "solutions/direct-index-transpose/Solution.kt",
+        "cpp": "solutions/direct-index-transpose/solution.cpp"
+      }
+    }
+  ]
+}

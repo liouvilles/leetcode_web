@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "SeatManager",
+  "constructorTypes": [
+    "int"
+  ],
+  "cases": [
+    {
+      "name": "经典预约退订流程",
+      "constructorArgs": [
+        5
+      ],
+      "calls": [
+        {
+          "method": "reserve",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "reserve",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 2
+        },
+        {
+          "method": "unreserve",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ]
+        },
+        {
+          "method": "reserve",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 2
+        },
+        {
+          "method": "reserve",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 3
+        },
+        {
+          "method": "reserve",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 4
+        },
+        {
+          "method": "reserve",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 5
+        },
+        {
+          "method": "unreserve",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "name": "退订最小座位后优先预约",
+      "constructorArgs": [
+        3
+      ],
+      "calls": [
+        {
+          "method": "reserve",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "reserve",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 2
+        },
+        {
+          "method": "unreserve",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ]
+        },
+        {
+          "method": "reserve",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 1
+        }
+      ]
+    },
+    {
+      "name": "单座位重复使用",
+      "constructorArgs": [
+        1
+      ],
+      "calls": [
+        {
+          "method": "reserve",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "unreserve",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ]
+        },
+        {
+          "method": "reserve",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 1
+        }
+      ]
+    }
+  ]
+}

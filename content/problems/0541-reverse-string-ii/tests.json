@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "reverseStr",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "两个完整分块",
+      "args": [
+        "abcdefg",
+        2
+      ],
+      "expected": "bacdfeg"
+    },
+    {
+      "name": "不足 k 全反转",
+      "args": [
+        "abcd",
+        4
+      ],
+      "expected": "dcba"
+    },
+    {
+      "name": "单字符块",
+      "args": [
+        "abcdef",
+        1
+      ],
+      "expected": "abcdef"
+    }
+  ]
+}

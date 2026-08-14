@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "timeRequiredToBuy",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "二号买完需六秒",
+      "args": [
+        [
+          2,
+          3,
+          2
+        ],
+        2
+      ],
+      "expected": 6
+    },
+    {
+      "name": "零号买五张需八秒",
+      "args": [
+        [
+          5,
+          1,
+          1,
+          1
+        ],
+        0
+      ],
+      "expected": 8
+    },
+    {
+      "name": "单人一张票需一秒",
+      "args": [
+        [
+          1
+        ],
+        0
+      ],
+      "expected": 1
+    }
+  ]
+}

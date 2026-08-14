@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "checkPalindromeFormation",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "任一单字符即回文",
+      "args": [
+        "x",
+        "y"
+      ],
+      "expected": true
+    },
+    {
+      "name": "ulacfd 与 jizalu 可拼回文",
+      "args": [
+        "ulacfd",
+        "jizalu"
+      ],
+      "expected": true
+    },
+    {
+      "name": "abc 与 def 无法拼回文",
+      "args": [
+        "abc",
+        "def"
+      ],
+      "expected": false
+    }
+  ]
+}

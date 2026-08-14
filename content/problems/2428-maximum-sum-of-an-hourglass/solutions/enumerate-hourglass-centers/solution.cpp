@@ -1,0 +1,1 @@
+class Solution { public:int maxSum(vector<vector<int>>& grid){int answer=0;for(int row=0;row+2<(int)grid.size();++row)for(int column=0;column+2<(int)grid[0].size();++column){int sum=grid[row][column]+grid[row][column+1]+grid[row][column+2]+grid[row+1][column+1]+grid[row+2][column]+grid[row+2][column+1]+grid[row+2][column+2];answer=max(answer,sum);}return answer;} };

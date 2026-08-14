@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1360,
+  "slug": "number-of-days-between-two-dates",
+  "title": "日期之间隔几天",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-019",
+  "studyTags": [
+    "数学",
+    "字符串"
+  ],
+  "summary": "给定两个 YYYY-MM-DD 日期，返回它们之间相隔的天数。",
+  "insight": "把每个日期换算为同一纪元起累计天数，再取绝对差；年份和月份分别累加并正确处理闰年二月。",
+  "pitfalls": [
+    "闰年规则是四年一闰、百年不闰、四百年再闰",
+    "只累加当前月份之前的整月",
+    "结果取绝对值"
+  ],
+  "solutions": [
+    {
+      "id": "ordinal-day-conversion",
+      "title": "累计日序转换",
+      "kind": "最优",
+      "idea": "将日期映射到从固定年份开始的整数日序。",
+      "steps": [
+        "解析年、月、日",
+        "累加 1971 到当前年前的全年天数，以及当前月前的整月天数",
+        "两个日序相减取绝对值"
+      ],
+      "complexity": {
+        "time": "O(Y)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/ordinal-day-conversion/Solution.java",
+        "kotlin": "solutions/ordinal-day-conversion/Solution.kt",
+        "cpp": "solutions/ordinal-day-conversion/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "largestOverlap",
+  "parameterTypes": [
+    "intMatrix",
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "平移后重叠三格",
+      "args": [
+        [
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "单个一重叠",
+      "args": [
+        [
+          [
+            1
+          ]
+        ],
+        [
+          [
+            1
+          ]
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "没有重叠一",
+      "args": [
+        [
+          [
+            0
+          ]
+        ],
+        [
+          [
+            0
+          ]
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

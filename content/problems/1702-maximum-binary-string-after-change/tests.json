@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumBinaryString",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "多个零最终只留一个零",
+      "args": [
+        "000110"
+      ],
+      "expected": "111011"
+    },
+    {
+      "name": "零一已是最大可达形态",
+      "args": [
+        "01"
+      ],
+      "expected": "01"
+    },
+    {
+      "name": "全一保持不变",
+      "args": [
+        "111"
+      ],
+      "expected": "111"
+    }
+  ]
+}

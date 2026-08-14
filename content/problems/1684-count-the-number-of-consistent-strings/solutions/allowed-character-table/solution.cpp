@@ -1,0 +1,1 @@
+class Solution { public: int countConsistentStrings(string allowed,vector<string>& words){array<bool,26> valid{};for(char letter:allowed)valid[letter-'a']=true;int answer=0;for(auto& word:words)answer+=all_of(word.begin(),word.end(),[&](char letter){return valid[letter-'a'];});return answer;} };

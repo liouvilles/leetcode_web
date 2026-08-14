@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 27,
+  "slug": "remove-element",
+  "title": "移除元素",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-004",
+  "studyTags": [
+    "快慢指针",
+    "原地修改",
+    "稳定覆盖"
+  ],
+  "summary": "原地移除数组中等于指定值的元素，并返回保留下来的元素数量。",
+  "insight": "用写指针维护有效前缀，读指针遇到需要保留的元素时才写入并前进。",
+  "pitfalls": [
+    "只保证返回长度以内的前缀有效",
+    "空数组应返回零",
+    "覆盖过程不需要额外数组"
+  ],
+  "solutions": [
+    {
+      "id": "stable-compaction",
+      "title": "稳定快慢指针",
+      "kind": "最优",
+      "idea": "读指针扫描全部元素，写指针只记录非目标值。",
+      "steps": [
+        "初始化 write=0",
+        "遇到不等于 val 的元素就写入 nums[write]",
+        "返回 write"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/stable-compaction/Solution.java",
+        "kotlin": "solutions/stable-compaction/Solution.kt",
+        "cpp": "solutions/stable-compaction/solution.cpp"
+      }
+    }
+  ]
+}

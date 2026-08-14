@@ -1,0 +1,1 @@
+class Solution { public int smallestRangeII(int[] nums,int k){Arrays.sort(nums);int answer=nums[nums.length-1]-nums[0];for(int i=0;i+1<nums.length;i++){int high=Math.max(nums[nums.length-1]-k,nums[i]+k),low=Math.min(nums[0]+k,nums[i+1]-k);answer=Math.min(answer,high-low);}return answer;} }

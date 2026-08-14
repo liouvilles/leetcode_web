@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isEscapePossible",
+  "parameterTypes": [
+    "intMatrix",
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "没有阻塞可达",
+      "args": [
+        [],
+        [
+          0,
+          0
+        ],
+        [
+          999999,
+          999999
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "边角起点被围住",
+      "args": [
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "四面阻塞围住",
+      "args": [
+        [
+          [
+            10,
+            9
+          ],
+          [
+            9,
+            10
+          ],
+          [
+            10,
+            11
+          ],
+          [
+            11,
+            10
+          ]
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          12,
+          12
+        ]
+      ],
+      "expected": false
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "commonFactors",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "十二和六有四个公因子",
+      "args": [
+        12,
+        6
+      ],
+      "expected": 4
+    },
+    {
+      "name": "二十五和三十有两个公因子",
+      "args": [
+        25,
+        30
+      ],
+      "expected": 2
+    },
+    {
+      "name": "一和一只有一个公因子",
+      "args": [
+        1,
+        1
+      ],
+      "expected": 1
+    }
+  ]
+}

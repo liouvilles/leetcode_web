@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2363,
+  "slug": "merge-similar-items",
+  "title": "合并相似的物品",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "排序",
+    "有序集合"
+  ],
+  "summary": "两组物品以 [价值,重量] 表示，各组内价值唯一，合并相同价值的重量并按价值升序返回。",
+  "insight": "用有序映射把价值对应重量累加，遍历映射天然得到升序结果。",
+  "pitfalls": [
+    "需要相加的是重量",
+    "输出必须按价值升序",
+    "两组内部虽唯一但跨组可重复"
+  ],
+  "solutions": [
+    {
+      "id": "ordered-value-weight-map",
+      "title": "有序价值重量表",
+      "kind": "最优",
+      "idea": "TreeMap 同时完成聚合与排序。",
+      "steps": [
+        "创建 value→totalWeight 有序映射",
+        "遍历 items1 与 items2 累加重量",
+        "按映射顺序生成 [value,totalWeight]",
+        "返回结果"
+      ],
+      "complexity": {
+        "time": "O((n+m) log(n+m))",
+        "space": "O(n+m)"
+      },
+      "files": {
+        "java": "solutions/ordered-value-weight-map/Solution.java",
+        "kotlin": "solutions/ordered-value-weight-map/Solution.kt",
+        "cpp": "solutions/ordered-value-weight-map/solution.cpp"
+      }
+    }
+  ]
+}

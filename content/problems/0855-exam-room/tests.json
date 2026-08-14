@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "ExamRoom",
+  "constructorTypes": [
+    "int"
+  ],
+  "cases": [
+    {
+      "name": "经典十座流程",
+      "constructorArgs": [
+        10
+      ],
+      "calls": [
+        {
+          "method": "seat",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 0
+        },
+        {
+          "method": "seat",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 9
+        },
+        {
+          "method": "seat",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 4
+        },
+        {
+          "method": "seat",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 2
+        },
+        {
+          "method": "leave",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            4
+          ]
+        },
+        {
+          "method": "seat",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 5
+        }
+      ]
+    },
+    {
+      "name": "单座离开再复用",
+      "constructorArgs": [
+        1
+      ],
+      "calls": [
+        {
+          "method": "seat",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 0
+        },
+        {
+          "method": "leave",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            0
+          ]
+        },
+        {
+          "method": "seat",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 0
+        }
+      ]
+    },
+    {
+      "name": "四座依次坐满",
+      "constructorArgs": [
+        4
+      ],
+      "calls": [
+        {
+          "method": "seat",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 0
+        },
+        {
+          "method": "seat",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 3
+        },
+        {
+          "method": "seat",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "seat",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 2
+        }
+      ]
+    }
+  ]
+}

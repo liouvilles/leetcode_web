@@ -1,0 +1,1 @@
+class Solution { fun champagneTower(poured:Int,query_row:Int,query_glass:Int):Double{val amount=DoubleArray(query_row+2);amount[0]=poured.toDouble();for(row in 0 until query_row)for(glass in row downTo 0){val overflow=maxOf(0.0,(amount[glass]-1.0)/2.0);amount[glass]=overflow;amount[glass+1]+=overflow};return minOf(1.0,amount[query_glass])} }

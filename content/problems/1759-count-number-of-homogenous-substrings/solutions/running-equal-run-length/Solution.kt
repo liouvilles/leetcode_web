@@ -1,0 +1,1 @@
+class Solution { fun countHomogenous(text:String):Int{val mod=1_000_000_007L;var answer=0L;var run=0L;for(i in text.indices){run=if(i>0&&text[i]==text[i-1])run+1 else 1;answer=(answer+run)%mod};return answer.toInt()} }

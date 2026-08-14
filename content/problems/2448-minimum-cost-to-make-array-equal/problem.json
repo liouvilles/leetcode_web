@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2448,
+  "slug": "minimum-cost-to-make-array-equal",
+  "title": "使数组相等的最小开销",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-036",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "排序",
+    "前缀和"
+  ],
+  "summary": "把 nums[i] 每增减一需 cost[i]，求把所有数变成同一整数的最小总开销。",
+  "insight": "这是加权绝对偏差和，任一加权中位数最优。按数值排序，累计权重达到总权重一半的位置作为目标。",
+  "pitfalls": [
+    "权重是每单位改动费用",
+    "目标不必原先唯一但可取加权中位数",
+    "答案使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "weighted-median",
+      "title": "加权中位数",
+      "kind": "最优",
+      "idea": "绝对值加权和在权重中位点最小。",
+      "steps": [
+        "按 nums 排序下标",
+        "totalWeight=sum(cost)，累计到两倍不小于 total 时取 target",
+        "answer=sum(abs(nums[i]-target)*cost[i])",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/weighted-median/Solution.java",
+        "kotlin": "solutions/weighted-median/Solution.kt",
+        "cpp": "solutions/weighted-median/solution.cpp"
+      }
+    }
+  ]
+}

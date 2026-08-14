@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1504,
+  "slug": "count-submatrices-with-all-ones",
+  "title": "统计全 1 子矩形",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-021",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "矩阵"
+  ],
+  "summary": "统计二进制矩阵中元素全部为一的非空子矩形数量。",
+  "insight": "逐行维护每列连续一的高度。固定当前行作为底边并向左扩展右端点，区间最小高度就是以该横区间为宽、当前行为底的矩形数量。",
+  "pitfalls": [
+    "遇零时列高度清零",
+    "每个底边与左右边组合唯一计数",
+    "向左扩展时持续更新最小高度"
+  ],
+  "solutions": [
+    {
+      "id": "histogram-left-expansion",
+      "title": "直方图向左扩展",
+      "kind": "最优",
+      "idea": "把每行转成柱高后枚举以当前行为底的所有横区间。",
+      "steps": [
+        "height[col] 随行更新",
+        "对每个 right，minimum=INF，left 从 right 向零移动",
+        "minimum=min(minimum,height[left])，answer+=minimum"
+      ],
+      "complexity": {
+        "time": "O(rows·cols²)",
+        "space": "O(cols)"
+      },
+      "files": {
+        "java": "solutions/histogram-left-expansion/Solution.java",
+        "kotlin": "solutions/histogram-left-expansion/Solution.kt",
+        "cpp": "solutions/histogram-left-expansion/solution.cpp"
+      }
+    }
+  ]
+}

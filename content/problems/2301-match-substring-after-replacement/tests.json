@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "matchReplacement",
+  "parameterTypes": [
+    "string",
+    "string",
+    "charMatrix"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "映射数字后可匹配 leet",
+      "args": [
+        "fool3e7bar",
+        "leet",
+        [
+          [
+            "e",
+            "3"
+          ],
+          [
+            "t",
+            "7"
+          ],
+          [
+            "t",
+            "8"
+          ]
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "同一映射可重复使用",
+      "args": [
+        "fooleetbar",
+        "f00l",
+        [
+          [
+            "0",
+            "o"
+          ]
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "缺少所需映射无法匹配",
+      "args": [
+        "abc",
+        "xyz",
+        [
+          [
+            "x",
+            "a"
+          ],
+          [
+            "y",
+            "b"
+          ]
+        ]
+      ],
+      "expected": false
+    }
+  ]
+}

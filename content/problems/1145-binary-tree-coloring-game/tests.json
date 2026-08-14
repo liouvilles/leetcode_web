@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "btreeGameWinningMove",
+  "parameterTypes": [
+    "treeNode",
+    "int",
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "选择父方向获胜",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        7,
+        3
+      ],
+      "expected": true
+    },
+    {
+      "name": "先手选择根后无法过半",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        7,
+        1
+      ],
+      "expected": false
+    },
+    {
+      "name": "单节点无可选点",
+      "args": [
+        [
+          1
+        ],
+        1,
+        1
+      ],
+      "expected": false
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "entityParser",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "仅解析完整 amp 实体",
+      "args": [
+        "&amp; is an HTML entity but &ambassador; is not."
+      ],
+      "expected": "& is an HTML entity but &ambassador; is not."
+    },
+    {
+      "name": "解析双引号实体",
+      "args": [
+        "and I quote: &quot;...&quot;"
+      ],
+      "expected": "and I quote: \"...\""
+    },
+    {
+      "name": "无实体保持不变",
+      "args": [
+        "Stay home! Practice on Leetcode :)"
+      ],
+      "expected": "Stay home! Practice on Leetcode :)"
+    }
+  ]
+}

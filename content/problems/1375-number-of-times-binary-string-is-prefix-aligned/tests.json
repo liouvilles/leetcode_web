@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numTimesAllBlue",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典顺序两次全蓝",
+      "args": [
+        [
+          3,
+          2,
+          4,
+          1,
+          5
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "最后才成为完整前缀",
+      "args": [
+        [
+          4,
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "顺序翻转每次均满足",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 3
+    }
+  ]
+}

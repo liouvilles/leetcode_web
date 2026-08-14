@@ -1,0 +1,1 @@
+class Solution { int sum=0;void traverse(TreeNode* node){if(!node)return;traverse(node->right);sum+=node->val;node->val=sum;traverse(node->left);}public:TreeNode* convertBST(TreeNode* root){traverse(root);return root;} };

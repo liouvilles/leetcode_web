@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2408,
+  "slug": "design-sql",
+  "title": "设计 SQL",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-035",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "字符串",
+    "设计"
+  ],
+  "summary": "设计简化数据库：多张固定列数表支持插入行、按行号删除，以及按表名、行号、列号查询单元格。",
+  "insight": "每张表用动态行数组保存，数组下标加一就是只增不复用的 rowId。删除只把对应槽位标记为空，不改变后续行号。",
+  "pitfalls": [
+    "每张表行号独立从一开始",
+    "删除行号不会被复用",
+    "列号也从一开始"
+  ],
+  "solutions": [
+    {
+      "id": "per-table-append-only-row-slots",
+      "title": "每表只增行槽位",
+      "kind": "最优",
+      "idea": "保留删除占位以稳定行号。",
+      "steps": [
+        "构造 name→rows 空列表",
+        "insertRow 追加 row 副本",
+        "deleteRow 把 rows[rowId-1] 置空",
+        "selectCell 返回 rows[rowId-1][columnId-1]"
+      ],
+      "complexity": {
+        "time": "O(columns) 插入，O(1) 删除查询",
+        "space": "O(total inserted cells)"
+      },
+      "files": {
+        "java": "solutions/per-table-append-only-row-slots/Solution.java",
+        "kotlin": "solutions/per-table-append-only-row-slots/Solution.kt",
+        "cpp": "solutions/per-table-append-only-row-slots/solution.cpp"
+      }
+    }
+  ]
+}

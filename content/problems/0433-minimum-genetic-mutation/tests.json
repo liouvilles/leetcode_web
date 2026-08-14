@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minMutation",
+  "parameterTypes": [
+    "string",
+    "string",
+    "stringArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一步变化",
+      "args": [
+        "AACCGGTT",
+        "AACCGGTA",
+        [
+          "AACCGGTA"
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "两步变化",
+      "args": [
+        "AACCGGTT",
+        "AAACGGTA",
+        [
+          "AACCGGTA",
+          "AACCGCTA",
+          "AAACGGTA"
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "终点不在基因库",
+      "args": [
+        "AAAAACCC",
+        "AACCCCCC",
+        [
+          "AAAACCCC",
+          "AAACCCCC"
+        ]
+      ],
+      "expected": -1
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "waysToSplit",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三个一只有一种切分",
+      "args": [
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "含零数组有三种合法切分",
+      "args": [
+        [
+          1,
+          2,
+          2,
+          2,
+          5,
+          0
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "严格递减和无法满足条件",
+      "args": [
+        [
+          3,
+          2,
+          1
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numOfMinutes",
+  "parameterTypes": [
+    "int",
+    "int",
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "只有负责人",
+      "args": [
+        1,
+        0,
+        [
+          -1
+        ],
+        [
+          0
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "负责人一秒通知五人",
+      "args": [
+        6,
+        2,
+        [
+          2,
+          2,
+          -1,
+          2,
+          2,
+          2
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "七人管理链",
+      "args": [
+        7,
+        6,
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          -1
+        ],
+        [
+          0,
+          6,
+          5,
+          4,
+          3,
+          2,
+          1
+        ]
+      ],
+      "expected": 21
+    }
+  ]
+}

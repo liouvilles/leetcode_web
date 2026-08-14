@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 736,
+  "slug": "parse-lisp-expression",
+  "title": "Lisp 语法解析",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-009",
+  "studyTags": [
+    "字符串",
+    "递归",
+    "哈希表",
+    "解析"
+  ],
+  "summary": "求值由整数、变量、let、add、mult 组成的 Lisp 表达式，变量遵循最近词法作用域绑定。",
+  "insight": "按括号深度把当前表达式切成顶层 token；add/mult 递归求两个参数，let 复制环境并依次绑定变量，最后 token 是返回表达式。",
+  "pitfalls": [
+    "嵌套表达式中的空格不能作为顶层分隔",
+    "let 的绑定按从左到右生效",
+    "内层同名变量遮蔽外层但不能泄漏出去"
+  ],
+  "solutions": [
+    {
+      "id": "recursive-top-level-tokenizer",
+      "title": "顶层分词与环境复制递归",
+      "kind": "最优",
+      "idea": "每层表达式独立解析顶层结构并维护词法环境。",
+      "steps": [
+        "非括号 token 是整数或变量查值",
+        "去掉外括号后按深度零的空格切分 token",
+        "add/mult 递归两个操作数；let 复制环境，成对求值并绑定，递归最后表达式"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/recursive-top-level-tokenizer/Solution.java",
+        "kotlin": "solutions/recursive-top-level-tokenizer/Solution.kt",
+        "cpp": "solutions/recursive-top-level-tokenizer/solution.cpp"
+      }
+    }
+  ]
+}

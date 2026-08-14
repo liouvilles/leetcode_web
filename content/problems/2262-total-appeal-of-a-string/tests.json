@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "appealSum",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "abbca 总引力二十八",
+      "args": [
+        "abbca"
+      ],
+      "expected": 28
+    },
+    {
+      "name": "code 总引力二十",
+      "args": [
+        "code"
+      ],
+      "expected": 20
+    },
+    {
+      "name": "单字符引力一",
+      "args": [
+        "a"
+      ],
+      "expected": 1
+    }
+  ]
+}

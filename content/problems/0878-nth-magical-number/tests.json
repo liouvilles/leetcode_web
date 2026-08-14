@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "nthMagicalNumber",
+  "parameterTypes": [
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "第一个神奇数",
+      "args": [
+        1,
+        2,
+        3
+      ],
+      "expected": 2
+    },
+    {
+      "name": "第四个二三倍数",
+      "args": [
+        4,
+        2,
+        3
+      ],
+      "expected": 6
+    },
+    {
+      "name": "第五个二四倍数",
+      "args": [
+        5,
+        2,
+        4
+      ],
+      "expected": 10
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 530,
+  "slug": "minimum-absolute-difference-in-bst",
+  "title": "二叉搜索树的最小绝对差",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-007",
+  "studyTags": [
+    "二叉搜索树",
+    "中序遍历",
+    "相邻差"
+  ],
+  "summary": "返回二叉搜索树中任意两个不同节点值的最小绝对差。",
+  "insight": "BST 中序遍历值严格递增，全局最小差一定出现在有序序列相邻元素之间。",
+  "pitfalls": [
+    "树至少有两个节点",
+    "只需比较中序前驱",
+    "前驱需要可空状态区分第一个节点"
+  ],
+  "solutions": [
+    {
+      "id": "inorder-adjacent-difference",
+      "title": "中序相邻值比较",
+      "kind": "最优",
+      "idea": "递归生成有序流并维护上一值与当前最小差。",
+      "steps": [
+        "中序遍历左子树",
+        "若 previous 存在则 best=min(best,node.val-previous)",
+        "更新 previous 并遍历右子树"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(h)"
+      },
+      "files": {
+        "java": "solutions/inorder-adjacent-difference/Solution.java",
+        "kotlin": "solutions/inorder-adjacent-difference/Solution.kt",
+        "cpp": "solutions/inorder-adjacent-difference/solution.cpp"
+      }
+    }
+  ]
+}

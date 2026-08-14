@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 46,
+  "slug": "permutations",
+  "title": "全排列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-001",
+  "studyTags": [
+    "回溯",
+    "使用标记",
+    "决策树"
+  ],
+  "summary": "给定一个不含重复元素的整数数组，返回其中所有可能的排列。",
+  "insight": "排列的每个位置都可以从尚未使用的元素中选择，使用布尔数组即可维护当前路径的可选集合。",
+  "pitfalls": [
+    "同一个下标在一条路径中只能使用一次",
+    "保存答案时必须复制当前路径",
+    "回溯后要同时撤销路径和使用标记"
+  ],
+  "solutions": [
+    {
+      "id": "used-array-backtracking",
+      "title": "使用标记回溯",
+      "kind": "最优",
+      "idea": "逐位置选择尚未进入路径的元素，路径长度等于数组长度时得到一个排列。",
+      "steps": [
+        "建立 used 数组",
+        "枚举所有未使用元素加入路径",
+        "递归返回后恢复 used 并删除路径末尾"
+      ],
+      "complexity": {
+        "time": "O(n · n!)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/used-array-backtracking/Solution.java",
+        "kotlin": "solutions/used-array-backtracking/Solution.kt",
+        "cpp": "solutions/used-array-backtracking/solution.cpp"
+      }
+    }
+  ]
+}

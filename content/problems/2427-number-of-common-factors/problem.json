@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2427,
+  "slug": "number-of-common-factors",
+  "title": "公因子的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-035",
+  "studyTags": [
+    "数学",
+    "枚举",
+    "数论",
+    "最大公约数"
+  ],
+  "summary": "统计正整数 a 和 b 的所有正公因子数量。",
+  "insight": "公因子正好是 gcd(a,b) 的因子。枚举到平方根，每个整除的 divisor 通常贡献一对因子，平方根重合时只加一。",
+  "pitfalls": [
+    "一始终是公因子",
+    "完全平方数的平方根不能重复计数",
+    "先求最大公约数缩小枚举范围"
+  ],
+  "solutions": [
+    {
+      "id": "divisors-of-gcd-up-to-square-root",
+      "title": "枚举最大公约数的因子对",
+      "kind": "最优",
+      "idea": "利用因子成对出现。",
+      "steps": [
+        "g=gcd(a,b)",
+        "answer=0",
+        "divisor 从1 while divisor²<=g；若整除，加 divisor²==g?1:2",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(sqrt(gcd))",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/divisors-of-gcd-up-to-square-root/Solution.java",
+        "kotlin": "solutions/divisors-of-gcd-up-to-square-root/Solution.kt",
+        "cpp": "solutions/divisors-of-gcd-up-to-square-root/solution.cpp"
+      }
+    }
+  ]
+}

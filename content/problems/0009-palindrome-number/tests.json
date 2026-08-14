@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isPalindrome",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "奇数位回文数",
+      "args": [
+        121
+      ],
+      "expected": true
+    },
+    {
+      "name": "负数不是回文数",
+      "args": [
+        -121
+      ],
+      "expected": false
+    },
+    {
+      "name": "非零末位零",
+      "args": [
+        10
+      ],
+      "expected": false
+    }
+  ]
+}

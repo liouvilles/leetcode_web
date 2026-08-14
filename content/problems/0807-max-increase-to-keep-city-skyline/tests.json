@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxIncreaseKeepingSkyline",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典四阶城市",
+      "args": [
+        [
+          [
+            3,
+            0,
+            8,
+            4
+          ],
+          [
+            2,
+            4,
+            5,
+            7
+          ],
+          [
+            9,
+            2,
+            6,
+            3
+          ],
+          [
+            0,
+            3,
+            1,
+            0
+          ]
+        ]
+      ],
+      "expected": 35
+    },
+    {
+      "name": "全零无需增加",
+      "args": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "单格不能增加",
+      "args": [
+        [
+          [
+            5
+          ]
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "removeDigit",
+  "parameterTypes": [
+    "string",
+    "char"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "一二三一删首个一得二三一",
+      "args": [
+        "1231",
+        "1"
+      ],
+      "expected": "231"
+    },
+    {
+      "name": "删除末位三",
+      "args": [
+        "123",
+        "3"
+      ],
+      "expected": "12"
+    },
+    {
+      "name": "两个五删除任一得五一",
+      "args": [
+        "551",
+        "5"
+      ],
+      "expected": "51"
+    }
+  ]
+}

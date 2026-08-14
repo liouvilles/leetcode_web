@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "diagonalSum",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三阶矩阵对角线和二十五",
+      "args": [
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            4,
+            5,
+            6
+          ],
+          [
+            7,
+            8,
+            9
+          ]
+        ]
+      ],
+      "expected": 25
+    },
+    {
+      "name": "四阶全一对角线和八",
+      "args": [
+        [
+          [
+            1,
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": 8
+    },
+    {
+      "name": "单元素只计一次",
+      "args": [
+        [
+          [
+            5
+          ]
+        ]
+      ],
+      "expected": 5
+    }
+  ]
+}

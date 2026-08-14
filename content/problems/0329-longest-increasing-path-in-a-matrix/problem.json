@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 329,
+  "slug": "longest-increasing-path-in-a-matrix",
+  "title": "矩阵中的最长递增路径",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-005",
+  "studyTags": [
+    "深度优先搜索",
+    "记忆化",
+    "矩阵"
+  ],
+  "summary": "在矩阵中从任意格开始上下左右移动，求数值严格递增路径的最大长度。",
+  "insight": "从每格出发的最长长度只依赖更大邻居，是一个有向无环关系；记忆化 DFS 可避免重复计算。",
+  "pitfalls": [
+    "只能向四个方向移动",
+    "必须严格递增",
+    "每个格子的结果计算一次后缓存"
+  ],
+  "solutions": [
+    {
+      "id": "memoized-dfs",
+      "title": "记忆化深度优先搜索",
+      "kind": "最优",
+      "idea": "dfs(row,column) 返回从该格出发的最长递增路径。",
+      "steps": [
+        "为每格建立 memo",
+        "枚举四邻域中值更大的格子递归",
+        "memo=1+最大邻居结果，全局取最大"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(mn)"
+      },
+      "files": {
+        "java": "solutions/memoized-dfs/Solution.java",
+        "kotlin": "solutions/memoized-dfs/Solution.kt",
+        "cpp": "solutions/memoized-dfs/solution.cpp"
+      }
+    }
+  ]
+}

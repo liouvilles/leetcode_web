@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2,
+  "slug": "add-two-numbers",
+  "title": "两数相加",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-001",
+  "studyTags": [
+    "链表模拟加法",
+    "进位处理",
+    "虚拟头结点"
+  ],
+  "summary": "两个非空链表按低位到高位保存两个非负整数，逐位相加并以同样的逆序链表形式返回结果。",
+  "insight": "链表节点正好按个位到高位排列，可以像手算加法一样同步前进，并把进位带到下一轮。",
+  "pitfalls": [
+    "两个链表长度可能不同",
+    "最后一次进位可能产生额外节点",
+    "输入中的前导零规则不等于结果可以丢弃末尾进位"
+  ],
+  "solutions": [
+    {
+      "id": "iterative-carry",
+      "title": "同步遍历与进位",
+      "kind": "最优",
+      "idea": "用两个指针逐位读取数字，当前位之和加上 carry 后生成新节点。",
+      "steps": [
+        "建立虚拟头结点保存结果",
+        "读取两个当前位置，不存在的节点按 0 处理",
+        "写入个位并更新进位，直到节点与进位全部耗尽"
+      ],
+      "complexity": {
+        "time": "O(max(m, n))",
+        "space": "O(max(m, n))"
+      },
+      "files": {
+        "java": "solutions/iterative-carry/Solution.java",
+        "kotlin": "solutions/iterative-carry/Solution.kt",
+        "cpp": "solutions/iterative-carry/solution.cpp"
+      }
+    }
+  ]
+}

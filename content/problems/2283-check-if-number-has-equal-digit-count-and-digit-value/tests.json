@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "digitCount",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "一二一零满足自描述计数",
+      "args": [
+        "1210"
+      ],
+      "expected": true
+    },
+    {
+      "name": "零三零不满足",
+      "args": [
+        "030"
+      ],
+      "expected": false
+    },
+    {
+      "name": "二零二零满足",
+      "args": [
+        "2020"
+      ],
+      "expected": true
+    }
+  ]
+}

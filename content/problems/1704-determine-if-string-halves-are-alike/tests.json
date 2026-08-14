@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "halvesAreAlike",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "book 两半各一个元音",
+      "args": [
+        "book"
+      ],
+      "expected": true
+    },
+    {
+      "name": "textbook 两半元音数不同",
+      "args": [
+        "textbook"
+      ],
+      "expected": false
+    },
+    {
+      "name": "大小写元音都参与计数",
+      "args": [
+        "AbCdEfGh"
+      ],
+      "expected": true
+    }
+  ]
+}

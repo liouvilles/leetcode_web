@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "longestNiceSubarray",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典数组最长优雅段三",
+      "args": [
+        [
+          1,
+          3,
+          8,
+          48,
+          10
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "所有相邻选择都冲突",
+      "args": [
+        [
+          3,
+          1,
+          5,
+          11,
+          13
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "两个零可同时保留",
+      "args": [
+        [
+          0,
+          0
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

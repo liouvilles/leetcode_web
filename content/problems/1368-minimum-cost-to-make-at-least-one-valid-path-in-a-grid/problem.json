@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1368,
+  "slug": "minimum-cost-to-make-at-least-one-valid-path-in-a-grid",
+  "title": "使网格图至少有一条有效路径的最小代价",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-019",
+  "studyTags": [
+    "数组",
+    "图论",
+    "最短路",
+    "广度优先搜索"
+  ],
+  "summary": "每个格子箭头指向一个方向，修改一个箭头代价一，求从左上到右下的最小修改次数。",
+  "insight": "把每个格子视为图节点：沿原箭头移动的边权为零，其余三个方向边权为一；用 0-1 BFS 求最短路。",
+  "pitfalls": [
+    "边权取决于离开当前格子的方向",
+    "零权边压入双端队列前端",
+    "只有距离变小时才更新"
+  ],
+  "solutions": [
+    {
+      "id": "zero-one-bfs",
+      "title": "零一广度优先搜索",
+      "kind": "最优",
+      "idea": "使用双端队列在线性边数内求零一权最短路。",
+      "steps": [
+        "dist 初始化无穷，起点为零并入队",
+        "枚举四邻，weight 为方向是否等于 grid[row][col]",
+        "松弛后零权 addFirst、一权 addLast；返回终点距离"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(mn)"
+      },
+      "files": {
+        "java": "solutions/zero-one-bfs/Solution.java",
+        "kotlin": "solutions/zero-one-bfs/Solution.kt",
+        "cpp": "solutions/zero-one-bfs/solution.cpp"
+      }
+    }
+  ]
+}

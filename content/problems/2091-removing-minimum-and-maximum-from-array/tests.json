@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumDeletions",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "八项数组最少删除五次",
+      "args": [
+        [
+          2,
+          10,
+          7,
+          5,
+          4,
+          1,
+          8,
+          6
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "最大最小靠左最少三次",
+      "args": [
+        [
+          0,
+          -4,
+          19,
+          1,
+          8,
+          -2,
+          -3,
+          5
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "单元素删除一次",
+      "args": [
+        [
+          101
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

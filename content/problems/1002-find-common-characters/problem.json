@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1002,
+  "slug": "find-common-characters",
+  "title": "查找共用字符",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-014",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "计数"
+  ],
+  "summary": "返回字符串数组中所有字符串都出现的字符，重复次数取各字符串出现次数的最小值，顺序任意。",
+  "insight": "维护二十六个字符的全局最小频次；每个单词单独计数后逐位取最小，最后按频次输出字符。",
+  "pitfalls": [
+    "重复字符要重复输出",
+    "初始最小频次可设为很大或首词频次",
+    "比较区分小写字母"
+  ],
+  "solutions": [
+    {
+      "id": "minimum-letter-frequency",
+      "title": "字符最小频次",
+      "kind": "最优",
+      "idea": "逐词收紧每个字母可共同出现的次数。",
+      "steps": [
+        "minimum[26] 初始化为极大值",
+        "对每个 word 统计 frequency[26]，再令 minimum[i]=min(minimum[i],frequency[i])",
+        "按 a 到 z，把每个字符重复 minimum 次加入结果"
+      ],
+      "complexity": {
+        "time": "O(total characters+26m)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/minimum-letter-frequency/Solution.java",
+        "kotlin": "solutions/minimum-letter-frequency/Solution.kt",
+        "cpp": "solutions/minimum-letter-frequency/solution.cpp"
+      }
+    }
+  ]
+}

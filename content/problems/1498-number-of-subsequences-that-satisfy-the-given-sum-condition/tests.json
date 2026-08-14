@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numSubseq",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三五六七目标九有四个",
+      "args": [
+        [
+          3,
+          5,
+          6,
+          7
+        ],
+        9
+      ],
+      "expected": 4
+    },
+    {
+      "name": "含重复三目标十有六个",
+      "args": [
+        [
+          3,
+          3,
+          6,
+          8
+        ],
+        10
+      ],
+      "expected": 6
+    },
+    {
+      "name": "六元素目标十二有六十一",
+      "args": [
+        [
+          2,
+          3,
+          3,
+          4,
+          6,
+          7
+        ],
+        12
+      ],
+      "expected": 61
+    }
+  ]
+}

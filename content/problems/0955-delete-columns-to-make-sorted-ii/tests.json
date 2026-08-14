@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minDeletionSize",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "删除一列后有序",
+      "args": [
+        [
+          "ca",
+          "bb",
+          "ac"
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "首列已严格区分",
+      "args": [
+        [
+          "xc",
+          "yb",
+          "za"
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "每列都需删除",
+      "args": [
+        [
+          "zyx",
+          "wvu",
+          "tsr"
+        ]
+      ],
+      "expected": 3
+    }
+  ]
+}

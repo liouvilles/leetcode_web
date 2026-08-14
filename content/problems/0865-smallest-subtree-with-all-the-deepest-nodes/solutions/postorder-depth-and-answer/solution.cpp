@@ -1,0 +1,1 @@
+class Solution { pair<int,TreeNode*> dfs(TreeNode* node){if(!node)return{0,nullptr};auto left=dfs(node->left),right=dfs(node->right);if(left.first==right.first)return{left.first+1,node};return left.first>right.first?make_pair(left.first+1,left.second):make_pair(right.first+1,right.second);}public:TreeNode* subtreeWithAllDeepest(TreeNode* root){return dfs(root).second;} };

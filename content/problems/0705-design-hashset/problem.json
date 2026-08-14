@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 705,
+  "slug": "design-hashset",
+  "title": "设计哈希集合",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-009",
+  "studyTags": [
+    "设计",
+    "哈希表",
+    "数组"
+  ],
+  "summary": "不使用内建哈希集合，设计支持 add、remove 和 contains 的整数集合。",
+  "insight": "键范围固定为 0 到 10^6，可用布尔数组直接寻址，操作均为常数时间且实现无碰撞。",
+  "pitfalls": [
+    "重复添加不改变状态",
+    "删除不存在键无需报错",
+    "键零也应正常处理"
+  ],
+  "solutions": [
+    {
+      "id": "direct-address-table",
+      "title": "布尔数组直接寻址",
+      "kind": "最优",
+      "idea": "用 key 本身作为数组下标记录是否存在。",
+      "steps": [
+        "建立长度 1000001 的布尔数组",
+        "add(key) 置真，remove(key) 置假",
+        "contains(key) 返回对应布尔值"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(U)"
+      },
+      "files": {
+        "java": "solutions/direct-address-table/Solution.java",
+        "kotlin": "solutions/direct-address-table/Solution.kt",
+        "cpp": "solutions/direct-address-table/solution.cpp"
+      }
+    }
+  ]
+}

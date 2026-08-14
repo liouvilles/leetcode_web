@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "reverseWords",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "多个单词",
+      "args": [
+        "Let's take LeetCode contest"
+      ],
+      "expected": "s'teL ekat edoCteeL tsetnoc"
+    },
+    {
+      "name": "两个单词",
+      "args": [
+        "God Ding"
+      ],
+      "expected": "doG gniD"
+    },
+    {
+      "name": "单字母单词",
+      "args": [
+        "a b"
+      ],
+      "expected": "a b"
+    }
+  ]
+}

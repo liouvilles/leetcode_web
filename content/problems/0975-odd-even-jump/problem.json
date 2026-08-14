@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 975,
+  "slug": "odd-even-jump",
+  "title": "奇偶跳",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-014",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "有序集合",
+    "单调栈"
+  ],
+  "summary": "从下标 i 开始，奇数次跳到右侧值不小于当前值中的最小值位置，偶数次跳到右侧值不大于当前值中的最大值位置，同值取最小下标；统计能到末尾的起点。",
+  "insight": "从右向左动态规划，有序映射保存右侧每个值的最小下标；ceiling 给奇跳目标，floor 给偶跳目标，再用目标的相反奇偶可达状态转移。",
+  "pitfalls": [
+    "跳跃次数从一开始，所以起点查 odd 状态",
+    "相同值要跳最小右侧下标，逆向 put 会保留当前更小下标",
+    "末尾在两种下一跳奇偶状态下都视为可达"
+  ],
+  "solutions": [
+    {
+      "id": "ordered-map-reverse-dp",
+      "title": "有序映射逆向动态规划",
+      "kind": "最优",
+      "idea": "用值域的上下界查询两类唯一目标。",
+      "steps": [
+        "odd[n-1]=even[n-1]=true，TreeMap 放入末尾值到下标",
+        "i 从 n-2 到零；ceilingEntry(nums[i]) 存在则 odd[i]=even[target]",
+        "floorEntry 存在则 even[i]=odd[target]；若 odd[i] 答案加一，更新 map[value]=i"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/ordered-map-reverse-dp/Solution.java",
+        "kotlin": "solutions/ordered-map-reverse-dp/Solution.kt",
+        "cpp": "solutions/ordered-map-reverse-dp/solution.cpp"
+      }
+    }
+  ]
+}

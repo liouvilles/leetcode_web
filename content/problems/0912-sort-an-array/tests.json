@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sortArray",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "五元素排序",
+      "args": [
+        [
+          5,
+          2,
+          3,
+          1
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        3,
+        5
+      ]
+    },
+    {
+      "name": "含重复负数",
+      "args": [
+        [
+          5,
+          1,
+          1,
+          2,
+          0,
+          0
+        ]
+      ],
+      "expected": [
+        0,
+        0,
+        1,
+        1,
+        2,
+        5
+      ]
+    },
+    {
+      "name": "单元素",
+      "args": [
+        [
+          -1
+        ]
+      ],
+      "expected": [
+        -1
+      ]
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findMaximumXOR",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典最大异或",
+      "args": [
+        [
+          3,
+          10,
+          5,
+          25,
+          2,
+          8
+        ]
+      ],
+      "expected": 28
+    },
+    {
+      "name": "单元素只能与自身",
+      "args": [
+        [
+          0
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "两个数",
+      "args": [
+        [
+          2,
+          4
+        ]
+      ],
+      "expected": 6
+    }
+  ]
+}

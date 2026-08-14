@@ -1,0 +1,1 @@
+class Solution { public: int minMoves2(vector<int>& nums){sort(nums.begin(),nums.end());int median=nums[nums.size()/2];long long answer=0;for(int value:nums)answer+=llabs((long long)value-median);return answer;} };

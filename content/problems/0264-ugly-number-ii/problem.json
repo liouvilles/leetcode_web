@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 264,
+  "slug": "ugly-number-ii",
+  "title": "丑数 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-005",
+  "studyTags": [
+    "动态规划",
+    "多指针",
+    "有序生成"
+  ],
+  "summary": "返回只含质因数二、三和五的正整数序列中的第 n 个数。",
+  "insight": "下一项一定是已生成某项乘二、三或五的最小值；三个指针分别维护各乘法序列的未使用位置。",
+  "pitfalls": [
+    "第一项定义为一",
+    "同一新值可能来自多个乘法序列，所有命中指针都要前进",
+    "指针只向前移动"
+  ],
+  "solutions": [
+    {
+      "id": "three-pointers",
+      "title": "三指针动态生成",
+      "kind": "最优",
+      "idea": "合并三个递增乘法序列并去除交叉重复。",
+      "steps": [
+        "ugly[0]=1",
+        "next=min(ugly[p2]*2, ugly[p3]*3, ugly[p5]*5)",
+        "等于 next 的所有指针递增"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/three-pointers/Solution.java",
+        "kotlin": "solutions/three-pointers/Solution.kt",
+        "cpp": "solutions/three-pointers/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 110,
+  "slug": "balanced-binary-tree",
+  "title": "平衡二叉树",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-002",
+  "studyTags": [
+    "后序遍历",
+    "高度剪枝",
+    "哨兵返回值"
+  ],
+  "summary": "判断一棵二叉树是否满足每个节点左右子树高度差不超过一。",
+  "insight": "后序计算高度时用 -1 表示子树已经不平衡，可以立即向上传播并停止无用计算。",
+  "pitfalls": [
+    "平衡条件必须对每个节点成立",
+    "重复单独计算高度会退化为平方时间",
+    "空树高度可定义为零"
+  ],
+  "solutions": [
+    {
+      "id": "height-or-failure",
+      "title": "高度与失败合并返回",
+      "kind": "最优",
+      "idea": "一次后序遍历同时完成高度计算和平衡性判断。",
+      "steps": [
+        "递归得到左右子树高度",
+        "任一返回 -1 或高度差超过一就返回 -1",
+        "否则返回较大高度加一"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(h)"
+      },
+      "files": {
+        "java": "solutions/height-or-failure/Solution.java",
+        "kotlin": "solutions/height-or-failure/Solution.kt",
+        "cpp": "solutions/height-or-failure/solution.cpp"
+      }
+    }
+  ]
+}

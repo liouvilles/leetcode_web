@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sumOfUnique",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一二三唯一元素和四",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          2
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "所有元素重复和为零",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "全部唯一求总和六",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 6
+    }
+  ]
+}

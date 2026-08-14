@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "nthSuperUglyNumber",
+  "parameterTypes": [
+    "int",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四个质因数",
+      "args": [
+        12,
+        [
+          2,
+          7,
+          13,
+          19
+        ]
+      ],
+      "expected": 32
+    },
+    {
+      "name": "第一项",
+      "args": [
+        1,
+        [
+          2,
+          3,
+          5
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "二和十一",
+      "args": [
+        5,
+        [
+          2,
+          11
+        ]
+      ],
+      "expected": 11
+    }
+  ]
+}

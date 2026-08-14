@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2024,
+  "slug": "maximize-the-confusion-of-an-exam",
+  "title": "考试的最大困扰度",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-029",
+  "studyTags": [
+    "字符串",
+    "二分查找",
+    "前缀和",
+    "滑动窗口"
+  ],
+  "summary": "最多修改 k 个答案字符，求能变成全真或全假的最长连续子串长度。",
+  "insight": "分别把 T 或 F 视为需要修改的字符，用滑动窗口维持其数量不超过 k；两种目标的最大窗口取较大值。",
+  "pitfalls": [
+    "可以少于 k 次修改",
+    "目标可能全 T 或全 F",
+    "窗口左端只单调右移"
+  ],
+  "solutions": [
+    {
+      "id": "two-target-sliding-windows",
+      "title": "两目标滑动窗口",
+      "kind": "最优",
+      "idea": "对每种要被替换的字符独立求最长合法窗口。",
+      "steps": [
+        "helper(change)：left=changed=0",
+        "right 扩展，若 answerKey[right]==change 则 changed++；超 k 时收缩",
+        "更新最大长度；返回 max(helper(T),helper(F))"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/two-target-sliding-windows/Solution.java",
+        "kotlin": "solutions/two-target-sliding-windows/Solution.kt",
+        "cpp": "solutions/two-target-sliding-windows/solution.cpp"
+      }
+    }
+  ]
+}

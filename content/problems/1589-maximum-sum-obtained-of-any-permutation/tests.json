@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxSumRangeQuery",
+  "parameterTypes": [
+    "intArray",
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两个请求最大和十九",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          [
+            1,
+            3
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": 19
+    },
+    {
+      "name": "五个重叠请求最大和二十九",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ]
+        ]
+      ],
+      "expected": 29
+    },
+    {
+      "name": "单请求全数组保持总和",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          [
+            0,
+            2
+          ]
+        ]
+      ],
+      "expected": 6
+    }
+  ]
+}

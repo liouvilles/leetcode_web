@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "topKFrequent",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "两种最高频元素",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          2,
+          2,
+          3
+        ],
+        2
+      ],
+      "expected": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "单元素数组",
+      "args": [
+        [
+          1
+        ],
+        1
+      ],
+      "expected": [
+        1
+      ]
+    },
+    {
+      "name": "包含负数且频率不同",
+      "args": [
+        [
+          4,
+          4,
+          -1,
+          -1,
+          -1,
+          2
+        ],
+        2
+      ],
+      "expected": [
+        -1,
+        4
+      ]
+    }
+  ]
+}

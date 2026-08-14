@@ -1,0 +1,1 @@
+class Solution { public int[] arrayRankTransform(int[] arr){int[] sorted=arr.clone();Arrays.sort(sorted);Map<Integer,Integer> ranks=new HashMap<>();for(int value:sorted)if(!ranks.containsKey(value))ranks.put(value,ranks.size()+1);for(int i=0;i<arr.length;i++)arr[i]=ranks.get(arr[i]);return arr;} }

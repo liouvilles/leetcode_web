@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findClosestElements",
+  "parameterTypes": [
+    "intArray",
+    "int",
+    "int"
+  ],
+  "returnType": "intList",
+  "cases": [
+    {
+      "name": "目标在数组中间",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        4,
+        3
+      ],
+      "expected": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "name": "目标小于所有元素",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        4,
+        -1
+      ],
+      "expected": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "name": "相同距离选较小值",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        2,
+        3
+      ],
+      "expected": [
+        2,
+        3
+      ]
+    }
+  ]
+}

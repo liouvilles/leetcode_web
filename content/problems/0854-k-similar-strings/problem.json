@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 854,
+  "slug": "k-similar-strings",
+  "title": "相似度为 K 的字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "字符串",
+    "广度优先搜索",
+    "剪枝"
+  ],
+  "summary": "两个字符串互为字母异位词，每次可交换一个字符串任意两位置，求变成另一个字符串的最少交换次数。",
+  "insight": "在状态图上 BFS；对当前串只修复第一个不匹配位置，并只与能放入目标字符且自身也错位的位置交换，可保留所有最优路径同时大幅减枝。",
+  "pitfalls": [
+    "交换位置不要求相邻",
+    "每层 BFS 对应一次交换",
+    "相同状态要用访问集合去重"
+  ],
+  "solutions": [
+    {
+      "id": "first-mismatch-pruned-bfs",
+      "title": "首个错位剪枝 BFS",
+      "kind": "最优",
+      "idea": "每个状态只生成修复首个错位字符的候选。",
+      "steps": [
+        "队列从 s1 开始，visited 去重，按层记录 swaps",
+        "找到首个 current[i]!=s2[i]",
+        "枚举 j>i，要求 current[j]==s2[i] 且 current[j]!=s2[j]，交换生成未访问状态；命中 s2 返回层数"
+      ],
+      "complexity": {
+        "time": "O(states·n²)",
+        "space": "O(states·n)"
+      },
+      "files": {
+        "java": "solutions/first-mismatch-pruned-bfs/Solution.java",
+        "kotlin": "solutions/first-mismatch-pruned-bfs/Solution.kt",
+        "cpp": "solutions/first-mismatch-pruned-bfs/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumGroups",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "六名学生最多三组",
+      "args": [
+        [
+          10,
+          6,
+          12,
+          7,
+          3,
+          5
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "两名学生只能一组",
+      "args": [
+        [
+          8,
+          8
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "十名学生最多四组",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "expected": 4
+    }
+  ]
+}

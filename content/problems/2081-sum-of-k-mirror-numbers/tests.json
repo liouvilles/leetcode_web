@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "kMirror",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "二进制前五个镜像数和二十五",
+      "args": [
+        2,
+        5
+      ],
+      "expected": 25
+    },
+    {
+      "name": "三进制前七个和四百九十九",
+      "args": [
+        3,
+        7
+      ],
+      "expected": 499
+    },
+    {
+      "name": "七进制前十七个和二千零三十七万九千",
+      "args": [
+        7,
+        17
+      ],
+      "expected": 20379000
+    }
+  ]
+}

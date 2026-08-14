@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2320,
+  "slug": "count-number-of-ways-to-place-houses",
+  "title": "统计放置房子的方式数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "动态规划"
+  ],
+  "summary": "街道两侧各有 n 个地块，同侧相邻地块不能都放房子，求两侧独立放置的总方案数并取模。",
+  "insight": "先求一侧长度 n 的无相邻一二进制串数量，它满足 Fibonacci 递推 ways[n]=ways[n-1]+ways[n-2]；两侧选择独立，所以平方。",
+  "pitfalls": [
+    "限制只作用于同一侧",
+    "最终要把单侧方案数平方",
+    "每步递推和平方都需取模"
+  ],
+  "solutions": [
+    {
+      "id": "fibonacci-one-side-then-square",
+      "title": "单侧 Fibonacci 后平方",
+      "kind": "最优",
+      "idea": "利用两侧独立性把二维选择分解。",
+      "steps": [
+        "单侧 n=0 为1、n=1 为2",
+        "从长度2递推 current=(previous1+previous2)%mod",
+        "side 为长度 n 方案数",
+        "返回 side*side%mod"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/fibonacci-one-side-then-square/Solution.java",
+        "kotlin": "solutions/fibonacci-one-side-then-square/Solution.kt",
+        "cpp": "solutions/fibonacci-one-side-then-square/solution.cpp"
+      }
+    }
+  ]
+}

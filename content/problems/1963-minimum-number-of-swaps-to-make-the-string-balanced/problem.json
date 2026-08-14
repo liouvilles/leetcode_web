@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1963,
+  "slug": "minimum-number-of-swaps-to-make-the-string-balanced",
+  "title": "使字符串平衡的最小交换次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-028",
+  "studyTags": [
+    "双指针",
+    "字符串",
+    "栈",
+    "贪心"
+  ],
+  "summary": "括号字符串含相同数量的左右方括号，可交换任意两字符，求使其平衡的最少交换次数。",
+  "insight": "扫描前缀余额，左括号加一、右括号减一。最小余额的绝对值是最多同时缺少的左括号数；一次任意交换可修复两个层级的缺口，答案为 ceil(deficit/2)。",
+  "pitfalls": [
+    "交换可跨任意位置",
+    "总括号数量已相等",
+    "向上取整用 (deficit+1)/2"
+  ],
+  "solutions": [
+    {
+      "id": "minimum-prefix-balance",
+      "title": "最小前缀余额",
+      "kind": "最优",
+      "idea": "用最深负余额归纳最少交换数。",
+      "steps": [
+        "balance=minimum=0",
+        "遍历字符更新 balance，并记录 minimum",
+        "deficit=-minimum，返回 (deficit+1)/2"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/minimum-prefix-balance/Solution.java",
+        "kotlin": "solutions/minimum-prefix-balance/Solution.kt",
+        "cpp": "solutions/minimum-prefix-balance/solution.cpp"
+      }
+    }
+  ]
+}

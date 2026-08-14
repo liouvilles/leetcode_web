@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 678,
+  "slug": "valid-parenthesis-string",
+  "title": "有效的括号字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-009",
+  "studyTags": [
+    "字符串",
+    "贪心",
+    "区间状态"
+  ],
+  "summary": "字符串含左括号、右括号和星号，星号可视为空串或任一括号，判断能否成为有效括号串。",
+  "insight": "扫描时维护可能的未匹配左括号数量区间 [low,high]；星号使下界减一、上界加一，右括号使两者减一。",
+  "pitfalls": [
+    "high 小于零表示所有解释都出现多余右括号",
+    "low 不能小于零，因为可把星号解释为空",
+    "结束时只需 low 为零"
+  ],
+  "solutions": [
+    {
+      "id": "open-count-range",
+      "title": "未匹配左括号范围贪心",
+      "kind": "最优",
+      "idea": "压缩所有星号解释为可能的左括号数量上下界。",
+      "steps": [
+        "low=high=0",
+        "遇 ( 两者加一，遇 ) 两者减一，遇 * 则 low--、high++",
+        "high<0 立即失败，low=max(low,0)；结束返回 low==0"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/open-count-range/Solution.java",
+        "kotlin": "solutions/open-count-range/Solution.kt",
+        "cpp": "solutions/open-count-range/solution.cpp"
+      }
+    }
+  ]
+}

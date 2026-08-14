@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1278,
+  "slug": "palindrome-partitioning-iii",
+  "title": "分割回文串 III",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "字符串",
+    "动态规划",
+    "区间预处理"
+  ],
+  "summary": "把字符串分成恰好 k 个非空子串，可修改字符，求使每段都成为回文串的最少修改次数。",
+  "insight": "先预处理 cost[i][j]，即把子串变回文所需的不匹配对数；再按起点和剩余段数记忆搜索，枚举当前段终点并加后续最优。",
+  "pitfalls": [
+    "一次修改可修复一对不匹配字符",
+    "每段必须非空，终点要给剩余段留字符",
+    "k 等于字符串长度时答案为零"
+  ],
+  "solutions": [
+    {
+      "id": "palindrome-cost-partition-dp",
+      "title": "回文代价与分段动态规划",
+      "kind": "最优",
+      "idea": "把区间修改代价和切分决策分离。",
+      "steps": [
+        "从短到长计算 cost[i][j]=cost[i+1][j-1]+(s[i]!=s[j])",
+        "dfs(index,parts)：parts==1 返回 cost[index][n-1]",
+        "枚举 end 从 index 到 n-parts，最小化 cost[index][end]+dfs(end+1,parts-1)，记忆并返回"
+      ],
+      "complexity": {
+        "time": "O(n²k)",
+        "space": "O(n²+nk)"
+      },
+      "files": {
+        "java": "solutions/palindrome-cost-partition-dp/Solution.java",
+        "kotlin": "solutions/palindrome-cost-partition-dp/Solution.kt",
+        "cpp": "solutions/palindrome-cost-partition-dp/solution.cpp"
+      }
+    }
+  ]
+}

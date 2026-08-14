@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1938,
+  "slug": "maximum-genetic-difference-query",
+  "title": "查询最大基因差",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-028",
+  "studyTags": [
+    "位运算",
+    "树",
+    "字典树",
+    "离线查询"
+  ],
+  "summary": "每个节点的基因值是下标；对查询 node,val，在该节点到根路径中选择基因值，使其与 val 的异或值最大。",
+  "insight": "DFS 树时维护当前根路径所有节点值的二进制 Trie。进入节点插入，回答挂在该节点的离线查询，退出时删除；逐位优先选择与查询位相反且计数为正的分支。",
+  "pitfalls": [
+    "祖先包含节点自身",
+    "退出子树时必须删除当前节点",
+    "值需覆盖到第十八位"
+  ],
+  "solutions": [
+    {
+      "id": "offline-path-binary-trie",
+      "title": "离线路径二进制 Trie",
+      "kind": "最优",
+      "idea": "用进入退出事件维护当前祖先集合。",
+      "steps": [
+        "建孩子表与每节点查询列表",
+        "迭代 DFS：进入时 insert(node)，回答查询，压入退出事件和孩子进入事件",
+        "退出时 remove(node)；Trie 查询从高位优先走相反位"
+      ],
+      "complexity": {
+        "time": "O((n+q) log V)",
+        "space": "O((n+q) log V)"
+      },
+      "files": {
+        "java": "solutions/offline-path-binary-trie/Solution.java",
+        "kotlin": "solutions/offline-path-binary-trie/Solution.kt",
+        "cpp": "solutions/offline-path-binary-trie/solution.cpp"
+      }
+    }
+  ]
+}

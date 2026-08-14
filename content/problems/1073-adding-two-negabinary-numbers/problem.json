@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1073,
+  "slug": "adding-two-negabinary-numbers",
+  "title": "负二进制数相加",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-016",
+  "studyTags": [
+    "数组",
+    "数学",
+    "位运算"
+  ],
+  "summary": "两个最高位在前、无前导零的 -2 进制数组相加，返回同格式结果。",
+  "insight": "从最低位做竖式；总和 sum 的结果位取 sum 的奇偶位 bit=sum&1，剩余 sum-bit 必为偶数，下一位进位是 -(sum-bit)/2。",
+  "pitfalls": [
+    "负基数进位符号与正基数相反",
+    "中间 carry 可能为负",
+    "结果要去除高位多余零但至少保留一个零"
+  ],
+  "solutions": [
+    {
+      "id": "negative-base-column-addition",
+      "title": "负基数竖式加法",
+      "kind": "最优",
+      "idea": "按最低位向上递推零一结果位和负进位。",
+      "steps": [
+        "i、j 指向两数组末尾，carry=0",
+        "仍有输入位或 carry 非零时求 sum，bit=sum&1，追加 bit，carry=-(sum-bit)/2",
+        "删除反向结果末尾多余零，反转并返回"
+      ],
+      "complexity": {
+        "time": "O(m+n)",
+        "space": "O(m+n)"
+      },
+      "files": {
+        "java": "solutions/negative-base-column-addition/Solution.java",
+        "kotlin": "solutions/negative-base-column-addition/Solution.kt",
+        "cpp": "solutions/negative-base-column-addition/solution.cpp"
+      }
+    }
+  ]
+}

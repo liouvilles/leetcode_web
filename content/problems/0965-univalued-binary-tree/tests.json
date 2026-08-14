@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isUnivalTree",
+  "parameterTypes": [
+    "treeNode"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "所有节点为一",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "存在不同值",
+      "args": [
+        [
+          2,
+          2,
+          2,
+          5,
+          2
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "单节点",
+      "args": [
+        [
+          7
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1316,
+  "slug": "distinct-echo-substrings",
+  "title": "不同的循环子字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "字符串",
+    "滚动哈希",
+    "枚举"
+  ],
+  "summary": "统计字符串中形如 a+a 的不同非空子串数量。",
+  "insight": "枚举一半长度和起点，用双模滚动哈希常数时间比较相邻两半；相等时把半串的双哈希加入集合，半串唯一决定完整回声串。",
+  "pitfalls": [
+    "统计不同字符串而非出现次数",
+    "两个相邻半段长度必须相同",
+    "双模降低滚动哈希碰撞概率"
+  ],
+  "solutions": [
+    {
+      "id": "double-rolling-hash-halves",
+      "title": "双模滚动哈希比较半段",
+      "kind": "最优",
+      "idea": "二次枚举所有相邻等长片段并对哈希去重。",
+      "steps": [
+        "预处理两组 prefix 与 power",
+        "half 从一到 n/2，start 满足 start+2half<=n",
+        "比较两半在两个模数下哈希；均相等则把第一半双哈希编码进集合，返回集合大小"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/double-rolling-hash-halves/Solution.java",
+        "kotlin": "solutions/double-rolling-hash-halves/Solution.kt",
+        "cpp": "solutions/double-rolling-hash-halves/solution.cpp"
+      }
+    }
+  ]
+}

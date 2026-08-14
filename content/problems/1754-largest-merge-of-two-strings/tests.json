@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "largestMerge",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "经典两串最大合并",
+      "args": [
+        "cabaa",
+        "bcaaa"
+      ],
+      "expected": "cbcabaaaaa"
+    },
+    {
+      "name": "相同前缀需比较完整后缀",
+      "args": [
+        "abcabc",
+        "abdcaba"
+      ],
+      "expected": "abdcabcabcaba"
+    },
+    {
+      "name": "较大首字符先取",
+      "args": [
+        "a",
+        "z"
+      ],
+      "expected": "za"
+    }
+  ]
+}

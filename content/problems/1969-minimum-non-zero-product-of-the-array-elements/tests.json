@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minNonZeroProduct",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "p 一最小乘积一",
+      "args": [
+        1
+      ],
+      "expected": 1
+    },
+    {
+      "name": "p 二最小乘积六",
+      "args": [
+        2
+      ],
+      "expected": 6
+    },
+    {
+      "name": "p 三最小乘积一千五百一十二",
+      "args": [
+        3
+      ],
+      "expected": 1512
+    }
+  ]
+}

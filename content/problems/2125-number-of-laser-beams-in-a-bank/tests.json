@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numberOfBeams",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典四行银行八束",
+      "args": [
+        [
+          "011001",
+          "000000",
+          "010100",
+          "001000"
+        ]
+      ],
+      "expected": 8
+    },
+    {
+      "name": "没有两行设备",
+      "args": [
+        [
+          "000",
+          "111",
+          "000"
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "三非空行依次相乘",
+      "args": [
+        [
+          "1",
+          "11",
+          "111"
+        ]
+      ],
+      "expected": 8
+    }
+  ]
+}

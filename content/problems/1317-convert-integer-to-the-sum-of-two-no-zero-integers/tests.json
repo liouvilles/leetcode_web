@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getNoZeroIntegers",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "二拆为一加一",
+      "args": [
+        2
+      ],
+      "expected": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "十一拆为二加九",
+      "args": [
+        11
+      ],
+      "expected": [
+        2,
+        9
+      ]
+    },
+    {
+      "name": "一百零一拆为二加九十九",
+      "args": [
+        101
+      ],
+      "expected": [
+        2,
+        99
+      ]
+    }
+  ]
+}

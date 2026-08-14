@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 770,
+  "slug": "basic-calculator-iv",
+  "title": "基本计算器 IV",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-010",
+  "studyTags": [
+    "字符串",
+    "递归下降",
+    "哈希表",
+    "多项式"
+  ],
+  "summary": "计算含变量、整数、加减乘和括号的表达式，代入指定变量后按规定次序输出化简多项式。",
+  "insight": "递归下降解析运算优先级；多项式用“已排序变量乘积到系数”的映射表示，加减合并同类项，乘法合并并重新排序变量。",
+  "pitfalls": [
+    "乘法优先于加减，括号可改变优先级",
+    "同类项变量必须按字典序形成统一键",
+    "输出按次数降序、同次数字典序升序并过滤零系数"
+  ],
+  "solutions": [
+    {
+      "id": "recursive-descent-polynomial-map",
+      "title": "递归下降与多项式映射",
+      "kind": "最优",
+      "idea": "边解析边执行多项式加减乘，最后排序格式化。",
+      "steps": [
+        "建立 expression/term/factor 三层解析器",
+        "常量键为空串，未代入变量键为变量名；加减按键合并，乘法两两合并有序变量键",
+        "过滤零项，按次数降序和键字典序排序，再输出 coefficient*variables"
+      ],
+      "complexity": {
+        "time": "O(L² log L)",
+        "space": "O(L²)"
+      },
+      "files": {
+        "java": "solutions/recursive-descent-polynomial-map/Solution.java",
+        "kotlin": "solutions/recursive-descent-polynomial-map/Solution.kt",
+        "cpp": "solutions/recursive-descent-polynomial-map/solution.cpp"
+      }
+    }
+  ]
+}

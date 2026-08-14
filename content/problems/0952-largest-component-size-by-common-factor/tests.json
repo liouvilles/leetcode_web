@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "largestComponentSize",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "链式四节点",
+      "args": [
+        [
+          4,
+          6,
+          15,
+          35
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "两个分量最大二",
+      "args": [
+        [
+          20,
+          50,
+          9,
+          63
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "六个节点全连通",
+      "args": [
+        [
+          2,
+          3,
+          6,
+          7,
+          4,
+          12,
+          21,
+          39
+        ]
+      ],
+      "expected": 8
+    }
+  ]
+}

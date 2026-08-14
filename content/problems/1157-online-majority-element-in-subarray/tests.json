@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "MajorityChecker",
+  "constructorTypes": [
+    "intArray"
+  ],
+  "cases": [
+    {
+      "name": "经典区间查询",
+      "constructorArgs": [
+        [
+          1,
+          1,
+          2,
+          2,
+          1,
+          1
+        ]
+      ],
+      "calls": [
+        {
+          "method": "query",
+          "parameterTypes": [
+            "int",
+            "int",
+            "int"
+          ],
+          "args": [
+            0,
+            5,
+            4
+          ],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "query",
+          "parameterTypes": [
+            "int",
+            "int",
+            "int"
+          ],
+          "args": [
+            0,
+            3,
+            3
+          ],
+          "returnType": "int",
+          "expected": -1
+        },
+        {
+          "method": "query",
+          "parameterTypes": [
+            "int",
+            "int",
+            "int"
+          ],
+          "args": [
+            2,
+            3,
+            2
+          ],
+          "returnType": "int",
+          "expected": 2
+        }
+      ]
+    },
+    {
+      "name": "单元素区间",
+      "constructorArgs": [
+        [
+          7,
+          8,
+          7
+        ]
+      ],
+      "calls": [
+        {
+          "method": "query",
+          "parameterTypes": [
+            "int",
+            "int",
+            "int"
+          ],
+          "args": [
+            1,
+            1,
+            1
+          ],
+          "returnType": "int",
+          "expected": 8
+        }
+      ]
+    },
+    {
+      "name": "局部多数不存在",
+      "constructorArgs": [
+        [
+          3,
+          3,
+          4,
+          4,
+          5
+        ]
+      ],
+      "calls": [
+        {
+          "method": "query",
+          "parameterTypes": [
+            "int",
+            "int",
+            "int"
+          ],
+          "args": [
+            0,
+            4,
+            3
+          ],
+          "returnType": "int",
+          "expected": -1
+        }
+      ]
+    }
+  ]
+}

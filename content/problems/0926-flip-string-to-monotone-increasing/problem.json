@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 926,
+  "slug": "flip-string-to-monotone-increasing",
+  "title": "将字符串翻转到单调递增",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-013",
+  "studyTags": [
+    "字符串",
+    "动态规划",
+    "贪心"
+  ],
+  "summary": "可翻转任意二进制位，求让字符串形如若干零后接若干一的最少翻转次数。",
+  "insight": "扫描前缀时记录一的数量；遇到零，要么把当前零翻成一，要么把此前所有一翻成零，取两者较小。",
+  "pitfalls": [
+    "单调递增允许全零或全一",
+    "遇到一不立即产生翻转",
+    "flips 表示当前前缀的最优值"
+  ],
+  "solutions": [
+    {
+      "id": "prefix-ones-dp",
+      "title": "前缀一数量动态规划",
+      "kind": "最优",
+      "idea": "每个零在翻自己与翻此前全部一之间选择。",
+      "steps": [
+        "ones=0,flips=0",
+        "字符一令 ones++",
+        "字符零令 flips=min(flips+1,ones)，最终返回 flips"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/prefix-ones-dp/Solution.java",
+        "kotlin": "solutions/prefix-ones-dp/Solution.kt",
+        "cpp": "solutions/prefix-ones-dp/solution.cpp"
+      }
+    }
+  ]
+}

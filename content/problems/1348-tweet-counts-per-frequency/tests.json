@@ -1,0 +1,179 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "TweetCounts",
+  "constructorTypes": [],
+  "cases": [
+    {
+      "name": "分钟与小时分桶",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "recordTweet",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "tweet3",
+            0
+          ]
+        },
+        {
+          "method": "recordTweet",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "tweet3",
+            60
+          ]
+        },
+        {
+          "method": "recordTweet",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "tweet3",
+            10
+          ]
+        },
+        {
+          "method": "getTweetCountsPerFrequency",
+          "parameterTypes": [
+            "string",
+            "string",
+            "int",
+            "int"
+          ],
+          "args": [
+            "minute",
+            "tweet3",
+            0,
+            59
+          ],
+          "returnType": "intList",
+          "expected": [
+            2
+          ]
+        },
+        {
+          "method": "getTweetCountsPerFrequency",
+          "parameterTypes": [
+            "string",
+            "string",
+            "int",
+            "int"
+          ],
+          "args": [
+            "minute",
+            "tweet3",
+            0,
+            60
+          ],
+          "returnType": "intList",
+          "expected": [
+            2,
+            1
+          ]
+        },
+        {
+          "method": "getTweetCountsPerFrequency",
+          "parameterTypes": [
+            "string",
+            "string",
+            "int",
+            "int"
+          ],
+          "args": [
+            "hour",
+            "tweet3",
+            0,
+            210
+          ],
+          "returnType": "intList",
+          "expected": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "name": "同秒重复记录",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "recordTweet",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "a",
+            5
+          ]
+        },
+        {
+          "method": "recordTweet",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "a",
+            5
+          ]
+        },
+        {
+          "method": "getTweetCountsPerFrequency",
+          "parameterTypes": [
+            "string",
+            "string",
+            "int",
+            "int"
+          ],
+          "args": [
+            "minute",
+            "a",
+            0,
+            59
+          ],
+          "returnType": "intList",
+          "expected": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "name": "没有记录返回零桶",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "getTweetCountsPerFrequency",
+          "parameterTypes": [
+            "string",
+            "string",
+            "int",
+            "int"
+          ],
+          "args": [
+            "minute",
+            "none",
+            0,
+            120
+          ],
+          "returnType": "intList",
+          "expected": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  ]
+}

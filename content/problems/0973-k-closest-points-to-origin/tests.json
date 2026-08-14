@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "kClosest",
+  "parameterTypes": [
+    "intMatrix",
+    "int"
+  ],
+  "returnType": "intMatrix",
+  "cases": [
+    {
+      "name": "两点取最近",
+      "args": [
+        [
+          [
+            1,
+            3
+          ],
+          [
+            -2,
+            2
+          ]
+        ],
+        1
+      ],
+      "expected": [
+        [
+          -2,
+          2
+        ]
+      ]
+    },
+    {
+      "name": "三点取两个",
+      "args": [
+        [
+          [
+            3,
+            3
+          ],
+          [
+            5,
+            -1
+          ],
+          [
+            -2,
+            4
+          ]
+        ],
+        2
+      ],
+      "expected": [
+        [
+          3,
+          3
+        ],
+        [
+          -2,
+          4
+        ]
+      ]
+    },
+    {
+      "name": "单点",
+      "args": [
+        [
+          [
+            0,
+            1
+          ]
+        ],
+        1
+      ],
+      "expected": [
+        [
+          0,
+          1
+        ]
+      ]
+    }
+  ]
+}

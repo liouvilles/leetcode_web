@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1830,
+  "slug": "minimum-number-of-operations-to-make-string-sorted",
+  "title": "使字符串有序的最少操作次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-026",
+  "studyTags": [
+    "数学",
+    "字符串",
+    "组合数学"
+  ],
+  "summary": "反复执行题定的“找最长非递增后缀并重排”操作，求把字符串变为升序所需次数，结果取模。",
+  "insight": "该操作等价于按字典序取前一个不同排列，因此次数就是 s 在所有重复字符排列中的零基字典序排名。逐位计算以更小字符开头的剩余排列数。",
+  "pitfalls": [
+    "重复字符排列只计一次",
+    "组合计数需除各字符频次阶乘",
+    "答案取模"
+  ],
+  "solutions": [
+    {
+      "id": "multiset-permutation-rank",
+      "title": "重复字符排列排名",
+      "kind": "最优",
+      "idea": "累计每个位置能选择更小字符的排列数量。",
+      "steps": [
+        "预计算 factorial 与 inverseFactorial，统计后缀 frequency",
+        "position 处 remaining=n-position；base=(remaining-1)!*∏invFact[count]",
+        "更小字符方案总数为 base*sum(count[smaller])，加入 answer；再减少实际字符频次"
+      ],
+      "complexity": {
+        "time": "O(26n+n log MOD)",
+        "space": "O(n+26)"
+      },
+      "files": {
+        "java": "solutions/multiset-permutation-rank/Solution.java",
+        "kotlin": "solutions/multiset-permutation-rank/Solution.kt",
+        "cpp": "solutions/multiset-permutation-rank/solution.cpp"
+      }
+    }
+  ]
+}

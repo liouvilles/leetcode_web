@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2299,
+  "slug": "strong-password-checker-ii",
+  "title": "强密码检验器 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-033",
+  "studyTags": [
+    "字符串"
+  ],
+  "summary": "判断密码是否长度至少八，且同时包含小写、大写、数字、指定特殊字符，并且任意相邻字符不同。",
+  "insight": "一次扫描维护四类字符是否出现，同时比较当前字符与前一字符；任何相邻重复立即失败，最后汇总所有条件。",
+  "pitfalls": [
+    "特殊字符集合固定为 !@#$%^&*()-+",
+    "每类至少出现一次即可",
+    "只禁止相邻字符相同"
+  ],
+  "solutions": [
+    {
+      "id": "single-pass-category-flags",
+      "title": "单次扫描分类标记",
+      "kind": "最优",
+      "idea": "边扫描边验证相邻约束并收集字符类别。",
+      "steps": [
+        "长度小于八直接 false",
+        "初始化 lower、upper、digit、special 四标志",
+        "逐字符：若与前一字符相同返回 false；按类别置标志",
+        "返回四标志均为 true"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/single-pass-category-flags/Solution.java",
+        "kotlin": "solutions/single-pass-category-flags/Solution.kt",
+        "cpp": "solutions/single-pass-category-flags/solution.cpp"
+      }
+    }
+  ]
+}

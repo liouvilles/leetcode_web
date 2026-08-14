@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1103,
+  "slug": "distribute-candies-to-people",
+  "title": "分糖果 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-016",
+  "studyTags": [
+    "数组",
+    "数学",
+    "模拟"
+  ],
+  "summary": "依次给 n 个人一、二、三……颗糖，循环到第一人；若剩余不足当前应给数量则给完，返回每人所得。",
+  "insight": "按发放轮次模拟即可；每轮给 min(remaining,give)，接收人是轮次模人数，然后递增应给数。",
+  "pitfalls": [
+    "最后一次可能少于应给数量",
+    "人数循环但赠送量持续递增",
+    "糖果为零后立即停止"
+  ],
+  "solutions": [
+    {
+      "id": "cyclic-increasing-gift-simulation",
+      "title": "循环递增发放模拟",
+      "kind": "最优",
+      "idea": "按题目顺序逐次扣减剩余糖果。",
+      "steps": [
+        "answer[n] 全零，give=1,index=0",
+        "while candies>0：amount=min(candies,give)，answer[index%n]+=amount，candies-=amount",
+        "give++、index++，返回 answer"
+      ],
+      "complexity": {
+        "time": "O(sqrt(candies))",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/cyclic-increasing-gift-simulation/Solution.java",
+        "kotlin": "solutions/cyclic-increasing-gift-simulation/Solution.kt",
+        "cpp": "solutions/cyclic-increasing-gift-simulation/solution.cpp"
+      }
+    }
+  ]
+}

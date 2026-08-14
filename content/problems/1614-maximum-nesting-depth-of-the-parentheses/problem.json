@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1614,
+  "slug": "maximum-nesting-depth-of-the-parentheses",
+  "title": "括号的最大嵌套深度",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-023",
+  "studyTags": [
+    "字符串",
+    "栈",
+    "括号序列"
+  ],
+  "summary": "给定有效括号字符串，返回任意位置未闭合左括号数量的最大值。",
+  "insight": "扫描时遇左括号深度加一并更新最大值，遇右括号深度减一，其他字符忽略。",
+  "pitfalls": [
+    "字符串保证括号有效",
+    "最大值在增加深度后更新",
+    "非括号字符不影响状态"
+  ],
+  "solutions": [
+    {
+      "id": "running-parenthesis-depth",
+      "title": "括号深度计数",
+      "kind": "最优",
+      "idea": "在线维护当前未闭合左括号数。",
+      "steps": [
+        "depth=answer=0",
+        "字符 ( 时 depth++ 并更新 answer",
+        "字符 ) 时 depth--，返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/running-parenthesis-depth/Solution.java",
+        "kotlin": "solutions/running-parenthesis-depth/Solution.kt",
+        "cpp": "solutions/running-parenthesis-depth/solution.cpp"
+      }
+    }
+  ]
+}

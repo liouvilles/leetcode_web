@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 671,
+  "slug": "second-minimum-node-in-a-binary-tree",
+  "title": "二叉树中第二小的节点",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-009",
+  "studyTags": [
+    "二叉树",
+    "深度优先搜索",
+    "剪枝"
+  ],
+  "summary": "特殊二叉树中每个非叶节点值等于两个孩子的较小值，找出整棵树第二小的不同值，不存在返回 -1。",
+  "insight": "根值就是全局最小值；遍历时第一次遇到大于根值的节点后，其后代不可能提供更小候选，可直接返回该值。",
+  "pitfalls": [
+    "第二小值必须严格大于根值",
+    "节点值可能超过有符号整数候选初始化范围",
+    "不存在不同值时返回 -1"
+  ],
+  "solutions": [
+    {
+      "id": "dfs-prune-at-greater",
+      "title": "利用特殊树性质 DFS 剪枝",
+      "kind": "最优",
+      "idea": "对等于根值的节点继续深入，对更大节点直接作为候选。",
+      "steps": [
+        "minimum=root.val",
+        "dfs 空节点返回无穷大，node.val>minimum 直接返回 node.val",
+        "否则取左右递归结果较小者，仍无穷大则返回 -1"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(h)"
+      },
+      "files": {
+        "java": "solutions/dfs-prune-at-greater/Solution.java",
+        "kotlin": "solutions/dfs-prune-at-greater/Solution.kt",
+        "cpp": "solutions/dfs-prune-at-greater/solution.cpp"
+      }
+    }
+  ]
+}

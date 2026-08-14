@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countCharacters",
+  "parameterTypes": [
+    "stringArray",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两个可拼单词",
+      "args": [
+        [
+          "cat",
+          "bt",
+          "hat",
+          "tree"
+        ],
+        "atach"
+      ],
+      "expected": 6
+    },
+    {
+      "name": "三个可拼单词",
+      "args": [
+        [
+          "hello",
+          "world",
+          "leetcode"
+        ],
+        "welldonehoneyr"
+      ],
+      "expected": 10
+    },
+    {
+      "name": "均缺少字符",
+      "args": [
+        [
+          "aa",
+          "bb"
+        ],
+        "ab"
+      ],
+      "expected": 0
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "singleNonDuplicate",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "单一元素在中间",
+      "args": [
+        [
+          1,
+          1,
+          2,
+          3,
+          3,
+          4,
+          4,
+          8,
+          8
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "单一元素靠后",
+      "args": [
+        [
+          3,
+          3,
+          7,
+          7,
+          10,
+          11,
+          11
+        ]
+      ],
+      "expected": 10
+    },
+    {
+      "name": "单元素数组",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

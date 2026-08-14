@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1261,
+  "slug": "find-elements-in-a-contaminated-binary-tree",
+  "title": "在受污染的二叉树中查找元素",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-017",
+  "studyTags": [
+    "设计",
+    "树",
+    "深度优先搜索",
+    "哈希集合"
+  ],
+  "summary": "受污染树所有值为负一；恢复规则为根值零、左孩子 2x+1、右孩子 2x+2，并支持查询某个值是否存在。",
+  "insight": "树结构不变，构造时 DFS 按规则恢复每个现存节点，同时把值加入集合；之后 find 只需哈希查询。",
+  "pitfalls": [
+    "缺失节点不会被恢复或加入集合",
+    "根节点存在且恢复为零",
+    "值可能较大但在整数约束内"
+  ],
+  "solutions": [
+    {
+      "id": "recover-dfs-value-set",
+      "title": "恢复深搜与值集合",
+      "kind": "最优",
+      "idea": "构造阶段一次遍历换取常数时间查询。",
+      "steps": [
+        "构造时调用 recover(root,0)",
+        "设置 node.val=value 并加入 values",
+        "若左孩子存在递归 2*value+1，右孩子递归 2*value+2；find 返回集合是否含 target"
+      ],
+      "complexity": {
+        "time": "构造 O(n)，查询 O(1) 平均",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/recover-dfs-value-set/Solution.java",
+        "kotlin": "solutions/recover-dfs-value-set/Solution.kt",
+        "cpp": "solutions/recover-dfs-value-set/solution.cpp"
+      }
+    }
+  ]
+}

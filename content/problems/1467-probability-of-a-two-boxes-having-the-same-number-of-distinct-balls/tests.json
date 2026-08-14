@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getProbability",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "double",
+  "cases": [
+    {
+      "name": "两个不同色球必各有一种",
+      "args": [
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "二一一分布概率三分之二",
+      "args": [
+        [
+          2,
+          1,
+          1
+        ]
+      ],
+      "expected": 0.6666666666666666
+    },
+    {
+      "name": "一二一二分布概率零点六",
+      "args": [
+        [
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "expected": 0.6
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "intersectionSizeTwo",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四区间最少三点",
+      "args": [
+        [
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            3,
+            5
+          ]
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "相离约束需要五点",
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            4,
+            5
+          ]
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "单区间需要两点",
+      "args": [
+        [
+          [
+            1,
+            2
+          ]
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

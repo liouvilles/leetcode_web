@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 97,
+  "slug": "interleaving-string",
+  "title": "交错字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-004",
+  "studyTags": [
+    "动态规划",
+    "字符串",
+    "滚动数组"
+  ],
+  "summary": "判断第三个字符串能否在保持前两个字符串各自字符顺序的前提下，由它们交错组成。",
+  "insight": "状态 (i,j) 只可能由取 s1 的最后一个字符或取 s2 的最后一个字符转移，一维数组即可滚动保存。",
+  "pitfalls": [
+    "总长度不等时可立即返回假",
+    "字符相同时两个转移都要保留",
+    "更新 dp 时 dp[j] 是上一行而 dp[j-1] 是当前行"
+  ],
+  "solutions": [
+    {
+      "id": "one-dimensional-dp",
+      "title": "一维交错动态规划",
+      "kind": "最优",
+      "idea": "dp[j] 表示当前使用 s1 前 i 个和 s2 前 j 个字符时能否匹配。",
+      "steps": [
+        "先检查长度和",
+        "逐行逐列计算来自 s1 或 s2 的转移",
+        "返回 dp[s2.length]"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/one-dimensional-dp/Solution.java",
+        "kotlin": "solutions/one-dimensional-dp/Solution.kt",
+        "cpp": "solutions/one-dimensional-dp/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2425,
+  "slug": "bitwise-xor-of-all-pairings",
+  "title": "所有数对的异或和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-035",
+  "studyTags": [
+    "数组",
+    "位运算",
+    "脑筋急转弯"
+  ],
+  "summary": "从 nums1 与 nums2 各选一个数形成所有数对，求每对异或值再整体异或的结果。",
+  "insight": "nums1 每个元素在全部配对异或中出现 nums2.length 次，只有次数为奇数才保留；nums2 同理。",
+  "pitfalls": [
+    "数对是两个数组的笛卡尔积",
+    "偶数次异或抵消",
+    "两个数组长度奇偶需分别判断"
+  ],
+  "solutions": [
+    {
+      "id": "parity-of-opposite-array-length",
+      "title": "对侧数组长度奇偶性",
+      "kind": "最优",
+      "idea": "按出现次数奇偶决定是否异或整组。",
+      "steps": [
+        "answer=0",
+        "若 nums2 长度奇数，异或 nums1 全部元素",
+        "若 nums1 长度奇数，异或 nums2 全部元素",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n+m)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/parity-of-opposite-array-length/Solution.java",
+        "kotlin": "solutions/parity-of-opposite-array-length/Solution.kt",
+        "cpp": "solutions/parity-of-opposite-array-length/solution.cpp"
+      }
+    }
+  ]
+}

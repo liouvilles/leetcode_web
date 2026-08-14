@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "lastStoneWeightII",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典最小一",
+      "args": [
+        [
+          2,
+          7,
+          4,
+          1,
+          8,
+          1
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "大石头剩五",
+      "args": [
+        [
+          31,
+          26,
+          33,
+          21,
+          40
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "两块相等为零",
+      "args": [
+        [
+          5,
+          5
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

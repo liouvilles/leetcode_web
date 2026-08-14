@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1344,
+  "slug": "angle-between-hands-of-a-clock",
+  "title": "时钟指针的夹角",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-019",
+  "studyTags": [
+    "数学",
+    "几何"
+  ],
+  "summary": "给定整点小时与分钟，返回时针和分针之间较小的夹角。",
+  "insight": "分针每分钟转六度；时针每小时三十度且每分钟继续转半度。两角绝对差若超过一百八十，取三百六十减它。",
+  "pitfalls": [
+    "时针会随分钟连续移动",
+    "十二点按零小时角度处理",
+    "返回较小夹角"
+  ],
+  "solutions": [
+    {
+      "id": "continuous-hand-angles",
+      "title": "连续指针角度",
+      "kind": "最优",
+      "idea": "直接计算两指针相对十二点角度。",
+      "steps": [
+        "minuteAngle=minutes*6",
+        "hourAngle=(hour%12)*30+minutes*0.5",
+        "difference=abs(hourAngle-minuteAngle)，返回 min(difference,360-difference)"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/continuous-hand-angles/Solution.java",
+        "kotlin": "solutions/continuous-hand-angles/Solution.kt",
+        "cpp": "solutions/continuous-hand-angles/solution.cpp"
+      }
+    }
+  ]
+}

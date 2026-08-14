@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countPalindromicSubsequence",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "aabca 有三种回文子序列",
+      "args": [
+        "aabca"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "无重复外层字母答案零",
+      "args": [
+        "adc"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "bbcbaba 有四种",
+      "args": [
+        "bbcbaba"
+      ],
+      "expected": 4
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "convertToBase7",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "一百转七进制",
+      "args": [
+        100
+      ],
+      "expected": "202"
+    },
+    {
+      "name": "负七",
+      "args": [
+        -7
+      ],
+      "expected": "-10"
+    },
+    {
+      "name": "零",
+      "args": [
+        0
+      ],
+      "expected": "0"
+    }
+  ]
+}

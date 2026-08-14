@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "hasGroupsSizeX",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "每种两张可分组",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          4,
+          3,
+          2,
+          1
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "频次公约数为一",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          3,
+          3
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "两张相同牌",
+      "args": [
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

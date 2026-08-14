@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1672,
+  "slug": "richest-customer-wealth",
+  "title": "最富有客户的资产总量",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-024",
+  "studyTags": [
+    "数组",
+    "矩阵"
+  ],
+  "summary": "accounts 每行表示一位客户在各银行的资产，返回任一客户的最大资产总和。",
+  "insight": "逐行求和并维护最大值即可，每个账户只访问一次。",
+  "pitfalls": [
+    "客户资产是整行之和",
+    "返回最大总额而非客户下标",
+    "矩阵至少有一行"
+  ],
+  "solutions": [
+    {
+      "id": "row-sum-maximum",
+      "title": "逐行求和取最大",
+      "kind": "最优",
+      "idea": "把每个客户的银行余额汇总后比较。",
+      "steps": [
+        "answer=0",
+        "遍历每一行计算 sum",
+        "answer=max(answer,sum)，返回 answer"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/row-sum-maximum/Solution.java",
+        "kotlin": "solutions/row-sum-maximum/Solution.kt",
+        "cpp": "solutions/row-sum-maximum/solution.cpp"
+      }
+    }
+  ]
+}

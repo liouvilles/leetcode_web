@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 208,
+  "slug": "implement-trie-prefix-tree",
+  "title": "实现 Trie（前缀树）",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-003",
+  "studyTags": [
+    "设计题",
+    "字典树",
+    "前缀查询"
+  ],
+  "summary": "实现支持插入单词、查询完整单词和查询前缀是否存在的前缀树。",
+  "insight": "每个节点表示一个前缀，孩子边表示下一个字符；额外终止标记区分完整单词与普通前缀。",
+  "pitfalls": [
+    "startsWith 不要求终止标记为真",
+    "重复插入同一单词不会改变语义",
+    "输入只包含小写英文字母"
+  ],
+  "solutions": [
+    {
+      "id": "array-children",
+      "title": "定长孩子数组字典树",
+      "kind": "最优",
+      "idea": "每个节点用长度 26 的数组保存下一字符节点，并记录是否为单词结尾。",
+      "steps": [
+        "从根按字符逐层创建或读取节点",
+        "insert 最终设置 end 标记",
+        "search 与 startsWith 共用前缀定位逻辑"
+      ],
+      "complexity": {
+        "time": "O(L)",
+        "space": "O(total characters)"
+      },
+      "files": {
+        "java": "solutions/array-children/Solution.java",
+        "kotlin": "solutions/array-children/Solution.kt",
+        "cpp": "solutions/array-children/solution.cpp"
+      }
+    }
+  ]
+}

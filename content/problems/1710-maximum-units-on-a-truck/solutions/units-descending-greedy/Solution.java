@@ -1,0 +1,1 @@
+class Solution { public int maximumUnits(int[][] boxTypes,int truckSize){Arrays.sort(boxTypes,(a,b)->b[1]-a[1]);int answer=0;for(int[] type:boxTypes){int take=Math.min(type[0],truckSize);answer+=take*type[1];truckSize-=take;if(truckSize==0)break;}return answer;} }

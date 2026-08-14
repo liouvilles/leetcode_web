@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "subarrayBitwiseORs",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "单个零",
+      "args": [
+        [
+          0
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "一一二共三值",
+      "args": [
+        [
+          1,
+          1,
+          2
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "一二四共六值",
+      "args": [
+        [
+          1,
+          2,
+          4
+        ]
+      ],
+      "expected": 6
+    }
+  ]
+}

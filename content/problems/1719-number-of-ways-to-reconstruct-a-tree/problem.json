@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1719,
+  "slug": "number-of-ways-to-reconstruct-a-tree",
+  "title": "重构一棵树的方案数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-025",
+  "studyTags": [
+    "树",
+    "图论",
+    "拓扑排序"
+  ],
+  "summary": "pairs 表示两节点在有根树中存在祖先后代关系，判断能否构造恰好满足所有关系的树，并返回零种、一种或多种。",
+  "insight": "把每个节点的关系集合视为邻接集。根必须与所有其他节点相关；每个非根节点的父节点应是其邻居中度数不小于它且度数最小者，并且该节点其余关系必须包含在父节点关系中。",
+  "pitfalls": [
+    "节点集合只来自 pairs",
+    "找不到与所有节点相关的根则无解",
+    "父子度数相等时可交换层次，说明有多解"
+  ],
+  "solutions": [
+    {
+      "id": "degree-parent-containment",
+      "title": "度数父节点与邻接包含",
+      "kind": "最优",
+      "idea": "用祖先关系集合的嵌套性质验证树结构。",
+      "steps": [
+        "构建每个节点的邻接集合，找 degree=size-1 的 root",
+        "对每个非根 node，在邻居中选 degree>=nodeDegree 的最小度数 parent",
+        "若不存在 parent 或 node 的任一非 parent 邻居不在 parent 邻接中则返回零；相等度数标记多解"
+      ],
+      "complexity": {
+        "time": "O(V³)",
+        "space": "O(V²)"
+      },
+      "files": {
+        "java": "solutions/degree-parent-containment/Solution.java",
+        "kotlin": "solutions/degree-parent-containment/Solution.kt",
+        "cpp": "solutions/degree-parent-containment/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumWhiteTiles",
+  "parameterTypes": [
+    "string",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两张两格地毯剩两白砖",
+      "args": [
+        "10110101",
+        2,
+        2
+      ],
+      "expected": 2
+    },
+    {
+      "name": "两张三格地毯覆盖全部",
+      "args": [
+        "11111",
+        2,
+        3
+      ],
+      "expected": 0
+    },
+    {
+      "name": "全黑无需覆盖",
+      "args": [
+        "000",
+        1,
+        1
+      ],
+      "expected": 0
+    }
+  ]
+}

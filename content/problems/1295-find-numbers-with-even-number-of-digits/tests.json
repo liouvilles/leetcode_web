@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findNumbers",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "十二和三四五六为偶数位",
+      "args": [
+        [
+          12,
+          345,
+          2,
+          6,
+          7896
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "只有一千四位",
+      "args": [
+        [
+          555,
+          901,
+          482,
+          1771
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "两个两位数",
+      "args": [
+        [
+          10,
+          99
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

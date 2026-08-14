@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": 1844,
+  "slug": "replace-all-digits-with-characters",
+  "title": "将所有数字用字符替换",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-026",
+  "studyTags": [
+    "字符串"
+  ],
+  "summary": "字符串偶数下标为字母、奇数下标为数字；把每个数字替换为其前一个字母向后偏移该数字得到的字符。",
+  "insight": "字符编码连续，奇数位置结果为 chars[i-1]+(chars[i]-0)。逐奇数下标原地替换。",
+  "pitfalls": [
+    "数字范围零到九",
+    "偏移保证仍是小写字母",
+    "偶数位置保持不变"
+  ],
+  "solutions": [
+    {
+      "id": "odd-index-character-shift",
+      "title": "奇数位字符偏移",
+      "kind": "最优",
+      "idea": "直接按前一字母和当前数字计算替换字符。",
+      "steps": [
+        "chars=s.toCharArray",
+        "i=1,3,5...",
+        "chars[i]=(char)(chars[i-1]+chars[i]-0)，返回字符串"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/odd-index-character-shift/Solution.java",
+        "kotlin": "solutions/odd-index-character-shift/Solution.kt",
+        "cpp": "solutions/odd-index-character-shift/solution.cpp"
+      }
+    }
+  ]
+}

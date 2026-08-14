@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numRescueBoats",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两人同船",
+      "args": [
+        [
+          1,
+          2
+        ],
+        3
+      ],
+      "expected": 1
+    },
+    {
+      "name": "三人需三船",
+      "args": [
+        [
+          3,
+          2,
+          2,
+          1
+        ],
+        3
+      ],
+      "expected": 3
+    },
+    {
+      "name": "四人需四船",
+      "args": [
+        [
+          3,
+          5,
+          3,
+          4
+        ],
+        5
+      ],
+      "expected": 4
+    }
+  ]
+}

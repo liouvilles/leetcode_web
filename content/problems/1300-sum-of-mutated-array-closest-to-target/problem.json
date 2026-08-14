@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1300,
+  "slug": "sum-of-mutated-array-closest-to-target",
+  "title": "转变数组后最接近目标值的数组和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "数组",
+    "二分查找",
+    "单调性"
+  ],
+  "summary": "选择整数 value，把数组中大于 value 的元素改为 value，求使新数组和最接近 target 的 value；并列取较小值。",
+  "insight": "截断和随 value 单调不减。二分首个截断和不小于 target 的值，再比较它和前一个值的误差即可。",
+  "pitfalls": [
+    "答案可能等于零",
+    "并列误差必须选较小值",
+    "数组元素不超过十万，和用长整型更稳妥"
+  ],
+  "solutions": [
+    {
+      "id": "binary-search-cap-and-neighbor",
+      "title": "二分截断值与相邻比较",
+      "kind": "最优",
+      "idea": "定位目标和两侧的两个整数候选。",
+      "steps": [
+        "left=0,right=max(arr)，二分首个 mutatedSum(value)>=target",
+        "计算 left 与 max(0,left-1) 的截断和误差",
+        "若较小候选误差不大于 left 则返回 left-1，否则返回 left"
+      ],
+      "complexity": {
+        "time": "O(n log maxValue)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/binary-search-cap-and-neighbor/Solution.java",
+        "kotlin": "solutions/binary-search-cap-and-neighbor/Solution.kt",
+        "cpp": "solutions/binary-search-cap-and-neighbor/solution.cpp"
+      }
+    }
+  ]
+}

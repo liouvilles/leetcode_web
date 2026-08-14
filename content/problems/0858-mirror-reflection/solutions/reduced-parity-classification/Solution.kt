@@ -1,0 +1,1 @@
+class Solution { fun mirrorReflection(pInput:Int,qInput:Int):Int{val divisor=gcd(pInput,qInput);val p=pInput/divisor;val q=qInput/divisor;if(p%2==0)return 2;return if(q%2==1)1 else 0};private fun gcd(aInput:Int,bInput:Int):Int{var a=aInput;var b=bInput;while(b!=0){val temporary=a%b;a=b;b=temporary};return a} }

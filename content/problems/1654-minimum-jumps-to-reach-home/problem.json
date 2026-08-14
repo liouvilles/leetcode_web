@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1654,
+  "slug": "minimum-jumps-to-reach-home",
+  "title": "到家的最少跳跃次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-024",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "广度优先搜索"
+  ],
+  "summary": "小虫从零出发，可向前跳 a 或向后跳 b，不能落在禁区、不能连续向后跳且位置不能为负，求到 x 的最少跳数。",
+  "insight": "状态不仅包含位置，还要记录上一步是否向后。用 BFS 搜索无权状态图；位置可安全限制在 6000 以内。",
+  "pitfalls": [
+    "同一位置在两种上一步方向状态下不同",
+    "禁止连续两次后跳",
+    "经过目标之外的更远位置可能是必要的"
+  ],
+  "solutions": [
+    {
+      "id": "position-direction-bfs",
+      "title": "位置与方向状态 BFS",
+      "kind": "最优",
+      "idea": "广度优先搜索保证首次到达目标的步数最少。",
+      "steps": [
+        "blocked 标记禁区，visited[position][backFlag]",
+        "队列从 [0,0,0] 开始",
+        "尝试 forward<=6000；仅 backFlag=0 时尝试 backward>=0，合法未访问则入队"
+      ],
+      "complexity": {
+        "time": "O(limit)",
+        "space": "O(limit)"
+      },
+      "files": {
+        "java": "solutions/position-direction-bfs/Solution.java",
+        "kotlin": "solutions/position-direction-bfs/Solution.kt",
+        "cpp": "solutions/position-direction-bfs/solution.cpp"
+      }
+    }
+  ]
+}

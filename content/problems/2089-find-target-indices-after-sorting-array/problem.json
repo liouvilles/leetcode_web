@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2089,
+  "slug": "find-target-indices-after-sorting-array",
+  "title": "找出数组排序后的目标下标",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "数组",
+    "二分查找",
+    "排序"
+  ],
+  "summary": "数组升序排序后，返回所有值等于 target 的下标。",
+  "insight": "排序后线性扫描，把命中 target 的下标按自然递增顺序加入答案。",
+  "pitfalls": [
+    "返回排序后下标",
+    "目标可能重复",
+    "不存在返回空列表"
+  ],
+  "solutions": [
+    {
+      "id": "sort-and-collect-indices",
+      "title": "排序后收集下标",
+      "kind": "最优",
+      "idea": "直接执行题目定义。",
+      "steps": [
+        "排序 nums",
+        "answer 空",
+        "遍历 i，nums[i]==target 时加入 i，返回"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/sort-and-collect-indices/Solution.java",
+        "kotlin": "solutions/sort-and-collect-indices/Solution.kt",
+        "cpp": "solutions/sort-and-collect-indices/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxRotateFunction",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典旋转最大值",
+      "args": [
+        [
+          4,
+          3,
+          2,
+          6
+        ]
+      ],
+      "expected": 26
+    },
+    {
+      "name": "单元素",
+      "args": [
+        [
+          100
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "初始状态最大",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 8
+    }
+  ]
+}

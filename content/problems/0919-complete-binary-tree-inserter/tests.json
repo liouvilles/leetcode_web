@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "CBTInserter",
+  "constructorTypes": [
+    "treeNode"
+  ],
+  "cases": [
+    {
+      "name": "两次插入补齐下一层",
+      "constructorArgs": [
+        [
+          1,
+          2
+        ]
+      ],
+      "calls": [
+        {
+          "method": "insert",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            3
+          ],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "insert",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            4
+          ],
+          "returnType": "int",
+          "expected": 2
+        },
+        {
+          "method": "get_root",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "treeNode",
+          "expected": [
+            1,
+            2,
+            3,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "name": "单根插入左右孩子",
+      "constructorArgs": [
+        [
+          1
+        ]
+      ],
+      "calls": [
+        {
+          "method": "insert",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "insert",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            3
+          ],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "get_root",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "treeNode",
+          "expected": [
+            1,
+            2,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "name": "已有三节点插入四",
+      "constructorArgs": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "calls": [
+        {
+          "method": "insert",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            4
+          ],
+          "returnType": "int",
+          "expected": 2
+        },
+        {
+          "method": "get_root",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "treeNode",
+          "expected": [
+            1,
+            2,
+            3,
+            4
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "validPath",
+  "parameterTypes": [
+    "int",
+    "intMatrix",
+    "int",
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "三节点环中存在路径",
+      "args": [
+        3,
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            0
+          ]
+        ],
+        0,
+        2
+      ],
+      "expected": true
+    },
+    {
+      "name": "两个连通分量之间无路径",
+      "args": [
+        6,
+        [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        0,
+        5
+      ],
+      "expected": false
+    },
+    {
+      "name": "节点到自身始终可达",
+      "args": [
+        1,
+        [],
+        0,
+        0
+      ],
+      "expected": true
+    }
+  ]
+}

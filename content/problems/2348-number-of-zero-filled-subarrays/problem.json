@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2348,
+  "slug": "number-of-zero-filled-subarrays",
+  "title": "全零子数组的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "数组",
+    "数学"
+  ],
+  "summary": "统计数组中所有元素均为零的非空连续子数组数量。",
+  "insight": "扫描到一个零时，若当前连续零长度为 run，则以该位置结尾的新全零子数组恰有 run 个；把 run 累加到答案。",
+  "pitfalls": [
+    "答案可能超过 int",
+    "非零元素会把连续长度清零",
+    "每段长度 L 的贡献等价于 L(L+1)/2"
+  ],
+  "solutions": [
+    {
+      "id": "running-zero-suffix-count",
+      "title": "连续零后缀计数",
+      "kind": "最优",
+      "idea": "逐位置累计以当前位置结尾的合法子数组数。",
+      "steps": [
+        "run=0、answer=0",
+        "若 value==0 则 run++，否则 run=0",
+        "answer+=run",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/running-zero-suffix-count/Solution.java",
+        "kotlin": "solutions/running-zero-suffix-count/Solution.kt",
+        "cpp": "solutions/running-zero-suffix-count/solution.cpp"
+      }
+    }
+  ]
+}

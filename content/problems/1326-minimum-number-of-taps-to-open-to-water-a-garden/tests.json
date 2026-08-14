@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minTaps",
+  "parameterTypes": [
+    "int",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "中心水龙头覆盖全园",
+      "args": [
+        5,
+        [
+          3,
+          4,
+          1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "所有水龙头无范围",
+      "args": [
+        3,
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected": -1
+    },
+    {
+      "name": "多个区间最少三只",
+      "args": [
+        7,
+        [
+          1,
+          2,
+          1,
+          0,
+          2,
+          1,
+          0,
+          1
+        ]
+      ],
+      "expected": 3
+    }
+  ]
+}

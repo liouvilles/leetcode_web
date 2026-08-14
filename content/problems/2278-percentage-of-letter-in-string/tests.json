@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "percentageLetter",
+  "parameterTypes": [
+    "string",
+    "char"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "foobar 中 o 占三十三",
+      "args": [
+        "foobar",
+        "o"
+      ],
+      "expected": 33
+    },
+    {
+      "name": "全部相同占一百",
+      "args": [
+        "jjjj",
+        "j"
+      ],
+      "expected": 100
+    },
+    {
+      "name": "未出现占零",
+      "args": [
+        "abc",
+        "x"
+      ],
+      "expected": 0
+    }
+  ]
+}

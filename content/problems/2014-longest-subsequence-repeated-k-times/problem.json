@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2014,
+  "slug": "longest-subsequence-repeated-k-times",
+  "title": "重复 K 次的最长子序列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-029",
+  "studyTags": [
+    "广度优先搜索",
+    "字符串",
+    "回溯"
+  ],
+  "summary": "求最长字符串 seq，使 seq 重复 k 次后仍是 s 的子序列；长度相同取字典序最大。",
+  "insight": "可行字符串的任一前缀也可行。按 BFS 从空串逐字符扩展，只使用总频次至少 k 的字符；通过扫描 s 验证 candidate 重复 k 次是否为子序列，持续到最大可能长度。",
+  "pitfalls": [
+    "要求 seq 重复后的整体是子序列",
+    "同长度取字典序最大",
+    "答案可能为空"
+  ],
+  "solutions": [
+    {
+      "id": "breadth-first-valid-prefixes",
+      "title": "可行前缀 BFS",
+      "kind": "最优",
+      "idea": "逐层生成所有仍可重复 k 次匹配的候选。",
+      "steps": [
+        "候选字符仅保留 frequency/k>0 的字母，maxLength=s.length/k",
+        "队列从空串；弹出后尝试追加 a..z，若长度不超限且 repeatedSubsequence 可行则入队",
+        "按长度优先、同长字典序比较更新 answer"
+      ],
+      "complexity": {
+        "time": "O(candidates·|s|)",
+        "space": "O(candidates)"
+      },
+      "files": {
+        "java": "solutions/breadth-first-valid-prefixes/Solution.java",
+        "kotlin": "solutions/breadth-first-valid-prefixes/Solution.kt",
+        "cpp": "solutions/breadth-first-valid-prefixes/solution.cpp"
+      }
+    }
+  ]
+}

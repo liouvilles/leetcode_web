@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "delNodes",
+  "parameterTypes": [
+    "treeNode",
+    "intArray"
+  ],
+  "returnType": "treeNodeList",
+  "cases": [
+    {
+      "name": "删除三和五形成三棵树",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "expected": [
+        [
+          1,
+          2,
+          null,
+          4
+        ],
+        [
+          6
+        ],
+        [
+          7
+        ]
+      ]
+    },
+    {
+      "name": "删除根形成两棵树",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          1
+        ]
+      ],
+      "expected": [
+        [
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "name": "不删除任何节点",
+      "args": [
+        [
+          1,
+          2
+        ],
+        []
+      ],
+      "expected": [
+        [
+          1,
+          2
+        ]
+      ]
+    }
+  ]
+}

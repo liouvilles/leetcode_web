@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "threeEqualParts",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "三个一可分",
+      "args": [
+        [
+          1,
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "expected": [
+        0,
+        3
+      ]
+    },
+    {
+      "name": "一数量不能三分",
+      "args": [
+        [
+          1,
+          1,
+          0,
+          1,
+          1
+        ]
+      ],
+      "expected": [
+        -1,
+        -1
+      ]
+    },
+    {
+      "name": "全零数组",
+      "args": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected": [
+        0,
+        2
+      ]
+    }
+  ]
+}

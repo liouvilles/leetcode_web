@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumSubsequenceCount",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "ac 模式最大四个子序列",
+      "args": [
+        "abdcdbc",
+        "ac"
+      ],
+      "expected": 4
+    },
+    {
+      "name": "aabb 插入后六个 ab",
+      "args": [
+        "aabb",
+        "ab"
+      ],
+      "expected": 6
+    },
+    {
+      "name": "相同字符模式四个 a 得十",
+      "args": [
+        "aaaa",
+        "aa"
+      ],
+      "expected": 10
+    }
+  ]
+}

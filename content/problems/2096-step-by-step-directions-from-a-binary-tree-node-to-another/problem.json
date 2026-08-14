@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2096,
+  "slug": "step-by-step-directions-from-a-binary-tree-node-to-another",
+  "title": "从二叉树一个节点到另一个节点每一步的方向",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "树",
+    "深度优先搜索",
+    "字符串",
+    "二叉树"
+  ],
+  "summary": "二叉树节点值唯一，求从 startValue 到 destValue 的最短方向字符串：向父为 U、左为 L、右为 R。",
+  "insight": "分别求根到起点和终点的 L/R 路径，删除最长公共前缀得到最低公共祖先。起点剩余路径每步替换为 U，再拼接终点剩余路径。",
+  "pitfalls": [
+    "节点值唯一且都存在",
+    "公共前缀对应 LCA",
+    "从节点到自身答案空"
+  ],
+  "solutions": [
+    {
+      "id": "root-path-common-prefix",
+      "title": "根路径公共前缀",
+      "kind": "最优",
+      "idea": "用两条根路径隐式确定最低公共祖先。",
+      "steps": [
+        "DFS find(root,target,path)，回溯记录 L/R",
+        "求 startPath 与 destPath",
+        "common 为最长相同前缀；返回 U 重复 start剩余长度 + destPath 后缀"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(height)"
+      },
+      "files": {
+        "java": "solutions/root-path-common-prefix/Solution.java",
+        "kotlin": "solutions/root-path-common-prefix/Solution.kt",
+        "cpp": "solutions/root-path-common-prefix/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2306,
+  "slug": "naming-a-company",
+  "title": "公司命名",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "字符串",
+    "枚举"
+  ],
+  "summary": "从两个不同创意交换首字母，若得到的两个名称都不在原集合中，则该有序创意对可形成有效公司名，求有效名称数量。",
+  "insight": "按首字母保存去掉首字母后的后缀集合。对两组首字母，只有各自独有后缀可以互换；贡献为独有数乘积的两倍。",
+  "pitfalls": [
+    "共同后缀交换后仍是原名称，必须排除",
+    "两个方向构成不同公司名所以乘二",
+    "输入创意互不相同"
+  ],
+  "solutions": [
+    {
+      "id": "suffix-sets-by-initial",
+      "title": "按首字母分组后缀集合",
+      "kind": "最优",
+      "idea": "两两统计组间公共后缀并计算独有组合。",
+      "steps": [
+        "建立 26 个 suffix set",
+        "枚举 i<j，统计 common",
+        "onlyI=sizeI-common，onlyJ=sizeJ-common",
+        "answer+=2*onlyI*onlyJ"
+      ],
+      "complexity": {
+        "time": "O(total characters+26²·set size)",
+        "space": "O(total characters)"
+      },
+      "files": {
+        "java": "solutions/suffix-sets-by-initial/Solution.java",
+        "kotlin": "solutions/suffix-sets-by-initial/Solution.kt",
+        "cpp": "solutions/suffix-sets-by-initial/solution.cpp"
+      }
+    }
+  ]
+}

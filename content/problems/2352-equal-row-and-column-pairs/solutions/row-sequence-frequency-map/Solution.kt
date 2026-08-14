@@ -1,0 +1,1 @@
+class Solution { fun equalPairs(grid:Array<IntArray>):Int{val frequency=HashMap<String,Int>();for(row in grid){val key=row.joinToString(",");frequency[key]=(frequency[key]?:0)+1};var answer=0;for(column in grid.indices){val key=grid.indices.joinToString(","){grid[it][column].toString()};answer+=frequency[key]?:0};return answer} }

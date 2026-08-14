@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1906,
+  "slug": "minimum-absolute-difference-queries",
+  "title": "查询差绝对值的最小值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-027",
+  "studyTags": [
+    "数组",
+    "前缀和"
+  ],
+  "summary": "对每个子数组查询，求其中任意两个不同数值的最小绝对差；不足两个不同值则返回负一。",
+  "insight": "数值只在一到一百。为每个前缀保存各值出现次数，查询时扫描值域，找出区间内依次出现的不同值并更新相邻差；有序数值的最小差必在相邻出现值之间。",
+  "pitfalls": [
+    "要求两个数值不同，重复值差零不计",
+    "查询端点均包含",
+    "值域固定使每次扫描一百项"
+  ],
+  "solutions": [
+    {
+      "id": "value-frequency-prefix",
+      "title": "值域频次前缀",
+      "kind": "最优",
+      "idea": "用前缀频次判断每个值是否出现在查询区间。",
+      "steps": [
+        "prefix[i+1] 复制 prefix[i] 并增加 nums[i]",
+        "对 [left,right] 扫描 value=1..100，出现条件 prefix[right+1][v]>prefix[left][v]",
+        "维护 previous，更新最小 value-previous；无两值返回 -1"
+      ],
+      "complexity": {
+        "time": "O(100·(n+q))",
+        "space": "O(100n)"
+      },
+      "files": {
+        "java": "solutions/value-frequency-prefix/Solution.java",
+        "kotlin": "solutions/value-frequency-prefix/Solution.kt",
+        "cpp": "solutions/value-frequency-prefix/solution.cpp"
+      }
+    }
+  ]
+}

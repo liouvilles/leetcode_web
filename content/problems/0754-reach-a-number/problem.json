@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 754,
+  "slug": "reach-a-number",
+  "title": "到达终点数字",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-010",
+  "studyTags": [
+    "数学",
+    "贪心",
+    "奇偶性"
+  ],
+  "summary": "从零出发，第 i 步必须移动 i 个单位，可向左或向右，求到达 target 的最少步数。",
+  "insight": "先让步长和 sum 达到 |target|；把若干步改向会让终点减少两倍该步长，因此只要 sum-target 为偶数即可调整到目标。",
+  "pitfalls": [
+    "正负目标对称，只看绝对值",
+    "达到目标数值上界后还需检查奇偶性",
+    "每多一步会切换或保持差值奇偶，最终必可满足"
+  ],
+  "solutions": [
+    {
+      "id": "triangular-sum-parity",
+      "title": "三角数覆盖与奇偶调整",
+      "kind": "最优",
+      "idea": "递增累计步长直到覆盖目标且差值为偶数。",
+      "steps": [
+        "target=abs(target)",
+        "step=0、sum=0",
+        "while sum<target 或 (sum-target) 为奇数：step++、sum+=step；返回 step"
+      ],
+      "complexity": {
+        "time": "O(√target)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/triangular-sum-parity/Solution.java",
+        "kotlin": "solutions/triangular-sum-parity/Solution.kt",
+        "cpp": "solutions/triangular-sum-parity/solution.cpp"
+      }
+    }
+  ]
+}

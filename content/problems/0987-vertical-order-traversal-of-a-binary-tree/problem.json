@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 987,
+  "slug": "vertical-order-traversal-of-a-binary-tree",
+  "title": "二叉树的垂序遍历",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-014",
+  "studyTags": [
+    "树",
+    "深度优先搜索",
+    "排序"
+  ],
+  "summary": "根坐标为 (0,0)，左孩子行加一列减一，右孩子行列都加一；按列从左到右、列内行从上到下、同坐标值升序返回节点。",
+  "insight": "DFS 收集每个节点的 (column,row,value) 三元组，按题目完整排序键排序后按 column 分组即可。",
+  "pitfalls": [
+    "同一行列位置要按节点值排序",
+    "排序首关键字是列而不是行",
+    "坐标可为负数"
+  ],
+  "solutions": [
+    {
+      "id": "coordinate-collection-sort",
+      "title": "坐标收集排序",
+      "kind": "最优",
+      "idea": "显式构造并排序全部节点坐标。",
+      "steps": [
+        "DFS(root,row=0,column=0)，记录 [column,row,value]",
+        "按 column、row、value 依次升序排序记录",
+        "顺序扫描，列变化时创建新列表，把 value 加入当前列并返回"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/coordinate-collection-sort/Solution.java",
+        "kotlin": "solutions/coordinate-collection-sort/Solution.kt",
+        "cpp": "solutions/coordinate-collection-sort/solution.cpp"
+      }
+    }
+  ]
+}

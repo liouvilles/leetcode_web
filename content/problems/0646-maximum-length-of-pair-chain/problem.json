@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 646,
+  "slug": "maximum-length-of-pair-chain",
+  "title": "最长数对链",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-008",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "排序"
+  ],
+  "summary": "数对 [left,right] 满足 left<right，若前一数对 right 小于后一数对 left 可连接，求最长链长度。",
+  "insight": "与区间调度相同：按右端点升序，每次选择第一个能接上的数对，会给后续保留最大空间。",
+  "pitfalls": [
+    "连接条件是严格小于",
+    "不必保持输入顺序",
+    "按左端排序不能直接贪心得到最优"
+  ],
+  "solutions": [
+    {
+      "id": "earliest-finish-greedy",
+      "title": "按右端点最早结束贪心",
+      "kind": "最优",
+      "idea": "依次选择右端点最小且可连接的数对。",
+      "steps": [
+        "按 pair[1] 升序排序",
+        "currentEnd 初始化为最小整数",
+        "若 pair[0]>currentEnd 则选择并更新 currentEnd=pair[1]"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/earliest-finish-greedy/Solution.java",
+        "kotlin": "solutions/earliest-finish-greedy/Solution.kt",
+        "cpp": "solutions/earliest-finish-greedy/solution.cpp"
+      }
+    }
+  ]
+}

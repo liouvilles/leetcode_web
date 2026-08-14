@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2321,
+  "slug": "maximum-score-of-spliced-array",
+  "title": "拼接数组的最大分数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "数组",
+    "动态规划"
+  ],
+  "summary": "可选择一个连续区间交换两个等长数组对应元素，分数为交换后某一个数组的元素和，求最大可能分数。",
+  "insight": "若以 nums1 为目标，交换区间带来的增益是 nums2[i]-nums1[i] 的最大子数组和；反向同理。分别做 Kadane 后加原数组和取最大。",
+  "pitfalls": [
+    "可以选择不交换，所以增益下限为零",
+    "要同时考虑最终取 nums1 或 nums2 的和",
+    "交换区间必须连续"
+  ],
+  "solutions": [
+    {
+      "id": "two-direction-kadane-gains",
+      "title": "双向 Kadane 增益",
+      "kind": "最优",
+      "idea": "把区间交换转化为差分数组最大子段和。",
+      "steps": [
+        "计算 sum1、sum2",
+        "扫描维护 gainTo1=max(0,gainTo1+nums2[i]-nums1[i]) 及其最大值",
+        "同理维护 gainTo2",
+        "返回 max(sum1+best1,sum2+best2)"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/two-direction-kadane-gains/Solution.java",
+        "kotlin": "solutions/two-direction-kadane-gains/Solution.kt",
+        "cpp": "solutions/two-direction-kadane-gains/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "ThroneInheritance",
+  "constructorTypes": [
+    "string"
+  ],
+  "cases": [
+    {
+      "name": "经典出生死亡继承流程",
+      "constructorArgs": [
+        "king"
+      ],
+      "calls": [
+        {
+          "method": "birth",
+          "parameterTypes": [
+            "string",
+            "string"
+          ],
+          "args": [
+            "king",
+            "andy"
+          ]
+        },
+        {
+          "method": "birth",
+          "parameterTypes": [
+            "string",
+            "string"
+          ],
+          "args": [
+            "king",
+            "bob"
+          ]
+        },
+        {
+          "method": "birth",
+          "parameterTypes": [
+            "string",
+            "string"
+          ],
+          "args": [
+            "king",
+            "catherine"
+          ]
+        },
+        {
+          "method": "birth",
+          "parameterTypes": [
+            "string",
+            "string"
+          ],
+          "args": [
+            "andy",
+            "matthew"
+          ]
+        },
+        {
+          "method": "birth",
+          "parameterTypes": [
+            "string",
+            "string"
+          ],
+          "args": [
+            "bob",
+            "alex"
+          ]
+        },
+        {
+          "method": "birth",
+          "parameterTypes": [
+            "string",
+            "string"
+          ],
+          "args": [
+            "bob",
+            "asha"
+          ]
+        },
+        {
+          "method": "getInheritanceOrder",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "stringList",
+          "expected": [
+            "king",
+            "andy",
+            "matthew",
+            "bob",
+            "alex",
+            "asha",
+            "catherine"
+          ]
+        },
+        {
+          "method": "death",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "bob"
+          ]
+        },
+        {
+          "method": "getInheritanceOrder",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "stringList",
+          "expected": [
+            "king",
+            "andy",
+            "matthew",
+            "alex",
+            "asha",
+            "catherine"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "死亡父亲的孩子仍继承",
+      "constructorArgs": [
+        "k"
+      ],
+      "calls": [
+        {
+          "method": "birth",
+          "parameterTypes": [
+            "string",
+            "string"
+          ],
+          "args": [
+            "k",
+            "a"
+          ]
+        },
+        {
+          "method": "birth",
+          "parameterTypes": [
+            "string",
+            "string"
+          ],
+          "args": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "method": "death",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "method": "getInheritanceOrder",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "stringList",
+          "expected": [
+            "k",
+            "b"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "只有国王",
+      "constructorArgs": [
+        "queen"
+      ],
+      "calls": [
+        {
+          "method": "getInheritanceOrder",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "stringList",
+          "expected": [
+            "queen"
+          ]
+        }
+      ]
+    }
+  ]
+}

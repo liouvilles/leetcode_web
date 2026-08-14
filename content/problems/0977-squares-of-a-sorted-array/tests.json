@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sortedSquares",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "含正负数",
+      "args": [
+        [
+          -4,
+          -1,
+          0,
+          3,
+          10
+        ]
+      ],
+      "expected": [
+        0,
+        1,
+        9,
+        16,
+        100
+      ]
+    },
+    {
+      "name": "负数绝对值更大",
+      "args": [
+        [
+          -7,
+          -3,
+          2,
+          3,
+          11
+        ]
+      ],
+      "expected": [
+        4,
+        9,
+        9,
+        49,
+        121
+      ]
+    },
+    {
+      "name": "单个负数",
+      "args": [
+        [
+          -2
+        ]
+      ],
+      "expected": [
+        4
+      ]
+    }
+  ]
+}

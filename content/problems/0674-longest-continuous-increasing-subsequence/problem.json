@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 674,
+  "slug": "longest-continuous-increasing-subsequence",
+  "title": "最长连续递增序列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-009",
+  "studyTags": [
+    "数组",
+    "一次扫描",
+    "动态规划"
+  ],
+  "summary": "找出整数数组中最长严格连续递增子数组的长度。",
+  "insight": "当前元素大于前一个时连续长度加一，否则从当前元素重新开始；扫描中维护最大值。",
+  "pitfalls": [
+    "要求连续而非一般子序列",
+    "相等会中断严格递增",
+    "非空数组答案至少为一"
+  ],
+  "solutions": [
+    {
+      "id": "running-streak",
+      "title": "连续递增长度扫描",
+      "kind": "最优",
+      "idea": "用一个变量记录以当前位置结尾的递增长度。",
+      "steps": [
+        "current=best=1",
+        "从下标一开始，若 nums[i]>nums[i-1] 则 current++，否则 current=1",
+        "best=max(best,current)，结束返回 best"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/running-streak/Solution.java",
+        "kotlin": "solutions/running-streak/Solution.kt",
+        "cpp": "solutions/running-streak/solution.cpp"
+      }
+    }
+  ]
+}

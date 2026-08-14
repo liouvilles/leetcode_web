@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1711,
+  "slug": "count-good-meals",
+  "title": "大餐计数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-024",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "位运算"
+  ],
+  "summary": "从不同下标选择两份餐品，若美味程度之和为二的幂则是一顿大餐，统计配对数并取模。",
+  "insight": "扫描当前值时，枚举所有可能的二次幂和，查询此前出现的 complement=power-value 数量；随后再把当前值加入频次表，保证下标不同且每对只计一次。",
+  "pitfalls": [
+    "零可与二的幂配对",
+    "最大可能和为 2^21",
+    "先查询后加入避免当前元素与自身配对"
+  ],
+  "solutions": [
+    {
+      "id": "power-complement-frequency",
+      "title": "二次幂补数频次",
+      "kind": "最优",
+      "idea": "对每个元素枚举有限的合法目标和。",
+      "steps": [
+        "frequency 为空，answer=0",
+        "对 value 枚举 power=1..2^21，answer+=frequency[power-value]",
+        "对 MOD 取模后 frequency[value]++，返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n log V)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/power-complement-frequency/Solution.java",
+        "kotlin": "solutions/power-complement-frequency/Solution.kt",
+        "cpp": "solutions/power-complement-frequency/solution.cpp"
+      }
+    }
+  ]
+}

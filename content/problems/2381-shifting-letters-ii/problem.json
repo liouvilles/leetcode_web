@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2381,
+  "slug": "shifting-letters-ii",
+  "title": "字母移位 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-035",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "前缀和"
+  ],
+  "summary": "多个区间操作把其中每个字母向前或向后循环移动一位，返回全部操作后的字符串。",
+  "insight": "每次区间统一加一或减一，用差分数组在起点加 delta、终点后一位减 delta；前缀和即每个位置净移位。",
+  "pitfalls": [
+    "方向一为向后加一，零为向前减一",
+    "字母需模二十六循环",
+    "负余数要规范为非负"
+  ],
+  "solutions": [
+    {
+      "id": "range-shift-difference-array",
+      "title": "区间移位差分",
+      "kind": "最优",
+      "idea": "把多次区间更新合并成一次前缀扫描。",
+      "steps": [
+        "diff[n+1]=0",
+        "对 [l,r,d]，delta=d==1?1:-1，diff[l]+=delta，diff[r+1]-=delta",
+        "扫描累计 shift",
+        "字符索引按 (original+shift)%26 规范后写回"
+      ],
+      "complexity": {
+        "time": "O(n+q)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/range-shift-difference-array/Solution.java",
+        "kotlin": "solutions/range-shift-difference-array/Solution.kt",
+        "cpp": "solutions/range-shift-difference-array/solution.cpp"
+      }
+    }
+  ]
+}

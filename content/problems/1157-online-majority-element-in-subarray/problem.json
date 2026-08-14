@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1157,
+  "slug": "online-majority-element-in-subarray",
+  "title": "子数组中占绝大多数的元素",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-016",
+  "studyTags": [
+    "设计",
+    "线段树",
+    "二分查找",
+    "多数投票"
+  ],
+  "summary": "设计 MajorityChecker，多次查询区间内出现次数至少为 threshold 的元素，不存在则返回负一；每次查询保证阈值超过区间长度一半。",
+  "insight": "线段树按 Boyer-Moore 规则合并区间候选值，可在对数时间得到唯一可能过半的候选；再在该值的有序位置列表中二分统计真实次数，避免把候选误当答案。",
+  "pitfalls": [
+    "多数投票只产生候选，必须再次验证频次",
+    "合并相同候选时票数相加，不同时互相抵消",
+    "位置计数区间左右端点都包含"
+  ],
+  "solutions": [
+    {
+      "id": "segment-candidate-position-index",
+      "title": "线段树候选与位置索引",
+      "kind": "最优",
+      "idea": "对数时间提取区间候选并用二分确认出现次数。",
+      "steps": [
+        "构造线段树，每个节点保存该段多数投票后的 candidate 与 balance；同时记录每个值出现位置的升序列表",
+        "查询区间时按同候选相加、异候选抵消合并覆盖节点，得到唯一可能答案",
+        "在候选的位置列表中用 lower_bound(left) 与 upper_bound(right) 求次数；达到 threshold 返回候选，否则返回 -1"
+      ],
+      "complexity": {
+        "time": "构造 O(n log n)，查询 O(log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/segment-candidate-position-index/Solution.java",
+        "kotlin": "solutions/segment-candidate-position-index/Solution.kt",
+        "cpp": "solutions/segment-candidate-position-index/solution.cpp"
+      }
+    }
+  ]
+}

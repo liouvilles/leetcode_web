@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 91,
+  "slug": "decode-ways",
+  "title": "解码方法",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-002",
+  "studyTags": [
+    "线性动态规划",
+    "两位转移",
+    "零的处理"
+  ],
+  "summary": "数字 1 到 26 分别映射字母，计算给定数字字符串有多少种完整解码方式。",
+  "insight": "当前位置可以由合法的单个数字接在前一前缀后，也可以由合法的两位数字接在前两位前缀后。",
+  "pitfalls": [
+    "字符 0 不能单独解码",
+    "两位数必须在 10 到 26 之间",
+    "以零开头的字符串没有解码方式"
+  ],
+  "solutions": [
+    {
+      "id": "rolling-dp",
+      "title": "滚动前缀 DP",
+      "kind": "最优",
+      "idea": "维护前两个前缀的解码数量，并根据一位和两位合法性累加当前值。",
+      "steps": [
+        "空前缀计数为一",
+        "当前字符非零时加入 previous",
+        "两位数合法时加入 beforePrevious"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/rolling-dp/Solution.java",
+        "kotlin": "solutions/rolling-dp/Solution.kt",
+        "cpp": "solutions/rolling-dp/solution.cpp"
+      }
+    }
+  ]
+}

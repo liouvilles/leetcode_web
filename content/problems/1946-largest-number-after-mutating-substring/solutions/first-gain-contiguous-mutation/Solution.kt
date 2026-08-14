@@ -1,0 +1,1 @@
+class Solution { fun maximumNumber(num:String,change:IntArray):String{val result=num.toCharArray();var started=false;for(i in result.indices){val digit=result[i]-'0';val mapped=change[digit];if(!started){if(mapped>digit){started=true;result[i]=('0'.code+mapped).toChar()}}else if(mapped>=digit)result[i]=('0'.code+mapped).toChar() else break};return result.concatToString()} }

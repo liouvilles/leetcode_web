@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "circularPermutation",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "intList",
+  "cases": [
+    {
+      "name": "二位从三开始",
+      "args": [
+        2,
+        3
+      ],
+      "expected": [
+        3,
+        2,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "三位从二开始",
+      "args": [
+        3,
+        2
+      ],
+      "expected": [
+        2,
+        3,
+        1,
+        0,
+        4,
+        5,
+        7,
+        6
+      ]
+    },
+    {
+      "name": "一位标准格雷码",
+      "args": [
+        1,
+        0
+      ],
+      "expected": [
+        0,
+        1
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 82,
+  "slug": "remove-duplicates-from-sorted-list-ii",
+  "title": "删除排序链表中的重复元素 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-004",
+  "studyTags": [
+    "链表",
+    "哑节点",
+    "连续分组"
+  ],
+  "summary": "删除有序链表中所有出现过重复的数值，只保留原链表中只出现一次的节点。",
+  "insight": "有序链表的重复值连续出现；用前驱节点跨过整段重复节点，哑节点可统一处理头部重复。",
+  "pitfalls": [
+    "重复值的所有节点都要删除",
+    "头部可能就是重复段",
+    "判断重复段后要跨过全部相同值"
+  ],
+  "solutions": [
+    {
+      "id": "dummy-and-groups",
+      "title": "哑节点跳过重复段",
+      "kind": "最优",
+      "idea": "前驱指向尚未确认的当前节点，发现重复时跳到下一种值。",
+      "steps": [
+        "建立 dummy 指向 head",
+        "若 current 与 next 同值则记录值并跳过整段",
+        "否则前驱和当前各前进一步"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/dummy-and-groups/Solution.java",
+        "kotlin": "solutions/dummy-and-groups/Solution.kt",
+        "cpp": "solutions/dummy-and-groups/solution.cpp"
+      }
+    }
+  ]
+}

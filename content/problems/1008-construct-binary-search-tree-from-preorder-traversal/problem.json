@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1008,
+  "slug": "construct-binary-search-tree-from-preorder-traversal",
+  "title": "前序遍历构造二叉搜索树",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-015",
+  "studyTags": [
+    "树",
+    "二叉搜索树",
+    "递归"
+  ],
+  "summary": "给定互异整数的二叉搜索树前序遍历，重建并返回该树。",
+  "insight": "前序下一个值若不超过当前递归允许的上界，就属于当前子树；创建根后先用根值作上界构建左树，再沿用父上界构建右树。",
+  "pitfalls": [
+    "值互不相同，可用严格上界判断",
+    "共享索引只在节点真正被消费时递增",
+    "递归顺序必须先左后右"
+  ],
+  "solutions": [
+    {
+      "id": "preorder-upper-bound-recursion",
+      "title": "前序上界递归",
+      "kind": "最优",
+      "idea": "用一个索引和子树最大允许值在线重建。",
+      "steps": [
+        "index=0",
+        "build(bound)：若 index 到末尾或 preorder[index]>bound 返回空",
+        "取值建根并 index++；left=build(value)，right=build(bound)，返回根；初始 bound 为正无穷"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(height)"
+      },
+      "files": {
+        "java": "solutions/preorder-upper-bound-recursion/Solution.java",
+        "kotlin": "solutions/preorder-upper-bound-recursion/Solution.kt",
+        "cpp": "solutions/preorder-upper-bound-recursion/solution.cpp"
+      }
+    }
+  ]
+}

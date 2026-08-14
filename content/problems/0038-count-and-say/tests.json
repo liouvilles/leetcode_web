@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countAndSay",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "第一项",
+      "args": [
+        1
+      ],
+      "expected": "1"
+    },
+    {
+      "name": "第四项",
+      "args": [
+        4
+      ],
+      "expected": "1211"
+    },
+    {
+      "name": "第六项",
+      "args": [
+        6
+      ],
+      "expected": "312211"
+    }
+  ]
+}

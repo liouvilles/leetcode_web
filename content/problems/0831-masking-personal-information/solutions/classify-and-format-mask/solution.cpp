@@ -1,0 +1,1 @@
+class Solution { public: string maskPII(string s){int at=s.find('@');if(at!=string::npos){transform(s.begin(),s.end(),s.begin(),::tolower);return s.substr(0,1)+"*****"+s.substr(at-1,1)+s.substr(at);}string digits;for(char c:s)if(isdigit(c))digits+=c;int country=digits.size()-10;return(country?"+"+string(country,'*')+"-":"")+"***-***-"+digits.substr(digits.size()-4);} };

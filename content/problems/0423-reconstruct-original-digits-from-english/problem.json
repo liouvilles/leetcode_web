@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 423,
+  "slug": "reconstruct-original-digits-from-english",
+  "title": "从英文中重建数字",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-006",
+  "studyTags": [
+    "字符计数",
+    "数学消元",
+    "字符串"
+  ],
+  "summary": "给定若干英文数字零到九的字母打乱串，按升序还原其中所有数字。",
+  "insight": "z、w、u、x、g 分别唯一确定 0、2、4、6、8，再从其他特征字母中减去已知数字即可解出剩余项。",
+  "pitfalls": [
+    "输入保证可由数字英文组成",
+    "输出数字必须升序",
+    "相同数字可能出现多次"
+  ],
+  "solutions": [
+    {
+      "id": "unique-letter-elimination",
+      "title": "唯一字母逐步消元",
+      "kind": "最优",
+      "idea": "统计字母频次后按依赖顺序求每个数字出现次数。",
+      "steps": [
+        "统计 26 个字母",
+        "先由 z,w,u,x,g 求偶数项",
+        "再求 3,5,7,1,9，按次数升序输出"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/unique-letter-elimination/Solution.java",
+        "kotlin": "solutions/unique-letter-elimination/Solution.kt",
+        "cpp": "solutions/unique-letter-elimination/solution.cpp"
+      }
+    }
+  ]
+}

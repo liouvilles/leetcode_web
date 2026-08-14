@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 338,
+  "slug": "counting-bits",
+  "title": "比特位计数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-003",
+  "studyTags": [
+    "动态规划",
+    "最低位",
+    "位运算"
+  ],
+  "summary": "对从 0 到 n 的每个整数，返回其二进制表示中一位的数量。",
+  "insight": "i 右移一位会去掉最低位，因此 bits[i]=bits[i>>1]+(i&1)。",
+  "pitfalls": [
+    "答案包含零对应的位置",
+    "数组长度为 n+1",
+    "最低位贡献只有零或一"
+  ],
+  "solutions": [
+    {
+      "id": "lowest-bit-dp",
+      "title": "右移递推",
+      "kind": "最优",
+      "idea": "复用更小整数的计数并加上当前最低位。",
+      "steps": [
+        "bits[0] 默认为零",
+        "从一遍历到 n",
+        "按 bits[i>>1]+(i&1) 计算"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/lowest-bit-dp/Solution.java",
+        "kotlin": "solutions/lowest-bit-dp/Solution.kt",
+        "cpp": "solutions/lowest-bit-dp/solution.cpp"
+      }
+    }
+  ]
+}

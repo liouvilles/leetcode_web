@@ -1,0 +1,1 @@
+class Solution { public double largestTriangleArea(int[][] points){long twice=0;for(int i=0;i<points.length;i++)for(int j=i+1;j<points.length;j++)for(int k=j+1;k<points.length;k++){long cross=(long)(points[j][0]-points[i][0])*(points[k][1]-points[i][1])-(long)(points[j][1]-points[i][1])*(points[k][0]-points[i][0]);twice=Math.max(twice,Math.abs(cross));}return twice/2.0;} }

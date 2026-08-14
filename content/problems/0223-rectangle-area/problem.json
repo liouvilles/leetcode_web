@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 223,
+  "slug": "rectangle-area",
+  "title": "矩形面积",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-005",
+  "studyTags": [
+    "几何",
+    "区间交集",
+    "容斥"
+  ],
+  "summary": "计算两个轴对齐矩形覆盖的总面积，重叠部分只能计算一次。",
+  "insight": "总面积等于两矩形面积之和减去横向交叠长度与纵向交叠长度的乘积。",
+  "pitfalls": [
+    "没有重叠时交叠长度取零",
+    "边界接触不产生面积",
+    "先转长整型可让中间计算更稳健"
+  ],
+  "solutions": [
+    {
+      "id": "inclusion-exclusion",
+      "title": "面积容斥",
+      "kind": "最优",
+      "idea": "分别求两个一维投影的交集长度，再做二维容斥。",
+      "steps": [
+        "计算两个矩形面积",
+        "overlapWidth=max(0,min(right)-max(left))",
+        "返回 area1+area2-overlapWidth*overlapHeight"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/inclusion-exclusion/Solution.java",
+        "kotlin": "solutions/inclusion-exclusion/Solution.kt",
+        "cpp": "solutions/inclusion-exclusion/solution.cpp"
+      }
+    }
+  ]
+}

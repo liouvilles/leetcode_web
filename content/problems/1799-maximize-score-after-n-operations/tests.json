@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxScore",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "二三配对得一",
+      "args": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "三十二配对最大十一",
+      "args": [
+        [
+          3,
+          4,
+          6,
+          8
+        ]
+      ],
+      "expected": 11
+    },
+    {
+      "name": "六数三次操作最大十四",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "expected": 14
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1575,
+  "slug": "count-all-possible-routes",
+  "title": "统计所有可行路径",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-022",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "记忆化搜索"
+  ],
+  "summary": "城市位于数轴，起点可反复访问任意不同城市，移动耗油为坐标差绝对值，统计燃油内到达终点的所有路径。",
+  "insight": "状态只需当前城市与剩余燃油；当前城市等于终点时贡献一条可立即停止的路径，再枚举所有可负担的下一城市递归。",
+  "pitfalls": [
+    "到达终点后仍可继续走并再次回来",
+    "城市坐标互不相同",
+    "答案取模"
+  ],
+  "solutions": [
+    {
+      "id": "city-fuel-memoized-dfs",
+      "title": "城市燃油记忆化深搜",
+      "kind": "最优",
+      "idea": "枚举每个状态的所有下一跳并计数。",
+      "steps": [
+        "dfs(city,fuel)，memo 缓存",
+        "answer=city==finish?1:0",
+        "对 next!=city，cost<=fuel 时累加 dfs(next,fuel-cost)，取模"
+      ],
+      "complexity": {
+        "time": "O(n²fuel)",
+        "space": "O(nfuel)"
+      },
+      "files": {
+        "java": "solutions/city-fuel-memoized-dfs/Solution.java",
+        "kotlin": "solutions/city-fuel-memoized-dfs/Solution.kt",
+        "cpp": "solutions/city-fuel-memoized-dfs/solution.cpp"
+      }
+    }
+  ]
+}

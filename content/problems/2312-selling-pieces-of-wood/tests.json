@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sellingWood",
+  "parameterTypes": [
+    "int",
+    "int",
+    "intMatrix"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "三乘五木板最大收益十九",
+      "args": [
+        3,
+        5,
+        [
+          [
+            1,
+            4,
+            2
+          ],
+          [
+            2,
+            2,
+            7
+          ],
+          [
+            2,
+            1,
+            3
+          ]
+        ]
+      ],
+      "expected": 19
+    },
+    {
+      "name": "四乘六木板最大收益三十二",
+      "args": [
+        4,
+        6,
+        [
+          [
+            3,
+            2,
+            10
+          ],
+          [
+            1,
+            4,
+            2
+          ],
+          [
+            4,
+            1,
+            3
+          ]
+        ]
+      ],
+      "expected": 32
+    },
+    {
+      "name": "直接卖一乘二优于切开",
+      "args": [
+        1,
+        2,
+        [
+          [
+            1,
+            1,
+            2
+          ],
+          [
+            1,
+            2,
+            5
+          ]
+        ]
+      ],
+      "expected": 5
+    }
+  ]
+}

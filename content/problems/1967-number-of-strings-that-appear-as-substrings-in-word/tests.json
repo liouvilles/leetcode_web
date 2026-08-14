@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numOfStrings",
+  "parameterTypes": [
+    "stringArray",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四个模式中三个出现",
+      "args": [
+        [
+          "a",
+          "abc",
+          "bc",
+          "d"
+        ],
+        "abc"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "重复模式分别计数",
+      "args": [
+        [
+          "a",
+          "a",
+          "a"
+        ],
+        "ab"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "没有模式出现",
+      "args": [
+        [
+          "x",
+          "y"
+        ],
+        "abc"
+      ],
+      "expected": 0
+    }
+  ]
+}

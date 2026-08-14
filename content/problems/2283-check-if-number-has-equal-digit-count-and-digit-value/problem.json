@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2283,
+  "slug": "check-if-number-has-equal-digit-count-and-digit-value",
+  "title": "判断一个数的数字计数是否等于数位的值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-033",
+  "studyTags": [
+    "哈希表",
+    "字符串",
+    "计数"
+  ],
+  "summary": "对字符串 num 的每个下标 i，要求数字 i 在整个字符串中恰出现 num[i] 次，判断是否全部满足。",
+  "insight": "先统计零到九频次，再逐下标比较 frequency[i] 与对应字符数值。",
+  "pitfalls": [
+    "下标 i 代表待统计数字",
+    "字符串长度不超过十",
+    "需检查每个位置"
+  ],
+  "solutions": [
+    {
+      "id": "digit-frequency-index-check",
+      "title": "数位频次按下标检查",
+      "kind": "最优",
+      "idea": "一次计数后逐位置验证自描述条件。",
+      "steps": [
+        "count[10] 统计 num 每个字符",
+        "i 遍历 num.indices",
+        "若 count[i]!=num[i]-0 返回 false；全部相等返回 true"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/digit-frequency-index-check/Solution.java",
+        "kotlin": "solutions/digit-frequency-index-check/Solution.kt",
+        "cpp": "solutions/digit-frequency-index-check/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2151,
+  "slug": "maximum-good-people-based-on-statements",
+  "title": "基于陈述统计最多好人数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-031",
+  "studyTags": [
+    "数组",
+    "位运算",
+    "回溯",
+    "状态压缩"
+  ],
+  "summary": "好人陈述必真，坏人陈述可真可假；根据互相评价矩阵求可能的最多好人数。",
+  "insight": "人数很小，枚举每个好人集合掩码。只检查掩码中假定为好的人：其所有非未知陈述必须与掩码中目标人的身份一致。",
+  "pitfalls": [
+    "坏人的陈述无需满足任何条件",
+    "值二表示未知",
+    "只验证被假定为好的人"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-good-person-masks",
+      "title": "枚举好人集合掩码",
+      "kind": "最优",
+      "idea": "逐集合验证所有好人陈述的一致性。",
+      "steps": [
+        "mask 从零到 2^n-1",
+        "对每个 mask 中的人 i，扫描 j；statement!=2 时必须等于 mask 的 j 位",
+        "合法时以 bitCount(mask) 更新答案"
+      ],
+      "complexity": {
+        "time": "O(2^n·n²)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/enumerate-good-person-masks/Solution.java",
+        "kotlin": "solutions/enumerate-good-person-masks/Solution.kt",
+        "cpp": "solutions/enumerate-good-person-masks/solution.cpp"
+      }
+    }
+  ]
+}

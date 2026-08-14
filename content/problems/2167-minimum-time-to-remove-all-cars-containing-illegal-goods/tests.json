@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumTime",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典车厢串最少五时间",
+      "args": [
+        "1100101"
+      ],
+      "expected": 5
+    },
+    {
+      "name": "中间单个违禁车单独移除",
+      "args": [
+        "0010"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "没有违禁货物无需时间",
+      "args": [
+        "000"
+      ],
+      "expected": 0
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "edgeScore",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "节点七积分最高",
+      "args": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          7,
+          7,
+          5
+        ]
+      ],
+      "expected": 7
+    },
+    {
+      "name": "积分并列取节点零",
+      "args": [
+        [
+          2,
+          0,
+          0,
+          2
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "单节点自环返回零",
+      "args": [
+        [
+          0
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

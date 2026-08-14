@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2044,
+  "slug": "count-number-of-maximum-bitwise-or-subsets",
+  "title": "统计按位或能得到最大值的子集数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-029",
+  "studyTags": [
+    "位运算",
+    "数组",
+    "回溯"
+  ],
+  "summary": "统计非空子集中按位或等于所有子集可达最大按位或值的子集数量。",
+  "insight": "最大值就是全部元素按位或。DFS 枚举每个元素选或不选，末尾判断当前按位或是否等于目标；正整数输入保证空集不会等于正目标。",
+  "pitfalls": [
+    "子集按下标区分",
+    "必须非空",
+    "重复值仍产生不同子集"
+  ],
+  "solutions": [
+    {
+      "id": "binary-subset-or-dfs",
+      "title": "二叉子集按位或 DFS",
+      "kind": "最优",
+      "idea": "枚举所有选择并在叶子比较全局最大或值。",
+      "steps": [
+        "target=所有 nums 按位或",
+        "dfs(index,currentOr)",
+        "末尾返回 currentOr==target ?1:0；否则返回选与不选两分支之和"
+      ],
+      "complexity": {
+        "time": "O(2^n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/binary-subset-or-dfs/Solution.java",
+        "kotlin": "solutions/binary-subset-or-dfs/Solution.kt",
+        "cpp": "solutions/binary-subset-or-dfs/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "reorderedPowerOf2",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "一是二的零次幂",
+      "args": [
+        1
+      ],
+      "expected": true
+    },
+    {
+      "name": "十不能重排成功",
+      "args": [
+        10
+      ],
+      "expected": false
+    },
+    {
+      "name": "四六可重排为六四",
+      "args": [
+        46
+      ],
+      "expected": true
+    }
+  ]
+}

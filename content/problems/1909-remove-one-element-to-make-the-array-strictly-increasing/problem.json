@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": 1909,
+  "slug": "remove-one-element-to-make-the-array-strictly-increasing",
+  "title": "删除一个元素使数组严格递增",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-027",
+  "studyTags": [
+    "数组"
+  ],
+  "summary": "判断能否至多删除一个元素，使整数数组严格递增。",
+  "insight": "找到首个 nums[i]>=nums[i+1] 的违例。唯一删除机会只能用于这两个元素之一：删除左边需让 nums[i-1]<nums[i+1]，删除右边需让 nums[i]<nums[i+2]；其余部分此前和此后都无违例才可行。",
+  "pitfalls": [
+    "严格递增不允许相等",
+    "允许不删除元素",
+    "可能存在多个相互独立的违例"
+  ],
+  "solutions": [
+    {
+      "id": "try-skipping-at-first-violation",
+      "title": "首个违例尝试两种删除",
+      "kind": "最优",
+      "idea": "定位首处非递增并分别验证跳过左右元素。",
+      "steps": [
+        "辅助 check(skip) 扫描除 skip 外相邻保留元素是否严格递增",
+        "找到首个违例下标 i",
+        "若无违例返回 true，否则 check(i)||check(i+1)"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/try-skipping-at-first-violation/Solution.java",
+        "kotlin": "solutions/try-skipping-at-first-violation/Solution.kt",
+        "cpp": "solutions/try-skipping-at-first-violation/solution.cpp"
+      }
+    }
+  ]
+}

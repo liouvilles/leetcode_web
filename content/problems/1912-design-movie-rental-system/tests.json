@@ -1,0 +1,266 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "MovieRentingSystem",
+  "cases": [
+    {
+      "name": "搜索租借报告归还完整流程",
+      "constructorArgs": [
+        3,
+        [
+          [
+            0,
+            1,
+            5
+          ],
+          [
+            0,
+            2,
+            6
+          ],
+          [
+            0,
+            3,
+            7
+          ],
+          [
+            1,
+            1,
+            4
+          ],
+          [
+            1,
+            2,
+            7
+          ],
+          [
+            2,
+            1,
+            5
+          ]
+        ]
+      ],
+      "calls": [
+        {
+          "method": "search",
+          "args": [
+            1
+          ],
+          "expected": [
+            1,
+            0,
+            2
+          ],
+          "parameterTypes": [
+            "int"
+          ],
+          "returnType": "intList"
+        },
+        {
+          "method": "rent",
+          "args": [
+            0,
+            1
+          ],
+          "parameterTypes": [
+            "int",
+            "int"
+          ]
+        },
+        {
+          "method": "rent",
+          "args": [
+            1,
+            2
+          ],
+          "parameterTypes": [
+            "int",
+            "int"
+          ]
+        },
+        {
+          "method": "report",
+          "args": [],
+          "expected": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "parameterTypes": [],
+          "returnType": "intListMatrix"
+        },
+        {
+          "method": "drop",
+          "args": [
+            1,
+            2
+          ],
+          "parameterTypes": [
+            "int",
+            "int"
+          ]
+        },
+        {
+          "method": "search",
+          "args": [
+            2
+          ],
+          "expected": [
+            0,
+            1
+          ],
+          "parameterTypes": [
+            "int"
+          ],
+          "returnType": "intList"
+        }
+      ]
+    },
+    {
+      "name": "单电影租还后恢复搜索",
+      "constructorArgs": [
+        1,
+        [
+          [
+            0,
+            0,
+            3
+          ]
+        ]
+      ],
+      "calls": [
+        {
+          "method": "search",
+          "args": [
+            0
+          ],
+          "expected": [
+            0
+          ],
+          "parameterTypes": [
+            "int"
+          ],
+          "returnType": "intList"
+        },
+        {
+          "method": "rent",
+          "args": [
+            0,
+            0
+          ],
+          "parameterTypes": [
+            "int",
+            "int"
+          ]
+        },
+        {
+          "method": "search",
+          "args": [
+            0
+          ],
+          "expected": [],
+          "parameterTypes": [
+            "int"
+          ],
+          "returnType": "intList"
+        },
+        {
+          "method": "report",
+          "args": [],
+          "expected": [
+            [
+              0,
+              0
+            ]
+          ],
+          "parameterTypes": [],
+          "returnType": "intListMatrix"
+        },
+        {
+          "method": "drop",
+          "args": [
+            0,
+            0
+          ],
+          "parameterTypes": [
+            "int",
+            "int"
+          ]
+        },
+        {
+          "method": "report",
+          "args": [],
+          "expected": [],
+          "parameterTypes": [],
+          "returnType": "intListMatrix"
+        }
+      ]
+    },
+    {
+      "name": "价格平局按商店编号排序",
+      "constructorArgs": [
+        2,
+        [
+          [
+            1,
+            0,
+            5
+          ],
+          [
+            0,
+            0,
+            5
+          ]
+        ]
+      ],
+      "calls": [
+        {
+          "method": "search",
+          "args": [
+            0
+          ],
+          "expected": [
+            0,
+            1
+          ],
+          "parameterTypes": [
+            "int"
+          ],
+          "returnType": "intList"
+        },
+        {
+          "method": "rent",
+          "args": [
+            0,
+            0
+          ],
+          "parameterTypes": [
+            "int",
+            "int"
+          ]
+        },
+        {
+          "method": "report",
+          "args": [],
+          "expected": [
+            [
+              0,
+              0
+            ]
+          ],
+          "parameterTypes": [],
+          "returnType": "intListMatrix"
+        }
+      ]
+    }
+  ],
+  "constructorTypes": [
+    "int",
+    "intMatrix"
+  ]
+}

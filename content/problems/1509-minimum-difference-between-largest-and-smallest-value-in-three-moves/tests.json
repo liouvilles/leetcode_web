@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minDifference",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四个数可改成相同",
+      "args": [
+        [
+          5,
+          3,
+          2,
+          4
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "五个数保留最接近两数",
+      "args": [
+        [
+          1,
+          5,
+          0,
+          10,
+          14
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "七个数最小极差二",
+      "args": [
+        [
+          6,
+          6,
+          0,
+          1,
+          1,
+          4,
+          6
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

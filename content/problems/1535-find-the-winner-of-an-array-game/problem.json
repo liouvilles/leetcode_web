@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1535,
+  "slug": "find-the-winner-of-an-array-game",
+  "title": "找出数组游戏的赢家",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-022",
+  "studyTags": [
+    "数组",
+    "模拟"
+  ],
+  "summary": "首两数比较，大者留在数组首、小者移到末尾；某值连续赢 k 次即获胜，返回赢家。",
+  "insight": "无需维护队列；当前擂主与后续元素按原顺序比赛。新擂主胜场置一，旧擂主获胜则累加；数组最大值成为擂主后永不失败。",
+  "pitfalls": [
+    "新擂主击败旧擂主算第一次连胜",
+    "k 可能大于数组长度",
+    "元素互不相同"
+  ],
+  "solutions": [
+    {
+      "id": "streaming-champion",
+      "title": "流式擂主模拟",
+      "kind": "最优",
+      "idea": "顺序挑战当前冠军并记录连续胜场。",
+      "steps": [
+        "champion=arr[0],wins=0",
+        "从 i=1 扫描；champion>arr[i] 则 wins++，否则 champion=arr[i],wins=1",
+        "wins==k 时返回 champion；扫描结束返回 champion"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/streaming-champion/Solution.java",
+        "kotlin": "solutions/streaming-champion/Solution.kt",
+        "cpp": "solutions/streaming-champion/solution.cpp"
+      }
+    }
+  ]
+}

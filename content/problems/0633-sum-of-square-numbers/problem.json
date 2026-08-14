@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 633,
+  "slug": "sum-of-square-numbers",
+  "title": "平方数之和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-008",
+  "studyTags": [
+    "数学",
+    "双指针",
+    "二分思想"
+  ],
+  "summary": "判断非负整数 c 是否能表示成两个整数平方之和。",
+  "insight": "平方根范围内的平方和随左指针增大而增大、随右指针减小而减小，可用双指针线性搜索。",
+  "pitfalls": [
+    "a 和 b 可以相等或为零",
+    "平方和用长整数防止溢出",
+    "右端从 floor(sqrt(c)) 开始"
+  ],
+  "solutions": [
+    {
+      "id": "two-pointers-on-squares",
+      "title": "平方根区间双指针",
+      "kind": "最优",
+      "idea": "根据当前平方和与 c 的比较单调移动一侧。",
+      "steps": [
+        "left=0，right=floor(sqrt(c))",
+        "计算 left²+right²",
+        "相等返回真，过小 left++，过大 right--；相遇结束后返回假"
+      ],
+      "complexity": {
+        "time": "O(√c)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/two-pointers-on-squares/Solution.java",
+        "kotlin": "solutions/two-pointers-on-squares/Solution.kt",
+        "cpp": "solutions/two-pointers-on-squares/solution.cpp"
+      }
+    }
+  ]
+}

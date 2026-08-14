@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "longestNiceSubstring",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "最长美好子串为 aAa",
+      "args": [
+        "YazaAay"
+      ],
+      "expected": "aAa"
+    },
+    {
+      "name": "整个 Bb 都美好",
+      "args": [
+        "Bb"
+      ],
+      "expected": "Bb"
+    },
+    {
+      "name": "单个小写字符无美好子串",
+      "args": [
+        "c"
+      ],
+      "expected": ""
+    }
+  ]
+}

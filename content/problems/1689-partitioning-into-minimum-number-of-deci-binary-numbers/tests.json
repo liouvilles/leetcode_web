@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minPartitions",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "最大数位三需要三个数",
+      "args": [
+        "32"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "长数字最大数位八",
+      "args": [
+        "82734"
+      ],
+      "expected": 8
+    },
+    {
+      "name": "包含九时需要九个数",
+      "args": [
+        "27346209830709182346"
+      ],
+      "expected": 9
+    }
+  ]
+}

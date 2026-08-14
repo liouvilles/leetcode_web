@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 402,
+  "slug": "remove-k-digits",
+  "title": "移掉 K 位数字",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-006",
+  "studyTags": [
+    "单调栈",
+    "贪心",
+    "字符串"
+  ],
+  "summary": "从非负整数字符串中删除恰好 k 位，使剩余数字表示的数尽可能小。",
+  "insight": "高位越小越重要；当前数字小于栈顶时，删除此前较大的高位一定更优，因此维护单调不降栈。",
+  "pitfalls": [
+    "扫描后仍有删除额度时从末尾删除",
+    "结果需移除前导零",
+    "所有位删完返回字符串零"
+  ],
+  "solutions": [
+    {
+      "id": "monotonic-increasing-stack",
+      "title": "单调栈贪心删位",
+      "kind": "最优",
+      "idea": "字符栈保持尽可能小的高位前缀。",
+      "steps": [
+        "扫描数字，额度允许且栈顶更大时弹栈",
+        "追加当前字符",
+        "剩余额度从尾部删除，跳过前导零并处理空结果"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/monotonic-increasing-stack/Solution.java",
+        "kotlin": "solutions/monotonic-increasing-stack/Solution.kt",
+        "cpp": "solutions/monotonic-increasing-stack/solution.cpp"
+      }
+    }
+  ]
+}

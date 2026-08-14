@@ -1,0 +1,1 @@
+class Solution { public:int minSteps(string s,string t){int difference[26]={};for(char ch:s)++difference[ch-'a'];for(char ch:t)--difference[ch-'a'];int answer=0;for(int value:difference)answer+=abs(value);return answer;} };

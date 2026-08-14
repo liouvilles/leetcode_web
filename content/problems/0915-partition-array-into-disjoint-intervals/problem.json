@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 915,
+  "slug": "partition-array-into-disjoint-intervals",
+  "title": "分割数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-013",
+  "studyTags": [
+    "数组",
+    "贪心"
+  ],
+  "summary": "把数组分成非空左右两段，使左段每个元素不大于右段每个元素，返回满足条件的最小左段长度。",
+  "insight": "扫描时维护已确定左段最大值 leftMax 和当前前缀最大值 overallMax；若新元素小于 leftMax，它必须并入左段，并把 leftMax 更新为整个扩展前缀最大值。",
+  "pitfalls": [
+    "要求左段长度最小",
+    "扩展左段时不能只用当前值更新最大值",
+    "题目保证存在合法分割"
+  ],
+  "solutions": [
+    {
+      "id": "greedy-expand-left-boundary",
+      "title": "贪心扩展左区间",
+      "kind": "最优",
+      "idea": "遇到破坏左最大值的元素就把边界扩展至该处。",
+      "steps": [
+        "leftMax=overallMax=nums[0],boundary=0",
+        "i 从一扫描，overallMax=max(overallMax,nums[i])",
+        "若 nums[i]<leftMax，则 boundary=i、leftMax=overallMax；返回 boundary+1"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/greedy-expand-left-boundary/Solution.java",
+        "kotlin": "solutions/greedy-expand-left-boundary/Solution.kt",
+        "cpp": "solutions/greedy-expand-left-boundary/solution.cpp"
+      }
+    }
+  ]
+}

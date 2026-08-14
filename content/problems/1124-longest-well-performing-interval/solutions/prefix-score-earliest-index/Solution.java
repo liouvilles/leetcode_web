@@ -1,0 +1,1 @@
+class Solution { public int longestWPI(int[] hours){Map<Integer,Integer> earliest=new HashMap<>();int score=0,answer=0;for(int i=0;i<hours.length;i++){score+=hours[i]>8?1:-1;if(score>0)answer=i+1;else if(earliest.containsKey(score-1))answer=Math.max(answer,i-earliest.get(score-1));earliest.putIfAbsent(score,i);}return answer;} }

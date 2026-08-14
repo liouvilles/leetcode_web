@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 956,
+  "slug": "tallest-billboard",
+  "title": "最高的广告牌",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-014",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "哈希表"
+  ],
+  "summary": "把若干钢筋分到两个支架或弃用，使两边高度相同，求可达到的最大共同高度。",
+  "insight": "动态规划按两边高度差记录较矮一边的最大高度；加入钢筋到高边不改变矮边，加入低边时新矮边增加 min(diff,rod)。",
+  "pitfalls": [
+    "每根钢筋还可以弃用",
+    "差值取绝对值以合并对称状态",
+    "遍历每根钢筋时必须从旧状态副本转移"
+  ],
+  "solutions": [
+    {
+      "id": "difference-shorter-height-dp",
+      "title": "高度差与矮边动态规划",
+      "kind": "最优",
+      "idea": "用哈希表压缩两边高度状态。",
+      "steps": [
+        "dp[0]=0，键是高度差，值是该差下矮边最大高度",
+        "对每根 rod 复制 dp；对旧状态可把 rod 加到高边，更新 diff+rod",
+        "或加到低边，newDiff=|diff-rod|，newShort=short+min(diff,rod)；返回 dp[0]"
+      ],
+      "complexity": {
+        "time": "O(n·sum)",
+        "space": "O(sum)"
+      },
+      "files": {
+        "java": "solutions/difference-shorter-height-dp/Solution.java",
+        "kotlin": "solutions/difference-shorter-height-dp/Solution.kt",
+        "cpp": "solutions/difference-shorter-height-dp/solution.cpp"
+      }
+    }
+  ]
+}

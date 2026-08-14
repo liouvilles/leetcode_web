@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "smallestEquivalentString",
+  "parameterTypes": [
+    "string",
+    "string",
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "parker 映射到 makkek",
+      "args": [
+        "parker",
+        "morris",
+        "parser"
+      ],
+      "expected": "makkek"
+    },
+    {
+      "name": "hello 映射到 hdld",
+      "args": [
+        "hello",
+        "world",
+        "hold"
+      ],
+      "expected": "hdld"
+    },
+    {
+      "name": "leetcode 映射到 aauaaaaada",
+      "args": [
+        "leetcode",
+        "programs",
+        "sourcecode"
+      ],
+      "expected": "aauaaaaada"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": 1929,
+  "slug": "concatenation-of-array",
+  "title": "数组串联",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-028",
+  "studyTags": [
+    "数组"
+  ],
+  "summary": "把数组 nums 与自身首尾串联，返回长度两倍的新数组。",
+  "insight": "输出前半与后半在相同偏移都等于 nums[i]，一次遍历同时写入即可。",
+  "pitfalls": [
+    "保留原始顺序",
+    "输出长度为二倍",
+    "不修改输入"
+  ],
+  "solutions": [
+    {
+      "id": "two-offset-copy",
+      "title": "双偏移复制",
+      "kind": "最优",
+      "idea": "每个输入元素写入两个对应位置。",
+      "steps": [
+        "创建 2n 长 answer",
+        "遍历 i",
+        "answer[i]=answer[i+n]=nums[i]，返回"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/two-offset-copy/Solution.java",
+        "kotlin": "solutions/two-offset-copy/Solution.kt",
+        "cpp": "solutions/two-offset-copy/solution.cpp"
+      }
+    }
+  ]
+}

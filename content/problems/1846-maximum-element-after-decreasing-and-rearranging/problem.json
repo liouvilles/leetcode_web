@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1846,
+  "slug": "maximum-element-after-decreasing-and-rearranging",
+  "title": "减小和重新排列数组后的最大元素",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-026",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "排序"
+  ],
+  "summary": "可任意重排并减小正整数，使首元素为一且相邻差绝对值至多一，最大化最终数组最大值。",
+  "insight": "排序后从最小值开始构造。首值设一，之后每个值最多增长到 previous+1，又不能超过原值，故 current=min(value,current+1)。",
+  "pitfalls": [
+    "只能减小不能增大原值",
+    "可任意重排所以先排序",
+    "最终最大值就是最后构造值"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-capped-growth",
+      "title": "排序后受限增长",
+      "kind": "最优",
+      "idea": "逐值取原上限与相邻增长上限的较小者。",
+      "steps": [
+        "arr 排序，current=0",
+        "遍历 value：current=min(value,current+1)",
+        "返回 current"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/sorted-capped-growth/Solution.java",
+        "kotlin": "solutions/sorted-capped-growth/Solution.kt",
+        "cpp": "solutions/sorted-capped-growth/solution.cpp"
+      }
+    }
+  ]
+}

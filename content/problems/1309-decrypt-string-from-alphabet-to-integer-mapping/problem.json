@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1309,
+  "slug": "decrypt-string-from-alphabet-to-integer-mapping",
+  "title": "解码字母到整数映射",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "字符串",
+    "模拟"
+  ],
+  "summary": "编码中 1 到 9 映射 a 到 i，10# 到 26# 映射 j 到 z，返回解码字符串。",
+  "insight": "从左向右看当前后两位后是否紧跟井号；若是就取两位数字，否则取一位数字，再映射为 a+value-1。",
+  "pitfalls": [
+    "井号只跟在两位数字后",
+    "读取两位时指针前进三格",
+    "输入保证编码合法"
+  ],
+  "solutions": [
+    {
+      "id": "lookahead-token-decoding",
+      "title": "前瞻令牌解码",
+      "kind": "最优",
+      "idea": "按一位或带井号两位令牌逐个解析。",
+      "steps": [
+        "i=0、answer 为空",
+        "若 i+2<len 且 s[i+2]==#，value=两位数并 i+=3；否则 value=单数字并 i++",
+        "追加字符 a+value-1，扫描结束返回"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/lookahead-token-decoding/Solution.java",
+        "kotlin": "solutions/lookahead-token-decoding/Solution.kt",
+        "cpp": "solutions/lookahead-token-decoding/solution.cpp"
+      }
+    }
+  ]
+}

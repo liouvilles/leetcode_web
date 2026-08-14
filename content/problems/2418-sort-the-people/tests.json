@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sortPeople",
+  "parameterTypes": [
+    "stringArray",
+    "intArray"
+  ],
+  "returnType": "stringArray",
+  "cases": [
+    {
+      "name": "玛丽身高最高排第一",
+      "args": [
+        [
+          "Mary",
+          "John",
+          "Emma"
+        ],
+        [
+          180,
+          165,
+          170
+        ]
+      ],
+      "expected": [
+        "Mary",
+        "Emma",
+        "John"
+      ]
+    },
+    {
+      "name": "三人按身高重排",
+      "args": [
+        [
+          "Alice",
+          "Bob",
+          "Bob"
+        ],
+        [
+          155,
+          185,
+          150
+        ]
+      ],
+      "expected": [
+        "Bob",
+        "Alice",
+        "Bob"
+      ]
+    },
+    {
+      "name": "单人保持不变",
+      "args": [
+        [
+          "A"
+        ],
+        [
+          100
+        ]
+      ],
+      "expected": [
+        "A"
+      ]
+    }
+  ]
+}

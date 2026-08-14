@@ -1,0 +1,1 @@
+class Solution { fun reverseStr(s:String,k:Int):String{val chars=s.toCharArray();var start=0;while(start<chars.size){var left=start;var right=minOf(start+k-1,chars.lastIndex);while(left<right){val value=chars[left];chars[left++]=chars[right];chars[right--]=value};start+=2*k};return String(chars)} }

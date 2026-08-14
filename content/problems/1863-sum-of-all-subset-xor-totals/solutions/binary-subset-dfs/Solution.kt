@@ -1,0 +1,1 @@
+class Solution { private fun dfs(nums:IntArray,index:Int,value:Int):Int=if(index==nums.size)value else dfs(nums,index+1,value)+dfs(nums,index+1,value xor nums[index]);fun subsetXORSum(nums:IntArray):Int=dfs(nums,0,0) }

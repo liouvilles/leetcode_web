@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1749,
+  "slug": "maximum-absolute-sum-of-any-subarray",
+  "title": "任意子数组和的绝对值的最大值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-025",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "前缀和"
+  ],
+  "summary": "在所有可能为空的连续子数组中，求子数组和绝对值的最大值。",
+  "insight": "任意子数组和是两个前缀和之差，绝对值最大值就是扫描过程中全局最大前缀和与最小前缀和之差。",
+  "pitfalls": [
+    "空子数组保证答案至少为零",
+    "前缀和包含初始零",
+    "同时更新最大与最小前缀"
+  ],
+  "solutions": [
+    {
+      "id": "prefix-extreme-gap",
+      "title": "前缀和极差",
+      "kind": "最优",
+      "idea": "用所有前缀和中的最大差覆盖正负两类子数组。",
+      "steps": [
+        "prefix=minimum=maximum=0",
+        "扫描 value：prefix+=value",
+        "minimum=min(minimum,prefix)，maximum=max(maximum,prefix)，返回 maximum-minimum"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/prefix-extreme-gap/Solution.java",
+        "kotlin": "solutions/prefix-extreme-gap/Solution.kt",
+        "cpp": "solutions/prefix-extreme-gap/solution.cpp"
+      }
+    }
+  ]
+}

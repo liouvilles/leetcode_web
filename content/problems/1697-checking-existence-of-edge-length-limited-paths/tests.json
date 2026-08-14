@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "distanceLimitedPathsExist",
+  "parameterTypes": [
+    "int",
+    "intMatrix",
+    "intMatrix"
+  ],
+  "returnType": "booleanList",
+  "cases": [
+    {
+      "name": "阈值严格限制两组查询一真一假",
+      "args": [
+        3,
+        [
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            1,
+            2,
+            4
+          ],
+          [
+            2,
+            0,
+            8
+          ],
+          [
+            1,
+            0,
+            16
+          ]
+        ],
+        [
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            0,
+            2,
+            5
+          ]
+        ]
+      ],
+      "expected": [
+        false,
+        true
+      ]
+    },
+    {
+      "name": "四节点不同阈值查询",
+      "args": [
+        5,
+        [
+          [
+            0,
+            1,
+            10
+          ],
+          [
+            1,
+            2,
+            5
+          ],
+          [
+            2,
+            3,
+            9
+          ],
+          [
+            3,
+            4,
+            13
+          ]
+        ],
+        [
+          [
+            0,
+            4,
+            14
+          ],
+          [
+            1,
+            4,
+            13
+          ]
+        ]
+      ],
+      "expected": [
+        true,
+        false
+      ]
+    },
+    {
+      "name": "同节点无需边即可连通",
+      "args": [
+        2,
+        [
+          [
+            0,
+            1,
+            5
+          ]
+        ],
+        [
+          [
+            0,
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        true
+      ]
+    }
+  ]
+}

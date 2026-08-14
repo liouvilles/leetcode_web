@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findDuplicates",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intList",
+  "cases": [
+    {
+      "name": "两个重复值",
+      "args": [
+        [
+          4,
+          3,
+          2,
+          7,
+          8,
+          2,
+          3,
+          1
+        ]
+      ],
+      "expected": [
+        2,
+        3
+      ]
+    },
+    {
+      "name": "一个重复值",
+      "args": [
+        [
+          1,
+          1,
+          2
+        ]
+      ],
+      "expected": [
+        1
+      ]
+    },
+    {
+      "name": "没有重复值",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": []
+    }
+  ]
+}

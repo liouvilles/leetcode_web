@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1187,
+  "slug": "make-array-strictly-increasing",
+  "title": "使数组严格递增",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-017",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "二分查找",
+    "排序"
+  ],
+  "summary": "可把 arr1 任意元素替换为 arr2 中任一元素，求使 arr1 严格递增的最少替换次数，不可能返回负一。",
+  "insight": "动态规划状态用最后保留值映射到最少操作数。处理每个 arr1 值时可原样保留，或把它替换成 arr2 中严格大于 last 的最小值；更大的替换值不会带来优势。",
+  "pitfalls": [
+    "arr2 允许重复，排序后用 upper_bound",
+    "严格递增要求新值大于 last",
+    "相同或更大的最后值且操作数不更少的状态可删除"
+  ],
+  "solutions": [
+    {
+      "id": "last-value-frontier-dp",
+      "title": "末值前沿动态规划",
+      "kind": "最优",
+      "idea": "维护不被支配的末值与最小替换次数。",
+      "steps": [
+        "排序 arr2；dp 初始 {-1:0}",
+        "对 arr1 的每个 value，遍历状态：若 value>last 可保留；再二分 arr2 首个>last 的 replacement 并以 ops+1 转移",
+        "按末值升序去掉操作数不优的支配状态；若空返回 -1，最后返回最小操作数"
+      ],
+      "complexity": {
+        "time": "O(n²+n log m)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/last-value-frontier-dp/Solution.java",
+        "kotlin": "solutions/last-value-frontier-dp/Solution.kt",
+        "cpp": "solutions/last-value-frontier-dp/solution.cpp"
+      }
+    }
+  ]
+}

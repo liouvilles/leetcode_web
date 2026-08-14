@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2223,
+  "slug": "sum-of-scores-of-built-strings",
+  "title": "构造字符串的总得分和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-032",
+  "studyTags": [
+    "字符串",
+    "字符串匹配",
+    "Z 算法"
+  ],
+  "summary": "每次删除原串若干前缀得到后缀，其得分是该后缀与原串最长公共前缀长度，求所有后缀得分总和。",
+  "insight": "这正是 Z 数组：z[i] 表示 s 与 s[i..] 的最长公共前缀。用维护最右匹配区间的线性 Z 算法，答案为 n 加所有 z[i]。",
+  "pitfalls": [
+    "原串自身得分为 n",
+    "Z 区间边界通常用 [left,right] 闭区间",
+    "答案使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "linear-z-algorithm",
+      "title": "线性 Z 算法",
+      "kind": "最优",
+      "idea": "一次求出原串与每个后缀的最长公共前缀。",
+      "steps": [
+        "z[n]=0，left=right=0，answer=n",
+        "i 从一开始；若 i<=right，z[i]=min(right-i+1,z[i-left])",
+        "继续字符比较扩展 z[i]；若新区间更右则更新 left=i、right=i+z[i]-1；answer+=z[i]"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/linear-z-algorithm/Solution.java",
+        "kotlin": "solutions/linear-z-algorithm/Solution.kt",
+        "cpp": "solutions/linear-z-algorithm/solution.cpp"
+      }
+    }
+  ]
+}

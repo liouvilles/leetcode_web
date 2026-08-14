@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1051,
+  "slug": "height-checker",
+  "title": "高度检查器",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-015",
+  "studyTags": [
+    "数组",
+    "排序",
+    "计数排序"
+  ],
+  "summary": "学生按当前顺序站立，期望顺序为身高非递减，统计当前位置身高与期望值不同的下标数。",
+  "insight": "复制并排序得到唯一的期望序列，逐位置比较即可。",
+  "pitfalls": [
+    "统计位置不同而非需要移动的学生数",
+    "重复身高排序后仍保留多次",
+    "不要直接排序原数组后再失去对照"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-copy-position-compare",
+      "title": "排序副本逐位比较",
+      "kind": "最优",
+      "idea": "显式构造期望序列并统计差异。",
+      "steps": [
+        "expected=heights.clone 并升序排序",
+        "mismatches=0",
+        "对所有 i，若 heights[i]!=expected[i] 则 mismatches++，返回"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/sorted-copy-position-compare/Solution.java",
+        "kotlin": "solutions/sorted-copy-position-compare/Solution.kt",
+        "cpp": "solutions/sorted-copy-position-compare/solution.cpp"
+      }
+    }
+  ]
+}

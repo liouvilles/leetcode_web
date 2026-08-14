@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "balancedString",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "已经平衡",
+      "args": [
+        "QWER"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "一个 Q 过量",
+      "args": [
+        "QQWE"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "全是 Q 需替换三个",
+      "args": [
+        "QQQQ"
+      ],
+      "expected": 3
+    }
+  ]
+}

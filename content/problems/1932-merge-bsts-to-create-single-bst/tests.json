@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "canMerge",
+  "parameterTypes": [
+    "treeNodeList"
+  ],
+  "returnType": "treeNode",
+  "cases": [
+    {
+      "name": "三棵树合成完整 BST",
+      "args": [
+        [
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            2,
+            5
+          ],
+          [
+            5,
+            4
+          ]
+        ]
+      ],
+      "expected": [
+        3,
+        2,
+        5,
+        1,
+        null,
+        4
+      ]
+    },
+    {
+      "name": "嫁接后违反 BST 返回空",
+      "args": [
+        [
+          [
+            5,
+            3,
+            8
+          ],
+          [
+            3,
+            2,
+            6
+          ]
+        ]
+      ],
+      "expected": []
+    },
+    {
+      "name": "两棵链式树成功合并",
+      "args": [
+        [
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            2
+          ]
+        ]
+      ],
+      "expected": [
+        3,
+        2,
+        null,
+        1
+      ]
+    }
+  ]
+}

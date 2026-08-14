@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1390,
+  "slug": "four-divisors",
+  "title": "四因数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-020",
+  "studyTags": [
+    "数组",
+    "数学",
+    "枚举"
+  ],
+  "summary": "对数组中恰好有四个正因数的整数求其全部因数之和，再累加。",
+  "insight": "枚举到平方根；每发现一对因数就增加一个或两个计数并累加，计数超过四可提前结束。",
+  "pitfalls": [
+    "完全平方数的平方根只能计一次",
+    "只有最终计数恰为四才贡献",
+    "不同数组元素分别计算"
+  ],
+  "solutions": [
+    {
+      "id": "sqrt-divisor-enumeration",
+      "title": "平方根因数枚举",
+      "kind": "最优",
+      "idea": "成对统计每个整数的因数数量和总和。",
+      "steps": [
+        "对 value 从 divisor=1 枚举至 divisor²<=value",
+        "整除时加入 divisor 与 value/divisor，若相等只加一次",
+        "因数数恰为四则把局部和加入答案"
+      ],
+      "complexity": {
+        "time": "O(Σsqrt(nums[i]))",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/sqrt-divisor-enumeration/Solution.java",
+        "kotlin": "solutions/sqrt-divisor-enumeration/Solution.kt",
+        "cpp": "solutions/sqrt-divisor-enumeration/solution.cpp"
+      }
+    }
+  ]
+}

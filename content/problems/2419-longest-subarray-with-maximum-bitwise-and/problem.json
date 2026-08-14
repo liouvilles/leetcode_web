@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2419,
+  "slug": "longest-subarray-with-maximum-bitwise-and",
+  "title": "按位与最大的最长子数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-035",
+  "studyTags": [
+    "数组",
+    "位运算"
+  ],
+  "summary": "所有非空子数组中先最大化按位与值，再在最大值下求最长长度。",
+  "insight": "按位与不会超过其中任何元素，最大可能值就是数组最大元素；要保持该值，子数组只能由连续的最大元素组成，因此求最长最大值连续段。",
+  "pitfalls": [
+    "目标先比较按位与值再比较长度",
+    "最大按位与等于单个最大元素",
+    "只统计连续最大元素"
+  ],
+  "solutions": [
+    {
+      "id": "longest-run-of-global-maximum",
+      "title": "全局最大值最长连续段",
+      "kind": "最优",
+      "idea": "最大元素连续段恰是最优子数组。",
+      "steps": [
+        "maximum=max(nums)",
+        "current=answer=0",
+        "value==maximum 时 current++ 并更新，否则 current=0",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/longest-run-of-global-maximum/Solution.java",
+        "kotlin": "solutions/longest-run-of-global-maximum/Solution.kt",
+        "cpp": "solutions/longest-run-of-global-maximum/solution.cpp"
+      }
+    }
+  ]
+}

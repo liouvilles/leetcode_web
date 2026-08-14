@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 792,
+  "slug": "number-of-matching-subsequences",
+  "title": "匹配子序列的单词数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-010",
+  "studyTags": [
+    "字符串",
+    "哈希表",
+    "队列",
+    "多指针"
+  ],
+  "summary": "给定字符串 s 和单词数组 words，统计有多少单词是 s 的子序列，重复单词分别计数。",
+  "insight": "按每个单词当前等待的下一个字符分桶；扫描 s 的字符时，只推进当时正在等待该字符的状态，完成的单词立即计数。",
+  "pitfalls": [
+    "处理某桶时只遍历进入本轮前的队列长度",
+    "推进后仍等待同一个字符的状态不能在同轮再次消费",
+    "重复单词必须保留独立状态"
+  ],
+  "solutions": [
+    {
+      "id": "waiting-character-buckets",
+      "title": "等待字符队列分桶",
+      "kind": "最优",
+      "idea": "让所有单词指针随 s 的一次扫描同步前进。",
+      "steps": [
+        "建立 26 个队列，把每个单词状态 (wordIndex,0) 放入首字符桶",
+        "扫描 s 的字符，取对应桶当前 size 个状态并把位置加一",
+        "若位置到达单词末尾则 answer++，否则放入新等待字符的桶"
+      ],
+      "complexity": {
+        "time": "O(|s|+Σ|word|)",
+        "space": "O(number of words)"
+      },
+      "files": {
+        "java": "solutions/waiting-character-buckets/Solution.java",
+        "kotlin": "solutions/waiting-character-buckets/Solution.kt",
+        "cpp": "solutions/waiting-character-buckets/solution.cpp"
+      }
+    }
+  ]
+}

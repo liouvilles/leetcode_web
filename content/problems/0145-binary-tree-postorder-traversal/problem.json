@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 145,
+  "slug": "binary-tree-postorder-traversal",
+  "title": "二叉树的后序遍历",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-004",
+  "studyTags": [
+    "二叉树",
+    "迭代",
+    "栈"
+  ],
+  "summary": "返回二叉树节点值的后序遍历序列，即依次访问左子树、右子树、根。",
+  "insight": "用栈生成根、右、左顺序，最后整体反转即可得到左、右、根，避免记录节点访问状态。",
+  "pitfalls": [
+    "压入左孩子后再压右孩子才能先处理右侧",
+    "最终必须反转临时序列",
+    "空树无需入栈"
+  ],
+  "solutions": [
+    {
+      "id": "reverse-root-right-left",
+      "title": "根右左后反转",
+      "kind": "最优",
+      "idea": "把后序视为根右左序列的逆序，用一次反转完成。",
+      "steps": [
+        "根节点入栈",
+        "弹出记录，并依次压左、右孩子",
+        "遍历结束反转答案"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(h)"
+      },
+      "files": {
+        "java": "solutions/reverse-root-right-left/Solution.java",
+        "kotlin": "solutions/reverse-root-right-left/Solution.kt",
+        "cpp": "solutions/reverse-root-right-left/solution.cpp"
+      }
+    }
+  ]
+}

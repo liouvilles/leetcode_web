@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "rearrangeArray",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "五个连续数构造高低交错",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": [
+        1,
+        3,
+        2,
+        5,
+        4
+      ]
+    },
+    {
+      "name": "乱序输入先排序再交错",
+      "args": [
+        [
+          6,
+          2,
+          0,
+          9,
+          7
+        ]
+      ],
+      "expected": [
+        0,
+        6,
+        2,
+        9,
+        7
+      ]
+    },
+    {
+      "name": "三个连续数中间取最大",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        1,
+        3,
+        2
+      ]
+    }
+  ]
+}

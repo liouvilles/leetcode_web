@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumXOR",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "多个数按位或为七",
+      "args": [
+        [
+          3,
+          2,
+          4,
+          6
+        ]
+      ],
+      "expected": 7
+    },
+    {
+      "name": "包含九时结果十一",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          9,
+          2
+        ]
+      ],
+      "expected": 11
+    },
+    {
+      "name": "单个零结果为零",
+      "args": [
+        [
+          0
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

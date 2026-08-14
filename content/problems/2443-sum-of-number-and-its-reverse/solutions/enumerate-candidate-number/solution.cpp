@@ -1,0 +1,1 @@
+class Solution { int reverse(int value){int result=0;while(value){result=result*10+value%10;value/=10;}return result;}public:bool sumOfNumberAndReverse(int num){for(int value=0;value<=num;++value)if(value+reverse(value)==num)return true;return false;} };

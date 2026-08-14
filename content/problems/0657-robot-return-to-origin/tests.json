@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "judgeCircle",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "上下抵消",
+      "args": [
+        "UD"
+      ],
+      "expected": true
+    },
+    {
+      "name": "向左未返回",
+      "args": [
+        "LL"
+      ],
+      "expected": false
+    },
+    {
+      "name": "四方向抵消",
+      "args": [
+        "UDLR"
+      ],
+      "expected": true
+    }
+  ]
+}

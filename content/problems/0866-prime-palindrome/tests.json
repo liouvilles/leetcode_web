@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "primePalindrome",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "六之后是七",
+      "args": [
+        6
+      ],
+      "expected": 7
+    },
+    {
+      "name": "八之后是十一",
+      "args": [
+        8
+      ],
+      "expected": 11
+    },
+    {
+      "name": "十三之后是一百零一",
+      "args": [
+        13
+      ],
+      "expected": 101
+    }
+  ]
+}

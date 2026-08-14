@@ -1,0 +1,1 @@
+class Solution { fun largestInteger(num:Int):Int{val digits=num.toString().toCharArray();val odd=digits.filter{(it-'0')%2==1}.sortedDescending();val even=digits.filter{(it-'0')%2==0}.sortedDescending();var o=0;var e=0;for(i in digits.indices)digits[i]=if((digits[i]-'0')%2==0)even[e++]else odd[o++];return String(digits).toInt()} }

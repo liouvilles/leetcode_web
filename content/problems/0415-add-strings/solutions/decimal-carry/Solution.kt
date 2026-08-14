@@ -1,0 +1,1 @@
+class Solution { fun addStrings(num1:String,num2:String):String{val answer=StringBuilder();var i=num1.lastIndex;var j=num2.lastIndex;var carry=0;while(i>=0||j>=0||carry>0){val sum=carry+(if(i>=0)num1[i--]-'0' else 0)+(if(j>=0)num2[j--]-'0' else 0);answer.append(sum%10);carry=sum/10};return answer.reverse().toString()} }

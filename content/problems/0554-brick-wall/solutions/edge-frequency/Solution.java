@@ -1,0 +1,1 @@
+class Solution { public int leastBricks(List<List<Integer>> wall){Map<Long,Integer> counts=new HashMap<>();int maximum=0;for(List<Integer> row:wall){long position=0;for(int i=0;i+1<row.size();i++){position+=row.get(i);int count=counts.getOrDefault(position,0)+1;counts.put(position,count);maximum=Math.max(maximum,count);}}return wall.size()-maximum;} }

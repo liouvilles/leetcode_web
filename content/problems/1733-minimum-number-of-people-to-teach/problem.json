@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1733,
+  "slug": "minimum-number-of-people-to-teach",
+  "title": "需要教语言的最少人数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-025",
+  "studyTags": [
+    "数组",
+    "哈希表"
+  ],
+  "summary": "选择一种语言教给若干用户，使每对朋友至少共享一种语言，求最少教学人数。",
+  "insight": "只有目前无法沟通的友谊需要处理，把这些友谊涉及的用户收集为候选集。选定语言后，候选集中已会该语言者无需教学，枚举语言取最小缺口。",
+  "pitfalls": [
+    "已经能沟通的朋友不限制所选教学语言",
+    "同一用户涉及多条坏友谊只计一次",
+    "所有被教用户必须学习同一种语言"
+  ],
+  "solutions": [
+    {
+      "id": "bad-friendship-candidate-count",
+      "title": "坏友谊候选集计数",
+      "kind": "最优",
+      "idea": "先缩小到需要修复的用户，再枚举统一教学语言。",
+      "steps": [
+        "把每个用户语言存为集合",
+        "对 friendships 检查两人语言交集；无交集则把两人加入 candidates",
+        "对 language=1..n，统计 candidates 中不会该语言的人数并取最小"
+      ],
+      "complexity": {
+        "time": "O(total languages+friendships·L+n·users)",
+        "space": "O(total languages)"
+      },
+      "files": {
+        "java": "solutions/bad-friendship-candidate-count/Solution.java",
+        "kotlin": "solutions/bad-friendship-candidate-count/Solution.kt",
+        "cpp": "solutions/bad-friendship-candidate-count/solution.cpp"
+      }
+    }
+  ]
+}

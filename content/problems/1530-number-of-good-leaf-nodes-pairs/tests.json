@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countPairs",
+  "parameterTypes": [
+    "treeNode",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两叶距离三形成一对",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          null,
+          4
+        ],
+        3
+      ],
+      "expected": 1
+    },
+    {
+      "name": "完全三层树有两对兄弟叶",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        3
+      ],
+      "expected": 2
+    },
+    {
+      "name": "单叶没有节点对",
+      "args": [
+        [
+          1
+        ],
+        2
+      ],
+      "expected": 0
+    }
+  ]
+}

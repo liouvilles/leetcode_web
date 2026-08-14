@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "lengthOfLIS",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "多次下降后形成长度四",
+      "args": [
+        [
+          10,
+          9,
+          2,
+          5,
+          3,
+          7,
+          101,
+          18
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "多个等值不增加长度",
+      "args": [
+        [
+          0,
+          1,
+          0,
+          3,
+          2,
+          3
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "全相等数组",
+      "args": [
+        [
+          7,
+          7,
+          7,
+          7
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

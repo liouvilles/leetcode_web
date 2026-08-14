@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 350,
+  "slug": "intersection-of-two-arrays-ii",
+  "title": "两个数组的交集 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-006",
+  "studyTags": [
+    "排序",
+    "双指针",
+    "多重集合"
+  ],
+  "summary": "返回两个数组的多重交集，每个值在结果中的出现次数等于两侧频次的较小值。",
+  "insight": "排序后用双指针同步扫描，相等时加入答案并同时推进，较小值一侧单独推进。",
+  "pitfalls": [
+    "重复元素需要按次数保留",
+    "两个输入都可排序",
+    "结果长度不超过较短数组"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-two-pointers",
+      "title": "排序 + 双指针",
+      "kind": "最优",
+      "idea": "有序扫描天然按较小频次输出每个重复值。",
+      "steps": [
+        "两个数组排序",
+        "比较 nums1[left] 与 nums2[right]",
+        "相等加入并双移，否则移动较小侧"
+      ],
+      "complexity": {
+        "time": "O(m log m+n log n)",
+        "space": "O(k)"
+      },
+      "files": {
+        "java": "solutions/sorted-two-pointers/Solution.java",
+        "kotlin": "solutions/sorted-two-pointers/Solution.kt",
+        "cpp": "solutions/sorted-two-pointers/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "profitableSchemes",
+  "parameterTypes": [
+    "int",
+    "int",
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两种盈利计划",
+      "args": [
+        5,
+        3,
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "三项工作七种计划",
+      "args": [
+        10,
+        5,
+        [
+          2,
+          3,
+          5
+        ],
+        [
+          6,
+          7,
+          8
+        ]
+      ],
+      "expected": 7
+    },
+    {
+      "name": "单项刚好达标",
+      "args": [
+        1,
+        1,
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

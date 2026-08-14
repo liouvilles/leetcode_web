@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1526,
+  "slug": "minimum-number-of-increments-on-subarrays-to-form-a-target-array",
+  "title": "形成目标数组的子数组最少增加次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-022",
+  "studyTags": [
+    "数组",
+    "贪心"
+  ],
+  "summary": "从全零数组开始，每次把任意连续子数组各加一，求形成 target 的最少操作数。",
+  "insight": "首位置需要 target[0] 层；后续只有 target[i] 高于前一位置的新增高度必须开启新的区间操作，下降部分可让已有操作提前结束。",
+  "pitfalls": [
+    "只累加正的相邻差",
+    "操作区间可以自由结束",
+    "target 非空"
+  ],
+  "solutions": [
+    {
+      "id": "positive-height-differences",
+      "title": "正高度差累加",
+      "kind": "最优",
+      "idea": "把目标柱状图分解为从各上升边开始的水平层。",
+      "steps": [
+        "answer=target[0]",
+        "i 从一开始",
+        "若 target[i]>target[i-1]，answer+=差值，返回"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/positive-height-differences/Solution.java",
+        "kotlin": "solutions/positive-height-differences/Solution.kt",
+        "cpp": "solutions/positive-height-differences/solution.cpp"
+      }
+    }
+  ]
+}

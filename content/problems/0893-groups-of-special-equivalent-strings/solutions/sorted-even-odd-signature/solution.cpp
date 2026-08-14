@@ -1,0 +1,1 @@
+class Solution { public: int numSpecialEquivGroups(vector<string>& words){unordered_set<string> signatures;for(string& word:words){string even,odd;for(int i=0;i<(int)word.size();++i)(i%2?odd:even)+=word[i];sort(even.begin(),even.end());sort(odd.begin(),odd.end());signatures.insert(even+"#"+odd);}return signatures.size();} };

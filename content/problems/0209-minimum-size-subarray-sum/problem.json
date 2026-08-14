@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 209,
+  "slug": "minimum-size-subarray-sum",
+  "title": "长度最小的子数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-003",
+  "studyTags": [
+    "滑动窗口",
+    "正数数组",
+    "最短合法区间"
+  ],
+  "summary": "在正整数数组中找到元素和至少为 target 的最短连续子数组长度，不存在则返回零。",
+  "insight": "所有元素为正，右端扩张只会增大和，达到目标后左端收缩只会减小和，因此窗口指针都单调移动。",
+  "pitfalls": [
+    "条件是和大于等于目标",
+    "每次合法时都要尝试继续收缩",
+    "没有合法窗口时返回零"
+  ],
+  "solutions": [
+    {
+      "id": "sliding-window",
+      "title": "正数滑动窗口",
+      "kind": "最优",
+      "idea": "扩张右边界累加，窗口合法时反复移除左端并更新最短长度。",
+      "steps": [
+        "sum 加入当前右端值",
+        "sum>=target 时更新长度",
+        "减去左端值并右移 left"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/sliding-window/Solution.java",
+        "kotlin": "solutions/sliding-window/Solution.kt",
+        "cpp": "solutions/sliding-window/solution.cpp"
+      }
+    }
+  ]
+}

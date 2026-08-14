@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isGoodArray",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "六十与三十五互质",
+      "args": [
+        [
+          12,
+          5,
+          7,
+          23
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "整体公约数二",
+      "args": [
+        [
+          29,
+          6,
+          10
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "全为偶数",
+      "args": [
+        [
+          4,
+          6,
+          8
+        ]
+      ],
+      "expected": false
+    }
+  ]
+}

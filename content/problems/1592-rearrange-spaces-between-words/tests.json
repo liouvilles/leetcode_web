@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "reorderSpaces",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "九个空格平均分三处",
+      "args": [
+        "  this   is  a sentence "
+      ],
+      "expected": "this   is   a   sentence"
+    },
+    {
+      "name": "七个空格分两处余一",
+      "args": [
+        " practice   makes   perfect"
+      ],
+      "expected": "practice   makes   perfect "
+    },
+    {
+      "name": "单词只有一个所有空格放末尾",
+      "args": [
+        " hello"
+      ],
+      "expected": "hello "
+    }
+  ]
+}

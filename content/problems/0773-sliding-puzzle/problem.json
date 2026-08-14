@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 773,
+  "slug": "sliding-puzzle",
+  "title": "滑动谜题",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-010",
+  "studyTags": [
+    "数组",
+    "广度优先搜索",
+    "状态压缩"
+  ],
+  "summary": "在 2×3 棋盘中每步把零与相邻数字交换，求到达 123450 的最少步数，不可达返回负一。",
+  "insight": "棋盘仅有 720 种排列，把它编码为六字符字符串，在状态图上 BFS 首次到终点就是最短步数。",
+  "pitfalls": [
+    "零在六个位置的邻接表固定",
+    "访问集合应在入队时标记避免重复",
+    "初始状态可能已经是目标"
+  ],
+  "solutions": [
+    {
+      "id": "encoded-state-bfs",
+      "title": "字符串状态 BFS",
+      "kind": "最优",
+      "idea": "预建零位置邻接表并逐层搜索所有棋盘状态。",
+      "steps": [
+        "把棋盘按行编码为六字符字符串",
+        "队列存状态和步数，找到字符零的位置",
+        "与每个相邻位置交换生成下一状态，未访问则入队；命中 123450 返回步数，耗尽返回 -1"
+      ],
+      "complexity": {
+        "time": "O(6·6!)",
+        "space": "O(6!)"
+      },
+      "files": {
+        "java": "solutions/encoded-state-bfs/Solution.java",
+        "kotlin": "solutions/encoded-state-bfs/Solution.kt",
+        "cpp": "solutions/encoded-state-bfs/solution.cpp"
+      }
+    }
+  ]
+}

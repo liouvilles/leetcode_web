@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1625,
+  "slug": "lexicographically-smallest-string-after-applying-operations",
+  "title": "执行操作后字典序最小的字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-023",
+  "studyTags": [
+    "字符串",
+    "广度优先搜索",
+    "枚举"
+  ],
+  "summary": "可反复给字符串奇数下标数字加 a（模十），或向右轮转 b 位，求所有可达字符串中字典序最小者。",
+  "insight": "字符串长度和每位状态有限，把每个字符串作为图节点，两个操作作为边，用 BFS 枚举所有可达状态并取最小值。",
+  "pitfalls": [
+    "奇数下标按零基编号判断",
+    "数字加法对十取模",
+    "旋转方向是向右"
+  ],
+  "solutions": [
+    {
+      "id": "state-space-bfs",
+      "title": "状态空间 BFS",
+      "kind": "最优",
+      "idea": "搜索两种操作闭包中的全部不同字符串。",
+      "steps": [
+        "队列和 seen 从原串开始，answer=原串",
+        "弹出状态后生成奇数位加法结果与右旋结果",
+        "未见状态入队并更新字典序最小值，队列空时返回"
+      ],
+      "complexity": {
+        "time": "O(状态数·n)",
+        "space": "O(状态数·n)"
+      },
+      "files": {
+        "java": "solutions/state-space-bfs/Solution.java",
+        "kotlin": "solutions/state-space-bfs/Solution.kt",
+        "cpp": "solutions/state-space-bfs/solution.cpp"
+      }
+    }
+  ]
+}

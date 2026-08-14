@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "greatestLetter",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "最好字母为 E",
+      "args": [
+        "lEeTcOdE"
+      ],
+      "expected": "E"
+    },
+    {
+      "name": "最好字母为 R",
+      "args": [
+        "arRAzFif"
+      ],
+      "expected": "R"
+    },
+    {
+      "name": "没有字母同时出现大小写",
+      "args": [
+        "AbCdEfGhIjK"
+      ],
+      "expected": ""
+    }
+  ]
+}

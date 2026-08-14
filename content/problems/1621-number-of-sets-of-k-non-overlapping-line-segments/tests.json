@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numberOfSets",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四点选两线段有五种",
+      "args": [
+        4,
+        2
+      ],
+      "expected": 5
+    },
+    {
+      "name": "三点选一线段有三种",
+      "args": [
+        3,
+        1
+      ],
+      "expected": 3
+    },
+    {
+      "name": "五点选两线段有十五种",
+      "args": [
+        5,
+        2
+      ],
+      "expected": 15
+    }
+  ]
+}

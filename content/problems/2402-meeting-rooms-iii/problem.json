@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2402,
+  "slug": "meeting-rooms-iii",
+  "title": "会议室 III",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-035",
+  "studyTags": [
+    "数组",
+    "排序",
+    "堆（优先队列）",
+    "模拟"
+  ],
+  "summary": "会议按开始时间处理，优先使用编号最小的空闲房；无房时顺延到最早空闲时刻且时长不变，求举办会议最多的最小编号房间。",
+  "insight": "一个小根堆存空闲房号，另一个按 [结束时间,房号] 存忙碌房。处理会议前释放已结束房；无空闲时弹出最早结束房并从该时刻顺延。",
+  "pitfalls": [
+    "延迟会议保持原时长",
+    "忙碌结束时间并列取较小房号",
+    "最终会议数并列取较小房号"
+  ],
+  "solutions": [
+    {
+      "id": "available-and-busy-priority-queues",
+      "title": "空闲与忙碌双堆",
+      "kind": "最优",
+      "idea": "分别维护编号优先级和结束时间优先级。",
+      "steps": [
+        "meetings 按开始时间排序",
+        "available 初始化所有房号；busy 存 [end,room]",
+        "释放 end<=start 的房；有空闲取最小房，否则取 busy 最早房并延迟",
+        "计数并重新压 busy；最后选最大计数最小编号"
+      ],
+      "complexity": {
+        "time": "O((n+m) log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/available-and-busy-priority-queues/Solution.java",
+        "kotlin": "solutions/available-and-busy-priority-queues/Solution.kt",
+        "cpp": "solutions/available-and-busy-priority-queues/solution.cpp"
+      }
+    }
+  ]
+}

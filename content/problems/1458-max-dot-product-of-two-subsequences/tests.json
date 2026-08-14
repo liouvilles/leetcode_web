@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxDotProduct",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典数组最大点积十八",
+      "args": [
+        [
+          2,
+          1,
+          -2,
+          5
+        ],
+        [
+          3,
+          0,
+          -6
+        ]
+      ],
+      "expected": 18
+    },
+    {
+      "name": "三与二和负负配对",
+      "args": [
+        [
+          3,
+          -2
+        ],
+        [
+          2,
+          -6
+        ]
+      ],
+      "expected": 18
+    },
+    {
+      "name": "只能得到负一点积",
+      "args": [
+        [
+          -1,
+          -1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": -1
+    }
+  ]
+}

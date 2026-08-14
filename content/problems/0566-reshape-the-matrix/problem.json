@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 566,
+  "slug": "reshape-the-matrix",
+  "title": "重塑矩阵",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-007",
+  "studyTags": [
+    "矩阵",
+    "模拟",
+    "下标映射"
+  ],
+  "summary": "按行遍历顺序把矩阵重塑为 r 行 c 列；元素总数不匹配时返回原矩阵。",
+  "insight": "原矩阵和新矩阵共享同一个行优先线性下标，用除法与取模即可映射到双方坐标。",
+  "pitfalls": [
+    "元素总数必须完全一致",
+    "元素的行遍历顺序不能改变",
+    "不兼容时应直接返回原矩阵"
+  ],
+  "solutions": [
+    {
+      "id": "linear-index-mapping",
+      "title": "行优先线性下标映射",
+      "kind": "最优",
+      "idea": "把每个线性位置写入新矩阵的对应行列。",
+      "steps": [
+        "检查 rows*columns 是否等于 r*c",
+        "建立 r×c 结果矩阵",
+        "对 index 从零遍历，以 index/cols、index%cols 读取并以 index/c、index%c 写入"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(rc)"
+      },
+      "files": {
+        "java": "solutions/linear-index-mapping/Solution.java",
+        "kotlin": "solutions/linear-index-mapping/Solution.kt",
+        "cpp": "solutions/linear-index-mapping/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numMusicPlaylists",
+  "parameterTypes": [
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三首恰好各一次",
+      "args": [
+        3,
+        3,
+        1
+      ],
+      "expected": 6
+    },
+    {
+      "name": "两首可立即重复",
+      "args": [
+        2,
+        3,
+        0
+      ],
+      "expected": 6
+    },
+    {
+      "name": "两首必须交替",
+      "args": [
+        2,
+        3,
+        1
+      ],
+      "expected": 2
+    }
+  ]
+}

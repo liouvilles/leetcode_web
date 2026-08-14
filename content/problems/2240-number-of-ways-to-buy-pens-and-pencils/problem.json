@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2240,
+  "slug": "number-of-ways-to-buy-pens-and-pencils",
+  "title": "买钢笔和铅笔的方案数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-033",
+  "studyTags": [
+    "数学",
+    "枚举"
+  ],
+  "summary": "总预算 total，可买任意非负数量钢笔和铅笔，单价分别为 cost1、cost2，统计不超预算的数量组合。",
+  "insight": "枚举钢笔数量，固定后剩余预算可购买零到 floor(remaining/cost2) 支铅笔，共再加一方案。",
+  "pitfalls": [
+    "两种物品都可以买零件",
+    "预算可有剩余",
+    "答案使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-first-item-count",
+      "title": "枚举钢笔数量",
+      "kind": "最优",
+      "idea": "固定一种物品数量后直接计算另一种的可选数量。",
+      "steps": [
+        "ways=0",
+        "pens 从零到 total/cost1",
+        "remaining=total-pens*cost1，ways+=remaining/cost2+1；返回 ways"
+      ],
+      "complexity": {
+        "time": "O(total/cost1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/enumerate-first-item-count/Solution.java",
+        "kotlin": "solutions/enumerate-first-item-count/Solution.kt",
+        "cpp": "solutions/enumerate-first-item-count/solution.cpp"
+      }
+    }
+  ]
+}

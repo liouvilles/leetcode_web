@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2389,
+  "slug": "longest-subsequence-with-limited-sum",
+  "title": "和有限的最长子序列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-035",
+  "studyTags": [
+    "数组",
+    "二分查找",
+    "贪心",
+    "排序",
+    "前缀和"
+  ],
+  "summary": "对每个查询值，求 nums 中元素和不超过查询值的最长子序列长度。",
+  "insight": "要让固定长度的和最小，应选择最小的若干元素。排序后建立前缀和，每个查询二分最后一个不超过它的前缀。",
+  "pitfalls": [
+    "各查询独立且不删除元素",
+    "子序列顺序不影响元素和",
+    "前缀长度从零开始也可能为答案"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-prefix-upper-bound",
+      "title": "排序前缀和上界",
+      "kind": "最优",
+      "idea": "把最长长度查询化为单调前缀二分。",
+      "steps": [
+        "排序 nums",
+        "prefix[i+1]=prefix[i]+nums[i]",
+        "每个 query 对 prefix 找第一个大于 query 的位置",
+        "答案为该位置减一"
+      ],
+      "complexity": {
+        "time": "O(n log n+q log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/sorted-prefix-upper-bound/Solution.java",
+        "kotlin": "solutions/sorted-prefix-upper-bound/Solution.kt",
+        "cpp": "solutions/sorted-prefix-upper-bound/solution.cpp"
+      }
+    }
+  ]
+}

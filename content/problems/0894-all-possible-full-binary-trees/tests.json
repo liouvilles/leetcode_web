@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "allPossibleFBT",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "treeNodeList",
+  "cases": [
+    {
+      "name": "单节点真二叉树",
+      "args": [
+        1
+      ],
+      "expected": [
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "name": "三节点唯一结构",
+      "args": [
+        3
+      ],
+      "expected": [
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "五节点两种结构",
+      "args": [
+        5
+      ],
+      "expected": [
+        [
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minDeletionSize",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "删除一列",
+      "args": [
+        [
+          "cba",
+          "daf",
+          "ghi"
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "全部有序",
+      "args": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "三列都逆序",
+      "args": [
+        [
+          "zyx",
+          "wvu",
+          "tsr"
+        ]
+      ],
+      "expected": 3
+    }
+  ]
+}

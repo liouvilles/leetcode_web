@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2265,
+  "slug": "count-nodes-equal-to-average-of-subtree",
+  "title": "统计值等于子树平均值的节点数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-033",
+  "studyTags": [
+    "树",
+    "深度优先搜索",
+    "二叉树"
+  ],
+  "summary": "对每个节点计算其子树节点值整数平均，统计节点值等于该平均值的节点数量。",
+  "insight": "后序 DFS 同时返回子树总和与节点数；当前平均为 sum/count，比较后把结果继续向父层汇总。",
+  "pitfalls": [
+    "平均使用向下取整整数除法",
+    "子树包含当前节点",
+    "空子树返回零和零个节点"
+  ],
+  "solutions": [
+    {
+      "id": "postorder-subtree-sum-count",
+      "title": "后序子树和与数量",
+      "kind": "最优",
+      "idea": "一次遍历得到所有节点的子树统计。",
+      "steps": [
+        "dfs(null) 返回 [0,0]",
+        "递归左右，sum=node.val+left.sum+right.sum，count=1+left.count+right.count",
+        "若 node.val==sum/count 则 answer++；返回 [sum,count]"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(height)"
+      },
+      "files": {
+        "java": "solutions/postorder-subtree-sum-count/Solution.java",
+        "kotlin": "solutions/postorder-subtree-sum-count/Solution.kt",
+        "cpp": "solutions/postorder-subtree-sum-count/solution.cpp"
+      }
+    }
+  ]
+}

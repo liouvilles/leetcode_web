@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "searchRange",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "目标连续出现",
+      "args": [
+        [
+          5,
+          7,
+          7,
+          8,
+          8,
+          10
+        ],
+        8
+      ],
+      "expected": [
+        3,
+        4
+      ]
+    },
+    {
+      "name": "目标不存在",
+      "args": [
+        [
+          5,
+          7,
+          7,
+          8,
+          8,
+          10
+        ],
+        6
+      ],
+      "expected": [
+        -1,
+        -1
+      ]
+    },
+    {
+      "name": "单元素命中",
+      "args": [
+        [
+          1
+        ],
+        1
+      ],
+      "expected": [
+        0,
+        0
+      ]
+    }
+  ]
+}

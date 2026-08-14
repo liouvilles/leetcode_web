@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minSteps",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "bab 变 aba 一步",
+      "args": [
+        "bab",
+        "aba"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "leetcode 与 practice 五步",
+      "args": [
+        "leetcode",
+        "practice"
+      ],
+      "expected": 5
+    },
+    {
+      "name": "两个异位词无需替换",
+      "args": [
+        "anagram",
+        "mangaar"
+      ],
+      "expected": 0
+    }
+  ]
+}

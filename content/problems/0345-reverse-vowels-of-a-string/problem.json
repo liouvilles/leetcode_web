@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 345,
+  "slug": "reverse-vowels-of-a-string",
+  "title": "反转字符串中的元音字母",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-005",
+  "studyTags": [
+    "双指针",
+    "字符串",
+    "字符判断"
+  ],
+  "summary": "只反转字符串中所有元音字母的出现顺序，其他字符保持原位置。",
+  "insight": "左右指针分别跳到下一个元音，交换后向中间推进。",
+  "pitfalls": [
+    "元音包含大小写",
+    "非元音字符不能移动",
+    "没有或只有一个元音时字符串不变"
+  ],
+  "solutions": [
+    {
+      "id": "two-vowel-pointers",
+      "title": "元音双指针交换",
+      "kind": "最优",
+      "idea": "在字符数组上从两端寻找元音并原地交换。",
+      "steps": [
+        "字符数组化，left/right 指向两端",
+        "两端分别跳过非元音",
+        "left<right 时交换并同时收缩"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/two-vowel-pointers/Solution.java",
+        "kotlin": "solutions/two-vowel-pointers/Solution.kt",
+        "cpp": "solutions/two-vowel-pointers/solution.cpp"
+      }
+    }
+  ]
+}

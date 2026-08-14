@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "StreamChecker",
+  "constructorTypes": [
+    "stringArray"
+  ],
+  "cases": [
+    {
+      "name": "经典字符流",
+      "constructorArgs": [
+        [
+          "cd",
+          "f",
+          "kl"
+        ]
+      ],
+      "calls": [
+        {
+          "method": "query",
+          "parameterTypes": [
+            "char"
+          ],
+          "args": [
+            "a"
+          ],
+          "returnType": "boolean",
+          "expected": false
+        },
+        {
+          "method": "query",
+          "parameterTypes": [
+            "char"
+          ],
+          "args": [
+            "b"
+          ],
+          "returnType": "boolean",
+          "expected": false
+        },
+        {
+          "method": "query",
+          "parameterTypes": [
+            "char"
+          ],
+          "args": [
+            "c"
+          ],
+          "returnType": "boolean",
+          "expected": false
+        },
+        {
+          "method": "query",
+          "parameterTypes": [
+            "char"
+          ],
+          "args": [
+            "d"
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "query",
+          "parameterTypes": [
+            "char"
+          ],
+          "args": [
+            "e"
+          ],
+          "returnType": "boolean",
+          "expected": false
+        },
+        {
+          "method": "query",
+          "parameterTypes": [
+            "char"
+          ],
+          "args": [
+            "f"
+          ],
+          "returnType": "boolean",
+          "expected": true
+        }
+      ]
+    },
+    {
+      "name": "单字符词立即命中",
+      "constructorArgs": [
+        [
+          "a"
+        ]
+      ],
+      "calls": [
+        {
+          "method": "query",
+          "parameterTypes": [
+            "char"
+          ],
+          "args": [
+            "a"
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "query",
+          "parameterTypes": [
+            "char"
+          ],
+          "args": [
+            "b"
+          ],
+          "returnType": "boolean",
+          "expected": false
+        }
+      ]
+    },
+    {
+      "name": "最长历史后缀",
+      "constructorArgs": [
+        [
+          "abc"
+        ]
+      ],
+      "calls": [
+        {
+          "method": "query",
+          "parameterTypes": [
+            "char"
+          ],
+          "args": [
+            "a"
+          ],
+          "returnType": "boolean",
+          "expected": false
+        },
+        {
+          "method": "query",
+          "parameterTypes": [
+            "char"
+          ],
+          "args": [
+            "b"
+          ],
+          "returnType": "boolean",
+          "expected": false
+        },
+        {
+          "method": "query",
+          "parameterTypes": [
+            "char"
+          ],
+          "args": [
+            "c"
+          ],
+          "returnType": "boolean",
+          "expected": true
+        }
+      ]
+    }
+  ]
+}

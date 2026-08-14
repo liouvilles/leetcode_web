@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "mostFrequent",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一之后最常出现一百",
+      "args": [
+        [
+          1,
+          100,
+          200,
+          1,
+          100
+        ],
+        1
+      ],
+      "expected": 100
+    },
+    {
+      "name": "二之后最常出现二",
+      "args": [
+        [
+          2,
+          2,
+          2,
+          2,
+          3
+        ],
+        2
+      ],
+      "expected": 2
+    },
+    {
+      "name": "单次后继",
+      "args": [
+        [
+          5,
+          7
+        ],
+        5
+      ],
+      "expected": 7
+    }
+  ]
+}

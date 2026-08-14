@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 639,
+  "slug": "decode-ways-ii",
+  "title": "解码方法 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-008",
+  "studyTags": [
+    "字符串",
+    "动态规划",
+    "状态压缩"
+  ],
+  "summary": "数字字符串中星号可代表 1 到 9 任一数字，统计把字符串按 1 到 26 解码成字母的方案数并取模。",
+  "insight": "每个位置的方案由单字符解码数乘 dp[i-1]，加上与前一字符组成两位数的组合数乘 dp[i-2]。",
+  "pitfalls": [
+    "星号单独有九种选择",
+    "两个星号组成合法两位数有十五种",
+    "字符 0 只能作为 10 或 20 的后一位"
+  ],
+  "solutions": [
+    {
+      "id": "two-state-dp",
+      "title": "单字符与双字符组合计数",
+      "kind": "最优",
+      "idea": "滚动保存前一位和前两位方案数，并按字符模式计算乘数。",
+      "steps": [
+        "previousTwo=1，previousOne=single(s[0])",
+        "从第二字符起计算 single*previousOne+pair*previousTwo",
+        "每步取模并滚动，返回 previousOne"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/two-state-dp/Solution.java",
+        "kotlin": "solutions/two-state-dp/Solution.kt",
+        "cpp": "solutions/two-state-dp/solution.cpp"
+      }
+    }
+  ]
+}

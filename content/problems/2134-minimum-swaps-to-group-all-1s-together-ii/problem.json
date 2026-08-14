@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2134,
+  "slug": "minimum-swaps-to-group-all-1s-together-ii",
+  "title": "最少交换次数来组合所有的 1 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-031",
+  "studyTags": [
+    "数组",
+    "滑动窗口"
+  ],
+  "summary": "在环形二进制数组中交换任意两位置，求把所有一聚成连续环形区段的最少交换数。",
+  "insight": "目标区段长度固定为一的总数，区段内每个零都需与外面一个一交换。把数组视作重复两遍，用固定长度滑窗找零最少的窗口。",
+  "pitfalls": [
+    "窗口可以跨数组尾首",
+    "没有一或全是一时答案为零",
+    "交换任意两元素而非相邻交换"
+  ],
+  "solutions": [
+    {
+      "id": "circular-fixed-window",
+      "title": "环形固定长度滑窗",
+      "kind": "最优",
+      "idea": "最大化长度为 ones 的窗口内一的数量。",
+      "steps": [
+        "ones=sum(nums)，若 ones<=1 返回零",
+        "在前 ones 个环形位置统计 windowOnes",
+        "窗口起点遍历零到 n-1，维护最大 windowOnes",
+        "返回 ones-maximum"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/circular-fixed-window/Solution.java",
+        "kotlin": "solutions/circular-fixed-window/Solution.kt",
+        "cpp": "solutions/circular-fixed-window/solution.cpp"
+      }
+    }
+  ]
+}

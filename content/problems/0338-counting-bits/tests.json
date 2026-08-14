@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countBits",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "统计到二",
+      "args": [
+        2
+      ],
+      "expected": [
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "统计到五",
+      "args": [
+        5
+      ],
+      "expected": [
+        0,
+        1,
+        1,
+        2,
+        1,
+        2
+      ]
+    },
+    {
+      "name": "只有零",
+      "args": [
+        0
+      ],
+      "expected": [
+        0
+      ]
+    }
+  ]
+}

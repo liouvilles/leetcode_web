@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findMinArrowShots",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两支箭覆盖四区间",
+      "args": [
+        [
+          [
+            10,
+            16
+          ],
+          [
+            2,
+            8
+          ],
+          [
+            1,
+            6
+          ],
+          [
+            7,
+            12
+          ]
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "互不重叠",
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            7,
+            8
+          ]
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "端点相接可共用",
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            5
+          ]
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 925,
+  "slug": "long-pressed-name",
+  "title": "长按键入",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-013",
+  "studyTags": [
+    "字符串",
+    "双指针"
+  ],
+  "summary": "输入名字时按键可能被长按而重复字符，判断 typed 是否可能由 name 输入得到。",
+  "insight": "双指针扫描 typed：当前字符优先匹配 name 的下一字符，否则只能是 typed 前一字符的长按重复。",
+  "pitfalls": [
+    "typed 首字符不能凭空重复",
+    "name 中每个字符都必须被消费",
+    "连续相同字符仍按顺序匹配"
+  ],
+  "solutions": [
+    {
+      "id": "typed-two-pointer",
+      "title": "输入串双指针扫描",
+      "kind": "最优",
+      "idea": "区分正常输入与长按重复。",
+      "steps": [
+        "i 指向 name，j 扫描 typed",
+        "若 typed[j]==name[i] 则 i++",
+        "否则要求 j>0 且 typed[j]==typed[j-1]，不满足返回 false；结束时要求 i==name.length"
+      ],
+      "complexity": {
+        "time": "O(|name|+|typed|)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/typed-two-pointer/Solution.java",
+        "kotlin": "solutions/typed-two-pointer/Solution.kt",
+        "cpp": "solutions/typed-two-pointer/solution.cpp"
+      }
+    }
+  ]
+}

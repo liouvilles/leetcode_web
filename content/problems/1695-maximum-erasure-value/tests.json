@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumUniqueSubarray",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "二到五组成最大无重复和十七",
+      "args": [
+        [
+          4,
+          2,
+          4,
+          5,
+          6
+        ]
+      ],
+      "expected": 17
+    },
+    {
+      "name": "重复数组最大得分八",
+      "args": [
+        [
+          5,
+          2,
+          1,
+          2,
+          5,
+          2,
+          1,
+          2,
+          5
+        ]
+      ],
+      "expected": 8
+    },
+    {
+      "name": "单元素得分为自身",
+      "args": [
+        [
+          9
+        ]
+      ],
+      "expected": 9
+    }
+  ]
+}

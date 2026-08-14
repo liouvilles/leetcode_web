@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 889,
+  "slug": "construct-binary-tree-from-preorder-and-postorder-traversal",
+  "title": "根据前序和后序遍历构造二叉树",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "数组",
+    "树",
+    "递归",
+    "哈希表"
+  ],
+  "summary": "给定一棵二叉树互异节点值的前序与后序遍历，返回任意一棵符合遍历结果的树。",
+  "insight": "前序区间首项是根；若还有节点，下一前序值是左子树根，在后序中的位置决定左子树大小，随后递归切分左右区间。",
+  "pitfalls": [
+    "树可能不唯一，返回任意合法结构",
+    "单节点区间直接返回",
+    "用后序值到下标映射避免反复查找"
+  ],
+  "solutions": [
+    {
+      "id": "recursive-traversal-intervals",
+      "title": "遍历区间递归构造",
+      "kind": "最优",
+      "idea": "由左子树根在后序中的位置确定切分点。",
+      "steps": [
+        "建立 postIndex[value]",
+        "build(preLeft,preRight,postLeft)：创建 preorder[preLeft] 根；单节点返回",
+        "leftRoot=preorder[preLeft+1]，leftSize=postIndex[leftRoot]-postLeft+1；递归构造左区间和剩余右区间"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/recursive-traversal-intervals/Solution.java",
+        "kotlin": "solutions/recursive-traversal-intervals/Solution.kt",
+        "cpp": "solutions/recursive-traversal-intervals/solution.cpp"
+      }
+    }
+  ]
+}

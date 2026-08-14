@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getMinimumDifference",
+  "parameterTypes": [
+    "treeNode"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "最小差一",
+      "args": [
+        [
+          4,
+          2,
+          6,
+          1,
+          3
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "跨子树相邻值",
+      "args": [
+        [
+          1,
+          0,
+          48,
+          null,
+          null,
+          12,
+          49
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "两个节点",
+      "args": [
+        [
+          5,
+          3
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

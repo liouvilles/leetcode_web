@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1895,
+  "slug": "largest-magic-square",
+  "title": "最大的幻方",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-027",
+  "studyTags": [
+    "数组",
+    "矩阵",
+    "前缀和"
+  ],
+  "summary": "求网格中最大的正方形，使其每行、每列以及两条对角线元素和全部相等。",
+  "insight": "预处理每行和每列的前缀和，能 O(1) 取得候选方形的任一行列和；按边长从大到小枚举，逐行列并计算两条对角线验证，首个成功即答案。",
+  "pitfalls": [
+    "一乘一总是幻方",
+    "两条对角线都要验证",
+    "幻方元素不要求不同"
+  ],
+  "solutions": [
+    {
+      "id": "descending-size-prefix-check",
+      "title": "降序边长与行列前缀校验",
+      "kind": "最优",
+      "idea": "优先验证最大候选并快速求各行列和。",
+      "steps": [
+        "构造 rowPrefix 与 colPrefix",
+        "size 从 min(rows,cols) 降到 1，枚举左上角",
+        "以首行和为 target，检查全部行列及两条对角线；成功返回 size"
+      ],
+      "complexity": {
+        "time": "O(mn·min(m,n)²)",
+        "space": "O(mn)"
+      },
+      "files": {
+        "java": "solutions/descending-size-prefix-check/Solution.java",
+        "kotlin": "solutions/descending-size-prefix-check/Solution.kt",
+        "cpp": "solutions/descending-size-prefix-check/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1441,
+  "slug": "build-an-array-with-stack-operations",
+  "title": "用栈操作构建数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-020",
+  "studyTags": [
+    "数组",
+    "栈",
+    "模拟"
+  ],
+  "summary": "依次读取 1 到 n 的数字，只能执行 Push 以及必要时紧接 Pop，生成严格递增目标数组所需操作。",
+  "insight": "读到目标中的下一个值时只 Push 并保留；否则 Push 后立刻 Pop。目标全部构建后即可停止读取。",
+  "pitfalls": [
+    "无需读取到 n，只需构建完整 target",
+    "被跳过的数字对应两条操作",
+    "target 严格递增"
+  ],
+  "solutions": [
+    {
+      "id": "stream-simulation",
+      "title": "顺序流模拟",
+      "kind": "最优",
+      "idea": "逐个消费自然数并判断是否属于目标的下一项。",
+      "steps": [
+        "index=0",
+        "value 从一递增且 index<target.length：先添加 Push",
+        "若 value==target[index] 则 index++，否则添加 Pop"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/stream-simulation/Solution.java",
+        "kotlin": "solutions/stream-simulation/Solution.kt",
+        "cpp": "solutions/stream-simulation/solution.cpp"
+      }
+    }
+  ]
+}

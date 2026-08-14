@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1438,
+  "slug": "longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit",
+  "title": "绝对差不超过限制的最长连续子数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-020",
+  "studyTags": [
+    "数组",
+    "滑动窗口",
+    "单调队列"
+  ],
+  "summary": "求最长连续子数组，使其中任意两元素的绝对差都不超过 limit。",
+  "insight": "条件等价于窗口最大值减最小值不超过 limit。分别用递减和递增双端队列维护最大最小值，并移动左边界恢复合法。",
+  "pitfalls": [
+    "队列保存下标以便移除过期元素",
+    "加入新值后再收缩窗口",
+    "答案是合法窗口长度最大值"
+  ],
+  "solutions": [
+    {
+      "id": "dual-monotonic-deques",
+      "title": "双单调队列滑窗",
+      "kind": "最优",
+      "idea": "常数时间查询窗口极值。",
+      "steps": [
+        "maxDeque 递减、minDeque 递增，left=0",
+        "right 加入两队列；当 nums[maxFront]-nums[minFront]>limit 时递增 left 并移除对应过期队首",
+        "更新 right-left+1 的最大值"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/dual-monotonic-deques/Solution.java",
+        "kotlin": "solutions/dual-monotonic-deques/Solution.kt",
+        "cpp": "solutions/dual-monotonic-deques/solution.cpp"
+      }
+    }
+  ]
+}

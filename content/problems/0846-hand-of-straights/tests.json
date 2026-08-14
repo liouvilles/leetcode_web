@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isNStraightHand",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "可分三个顺子",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          6,
+          2,
+          3,
+          4,
+          7,
+          8
+        ],
+        3
+      ],
+      "expected": true
+    },
+    {
+      "name": "无法分四张连续牌",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        4
+      ],
+      "expected": false
+    },
+    {
+      "name": "重复两组顺子",
+      "args": [
+        [
+          1,
+          1,
+          2,
+          2,
+          3,
+          3
+        ],
+        3
+      ],
+      "expected": true
+    }
+  ]
+}

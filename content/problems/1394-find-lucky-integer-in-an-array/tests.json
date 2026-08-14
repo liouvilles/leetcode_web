@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findLucky",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "二出现两次",
+      "args": [
+        [
+          2,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "三出现三次且最大",
+      "args": [
+        [
+          1,
+          2,
+          2,
+          3,
+          3,
+          3
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "没有幸运数",
+      "args": [
+        [
+          2,
+          2,
+          2,
+          3,
+          3
+        ]
+      ],
+      "expected": -1
+    }
+  ]
+}

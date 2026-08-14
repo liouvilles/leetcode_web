@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 69,
+  "slug": "sqrtx",
+  "title": "x 的平方根",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-002",
+  "studyTags": [
+    "二分答案",
+    "整数溢出",
+    "向下取整"
+  ],
+  "summary": "计算非负整数 x 的算术平方根并向下取整，不使用内置幂函数。",
+  "insight": "答案满足平方不超过 x，可以在整数区间内二分查找最后一个满足条件的数。",
+  "pitfalls": [
+    "乘法需要使用长整型避免溢出",
+    "答案要求向下取整",
+    "零和一可以由通用逻辑处理"
+  ],
+  "solutions": [
+    {
+      "id": "binary-answer",
+      "title": "二分最后可行值",
+      "kind": "最优",
+      "idea": "在 [0,x] 内查找平方不大于 x 的最大整数。",
+      "steps": [
+        "维护当前可行答案",
+        "middle² 不超过 x 时记录并向右找",
+        "否则向左收缩"
+      ],
+      "complexity": {
+        "time": "O(log x)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/binary-answer/Solution.java",
+        "kotlin": "solutions/binary-answer/Solution.kt",
+        "cpp": "solutions/binary-answer/solution.cpp"
+      }
+    }
+  ]
+}

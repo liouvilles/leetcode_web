@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "alertNames",
+  "parameterTypes": [
+    "stringArray",
+    "stringArray"
+  ],
+  "returnType": "stringList",
+  "cases": [
+    {
+      "name": "daniel 一小时内刷卡三次",
+      "args": [
+        [
+          "daniel",
+          "daniel",
+          "daniel",
+          "luis",
+          "luis",
+          "luis",
+          "luis"
+        ],
+        [
+          "10:00",
+          "10:40",
+          "11:00",
+          "09:00",
+          "11:00",
+          "13:00",
+          "15:00"
+        ]
+      ],
+      "expected": [
+        "daniel"
+      ]
+    },
+    {
+      "name": "bob 三次跨度六十分钟",
+      "args": [
+        [
+          "alice",
+          "alice",
+          "alice",
+          "bob",
+          "bob",
+          "bob",
+          "bob"
+        ],
+        [
+          "12:01",
+          "12:00",
+          "18:00",
+          "21:00",
+          "21:20",
+          "21:30",
+          "23:00"
+        ]
+      ],
+      "expected": [
+        "bob"
+      ]
+    },
+    {
+      "name": "无人触发警告",
+      "args": [
+        [
+          "a",
+          "a",
+          "a"
+        ],
+        [
+          "00:00",
+          "01:01",
+          "02:02"
+        ]
+      ],
+      "expected": []
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumSum",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "删去负二连接两段",
+      "args": [
+        [
+          1,
+          -2,
+          0,
+          3
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "保留末尾三最优",
+      "args": [
+        [
+          1,
+          -2,
+          -2,
+          3
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "全负取单个",
+      "args": [
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "expected": -1
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 895,
+  "slug": "maximum-frequency-stack",
+  "title": "最大频率栈",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "设计",
+    "哈希表",
+    "栈"
+  ],
+  "summary": "设计支持 push 和 pop 的频率栈；pop 删除出现频率最高的元素，频率并列时删除最近压入者。",
+  "insight": "记录每个值当前频率，并为每个频率维护一个按达到该频率时间排列的栈；pop 直接从 maxFrequency 对应栈顶取值。",
+  "pitfalls": [
+    "每次 push 都要把值压入其新频率的组栈",
+    "pop 后值频率减一",
+    "最高频组弹空时 maxFrequency 减一"
+  ],
+  "solutions": [
+    {
+      "id": "frequency-group-stacks",
+      "title": "频率分组栈",
+      "kind": "最优",
+      "idea": "以频率为层级保存最近达到该频率的元素。",
+      "steps": [
+        "frequency[value]++，maxFrequency 取最大",
+        "groups[freq].push(value)",
+        "pop 从 groups[maxFrequency] 弹出，frequency[value]--；若组空则 maxFrequency--，返回 value"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(number of pushes)"
+      },
+      "files": {
+        "java": "solutions/frequency-group-stacks/Solution.java",
+        "kotlin": "solutions/frequency-group-stacks/Solution.kt",
+        "cpp": "solutions/frequency-group-stacks/solution.cpp"
+      }
+    }
+  ]
+}

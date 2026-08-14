@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "truncateSentence",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "保留前四个单词",
+      "args": [
+        "Hello how are you Contestant",
+        4
+      ],
+      "expected": "Hello how are you"
+    },
+    {
+      "name": "保留前四个较长句单词",
+      "args": [
+        "What is the solution to this problem",
+        4
+      ],
+      "expected": "What is the solution"
+    },
+    {
+      "name": "保留唯一单词",
+      "args": [
+        "Hello",
+        1
+      ],
+      "expected": "Hello"
+    }
+  ]
+}

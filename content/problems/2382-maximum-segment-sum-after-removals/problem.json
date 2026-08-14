@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2382,
+  "slug": "maximum-segment-sum-after-removals",
+  "title": "删除操作后的最大子段和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-035",
+  "studyTags": [
+    "数组",
+    "并查集",
+    "前缀和"
+  ],
+  "summary": "正整数数组按指定顺序删除元素，每次返回剩余连续子段的最大和。",
+  "insight": "逆序处理删除，把操作变成添加。激活一个位置时用并查集与已激活左右邻居合并并维护分量和；添加前的当前最大值就是对应删除后的答案。",
+  "pitfalls": [
+    "答案记录在逆序添加之前",
+    "分量和使用 long",
+    "只与已激活邻居合并"
+  ],
+  "solutions": [
+    {
+      "id": "reverse-addition-union-find",
+      "title": "逆序添加并查集",
+      "kind": "最优",
+      "idea": "动态维护激活连续段的总和与最大值。",
+      "steps": [
+        "parent、sum、active 初始化",
+        "i 从 n-1 到0：answer[i]=maximum",
+        "激活 removeQueries[i]，分量和为 nums[index]",
+        "与左右 active 邻居 union，更新 maximum"
+      ],
+      "complexity": {
+        "time": "O(n α(n))",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/reverse-addition-union-find/Solution.java",
+        "kotlin": "solutions/reverse-addition-union-find/Solution.kt",
+        "cpp": "solutions/reverse-addition-union-find/solution.cpp"
+      }
+    }
+  ]
+}

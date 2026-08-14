@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2056,
+  "slug": "number-of-valid-move-combinations-on-chessboard",
+  "title": "棋盘上有效移动组合的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "数组",
+    "回溯",
+    "模拟"
+  ],
+  "summary": "最多四个车、象或后可选择停留或沿合法直线同时移动，统计全过程从不占同格的移动组合数。",
+  "insight": "先为每枚棋子枚举方向与步数，包含停留。回溯组合后模拟第 1 到 7 秒，每枚棋子走 min(time,steps) 步并在终点停留；任一时刻位置冲突则无效。",
+  "pitfalls": [
+    "所有棋子同时每秒移动一格",
+    "先到终点的棋子随后停留",
+    "初始位置互不相同"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-moves-simulate-time",
+      "title": "枚举终点动作并逐秒验冲突",
+      "kind": "最优",
+      "idea": "候选数很小，完整枚举每棋子动作组合。",
+      "steps": [
+        "按 piece 生成 [dr,dc,steps]：停留及各合法方向所有步数",
+        "DFS 为每枚棋子选一个动作",
+        "选完后 t=1..7 计算 row+dr*min(t,steps)、col+dc*min(t,steps)，用集合查重；无冲突计一"
+      ],
+      "complexity": {
+        "time": "O(product of moves·pieces·7)",
+        "space": "O(pieces)"
+      },
+      "files": {
+        "java": "solutions/enumerate-moves-simulate-time/Solution.java",
+        "kotlin": "solutions/enumerate-moves-simulate-time/Solution.kt",
+        "cpp": "solutions/enumerate-moves-simulate-time/solution.cpp"
+      }
+    }
+  ]
+}

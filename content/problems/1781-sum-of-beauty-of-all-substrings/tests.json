@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "beautySum",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "aabcb 所有子串美丽值和五",
+      "args": [
+        "aabcb"
+      ],
+      "expected": 5
+    },
+    {
+      "name": "aabcbaa 美丽值和十七",
+      "args": [
+        "aabcbaa"
+      ],
+      "expected": 17
+    },
+    {
+      "name": "单字符美丽值零",
+      "args": [
+        "a"
+      ],
+      "expected": 0
+    }
+  ]
+}

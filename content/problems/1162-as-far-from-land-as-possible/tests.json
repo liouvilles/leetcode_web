@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxDistance",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "中心距角落二",
+      "args": [
+        [
+          [
+            1,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "单角陆地最远四",
+      "args": [
+        [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "全陆地无海洋",
+      "args": [
+        [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": -1
+    }
+  ]
+}

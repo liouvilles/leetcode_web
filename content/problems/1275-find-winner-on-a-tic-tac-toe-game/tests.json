@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "tictactoe",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "A 主对角线获胜",
+      "args": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ]
+        ]
+      ],
+      "expected": "A"
+    },
+    {
+      "name": "九步平局",
+      "args": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ]
+        ]
+      ],
+      "expected": "Draw"
+    },
+    {
+      "name": "棋局尚未结束",
+      "args": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": "Pending"
+    }
+  ]
+}

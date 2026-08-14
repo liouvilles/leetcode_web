@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "networkBecomesIdle",
+  "parameterTypes": [
+    "intMatrix",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "链式网络最晚第八秒空闲",
+      "args": [
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          0,
+          2,
+          1
+        ]
+      ],
+      "expected": 8
+    },
+    {
+      "name": "三节点均直达服务器第三秒空闲",
+      "args": [
+        [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          0,
+          10,
+          10
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "耐心一会重发一次第四秒空闲",
+      "args": [
+        [
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "expected": 4
+    }
+  ]
+}

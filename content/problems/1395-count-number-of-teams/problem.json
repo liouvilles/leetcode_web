@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1395,
+  "slug": "count-number-of-teams",
+  "title": "统计作战单位数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-020",
+  "studyTags": [
+    "数组",
+    "枚举",
+    "动态规划"
+  ],
+  "summary": "从评分数组中选择 i<j<k，统计评分严格递增或严格递减的三人队伍数。",
+  "insight": "固定中间人 j，统计左侧更小与更大人数、右侧更小与更大人数；两类合法组合数直接相乘相加。",
+  "pitfalls": [
+    "下标顺序必须递增",
+    "评分互不相同且比较严格",
+    "每支队伍由唯一中间下标计数一次"
+  ],
+  "solutions": [
+    {
+      "id": "middle-member-counting",
+      "title": "固定中间成员计数",
+      "kind": "最优",
+      "idea": "枚举中点并组合左右两侧的大小关系。",
+      "steps": [
+        "对 middle 从零到 n-1",
+        "扫描左侧统计 lessLeft、greaterLeft，扫描右侧统计 lessRight、greaterRight",
+        "累加 lessLeft*greaterRight + greaterLeft*lessRight"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/middle-member-counting/Solution.java",
+        "kotlin": "solutions/middle-member-counting/Solution.kt",
+        "cpp": "solutions/middle-member-counting/solution.cpp"
+      }
+    }
+  ]
+}

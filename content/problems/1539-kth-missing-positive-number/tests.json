@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findKthPositive",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "第五个缺失正数是九",
+      "args": [
+        [
+          2,
+          3,
+          4,
+          7,
+          11
+        ],
+        5
+      ],
+      "expected": 9
+    },
+    {
+      "name": "数组后第二个缺失是六",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        2
+      ],
+      "expected": 6
+    },
+    {
+      "name": "首个缺失正数是一",
+      "args": [
+        [
+          5,
+          6
+        ],
+        1
+      ],
+      "expected": 1
+    }
+  ]
+}

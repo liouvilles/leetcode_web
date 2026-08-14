@@ -1,0 +1,204 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "DetectSquares",
+  "constructorTypes": [],
+  "cases": [
+    {
+      "name": "经典添加重复点与两次查询",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "add",
+          "parameterTypes": [
+            "intArray"
+          ],
+          "args": [
+            [
+              3,
+              10
+            ]
+          ]
+        },
+        {
+          "method": "add",
+          "parameterTypes": [
+            "intArray"
+          ],
+          "args": [
+            [
+              11,
+              2
+            ]
+          ]
+        },
+        {
+          "method": "add",
+          "parameterTypes": [
+            "intArray"
+          ],
+          "args": [
+            [
+              3,
+              2
+            ]
+          ]
+        },
+        {
+          "method": "count",
+          "parameterTypes": [
+            "intArray"
+          ],
+          "args": [
+            [
+              11,
+              10
+            ]
+          ],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "count",
+          "parameterTypes": [
+            "intArray"
+          ],
+          "args": [
+            [
+              14,
+              8
+            ]
+          ],
+          "returnType": "int",
+          "expected": 0
+        },
+        {
+          "method": "add",
+          "parameterTypes": [
+            "intArray"
+          ],
+          "args": [
+            [
+              11,
+              2
+            ]
+          ]
+        },
+        {
+          "method": "count",
+          "parameterTypes": [
+            "intArray"
+          ],
+          "args": [
+            [
+              11,
+              10
+            ]
+          ],
+          "returnType": "int",
+          "expected": 2
+        }
+      ]
+    },
+    {
+      "name": "单位正方形查询",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "add",
+          "parameterTypes": [
+            "intArray"
+          ],
+          "args": [
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "method": "add",
+          "parameterTypes": [
+            "intArray"
+          ],
+          "args": [
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "method": "add",
+          "parameterTypes": [
+            "intArray"
+          ],
+          "args": [
+            [
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "method": "count",
+          "parameterTypes": [
+            "intArray"
+          ],
+          "args": [
+            [
+              1,
+              1
+            ]
+          ],
+          "returnType": "int",
+          "expected": 1
+        }
+      ]
+    },
+    {
+      "name": "只有一条线无法成正方形",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "add",
+          "parameterTypes": [
+            "intArray"
+          ],
+          "args": [
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "method": "add",
+          "parameterTypes": [
+            "intArray"
+          ],
+          "args": [
+            [
+              0,
+              2
+            ]
+          ]
+        },
+        {
+          "method": "count",
+          "parameterTypes": [
+            "intArray"
+          ],
+          "args": [
+            [
+              0,
+              1
+            ]
+          ],
+          "returnType": "int",
+          "expected": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { fun getHint(secret:String,guess:String):String{var bulls=0;val first=IntArray(10);val second=IntArray(10);for(i in secret.indices){if(secret[i]==guess[i])bulls++ else{first[secret[i]-'0']++;second[guess[i]-'0']++}};var cows=0;for(d in 0..9)cows+=minOf(first[d],second[d]);return bulls.toString()+"A"+cows+"B"} }

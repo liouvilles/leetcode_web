@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1627,
+  "slug": "graph-connectivity-with-threshold",
+  "title": "带阈值的图连通性",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-023",
+  "studyTags": [
+    "数组",
+    "数学",
+    "并查集",
+    "数论"
+  ],
+  "summary": "城市 a、b 在存在大于 threshold 的公因数时直接相连，对多组查询判断它们能否通过若干边连通。",
+  "insight": "对每个大于阈值的因数 factor，把其所有倍数并入同一集合。完成后并查集恰好表示图的连通分量。",
+  "pitfalls": [
+    "公因数必须严格大于 threshold",
+    "连通关系具有传递性",
+    "相同城市始终连通"
+  ],
+  "solutions": [
+    {
+      "id": "factor-multiples-dsu",
+      "title": "因数倍数并查集",
+      "kind": "最优",
+      "idea": "通过每个有效因数批量合并其倍数。",
+      "steps": [
+        "初始化 1..n 的并查集",
+        "factor 从 threshold+1 到 n，将 factor 与 2factor、3factor 等合并",
+        "每个 query 比较两端根节点"
+      ],
+      "complexity": {
+        "time": "O(n log n α(n)+q α(n))",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/factor-multiples-dsu/Solution.java",
+        "kotlin": "solutions/factor-multiples-dsu/Solution.kt",
+        "cpp": "solutions/factor-multiples-dsu/solution.cpp"
+      }
+    }
+  ]
+}

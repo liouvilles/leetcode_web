@@ -1,0 +1,1 @@
+class TimeMap { private val timelines=mutableMapOf<String,java.util.TreeMap<Int,String>>();fun set(key:String,value:String,timestamp:Int){timelines.getOrPut(key){java.util.TreeMap()}[timestamp]=value};fun get(key:String,timestamp:Int):String{return timelines[key]?.floorEntry(timestamp)?.value?:""} }

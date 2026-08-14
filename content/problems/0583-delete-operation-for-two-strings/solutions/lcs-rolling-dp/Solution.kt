@@ -1,0 +1,1 @@
+class Solution { fun minDistance(word1:String,word2:String):Int{val dp=IntArray(word2.length+1);for(i in 1..word1.length){var diagonal=0;for(j in 1..word2.length){val above=dp[j];dp[j]=if(word1[i-1]==word2[j-1])diagonal+1 else maxOf(dp[j],dp[j-1]);diagonal=above}};return word1.length+word2.length-2*dp[word2.length]} }

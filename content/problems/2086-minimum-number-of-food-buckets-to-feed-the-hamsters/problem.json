@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2086,
+  "slug": "minimum-number-of-food-buckets-to-feed-the-hamsters",
+  "title": "喂食仓鼠的最小食物桶数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "字符串",
+    "贪心"
+  ],
+  "summary": "街道中 H 为仓鼠、点为空位；桶可放空位并喂相邻仓鼠，求喂全部仓鼠的最少桶数，不可能返回负一。",
+  "insight": "从左到右处理仓鼠，若左侧已有桶则已喂；否则优先在右侧放桶，它可能同时服务下一只仓鼠；右侧不可放才尝试左侧。",
+  "pitfalls": [
+    "桶只能放点号",
+    "一个桶可喂左右两只仓鼠",
+    "优先右放实现复用"
+  ],
+  "solutions": [
+    {
+      "id": "prefer-right-bucket-greedy",
+      "title": "优先右侧放桶",
+      "kind": "最优",
+      "idea": "为每个尚未覆盖仓鼠选择对未来最有利的位置。",
+      "steps": [
+        "把 street 转字符数组",
+        "遇 H，若左侧 B 则继续",
+        "若右侧点号放 B 并计数；否则若左侧点号放 B；两边都不可放返回 -1"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/prefer-right-bucket-greedy/Solution.java",
+        "kotlin": "solutions/prefer-right-bucket-greedy/Solution.kt",
+        "cpp": "solutions/prefer-right-bucket-greedy/solution.cpp"
+      }
+    }
+  ]
+}

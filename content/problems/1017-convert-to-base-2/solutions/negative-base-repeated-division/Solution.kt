@@ -1,0 +1,1 @@
+class Solution { fun baseNeg2(nInput:Int):String{var n=nInput;if(n==0)return "0";val answer=StringBuilder();while(n!=0){val bit=n and 1;answer.append(bit);n=(n-bit)/-2};return answer.reverse().toString()} }

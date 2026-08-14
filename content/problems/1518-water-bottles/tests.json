@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numWaterBottles",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "九瓶三换一共十三瓶",
+      "args": [
+        9,
+        3
+      ],
+      "expected": 13
+    },
+    {
+      "name": "十五瓶四换一共十九瓶",
+      "args": [
+        15,
+        4
+      ],
+      "expected": 19
+    },
+    {
+      "name": "五瓶可再换一瓶",
+      "args": [
+        5,
+        5
+      ],
+      "expected": 6
+    }
+  ]
+}

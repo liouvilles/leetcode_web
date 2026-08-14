@@ -1,0 +1,1 @@
+class Solution { public:bool checkValid(vector<vector<int>>& matrix){int n=matrix.size();for(int i=0;i<n;++i){vector<bool> row(n+1),column(n+1);for(int j=0;j<n;++j){int a=matrix[i][j],b=matrix[j][i];if(a<1||a>n||row[a]||b<1||b>n||column[b])return false;row[a]=column[b]=true;}}return true;} };

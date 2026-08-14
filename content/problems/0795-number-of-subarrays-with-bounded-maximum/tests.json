@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numSubarrayBoundedMax",
+  "parameterTypes": [
+    "intArray",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典四元素",
+      "args": [
+        [
+          2,
+          1,
+          4,
+          3
+        ],
+        2,
+        3
+      ],
+      "expected": 3
+    },
+    {
+      "name": "多个合法区间",
+      "args": [
+        [
+          2,
+          9,
+          2,
+          5,
+          6
+        ],
+        2,
+        8
+      ],
+      "expected": 7
+    },
+    {
+      "name": "单元素合法",
+      "args": [
+        [
+          1
+        ],
+        1,
+        1
+      ],
+      "expected": 1
+    }
+  ]
+}

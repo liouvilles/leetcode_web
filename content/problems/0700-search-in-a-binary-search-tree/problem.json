@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 700,
+  "slug": "search-in-a-binary-search-tree",
+  "title": "二叉搜索树中的搜索",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-009",
+  "studyTags": [
+    "二叉搜索树",
+    "迭代",
+    "二叉树"
+  ],
+  "summary": "在二叉搜索树中查找值为 val 的节点，返回以该节点为根的子树；不存在返回空。",
+  "insight": "BST 左侧值小、右侧值大，根据当前节点与目标的比较每步只需进入一侧。",
+  "pitfalls": [
+    "返回的是原树中的节点及完整子树",
+    "目标不存在时走到空节点",
+    "无需遍历另一侧子树"
+  ],
+  "solutions": [
+    {
+      "id": "iterative-bst-descent",
+      "title": "按值比较迭代下降",
+      "kind": "最优",
+      "idea": "利用 BST 有序性沿唯一可能路径查找。",
+      "steps": [
+        "current=root",
+        "current 非空且值不等时，val<current.val 走左侧，否则走右侧",
+        "返回 current，可能为空"
+      ],
+      "complexity": {
+        "time": "O(h)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/iterative-bst-descent/Solution.java",
+        "kotlin": "solutions/iterative-bst-descent/Solution.kt",
+        "cpp": "solutions/iterative-bst-descent/solution.cpp"
+      }
+    }
+  ]
+}

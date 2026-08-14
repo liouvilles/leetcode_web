@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isPathCrossing",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "北东南不重复",
+      "args": [
+        "NES"
+      ],
+      "expected": false
+    },
+    {
+      "name": "北南回到原点",
+      "args": [
+        "NS"
+      ],
+      "expected": true
+    },
+    {
+      "name": "绕行后访问旧位置",
+      "args": [
+        "NESWW"
+      ],
+      "expected": true
+    }
+  ]
+}

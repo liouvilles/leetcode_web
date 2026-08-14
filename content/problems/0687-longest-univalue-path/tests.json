@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "longestUnivaluePath",
+  "parameterTypes": [
+    "treeNode"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "右侧同值路径",
+      "args": [
+        [
+          5,
+          4,
+          5,
+          1,
+          1,
+          null,
+          5
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "路径经过根节点",
+      "args": [
+        [
+          1,
+          4,
+          5,
+          4,
+          4,
+          null,
+          5
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "单节点没有边",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

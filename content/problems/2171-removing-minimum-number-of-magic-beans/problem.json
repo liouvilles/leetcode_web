@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2171,
+  "slug": "removing-minimum-number-of-magic-beans",
+  "title": "拿出最少数目的魔法豆",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-031",
+  "studyTags": [
+    "数组",
+    "前缀和",
+    "排序"
+  ],
+  "summary": "可从袋中拿走任意豆子，要求所有非空袋最终豆子数相同，求最少拿走数量。",
+  "insight": "排序后枚举最终非空袋统一保留 nums[i]：更小的袋全部清空，i 及之后每袋降到该值。保留总量为 (n-i)*nums[i]，拿走量是原总量减它。",
+  "pitfalls": [
+    "袋子允许被清空",
+    "最终统一值必可取某个原袋数量",
+    "总豆数使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "sort-and-choose-kept-level",
+      "title": "排序枚举保留水平",
+      "kind": "最优",
+      "idea": "最大化某个后缀能保留的豆子总量。",
+      "steps": [
+        "排序 beans 并求 total",
+        "i 从零到 n-1",
+        "removed=total-(n-i)*beans[i]，取最小"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(1) 或排序空间"
+      },
+      "files": {
+        "java": "solutions/sort-and-choose-kept-level/Solution.java",
+        "kotlin": "solutions/sort-and-choose-kept-level/Solution.kt",
+        "cpp": "solutions/sort-and-choose-kept-level/solution.cpp"
+      }
+    }
+  ]
+}

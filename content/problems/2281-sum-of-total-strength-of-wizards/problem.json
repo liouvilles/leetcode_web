@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2281,
+  "slug": "sum-of-total-strength-of-wizards",
+  "title": "巫师的总力量和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-033",
+  "studyTags": [
+    "数组",
+    "前缀和",
+    "单调栈"
+  ],
+  "summary": "子数组总力量为最小值乘元素和，求所有非空子数组总力量之和并取模。",
+  "insight": "让每个位置作为子数组唯一归属的最小值：单调栈求左侧严格更小和右侧小于等于边界。对所有包含它的区间和，用前缀和的前缀和批量计算，再乘当前最小值。",
+  "pitfalls": [
+    "相等最小值需一侧严格、一侧非严格避免重复",
+    "使用双重前缀和",
+    "取模差值需规范为非负"
+  ],
+  "solutions": [
+    {
+      "id": "monotonic-min-boundaries-double-prefix",
+      "title": "最小值边界与双重前缀和",
+      "kind": "最优",
+      "idea": "按最小值位置汇总所有归属子数组的区间和。",
+      "steps": [
+        "单调栈得 left 前一严格小于、right 后一小于等于",
+        "pre[i+1]=元素前缀和，prefixOfPrefix 累计 pre",
+        "对 i：sumRanges=(i-left)*(PP[right+1]-PP[i+1])-(right-i)*(PP[i+1]-PP[left+1])",
+        "answer+=strength[i]*sumRanges，取模返回"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/monotonic-min-boundaries-double-prefix/Solution.java",
+        "kotlin": "solutions/monotonic-min-boundaries-double-prefix/Solution.kt",
+        "cpp": "solutions/monotonic-min-boundaries-double-prefix/solution.cpp"
+      }
+    }
+  ]
+}

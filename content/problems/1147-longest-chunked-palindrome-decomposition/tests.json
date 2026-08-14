@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "longestDecomposition",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "七段经典串",
+      "args": [
+        "ghiabcdefhelloadamhelloabcdefghi"
+      ],
+      "expected": 7
+    },
+    {
+      "name": "无法再分",
+      "args": [
+        "merchant"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "十一段对称串",
+      "args": [
+        "antaprezatepzapreanta"
+      ],
+      "expected": 11
+    }
+  ]
+}

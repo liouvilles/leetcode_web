@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minSumSquareDiff",
+  "parameterTypes": [
+    "intArray",
+    "intArray",
+    "int",
+    "int"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "无操作时平方和五百七十九",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          10,
+          20,
+          19
+        ],
+        0,
+        0
+      ],
+      "expected": 579
+    },
+    {
+      "name": "两次操作后平方和四十三",
+      "args": [
+        [
+          1,
+          4,
+          10,
+          12
+        ],
+        [
+          5,
+          8,
+          6,
+          9
+        ],
+        1,
+        1
+      ],
+      "expected": 43
+    },
+    {
+      "name": "操作足够可消除全部差值",
+      "args": [
+        [
+          1
+        ],
+        [
+          10
+        ],
+        20,
+        0
+      ],
+      "expected": 0
+    }
+  ]
+}

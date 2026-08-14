@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "fib",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "零",
+      "args": [
+        0
+      ],
+      "expected": 0
+    },
+    {
+      "name": "第二项",
+      "args": [
+        2
+      ],
+      "expected": 1
+    },
+    {
+      "name": "第十项",
+      "args": [
+        10
+      ],
+      "expected": 55
+    }
+  ]
+}

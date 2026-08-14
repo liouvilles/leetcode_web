@@ -1,0 +1,1 @@
+class Solution { public int minSetSize(int[] arr){Map<Integer,Integer> frequency=new HashMap<>();for(int value:arr)frequency.merge(value,1,Integer::sum);List<Integer> counts=new ArrayList<>(frequency.values());counts.sort(Collections.reverseOrder());int removed=0,answer=0;for(int count:counts){removed+=count;answer++;if(removed*2>=arr.length)break;}return answer;} }

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxLevelSum",
+  "parameterTypes": [
+    "treeNode"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "第二层和最大",
+      "args": [
+        [
+          1,
+          7,
+          0,
+          7,
+          -8,
+          null,
+          null
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "较深层不超过第二层",
+      "args": [
+        [
+          989,
+          null,
+          10250,
+          98693,
+          -89388,
+          null,
+          null,
+          null,
+          -32127
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "单节点第一层",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

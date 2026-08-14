@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countExcellentPairs",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "经典去重后有五个优质有序对",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          1
+        ],
+        3
+      ],
+      "expected": 5
+    },
+    {
+      "name": "位数不足没有优质数对",
+      "args": [
+        [
+          5,
+          1,
+          1
+        ],
+        10
+      ],
+      "expected": 0
+    },
+    {
+      "name": "零一三在阈值二下有六对",
+      "args": [
+        [
+          0,
+          1,
+          3
+        ],
+        2
+      ],
+      "expected": 6
+    }
+  ]
+}

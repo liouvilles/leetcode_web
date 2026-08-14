@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "removeDuplicateLetters",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "可弹出前导字符",
+      "args": [
+        "bcabc"
+      ],
+      "expected": "abc"
+    },
+    {
+      "name": "复杂单调栈",
+      "args": [
+        "cbacdcbc"
+      ],
+      "expected": "acdb"
+    },
+    {
+      "name": "重复段",
+      "args": [
+        "bbcaac"
+      ],
+      "expected": "bac"
+    }
+  ]
+}

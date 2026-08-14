@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2232,
+  "slug": "minimize-result-by-adding-parentheses-to-expression",
+  "title": "向表达式添加括号后的最小结果",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-032",
+  "studyTags": [
+    "数学",
+    "字符串",
+    "枚举"
+  ],
+  "summary": "表达式由两个正整数相加组成，在左数内某处前加左括号、右数内某处后加右括号，按隐式乘法求值，返回最小结果表达式。",
+  "insight": "枚举左括号把左数字切成外部乘数与括号内加数，枚举右括号同理。空外部乘数视为一，计算 leftOutside*(leftInside+rightInside)*rightOutside，取最小。",
+  "pitfalls": [
+    "括号内必须包含加号",
+    "左右括号可放在表达式最外侧",
+    "空外部部分的乘法因子是一"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-parenthesis-splits",
+      "title": "枚举括号切分点",
+      "kind": "最优",
+      "idea": "所有合法括号位置组合数量很小。",
+      "steps": [
+        "按加号拆成 left、right",
+        "leftSplit 从零到 left.length-1，rightSplit 从一到 right.length",
+        "解析四部分，空外部为一；计算乘积，最小时构造 leftOutside+(leftInside+rightInside)+rightOutside"
+      ],
+      "complexity": {
+        "time": "O(leftLength·rightLength)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/enumerate-parenthesis-splits/Solution.java",
+        "kotlin": "solutions/enumerate-parenthesis-splits/Solution.kt",
+        "cpp": "solutions/enumerate-parenthesis-splits/solution.cpp"
+      }
+    }
+  ]
+}

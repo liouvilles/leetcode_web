@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countVowelStrings",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "长度一有五种",
+      "args": [
+        1
+      ],
+      "expected": 5
+    },
+    {
+      "name": "长度二有十五种",
+      "args": [
+        2
+      ],
+      "expected": 15
+    },
+    {
+      "name": "长度三十三的组合数",
+      "args": [
+        33
+      ],
+      "expected": 66045
+    }
+  ]
+}

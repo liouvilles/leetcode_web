@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sortedArrayToBST",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "treeNode",
+  "cases": [
+    {
+      "name": "奇数长度数组",
+      "args": [
+        [
+          -10,
+          -3,
+          0,
+          5,
+          9
+        ]
+      ],
+      "expected": [
+        0,
+        -10,
+        5,
+        null,
+        -3,
+        null,
+        9
+      ]
+    },
+    {
+      "name": "偶数长度取下中位",
+      "args": [
+        [
+          1,
+          3
+        ]
+      ],
+      "expected": [
+        1,
+        null,
+        3
+      ]
+    },
+    {
+      "name": "空数组",
+      "args": [
+        []
+      ],
+      "expected": []
+    }
+  ]
+}

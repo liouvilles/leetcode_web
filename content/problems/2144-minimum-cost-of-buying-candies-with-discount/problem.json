@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2144,
+  "slug": "minimum-cost-of-buying-candies-with-discount",
+  "title": "打折购买糖果的最小开销",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-031",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "排序"
+  ],
+  "summary": "每买两颗糖可免费拿一颗价格不高于两者的糖，求买完所有糖的最小总价。",
+  "insight": "为让免费糖尽量贵，把价格降序排列，每连续三颗中的第三颗作为赠品；前两颗付费。",
+  "pitfalls": [
+    "赠品价格不得高于两颗付费糖",
+    "不足三颗的尾部全部付费",
+    "降序每第三颗免单"
+  ],
+  "solutions": [
+    {
+      "id": "descending-every-third-free",
+      "title": "降序每三颗免一颗",
+      "kind": "最优",
+      "idea": "把最贵糖按三颗一组获得最大折扣。",
+      "steps": [
+        "排序 cost",
+        "从高价向低价遍历并记录组内位置",
+        "组内前两颗累加，第三颗跳过"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(1) 或排序空间"
+      },
+      "files": {
+        "java": "solutions/descending-every-third-free/Solution.java",
+        "kotlin": "solutions/descending-every-third-free/Solution.kt",
+        "cpp": "solutions/descending-every-third-free/solution.cpp"
+      }
+    }
+  ]
+}

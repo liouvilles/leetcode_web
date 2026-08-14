@@ -1,0 +1,1 @@
+class Solution { public int tupleSameProduct(int[] nums){Map<Integer,Integer> frequency=new HashMap<>();int answer=0;for(int left=0;left<nums.length;left++)for(int right=left+1;right<nums.length;right++){int product=nums[left]*nums[right];answer+=8*frequency.getOrDefault(product,0);frequency.put(product,frequency.getOrDefault(product,0)+1);}return answer;} }

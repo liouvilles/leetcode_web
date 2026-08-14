@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isIdealPermutation",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "一个局部倒置",
+      "args": [
+        [
+          1,
+          0,
+          2
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "存在跨位倒置",
+      "args": [
+        [
+          1,
+          2,
+          0
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "尾部局部交换",
+      "args": [
+        [
+          0,
+          2,
+          1
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

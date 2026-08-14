@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2347,
+  "slug": "best-poker-hand",
+  "title": "最好的扑克手牌",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "计数"
+  ],
+  "summary": "五张牌给出点数与花色，按同花、三条、对子、高牌的优先级返回最好牌型。",
+  "insight": "先判断五个花色是否全相同；否则统计点数最高频次，频次至少三为三条、至少二为对子，其余高牌。",
+  "pitfalls": [
+    "同花优先级最高，应先判断",
+    "四个相同点数也归入三条类别",
+    "返回字符串需与题目指定名称一致"
+  ],
+  "solutions": [
+    {
+      "id": "flush-then-rank-frequency",
+      "title": "先同花后点数频次",
+      "kind": "最优",
+      "idea": "按优先级从高到低判定。",
+      "steps": [
+        "检查 suits 是否全等，是则 Flush",
+        "统计 ranks 频次并求 maximum",
+        "maximum>=3 返回 Three of a Kind；>=2 返回 Pair",
+        "否则 High Card"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/flush-then-rank-frequency/Solution.java",
+        "kotlin": "solutions/flush-then-rank-frequency/Solution.kt",
+        "cpp": "solutions/flush-then-rank-frequency/solution.cpp"
+      }
+    }
+  ]
+}

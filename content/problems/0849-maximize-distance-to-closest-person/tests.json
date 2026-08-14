@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxDistToClosest",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "中间最长距离二",
+      "args": [
+        [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "尾部空三座",
+      "args": [
+        [
+          1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "首部空一座",
+      "args": [
+        [
+          0,
+          1
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

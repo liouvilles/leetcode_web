@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 786,
+  "slug": "k-th-smallest-prime-fraction",
+  "title": "第 K 个最小的质数分数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-010",
+  "studyTags": [
+    "数组",
+    "堆",
+    "有序序列"
+  ],
+  "summary": "递增数组由一和质数组成，枚举 i<j 的分数 arr[i]/arr[j]，返回第 k 小分数的分子分母。",
+  "insight": "固定分母 j 时，分子下标从零递增形成一条有序链；把每条链首项放入小根堆，弹出后推进该链即可做多路归并。",
+  "pitfalls": [
+    "比较分数应用交叉乘法避免浮点误差",
+    "一条链只能推进到 i+1<j",
+    "堆中保存下标而非计算后的浮点值"
+  ],
+  "solutions": [
+    {
+      "id": "fraction-chains-min-heap",
+      "title": "分数有序链多路归并",
+      "kind": "最优",
+      "idea": "用小根堆逐次取出全局下一小分数。",
+      "steps": [
+        "对每个分母 j 把 (0,j) 入堆",
+        "按 arr[i1]*arr[j2] 与 arr[i2]*arr[j1] 交叉比较",
+        "弹出 k 次；若 i+1<j 就压入 (i+1,j)，第 k 次弹出的下标组成答案"
+      ],
+      "complexity": {
+        "time": "O((n+k) log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/fraction-chains-min-heap/Solution.java",
+        "kotlin": "solutions/fraction-chains-min-heap/Solution.kt",
+        "cpp": "solutions/fraction-chains-min-heap/solution.cpp"
+      }
+    }
+  ]
+}

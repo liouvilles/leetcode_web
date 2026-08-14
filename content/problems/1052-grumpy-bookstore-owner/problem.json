@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1052,
+  "slug": "grumpy-bookstore-owner",
+  "title": "爱生气的书店老板",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-015",
+  "studyTags": [
+    "数组",
+    "滑动窗口"
+  ],
+  "summary": "顾客数组与老板每分钟是否生气对应；老板可连续 minutes 分钟不生气一次，求最多满意顾客数。",
+  "insight": "老板本来不生气时的顾客构成固定基础；选择窗口只额外挽回窗口内原本因生气不满意的顾客，用定长滑窗找最大额外收益。",
+  "pitfalls": [
+    "基础满意顾客不能在窗口收益中重复计算",
+    "窗口长度固定为 minutes",
+    "minutes 可覆盖全部时间"
+  ],
+  "solutions": [
+    {
+      "id": "baseline-plus-recovery-window",
+      "title": "基础满意数加挽回滑窗",
+      "kind": "最优",
+      "idea": "分离永久满意贡献和技能窗口增量。",
+      "steps": [
+        "baseline 累加 grumpy[i]==0 的 customers[i]",
+        "扫描 i，grumpy[i]==1 时 recovery+=customers[i]；i>=minutes 时移出 i-minutes 的生气顾客贡献",
+        "bestRecovery=max，返回 baseline+bestRecovery"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/baseline-plus-recovery-window/Solution.java",
+        "kotlin": "solutions/baseline-plus-recovery-window/Solution.kt",
+        "cpp": "solutions/baseline-plus-recovery-window/solution.cpp"
+      }
+    }
+  ]
+}

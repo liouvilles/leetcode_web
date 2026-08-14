@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1307,
+  "slug": "verbal-arithmetic-puzzle",
+  "title": "口算难题",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "回溯",
+    "竖式加法"
+  ],
+  "summary": "给不同字母分配互异数字，使若干单词表示的数之和等于结果；多位数首字母不能为零，判断是否存在方案。",
+  "insight": "按竖式从最低列向高列处理。逐个为当前列加数字段中的字母赋值并累加，处理完所有加数后，结果位必须等于列和模十，再把进位交给下一列。",
+  "pitfalls": [
+    "不同字母必须映射不同数字",
+    "只有长度大于一的单词首字母禁止为零",
+    "一列所有加数处理完后才能约束结果位"
+  ],
+  "solutions": [
+    {
+      "id": "column-carry-letter-backtracking",
+      "title": "逐列进位字母回溯",
+      "kind": "最优",
+      "idea": "沿竖式列传播进位并即时验证结果数字。",
+      "steps": [
+        "初始化 mapping[26]=-1、used[10]=false，并标记所有多位词首字母 leading",
+        "dfs(column,row,sum)：row 未遍历完加数时，取该列字母；已赋值就累加，否则枚举可用合法数字",
+        "加数处理完后令 expected=sum%10，对结果该列字母验证或赋值，再递归下一列并携带 sum/10；处理完结果长度时要求进位为零"
+      ],
+      "complexity": {
+        "time": "O(10!·字符数) 上界",
+        "space": "O(字符种类+列数)"
+      },
+      "files": {
+        "java": "solutions/column-carry-letter-backtracking/Solution.java",
+        "kotlin": "solutions/column-carry-letter-backtracking/Solution.kt",
+        "cpp": "solutions/column-carry-letter-backtracking/solution.cpp"
+      }
+    }
+  ]
+}

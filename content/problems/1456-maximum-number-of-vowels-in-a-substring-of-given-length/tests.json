@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxVowels",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "abciiidef 三个连续元音",
+      "args": [
+        "abciiidef",
+        3
+      ],
+      "expected": 3
+    },
+    {
+      "name": "五长窗口最多二个",
+      "args": [
+        "leetcode",
+        3
+      ],
+      "expected": 2
+    },
+    {
+      "name": "没有元音",
+      "args": [
+        "rhythms",
+        4
+      ],
+      "expected": 0
+    }
+  ]
+}

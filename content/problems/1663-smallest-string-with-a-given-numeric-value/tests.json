@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getSmallestString",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "三字符数值二十七的最小串",
+      "args": [
+        3,
+        27
+      ],
+      "expected": "aay"
+    },
+    {
+      "name": "五字符数值七十三",
+      "args": [
+        5,
+        73
+      ],
+      "expected": "aaszz"
+    },
+    {
+      "name": "单字符最大值为 z",
+      "args": [
+        1,
+        26
+      ],
+      "expected": "z"
+    }
+  ]
+}

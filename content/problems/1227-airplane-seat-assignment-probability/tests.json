@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "nthPersonGetsNthSeat",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "double",
+  "cases": [
+    {
+      "name": "一位乘客必然正确",
+      "args": [
+        1
+      ],
+      "expected": 1
+    },
+    {
+      "name": "两位乘客概率一半",
+      "args": [
+        2
+      ],
+      "expected": 0.5
+    },
+    {
+      "name": "一百位仍是一半",
+      "args": [
+        100
+      ],
+      "expected": 0.5
+    }
+  ]
+}

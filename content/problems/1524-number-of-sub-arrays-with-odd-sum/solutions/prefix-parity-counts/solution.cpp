@@ -1,0 +1,1 @@
+class Solution { public: int numOfSubarrays(vector<int>& arr){const long long mod=1000000007;long long even=1,odd=0,answer=0;int parity=0;for(int value:arr){parity^=value&1;if(!parity){answer+=odd;++even;}else{answer+=even;++odd;}answer%=mod;}return answer;} };

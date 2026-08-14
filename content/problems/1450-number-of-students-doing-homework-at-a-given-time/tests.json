@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "busyStudent",
+  "parameterTypes": [
+    "intArray",
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "查询时三个学生都在做作业",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          3,
+          2,
+          7
+        ],
+        4
+      ],
+      "expected": 1
+    },
+    {
+      "name": "边界时刻包含两个学生",
+      "args": [
+        [
+          4
+        ],
+        [
+          4
+        ],
+        4
+      ],
+      "expected": 1
+    },
+    {
+      "name": "查询时无人做作业",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          3,
+          2,
+          4
+        ],
+        7
+      ],
+      "expected": 0
+    }
+  ]
+}

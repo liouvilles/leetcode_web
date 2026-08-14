@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2444,
+  "slug": "count-subarrays-with-fixed-bounds",
+  "title": "统计定界子数组的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-036",
+  "studyTags": [
+    "数组",
+    "滑动窗口"
+  ],
+  "summary": "统计最小值恰为 minK 且最大值恰为 maxK 的连续子数组数量。",
+  "insight": "扫描记录最近越界位置 lastBad、最近 minK 和 maxK 位置。以 i 结尾的合法起点范围是 lastBad 之后到两界值较早位置，贡献 max(0,min(lastMin,lastMax)-lastBad)。",
+  "pitfalls": [
+    "数组值超出闭区间会切断所有候选",
+    "两个界值都必须出现",
+    "minK 可等于 maxK"
+  ],
+  "solutions": [
+    {
+      "id": "last-invalid-and-bound-positions",
+      "title": "最近非法位与边界位置",
+      "kind": "最优",
+      "idea": "按右端点累计所有合法起点数。",
+      "steps": [
+        "lastBad=lastMin=lastMax=-1",
+        "扫描 i：越界更新 lastBad；等于边界更新对应位置",
+        "answer+=max(0,min(lastMin,lastMax)-lastBad)",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/last-invalid-and-bound-positions/Solution.java",
+        "kotlin": "solutions/last-invalid-and-bound-positions/Solution.kt",
+        "cpp": "solutions/last-invalid-and-bound-positions/solution.cpp"
+      }
+    }
+  ]
+}

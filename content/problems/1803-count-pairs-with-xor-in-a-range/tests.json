@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countPairs",
+  "parameterTypes": [
+    "intArray",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四数异或区间内有六对",
+      "args": [
+        [
+          1,
+          4,
+          2,
+          7
+        ],
+        2,
+        6
+      ],
+      "expected": 6
+    },
+    {
+      "name": "五数异或区间内有八对",
+      "args": [
+        [
+          9,
+          8,
+          4,
+          2,
+          1
+        ],
+        5,
+        14
+      ],
+      "expected": 8
+    },
+    {
+      "name": "单元素没有数对",
+      "args": [
+        [
+          1
+        ],
+        0,
+        2
+      ],
+      "expected": 0
+    }
+  ]
+}

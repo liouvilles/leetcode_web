@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 491,
+  "slug": "non-decreasing-subsequences",
+  "title": "非递减子序列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-007",
+  "studyTags": [
+    "回溯",
+    "同层去重",
+    "子序列"
+  ],
+  "summary": "返回数组中所有长度至少为二的不同非递减子序列。",
+  "insight": "回溯按下标递增选择元素，并在每个递归层用集合跳过相同数值，消除由不同相同下标产生的重复结果。",
+  "pitfalls": [
+    "子序列不要求连续",
+    "同层去重不能阻止深层再次选择相同值",
+    "路径长度至少二才加入答案"
+  ],
+  "solutions": [
+    {
+      "id": "backtracking-level-dedup",
+      "title": "回溯 + 同层集合去重",
+      "kind": "最优",
+      "idea": "每个递归节点记录本层已经尝试过的数值。",
+      "steps": [
+        "路径长度>=2 时复制加入答案",
+        "从 start 枚举，跳过小于路径末值或本层已用值",
+        "选择、递归、回溯"
+      ],
+      "complexity": {
+        "time": "O(n·2^n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/backtracking-level-dedup/Solution.java",
+        "kotlin": "solutions/backtracking-level-dedup/Solution.kt",
+        "cpp": "solutions/backtracking-level-dedup/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "romanToInt",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "连续相同字符相加",
+      "args": [
+        "III"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "包含一个减法组合",
+      "args": [
+        "LVIII"
+      ],
+      "expected": 58
+    },
+    {
+      "name": "包含多种减法组合",
+      "args": [
+        "MCMXCIV"
+      ],
+      "expected": 1994
+    }
+  ]
+}

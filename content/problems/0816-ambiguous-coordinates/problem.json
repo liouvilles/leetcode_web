@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 816,
+  "slug": "ambiguous-coordinates",
+  "title": "模糊坐标",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-011",
+  "studyTags": [
+    "字符串",
+    "枚举"
+  ],
+  "summary": "去掉坐标中的逗号、小数点和空格后得到一串数字，枚举所有符合数字书写规则的原坐标。",
+  "insight": "枚举横纵坐标切分点；每一段独立生成所有合法整数或小数形式，再做笛卡尔积。",
+  "pitfalls": [
+    "多位整数不能有前导零",
+    "小数末尾不能为零",
+    "以零开头的多位段只能写成 0.xxx"
+  ],
+  "solutions": [
+    {
+      "id": "split-and-valid-number-forms",
+      "title": "切分并生成合法数字形式",
+      "kind": "最优",
+      "idea": "分别枚举两段数字的所有合法表示。",
+      "steps": [
+        "去掉外层括号，枚举 split=1..length-1",
+        "forms(part) 加入合法整数，并枚举每个小数点位置，检查整数部分无前导零且小数部分无尾零",
+        "组合左右 forms 为 (left, right)"
+      ],
+      "complexity": {
+        "time": "O(n³)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/split-and-valid-number-forms/Solution.java",
+        "kotlin": "solutions/split-and-valid-number-forms/Solution.kt",
+        "cpp": "solutions/split-and-valid-number-forms/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minOperationsMaxProfit",
+  "parameterTypes": [
+    "intArray",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四轮时累计利润最大",
+      "args": [
+        [
+          8,
+          3
+        ],
+        5,
+        6
+      ],
+      "expected": 3
+    },
+    {
+      "name": "第七轮达到最大利润",
+      "args": [
+        [
+          10,
+          9,
+          6
+        ],
+        6,
+        4
+      ],
+      "expected": 7
+    },
+    {
+      "name": "收入不足运行成本",
+      "args": [
+        [
+          3,
+          4,
+          0,
+          5,
+          1
+        ],
+        1,
+        92
+      ],
+      "expected": -1
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "compareVersion",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "按数值而非字典序",
+      "args": [
+        "1.2",
+        "1.10"
+      ],
+      "expected": -1
+    },
+    {
+      "name": "忽略前导零",
+      "args": [
+        "1.01",
+        "1.001"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "忽略末尾零段",
+      "args": [
+        "1.0",
+        "1.0.0.0"
+      ],
+      "expected": 0
+    }
+  ]
+}

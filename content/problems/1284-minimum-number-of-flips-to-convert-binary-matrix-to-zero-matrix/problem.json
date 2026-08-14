@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1284,
+  "slug": "minimum-number-of-flips-to-convert-binary-matrix-to-zero-matrix",
+  "title": "转化为全零矩阵的最少反转次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "数组",
+    "位运算",
+    "广度优先搜索",
+    "矩阵"
+  ],
+  "summary": "每次选择一格，反转它及上下左右邻格，求把小型零一矩阵变成全零的最少操作数，不可能返回负一。",
+  "insight": "矩阵最多九格，可压成位掩码；每次操作等价于与预计算的翻转掩码异或。对所有 2^(mn) 状态做 BFS，首次到零即最少次数。",
+  "pitfalls": [
+    "反转包含中心格自身",
+    "同一格反转两次相互抵消",
+    "访问状态要在入队时标记"
+  ],
+  "solutions": [
+    {
+      "id": "bitmask-state-bfs",
+      "title": "位掩码状态广度优先搜索",
+      "kind": "最优",
+      "idea": "在有限状态图上寻找零状态最短路。",
+      "steps": [
+        "把 mat 中一格压入 start mask，预计算每个格的 center+四邻 flipMask",
+        "队列放 [start,0]，seen 标记 start",
+        "弹出状态，若为零返回 distance；枚举每个 flipMask 异或产生 next，未见则入队 distance+1；耗尽返回 -1"
+      ],
+      "complexity": {
+        "time": "O(2^(mn)·mn)",
+        "space": "O(2^(mn))"
+      },
+      "files": {
+        "java": "solutions/bitmask-state-bfs/Solution.java",
+        "kotlin": "solutions/bitmask-state-bfs/Solution.kt",
+        "cpp": "solutions/bitmask-state-bfs/solution.cpp"
+      }
+    }
+  ]
+}

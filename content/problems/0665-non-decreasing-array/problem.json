@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 665,
+  "slug": "non-decreasing-array",
+  "title": "非递减数列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-008",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "一次扫描"
+  ],
+  "summary": "最多修改数组中一个元素，判断能否使整个数组变成非递减序列。",
+  "insight": "遇到 nums[i-1]>nums[i] 时必须修改其中一个；若 nums[i] 仍不小于 nums[i-2]，优先降低前者，否则只能抬高当前值。",
+  "pitfalls": [
+    "第二次逆序立即失败",
+    "修改方向要兼顾前一个与后续关系",
+    "数组前两个位置的逆序可直接降低第一个"
+  ],
+  "solutions": [
+    {
+      "id": "greedy-local-repair",
+      "title": "局部逆序贪心修复",
+      "kind": "最优",
+      "idea": "扫描时原地修复唯一可能的逆序，保持已扫描前缀非递减。",
+      "steps": [
+        "violations=0",
+        "若 nums[i-1]>nums[i]，计数并在超过一时失败",
+        "若 i<2 或 nums[i]>=nums[i-2] 则令 nums[i-1]=nums[i]，否则令 nums[i]=nums[i-1]；结束返回真"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/greedy-local-repair/Solution.java",
+        "kotlin": "solutions/greedy-local-repair/Solution.kt",
+        "cpp": "solutions/greedy-local-repair/solution.cpp"
+      }
+    }
+  ]
+}

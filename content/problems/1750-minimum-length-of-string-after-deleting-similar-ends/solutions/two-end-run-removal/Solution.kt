@@ -1,0 +1,1 @@
+class Solution { fun minimumLength(text:String):Int{var left=0;var right=text.lastIndex;while(left<right&&text[left]==text[right]){val target=text[left];while(left<=right&&text[left]==target)left++;while(left<=right&&text[right]==target)right--};return maxOf(0,right-left+1)} }

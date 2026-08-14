@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1975,
+  "slug": "maximum-matrix-sum",
+  "title": "最大方阵和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-028",
+  "studyTags": [
+    "贪心",
+    "数组",
+    "矩阵"
+  ],
+  "summary": "可反复选相邻两格同时变号，求最终矩阵元素总和最大值。",
+  "insight": "操作保持负数个数奇偶性。若负数为偶数，可把所有数变非负；若为奇数，必须留下一个负数，应选择绝对值最小者。零会让惩罚为零。",
+  "pitfalls": [
+    "相邻操作足以实现任意符合奇偶性的符号分配",
+    "总和使用 long",
+    "最小绝对值可能为零"
+  ],
+  "solutions": [
+    {
+      "id": "sign-parity-and-minimum-absolute",
+      "title": "负号奇偶与最小绝对值",
+      "kind": "最优",
+      "idea": "累加绝对值并在奇数负号时扣除两倍最小绝对值。",
+      "steps": [
+        "sumAbs=0、negative=0、minimum=∞",
+        "遍历矩阵更新三者",
+        "若 negative 奇数返回 sumAbs-2*minimum，否则 sumAbs"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/sign-parity-and-minimum-absolute/Solution.java",
+        "kotlin": "solutions/sign-parity-and-minimum-absolute/Solution.kt",
+        "cpp": "solutions/sign-parity-and-minimum-absolute/solution.cpp"
+      }
+    }
+  ]
+}

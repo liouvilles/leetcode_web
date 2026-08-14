@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 745,
+  "slug": "prefix-and-suffix-search",
+  "title": "前缀和后缀搜索",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-010",
+  "studyTags": [
+    "设计",
+    "哈希表",
+    "字符串"
+  ],
+  "summary": "给定单词数组，查询同时具有指定前缀和后缀的单词最大下标，不存在返回 -1。",
+  "insight": "单词长度较小，可在构造时枚举每个单词所有前缀和后缀组合，以 prefix#suffix 为键保存最新下标。",
+  "pitfalls": [
+    "前缀或后缀可以为空串",
+    "重复单词应返回最大下标",
+    "构造时按下标递增覆盖即可保留最大值"
+  ],
+  "solutions": [
+    {
+      "id": "precompute-prefix-suffix-pairs",
+      "title": "预计算所有前后缀组合",
+      "kind": "最优",
+      "idea": "用空间换取每次查询常数时间。",
+      "steps": [
+        "依次处理 words[index]",
+        "枚举 prefixLength 0..length 与 suffixStart 0..length",
+        "map[prefix#suffix]=index 覆盖旧值；f 直接读取或返回 -1"
+      ],
+      "complexity": {
+        "time": "O(total L²)",
+        "space": "O(total L²)"
+      },
+      "files": {
+        "java": "solutions/precompute-prefix-suffix-pairs/Solution.java",
+        "kotlin": "solutions/precompute-prefix-suffix-pairs/Solution.kt",
+        "cpp": "solutions/precompute-prefix-suffix-pairs/solution.cpp"
+      }
+    }
+  ]
+}

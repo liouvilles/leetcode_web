@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumBoxes",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三个盒子都需接触地面",
+      "args": [
+        3
+      ],
+      "expected": 3
+    },
+    {
+      "name": "四盒形成二层需三个地面盒",
+      "args": [
+        4
+      ],
+      "expected": 3
+    },
+    {
+      "name": "十盒完整三层需六个地面盒",
+      "args": [
+        10
+      ],
+      "expected": 6
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getMinSwaps",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "第四个更大排列最少交换二次",
+      "args": [
+        "5489355142",
+        4
+      ],
+      "expected": 2
+    },
+    {
+      "name": "把二移到最前需四次交换",
+      "args": [
+        "11112",
+        4
+      ],
+      "expected": 4
+    },
+    {
+      "name": "下一排列只需一次交换",
+      "args": [
+        "00123",
+        1
+      ],
+      "expected": 1
+    }
+  ]
+}

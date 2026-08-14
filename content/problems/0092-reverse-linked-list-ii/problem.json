@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 92,
+  "slug": "reverse-linked-list-ii",
+  "title": "反转链表 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-004",
+  "studyTags": [
+    "链表",
+    "头插法",
+    "局部反转"
+  ],
+  "summary": "只反转单链表从 left 到 right 的连续节点区间，并返回修改后的头节点。",
+  "insight": "找到区间前驱后，把区间内后续节点逐个摘下并插到区间最前方，可一次扫描原地完成。",
+  "pitfalls": [
+    "left 可能等于一，需要哑节点",
+    "区间长度为一时无需移动",
+    "每次头插都要保留被摘节点的后继"
+  ],
+  "solutions": [
+    {
+      "id": "front-insertion",
+      "title": "区间头插反转",
+      "kind": "最优",
+      "idea": "固定区间前驱和区间原首节点，将其后的节点依次插到前驱之后。",
+      "steps": [
+        "走到 left 前一个节点",
+        "重复摘下 current.next",
+        "把摘下节点插到 previous.next"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/front-insertion/Solution.java",
+        "kotlin": "solutions/front-insertion/Solution.kt",
+        "cpp": "solutions/front-insertion/solution.cpp"
+      }
+    }
+  ]
+}

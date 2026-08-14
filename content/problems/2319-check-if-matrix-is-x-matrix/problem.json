@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2319,
+  "slug": "check-if-matrix-is-x-matrix",
+  "title": "判断矩阵是否是一个 X 矩阵",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "数组",
+    "矩阵"
+  ],
+  "summary": "判断方阵两条对角线上的元素是否全非零，其他位置是否全为零。",
+  "insight": "位置 (r,c) 属于主对角线当 r==c，属于副对角线当 r+c==n-1；按这个布尔条件核对零与非零即可。",
+  "pitfalls": [
+    "奇数阶中心格同时属于两条对角线",
+    "对角线必须非零但值不限",
+    "非对角线必须严格为零"
+  ],
+  "solutions": [
+    {
+      "id": "classify-each-cell-by-diagonals",
+      "title": "逐格按对角线分类",
+      "kind": "最优",
+      "idea": "一次扫描验证每个格子的零值约束。",
+      "steps": [
+        "遍历所有 r,c",
+        "diagonal=(r==c || r+c==n-1)",
+        "diagonal 且值为零返回 false；非 diagonal 且值非零返回 false",
+        "否则返回 true"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/classify-each-cell-by-diagonals/Solution.java",
+        "kotlin": "solutions/classify-each-cell-by-diagonals/Solution.kt",
+        "cpp": "solutions/classify-each-cell-by-diagonals/solution.cpp"
+      }
+    }
+  ]
+}

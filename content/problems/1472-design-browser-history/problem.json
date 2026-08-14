@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1472,
+  "slug": "design-browser-history",
+  "title": "设计浏览器历史记录",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-021",
+  "studyTags": [
+    "数组",
+    "栈",
+    "设计"
+  ],
+  "summary": "实现访问新网址、后退若干步和前进若干步的浏览器历史。访问新网址会丢弃当前页之后的前进历史。",
+  "insight": "用列表保存线性历史和 current 下标；visit 时截断 current 之后元素，back/forward 只钳制下标。",
+  "pitfalls": [
+    "访问新页必须清空前进记录",
+    "后退和前进可能超过可用步数",
+    "返回移动后的当前网址"
+  ],
+  "solutions": [
+    {
+      "id": "history-list-cursor",
+      "title": "历史列表与游标",
+      "kind": "最优",
+      "idea": "以数组下标表示当前页面并在新访问时截断尾部。",
+      "steps": [
+        "构造 history=[homepage],current=0",
+        "visit 删除 current 后所有元素，再添加 url 并 current++",
+        "back=max(0,current-steps)，forward=min(last,current+steps)，返回 history[current]"
+      ],
+      "complexity": {
+        "time": "O(n) visit, O(1) navigation",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/history-list-cursor/Solution.java",
+        "kotlin": "solutions/history-list-cursor/Solution.kt",
+        "cpp": "solutions/history-list-cursor/solution.cpp"
+      }
+    }
+  ]
+}

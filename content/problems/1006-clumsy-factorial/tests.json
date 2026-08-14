@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "clumsy",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四的笨阶乘",
+      "args": [
+        4
+      ],
+      "expected": 7
+    },
+    {
+      "name": "十的笨阶乘",
+      "args": [
+        10
+      ],
+      "expected": 12
+    },
+    {
+      "name": "一的笨阶乘",
+      "args": [
+        1
+      ],
+      "expected": 1
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2110,
+  "slug": "number-of-smooth-descent-periods-of-a-stock",
+  "title": "股票平滑下跌阶段的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "数组",
+    "数学",
+    "动态规划"
+  ],
+  "summary": "连续阶段中每天价格恰比前一天低一则为平滑下降，统计所有非空阶段数量。",
+  "insight": "维护以当前位置结尾的最长平滑下降长度 run。若当前等于前一日减一则 run++，否则重置一；以当前位置结尾的合法阶段数恰为 run，累加。",
+  "pitfalls": [
+    "单日阶段始终合法",
+    "必须恰好下降一",
+    "答案使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "ending-run-length-contribution",
+      "title": "结尾连续段长度贡献",
+      "kind": "最优",
+      "idea": "每个位置贡献其当前平滑后缀的所有起点数。",
+      "steps": [
+        "run=1、answer=1",
+        "i 从一：prices[i]==prices[i-1]-1 则 run++，否则 run=1",
+        "answer+=run，返回"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/ending-run-length-contribution/Solution.java",
+        "kotlin": "solutions/ending-run-length-contribution/Solution.kt",
+        "cpp": "solutions/ending-run-length-contribution/solution.cpp"
+      }
+    }
+  ]
+}

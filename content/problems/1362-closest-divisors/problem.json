@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1362,
+  "slug": "closest-divisors",
+  "title": "最接近的因数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-019",
+  "studyTags": [
+    "数学",
+    "枚举"
+  ],
+  "summary": "在 num+1 或 num+2 的因数对中，返回差值最小的一对。",
+  "insight": "对每个候选值从平方根向下寻找第一个整除因子，该因数对已是此数差值最小的一对；再比较两个候选。",
+  "pitfalls": [
+    "必须同时检查 num+1 和 num+2",
+    "从平方根向下能最早获得最接近因数",
+    "返回顺序不影响数学意义但保持较小数在前"
+  ],
+  "solutions": [
+    {
+      "id": "sqrt-divisor-search",
+      "title": "平方根向下找因子",
+      "kind": "最优",
+      "idea": "分别求两个候选值最接近平方根的因数对。",
+      "steps": [
+        "pair(value) 从 floor(sqrt(value)) 向下找首个 divisor",
+        "得到 num+1 与 num+2 的两对因数",
+        "比较两对绝对差并返回更小者"
+      ],
+      "complexity": {
+        "time": "O(sqrt(num))",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/sqrt-divisor-search/Solution.java",
+        "kotlin": "solutions/sqrt-divisor-search/Solution.kt",
+        "cpp": "solutions/sqrt-divisor-search/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1377,
+  "slug": "frog-position-after-t-seconds",
+  "title": "T 秒后青蛙的位置",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-019",
+  "studyTags": [
+    "树",
+    "深度优先搜索",
+    "概率"
+  ],
+  "summary": "青蛙从节点一出发，每秒等概率跳到尚未访问的相邻节点；若无路可跳则停留，求 t 秒时在 target 的概率。",
+  "insight": "图是一棵树，父节点就是唯一已访问邻居。DFS 时把当前概率均分给除父亲外的孩子；到时间或叶节点时判断是否位于 target。",
+  "pitfalls": [
+    "到达 target 后若仍有未访问孩子且时间未到，必须继续跳走",
+    "叶节点会原地停留",
+    "概率按孩子数量而非总度数均分"
+  ],
+  "solutions": [
+    {
+      "id": "probability-tree-dfs",
+      "title": "树上概率深搜",
+      "kind": "最优",
+      "idea": "沿唯一无回路路径传播概率并处理叶节点停留。",
+      "steps": [
+        "建立无向邻接表，从节点一以概率一开始",
+        "若 time==t，只有 node==target 返回当前概率；若无孩子同样停止",
+        "否则把 probability/childCount 递归传给每个孩子并求和"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/probability-tree-dfs/Solution.java",
+        "kotlin": "solutions/probability-tree-dfs/Solution.kt",
+        "cpp": "solutions/probability-tree-dfs/solution.cpp"
+      }
+    }
+  ]
+}

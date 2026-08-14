@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1335,
+  "slug": "minimum-difficulty-of-a-job-schedule",
+  "title": "工作计划的最低难度",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-019",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "分段"
+  ],
+  "summary": "工作必须按顺序在 d 天内完成且每天至少一项，当天难度为该日最大工作难度，求总难度最小值；工作不足返回负一。",
+  "insight": "dp[day][jobs] 表示前 jobs 项分成 day 天的最低难度；枚举最后一天从 split 开始，逆向扩展并维护该段最大值，与前 day-1 天状态相加。",
+  "pitfalls": [
+    "不能改变工作顺序",
+    "每一天至少一个工作",
+    "最后一天难度是该段最大值而非和"
+  ],
+  "solutions": [
+    {
+      "id": "days-prefix-partition-dp",
+      "title": "天数前缀分段动态规划",
+      "kind": "最优",
+      "idea": "枚举最后一天起点并滚动维护区间最大难度。",
+      "steps": [
+        "若 n<d 返回 -1；dp[0]=0 其余无穷",
+        "day 从一到 d，新建 next；jobs 至少为 day，逆向枚举 split 从 jobs-1 到 day-1，维护 maximum",
+        "next[jobs]=min(dp[split]+maximum)，替换 dp；返回 dp[n]"
+      ],
+      "complexity": {
+        "time": "O(d·n²)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/days-prefix-partition-dp/Solution.java",
+        "kotlin": "solutions/days-prefix-partition-dp/Solution.kt",
+        "cpp": "solutions/days-prefix-partition-dp/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 923,
+  "slug": "3sum-with-multiplicity",
+  "title": "三数之和的多种可能",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-013",
+  "studyTags": [
+    "数组",
+    "计数",
+    "组合数学"
+  ],
+  "summary": "统计数组中下标递增且三数之和等于 target 的三元组数量，对 1e9+7 取模。",
+  "insight": "值域只有 0 到 100，可统计频次后枚举 a≤b≤c，并按三值相等关系用组合数计算下标选择数。",
+  "pitfalls": [
+    "枚举的是值而非下标",
+    "全相等、恰有两个相等和全不同公式不同",
+    "组合乘法使用长整型"
+  ],
+  "solutions": [
+    {
+      "id": "frequency-combination-enumeration",
+      "title": "频次与组合数枚举",
+      "kind": "最优",
+      "idea": "枚举有序值三元组并计算其出现次数。",
+      "steps": [
+        "统计 count[0..100]",
+        "枚举 a≤b≤c 且 a+b+c=target",
+        "三值全等用 C(count,3)，两值相等用 C(count,2)，全不同用频次乘积；累加取模"
+      ],
+      "complexity": {
+        "time": "O(V²)",
+        "space": "O(V)"
+      },
+      "files": {
+        "java": "solutions/frequency-combination-enumeration/Solution.java",
+        "kotlin": "solutions/frequency-combination-enumeration/Solution.kt",
+        "cpp": "solutions/frequency-combination-enumeration/solution.cpp"
+      }
+    }
+  ]
+}

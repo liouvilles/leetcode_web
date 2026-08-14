@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countPrimeSetBits",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "六到十共四个",
+      "args": [
+        6,
+        10
+      ],
+      "expected": 4
+    },
+    {
+      "name": "十到十五共五个",
+      "args": [
+        10,
+        15
+      ],
+      "expected": 5
+    },
+    {
+      "name": "一的置位数非质数",
+      "args": [
+        1,
+        1
+      ],
+      "expected": 0
+    }
+  ]
+}

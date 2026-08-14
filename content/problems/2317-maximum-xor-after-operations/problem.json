@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2317,
+  "slug": "maximum-xor-after-operations",
+  "title": "操作后的最大异或和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "数组",
+    "数学",
+    "位运算"
+  ],
+  "summary": "每次可把某个数组元素与任意非负整数按位与，操作任意次后求所有元素异或的最大可能值。",
+  "insight": "某一位只要在至少一个元素中为一，就能通过清除其他元素该位并保留一个一，使最终异或该位为一；因此答案是全部元素按位或。",
+  "pitfalls": [
+    "操作只能清零已有位，不能产生新的一",
+    "各二进制位可独立安排",
+    "零元素不影响结果"
+  ],
+  "solutions": [
+    {
+      "id": "bitwise-or-all-elements",
+      "title": "全元素按位或",
+      "kind": "最优",
+      "idea": "每个出现过的一位都可单独保留为异或结果的一。",
+      "steps": [
+        "answer=0",
+        "遍历 nums 执行 answer|=value",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/bitwise-or-all-elements/Solution.java",
+        "kotlin": "solutions/bitwise-or-all-elements/Solution.kt",
+        "cpp": "solutions/bitwise-or-all-elements/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "ways",
+  "parameterTypes": [
+    "stringArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三块披萨有三种切法",
+      "args": [
+        [
+          "A..",
+          "AAA",
+          "..."
+        ],
+        3
+      ],
+      "expected": 3
+    },
+    {
+      "name": "苹果更少只有一种切法",
+      "args": [
+        [
+          "A..",
+          "AA.",
+          "..."
+        ],
+        3
+      ],
+      "expected": 1
+    },
+    {
+      "name": "不切且有苹果",
+      "args": [
+        [
+          "A..",
+          "A..",
+          "..."
+        ],
+        1
+      ],
+      "expected": 1
+    }
+  ]
+}

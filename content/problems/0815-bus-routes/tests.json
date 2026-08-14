@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numBusesToDestination",
+  "parameterTypes": [
+    "intMatrix",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "换乘一次共两辆",
+      "args": [
+        [
+          [
+            1,
+            2,
+            7
+          ],
+          [
+            3,
+            6,
+            7
+          ]
+        ],
+        1,
+        6
+      ],
+      "expected": 2
+    },
+    {
+      "name": "路线不连通",
+      "args": [
+        [
+          [
+            7,
+            12
+          ],
+          [
+            4,
+            5,
+            15
+          ],
+          [
+            6
+          ],
+          [
+            15,
+            19
+          ],
+          [
+            9,
+            12,
+            13
+          ]
+        ],
+        15,
+        12
+      ],
+      "expected": -1
+    },
+    {
+      "name": "起终点相同",
+      "args": [
+        [
+          [
+            1,
+            2,
+            3
+          ]
+        ],
+        2,
+        2
+      ],
+      "expected": 0
+    }
+  ]
+}

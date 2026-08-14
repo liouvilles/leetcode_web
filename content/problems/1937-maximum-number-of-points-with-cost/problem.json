@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1937,
+  "slug": "maximum-number-of-points-with-cost",
+  "title": "扣分后的最大得分",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-028",
+  "studyTags": [
+    "数组",
+    "动态规划"
+  ],
+  "summary": "每行选择一个格子获得分数，相邻两行所选列距离会扣分，求最大总得分。",
+  "insight": "上一行状态 dp[col] 转移需最大化 dp[k]-|k-col|。从左扫描维护 max(dp[k]+k)，从右扫描维护 max(dp[k]-k)，即可把每行转移从平方降为线性。",
+  "pitfalls": [
+    "答案使用 long",
+    "每行必须选一个格子",
+    "左右扫描都要包含当前列"
+  ],
+  "solutions": [
+    {
+      "id": "left-right-envelope-dp",
+      "title": "左右包络优化 DP",
+      "kind": "最优",
+      "idea": "把绝对值转移拆成左右两次线性最大值扫描。",
+      "steps": [
+        "dp 初始化为第一行",
+        "每行计算 left[col]=max(left[col-1]-1,dp[col])，right 对称",
+        "next[col]=points[row][col]+max(left[col],right[col])；滚动，最后取最大"
+      ],
+      "complexity": {
+        "time": "O(rows·cols)",
+        "space": "O(cols)"
+      },
+      "files": {
+        "java": "solutions/left-right-envelope-dp/Solution.java",
+        "kotlin": "solutions/left-right-envelope-dp/Solution.kt",
+        "cpp": "solutions/left-right-envelope-dp/solution.cpp"
+      }
+    }
+  ]
+}

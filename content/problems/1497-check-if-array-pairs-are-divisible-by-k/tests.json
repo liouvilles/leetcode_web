@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "canArrange",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "十个数可配成五的倍数",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          10,
+          6,
+          7,
+          8,
+          9
+        ],
+        5
+      ],
+      "expected": true
+    },
+    {
+      "name": "一至六可配成七的倍数",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        7
+      ],
+      "expected": true
+    },
+    {
+      "name": "无法配成十的倍数",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        10
+      ],
+      "expected": false
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "MyStack",
+  "constructorTypes": [],
+  "cases": [
+    {
+      "name": "后进先出",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ]
+        },
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ]
+        },
+        {
+          "method": "top",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 2
+        },
+        {
+          "method": "pop",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 2
+        },
+        {
+          "method": "empty",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "boolean",
+          "expected": false
+        }
+      ]
+    },
+    {
+      "name": "单元素弹空",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            9
+          ]
+        },
+        {
+          "method": "pop",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 9
+        },
+        {
+          "method": "empty",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "boolean",
+          "expected": true
+        }
+      ]
+    },
+    {
+      "name": "初始为空",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "empty",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "boolean",
+          "expected": true
+        }
+      ]
+    }
+  ]
+}

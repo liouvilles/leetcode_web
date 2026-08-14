@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "increasingTriplet",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "严格递增数组",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "严格递减数组",
+      "args": [
+        [
+          5,
+          4,
+          3,
+          2,
+          1
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "需要替换较小结尾",
+      "args": [
+        [
+          2,
+          1,
+          5,
+          0,
+          4,
+          6
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

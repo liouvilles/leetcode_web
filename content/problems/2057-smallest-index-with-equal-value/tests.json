@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "smallestEqual",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "下标零值零立即满足",
+      "args": [
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "下标二值二首次满足",
+      "args": [
+        [
+          4,
+          3,
+          2,
+          1
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "没有相等索引",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": -1
+    }
+  ]
+}

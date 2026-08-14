@@ -1,0 +1,1 @@
+class Solution { public: vector<int> relativeSortArray(vector<int>& arr1,vector<int>& arr2){int frequency[1001]={};for(int value:arr1)++frequency[value];int write=0;for(int value:arr2)while(frequency[value]>0){arr1[write++]=value;--frequency[value];}for(int value=0;value<=1000;++value)while(frequency[value]>0){arr1[write++]=value;--frequency[value];}return arr1;} };

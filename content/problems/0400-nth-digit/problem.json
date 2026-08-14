@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 400,
+  "slug": "nth-digit",
+  "title": "第 N 位数字",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-006",
+  "studyTags": [
+    "数学",
+    "数位分组",
+    "定位"
+  ],
+  "summary": "在正整数依次拼接成的无限字符串中，返回从一开始计数的第 n 个数字。",
+  "insight": "先按一位数、两位数等分组扣除字符数量，再定位到具体整数和该整数中的具体下标。",
+  "pitfalls": [
+    "n 从一开始计数",
+    "分组总字符数使用长整型",
+    "定位整数时使用 (n-1) 避免整除边界偏移"
+  ],
+  "solutions": [
+    {
+      "id": "digit-block-location",
+      "title": "按位数块定位",
+      "kind": "最优",
+      "idea": "逐块跳过完整位数区间，在目标块中用商余数求答案。",
+      "steps": [
+        "digit=1,start=1,count=9",
+        "当 n>digit*count 时扣除并进入下一位数块",
+        "number=start+(n-1)/digit，取字符串下标 (n-1)%digit"
+      ],
+      "complexity": {
+        "time": "O(log n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/digit-block-location/Solution.java",
+        "kotlin": "solutions/digit-block-location/Solution.kt",
+        "cpp": "solutions/digit-block-location/solution.cpp"
+      }
+    }
+  ]
+}

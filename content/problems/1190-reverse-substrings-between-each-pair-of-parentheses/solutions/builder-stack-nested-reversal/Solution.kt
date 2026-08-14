@@ -1,0 +1,1 @@
+class Solution { fun reverseParentheses(s:String):String{val stack=java.util.ArrayDeque<StringBuilder>();var current=StringBuilder();for(ch in s)if(ch=='('){stack.push(current);current=StringBuilder()}else if(ch==')'){current.reverse();val outer=stack.pop();outer.append(current);current=outer}else current.append(ch);return current.toString()} }

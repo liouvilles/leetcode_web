@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countElements",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一二三中只有二合格",
+      "args": [
+        [
+          11,
+          7,
+          2,
+          15
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "重复中间值分别计数",
+      "args": [
+        [
+          -3,
+          3,
+          3,
+          90
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "全部相等没有合格元素",
+      "args": [
+        [
+          5,
+          5,
+          5
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

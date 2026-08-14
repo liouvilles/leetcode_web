@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "removeSubfolders",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "stringList",
+  "cases": [
+    {
+      "name": "三个父目录保留",
+      "args": [
+        [
+          "/a",
+          "/a/b",
+          "/c/d",
+          "/c/d/e",
+          "/c/f"
+        ]
+      ],
+      "expected": [
+        "/a",
+        "/c/d",
+        "/c/f"
+      ]
+    },
+    {
+      "name": "根层目录覆盖后代",
+      "args": [
+        [
+          "/a",
+          "/a/b/c",
+          "/a/b/d"
+        ]
+      ],
+      "expected": [
+        "/a"
+      ]
+    },
+    {
+      "name": "相似前缀不是子目录",
+      "args": [
+        [
+          "/a/b/c",
+          "/a/b/ca",
+          "/a/b/d"
+        ]
+      ],
+      "expected": [
+        "/a/b/c",
+        "/a/b/ca",
+        "/a/b/d"
+      ]
+    }
+  ]
+}

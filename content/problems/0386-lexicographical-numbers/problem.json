@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 386,
+  "slug": "lexicographical-numbers",
+  "title": "字典序排数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-006",
+  "studyTags": [
+    "字典树思想",
+    "迭代",
+    "数字"
+  ],
+  "summary": "按十进制字符串的字典序返回一到 n 的所有整数，要求线性时间和常量额外空间。",
+  "insight": "整数隐式组成十叉字典树：优先乘十深入子节点，无法深入时回退尾部九或越界分支再加一。",
+  "pitfalls": [
+    "不能实际把所有数转字符串排序",
+    "遇到尾数九要连续回退",
+    "current+1 超过 n 时也要回退"
+  ],
+  "solutions": [
+    {
+      "id": "implicit-trie-walk",
+      "title": "隐式十叉树先序遍历",
+      "kind": "最优",
+      "idea": "用当前数字模拟字典树中的深入、回退和访问下一个兄弟。",
+      "steps": [
+        "current 从一开始",
+        "若 current*10<=n 则深入乘十",
+        "否则在尾九或越界时除十回退，再 current++"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1) excluding output"
+      },
+      "files": {
+        "java": "solutions/implicit-trie-walk/Solution.java",
+        "kotlin": "solutions/implicit-trie-walk/Solution.kt",
+        "cpp": "solutions/implicit-trie-walk/solution.cpp"
+      }
+    }
+  ]
+}

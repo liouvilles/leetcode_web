@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1569,
+  "slug": "number-of-ways-to-reorder-array-to-get-same-bst",
+  "title": "将子数组重新排序得到同一个二叉搜索树的方案数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-022",
+  "studyTags": [
+    "数组",
+    "分治",
+    "二叉搜索树",
+    "组合数学"
+  ],
+  "summary": "数组元素互不相同，统计除原顺序外，重排后按顺序插入能得到相同 BST 的方案数，结果取模。",
+  "insight": "根必须仍是首元素；其余较小和较大元素分别保持能构造相同左右子树的相对方案，并可用组合数交错，贡献 C(n-1,leftSize)。",
+  "pitfalls": [
+    "最终要减去原始排列一种",
+    "左右序列内部递归保持 BST",
+    "组合乘法每步取模"
+  ],
+  "solutions": [
+    {
+      "id": "bst-split-combination-dp",
+      "title": "BST 分割组合递归",
+      "kind": "最优",
+      "idea": "递归计算左右插入序列并组合交错位置。",
+      "steps": [
+        "预计算 combination[n][k] 模 MOD",
+        "ways(list)：长度<=2 返回一；按 root 分成 left、right",
+        "返回 C(size-1,left.size)*ways(left)*ways(right)%MOD；根调用结果减一"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/bst-split-combination-dp/Solution.java",
+        "kotlin": "solutions/bst-split-combination-dp/Solution.kt",
+        "cpp": "solutions/bst-split-combination-dp/solution.cpp"
+      }
+    }
+  ]
+}

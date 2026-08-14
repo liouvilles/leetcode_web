@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2354,
+  "slug": "number-of-excellent-pairs",
+  "title": "优质数对的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "位运算"
+  ],
+  "summary": "从数组值组成有序数对，若两数按位与和按位或的一比特总数至少为 k，则为优质数对；重复数值只按值组合统计。",
+  "insight": "恒等式 bitcount(a&b)+bitcount(a|b)=bitcount(a)+bitcount(b)。先对 nums 去重，再按一比特数分组，枚举两组之和是否达到 k。",
+  "pitfalls": [
+    "数对有顺序",
+    "相同数值的重复出现不增加不同组合",
+    "一个值可以与自身组成数对"
+  ],
+  "solutions": [
+    {
+      "id": "unique-values-popcount-pairs",
+      "title": "去重后一比特数分组",
+      "kind": "最优",
+      "idea": "把位运算条件化为两个 bitcount 的加法。",
+      "steps": [
+        "用集合去重 nums",
+        "frequency[countBits(value)]++",
+        "枚举 i,j，若 i+j>=k，answer+=frequency[i]*frequency[j]",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n+wordBits²)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/unique-values-popcount-pairs/Solution.java",
+        "kotlin": "solutions/unique-values-popcount-pairs/Solution.kt",
+        "cpp": "solutions/unique-values-popcount-pairs/solution.cpp"
+      }
+    }
+  ]
+}

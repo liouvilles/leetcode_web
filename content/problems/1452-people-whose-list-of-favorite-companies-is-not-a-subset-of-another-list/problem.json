@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1452,
+  "slug": "people-whose-list-of-favorite-companies-is-not-a-subset-of-another-list",
+  "title": "收藏清单不是其他清单子集的用户",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-021",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "字符串"
+  ],
+  "summary": "返回所有收藏公司列表不被任何其他人的列表包含的用户下标。",
+  "insight": "把每人的列表转为集合；对每个 i 枚举 j，只有 j 集合大小不小于 i 且 containsAll(i) 时 i 才是子集。",
+  "pitfalls": [
+    "不能与自己的列表比较",
+    "相等列表也构成子集关系",
+    "结果按下标升序"
+  ],
+  "solutions": [
+    {
+      "id": "pairwise-set-containment",
+      "title": "两两集合包含检查",
+      "kind": "最优",
+      "idea": "把列表集合化后逐用户验证是否被他人覆盖。",
+      "steps": [
+        "构造 sets",
+        "对 i 枚举 j!=i；若 sets[j].size>=sets[i].size 且包含全部则标记 subset",
+        "未被标记的 i 加入答案"
+      ],
+      "complexity": {
+        "time": "O(n²c)",
+        "space": "O(nc)"
+      },
+      "files": {
+        "java": "solutions/pairwise-set-containment/Solution.java",
+        "kotlin": "solutions/pairwise-set-containment/Solution.kt",
+        "cpp": "solutions/pairwise-set-containment/solution.cpp"
+      }
+    }
+  ]
+}

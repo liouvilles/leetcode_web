@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 98,
+  "slug": "validate-binary-search-tree",
+  "title": "验证二叉搜索树",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-001",
+  "studyTags": [
+    "上下界递归",
+    "严格有序",
+    "长整型边界"
+  ],
+  "summary": "判断一棵二叉树是否满足二叉搜索树性质：每个节点左子树的所有值更小，右子树的所有值更大。",
+  "insight": "节点不仅受父节点限制，还受到全部祖先传下来的开区间约束。",
+  "pitfalls": [
+    "只比较节点与直接孩子并不充分",
+    "相等值不满足严格二叉搜索树定义",
+    "整数极值要求边界类型比节点值范围更宽"
+  ],
+  "solutions": [
+    {
+      "id": "recursive-bounds",
+      "title": "递归传递开区间",
+      "kind": "最优",
+      "idea": "为每个节点携带允许值的下界和上界，进入左右子树时分别收紧边界。",
+      "steps": [
+        "根节点从无限开区间开始",
+        "节点值必须严格位于上下界之间",
+        "左子树上界设为当前值，右子树下界设为当前值"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(h)"
+      },
+      "files": {
+        "java": "solutions/recursive-bounds/Solution.java",
+        "kotlin": "solutions/recursive-bounds/Solution.kt",
+        "cpp": "solutions/recursive-bounds/solution.cpp"
+      }
+    }
+  ]
+}

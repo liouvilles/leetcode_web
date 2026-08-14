@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "hasAllCodes",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "包含全部两位编码",
+      "args": [
+        "00110110",
+        2
+      ],
+      "expected": true
+    },
+    {
+      "name": "包含零和一",
+      "args": [
+        "0110",
+        1
+      ],
+      "expected": true
+    },
+    {
+      "name": "缺少两位编码十一",
+      "args": [
+        "0110",
+        2
+      ],
+      "expected": false
+    }
+  ]
+}

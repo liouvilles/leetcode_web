@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1175,
+  "slug": "prime-arrangements",
+  "title": "质数排列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-017",
+  "studyTags": [
+    "数学",
+    "筛法",
+    "排列计数"
+  ],
+  "summary": "把一到 n 排列，使质数必须位于质数下标，返回合法排列数对 10^9+7 取模。",
+  "insight": "若范围内有 p 个质数，则质数可在 p 个质数位置任意排列，非质数也可在其余 n-p 个位置任意排列，答案为 p!·(n-p)!。",
+  "pitfalls": [
+    "一不是质数",
+    "下标和数值范围都是一到 n",
+    "阶乘乘法过程持续取模"
+  ],
+  "solutions": [
+    {
+      "id": "sieve-and-two-factorials",
+      "title": "筛法与两组阶乘",
+      "kind": "最优",
+      "idea": "计数质数后独立排列质数与非质数。",
+      "steps": [
+        "埃氏筛标记 2..n 的质数并统计 primeCount",
+        "计算 primeCount! mod MOD",
+        "继续乘 (n-primeCount)! 并取模，返回结果"
+      ],
+      "complexity": {
+        "time": "O(n log log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/sieve-and-two-factorials/Solution.java",
+        "kotlin": "solutions/sieve-and-two-factorials/Solution.kt",
+        "cpp": "solutions/sieve-and-two-factorials/solution.cpp"
+      }
+    }
+  ]
+}

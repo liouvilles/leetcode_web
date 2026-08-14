@@ -1,0 +1,1 @@
+class Solution { fun deepestLeavesSum(root:TreeNode?):Int{val queue=java.util.ArrayDeque<TreeNode>();queue.addLast(root!!);var sum=0;while(queue.isNotEmpty()){var size=queue.size;sum=0;while(size-->0){val node=queue.removeFirst();sum+=node.`val`;node.left?.let{queue.addLast(it)};node.right?.let{queue.addLast(it)}}};return sum} }

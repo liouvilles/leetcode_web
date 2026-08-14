@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumDistance",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "CAKE 最小距离三",
+      "args": [
+        "CAKE"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "HAPPY 最小距离六",
+      "args": [
+        "HAPPY"
+      ],
+      "expected": 6
+    },
+    {
+      "name": "单字符无需移动",
+      "args": [
+        "A"
+      ],
+      "expected": 0
+    }
+  ]
+}

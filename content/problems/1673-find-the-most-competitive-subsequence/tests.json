@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "mostCompetitive",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "四元素取二得到二六",
+      "args": [
+        [
+          3,
+          5,
+          2,
+          6
+        ],
+        2
+      ],
+      "expected": [
+        2,
+        6
+      ]
+    },
+    {
+      "name": "六元素取四的最小子序列",
+      "args": [
+        [
+          2,
+          4,
+          3,
+          3,
+          5,
+          4,
+          9,
+          6
+        ],
+        4
+      ],
+      "expected": [
+        2,
+        3,
+        3,
+        4
+      ]
+    },
+    {
+      "name": "取全部保持原数组",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        3
+      ],
+      "expected": [
+        1,
+        2,
+        3
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2120,
+  "slug": "execution-of-all-suffix-instructions-staying-in-a-grid",
+  "title": "执行所有后缀指令",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-031",
+  "studyTags": [
+    "字符串",
+    "模拟"
+  ],
+  "summary": "从同一网格起点分别执行指令串的每个后缀，求每个后缀在越界前能完成多少条指令。",
+  "insight": "对每个起始下标重新从初始位置模拟，遇到第一次越界立即停止；约束允许平方复杂度。",
+  "pitfalls": [
+    "每个后缀都重置到起点",
+    "越界的那条指令不计数",
+    "最后一个后缀也要计算"
+  ],
+  "solutions": [
+    {
+      "id": "simulate-every-suffix",
+      "title": "逐后缀模拟",
+      "kind": "最优",
+      "idea": "独立执行每个指令后缀直到边界阻断。",
+      "steps": [
+        "遍历 suffixStart",
+        "row、column 重置为 start",
+        "执行后续字符得到候选坐标；若越界 break，否则更新坐标并递增答案"
+      ],
+      "complexity": {
+        "time": "O(m²)",
+        "space": "O(1) 除答案"
+      },
+      "files": {
+        "java": "solutions/simulate-every-suffix/Solution.java",
+        "kotlin": "solutions/simulate-every-suffix/Solution.kt",
+        "cpp": "solutions/simulate-every-suffix/solution.cpp"
+      }
+    }
+  ]
+}

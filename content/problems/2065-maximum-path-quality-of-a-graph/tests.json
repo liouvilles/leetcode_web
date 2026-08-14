@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximalPathQuality",
+  "parameterTypes": [
+    "intArray",
+    "intMatrix",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "限时四十九可收集七十五价值",
+      "args": [
+        [
+          0,
+          32,
+          10,
+          43
+        ],
+        [
+          [
+            0,
+            1,
+            10
+          ],
+          [
+            1,
+            2,
+            15
+          ],
+          [
+            0,
+            3,
+            10
+          ]
+        ],
+        49
+      ],
+      "expected": 75
+    },
+    {
+      "name": "三十时间选择价值二十五路径",
+      "args": [
+        [
+          5,
+          10,
+          15,
+          20
+        ],
+        [
+          [
+            0,
+            1,
+            10
+          ],
+          [
+            1,
+            2,
+            10
+          ],
+          [
+            0,
+            3,
+            10
+          ]
+        ],
+        30
+      ],
+      "expected": 25
+    },
+    {
+      "name": "单节点路径价值七",
+      "args": [
+        [
+          7
+        ],
+        [],
+        0
+      ],
+      "expected": 7
+    }
+  ]
+}

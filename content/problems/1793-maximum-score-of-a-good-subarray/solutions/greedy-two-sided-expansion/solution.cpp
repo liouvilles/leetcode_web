@@ -1,0 +1,1 @@
+class Solution { public: int maximumScore(vector<int>& nums,int k){int left=k,right=k,minimum=nums[k],answer=minimum;while(left>0||right+1<(int)nums.size()){if(!left||(right+1<(int)nums.size()&&nums[right+1]>nums[left-1]))minimum=min(minimum,nums[++right]);else minimum=min(minimum,nums[--left]);answer=max(answer,minimum*(right-left+1));}return answer;} };

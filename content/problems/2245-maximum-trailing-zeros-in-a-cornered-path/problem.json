@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2245,
+  "slug": "maximum-trailing-zeros-in-a-cornered-path",
+  "title": "转角路径的乘积中最多能有几个尾随零",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-033",
+  "studyTags": [
+    "数组",
+    "矩阵",
+    "前缀和"
+  ],
+  "summary": "网格路径最多转一次直角且不重复格子，求路径上数字乘积最多尾随零数量。",
+  "insight": "尾随零数是因子二与五总数的较小值。预处理每行、每列两种因子前缀和；以每格为转角，组合左/右与上/下四种方向并减去重复转角贡献。",
+  "pitfalls": [
+    "路径可不转弯，等价于某一臂长度零的特例仍被组合覆盖",
+    "转角格只计一次",
+    "只需统计因子二和五"
+  ],
+  "solutions": [
+    {
+      "id": "row-column-factor-prefixes",
+      "title": "行列因子前缀和",
+      "kind": "最优",
+      "idea": "用四个 L 形方向的因子和求最大尾零。",
+      "steps": [
+        "计算 each cell 的 twos、fives，并建 rowPrefix 与 columnPrefix",
+        "对 pivot 求 left/right/up/down 各方向含 pivot 的因子数",
+        "枚举四种横纵组合，sumHorizontal+sumVertical-cellFactor，取 min(total2,total5) 更新答案"
+      ],
+      "complexity": {
+        "time": "O(rows·columns)",
+        "space": "O(rows·columns)"
+      },
+      "files": {
+        "java": "solutions/row-column-factor-prefixes/Solution.java",
+        "kotlin": "solutions/row-column-factor-prefixes/Solution.kt",
+        "cpp": "solutions/row-column-factor-prefixes/solution.cpp"
+      }
+    }
+  ]
+}

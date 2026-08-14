@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countVowelSubstrings",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "aeiouu 有两个全元音子串",
+      "args": [
+        "aeiouu"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "含辅音且不全五元音答案零",
+      "args": [
+        "unicornarihan"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "长元音段有七个合法子串",
+      "args": [
+        "cuaieuouac"
+      ],
+      "expected": 7
+    }
+  ]
+}

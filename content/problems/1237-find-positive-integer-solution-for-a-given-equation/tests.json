@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findSolution",
+  "parameterTypes": [
+    "customFunction",
+    "int"
+  ],
+  "returnType": "intListMatrix",
+  "cases": [
+    {
+      "name": "加法函数和为五",
+      "args": [
+        "add",
+        5
+      ],
+      "expected": [
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "乘法函数积为五",
+      "args": [
+        "multiply",
+        5
+      ],
+      "expected": [
+        [
+          1,
+          5
+        ],
+        [
+          5,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "乘法函数积为十六",
+      "args": [
+        "multiply",
+        16
+      ],
+      "expected": [
+        [
+          1,
+          16
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          8,
+          2
+        ],
+        [
+          16,
+          1
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "backspaceCompare",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "两串都变为 ac",
+      "args": [
+        "ab#c",
+        "ad#c"
+      ],
+      "expected": true
+    },
+    {
+      "name": "连续退格",
+      "args": [
+        "ab##",
+        "c#d#"
+      ],
+      "expected": true
+    },
+    {
+      "name": "最终字符不同",
+      "args": [
+        "a#c",
+        "b"
+      ],
+      "expected": false
+    }
+  ]
+}

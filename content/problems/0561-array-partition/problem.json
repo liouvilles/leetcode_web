@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 561,
+  "slug": "array-partition",
+  "title": "数组拆分",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-007",
+  "studyTags": [
+    "贪心",
+    "排序",
+    "数组"
+  ],
+  "summary": "把长度为 2n 的数组分成 n 对，最大化每对较小值之和。",
+  "insight": "排序后相邻配对可避免较大元素浪费较小元素；每对较小值正好是所有偶数下标元素。",
+  "pitfalls": [
+    "目标累加每对最小值",
+    "负数同样适用排序策略",
+    "数组包含重复元素"
+  ],
+  "solutions": [
+    {
+      "id": "sort-adjacent-pairs",
+      "title": "排序后相邻配对",
+      "kind": "最优",
+      "idea": "升序数组中累加每对第一个元素。",
+      "steps": [
+        "对 nums 升序排序",
+        "按下标 0,2,4... 遍历",
+        "累加这些位置并返回"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/sort-adjacent-pairs/Solution.java",
+        "kotlin": "solutions/sort-adjacent-pairs/Solution.kt",
+        "cpp": "solutions/sort-adjacent-pairs/solution.cpp"
+      }
+    }
+  ]
+}

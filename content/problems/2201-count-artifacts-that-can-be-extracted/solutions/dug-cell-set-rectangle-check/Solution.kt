@@ -1,0 +1,1 @@
+class Solution { fun digArtifacts(n:Int,artifacts:Array<IntArray>,dig:Array<IntArray>):Int{val dug=dig.mapTo(HashSet()){it[0]*n+it[1]};var answer=0;for(artifact in artifacts){var complete=true;loop@for(row in artifact[0]..artifact[2])for(column in artifact[1]..artifact[3])if(row*n+column !in dug){complete=false;break@loop};if(complete)answer++};return answer} }

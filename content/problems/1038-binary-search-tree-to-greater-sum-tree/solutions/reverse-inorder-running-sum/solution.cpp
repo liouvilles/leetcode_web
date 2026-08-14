@@ -1,0 +1,1 @@
+class Solution { int running=0;void traverse(TreeNode* node){if(!node)return;traverse(node->right);running+=node->val;node->val=running;traverse(node->left);}public:TreeNode* bstToGst(TreeNode* root){running=0;traverse(root);return root;} };

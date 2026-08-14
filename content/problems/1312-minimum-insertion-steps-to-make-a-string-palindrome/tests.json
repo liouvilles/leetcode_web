@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minInsertions",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "zzazz 已是回文",
+      "args": [
+        "zzazz"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "mbadm 需要两次",
+      "args": [
+        "mbadm"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "leetcode 需要五次",
+      "args": [
+        "leetcode"
+      ],
+      "expected": 5
+    }
+  ]
+}

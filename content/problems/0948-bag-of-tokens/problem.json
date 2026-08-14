@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 948,
+  "slug": "bag-of-tokens",
+  "title": "令牌放置",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-013",
+  "studyTags": [
+    "数组",
+    "双指针",
+    "贪心",
+    "排序"
+  ],
+  "summary": "每个令牌最多用一次：能量足够时正面消耗令牌值换一分，或有分数时反面失一分获得能量，求最高分。",
+  "insight": "排序后，正面总应使用最小令牌，反面总应使用最大令牌；双指针在能买时持续买，买不起且仍可周转时卖最大值。",
+  "pitfalls": [
+    "返回过程中达到过的最高分而非最终分",
+    "没有分数时不能反面放置",
+    "只剩一个令牌时不值得卖出再买回"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-two-pointer-greedy",
+      "title": "排序双指针贪心",
+      "kind": "最优",
+      "idea": "用最便宜令牌得分、最贵令牌换能量。",
+      "steps": [
+        "排序 tokens，left/right 指向两端",
+        "若 power>=tokens[left]，正面使用并更新最高分",
+        "否则若 score>0 且 left<right，反面使用 tokens[right]；否则停止，返回最高分"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/sorted-two-pointer-greedy/Solution.java",
+        "kotlin": "solutions/sorted-two-pointer-greedy/Solution.kt",
+        "cpp": "solutions/sorted-two-pointer-greedy/solution.cpp"
+      }
+    }
+  ]
+}

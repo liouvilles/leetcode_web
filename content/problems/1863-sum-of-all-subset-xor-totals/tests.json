@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "subsetXORSum",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一三的子集异或和六",
+      "args": [
+        [
+          1,
+          3
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "三个数的子集异或和二十八",
+      "args": [
+        [
+          5,
+          1,
+          6
+        ]
+      ],
+      "expected": 28
+    },
+    {
+      "name": "零的所有异或值均零",
+      "args": [
+        [
+          0
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

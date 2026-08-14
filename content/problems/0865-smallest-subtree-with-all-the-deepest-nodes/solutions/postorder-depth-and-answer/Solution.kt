@@ -1,0 +1,1 @@
+class Solution { fun subtreeWithAllDeepest(root:TreeNode?):TreeNode?=dfs(root).second;private fun dfs(node:TreeNode?):Pair<Int,TreeNode?>{if(node==null)return 0 to null;val left=dfs(node.left);val right=dfs(node.right);return if(left.first==right.first)left.first+1 to node else if(left.first>right.first)left.first+1 to left.second else right.first+1 to right.second} }

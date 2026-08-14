@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1899,
+  "slug": "merge-triplets-to-form-target-triplet",
+  "title": "合并若干三元组以形成目标三元组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-027",
+  "studyTags": [
+    "数组",
+    "贪心"
+  ],
+  "summary": "可反复把两个三元组逐坐标取最大值，判断能否得到指定目标三元组。",
+  "insight": "任何坐标超过目标的三元组都不能使用，否则最大值无法降回目标。过滤这些三元组后，只要目标的三个坐标分别能由某个合法三元组达到，就可以把它们全部合并。",
+  "pitfalls": [
+    "超过目标任一坐标的三元组必须丢弃",
+    "三个目标坐标可来自不同三元组",
+    "操作只有逐坐标最大值"
+  ],
+  "solutions": [
+    {
+      "id": "filter-and-cover-target-coordinates",
+      "title": "过滤越界并覆盖目标坐标",
+      "kind": "最优",
+      "idea": "仅合并不可能超过目标的三元组并记录达到的坐标。",
+      "steps": [
+        "matched[3]=false",
+        "遍历 triplet，若任一维大于 target 则跳过",
+        "对合法项，等于目标的各维标记 true；最终三维全真返回 true"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/filter-and-cover-target-coordinates/Solution.java",
+        "kotlin": "solutions/filter-and-cover-target-coordinates/Solution.kt",
+        "cpp": "solutions/filter-and-cover-target-coordinates/solution.cpp"
+      }
+    }
+  ]
+}

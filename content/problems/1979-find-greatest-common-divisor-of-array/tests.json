@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findGCD",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "最小二最大十公约数二",
+      "args": [
+        [
+          2,
+          5,
+          6,
+          9,
+          10
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "最小七最大九互质",
+      "args": [
+        [
+          7,
+          5,
+          6,
+          8,
+          3
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "相同元素公约数为自身",
+      "args": [
+        [
+          4,
+          4,
+          4
+        ]
+      ],
+      "expected": 4
+    }
+  ]
+}

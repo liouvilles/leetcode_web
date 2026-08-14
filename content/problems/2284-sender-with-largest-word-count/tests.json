@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "largestWordCount",
+  "parameterTypes": [
+    "stringArray",
+    "stringArray"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "Alice 累计单词最多",
+      "args": [
+        [
+          "Hello userTwooo",
+          "Hi userThree",
+          "Wonderful day Alice",
+          "Nice day userThree"
+        ],
+        [
+          "Alice",
+          "userTwo",
+          "userThree",
+          "Alice"
+        ]
+      ],
+      "expected": "Alice"
+    },
+    {
+      "name": "并列时选字典序较大者",
+      "args": [
+        [
+          "How is leetcode for everyone",
+          "Leetcode is useful for practice"
+        ],
+        [
+          "Bob",
+          "Charlie"
+        ]
+      ],
+      "expected": "Charlie"
+    },
+    {
+      "name": "单发件人",
+      "args": [
+        [
+          "one two"
+        ],
+        [
+          "Zed"
+        ]
+      ],
+      "expected": "Zed"
+    }
+  ]
+}

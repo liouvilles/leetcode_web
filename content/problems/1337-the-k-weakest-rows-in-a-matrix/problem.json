@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1337,
+  "slug": "the-k-weakest-rows-in-a-matrix",
+  "title": "矩阵中战斗力最弱的 K 行",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-019",
+  "studyTags": [
+    "数组",
+    "二分查找",
+    "排序",
+    "矩阵"
+  ],
+  "summary": "每行一在前零在后，战斗力按一的数量升序、相同按行号升序，返回最弱的 k 个行号。",
+  "insight": "对每行二分第一个零得到士兵数，构造 [数量,行号] 后按两个键升序排序，取前 k 项。",
+  "pitfalls": [
+    "全一行的士兵数为列数",
+    "同数量必须选更小行号",
+    "返回的是行号而非数量"
+  ],
+  "solutions": [
+    {
+      "id": "binary-count-pair-sort",
+      "title": "二分计数与二键排序",
+      "kind": "最优",
+      "idea": "利用行内单调性计算士兵数后排序。",
+      "steps": [
+        "每行二分第一个零位置作为 soldiers",
+        "建立 row 下标数组或 [soldiers,row] 对",
+        "按 soldiers、row 升序，返回前 k 个 row"
+      ],
+      "complexity": {
+        "time": "O(rows log columns+rows log rows)",
+        "space": "O(rows)"
+      },
+      "files": {
+        "java": "solutions/binary-count-pair-sort/Solution.java",
+        "kotlin": "solutions/binary-count-pair-sort/Solution.kt",
+        "cpp": "solutions/binary-count-pair-sort/solution.cpp"
+      }
+    }
+  ]
+}

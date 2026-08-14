@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numWays",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一零一零一有四种切法",
+      "args": [
+        "10101"
+      ],
+      "expected": 4
+    },
+    {
+      "name": "两个一不能均分三段",
+      "args": [
+        "1001"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "四个零有三种两切法",
+      "args": [
+        "0000"
+      ],
+      "expected": 3
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1040,
+  "slug": "moving-stones-until-consecutive-ii",
+  "title": "移动石子直到连续 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-015",
+  "studyTags": [
+    "数组",
+    "排序",
+    "滑动窗口",
+    "贪心"
+  ],
+  "summary": "n 块石子在数轴不同位置，每次移动端点石子且移动后不能仍为端点，求所有石子连续所需最少和最多移动次数。",
+  "insight": "最大次数是固定一侧端点后逐步填空；最少次数用长度 n 的坐标窗口容纳尽量多石子，缺几块就移动几次，但 n-1 块已连续且孤立端点很远时需特殊两步。",
+  "pitfalls": [
+    "特殊局面不能一步把孤立端点塞进连续块，因为它仍会成为端点",
+    "窗口条件是坐标跨度不超过 n-1",
+    "最大次数取舍弃左端或右端后的较大空位数"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-sliding-window-gaps",
+      "title": "排序滑窗与空位公式",
+      "kind": "最优",
+      "idea": "分别计算最多空位填充和最少窗口补齐。",
+      "steps": [
+        "排序 stones；maximum=max(stones[n-2]-stones[0],stones[n-1]-stones[1])-(n-2)",
+        "滑动窗口保持 stones[right]-stones[left]+1<=n",
+        "count=right-left+1；若 count==n-1 且跨度==n-2，候选为 2，否则为 n-count；取最小，返回 [minimum,maximum]"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/sorted-sliding-window-gaps/Solution.java",
+        "kotlin": "solutions/sorted-sliding-window-gaps/Solution.kt",
+        "cpp": "solutions/sorted-sliding-window-gaps/solution.cpp"
+      }
+    }
+  ]
+}

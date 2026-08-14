@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "averageOfLevels",
+  "parameterTypes": [
+    "treeNode"
+  ],
+  "returnType": "doubleList",
+  "cases": [
+    {
+      "name": "三层平均值",
+      "args": [
+        [
+          3,
+          9,
+          20,
+          null,
+          null,
+          15,
+          7
+        ]
+      ],
+      "expected": [
+        3,
+        14.5,
+        11
+      ]
+    },
+    {
+      "name": "单节点",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": [
+        1
+      ]
+    },
+    {
+      "name": "含负值",
+      "args": [
+        [
+          -1,
+          -2,
+          -3
+        ]
+      ],
+      "expected": [
+        -1,
+        -2.5
+      ]
+    }
+  ]
+}

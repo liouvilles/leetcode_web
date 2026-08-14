@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "successfulPairs",
+  "parameterTypes": [
+    "intArray",
+    "intArray",
+    "long"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "经典三种咒语",
+      "args": [
+        [
+          5,
+          1,
+          3
+        ],
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        7
+      ],
+      "expected": [
+        4,
+        0,
+        3
+      ]
+    },
+    {
+      "name": "成功阈值十六",
+      "args": [
+        [
+          3,
+          1,
+          2
+        ],
+        [
+          8,
+          5,
+          8
+        ],
+        16
+      ],
+      "expected": [
+        2,
+        0,
+        2
+      ]
+    },
+    {
+      "name": "所有药水均成功",
+      "args": [
+        [
+          10
+        ],
+        [
+          1,
+          2,
+          3
+        ],
+        10
+      ],
+      "expected": [
+        3
+      ]
+    }
+  ]
+}

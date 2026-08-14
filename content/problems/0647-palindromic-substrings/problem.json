@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 647,
+  "slug": "palindromic-substrings",
+  "title": "回文子串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-003",
+  "studyTags": [
+    "中心扩展",
+    "回文计数",
+    "奇偶中心"
+  ],
+  "summary": "统计字符串中所有回文连续子串的数量，不同起止位置即视为不同子串。",
+  "insight": "每个回文子串都有唯一中心，枚举单字符中心和字符间隙中心并向外扩展即可恰好计数一次。",
+  "pitfalls": [
+    "相同文本但位置不同的子串分别计数",
+    "偶数长度回文中心在两个字符之间",
+    "每成功扩展一层就新增一个回文子串"
+  ],
+  "solutions": [
+    {
+      "id": "expand-centers",
+      "title": "枚举 2n-1 个中心",
+      "kind": "最优",
+      "idea": "对每个位置分别扩展奇数与偶数回文并累计成功次数。",
+      "steps": [
+        "遍历每个字符位置",
+        "从 (center,center) 扩展奇数回文",
+        "从 (center,center+1) 扩展偶数回文"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/expand-centers/Solution.java",
+        "kotlin": "solutions/expand-centers/Solution.kt",
+        "cpp": "solutions/expand-centers/solution.cpp"
+      }
+    }
+  ]
+}

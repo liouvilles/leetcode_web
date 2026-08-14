@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 732,
+  "slug": "my-calendar-iii",
+  "title": "我的日程安排表 III",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-009",
+  "studyTags": [
+    "设计",
+    "有序集合",
+    "差分数组",
+    "扫描线"
+  ],
+  "summary": "每次加入一个半开日程区间后，返回当前所有日程中的最大同时重叠数量。",
+  "insight": "在开始时间记录 +1、结束时间记录 -1；按时间有序扫描差分前缀和，其最大值就是最大重叠数。",
+  "pitfalls": [
+    "结束点不属于区间，因此在同一时刻可与下个开始抵消",
+    "每次 book 后都返回全局最大值",
+    "差分为零的时间点可以保留而不影响正确性"
+  ],
+  "solutions": [
+    {
+      "id": "ordered-difference-sweep",
+      "title": "有序差分扫描线",
+      "kind": "最优",
+      "idea": "TreeMap/map 保存所有端点变化，每次扫描求最大前缀和。",
+      "steps": [
+        "delta[start]++、delta[end]--",
+        "按键升序累计 active",
+        "maximum=max(maximum,active)，扫描结束返回 maximum"
+      ],
+      "complexity": {
+        "time": "O(n²) total",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/ordered-difference-sweep/Solution.java",
+        "kotlin": "solutions/ordered-difference-sweep/Solution.kt",
+        "cpp": "solutions/ordered-difference-sweep/solution.cpp"
+      }
+    }
+  ]
+}

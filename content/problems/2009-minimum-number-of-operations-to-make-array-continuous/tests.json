@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minOperations",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "二三四五已经连续",
+      "args": [
+        [
+          4,
+          2,
+          5,
+          3
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "缺少四只需替换一次",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          5,
+          6
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "四个离散值需替换三个",
+      "args": [
+        [
+          1,
+          10,
+          100,
+          1000
+        ]
+      ],
+      "expected": 3
+    }
+  ]
+}

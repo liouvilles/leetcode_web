@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 655,
+  "slug": "print-binary-tree",
+  "title": "输出二叉树",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-008",
+  "studyTags": [
+    "二叉树",
+    "深度优先搜索",
+    "矩阵布局"
+  ],
+  "summary": "按规定尺寸和居中规则把二叉树填入字符串矩阵，空位置使用空字符串。",
+  "insight": "树高为 h 时矩阵有 h 行、2^h-1 列；每个节点放在当前可用列区间中点，左右孩子递归使用两侧区间。",
+  "pitfalls": [
+    "树高按层数计算",
+    "节点值要转成字符串",
+    "每层节点的水平间隔由区间递归自然确定"
+  ],
+  "solutions": [
+    {
+      "id": "recursive-midpoint-layout",
+      "title": "递归区间中点布局",
+      "kind": "最优",
+      "idea": "先确定画布尺寸，再把每个节点放到其列区间中点。",
+      "steps": [
+        "递归求 height",
+        "创建 height×(2^height-1) 空字符串矩阵",
+        "fill(node,row,left,right)：写入 middle=(left+right)/2，再递归两侧"
+      ],
+      "complexity": {
+        "time": "O(rows·columns)",
+        "space": "O(rows·columns)"
+      },
+      "files": {
+        "java": "solutions/recursive-midpoint-layout/Solution.java",
+        "kotlin": "solutions/recursive-midpoint-layout/Solution.kt",
+        "cpp": "solutions/recursive-midpoint-layout/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 998,
+  "slug": "maximum-binary-tree-ii",
+  "title": "最大二叉树 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-014",
+  "studyTags": [
+    "树",
+    "递归",
+    "单调栈"
+  ],
+  "summary": "现有最大二叉树由数组构建，在原数组末尾追加 val，返回新数组对应的最大二叉树。",
+  "insight": "追加值只影响原树的右脊：若 val 大于根，val 成为新根且原树为左子树；否则根不变，在其右子树递归插入。",
+  "pitfalls": [
+    "不能修改左子树结构",
+    "严格大于根时才成为新根",
+    "递归深度等于右脊高度"
+  ],
+  "solutions": [
+    {
+      "id": "right-spine-recursive-insert",
+      "title": "右脊递归插入",
+      "kind": "最优",
+      "idea": "利用最大树根是区间最大值的性质。",
+      "steps": [
+        "若 root 为空返回新节点",
+        "若 val>root.val，创建新节点并令 left=root，返回新节点",
+        "否则 root.right=insert(root.right,val)，返回 root"
+      ],
+      "complexity": {
+        "time": "O(height)",
+        "space": "O(height)"
+      },
+      "files": {
+        "java": "solutions/right-spine-recursive-insert/Solution.java",
+        "kotlin": "solutions/right-spine-recursive-insert/Solution.kt",
+        "cpp": "solutions/right-spine-recursive-insert/solution.cpp"
+      }
+    }
+  ]
+}

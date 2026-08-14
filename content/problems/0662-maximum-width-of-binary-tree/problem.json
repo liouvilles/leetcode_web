@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 662,
+  "slug": "maximum-width-of-binary-tree",
+  "title": "二叉树最大宽度",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-008",
+  "studyTags": [
+    "二叉树",
+    "广度优先搜索",
+    "位置编号"
+  ],
+  "summary": "按满二叉树位置计算每层最左与最右非空节点间的宽度，包含中间空位，求最大宽度。",
+  "insight": "给节点分配满二叉树下标，某层宽度是末尾下标减首下标加一；每层减去首下标可防止深树编号溢出。",
+  "pitfalls": [
+    "宽度包含两个端点间的空节点",
+    "每层下标必须归一化",
+    "孩子下标分别是 2p 和 2p+1"
+  ],
+  "solutions": [
+    {
+      "id": "normalized-index-bfs",
+      "title": "归一化位置编号层序遍历",
+      "kind": "最优",
+      "idea": "队列同时保存节点与相对位置下标。",
+      "steps": [
+        "根以位置零入队",
+        "每层取队首位置作为 base，所有位置先减 base",
+        "记录该层首尾归一化位置更新宽度，并把孩子以 2p、2p+1 入队"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(width)"
+      },
+      "files": {
+        "java": "solutions/normalized-index-bfs/Solution.java",
+        "kotlin": "solutions/normalized-index-bfs/Solution.kt",
+        "cpp": "solutions/normalized-index-bfs/solution.cpp"
+      }
+    }
+  ]
+}

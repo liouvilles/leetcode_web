@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2446,
+  "slug": "determine-if-two-events-have-conflict",
+  "title": "判断两个事件是否存在冲突",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-036",
+  "studyTags": [
+    "数组",
+    "字符串"
+  ],
+  "summary": "两个事件以同日 HH:MM 的闭区间表示，判断时间段是否有交集。",
+  "insight": "固定两位时间字符串的字典序就是时间顺序；较晚开始时间不晚于较早结束时间时有冲突。",
+  "pitfalls": [
+    "端点相同也算冲突",
+    "区间端点包含",
+    "无需转换分钟即可比较"
+  ],
+  "solutions": [
+    {
+      "id": "lexicographic-closed-interval-overlap",
+      "title": "字典序闭区间相交",
+      "kind": "最优",
+      "idea": "比较两个开始最大值与结束最小值。",
+      "steps": [
+        "start=max(event1[0],event2[0])",
+        "end=min(event1[1],event2[1])",
+        "返回 start<=end"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/lexicographic-closed-interval-overlap/Solution.java",
+        "kotlin": "solutions/lexicographic-closed-interval-overlap/Solution.kt",
+        "cpp": "solutions/lexicographic-closed-interval-overlap/solution.cpp"
+      }
+    }
+  ]
+}

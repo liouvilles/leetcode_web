@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "accountsMerge",
+  "parameterTypes": [
+    "stringListMatrix"
+  ],
+  "returnType": "stringListMatrix",
+  "cases": [
+    {
+      "name": "经典账户合并",
+      "args": [
+        [
+          [
+            "John",
+            "johnsmith@mail.com",
+            "john_newyork@mail.com"
+          ],
+          [
+            "John",
+            "johnsmith@mail.com",
+            "john00@mail.com"
+          ],
+          [
+            "Mary",
+            "mary@mail.com"
+          ],
+          [
+            "John",
+            "johnnybravo@mail.com"
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          "John",
+          "john00@mail.com",
+          "john_newyork@mail.com",
+          "johnsmith@mail.com"
+        ],
+        [
+          "John",
+          "johnnybravo@mail.com"
+        ],
+        [
+          "Mary",
+          "mary@mail.com"
+        ]
+      ]
+    },
+    {
+      "name": "同名但邮箱不共享",
+      "args": [
+        [
+          [
+            "Alex",
+            "a@mail.com"
+          ],
+          [
+            "Alex",
+            "b@mail.com"
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          "Alex",
+          "a@mail.com"
+        ],
+        [
+          "Alex",
+          "b@mail.com"
+        ]
+      ]
+    },
+    {
+      "name": "传递共享邮箱",
+      "args": [
+        [
+          [
+            "A",
+            "a@mail.com",
+            "b@mail.com"
+          ],
+          [
+            "A",
+            "b@mail.com",
+            "c@mail.com"
+          ],
+          [
+            "A",
+            "c@mail.com",
+            "d@mail.com"
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          "A",
+          "a@mail.com",
+          "b@mail.com",
+          "c@mail.com",
+          "d@mail.com"
+        ]
+      ]
+    }
+  ]
+}

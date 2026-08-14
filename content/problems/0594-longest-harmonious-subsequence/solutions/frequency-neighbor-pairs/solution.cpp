@@ -1,0 +1,1 @@
+class Solution { public: int findLHS(vector<int>& nums){unordered_map<int,int> counts;for(int value:nums)++counts[value];int best=0;for(auto [value,count]:counts)if(counts.count(value+1))best=max(best,count+counts[value+1]);return best;} };

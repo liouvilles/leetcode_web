@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1218,
+  "slug": "longest-arithmetic-subsequence-of-given-difference",
+  "title": "最长定差子序列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-017",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "动态规划"
+  ],
+  "summary": "求数组中相邻差恒等于 difference 的最长子序列长度。",
+  "insight": "按原顺序扫描 value，以它结尾的最长长度只能接在值 value-difference 的已有子序列之后；哈希表直接保存每个结尾值的最优长度。",
+  "pitfalls": [
+    "子序列不要求连续",
+    "difference 可以为零或负数",
+    "同一结尾值重复出现时保留较大长度"
+  ],
+  "solutions": [
+    {
+      "id": "ending-value-hash-dp",
+      "title": "结尾值哈希动态规划",
+      "kind": "最优",
+      "idea": "由唯一所需前驱值转移当前长度。",
+      "steps": [
+        "dp 映射结尾值到最长长度，answer=0",
+        "扫描 value，length=dp.getOrDefault(value-difference,0)+1",
+        "dp[value]=max(dp[value],length)，同步更新 answer，返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/ending-value-hash-dp/Solution.java",
+        "kotlin": "solutions/ending-value-hash-dp/Solution.kt",
+        "cpp": "solutions/ending-value-hash-dp/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { public boolean isGoodArray(int[] nums){int gcd=0;for(int value:nums){gcd=gcd(gcd,value);if(gcd==1)return true;}return false;}private int gcd(int a,int b){while(b!=0){int remainder=a%b;a=b;b=remainder;}return a;} }

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2115,
+  "slug": "find-all-possible-recipes-from-given-supplies",
+  "title": "从给定原材料中找到所有可以做出的菜",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-031",
+  "studyTags": [
+    "图论",
+    "拓扑排序",
+    "哈希表",
+    "字符串"
+  ],
+  "summary": "菜谱可能依赖初始材料或其他菜谱，返回最终能够制作的全部菜谱。",
+  "insight": "把每种材料指向依赖它的菜谱，菜谱未满足材料数作为入度。初始材料进入队列；每得到一种可用物品就减少相关菜谱入度，归零的菜谱成为新材料。",
+  "pitfalls": [
+    "菜谱之间可能形成环",
+    "做出的菜可继续充当材料",
+    "不存在的基础材料不会入队"
+  ],
+  "solutions": [
+    {
+      "id": "availability-topological-sort",
+      "title": "可用物品拓扑传播",
+      "kind": "最优",
+      "idea": "从 supplies 出发拓扑解锁所有依赖已满足的菜谱。",
+      "steps": [
+        "建立 ingredient→recipes 邻接表与每个 recipe 的材料数",
+        "全部 supplies 入队",
+        "弹出可用物品，递减相关菜谱 indegree；归零时记录菜谱并入队"
+      ],
+      "complexity": {
+        "time": "O(total ingredients+recipes+supplies)",
+        "space": "O(total ingredients+recipes)"
+      },
+      "files": {
+        "java": "solutions/availability-topological-sort/Solution.java",
+        "kotlin": "solutions/availability-topological-sort/Solution.kt",
+        "cpp": "solutions/availability-topological-sort/solution.cpp"
+      }
+    }
+  ]
+}

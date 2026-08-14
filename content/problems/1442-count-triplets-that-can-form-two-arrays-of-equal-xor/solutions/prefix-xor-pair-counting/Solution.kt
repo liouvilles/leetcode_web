@@ -1,0 +1,1 @@
+class Solution { fun countTriplets(arr:IntArray):Int{val prefix=IntArray(arr.size+1);for(i in arr.indices)prefix[i+1]=prefix[i] xor arr[i];var answer=0;for(i in arr.indices)for(k in i+1 until arr.size)if(prefix[i]==prefix[k+1])answer+=k-i;return answer} }

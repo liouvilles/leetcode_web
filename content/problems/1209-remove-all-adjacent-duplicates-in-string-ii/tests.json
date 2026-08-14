@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "removeDuplicates",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "没有三连不删除",
+      "args": [
+        "abcd",
+        2
+      ],
+      "expected": "abcd"
+    },
+    {
+      "name": "经典级联删除",
+      "args": [
+        "deeedbbcccbdaa",
+        3
+      ],
+      "expected": "aa"
+    },
+    {
+      "name": "连续九个 p",
+      "args": [
+        "pbbcggttciiippooaais",
+        2
+      ],
+      "expected": "ps"
+    }
+  ]
+}

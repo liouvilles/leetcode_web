@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2201,
+  "slug": "count-artifacts-that-can-be-extracted",
+  "title": "统计可以提取的工件",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-032",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "矩阵",
+    "模拟"
+  ],
+  "summary": "矩形工件埋在网格中，只有其覆盖的每个单元格都被挖掘时才能提取，统计可提取工件数。",
+  "insight": "把挖掘坐标编码进集合；逐工件枚举其矩形内所有格，全部存在才计数。",
+  "pitfalls": [
+    "矩形端点都包含",
+    "工件互不重叠但无需利用此性质",
+    "部分挖掘不计"
+  ],
+  "solutions": [
+    {
+      "id": "dug-cell-set-rectangle-check",
+      "title": "挖掘格集合检查矩形",
+      "kind": "最优",
+      "idea": "用坐标集合回答每个覆盖格是否已挖。",
+      "steps": [
+        "把 digs 的 row*n+column 加入 Set",
+        "对每个 artifact 枚举 r1..r2、c1..c2",
+        "任一格不在 Set 则失败；全部存在时 answer++"
+      ],
+      "complexity": {
+        "time": "O(digs+total artifact area)",
+        "space": "O(digs)"
+      },
+      "files": {
+        "java": "solutions/dug-cell-set-rectangle-check/Solution.java",
+        "kotlin": "solutions/dug-cell-set-rectangle-check/Solution.kt",
+        "cpp": "solutions/dug-cell-set-rectangle-check/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { private int gcd(int a,int b){while(b!=0){int remainder=a%b;a=b;b=remainder;}return a;}public List<String> simplifiedFractions(int n){List<String> answer=new ArrayList<>();for(int denominator=2;denominator<=n;denominator++)for(int numerator=1;numerator<denominator;numerator++)if(gcd(numerator,denominator)==1)answer.add(numerator+"/"+denominator);return answer;} }

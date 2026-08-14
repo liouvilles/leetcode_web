@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2150,
+  "slug": "find-all-lonely-numbers-in-the-array",
+  "title": "找出数组中的所有孤独数字",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-031",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "计数"
+  ],
+  "summary": "一个数只出现一次且相邻整数 value-1、value+1 都不在数组中时称为孤独数字，返回所有孤独数字。",
+  "insight": "频次表同时回答唯一性和相邻值存在性；按原数组扫描可自然避免重复输出。",
+  "pitfalls": [
+    "本身出现多次不孤独",
+    "相邻指数值差一而非相邻下标",
+    "答案顺序不限"
+  ],
+  "solutions": [
+    {
+      "id": "frequency-neighbor-check",
+      "title": "频次与相邻值检查",
+      "kind": "最优",
+      "idea": "一次计数后逐元素验证三个频次条件。",
+      "steps": [
+        "Map 统计每个 value",
+        "遍历 nums",
+        "count[value]==1 且 value-1、value+1 均不存在时加入答案"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/frequency-neighbor-check/Solution.java",
+        "kotlin": "solutions/frequency-neighbor-check/Solution.kt",
+        "cpp": "solutions/frequency-neighbor-check/solution.cpp"
+      }
+    }
+  ]
+}

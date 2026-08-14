@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1997,
+  "slug": "first-day-where-you-have-been-in-all-the-rooms",
+  "title": "访问完所有房间的第一天",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-029",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "前缀和"
+  ],
+  "summary": "按房间访问次数奇偶决定下一房间：奇数次去 nextVisit[i]，偶数次去 i+1，求首次访问全部房间的天数。",
+  "insight": "令 dp[i] 为首次到达房间 i 的天数。首次到达 i-1 后还要回到 nextVisit[i-1]，再重走到 i-1 并向前，因此 dp[i]=2dp[i-1]-dp[next]+2。",
+  "pitfalls": [
+    "结果取模且减法需修正为非负",
+    "nextVisit[i]<=i",
+    "答案是天数而非访问次数"
+  ],
+  "solutions": [
+    {
+      "id": "first-arrival-recurrence",
+      "title": "首次到达日递推",
+      "kind": "最优",
+      "idea": "用此前首次到达日计算一次回访循环长度。",
+      "steps": [
+        "dp[0]=0",
+        "i 从 1：dp[i]=(2*dp[i-1]-dp[nextVisit[i-1]]+2)%MOD",
+        "修正负数并返回 dp[n-1]"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/first-arrival-recurrence/Solution.java",
+        "kotlin": "solutions/first-arrival-recurrence/Solution.kt",
+        "cpp": "solutions/first-arrival-recurrence/solution.cpp"
+      }
+    }
+  ]
+}

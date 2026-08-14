@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "MyHashMap",
+  "constructorTypes": [],
+  "cases": [
+    {
+      "name": "写入覆盖删除",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "put",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            1,
+            1
+          ]
+        },
+        {
+          "method": "put",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            2,
+            2
+          ]
+        },
+        {
+          "method": "get",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "get",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            3
+          ],
+          "returnType": "int",
+          "expected": -1
+        },
+        {
+          "method": "put",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            2,
+            1
+          ]
+        },
+        {
+          "method": "get",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "remove",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ]
+        },
+        {
+          "method": "get",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ],
+          "returnType": "int",
+          "expected": -1
+        }
+      ]
+    },
+    {
+      "name": "零键零值",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "put",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            0,
+            0
+          ]
+        },
+        {
+          "method": "get",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            0
+          ],
+          "returnType": "int",
+          "expected": 0
+        }
+      ]
+    },
+    {
+      "name": "删除不存在键",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "remove",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            9
+          ]
+        },
+        {
+          "method": "get",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            9
+          ],
+          "returnType": "int",
+          "expected": -1
+        }
+      ]
+    }
+  ]
+}

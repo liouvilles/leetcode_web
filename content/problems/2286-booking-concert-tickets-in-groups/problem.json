@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2286,
+  "slug": "booking-concert-tickets-in-groups",
+  "title": "以组为单位订音乐会的门票",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-033",
+  "studyTags": [
+    "设计",
+    "线段树",
+    "二分查找"
+  ],
+  "summary": "n 排每排 m 座，支持在 maxRow 内找一排连续 k 座，或在 maxRow 内按从前到后分散预订 k 座。",
+  "insight": "线段树维护行剩余座位最大值与总和。gather 用最大值递归找首个容量足够行；scatter 先查前缀总剩余量，再从全局首个未满行顺序消耗并点更新。",
+  "pitfalls": [
+    "行和座位均从零编号",
+    "gather 返回起始座位编号",
+    "scatter 失败不能修改状态"
+  ],
+  "solutions": [
+    {
+      "id": "segment-tree-row-capacity",
+      "title": "行容量最大值与总和线段树",
+      "kind": "最优",
+      "idea": "同时支持首个足够行搜索和前缀容量判断。",
+      "steps": [
+        "build 每叶 remaining=m，节点 max 与 sum",
+        "gather：findFirst(<=maxRow,max>=k)，起点=m-remaining[row]，扣 k 并点更新",
+        "scatter：querySum(0,maxRow)<k 返回 false；否则从 firstNonFull 逐行扣除并更新，成功 true"
+      ],
+      "complexity": {
+        "time": "O(log n) gather，O((consumed rows+1) log n) scatter",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/segment-tree-row-capacity/Solution.java",
+        "kotlin": "solutions/segment-tree-row-capacity/Solution.kt",
+        "cpp": "solutions/segment-tree-row-capacity/solution.cpp"
+      }
+    }
+  ]
+}

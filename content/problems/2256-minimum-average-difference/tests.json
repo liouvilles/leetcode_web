@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumAverageDifference",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典数组最小差下标三",
+      "args": [
+        [
+          2,
+          5,
+          3,
+          9,
+          5,
+          3
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "单元素下标零",
+      "args": [
+        [
+          0
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "并列时取最小下标",
+      "args": [
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2350,
+  "slug": "shortest-impossible-sequence-of-rolls",
+  "title": "不可能得到的最短骰子序列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "贪心"
+  ],
+  "summary": "给定一次骰子结果 rolls，求最短的由 1..k 构成、无法作为 rolls 子序列出现的序列长度。",
+  "insight": "每当从左到右收集齐一轮全部 k 个点数，就保证任意长度增加一的前缀可继续匹配一层。能完整收集 rounds 轮，则所有长度不超过 rounds 的序列都可形成，而总有长度 rounds+1 的序列缺失。",
+  "pitfalls": [
+    "要求子序列而非连续子数组",
+    "每收集齐一轮后必须清空集合重新开始",
+    "答案是完整轮数加一"
+  ],
+  "solutions": [
+    {
+      "id": "count-complete-alphabet-rounds",
+      "title": "统计完整点数轮次",
+      "kind": "最优",
+      "idea": "贪心切分尽可能多的全点数段。",
+      "steps": [
+        "seen 为空、rounds=0",
+        "遍历 roll 加入 seen",
+        "seen.size==k 时 rounds++ 并 clear",
+        "返回 rounds+1"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(k)"
+      },
+      "files": {
+        "java": "solutions/count-complete-alphabet-rounds/Solution.java",
+        "kotlin": "solutions/count-complete-alphabet-rounds/Solution.kt",
+        "cpp": "solutions/count-complete-alphabet-rounds/solution.cpp"
+      }
+    }
+  ]
+}

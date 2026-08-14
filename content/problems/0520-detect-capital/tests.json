@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "detectCapitalUse",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "全大写",
+      "args": [
+        "USA"
+      ],
+      "expected": true
+    },
+    {
+      "name": "错误混合大小写",
+      "args": [
+        "FlaG"
+      ],
+      "expected": false
+    },
+    {
+      "name": "首字母大写",
+      "args": [
+        "Google"
+      ],
+      "expected": true
+    }
+  ]
+}

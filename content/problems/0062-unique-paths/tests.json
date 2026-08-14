@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "uniquePaths",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三行七列网格",
+      "args": [
+        3,
+        7
+      ],
+      "expected": 28
+    },
+    {
+      "name": "三行两列网格",
+      "args": [
+        3,
+        2
+      ],
+      "expected": 3
+    },
+    {
+      "name": "起点就是终点",
+      "args": [
+        1,
+        1
+      ],
+      "expected": 1
+    }
+  ]
+}

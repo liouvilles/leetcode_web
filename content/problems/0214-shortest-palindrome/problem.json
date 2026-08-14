@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 214,
+  "slug": "shortest-palindrome",
+  "title": "最短回文串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-005",
+  "studyTags": [
+    "KMP",
+    "前缀函数",
+    "字符串"
+  ],
+  "summary": "只能在原字符串前方添加字符，构造最短的回文串。",
+  "insight": "找到原串最长的回文前缀后，只需把剩余后缀反转并放到最前；KMP 前缀函数可线性求该长度。",
+  "pitfalls": [
+    "添加操作只能发生在开头",
+    "分隔符应不出现在原字符串中",
+    "空串无需添加字符"
+  ],
+  "solutions": [
+    {
+      "id": "kmp-palindrome-prefix",
+      "title": "KMP 求最长回文前缀",
+      "kind": "最优",
+      "idea": "对 s#reverse(s) 计算最长相等前后缀，其长度就是回文前缀长度。",
+      "steps": [
+        "构造 reversed",
+        "计算 combined 的 prefix 数组",
+        "反转非回文后缀并拼接原串"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/kmp-palindrome-prefix/Solution.java",
+        "kotlin": "solutions/kmp-palindrome-prefix/Solution.kt",
+        "cpp": "solutions/kmp-palindrome-prefix/solution.cpp"
+      }
+    }
+  ]
+}

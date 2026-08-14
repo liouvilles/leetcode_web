@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2019,
+  "slug": "the-score-of-students-solving-math-expression",
+  "title": "解出数学表达式的学生分数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-029",
+  "studyTags": [
+    "栈",
+    "数组",
+    "数学",
+    "字符串",
+    "动态规划"
+  ],
+  "summary": "表达式含单数字、加号和乘号；正确答案得五分，按任意错误括号顺序但运算本身正确且结果不超一千得两分，求总分。",
+  "insight": "栈式计算乘法优先的正确值。区间 DP 枚举每个运算符作为最后运算，集合保存所有不同括号化结果且只保留不超一千者。",
+  "pitfalls": [
+    "正确答案优先得五分",
+    "错误括号结果集合需去重",
+    "中间结果超过一千可丢弃"
+  ],
+  "solutions": [
+    {
+      "id": "correct-evaluation-and-interval-set-dp",
+      "title": "正确求值与区间结果集合 DP",
+      "kind": "最优",
+      "idea": "分别计算标准答案和所有括号化可能答案。",
+      "steps": [
+        "解析数字与运算符；用累计项计算标准乘法优先值",
+        "dp[left][right] 集合：单数字；区间按 split 合并左右集合并执行对应运算，保留 <=1000",
+        "遍历学生答案：等于 correct 加五，否则在全集加二"
+      ],
+      "complexity": {
+        "time": "O(n³·R²)",
+        "space": "O(n²R)"
+      },
+      "files": {
+        "java": "solutions/correct-evaluation-and-interval-set-dp/Solution.java",
+        "kotlin": "solutions/correct-evaluation-and-interval-set-dp/Solution.kt",
+        "cpp": "solutions/correct-evaluation-and-interval-set-dp/solution.cpp"
+      }
+    }
+  ]
+}

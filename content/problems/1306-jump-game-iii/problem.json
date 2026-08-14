@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1306,
+  "slug": "jump-game-iii",
+  "title": "跳跃游戏 III",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "数组",
+    "广度优先搜索",
+    "图论"
+  ],
+  "summary": "从 start 出发，在下标 i 可跳到 i+arr[i] 或 i-arr[i]，判断能否到达值为零的位置。",
+  "insight": "把每个下标视为图节点，两种跳法是边；用 BFS/DFS 遍历所有可达下标，访问标记避免零距离或环导致重复。",
+  "pitfalls": [
+    "跳转结果必须在数组范围内",
+    "同一下标只访问一次",
+    "起点本身为零时立即成功"
+  ],
+  "solutions": [
+    {
+      "id": "index-graph-bfs",
+      "title": "下标图广度优先搜索",
+      "kind": "最优",
+      "idea": "遍历起点可达的所有合法下标。",
+      "steps": [
+        "队列放 start，seen[start]=true",
+        "弹出 index，若 arr[index]==0 返回 true",
+        "计算 index±arr[index]，合法且未访问则标记入队；耗尽返回 false"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/index-graph-bfs/Solution.java",
+        "kotlin": "solutions/index-graph-bfs/Solution.kt",
+        "cpp": "solutions/index-graph-bfs/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1289,
+  "slug": "minimum-falling-path-sum-ii",
+  "title": "下降路径最小和 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "矩阵"
+  ],
+  "summary": "从方阵每行选一个数，相邻两行不能选同一列，求所选数字总和最小值。",
+  "insight": "对上一行动态规划值找最小值、其列和第二小值；当前列若不是最小值列就加最小值，否则加第二小值，从而把每格转移降到常数时间。",
+  "pitfalls": [
+    "只有一列时直接返回其值",
+    "最小值可能有并列，仍可用不同列的第二次扫描值",
+    "允许负数"
+  ],
+  "solutions": [
+    {
+      "id": "two-smallest-row-dp",
+      "title": "每行双最小值动态规划",
+      "kind": "最优",
+      "idea": "用上一行最小与次小值替代逐列枚举。",
+      "steps": [
+        "dp=grid 第一行；对后续每行找 dp 最小值 first、列 firstColumn 以及第二小 second",
+        "next[column]=grid[row][column]+(column==firstColumn?second:first)",
+        "替换 dp，最终返回 dp 中最小值；n=1 直接返回"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/two-smallest-row-dp/Solution.java",
+        "kotlin": "solutions/two-smallest-row-dp/Solution.kt",
+        "cpp": "solutions/two-smallest-row-dp/solution.cpp"
+      }
+    }
+  ]
+}

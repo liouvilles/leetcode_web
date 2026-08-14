@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 748,
+  "slug": "shortest-completing-word",
+  "title": "最短补全词",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-010",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "字符串计数"
+  ],
+  "summary": "从单词列表中找最短单词，使其忽略大小写后包含车牌中所有字母及相应重复次数；并列取列表中最早者。",
+  "insight": "先统计车牌所需的 26 个字母频次，再逐词统计并检查是否逐项覆盖；只在严格更短时更新。",
+  "pitfalls": [
+    "车牌中的数字和空格忽略",
+    "字母比较不区分大小写",
+    "重复字母需求必须满足次数"
+  ],
+  "solutions": [
+    {
+      "id": "letter-frequency-cover",
+      "title": "字符频次覆盖检查",
+      "kind": "最优",
+      "idea": "把车牌约束压缩为固定 26 维计数。",
+      "steps": [
+        "统计 licensePlate 中英文字母的小写频次 required",
+        "对每个 word 统计 available",
+        "若所有 available[i]>=required[i] 且长度严格更短则更新；返回结果"
+      ],
+      "complexity": {
+        "time": "O(total characters)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/letter-frequency-cover/Solution.java",
+        "kotlin": "solutions/letter-frequency-cover/Solution.kt",
+        "cpp": "solutions/letter-frequency-cover/solution.cpp"
+      }
+    }
+  ]
+}

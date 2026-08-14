@@ -1,0 +1,1 @@
+class Solution { public int[] countPoints(int[][] points,int[][] queries){int[] answer=new int[queries.length];for(int q=0;q<queries.length;q++)for(int[] point:points){long dx=point[0]-queries[q][0],dy=point[1]-queries[q][1],radius=queries[q][2];if(dx*dx+dy*dy<=radius*radius)answer[q]++;}return answer;} }

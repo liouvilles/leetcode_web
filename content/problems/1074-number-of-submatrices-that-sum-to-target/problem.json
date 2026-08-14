@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1074,
+  "slug": "number-of-submatrices-that-sum-to-target",
+  "title": "元素和为目标值的子矩阵数量",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-016",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "前缀和",
+    "矩阵"
+  ],
+  "summary": "统计非空子矩阵中元素总和等于 target 的数量。",
+  "insight": "固定上边和下边，把两行之间每列之和压缩成一维数组，问题变成统计和为 target 的子数组，用前缀和频次线性完成。",
+  "pitfalls": [
+    "上下边界都包含在子矩阵中",
+    "每次改变下边界时增量更新列和",
+    "一维前缀频次初始零出现一次"
+  ],
+  "solutions": [
+    {
+      "id": "row-pair-compression-prefix-count",
+      "title": "行对压缩与前缀计数",
+      "kind": "最优",
+      "idea": "枚举上下边界后在线统计目标子数组。",
+      "steps": [
+        "top 从零开始，columnSums 清零",
+        "bottom 从 top 到末行，把 matrix[bottom] 加入 columnSums",
+        "扫描列前缀 sum，answer+=frequency[sum-target]，再 frequency[sum]++；累加所有行对"
+      ],
+      "complexity": {
+        "time": "O(rows²·cols)",
+        "space": "O(cols)"
+      },
+      "files": {
+        "java": "solutions/row-pair-compression-prefix-count/Solution.java",
+        "kotlin": "solutions/row-pair-compression-prefix-count/Solution.kt",
+        "cpp": "solutions/row-pair-compression-prefix-count/solution.cpp"
+      }
+    }
+  ]
+}

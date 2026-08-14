@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2456,
+  "slug": "most-popular-video-creator",
+  "title": "最流行的视频创作者",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-036",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "字符串"
+  ],
+  "summary": "创作者流行度为其视频播放量总和，返回流行度最高创作者及其播放量最高、并列字典序最小的视频编号。",
+  "insight": "一次扫描同时累计每个创作者总播放量，并维护其最佳单视频 [views,id]；最后输出总量达到全局最大者。",
+  "pitfalls": [
+    "总流行度使用 long",
+    "最佳视频按播放量再按编号字典序",
+    "可能有多个最流行创作者"
+  ],
+  "solutions": [
+    {
+      "id": "creator-aggregate-and-best-video",
+      "title": "创作者聚合与最佳视频",
+      "kind": "最优",
+      "idea": "每个创作者维护总量和局部最优编号。",
+      "steps": [
+        "total、bestViews、bestId 映射",
+        "扫描每个视频累加 total，并按 views 大或同量 id 小更新最佳",
+        "maximum=max(total)",
+        "输出 total==maximum 的 [creator,bestId]"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(number of creators)"
+      },
+      "files": {
+        "java": "solutions/creator-aggregate-and-best-video/Solution.java",
+        "kotlin": "solutions/creator-aggregate-and-best-video/Solution.kt",
+        "cpp": "solutions/creator-aggregate-and-best-video/solution.cpp"
+      }
+    }
+  ]
+}

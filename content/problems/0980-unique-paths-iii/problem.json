@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 980,
+  "slug": "unique-paths-iii",
+  "title": "不同路径 III",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-014",
+  "studyTags": [
+    "数组",
+    "回溯",
+    "矩阵"
+  ],
+  "summary": "在含起点、终点、空格和障碍的网格中，从起点四向移动到终点且每个非障碍格恰好经过一次，求路径数。",
+  "insight": "统计全部可走格数，用回溯标记当前格已访问并递减剩余数；只有到达终点时剩余恰为一，路径才完整覆盖。",
+  "pitfalls": [
+    "终点也属于必须访问的可走格",
+    "不能提前经过终点再离开",
+    "回溯后必须恢复网格原值"
+  ],
+  "solutions": [
+    {
+      "id": "remaining-cells-backtracking",
+      "title": "剩余格数回溯",
+      "kind": "最优",
+      "idea": "枚举不重复覆盖所有可走格的四向路径。",
+      "steps": [
+        "扫描网格找到起点并统计非障碍格 walkable",
+        "DFS(r,c,remaining)：若当前为终点，返回 remaining==1",
+        "保存当前值并标障碍，向四个合法非障碍邻居递归 remaining-1，恢复当前值并返回总数"
+      ],
+      "complexity": {
+        "time": "O(4^walkable)",
+        "space": "O(walkable)"
+      },
+      "files": {
+        "java": "solutions/remaining-cells-backtracking/Solution.java",
+        "kotlin": "solutions/remaining-cells-backtracking/Solution.kt",
+        "cpp": "solutions/remaining-cells-backtracking/solution.cpp"
+      }
+    }
+  ]
+}

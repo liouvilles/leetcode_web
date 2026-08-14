@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1048,
+  "slug": "longest-string-chain",
+  "title": "最长字符串链",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-015",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "动态规划",
+    "排序"
+  ],
+  "summary": "若向字符串任意位置插入一个字母可得到另一字符串，则前者是后者前身；求给定单词能组成的最长链长度。",
+  "insight": "按长度升序处理；对每个单词删除任意一个字符得到所有可能前身，从哈希表查询前身最佳链长并加一。",
+  "pitfalls": [
+    "插入字符可在任意位置",
+    "前身长度恰少一",
+    "删除不同位置可能得到同一字符串但取最大即可"
+  ],
+  "solutions": [
+    {
+      "id": "delete-one-predecessor-dp",
+      "title": "删一字符前身动态规划",
+      "kind": "最优",
+      "idea": "由短词最佳链长递推长词。",
+      "steps": [
+        "按长度升序排序 words，best 映射 word->chainLength",
+        "对每个 word 初值 length=1",
+        "枚举删除位置得到 predecessor，length=max(length,best.getOrDefault(predecessor,0)+1)，写入映射并更新答案"
+      ],
+      "complexity": {
+        "time": "O(n·L²)",
+        "space": "O(nL)"
+      },
+      "files": {
+        "java": "solutions/delete-one-predecessor-dp/Solution.java",
+        "kotlin": "solutions/delete-one-predecessor-dp/Solution.kt",
+        "cpp": "solutions/delete-one-predecessor-dp/solution.cpp"
+      }
+    }
+  ]
+}

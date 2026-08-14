@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "longestOnes",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "翻两个零得六",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          0
+        ],
+        2
+      ],
+      "expected": 6
+    },
+    {
+      "name": "翻三个零得十一",
+      "args": [
+        [
+          0,
+          0,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          0,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ],
+        3
+      ],
+      "expected": 11
+    },
+    {
+      "name": "不能翻零",
+      "args": [
+        [
+          1,
+          1,
+          0,
+          1
+        ],
+        0
+      ],
+      "expected": 2
+    }
+  ]
+}

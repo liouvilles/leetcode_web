@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 421,
+  "slug": "maximum-xor-of-two-numbers-in-an-array",
+  "title": "数组中两个数的最大异或值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-006",
+  "studyTags": [
+    "位运算",
+    "贪心",
+    "哈希集合"
+  ],
+  "summary": "从非负整数数组中选择两个数，使它们的按位异或结果最大。",
+  "insight": "从高位到低位贪心尝试把答案当前位设为一；若存在两个已知前缀异或得到候选答案，该位就可保留。",
+  "pitfalls": [
+    "高位优先决定更大数值",
+    "集合存放当前掩码下的前缀",
+    "每轮候选为 answer 加上当前位一"
+  ],
+  "solutions": [
+    {
+      "id": "prefix-greedy",
+      "title": "逐位前缀贪心",
+      "kind": "最优",
+      "idea": "用 aPrefix XOR bPrefix=candidate 等价于集合中存在 prefix XOR candidate。",
+      "steps": [
+        "mask 从高位逐步加入当前 bit",
+        "收集所有 value&mask 前缀",
+        "candidate=answer|bit，若存在互补前缀则接受"
+      ],
+      "complexity": {
+        "time": "O(31n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/prefix-greedy/Solution.java",
+        "kotlin": "solutions/prefix-greedy/Solution.kt",
+        "cpp": "solutions/prefix-greedy/solution.cpp"
+      }
+    }
+  ]
+}

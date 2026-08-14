@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 819,
+  "slug": "most-common-word",
+  "title": "最常见的单词",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-011",
+  "studyTags": [
+    "字符串",
+    "哈希表",
+    "计数"
+  ],
+  "summary": "忽略大小写和标点，返回段落中出现次数最多且不在禁用列表里的单词。",
+  "insight": "把禁用词放入集合，把段落转小写后按非字母切分，统计合法非空词并维护最高频。",
+  "pitfalls": [
+    "标点和空白都可作为分隔符",
+    "比较时不区分大小写",
+    "切分结果可能含空字符串"
+  ],
+  "solutions": [
+    {
+      "id": "normalized-word-frequency",
+      "title": "规范化词频统计",
+      "kind": "最优",
+      "idea": "一次扫描切词并统计非禁用词。",
+      "steps": [
+        "构建 bannedSet",
+        "paragraph 转小写并按非字母正则切分",
+        "跳过空词和禁用词，递增频次；严格超过最高值时更新答案"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(vocabulary)"
+      },
+      "files": {
+        "java": "solutions/normalized-word-frequency/Solution.java",
+        "kotlin": "solutions/normalized-word-frequency/Solution.kt",
+        "cpp": "solutions/normalized-word-frequency/solution.cpp"
+      }
+    }
+  ]
+}

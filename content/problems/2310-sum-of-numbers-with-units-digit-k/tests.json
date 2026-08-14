@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumNumbers",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "五十八用两个个位九的数",
+      "args": [
+        58,
+        9
+      ],
+      "expected": 2
+    },
+    {
+      "name": "三十七无法由个位二组成",
+      "args": [
+        37,
+        2
+      ],
+      "expected": -1
+    },
+    {
+      "name": "零不需要任何整数",
+      "args": [
+        0,
+        7
+      ],
+      "expected": 0
+    }
+  ]
+}

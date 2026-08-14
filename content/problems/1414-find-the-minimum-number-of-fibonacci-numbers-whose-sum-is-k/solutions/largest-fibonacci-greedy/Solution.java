@@ -1,0 +1,1 @@
+class Solution { public int findMinFibonacciNumbers(int k){List<Integer> fib=new ArrayList<>(Arrays.asList(1,2));while(fib.get(fib.size()-1)<k){int size=fib.size();fib.add(fib.get(size-1)+fib.get(size-2));}int answer=0;for(int i=fib.size()-1;i>=0&&k>0;i--)if(fib.get(i)<=k){k-=fib.get(i);answer++;}return answer;} }

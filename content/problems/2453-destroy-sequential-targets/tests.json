@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "destroyTargets",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "奇数同余组最多且最小为一",
+      "args": [
+        [
+          3,
+          7,
+          8,
+          1,
+          1,
+          5
+        ],
+        2
+      ],
+      "expected": 1
+    },
+    {
+      "name": "两组同频取较小起点一",
+      "args": [
+        [
+          1,
+          3,
+          5,
+          2,
+          4,
+          6
+        ],
+        2
+      ],
+      "expected": 1
+    },
+    {
+      "name": "余数各异取最小值二",
+      "args": [
+        [
+          6,
+          2,
+          5
+        ],
+        100
+      ],
+      "expected": 2
+    }
+  ]
+}

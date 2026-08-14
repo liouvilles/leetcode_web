@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "restoreMatrix",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "intMatrix",
+  "cases": [
+    {
+      "name": "二行三列确定性贪心矩阵",
+      "args": [
+        [
+          3,
+          8
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "expected": [
+        [
+          3,
+          0
+        ],
+        [
+          1,
+          7
+        ]
+      ]
+    },
+    {
+      "name": "三行三列逐步满足",
+      "args": [
+        [
+          5,
+          7,
+          10
+        ],
+        [
+          8,
+          6,
+          8
+        ]
+      ],
+      "expected": [
+        [
+          5,
+          0,
+          0
+        ],
+        [
+          3,
+          4,
+          0
+        ],
+        [
+          0,
+          2,
+          8
+        ]
+      ]
+    },
+    {
+      "name": "单行矩阵等于列和",
+      "args": [
+        [
+          6
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        [
+          1,
+          2,
+          3
+        ]
+      ]
+    }
+  ]
+}

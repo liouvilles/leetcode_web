@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "longestContinuousSubstring",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "abacaba 最长连续段 ab",
+      "args": [
+        "abacaba"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "abcde 全部连续",
+      "args": [
+        "abcde"
+      ],
+      "expected": 5
+    },
+    {
+      "name": "单字符长度一",
+      "args": [
+        "z"
+      ],
+      "expected": 1
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "reductionOperations",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三个不同层级共三次",
+      "args": [
+        [
+          5,
+          1,
+          3
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "元素已经相等无需操作",
+      "args": [
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "三个层级含重复共六次",
+      "args": [
+        [
+          1,
+          1,
+          2,
+          2,
+          3
+        ]
+      ],
+      "expected": 6
+    }
+  ]
+}

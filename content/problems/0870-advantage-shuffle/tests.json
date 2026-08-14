@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "advantageCount",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "经典优势排列",
+      "args": [
+        [
+          2,
+          7,
+          11,
+          15
+        ],
+        [
+          1,
+          10,
+          4,
+          11
+        ]
+      ],
+      "expected": [
+        2,
+        11,
+        7,
+        15
+      ]
+    },
+    {
+      "name": "包含一次牺牲",
+      "args": [
+        [
+          12,
+          24,
+          8,
+          32
+        ],
+        [
+          13,
+          25,
+          32,
+          11
+        ]
+      ],
+      "expected": [
+        24,
+        32,
+        8,
+        12
+      ]
+    },
+    {
+      "name": "单元素无法占优",
+      "args": [
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ],
+      "expected": [
+        1
+      ]
+    }
+  ]
+}

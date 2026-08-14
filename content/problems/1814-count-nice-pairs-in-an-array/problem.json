@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1814,
+  "slug": "count-nice-pairs-in-an-array",
+  "title": "统计一个数组中好对子的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-026",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "数学",
+    "计数"
+  ],
+  "summary": "若 nums[i]+rev(nums[j]) 等于 nums[j]+rev(nums[i])，则 i<j 是好对子，统计数量并取模。",
+  "insight": "移项得 nums[i]-rev(nums[i]) 相等。扫描这个特征值，当前元素与此前同特征值元素都组成好对子。",
+  "pitfalls": [
+    "反转后前导零丢弃",
+    "只统计 i<j",
+    "答案取模"
+  ],
+  "solutions": [
+    {
+      "id": "reverse-difference-frequency",
+      "title": "反转差值频次",
+      "kind": "最优",
+      "idea": "把二元等式化成单元素特征相等。",
+      "steps": [
+        "定义 reverse 十进制反转",
+        "frequency map 与 answer=0",
+        "对 value 计算 key=value-reverse(value)，answer+=frequency[key]，再 frequency[key]++，取模"
+      ],
+      "complexity": {
+        "time": "O(n·digits)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/reverse-difference-frequency/Solution.java",
+        "kotlin": "solutions/reverse-difference-frequency/Solution.kt",
+        "cpp": "solutions/reverse-difference-frequency/solution.cpp"
+      }
+    }
+  ]
+}

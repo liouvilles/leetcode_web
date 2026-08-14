@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countLargestGroup",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一到十三有四个最大组",
+      "args": [
+        13
+      ],
+      "expected": 4
+    },
+    {
+      "name": "一到二各自一组",
+      "args": [
+        2
+      ],
+      "expected": 2
+    },
+    {
+      "name": "一到十五有六个最大组",
+      "args": [
+        15
+      ],
+      "expected": 6
+    }
+  ]
+}

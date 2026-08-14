@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 703,
+  "slug": "kth-largest-element-in-a-stream",
+  "title": "数据流中的第 K 大元素",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-009",
+  "studyTags": [
+    "设计",
+    "堆",
+    "数据流"
+  ],
+  "summary": "维护数据流中第 k 大的元素；初始化已有一组数，每次 add 新值后返回当前第 k 大值。",
+  "insight": "只保留最大的 k 个元素在小根堆中，堆顶正是其中最小者，也就是全体第 k 大。",
+  "pitfalls": [
+    "重复值分别计入排名",
+    "初始化元素数可以少于 k",
+    "每次加入后堆大小超过 k 就弹出最小值"
+  ],
+  "solutions": [
+    {
+      "id": "size-k-min-heap",
+      "title": "容量 k 的小根堆",
+      "kind": "最优",
+      "idea": "堆中始终保存到目前为止最大的 k 个值。",
+      "steps": [
+        "保存 k 并初始化小根堆",
+        "构造时对 nums 逐个调用 add",
+        "add 把 val 入堆，大小超过 k 时弹顶，返回堆顶"
+      ],
+      "complexity": {
+        "time": "O(log k) per add",
+        "space": "O(k)"
+      },
+      "files": {
+        "java": "solutions/size-k-min-heap/Solution.java",
+        "kotlin": "solutions/size-k-min-heap/Solution.kt",
+        "cpp": "solutions/size-k-min-heap/solution.cpp"
+      }
+    }
+  ]
+}

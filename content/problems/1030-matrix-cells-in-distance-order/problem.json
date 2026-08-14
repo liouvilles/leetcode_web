@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1030,
+  "slug": "matrix-cells-in-distance-order",
+  "title": "距离顺序排列矩阵单元格",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-015",
+  "studyTags": [
+    "数组",
+    "矩阵",
+    "排序"
+  ],
+  "summary": "列出 rows×cols 所有单元格，并按到中心 (rCenter,cCenter) 的曼哈顿距离非递减排列，距离相同顺序任意。",
+  "insight": "网格规模允许直接生成全部坐标，并以 |r-rCenter|+|c-cCenter| 作为排序键。",
+  "pitfalls": [
+    "必须包含每个单元格恰一次",
+    "曼哈顿距离不是欧氏距离",
+    "测试用行列作为次级键固定同距顺序"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-and-distance-sort",
+      "title": "枚举并按距离排序",
+      "kind": "最优",
+      "idea": "生成坐标后按距离、行、列确定性排序。",
+      "steps": [
+        "创建 rows*cols 个 [r,c]",
+        "按 distance、r、c 依次升序排序",
+        "返回排序后的坐标矩阵"
+      ],
+      "complexity": {
+        "time": "O(rc log(rc))",
+        "space": "O(rc)"
+      },
+      "files": {
+        "java": "solutions/enumerate-and-distance-sort/Solution.java",
+        "kotlin": "solutions/enumerate-and-distance-sort/Solution.kt",
+        "cpp": "solutions/enumerate-and-distance-sort/solution.cpp"
+      }
+    }
+  ]
+}

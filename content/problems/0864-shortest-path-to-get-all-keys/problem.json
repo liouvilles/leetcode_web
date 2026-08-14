@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 864,
+  "slug": "shortest-path-to-get-all-keys",
+  "title": "获取所有钥匙的最短路径",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "数组",
+    "广度优先搜索",
+    "状态压缩",
+    "矩阵"
+  ],
+  "summary": "网格中包含起点、墙、钥匙和对应锁，可四向移动且持有钥匙后才能过锁，求取得全部钥匙的最少步数。",
+  "insight": "位置相同但持有钥匙集合不同是不同状态；对 (row,column,keyMask) 做 BFS，首次达到全部钥匙掩码即为最短路径。",
+  "pitfalls": [
+    "锁在没有对应钥匙时不可进入",
+    "拾取钥匙后要更新位掩码",
+    "访问集合必须包含钥匙状态"
+  ],
+  "solutions": [
+    {
+      "id": "position-keymask-bfs",
+      "title": "位置与钥匙掩码 BFS",
+      "kind": "最优",
+      "idea": "在扩展状态空间中逐层搜索。",
+      "steps": [
+        "扫描网格找到起点并汇总 targetMask",
+        "队列存 row,column,mask,distance，seen[row][column][mask]",
+        "四向移动：跳墙和无钥匙锁，遇钥匙更新 mask；未访问则入队，mask==target 时返回距离，耗尽返回 -1"
+      ],
+      "complexity": {
+        "time": "O(mn·2^keys)",
+        "space": "O(mn·2^keys)"
+      },
+      "files": {
+        "java": "solutions/position-keymask-bfs/Solution.java",
+        "kotlin": "solutions/position-keymask-bfs/Solution.kt",
+        "cpp": "solutions/position-keymask-bfs/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1388,
+  "slug": "pizza-with-3n-slices",
+  "title": "三的倍数份披萨",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-019",
+  "studyTags": [
+    "数组",
+    "动态规划"
+  ],
+  "summary": "环形披萨有 3n 块，每轮选择一块后相邻两块被他人拿走，求自己选 n 块可获得的最大总和。",
+  "insight": "等价于环上选择 n 个互不相邻元素。环形约束拆成不选末块与不选首块两个线性问题，每个用恰选 j 个非相邻元素的动态规划。",
+  "pitfalls": [
+    "必须恰好选择总长度三分之一块",
+    "首尾相邻，需拆为两个线性区间",
+    "不可达的 DP 状态要设为负无穷"
+  ],
+  "solutions": [
+    {
+      "id": "two-linear-nonadjacent-dp",
+      "title": "两段线性不相邻动态规划",
+      "kind": "最优",
+      "idea": "分别排除环首或环尾并求线性最优。",
+      "steps": [
+        "picks=slices.length/3",
+        "solve(start,end)：dp[i][j] 表示前 i 项恰选 j 项最大和，转移跳过或从 i-2 取",
+        "返回 max(solve(0,n-2),solve(1,n-1))"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/two-linear-nonadjacent-dp/Solution.java",
+        "kotlin": "solutions/two-linear-nonadjacent-dp/Solution.kt",
+        "cpp": "solutions/two-linear-nonadjacent-dp/solution.cpp"
+      }
+    }
+  ]
+}

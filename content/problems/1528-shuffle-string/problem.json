@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1528,
+  "slug": "shuffle-string",
+  "title": "重新排列字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-022",
+  "studyTags": [
+    "数组",
+    "字符串"
+  ],
+  "summary": "字符 s[i] 应移动到 indices[i]，返回恢复后的字符串。",
+  "insight": "建立等长字符数组，直接把每个原字符写到目标下标即可。",
+  "pitfalls": [
+    "indices 是一个排列",
+    "映射方向是 result[indices[i]]=s[i]",
+    "所有位置恰好填一次"
+  ],
+  "solutions": [
+    {
+      "id": "direct-index-placement",
+      "title": "目标下标直接放置",
+      "kind": "最优",
+      "idea": "按给定置换把字符写入结果数组。",
+      "steps": [
+        "answer char[n]",
+        "对 i 执行 answer[indices[i]]=s[i]",
+        "构造字符串返回"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/direct-index-placement/Solution.java",
+        "kotlin": "solutions/direct-index-placement/Solution.kt",
+        "cpp": "solutions/direct-index-placement/solution.cpp"
+      }
+    }
+  ]
+}

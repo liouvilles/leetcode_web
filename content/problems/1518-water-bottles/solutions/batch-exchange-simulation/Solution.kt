@@ -1,0 +1,1 @@
+class Solution { fun numWaterBottles(numBottles:Int,numExchange:Int):Int{var answer=numBottles;var empty=numBottles;while(empty>=numExchange){val full=empty/numExchange;answer+=full;empty=full+empty%numExchange};return answer} }

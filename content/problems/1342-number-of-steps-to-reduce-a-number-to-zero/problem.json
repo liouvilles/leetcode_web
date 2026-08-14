@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1342,
+  "slug": "number-of-steps-to-reduce-a-number-to-zero",
+  "title": "将数字变成 0 的操作次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-019",
+  "studyTags": [
+    "数学",
+    "位运算",
+    "模拟"
+  ],
+  "summary": "正数为偶数时除二、奇数时减一，统计把 num 变成零的操作次数。",
+  "insight": "直接按规则模拟；每次操作都会减小 num，循环次数与二进制位数和一位数量相关。",
+  "pitfalls": [
+    "num 初始可为零",
+    "偶数判断用最低位",
+    "奇数减一后一定变偶数或零"
+  ],
+  "solutions": [
+    {
+      "id": "direct-parity-simulation",
+      "title": "奇偶规则直接模拟",
+      "kind": "最优",
+      "idea": "逐步执行唯一确定的操作。",
+      "steps": [
+        "steps=0",
+        "while num>0：偶数 num/=2，否则 num--；steps++",
+        "返回 steps"
+      ],
+      "complexity": {
+        "time": "O(log num+置位数)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/direct-parity-simulation/Solution.java",
+        "kotlin": "solutions/direct-parity-simulation/Solution.kt",
+        "cpp": "solutions/direct-parity-simulation/solution.cpp"
+      }
+    }
+  ]
+}

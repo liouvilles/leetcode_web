@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1000,
+  "slug": "minimum-cost-to-merge-stones",
+  "title": "合并石头的最低成本",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-014",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "区间动态规划",
+    "前缀和"
+  ],
+  "summary": "每次把连续 k 堆石头合成一堆，代价为这些石头总数，求把全部合成一堆的最低总代价；无解返回负一。",
+  "insight": "每次堆数减少 k-1，因此先判可行性；区间 DP 用步长 k-1 枚举切点，把区间尽可能合并，只有区间长度满足可再合成一堆时才加区间总和。",
+  "pitfalls": [
+    "全局可行条件是 (n-1)%(k-1)==0",
+    "切点按 k-1 递增以保证左右状态堆数兼容",
+    "并非每个区间都能最终合成一堆"
+  ],
+  "solutions": [
+    {
+      "id": "interval-dp-with-pile-congruence",
+      "title": "堆数同余区间动态规划",
+      "kind": "最优",
+      "idea": "按区间长度合并兼容子区间并在可归一时付总和。",
+      "steps": [
+        "不可行直接返回 -1，构建前缀和与 dp[n][n]",
+        "length 从 2 到 n；对区间 [left,right]，mid 从 left 按 k-1 跳到 right-1，取 dp[left][mid]+dp[mid+1][right] 最小值",
+        "若 (length-1)%(k-1)==0，再加区间和；返回 dp[0][n-1]"
+      ],
+      "complexity": {
+        "time": "O(n³/k)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/interval-dp-with-pile-congruence/Solution.java",
+        "kotlin": "solutions/interval-dp-with-pile-congruence/Solution.kt",
+        "cpp": "solutions/interval-dp-with-pile-congruence/solution.cpp"
+      }
+    }
+  ]
+}

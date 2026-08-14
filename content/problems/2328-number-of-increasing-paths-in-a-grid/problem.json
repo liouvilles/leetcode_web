@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2328,
+  "slug": "number-of-increasing-paths-in-a-grid",
+  "title": "网格图中递增路径的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "图论",
+    "拓扑排序",
+    "矩阵"
+  ],
+  "summary": "统计网格中任意起点、任意终点的四向严格递增非空路径数量，结果取模。",
+  "insight": "按格值升序处理形成拓扑序。dp[cell] 初始为单格路径一条，再从所有值更小的相邻格把以其结尾的路径接到当前格。",
+  "pitfalls": [
+    "路径必须严格递增，相等不能转移",
+    "每个单格自身也是一条路径",
+    "答案和状态都需取模"
+  ],
+  "solutions": [
+    {
+      "id": "value-sorted-topological-dp",
+      "title": "按值排序的拓扑 DP",
+      "kind": "最优",
+      "idea": "避免递归深度风险地沿递增 DAG 传播路径数。",
+      "steps": [
+        "把所有格下标按 grid 值升序排序",
+        "dp 每格初始化 1",
+        "依序处理格子，对每个更小邻格执行 dp[current]+=dp[neighbor]",
+        "累加全部 dp 得答案"
+      ],
+      "complexity": {
+        "time": "O(mn log(mn))",
+        "space": "O(mn)"
+      },
+      "files": {
+        "java": "solutions/value-sorted-topological-dp/Solution.java",
+        "kotlin": "solutions/value-sorted-topological-dp/Solution.kt",
+        "cpp": "solutions/value-sorted-topological-dp/solution.cpp"
+      }
+    }
+  ]
+}

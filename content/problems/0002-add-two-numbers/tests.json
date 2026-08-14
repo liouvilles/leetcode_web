@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "addTwoNumbers",
+  "parameterTypes": [
+    "listNode",
+    "listNode"
+  ],
+  "returnType": "listNode",
+  "cases": [
+    {
+      "name": "普通三位数相加",
+      "args": [
+        [
+          2,
+          4,
+          3
+        ],
+        [
+          5,
+          6,
+          4
+        ]
+      ],
+      "expected": [
+        7,
+        0,
+        8
+      ]
+    },
+    {
+      "name": "两个零相加",
+      "args": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "expected": [
+        0
+      ]
+    },
+    {
+      "name": "连续进位且长度不同",
+      "args": [
+        [
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9
+        ],
+        [
+          9,
+          9,
+          9,
+          9
+        ]
+      ],
+      "expected": [
+        8,
+        9,
+        9,
+        9,
+        0,
+        0,
+        0,
+        1
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { fun minInsertions(text:String):Int{var insertions=0;var need=0;for(value in text)if(value=='('){if(need%2==1){insertions++;need--};need+=2}else{need--;if(need<0){insertions++;need=1}};return insertions+need} }

@@ -1,0 +1,1 @@
+class Solution { public int numWaterBottles(int numBottles,int numExchange){int answer=numBottles,empty=numBottles;while(empty>=numExchange){int full=empty/numExchange;answer+=full;empty=full+empty%numExchange;}return answer;} }

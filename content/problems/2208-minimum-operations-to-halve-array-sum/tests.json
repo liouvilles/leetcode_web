@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "halveArray",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典数组三次减半",
+      "args": [
+        [
+          5,
+          19,
+          8,
+          1
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "三八二十需三次",
+      "args": [
+        [
+          3,
+          8,
+          20
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "单元素一次即可减半",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

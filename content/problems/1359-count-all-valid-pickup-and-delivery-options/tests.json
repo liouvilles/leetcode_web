@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countOrders",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一份订单",
+      "args": [
+        1
+      ],
+      "expected": 1
+    },
+    {
+      "name": "两份订单六种",
+      "args": [
+        2
+      ],
+      "expected": 6
+    },
+    {
+      "name": "三份订单九十种",
+      "args": [
+        3
+      ],
+      "expected": 90
+    }
+  ]
+}

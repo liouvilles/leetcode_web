@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxConsecutiveAnswers",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "TTFF 修改二次全相同",
+      "args": [
+        "TTFF",
+        2
+      ],
+      "expected": 4
+    },
+    {
+      "name": "TFFT 修改一次最长三",
+      "args": [
+        "TFFT",
+        1
+      ],
+      "expected": 3
+    },
+    {
+      "name": "混合答案修改一次最长五",
+      "args": [
+        "TTFTTFTT",
+        1
+      ],
+      "expected": 5
+    }
+  ]
+}

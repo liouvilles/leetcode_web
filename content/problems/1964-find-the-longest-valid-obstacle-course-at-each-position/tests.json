@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "longestObstacleCourseAtEachPosition",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "末位二可接在一二三后",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          2
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        3,
+        3
+      ]
+    },
+    {
+      "name": "相等高度可延长路线",
+      "args": [
+        [
+          2,
+          2,
+          1
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        1
+      ]
+    },
+    {
+      "name": "混合高度逐位置结果",
+      "args": [
+        [
+          3,
+          1,
+          5,
+          6,
+          4,
+          2
+        ]
+      ],
+      "expected": [
+        1,
+        1,
+        2,
+        3,
+        2,
+        2
+      ]
+    }
+  ]
+}

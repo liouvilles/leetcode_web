@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1439,
+  "slug": "find-the-kth-smallest-sum-of-a-matrix-with-sorted-rows",
+  "title": "有序矩阵中的第 k 个最小数组和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-020",
+  "studyTags": [
+    "数组",
+    "排序",
+    "矩阵"
+  ],
+  "summary": "从每行恰选一个元素组成数组，返回所有可能总和中的第 k 小值。",
+  "insight": "逐行合并当前最小和集合与新行元素；每次生成两者笛卡尔和、排序后只保留最小 k 个，其余永远不会进入最终前 k。",
+  "pitfalls": [
+    "不同选择产生的相同总和需要重复计数",
+    "每次合并必须截断到 k 个",
+    "初始和集合为零"
+  ],
+  "solutions": [
+    {
+      "id": "iterative-k-trim-merge",
+      "title": "逐行合并并截断前 k",
+      "kind": "最优",
+      "idea": "保持处理过行的最小 k 个组合和。",
+      "steps": [
+        "sums=[0]",
+        "对每一行生成 sums 与 row 所有两两和并排序",
+        "只保留前 min(k,size) 项作为新 sums，最后返回 sums[k-1]"
+      ],
+      "complexity": {
+        "time": "O(r·k·c log(kc))",
+        "space": "O(kc)"
+      },
+      "files": {
+        "java": "solutions/iterative-k-trim-merge/Solution.java",
+        "kotlin": "solutions/iterative-k-trim-merge/Solution.kt",
+        "cpp": "solutions/iterative-k-trim-merge/solution.cpp"
+      }
+    }
+  ]
+}

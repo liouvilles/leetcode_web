@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumRequests",
+  "parameterTypes": [
+    "int",
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "五楼可满足五个请求",
+      "args": [
+        5,
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "三个请求形成完整循环",
+      "args": [
+        3,
+        [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ]
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "四楼三个请求全部平衡",
+      "args": [
+        4,
+        [
+          [
+            0,
+            3
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      ],
+      "expected": 3
+    }
+  ]
+}

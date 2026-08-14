@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numTilePossibilities",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "AAB 八种",
+      "args": [
+        "AAB"
+      ],
+      "expected": 8
+    },
+    {
+      "name": "AAABBC 一百八十八种",
+      "args": [
+        "AAABBC"
+      ],
+      "expected": 188
+    },
+    {
+      "name": "单牌一种",
+      "args": [
+        "V"
+      ],
+      "expected": 1
+    }
+  ]
+}

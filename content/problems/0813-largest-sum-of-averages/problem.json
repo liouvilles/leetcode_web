@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 813,
+  "slug": "largest-sum-of-averages",
+  "title": "最大平均值和的分组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-011",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "前缀和"
+  ],
+  "summary": "把数组分成至多 k 个相邻非空组，最大化各组平均值之和。",
+  "insight": "正数数组多分组不会使答案变差，因此按恰好 k 组计算；前缀和常数时间得到任意末段平均值，枚举最后一组切点。",
+  "pitfalls": [
+    "每组必须连续且非空",
+    "状态组数不能超过已用元素数",
+    "使用 double 保存平均值"
+  ],
+  "solutions": [
+    {
+      "id": "prefix-sum-partition-dp",
+      "title": "前缀和分组动态规划",
+      "kind": "最优",
+      "idea": "按组数和前缀长度枚举最后切分点。",
+      "steps": [
+        "计算 prefix[i] 为前 i 项和，dp[i]=prefix[i]/i 表示一组",
+        "group 从 2 到 k，next[i] 枚举 cut>=group-1，取 dp[cut]+(prefix[i]-prefix[cut])/(i-cut) 最大值",
+        "滚动 dp，返回 dp[n]"
+      ],
+      "complexity": {
+        "time": "O(k n²)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/prefix-sum-partition-dp/Solution.java",
+        "kotlin": "solutions/prefix-sum-partition-dp/Solution.kt",
+        "cpp": "solutions/prefix-sum-partition-dp/solution.cpp"
+      }
+    }
+  ]
+}

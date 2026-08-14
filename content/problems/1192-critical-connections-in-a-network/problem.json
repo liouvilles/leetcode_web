@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1192,
+  "slug": "critical-connections-in-a-network",
+  "title": "查找集群内的关键连接",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-017",
+  "studyTags": [
+    "图论",
+    "深度优先搜索",
+    "Tarjan",
+    "桥"
+  ],
+  "summary": "无向连通网络中，返回删除后会使网络不再连通的所有边。",
+  "insight": "DFS 时间戳 discovery 标识节点首次访问顺序，low 标识子树通过树边或返祖边能到达的最早时间；若孩子 low 严格大于父节点 discovery，该边没有替代回路，是桥。",
+  "pitfalls": [
+    "无向边回到直接父节点不算返祖边",
+    "已访问邻居用 discovery 更新 low",
+    "桥的判定是严格大于"
+  ],
+  "solutions": [
+    {
+      "id": "tarjan-low-link-bridges",
+      "title": "Tarjan 低链接桥",
+      "kind": "最优",
+      "idea": "一次深搜计算每条 DFS 树边是否存在回到祖先的路径。",
+      "steps": [
+        "建无向邻接表，discovery 初始为零，time 从一递增",
+        "dfs(node,parent)：设置 discovery=low=time++；遍历邻居，跳过 parent",
+        "未访问邻居递归后 low[node]=min(low[node],low[next])；若 low[next]>discovery[node] 记录 [node,next]；已访问则用 discovery[next] 更新"
+      ],
+      "complexity": {
+        "time": "O(n+e)",
+        "space": "O(n+e)"
+      },
+      "files": {
+        "java": "solutions/tarjan-low-link-bridges/Solution.java",
+        "kotlin": "solutions/tarjan-low-link-bridges/Solution.kt",
+        "cpp": "solutions/tarjan-low-link-bridges/solution.cpp"
+      }
+    }
+  ]
+}

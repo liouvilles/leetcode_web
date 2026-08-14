@@ -1,0 +1,1 @@
+class Solution { fun minRemoveToMakeValid(s:String):String{val remove=BooleanArray(s.length);val stack=java.util.ArrayDeque<Int>();for(i in s.indices)if(s[i]=='(')stack.push(i)else if(s[i]==')'){if(stack.isEmpty())remove[i]=true else stack.pop()};while(stack.isNotEmpty())remove[stack.pop()]=true;return buildString{for(i in s.indices)if(!remove[i])append(s[i])}} }

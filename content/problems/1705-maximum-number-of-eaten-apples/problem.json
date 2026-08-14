@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1705,
+  "slug": "maximum-number-of-eaten-apples",
+  "title": "吃苹果的最大数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-024",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "堆（优先队列）"
+  ],
+  "summary": "第 i 天长出 apples[i] 个苹果，days[i] 天后腐烂；每天最多吃一个，求最多能吃多少个。",
+  "insight": "每天应优先吃最早过期的苹果。小根堆存每批苹果的过期日和剩余数量，先清除腐烂批次，再从堆顶吃一个。",
+  "pitfalls": [
+    "过期日等于 day 时当天已经不能吃",
+    "苹果停止生长后仍可继续吃未腐烂库存",
+    "数量减到零要移出堆"
+  ],
+  "solutions": [
+    {
+      "id": "earliest-expiry-heap",
+      "title": "最早过期批次小根堆",
+      "kind": "最优",
+      "idea": "用保质期贪心避免可吃苹果过早腐烂。",
+      "steps": [
+        "day 从零循环到生长期结束且堆空",
+        "当天有苹果则加入 [day+days[day],count]",
+        "移除 expire<=day 的批次；若堆非空吃堆顶一个，计数并在清零时弹出"
+      ],
+      "complexity": {
+        "time": "O((n+e) log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/earliest-expiry-heap/Solution.java",
+        "kotlin": "solutions/earliest-expiry-heap/Solution.kt",
+        "cpp": "solutions/earliest-expiry-heap/solution.cpp"
+      }
+    }
+  ]
+}

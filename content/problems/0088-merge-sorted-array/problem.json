@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 88,
+  "slug": "merge-sorted-array",
+  "title": "合并两个有序数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-002",
+  "studyTags": [
+    "逆向双指针",
+    "原地合并",
+    "尾部写入"
+  ],
+  "summary": "把两个非递减数组合并进第一个数组；第一个数组尾部已经预留足够空间。",
+  "insight": "从两个有效区间的末尾比较，把较大值写到预留空间末尾，就不会覆盖尚未读取的数据。",
+  "pitfalls": [
+    "nums1 只有前 m 个元素有效",
+    "nums2 剩余元素必须复制",
+    "nums1 剩余元素已经在正确位置无需处理"
+  ],
+  "solutions": [
+    {
+      "id": "reverse-two-pointers",
+      "title": "尾部逆向合并",
+      "kind": "最优",
+      "idea": "三个指针从后向前选择较大元素写入 nums1。",
+      "steps": [
+        "first=m-1、second=n-1、write=m+n-1",
+        "比较两个末尾并写入较大值",
+        "循环直到 nums2 全部写入"
+      ],
+      "complexity": {
+        "time": "O(m+n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/reverse-two-pointers/Solution.java",
+        "kotlin": "solutions/reverse-two-pointers/Solution.kt",
+        "cpp": "solutions/reverse-two-pointers/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1170,
+  "slug": "compare-strings-by-frequency-of-the-smallest-character",
+  "title": "比较字符串最小字母出现频次",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-016",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "二分查找",
+    "排序"
+  ],
+  "summary": "定义 f(s) 为字符串中字典序最小字符的出现次数；对每个 query，统计 words 中 f(word) 严格大于 f(query) 的数量。",
+  "insight": "先计算并排序所有单词的频次。每个查询只需用 upper_bound 找到第一个严格大于其频次的位置，后缀长度就是答案。",
+  "pitfalls": [
+    "比较条件是严格大于",
+    "最小字符可能重复多次",
+    "二分应找 upper_bound 而不是 lower_bound"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-frequency-upper-bound",
+      "title": "频次排序与上界二分",
+      "kind": "最优",
+      "idea": "把字符串比较转换成整数频次数组上的上界查询。",
+      "steps": [
+        "函数 frequency 扫描字符串，维护最小字符及其次数",
+        "计算 words 的所有频次并升序排序",
+        "对每个 query 计算 value，二分第一个 wordFrequency>value 的位置，答案为 words.length-position"
+      ],
+      "complexity": {
+        "time": "O(W log W+字符总数+Q log W)",
+        "space": "O(W)"
+      },
+      "files": {
+        "java": "solutions/sorted-frequency-upper-bound/Solution.java",
+        "kotlin": "solutions/sorted-frequency-upper-bound/Solution.kt",
+        "cpp": "solutions/sorted-frequency-upper-bound/solution.cpp"
+      }
+    }
+  ]
+}

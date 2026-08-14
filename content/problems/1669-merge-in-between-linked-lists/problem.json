@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": 1669,
+  "slug": "merge-in-between-linked-lists",
+  "title": "合并两个链表",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-024",
+  "studyTags": [
+    "链表"
+  ],
+  "summary": "删除 list1 下标 a 到 b 的节点，并在该位置接入完整 list2，返回合并后的链表。",
+  "insight": "找到 list1 中 a 前一个节点和 b 后一个节点，再把前者接到 list2 头、list2 尾接到后者。",
+  "pitfalls": [
+    "删除区间两端都包含",
+    "链表下标从零开始",
+    "需先保存 b 后节点再改指针"
+  ],
+  "solutions": [
+    {
+      "id": "four-endpoint-relink",
+      "title": "定位端点重连",
+      "kind": "最优",
+      "idea": "通过常数次指针重连完成链表片段替换。",
+      "steps": [
+        "before 从 list1 前进 a-1 步",
+        "after 从 before 开始前进 b-a+2 步得到 b 后节点",
+        "找到 list2 tail；before.next=list2，tail.next=after，返回 list1"
+      ],
+      "complexity": {
+        "time": "O(n+m)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/four-endpoint-relink/Solution.java",
+        "kotlin": "solutions/four-endpoint-relink/Solution.kt",
+        "cpp": "solutions/four-endpoint-relink/solution.cpp"
+      }
+    }
+  ]
+}

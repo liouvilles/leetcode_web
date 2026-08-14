@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 850,
+  "slug": "rectangle-area-ii",
+  "title": "矩形面积 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-011",
+  "studyTags": [
+    "数组",
+    "扫描线",
+    "区间合并",
+    "几何"
+  ],
+  "summary": "给定多个轴对齐矩形，求它们覆盖总面积对 1e9+7 取模，重叠区域只计一次。",
+  "insight": "所有矩形竖边把平面分成若干竖条；每条内覆盖矩形集合不变，合并这些矩形的 y 区间得到覆盖高度，再乘条宽。",
+  "pitfalls": [
+    "面积乘法使用长整型",
+    "y 区间重叠和相接都应合并",
+    "最终再对模取余"
+  ],
+  "solutions": [
+    {
+      "id": "x-strips-merged-y-intervals",
+      "title": "竖条扫描与纵区间合并",
+      "kind": "最优",
+      "idea": "按离散 x 区间计算覆盖高度。",
+      "steps": [
+        "收集并排序去重所有左右 x 边界",
+        "对相邻 xLeft,xRight，收集覆盖整个竖条的矩形 [y1,y2]",
+        "按 y1 排序合并求 coveredY，累加 (xRight-xLeft)*coveredY 并取模"
+      ],
+      "complexity": {
+        "time": "O(n² log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/x-strips-merged-y-intervals/Solution.java",
+        "kotlin": "solutions/x-strips-merged-y-intervals/Solution.kt",
+        "cpp": "solutions/x-strips-merged-y-intervals/solution.cpp"
+      }
+    }
+  ]
+}

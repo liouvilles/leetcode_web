@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1413,
+  "slug": "minimum-value-to-get-positive-step-by-step-sum",
+  "title": "逐步求和得到正数的最小值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-020",
+  "studyTags": [
+    "数组",
+    "前缀和"
+  ],
+  "summary": "选择最小正整数 startValue，使它加上 nums 的每个前缀和后始终至少为一。",
+  "insight": "只需找到 nums 的最小前缀和 minPrefix，约束为 startValue+minPrefix>=1，因此答案是 max(1,1-minPrefix)。",
+  "pitfalls": [
+    "每一步都必须至少为一",
+    "空前缀不要求额外处理但答案至少一",
+    "跟踪的是最小前缀和"
+  ],
+  "solutions": [
+    {
+      "id": "minimum-prefix-sum",
+      "title": "最小前缀和",
+      "kind": "最优",
+      "idea": "由最差前缀直接反推起始值。",
+      "steps": [
+        "prefix=0,minimum=0",
+        "扫描 nums 更新 prefix 与 minimum",
+        "返回 1-minimum"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/minimum-prefix-sum/Solution.java",
+        "kotlin": "solutions/minimum-prefix-sum/Solution.kt",
+        "cpp": "solutions/minimum-prefix-sum/solution.cpp"
+      }
+    }
+  ]
+}

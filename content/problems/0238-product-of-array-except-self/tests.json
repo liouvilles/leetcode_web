@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "productExceptSelf",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "连续正整数",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": [
+        24,
+        12,
+        8,
+        6
+      ]
+    },
+    {
+      "name": "包含一个零",
+      "args": [
+        [
+          -1,
+          1,
+          0,
+          -3,
+          3
+        ]
+      ],
+      "expected": [
+        0,
+        0,
+        9,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "两个元素",
+      "args": [
+        [
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        3,
+        2
+      ]
+    }
+  ]
+}

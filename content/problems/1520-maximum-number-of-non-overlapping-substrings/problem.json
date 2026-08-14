@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1520,
+  "slug": "maximum-number-of-non-overlapping-substrings",
+  "title": "最多的不重叠子字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-022",
+  "studyTags": [
+    "哈希表",
+    "字符串",
+    "贪心"
+  ],
+  "summary": "选择最多个互不重叠非空子串，且每个子串若包含字符 c 就必须包含 c 在原串的全部出现；数量相同时总长度最小。",
+  "insight": "从每个字符首次位置尝试扩展到其中所有字符的末次位置；若遇字符首次位置在起点前则无效。所得最小闭包区间按结束位置贪心选择。",
+  "pitfalls": [
+    "扩展过程中新字符可能继续扩大右端",
+    "出现位置越过起点左侧会使候选无效",
+    "按结束位置选择可最大化数量并最小化长度"
+  ],
+  "solutions": [
+    {
+      "id": "character-closure-interval-greedy",
+      "title": "字符闭包区间贪心",
+      "kind": "最优",
+      "idea": "生成每个字符的最小合法闭包，再做经典区间调度。",
+      "steps": [
+        "计算 first、last",
+        "仅从 first 字符位置 start 构造：end=last[c]，扫描至 end；若 first[current]<start 无效，否则扩 end",
+        "候选按 end 升序，start>previousEnd 时选择对应 substring"
+      ],
+      "complexity": {
+        "time": "O(26n)",
+        "space": "O(26)"
+      },
+      "files": {
+        "java": "solutions/character-closure-interval-greedy/Solution.java",
+        "kotlin": "solutions/character-closure-interval-greedy/Solution.kt",
+        "cpp": "solutions/character-closure-interval-greedy/solution.cpp"
+      }
+    }
+  ]
+}

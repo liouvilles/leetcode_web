@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minNumberOperations",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "山形目标只需三层",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          2,
+          1
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "先三层再新增一层",
+      "args": [
+        [
+          3,
+          1,
+          1,
+          2
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "两次上升共七层",
+      "args": [
+        [
+          3,
+          1,
+          5,
+          4,
+          2
+        ]
+      ],
+      "expected": 7
+    }
+  ]
+}

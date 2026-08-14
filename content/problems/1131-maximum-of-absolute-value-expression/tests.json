@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxAbsValExpr",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典最大十三",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          -1,
+          4,
+          5,
+          6
+        ]
+      ],
+      "expected": 13
+    },
+    {
+      "name": "混合负数最大二十",
+      "args": [
+        [
+          1,
+          -2,
+          -5,
+          0,
+          10
+        ],
+        [
+          0,
+          -2,
+          -1,
+          -7,
+          -4
+        ]
+      ],
+      "expected": 20
+    },
+    {
+      "name": "单元素为零",
+      "args": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

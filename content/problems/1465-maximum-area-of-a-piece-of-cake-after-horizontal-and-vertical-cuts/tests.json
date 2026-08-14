@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxArea",
+  "parameterTypes": [
+    "int",
+    "int",
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典切法最大面积四",
+      "args": [
+        5,
+        4,
+        [
+          1,
+          2,
+          4
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "最大水平间距三",
+      "args": [
+        5,
+        4,
+        [
+          3,
+          1
+        ],
+        [
+          1
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "各从中间切一刀",
+      "args": [
+        5,
+        4,
+        [
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "expected": 6
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 171,
+  "slug": "excel-sheet-column-number",
+  "title": "Excel 表列序号",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-004",
+  "studyTags": [
+    "进制转换",
+    "字符串",
+    "位权累积"
+  ],
+  "summary": "把 Excel 的字母列名称转换为对应的正整数列序号。",
+  "insight": "从左到右把已有结果乘二十六，再加当前字母对应的 1 到 26，等价于一基二十六进制求值。",
+  "pitfalls": [
+    "A 映射为一而不是零",
+    "每读一个字符都要先扩大原位权",
+    "输入只含大写英文字母"
+  ],
+  "solutions": [
+    {
+      "id": "base-26-accumulation",
+      "title": "从高位到低位累积",
+      "kind": "最优",
+      "idea": "像解析普通进制整数一样逐字符更新结果。",
+      "steps": [
+        "answer 初始化为零",
+        "对每个字符执行 answer*=26",
+        "加上 character-A+1"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/base-26-accumulation/Solution.java",
+        "kotlin": "solutions/base-26-accumulation/Solution.kt",
+        "cpp": "solutions/base-26-accumulation/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numSubarrayProductLessThanK",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典八个子数组",
+      "args": [
+        [
+          10,
+          5,
+          2,
+          6
+        ],
+        100
+      ],
+      "expected": 8
+    },
+    {
+      "name": "k 为零",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        0
+      ],
+      "expected": 0
+    },
+    {
+      "name": "所有窗口都合法",
+      "args": [
+        [
+          1,
+          1,
+          1
+        ],
+        2
+      ],
+      "expected": 6
+    }
+  ]
+}

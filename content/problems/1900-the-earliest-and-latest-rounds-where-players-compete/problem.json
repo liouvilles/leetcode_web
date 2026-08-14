@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1900,
+  "slug": "the-earliest-and-latest-rounds-where-players-compete",
+  "title": "最佳运动员的比拼回合",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-027",
+  "studyTags": [
+    "记忆化搜索",
+    "动态规划",
+    "状态压缩"
+  ],
+  "summary": "淘汰赛每轮首尾配对，两名最佳选手必胜，其余比赛结果任选，求两人最早与最晚在哪一轮相遇。",
+  "insight": "状态只需当前人数及两名选手的位置。枚举本轮其他每场的胜者，统计排在两名选手之前的晋级者数即可得到下一轮新位置；对重复状态记忆化。镜像状态等价。",
+  "pitfalls": [
+    "奇数人数中间选手自动晋级",
+    "晋级者下一轮仍按原顺序排列",
+    "两名指定选手相遇时无需继续枚举"
+  ],
+  "solutions": [
+    {
+      "id": "round-state-outcome-dfs",
+      "title": "轮次位置状态搜索",
+      "kind": "最优",
+      "idea": "枚举每轮自由比赛结果并递归合并最早最晚轮次。",
+      "steps": [
+        "若 first+second==n+1 则本轮相遇 [1,1]；必要时镜像归一化",
+        "枚举每对胜者，记录胜者位于 first、second 之前的数量，得到下一轮位置集合",
+        "递归 nextN，对所有结果取 1+最小 earliest 和 1+最大 latest，并记忆化"
+      ],
+      "complexity": {
+        "time": "O(状态数·2^(n/2))",
+        "space": "O(状态数)"
+      },
+      "files": {
+        "java": "solutions/round-state-outcome-dfs/Solution.java",
+        "kotlin": "solutions/round-state-outcome-dfs/Solution.kt",
+        "cpp": "solutions/round-state-outcome-dfs/solution.cpp"
+      }
+    }
+  ]
+}

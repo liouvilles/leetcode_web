@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numTilings",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "长度三",
+      "args": [
+        3
+      ],
+      "expected": 5
+    },
+    {
+      "name": "长度一",
+      "args": [
+        1
+      ],
+      "expected": 1
+    },
+    {
+      "name": "长度五",
+      "args": [
+        5
+      ],
+      "expected": 24
+    }
+  ]
+}

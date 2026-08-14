@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 982,
+  "slug": "triples-with-bitwise-and-equal-to-zero",
+  "title": "按位与为零的三元组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-014",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "位运算"
+  ],
+  "summary": "统计有序下标三元组 (i,j,k)，使 nums[i]&nums[j]&nums[k] 等于零。",
+  "insight": "先统计所有有序二元组按位与结果的频次；对每个第三元素，只要 pairMask 与它按位与为零，该频次全部贡献答案。",
+  "pitfalls": [
+    "三元组下标允许相同",
+    "二元组是有序的，共 n² 个",
+    "统计键是按位与结果而非元素值"
+  ],
+  "solutions": [
+    {
+      "id": "pair-and-frequency",
+      "title": "二元按位与频次",
+      "kind": "最优",
+      "idea": "把三重枚举拆成二元预处理和一次扫描。",
+      "steps": [
+        "遍历 a、b，frequency[a&b]++",
+        "遍历每个 value",
+        "遍历 frequency 条目，若 mask&value==0 则把 count 加入答案；返回答案"
+      ],
+      "complexity": {
+        "time": "O(n²+n·D)",
+        "space": "O(D)"
+      },
+      "files": {
+        "java": "solutions/pair-and-frequency/Solution.java",
+        "kotlin": "solutions/pair-and-frequency/Solution.kt",
+        "cpp": "solutions/pair-and-frequency/solution.cpp"
+      }
+    }
+  ]
+}

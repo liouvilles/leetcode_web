@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findSpecialInteger",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "六出现四次",
+      "args": [
+        [
+          1,
+          2,
+          2,
+          6,
+          6,
+          6,
+          6,
+          7,
+          10
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "单元素",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "二出现三次",
+      "args": [
+        [
+          1,
+          2,
+          2,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

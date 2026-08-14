@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "gameOfLife",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "void",
+  "cases": [
+    {
+      "name": "经典四乘三棋盘",
+      "args": [
+        [
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      ],
+      "expectedArgs": [
+        {
+          "index": 0,
+          "type": "intMatrix",
+          "expected": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              1
+            ],
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "二乘二稳定块",
+      "args": [
+        [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "expectedArgs": [
+        {
+          "index": 0,
+          "type": "intMatrix",
+          "expected": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "单细胞死亡",
+      "args": [
+        [
+          [
+            1
+          ]
+        ]
+      ],
+      "expectedArgs": [
+        {
+          "index": 0,
+          "type": "intMatrix",
+          "expected": [
+            [
+              0
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

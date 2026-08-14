@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1462,
+  "slug": "course-schedule-iv",
+  "title": "课程表 IV",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-021",
+  "studyTags": [
+    "图论",
+    "传递闭包"
+  ],
+  "summary": "给定先修课程关系，逐查询判断一门课程是否是另一门的直接或间接先修课。",
+  "insight": "课程数较小，可用 Floyd-Warshall 计算有向图传递闭包；中间点 k 若连接 i 和 j，就标记 i 可达 j。",
+  "pitfalls": [
+    "关系方向是 prerequisite[0] 到 prerequisite[1]",
+    "间接关系也返回 true",
+    "查询顺序保持不变"
+  ],
+  "solutions": [
+    {
+      "id": "floyd-transitive-closure",
+      "title": "Floyd 传递闭包",
+      "kind": "最优",
+      "idea": "把可达性矩阵闭包后常数时间回答查询。",
+      "steps": [
+        "reach[from][to]=true 初始化边",
+        "三层循环 middle,from,to，若 reach[from][middle]&&reach[middle][to] 则置 true",
+        "按 queries 输出 reach[q0][q1]"
+      ],
+      "complexity": {
+        "time": "O(n³+q)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/floyd-transitive-closure/Solution.java",
+        "kotlin": "solutions/floyd-transitive-closure/Solution.kt",
+        "cpp": "solutions/floyd-transitive-closure/solution.cpp"
+      }
+    }
+  ]
+}

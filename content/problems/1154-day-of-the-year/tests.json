@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "dayOfYear",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一月九日",
+      "args": [
+        "2019-01-09"
+      ],
+      "expected": 9
+    },
+    {
+      "name": "平年二月十日",
+      "args": [
+        "2019-02-10"
+      ],
+      "expected": 41
+    },
+    {
+      "name": "世纪闰年三月一日",
+      "args": [
+        "2000-03-01"
+      ],
+      "expected": 61
+    }
+  ]
+}

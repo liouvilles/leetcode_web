@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1288,
+  "slug": "remove-covered-intervals",
+  "title": "删除被覆盖区间",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "数组",
+    "排序",
+    "区间"
+  ],
+  "summary": "若区间完全包含于另一区间则删除，返回最终剩余区间数量。",
+  "insight": "按左端点升序、右端点降序排序后，覆盖者一定先出现；扫描维护此前最大右端点，当前右端不超过它即被覆盖，否则成为新保留区间。",
+  "pitfalls": [
+    "相同左端点要让较长区间排前",
+    "边界相等仍算覆盖",
+    "只需返回数量"
+  ],
+  "solutions": [
+    {
+      "id": "start-asc-end-desc-scan",
+      "title": "左升右降扫描",
+      "kind": "最优",
+      "idea": "用最大右端点判断当前区间是否已被此前区间覆盖。",
+      "steps": [
+        "按 start 升序，start 相同按 end 降序排序",
+        "maximumEnd=-∞，remaining=0",
+        "扫描 interval；若 end>maximumEnd 则 remaining++ 并更新 maximumEnd，否则跳过，返回 remaining"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(排序栈空间)"
+      },
+      "files": {
+        "java": "solutions/start-asc-end-desc-scan/Solution.java",
+        "kotlin": "solutions/start-asc-end-desc-scan/Solution.kt",
+        "cpp": "solutions/start-asc-end-desc-scan/solution.cpp"
+      }
+    }
+  ]
+}

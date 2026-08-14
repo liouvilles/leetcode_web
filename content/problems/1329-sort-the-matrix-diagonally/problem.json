@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1329,
+  "slug": "sort-the-matrix-diagonally",
+  "title": "将矩阵按对角线排序",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "数组",
+    "排序",
+    "矩阵"
+  ],
+  "summary": "把矩阵每条从左上到右下的对角线独立按升序排序并返回。",
+  "insight": "同一对角线的 r-c 相等；用该差作为键收集所有元素，排序后再按原遍历顺序逐个写回对应对角线。",
+  "pitfalls": [
+    "负的对角线键可直接用于哈希表",
+    "每条对角线独立排序",
+    "主对角线键为零"
+  ],
+  "solutions": [
+    {
+      "id": "diagonal-key-buckets",
+      "title": "对角线键分桶排序",
+      "kind": "最优",
+      "idea": "按 r-c 分组、排序并回填。",
+      "steps": [
+        "map 从 diagonal=r-c 到值列表，扫描矩阵收集",
+        "每个列表升序排序，并为每个键维护读取下标",
+        "再次按行列扫描，从对应列表取下一值写回，返回矩阵"
+      ],
+      "complexity": {
+        "time": "O(rows·cols·log min(rows,cols))",
+        "space": "O(rows·cols)"
+      },
+      "files": {
+        "java": "solutions/diagonal-key-buckets/Solution.java",
+        "kotlin": "solutions/diagonal-key-buckets/Solution.kt",
+        "cpp": "solutions/diagonal-key-buckets/solution.cpp"
+      }
+    }
+  ]
+}

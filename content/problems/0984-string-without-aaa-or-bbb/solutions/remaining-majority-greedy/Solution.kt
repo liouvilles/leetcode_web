@@ -1,0 +1,1 @@
+class Solution { fun strWithout3a3b(aInput:Int,bInput:Int):String{var a=aInput;var b=bInput;val answer=StringBuilder();while(a>0||b>0){val n=answer.length;val takeA=n>=2&&answer[n-1]=='b'&&answer[n-2]=='b'||!(n>=2&&answer[n-1]=='a'&&answer[n-2]=='a')&&a>b;if(takeA){answer.append('a');a--}else{answer.append('b');b--}};return answer.toString()} }

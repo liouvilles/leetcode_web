@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "largest1BorderedSquare",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三阶完整边框",
+      "args": [
+        [
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": 9
+    },
+    {
+      "name": "只有一阶可用",
+      "args": [
+        [
+          [
+            1,
+            1,
+            0,
+            0
+          ]
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "全零矩阵",
+      "args": [
+        [
+          [
+            0
+          ]
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

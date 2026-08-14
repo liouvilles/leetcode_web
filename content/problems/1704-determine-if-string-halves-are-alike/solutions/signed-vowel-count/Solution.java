@@ -1,0 +1,1 @@
+class Solution { public boolean halvesAreAlike(String text){String vowels="aeiouAEIOU";int difference=0;for(int i=0;i<text.length();i++)if(vowels.indexOf(text.charAt(i))>=0)difference+=i<text.length()/2?1:-1;return difference==0;} }

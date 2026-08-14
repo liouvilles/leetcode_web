@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "smallestChair",
+  "parameterTypes": [
+    "intMatrix",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "目标一号朋友坐一号椅",
+      "args": [
+        [
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            6
+          ]
+        ],
+        1
+      ],
+      "expected": 1
+    },
+    {
+      "name": "目标零号最后到达坐二号椅",
+      "args": [
+        [
+          [
+            3,
+            10
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            6
+          ]
+        ],
+        0
+      ],
+      "expected": 2
+    },
+    {
+      "name": "单朋友坐零号椅",
+      "args": [
+        [
+          [
+            1,
+            2
+          ]
+        ],
+        0
+      ],
+      "expected": 0
+    }
+  ]
+}

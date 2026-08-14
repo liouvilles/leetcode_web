@@ -1,0 +1,1 @@
+class Solution { public: int getLucky(string s,int k){int value=0;for(char letter:s){int number=letter-'a'+1;value+=number/10+number%10;}while(--k){int next=0;while(value){next+=value%10;value/=10;}value=next;}return value;} };

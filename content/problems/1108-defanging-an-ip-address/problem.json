@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": 1108,
+  "slug": "defanging-an-ip-address",
+  "title": "IP 地址无效化",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-016",
+  "studyTags": [
+    "字符串"
+  ],
+  "summary": "把有效 IPv4 地址中的每个点号替换为 [.]。",
+  "insight": "逐字符替换或直接调用字符串替换即可。",
+  "pitfalls": [
+    "每个点号都要替换",
+    "数字字符保持不变",
+    "方括号是普通输出字符"
+  ],
+  "solutions": [
+    {
+      "id": "literal-dot-replacement",
+      "title": "点号字面替换",
+      "kind": "最优",
+      "idea": "把所有分隔点替换为带括号形式。",
+      "steps": [
+        "调用 address.replace(\".\",\"[.]\")",
+        "返回替换后的字符串"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/literal-dot-replacement/Solution.java",
+        "kotlin": "solutions/literal-dot-replacement/Solution.kt",
+        "cpp": "solutions/literal-dot-replacement/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { int parent[26];int find(int x){return parent[x]==x?x:parent[x]=find(parent[x]);}public:string smallestEquivalentString(string s1,string s2,string baseStr){iota(parent,parent+26,0);for(int i=0;i<(int)s1.size();++i){int a=find(s1[i]-'a'),b=find(s2[i]-'a');parent[max(a,b)]=min(a,b);}for(char& ch:baseStr)ch='a'+find(ch-'a');return baseStr;} };

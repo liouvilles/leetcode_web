@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumEffort",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三任务最少初始能量八",
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            4,
+            8
+          ]
+        ]
+      ],
+      "expected": 8
+    },
+    {
+      "name": "五任务最少初始能量三十二",
+      "args": [
+        [
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            10,
+            11
+          ],
+          [
+            10,
+            12
+          ],
+          [
+            8,
+            9
+          ]
+        ]
+      ],
+      "expected": 32
+    },
+    {
+      "name": "单任务门槛等于消耗",
+      "args": [
+        [
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

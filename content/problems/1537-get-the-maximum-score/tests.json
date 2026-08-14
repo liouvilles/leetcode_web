@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxSum",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两个交点最大路径和三十",
+      "args": [
+        [
+          2,
+          4,
+          5,
+          8,
+          10
+        ],
+        [
+          4,
+          6,
+          8,
+          9
+        ]
+      ],
+      "expected": 30
+    },
+    {
+      "name": "切换到一百获得一百零九",
+      "args": [
+        [
+          1,
+          3,
+          5,
+          7,
+          9
+        ],
+        [
+          3,
+          5,
+          100
+        ]
+      ],
+      "expected": 109
+    },
+    {
+      "name": "无交点选择第二数组",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          4,
+          5,
+          6
+        ]
+      ],
+      "expected": 15
+    }
+  ]
+}

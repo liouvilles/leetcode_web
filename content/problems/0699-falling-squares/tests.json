@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "fallingSquares",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "intList",
+  "cases": [
+    {
+      "name": "两个重叠方块",
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            6,
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        2,
+        5,
+        5
+      ]
+    },
+    {
+      "name": "只接触边界不重叠",
+      "args": [
+        [
+          [
+            100,
+            100
+          ],
+          [
+            200,
+            100
+          ]
+        ]
+      ],
+      "expected": [
+        100,
+        100
+      ]
+    },
+    {
+      "name": "小方块落在大方块上",
+      "args": [
+        [
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            7,
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        5,
+        7,
+        7
+      ]
+    }
+  ]
+}

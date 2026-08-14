@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxBuilding",
+  "parameterTypes": [
+    "int",
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "五建筑受限时最高二",
+      "args": [
+        5,
+        [
+          [
+            2,
+            1
+          ],
+          [
+            4,
+            1
+          ]
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "无额外限制最高为 n 减一",
+      "args": [
+        6,
+        []
+      ],
+      "expected": 5
+    },
+    {
+      "name": "多限制下最高五",
+      "args": [
+        10,
+        [
+          [
+            5,
+            3
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            10,
+            3
+          ]
+        ]
+      ],
+      "expected": 5
+    }
+  ]
+}

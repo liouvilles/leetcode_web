@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumDifference",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三九七三最小差二",
+      "args": [
+        [
+          3,
+          9,
+          7,
+          3
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "负三十六与三十六只能分开",
+      "args": [
+        [
+          -36,
+          36
+        ]
+      ],
+      "expected": 72
+    },
+    {
+      "name": "六个数可分成等和两组",
+      "args": [
+        [
+          2,
+          -1,
+          0,
+          4,
+          -2,
+          -9
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

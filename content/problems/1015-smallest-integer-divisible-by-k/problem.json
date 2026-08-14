@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1015,
+  "slug": "smallest-integer-divisible-by-k",
+  "title": "可被 K 整除的最小整数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-015",
+  "studyTags": [
+    "数学",
+    "哈希表",
+    "模运算"
+  ],
+  "summary": "求只由数字一组成且能被 k 整除的最短正整数长度；不存在返回负一。",
+  "insight": "无需构造巨大整数，只递推余数 remainder=(remainder*10+1)%k；若 k 含因子二或五无解，否则至多 k 个余数内必遇零。",
+  "pitfalls": [
+    "返回长度而非整数本身",
+    "整数可能远超数值类型范围",
+    "偶数或五的倍数不可能整除末位为一的数"
+  ],
+  "solutions": [
+    {
+      "id": "remainder-sequence",
+      "title": "余数序列迭代",
+      "kind": "最优",
+      "idea": "按追加数字一更新模 k 的余数。",
+      "steps": [
+        "若 k%2==0 或 k%5==0 返回 -1",
+        "remainder=0",
+        "length 从 1 到 k：remainder=(remainder*10+1)%k；为零则返回 length；否则最终返回 -1"
+      ],
+      "complexity": {
+        "time": "O(k)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/remainder-sequence/Solution.java",
+        "kotlin": "solutions/remainder-sequence/Solution.kt",
+        "cpp": "solutions/remainder-sequence/solution.cpp"
+      }
+    }
+  ]
+}

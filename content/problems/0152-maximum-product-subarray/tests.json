@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxProduct",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两个正数形成最大乘积",
+      "args": [
+        [
+          2,
+          3,
+          -2,
+          4
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "零切断连续区间",
+      "args": [
+        [
+          -2,
+          0,
+          -1
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "两个负数翻转为正数",
+      "args": [
+        [
+          -2,
+          3,
+          -4
+        ]
+      ],
+      "expected": 24
+    }
+  ]
+}

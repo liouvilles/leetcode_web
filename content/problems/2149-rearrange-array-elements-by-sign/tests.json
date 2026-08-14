@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "rearrangeArray",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "保持正负各自顺序交替",
+      "args": [
+        [
+          3,
+          1,
+          -2,
+          -5,
+          2,
+          -4
+        ]
+      ],
+      "expected": [
+        3,
+        -2,
+        1,
+        -5,
+        2,
+        -4
+      ]
+    },
+    {
+      "name": "负数先输入仍以正数开头",
+      "args": [
+        [
+          -1,
+          1
+        ]
+      ],
+      "expected": [
+        1,
+        -1
+      ]
+    },
+    {
+      "name": "四元素稳定重排",
+      "args": [
+        [
+          2,
+          -3,
+          -4,
+          1
+        ]
+      ],
+      "expected": [
+        2,
+        -3,
+        1,
+        -4
+      ]
+    }
+  ]
+}

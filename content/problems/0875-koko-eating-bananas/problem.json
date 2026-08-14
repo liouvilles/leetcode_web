@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 875,
+  "slug": "koko-eating-bananas",
+  "title": "爱吃香蕉的珂珂",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "数组",
+    "二分查找"
+  ],
+  "summary": "每小时选择一堆香蕉并最多吃 speed 根，求在 h 小时内吃完所有堆的最小整数速度。",
+  "insight": "所需小时数随速度单调不增；在一到最大堆大小上二分第一个满足 Σceil(pile/speed)<=h 的速度。",
+  "pitfalls": [
+    "每小时只能处理一堆",
+    "整除向上取整写成 (pile+speed-1)/speed",
+    "累计小时数可提前超过 h"
+  ],
+  "solutions": [
+    {
+      "id": "binary-search-minimum-speed",
+      "title": "二分最小可行速度",
+      "kind": "最优",
+      "idea": "用单调可行性判断收缩速度区间。",
+      "steps": [
+        "low=1,high=max(piles)",
+        "middle=(low+high)/2，计算所需 hours",
+        "hours<=h 时 high=middle，否则 low=middle+1；返回 low"
+      ],
+      "complexity": {
+        "time": "O(n log maxPile)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/binary-search-minimum-speed/Solution.java",
+        "kotlin": "solutions/binary-search-minimum-speed/Solution.kt",
+        "cpp": "solutions/binary-search-minimum-speed/solution.cpp"
+      }
+    }
+  ]
+}

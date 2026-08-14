@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 920,
+  "slug": "number-of-music-playlists",
+  "title": "播放列表的数量",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-013",
+  "studyTags": [
+    "动态规划",
+    "组合数学"
+  ],
+  "summary": "用 n 首不同歌曲组成长度为 goal 的播放列表，每首至少播放一次，且同一首歌再次出现前至少播放 k 首其他歌曲，求方案数。",
+  "insight": "状态 dp[length][used] 记录已排长度和已使用歌曲数；下一位可选一首新歌，或从不在最近 k 首中的旧歌里选择。",
+  "pitfalls": [
+    "最终必须恰好使用全部 n 首歌",
+    "旧歌只有 used-k 种可选",
+    "每次转移都要取模并使用长整型"
+  ],
+  "solutions": [
+    {
+      "id": "length-used-dp",
+      "title": "长度与已用歌曲数动态规划",
+      "kind": "最优",
+      "idea": "按播放列表位置递推新歌与旧歌两类选择。",
+      "steps": [
+        "dp[0][0]=1",
+        "从 dp[length][used] 加入新歌，乘 n-used",
+        "若 used>k，复播旧歌并乘 used-k；返回 dp[goal][n]"
+      ],
+      "complexity": {
+        "time": "O(goal·n)",
+        "space": "O(goal·n)"
+      },
+      "files": {
+        "java": "solutions/length-used-dp/Solution.java",
+        "kotlin": "solutions/length-used-dp/Solution.kt",
+        "cpp": "solutions/length-used-dp/solution.cpp"
+      }
+    }
+  ]
+}

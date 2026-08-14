@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isSumEqual",
+  "parameterTypes": [
+    "string",
+    "string",
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "二十一加二百一十等于二百三十一",
+      "args": [
+        "acb",
+        "cba",
+        "cdb"
+      ],
+      "expected": true
+    },
+    {
+      "name": "零加零不等于一",
+      "args": [
+        "aaa",
+        "a",
+        "aab"
+      ],
+      "expected": false
+    },
+    {
+      "name": "多个前导零仍表示零",
+      "args": [
+        "aaa",
+        "a",
+        "aaaa"
+      ],
+      "expected": true
+    }
+  ]
+}

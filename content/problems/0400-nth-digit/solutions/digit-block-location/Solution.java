@@ -1,0 +1,1 @@
+class Solution { public int findNthDigit(int n){long position=n,digit=1,start=1,count=9;while(position>digit*count){position-=digit*count;digit++;start*=10;count*=10;}long number=start+(position-1)/digit;return String.valueOf(number).charAt((int)((position-1)%digit))-'0';} }

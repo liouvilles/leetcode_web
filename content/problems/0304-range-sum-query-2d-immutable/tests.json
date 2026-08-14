@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "NumMatrix",
+  "constructorTypes": [
+    "intMatrix"
+  ],
+  "cases": [
+    {
+      "name": "经典矩阵多次查询",
+      "constructorArgs": [
+        [
+          [
+            3,
+            0,
+            1,
+            4,
+            2
+          ],
+          [
+            5,
+            6,
+            3,
+            2,
+            1
+          ],
+          [
+            1,
+            2,
+            0,
+            1,
+            5
+          ],
+          [
+            4,
+            1,
+            0,
+            1,
+            7
+          ],
+          [
+            1,
+            0,
+            3,
+            0,
+            5
+          ]
+        ]
+      ],
+      "calls": [
+        {
+          "method": "sumRegion",
+          "parameterTypes": [
+            "int",
+            "int",
+            "int",
+            "int"
+          ],
+          "args": [
+            2,
+            1,
+            4,
+            3
+          ],
+          "returnType": "int",
+          "expected": 8
+        },
+        {
+          "method": "sumRegion",
+          "parameterTypes": [
+            "int",
+            "int",
+            "int",
+            "int"
+          ],
+          "args": [
+            1,
+            1,
+            2,
+            2
+          ],
+          "returnType": "int",
+          "expected": 11
+        },
+        {
+          "method": "sumRegion",
+          "parameterTypes": [
+            "int",
+            "int",
+            "int",
+            "int"
+          ],
+          "args": [
+            1,
+            2,
+            2,
+            4
+          ],
+          "returnType": "int",
+          "expected": 12
+        }
+      ]
+    },
+    {
+      "name": "单元素矩阵",
+      "constructorArgs": [
+        [
+          [
+            5
+          ]
+        ]
+      ],
+      "calls": [
+        {
+          "method": "sumRegion",
+          "parameterTypes": [
+            "int",
+            "int",
+            "int",
+            "int"
+          ],
+          "args": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "returnType": "int",
+          "expected": 5
+        }
+      ]
+    },
+    {
+      "name": "包含负数",
+      "constructorArgs": [
+        [
+          [
+            1,
+            -2
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      ],
+      "calls": [
+        {
+          "method": "sumRegion",
+          "parameterTypes": [
+            "int",
+            "int",
+            "int",
+            "int"
+          ],
+          "args": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "returnType": "int",
+          "expected": 6
+        }
+      ]
+    }
+  ]
+}

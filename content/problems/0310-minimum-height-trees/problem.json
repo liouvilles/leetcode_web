@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 310,
+  "slug": "minimum-height-trees",
+  "title": "最小高度树",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-005",
+  "studyTags": [
+    "图论",
+    "拓扑剥离",
+    "树中心"
+  ],
+  "summary": "给定一棵无向树，找出作为根时能得到最小高度的所有节点。",
+  "insight": "树的中心最多两个；像剥洋葱一样同步删除所有叶子，最后剩下的节点就是中心。",
+  "pitfalls": [
+    "单节点树直接返回零号节点",
+    "必须按层同时移除叶子",
+    "无向边需要建立双向邻接表"
+  ],
+  "solutions": [
+    {
+      "id": "trim-leaves",
+      "title": "逐层剥离叶子",
+      "kind": "最优",
+      "idea": "维护度数和叶子队列，每轮删除当前所有叶子直到剩余不超过两个节点。",
+      "steps": [
+        "构建邻接表与 degree",
+        "所有度为一的节点入队",
+        "按层减少邻居度数，新叶入队，最终排序返回"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/trim-leaves/Solution.java",
+        "kotlin": "solutions/trim-leaves/Solution.kt",
+        "cpp": "solutions/trim-leaves/solution.cpp"
+      }
+    }
+  ]
+}

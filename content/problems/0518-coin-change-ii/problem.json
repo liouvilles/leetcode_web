@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 518,
+  "slug": "coin-change-ii",
+  "title": "零钱兑换 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-007",
+  "studyTags": [
+    "完全背包",
+    "动态规划",
+    "组合计数"
+  ],
+  "summary": "给定不同面额硬币且每种可无限使用，统计凑成 amount 的不同组合数，顺序不同不另算。",
+  "insight": "硬币外层、金额内层正序更新会让每种组合只在其最大面额被处理时计入一次。",
+  "pitfalls": [
+    "统计组合而非排列",
+    "dp[0]=1",
+    "金额需要正序更新以允许重复使用当前硬币"
+  ],
+  "solutions": [
+    {
+      "id": "complete-knapsack-count",
+      "title": "一维完全背包计数",
+      "kind": "最优",
+      "idea": "按硬币顺序逐种扩展可达金额的组合数。",
+      "steps": [
+        "ways[0]=1",
+        "对每个 coin",
+        "sum 从 coin 到 amount 正序：ways[sum]+=ways[sum-coin]"
+      ],
+      "complexity": {
+        "time": "O(amount·coins)",
+        "space": "O(amount)"
+      },
+      "files": {
+        "java": "solutions/complete-knapsack-count/Solution.java",
+        "kotlin": "solutions/complete-knapsack-count/Solution.kt",
+        "cpp": "solutions/complete-knapsack-count/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maskPII",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "邮箱转小写隐藏",
+      "args": [
+        "LeetCode@LeetCode.com"
+      ],
+      "expected": "l*****e@leetcode.com"
+    },
+    {
+      "name": "十位电话号码",
+      "args": [
+        "1(234)567-890"
+      ],
+      "expected": "***-***-7890"
+    },
+    {
+      "name": "两位国家码",
+      "args": [
+        "86-(10)12345678"
+      ],
+      "expected": "+**-***-***-5678"
+    }
+  ]
+}

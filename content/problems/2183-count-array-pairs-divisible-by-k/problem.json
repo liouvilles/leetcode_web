@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2183,
+  "slug": "count-array-pairs-divisible-by-k",
+  "title": "统计可以被 K 整除的下标对数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-032",
+  "studyTags": [
+    "数组",
+    "数学",
+    "数论",
+    "最大公约数"
+  ],
+  "summary": "统计 i<j 且 nums[i]*nums[j] 能被 k 整除的数对数量。",
+  "insight": "一个数对 k 的有效信息只有 gcd(nums[i],k)。遍历当前公约数 g，与所有先前公约数 h 配对；当 g*h 能被 k 整除时，所有对应先前元素都贡献答案。",
+  "pitfalls": [
+    "答案使用 long",
+    "枚举的是 k 的公约数种类",
+    "先计入答案再增加当前频次"
+  ],
+  "solutions": [
+    {
+      "id": "gcd-frequency-pairing",
+      "title": "最大公约数频次配对",
+      "kind": "最优",
+      "idea": "压缩每个数相对 k 的质因数覆盖情况。",
+      "steps": [
+        "Map<gcd,count> 初始化",
+        "对 value 求 g=gcd(value,k)",
+        "遍历已有 (h,count)，若 g*h%k==0 则 answer+=count；最后 frequency[g]++"
+      ],
+      "complexity": {
+        "time": "O(n·d(k))",
+        "space": "O(d(k))"
+      },
+      "files": {
+        "java": "solutions/gcd-frequency-pairing/Solution.java",
+        "kotlin": "solutions/gcd-frequency-pairing/Solution.kt",
+        "cpp": "solutions/gcd-frequency-pairing/solution.cpp"
+      }
+    }
+  ]
+}

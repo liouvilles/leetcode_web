@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 424,
+  "slug": "longest-repeating-character-replacement",
+  "title": "替换后的最长重复字符",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-006",
+  "studyTags": [
+    "滑动窗口",
+    "字符计数",
+    "双指针"
+  ],
+  "summary": "最多替换字符串中 k 个字符，求能变成全部相同字符的最长连续子串长度。",
+  "insight": "窗口长度减去窗口内最高字符频次就是所需替换数；超过 k 时移动左边界。",
+  "pitfalls": [
+    "窗口内最高频次可保持历史最大值而无需下降",
+    "求连续子串",
+    "字符只含大写英文字母"
+  ],
+  "solutions": [
+    {
+      "id": "frequency-window",
+      "title": "最高频次滑动窗口",
+      "kind": "最优",
+      "idea": "维护窗口字符计数和最大频次，使替换需求始终不超过 k。",
+      "steps": [
+        "right 扩张并更新字符频次与 maxFrequency",
+        "窗口长度-maxFrequency>k 时缩小 left",
+        "每步更新最大窗口长度"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/frequency-window/Solution.java",
+        "kotlin": "solutions/frequency-window/Solution.kt",
+        "cpp": "solutions/frequency-window/solution.cpp"
+      }
+    }
+  ]
+}

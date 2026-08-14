@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 893,
+  "slug": "groups-of-special-equivalent-strings",
+  "title": "特殊等价字符串组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "排序"
+  ],
+  "summary": "可反复交换同一字符串中两个偶数下标或两个奇数下标字符，求字符串数组中特殊等价组数量。",
+  "insight": "操作只会分别重排偶数位字符多重集和奇数位字符多重集；把两部分排序后拼成签名即可完整刻画等价类。",
+  "pitfalls": [
+    "下标从零开始",
+    "偶数位和奇数位不能互换",
+    "重复字符串属于同一组"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-even-odd-signature",
+      "title": "奇偶位排序签名",
+      "kind": "最优",
+      "idea": "分别规范化两类下标字符并用集合去重。",
+      "steps": [
+        "收集 word 偶数下标字符到 even，奇数到 odd",
+        "分别排序",
+        "signature=even+# +odd，加入集合；返回集合大小"
+      ],
+      "complexity": {
+        "time": "O(words·L log L)",
+        "space": "O(words·L)"
+      },
+      "files": {
+        "java": "solutions/sorted-even-odd-signature/Solution.java",
+        "kotlin": "solutions/sorted-even-odd-signature/Solution.kt",
+        "cpp": "solutions/sorted-even-odd-signature/solution.cpp"
+      }
+    }
+  ]
+}

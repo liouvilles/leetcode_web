@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "distanceBetweenBusStops",
+  "parameterTypes": [
+    "intArray",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "相邻站一",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        0,
+        1
+      ],
+      "expected": 1
+    },
+    {
+      "name": "跨两段取三",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        0,
+        2
+      ],
+      "expected": 3
+    },
+    {
+      "name": "补弧更短",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        0,
+        3
+      ],
+      "expected": 4
+    }
+  ]
+}

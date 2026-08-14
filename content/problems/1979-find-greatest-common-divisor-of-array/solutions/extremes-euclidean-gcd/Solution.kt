@@ -1,0 +1,1 @@
+class Solution { fun findGCD(nums:IntArray):Int{var minimum=nums.minOrNull()!!;var maximum=nums.maxOrNull()!!;while(minimum!=0){val remainder=maximum%minimum;maximum=minimum;minimum=remainder};return maximum} }

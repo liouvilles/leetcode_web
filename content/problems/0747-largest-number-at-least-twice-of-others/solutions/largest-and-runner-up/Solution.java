@@ -1,0 +1,1 @@
+class Solution { public int dominantIndex(int[] nums){int maximum=-1,second=-1,index=-1;for(int i=0;i<nums.length;i++)if(nums[i]>maximum){second=maximum;maximum=nums[i];index=i;}else second=Math.max(second,nums[i]);return(long)maximum>=2L*second?index:-1;} }

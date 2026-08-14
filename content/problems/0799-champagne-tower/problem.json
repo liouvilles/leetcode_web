@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 799,
+  "slug": "champagne-tower",
+  "title": "香槟塔",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-010",
+  "studyTags": [
+    "动态规划",
+    "模拟"
+  ],
+  "summary": "从塔顶倒入香槟，每杯容量一，溢出部分平均流向下一行左右杯，求指定杯最终装满比例。",
+  "insight": "按行传播每杯超过一的部分；查询行以下无需计算，使用一维数组从右向左更新避免覆盖本行仍需读取的值。",
+  "pitfalls": [
+    "只有 max(0,(amount-1)/2) 会流向每个子杯",
+    "结果最多为一",
+    "一维更新必须从当前行右端向左"
+  ],
+  "solutions": [
+    {
+      "id": "row-compressed-overflow-dp",
+      "title": "一维溢出动态规划",
+      "kind": "最优",
+      "idea": "逐行把超过容量的部分分给下一行。",
+      "steps": [
+        "amount[0]=poured",
+        "对 row<query_row，从 glass=row 到零倒序计算 overflow",
+        "amount[glass]=overflow，amount[glass+1]+=overflow；最后返回 min(1,amount[query_glass])"
+      ],
+      "complexity": {
+        "time": "O(query_row²)",
+        "space": "O(query_row)"
+      },
+      "files": {
+        "java": "solutions/row-compressed-overflow-dp/Solution.java",
+        "kotlin": "solutions/row-compressed-overflow-dp/Solution.kt",
+        "cpp": "solutions/row-compressed-overflow-dp/solution.cpp"
+      }
+    }
+  ]
+}

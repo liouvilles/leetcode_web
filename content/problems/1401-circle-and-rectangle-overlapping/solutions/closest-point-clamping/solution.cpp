@@ -1,0 +1,1 @@
+class Solution { public: bool checkOverlap(int radius,int xCenter,int yCenter,int x1,int y1,int x2,int y2){int closestX=clamp(xCenter,x1,x2),closestY=clamp(yCenter,y1,y2);long long dx=xCenter-closestX,dy=yCenter-closestY;return dx*dx+dy*dy<=1LL*radius*radius;} };

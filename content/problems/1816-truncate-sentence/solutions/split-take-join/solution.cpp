@@ -1,0 +1,1 @@
+class Solution { public: string truncateSentence(string sentence,int k){int position=0;while(k>0){position=sentence.find(' ',position);--k;if(k==0||position==(int)string::npos)break;++position;}return position==(int)string::npos?sentence:sentence.substr(0,position);} };

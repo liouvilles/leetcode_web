@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1266,
+  "slug": "minimum-time-visiting-all-points",
+  "title": "访问所有点的最小时间",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-017",
+  "studyTags": [
+    "数组",
+    "数学",
+    "几何",
+    "切比雪夫距离"
+  ],
+  "summary": "每秒可水平、竖直或对角移动一个单位，按给定顺序访问所有平面点，求最少总时间。",
+  "insight": "两点间每秒可同时缩小横纵差各一；先用对角移动消掉较小差值，再直线走剩余差，因此最短时间为 max(|dx|,|dy|)。各段独立相加。",
+  "pitfalls": [
+    "必须按输入顺序访问",
+    "经过后续点不改变仍需按顺序的总段计算",
+    "坐标可为负数"
+  ],
+  "solutions": [
+    {
+      "id": "sum-chebyshev-distances",
+      "title": "切比雪夫距离求和",
+      "kind": "最优",
+      "idea": "逐对累加八方向网格最短距离。",
+      "steps": [
+        "answer=0",
+        "对 i=1..n-1 计算 dx、dy 的绝对值",
+        "answer+=max(dx,dy)，返回总和"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/sum-chebyshev-distances/Solution.java",
+        "kotlin": "solutions/sum-chebyshev-distances/Solution.kt",
+        "cpp": "solutions/sum-chebyshev-distances/solution.cpp"
+      }
+    }
+  ]
+}

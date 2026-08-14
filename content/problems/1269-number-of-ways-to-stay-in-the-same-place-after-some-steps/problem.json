@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1269,
+  "slug": "number-of-ways-to-stay-in-the-same-place-after-some-steps",
+  "title": "停在原地的方案数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "动态规划",
+    "滚动数组"
+  ],
+  "summary": "从数组下标零出发，每步可左移、右移或停留且不能越界，统计恰好 steps 步后仍在零的方案数，结果取模。",
+  "insight": "最远只可能走到 steps/2 后还来得及返回，因此把位置状态截断到 min(arrLen,steps/2+1)；每轮从本位和相邻位置转移。",
+  "pitfalls": [
+    "数组右边界不能越过 arrLen-1",
+    "停留也是一种独立操作",
+    "每轮必须使用新数组"
+  ],
+  "solutions": [
+    {
+      "id": "bounded-position-rolling-dp",
+      "title": "有界位置滚动动态规划",
+      "kind": "最优",
+      "idea": "仅保留可能在剩余步数内回到零的位置。",
+      "steps": [
+        "limit=min(arrLen,steps/2+1)，dp[0]=1",
+        "重复 steps 次，对 position 累加 dp[position] 到 stay、left、right 合法位置",
+        "每次对模数取余并替换 dp，返回 dp[0]"
+      ],
+      "complexity": {
+        "time": "O(steps·min(arrLen,steps))",
+        "space": "O(min(arrLen,steps))"
+      },
+      "files": {
+        "java": "solutions/bounded-position-rolling-dp/Solution.java",
+        "kotlin": "solutions/bounded-position-rolling-dp/Solution.kt",
+        "cpp": "solutions/bounded-position-rolling-dp/solution.cpp"
+      }
+    }
+  ]
+}

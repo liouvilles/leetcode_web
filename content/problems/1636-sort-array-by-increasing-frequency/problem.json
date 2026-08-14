@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1636,
+  "slug": "sort-array-by-increasing-frequency",
+  "title": "按照频率将数组升序排序",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-023",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "排序"
+  ],
+  "summary": "按元素出现频率升序排列数组；频率相同时按数值降序排列。",
+  "insight": "先统计每个值的频率，再用二级比较器直接排序：频率小者在前，频率相同则值大者在前。",
+  "pitfalls": [
+    "频率是升序",
+    "同频数值是降序",
+    "重复元素需全部保留"
+  ],
+  "solutions": [
+    {
+      "id": "frequency-comparator-sort",
+      "title": "频率比较器排序",
+      "kind": "最优",
+      "idea": "统计频次后按题目规则比较每个元素。",
+      "steps": [
+        "哈希表统计 frequency",
+        "把元素装箱以使用自定义比较器",
+        "比较 frequency[a]-frequency[b]，相等时比较 b-a"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/frequency-comparator-sort/Solution.java",
+        "kotlin": "solutions/frequency-comparator-sort/Solution.kt",
+        "cpp": "solutions/frequency-comparator-sort/solution.cpp"
+      }
+    }
+  ]
+}

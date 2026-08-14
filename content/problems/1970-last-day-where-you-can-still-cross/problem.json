@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 1970,
+  "slug": "last-day-where-you-can-still-cross",
+  "title": "你能穿过矩阵的最后一天",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-028",
+  "studyTags": [
+    "深度优先搜索",
+    "广度优先搜索",
+    "并查集",
+    "数组",
+    "二分查找",
+    "矩阵"
+  ],
+  "summary": "陆地每天按给定顺序变水，求仍能从顶行经四方向陆地到达底行的最后一天。",
+  "insight": "正向删点难维护连通性，逆序把水恢复为陆地。用并查集连接相邻陆地，并设虚拟顶点与顶行、虚拟底点与底行相连；首次上下连通时的逆序下标就是正向最后可穿越天数。",
+  "pitfalls": [
+    "天数答案与零基逆序下标恰好对应",
+    "只连接已经恢复的陆地",
+    "使用四方向"
+  ],
+  "solutions": [
+    {
+      "id": "reverse-time-union-find",
+      "title": "逆时恢复陆地并查集",
+      "kind": "最优",
+      "idea": "把动态删除转成易维护的动态添加。",
+      "steps": [
+        "初始化全水、DSU 含顶底虚拟点",
+        "i 从最后一天逆序：恢复 cells[i]，连接四邻陆地和对应虚拟边界",
+        "若顶底连通返回 i"
+      ],
+      "complexity": {
+        "time": "O(rc α(rc))",
+        "space": "O(rc)"
+      },
+      "files": {
+        "java": "solutions/reverse-time-union-find/Solution.java",
+        "kotlin": "solutions/reverse-time-union-find/Solution.kt",
+        "cpp": "solutions/reverse-time-union-find/solution.cpp"
+      }
+    }
+  ]
+}

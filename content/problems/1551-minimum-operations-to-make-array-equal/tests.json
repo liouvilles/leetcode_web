@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minOperations",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三个元素需两次",
+      "args": [
+        3
+      ],
+      "expected": 2
+    },
+    {
+      "name": "六个元素需九次",
+      "args": [
+        6
+      ],
+      "expected": 9
+    },
+    {
+      "name": "单元素无需操作",
+      "args": [
+        1
+      ],
+      "expected": 0
+    }
+  ]
+}

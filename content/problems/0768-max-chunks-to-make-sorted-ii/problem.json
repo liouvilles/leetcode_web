@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 768,
+  "slug": "max-chunks-to-make-sorted-ii",
+  "title": "最多能完成排序的块 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-010",
+  "studyTags": [
+    "数组",
+    "前缀最大值",
+    "后缀最小值",
+    "贪心"
+  ],
+  "summary": "把可能含重复元素的数组分成尽量多的连续块，各块分别排序后拼接，使整体有序。",
+  "insight": "若位置 i 左侧最大值不大于右侧最小值，就能在 i 后安全切开；所有满足条件的边界可以同时采用。",
+  "pitfalls": [
+    "数组可能有重复值，边界条件应使用小于等于",
+    "最后一块无需对应切分边界",
+    "前后缀数组要覆盖原数组全部位置"
+  ],
+  "solutions": [
+    {
+      "id": "prefix-max-suffix-min",
+      "title": "前缀最大值与后缀最小值",
+      "kind": "最优",
+      "idea": "枚举所有不会破坏全局有序性的切分边界。",
+      "steps": [
+        "计算 prefixMax[i]",
+        "计算 suffixMin[i]",
+        "答案初始为一；若 prefixMax[i] <= suffixMin[i+1] 就增加一个块"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/prefix-max-suffix-min/Solution.java",
+        "kotlin": "solutions/prefix-max-suffix-min/Solution.kt",
+        "cpp": "solutions/prefix-max-suffix-min/solution.cpp"
+      }
+    }
+  ]
+}

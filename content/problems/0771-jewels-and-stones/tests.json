@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numJewelsInStones",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "大小写宝石",
+      "args": [
+        "aA",
+        "aAAbbbb"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "大小写不匹配",
+      "args": [
+        "z",
+        "ZZ"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "全部是宝石",
+      "args": [
+        "abc",
+        "abcabc"
+      ],
+      "expected": 6
+    }
+  ]
+}

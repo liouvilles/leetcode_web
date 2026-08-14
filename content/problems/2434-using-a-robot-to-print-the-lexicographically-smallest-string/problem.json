@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2434,
+  "slug": "using-a-robot-to-print-the-lexicographically-smallest-string",
+  "title": "使用机器人打印字典序最小的字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-036",
+  "studyTags": [
+    "字符串",
+    "栈",
+    "贪心"
+  ],
+  "summary": "依次可把 s 首字符移入机器人栈，或把栈顶打印，最终求能打印出的字典序最小字符串。",
+  "insight": "维护尚未移入字符的最小值。每压入一个字符后，只要栈顶不大于未来最小字符，就应立即打印；否则保留等待更小字符先输出。",
+  "pitfalls": [
+    "机器人只能打印栈顶",
+    "未来无字符时应清空栈",
+    "最小剩余字符随频次耗尽而推进"
+  ],
+  "solutions": [
+    {
+      "id": "remaining-minimum-and-stack",
+      "title": "剩余最小字符与栈",
+      "kind": "最优",
+      "idea": "当栈顶不会被未来更小字符压过时立即输出。",
+      "steps": [
+        "统计 frequency，smallest 指向最小剩余字符",
+        "逐 ch：压栈、frequency--，推进 smallest",
+        "while 栈顶<=smallest（无剩余视为边界更大），弹出追加",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n+alphabet)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/remaining-minimum-and-stack/Solution.java",
+        "kotlin": "solutions/remaining-minimum-and-stack/Solution.kt",
+        "cpp": "solutions/remaining-minimum-and-stack/solution.cpp"
+      }
+    }
+  ]
+}

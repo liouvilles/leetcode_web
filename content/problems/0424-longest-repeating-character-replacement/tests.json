@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "characterReplacement",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "替换两个得到四",
+      "args": [
+        "ABAB",
+        2
+      ],
+      "expected": 4
+    },
+    {
+      "name": "中间窗口四",
+      "args": [
+        "AABABBA",
+        1
+      ],
+      "expected": 4
+    },
+    {
+      "name": "不能替换",
+      "args": [
+        "ABCDE",
+        0
+      ],
+      "expected": 1
+    }
+  ]
+}

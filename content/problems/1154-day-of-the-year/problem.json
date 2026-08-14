@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1154,
+  "slug": "day-of-the-year",
+  "title": "一年中的第几天",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-016",
+  "studyTags": [
+    "字符串",
+    "数学",
+    "日期"
+  ],
+  "summary": "给定 YYYY-MM-DD 格式日期，返回它是该年的第几天。",
+  "insight": "累加目标月份之前各月天数，再加日期；若年份为闰年且月份晚于二月，额外加一天。",
+  "pitfalls": [
+    "能被 400 整除或能被 4 但不能被 100 整除才是闰年",
+    "一月没有前置月份",
+    "日期序号从一开始"
+  ],
+  "solutions": [
+    {
+      "id": "month-prefix-and-leap-day",
+      "title": "月份前缀与闰日",
+      "kind": "最优",
+      "idea": "解析年月日并累计月长。",
+      "steps": [
+        "从固定位置解析 year、month、day",
+        "累加 days[0..month-2]",
+        "若 month>2 且年份满足闰年规则再加一，返回总数"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/month-prefix-and-leap-day/Solution.java",
+        "kotlin": "solutions/month-prefix-and-leap-day/Solution.kt",
+        "cpp": "solutions/month-prefix-and-leap-day/solution.cpp"
+      }
+    }
+  ]
+}

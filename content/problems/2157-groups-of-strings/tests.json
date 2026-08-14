@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "groupStrings",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "三个相关词与一个独立词",
+      "args": [
+        [
+          "a",
+          "b",
+          "ab",
+          "cde"
+        ]
+      ],
+      "expected": [
+        2,
+        3
+      ]
+    },
+    {
+      "name": "连续增加字母形成单组",
+      "args": [
+        [
+          "a",
+          "ab",
+          "abc"
+        ]
+      ],
+      "expected": [
+        1,
+        3
+      ]
+    },
+    {
+      "name": "两个相差两次替换的词独立",
+      "args": [
+        [
+          "ab",
+          "cd"
+        ]
+      ],
+      "expected": [
+        2,
+        1
+      ]
+    }
+  ]
+}

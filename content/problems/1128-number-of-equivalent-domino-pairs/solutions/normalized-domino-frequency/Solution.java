@@ -1,0 +1,1 @@
+class Solution { public int numEquivDominoPairs(int[][] dominoes){int[] frequency=new int[100];int answer=0;for(int[] domino:dominoes){int key=10*Math.min(domino[0],domino[1])+Math.max(domino[0],domino[1]);answer+=frequency[key]++;}return answer;} }

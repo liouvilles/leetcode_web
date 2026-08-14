@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1657,
+  "slug": "determine-if-two-strings-are-close",
+  "title": "确定两个字符串是否接近",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-024",
+  "studyTags": [
+    "哈希表",
+    "字符串",
+    "排序"
+  ],
+  "summary": "允许交换任意字符位置，或把字符串中两种已存在字符的所有出现互换，判断两字符串能否互相转换。",
+  "insight": "位置交换意味着顺序无关，全局字符互换意味着频次可在共同的字符集合中任意置换。因此需字符集合相同且频次数值多重集相同。",
+  "pitfalls": [
+    "不存在的字符不能通过操作新建",
+    "比较频次排序结果而非字符对应频次",
+    "长度不同必不接近"
+  ],
+  "solutions": [
+    {
+      "id": "character-set-and-frequency-multiset",
+      "title": "字符集合与频次多重集",
+      "kind": "最优",
+      "idea": "提取两种操作保持不变的必要充分条件。",
+      "steps": [
+        "分别统计 26 个字母频次",
+        "检查每个字母是否出现的布尔值一致",
+        "排序两个频次数组并判断完全相等"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/character-set-and-frequency-multiset/Solution.java",
+        "kotlin": "solutions/character-set-and-frequency-multiset/Solution.kt",
+        "cpp": "solutions/character-set-and-frequency-multiset/solution.cpp"
+      }
+    }
+  ]
+}

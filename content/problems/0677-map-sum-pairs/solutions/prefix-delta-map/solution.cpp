@@ -1,0 +1,1 @@
+class MapSum { unordered_map<string,int> values,prefixSums;public:MapSum(){}void insert(string key,int val){int delta=val-values[key];values[key]=val;string prefix;for(char c:key){prefix+=c;prefixSums[prefix]+=delta;}}int sum(string prefix){return prefixSums[prefix];} };

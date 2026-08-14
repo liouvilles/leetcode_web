@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minDistance",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "替换删除组合",
+      "args": [
+        "horse",
+        "ros"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "多种编辑操作",
+      "args": [
+        "intention",
+        "execution"
+      ],
+      "expected": 5
+    },
+    {
+      "name": "从空串插入",
+      "args": [
+        "",
+        "abc"
+      ],
+      "expected": 3
+    }
+  ]
+}

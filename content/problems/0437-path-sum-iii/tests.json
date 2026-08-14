@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "pathSum",
+  "parameterTypes": [
+    "treeNode",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "多条路径和为八",
+      "args": [
+        [
+          10,
+          5,
+          -3,
+          3,
+          2,
+          null,
+          11,
+          3,
+          -2,
+          null,
+          1
+        ],
+        8
+      ],
+      "expected": 3
+    },
+    {
+      "name": "路径可以从中间节点开始",
+      "args": [
+        [
+          5,
+          4,
+          8,
+          11,
+          null,
+          13,
+          4,
+          7,
+          2,
+          null,
+          null,
+          5,
+          1
+        ],
+        22
+      ],
+      "expected": 3
+    },
+    {
+      "name": "单节点匹配",
+      "args": [
+        [
+          1
+        ],
+        1
+      ],
+      "expected": 1
+    }
+  ]
+}

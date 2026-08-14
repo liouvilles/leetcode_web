@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "mctFromLeafValues",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "六二四成本三十二",
+      "args": [
+        [
+          6,
+          2,
+          4
+        ]
+      ],
+      "expected": 32
+    },
+    {
+      "name": "两个叶值",
+      "args": [
+        [
+          4,
+          11
+        ]
+      ],
+      "expected": 44
+    },
+    {
+      "name": "递增三叶值",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 8
+    }
+  ]
+}

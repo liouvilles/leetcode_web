@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minRemoveToMakeValid",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "删除末尾右括号",
+      "args": [
+        "lee(t(c)o)de)"
+      ],
+      "expected": "lee(t(c)o)de"
+    },
+    {
+      "name": "删除中间多余右括号",
+      "args": [
+        "a)b(c)d"
+      ],
+      "expected": "ab(c)d"
+    },
+    {
+      "name": "全部括号都无匹配",
+      "args": [
+        "))(("
+      ],
+      "expected": ""
+    }
+  ]
+}

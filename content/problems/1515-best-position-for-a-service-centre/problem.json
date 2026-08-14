@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1515,
+  "slug": "best-position-for-a-service-centre",
+  "title": "服务中心的最佳位置",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-021",
+  "studyTags": [
+    "数组",
+    "数学",
+    "几何"
+  ],
+  "summary": "在平面任意选择服务中心位置，使到所有客户点的欧氏距离之和最小，返回最小总距离。",
+  "insight": "距离和是二维凸函数。对固定 x，关于 y 是凸的，可三分；外层对 x 再三分，嵌套搜索在坐标范围内逼近全局最优。",
+  "pitfalls": [
+    "需要使用 double",
+    "搜索区间覆盖题目坐标零到一百",
+    "足够迭代次数保证误差不超过要求"
+  ],
+  "solutions": [
+    {
+      "id": "nested-convex-ternary-search",
+      "title": "嵌套凸函数三分搜索",
+      "kind": "最优",
+      "idea": "对两个坐标分别利用凸性连续优化。",
+      "steps": [
+        "distance(x,y) 求到所有点距离和",
+        "bestAtX(x) 在 y∈[0,100] 三分八十轮返回最小值",
+        "在 x∈[0,100] 三分八十轮，每次比较 bestAtX(x1),bestAtX(x2)，最后返回中点最优值"
+      ],
+      "complexity": {
+        "time": "O(iterations²·n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/nested-convex-ternary-search/Solution.java",
+        "kotlin": "solutions/nested-convex-ternary-search/Solution.kt",
+        "cpp": "solutions/nested-convex-ternary-search/solution.cpp"
+      }
+    }
+  ]
+}

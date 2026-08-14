@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1449,
+  "slug": "form-largest-integer-with-digits-that-add-up-to-target",
+  "title": "数位成本和为目标值的最大数字",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-020",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "完全背包"
+  ],
+  "summary": "数字一到九各有成本，可重复选数位使总成本恰为 target，返回数值最大的整数；无解返回零。",
+  "insight": "数字位数越多数值越大，先用完全背包最大化位数；再从九到一贪心选择仍保持最优位数的数位，得到字典序最大结果。",
+  "pitfalls": [
+    "必须恰好用完 target 成本",
+    "无解返回字符串 0",
+    "重建时同一数字可重复选择"
+  ],
+  "solutions": [
+    {
+      "id": "max-length-knapsack-reconstruction",
+      "title": "最大位数背包与降序重建",
+      "kind": "最优",
+      "idea": "以位数为第一目标、数位字典序为第二目标。",
+      "steps": [
+        "dp[0]=0，其余负无穷；total 从一到 target 枚举 digit 更新最大位数",
+        "dp[target]<0 返回 0",
+        "digit 从九降到一，只要 dp[remain]==dp[remain-cost]+1 就追加并减少 remain，直到不能再选"
+      ],
+      "complexity": {
+        "time": "O(9·target)",
+        "space": "O(target)"
+      },
+      "files": {
+        "java": "solutions/max-length-knapsack-reconstruction/Solution.java",
+        "kotlin": "solutions/max-length-knapsack-reconstruction/Solution.kt",
+        "cpp": "solutions/max-length-knapsack-reconstruction/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "ProductOfNumbers",
+  "constructorTypes": [],
+  "cases": [
+    {
+      "name": "零重置后的经典查询",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "add",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            3
+          ]
+        },
+        {
+          "method": "add",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            0
+          ]
+        },
+        {
+          "method": "add",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ]
+        },
+        {
+          "method": "add",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            5
+          ]
+        },
+        {
+          "method": "add",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            4
+          ]
+        },
+        {
+          "method": "getProduct",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ],
+          "returnType": "int",
+          "expected": 20
+        },
+        {
+          "method": "getProduct",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            3
+          ],
+          "returnType": "int",
+          "expected": 40
+        },
+        {
+          "method": "getProduct",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            4
+          ],
+          "returnType": "int",
+          "expected": 0
+        },
+        {
+          "method": "add",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            8
+          ]
+        },
+        {
+          "method": "getProduct",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ],
+          "returnType": "int",
+          "expected": 32
+        }
+      ]
+    },
+    {
+      "name": "没有零的前缀积",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "add",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ]
+        },
+        {
+          "method": "add",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            3
+          ]
+        },
+        {
+          "method": "getProduct",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ],
+          "returnType": "int",
+          "expected": 6
+        }
+      ]
+    },
+    {
+      "name": "最后一个数为零",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "add",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            5
+          ]
+        },
+        {
+          "method": "add",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            0
+          ]
+        },
+        {
+          "method": "getProduct",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ],
+          "returnType": "int",
+          "expected": 0
+        }
+      ]
+    }
+  ]
+}

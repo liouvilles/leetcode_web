@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "freqAlphabets",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "十到十二解为 jkab",
+      "args": [
+        "10#11#12"
+      ],
+      "expected": "jkab"
+    },
+    {
+      "name": "混合一位与两位",
+      "args": [
+        "1326#"
+      ],
+      "expected": "acz"
+    },
+    {
+      "name": "全部一位数字",
+      "args": [
+        "123"
+      ],
+      "expected": "abc"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sortEvenOdd",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "奇偶下标独立排序",
+      "args": [
+        [
+          4,
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        2,
+        3,
+        4,
+        1
+      ]
+    },
+    {
+      "name": "六元素两组排序",
+      "args": [
+        [
+          2,
+          1
+        ]
+      ],
+      "expected": [
+        2,
+        1
+      ]
+    },
+    {
+      "name": "单元素保持不变",
+      "args": [
+        [
+          7
+        ]
+      ],
+      "expected": [
+        7
+      ]
+    }
+  ]
+}

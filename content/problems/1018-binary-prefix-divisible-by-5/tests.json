@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "prefixesDivBy5",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "booleanList",
+  "cases": [
+    {
+      "name": "零一一",
+      "args": [
+        [
+          0,
+          1,
+          1
+        ]
+      ],
+      "expected": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "name": "一一一",
+      "args": [
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "name": "前缀十可整除",
+      "args": [
+        [
+          1,
+          0,
+          1,
+          0
+        ]
+      ],
+      "expected": [
+        false,
+        false,
+        true,
+        true
+      ]
+    }
+  ]
+}

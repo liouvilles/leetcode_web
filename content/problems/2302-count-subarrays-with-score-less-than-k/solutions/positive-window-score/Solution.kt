@@ -1,0 +1,1 @@
+class Solution { fun countSubarrays(nums:IntArray,k:Long):Long{var sum=0L;var answer=0L;var left=0;for(right in nums.indices){sum+=nums[right];while(left<=right&&sum*(right-left+1)>=k)sum-=nums[left++];answer+=right-left+1};return answer} }

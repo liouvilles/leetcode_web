@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "gcdOfStrings",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "三次与两次 ABC",
+      "args": [
+        "ABCABC",
+        "ABC"
+      ],
+      "expected": "ABC"
+    },
+    {
+      "name": "ABAB 与 ABABAB",
+      "args": [
+        "ABABAB",
+        "ABAB"
+      ],
+      "expected": "AB"
+    },
+    {
+      "name": "无共同基元",
+      "args": [
+        "LEET",
+        "CODE"
+      ],
+      "expected": ""
+    }
+  ]
+}

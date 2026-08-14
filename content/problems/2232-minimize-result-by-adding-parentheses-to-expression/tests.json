@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimizeResult",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "二四七加三八最优括住四七与三八",
+      "args": [
+        "247+38"
+      ],
+      "expected": "2(47+38)"
+    },
+    {
+      "name": "十二加三十四保留两侧乘数",
+      "args": [
+        "12+34"
+      ],
+      "expected": "1(2+3)4"
+    },
+    {
+      "name": "两边相同大数最外层括号",
+      "args": [
+        "999+999"
+      ],
+      "expected": "(999+999)"
+    }
+  ]
+}

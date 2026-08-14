@@ -1,0 +1,1 @@
+class Solution { public: int findTheLongestSubstring(string text){int earliest[32];fill(begin(earliest),end(earliest),-2);earliest[0]=-1;int mask=0,answer=0;for(int i=0;i<(int)text.size();++i){auto vowel=string("aeiou").find(text[i]);if(vowel!=string::npos)mask^=1<<vowel;if(earliest[mask]!=-2)answer=max(answer,i-earliest[mask]);else earliest[mask]=i;}return answer;} };

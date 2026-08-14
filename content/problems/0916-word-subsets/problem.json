@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 916,
+  "slug": "word-subsets",
+  "title": "单词子集",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-013",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "字符串"
+  ],
+  "summary": "若 b 中每个字母频次都不超过 a 中对应频次，则 b 是 a 的子集；返回 words1 中对 words2 所有单词都通用的单词。",
+  "insight": "多个约束单词只需合并为每个字母所需最大频次；候选词覆盖这一个 26 维需求向量就等价于覆盖全部 words2。",
+  "pitfalls": [
+    "同一字母的重复次数必须满足",
+    "合并约束取逐字母最大值而非求和",
+    "按 words1 原顺序返回"
+  ],
+  "solutions": [
+    {
+      "id": "maximum-letter-requirement",
+      "title": "最大字母频次需求",
+      "kind": "最优",
+      "idea": "压缩所有约束后逐候选验证。",
+      "steps": [
+        "requirement[26]=0；对 words2 每词统计 count，并逐位取最大",
+        "对 words1 每词统计 frequency",
+        "若所有 frequency[c]>=requirement[c] 则加入答案"
+      ],
+      "complexity": {
+        "time": "O(total characters)",
+        "space": "O(26)"
+      },
+      "files": {
+        "java": "solutions/maximum-letter-requirement/Solution.java",
+        "kotlin": "solutions/maximum-letter-requirement/Solution.kt",
+        "cpp": "solutions/maximum-letter-requirement/solution.cpp"
+      }
+    }
+  ]
+}

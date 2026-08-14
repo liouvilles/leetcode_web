@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxResult",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "最多跳两格最大得分七",
+      "args": [
+        [
+          1,
+          -1,
+          -2,
+          4,
+          -7,
+          3
+        ],
+        2
+      ],
+      "expected": 7
+    },
+    {
+      "name": "最多跳三格最大得分十七",
+      "args": [
+        [
+          10,
+          -5,
+          -2,
+          4,
+          0,
+          3
+        ],
+        3
+      ],
+      "expected": 17
+    },
+    {
+      "name": "负数路径最大得分零",
+      "args": [
+        [
+          1,
+          -5,
+          -20,
+          4,
+          -1,
+          3,
+          -6,
+          -3
+        ],
+        2
+      ],
+      "expected": 0
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { fun maxAscendingSum(nums:IntArray):Int{var current=nums[0];var answer=current;for(i in 1 until nums.size){current=if(nums[i]>nums[i-1])current+nums[i] else nums[i];answer=maxOf(answer,current)};return answer} }

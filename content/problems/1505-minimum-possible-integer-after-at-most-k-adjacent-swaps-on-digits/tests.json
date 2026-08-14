@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minInteger",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "四次交换得到一三四二",
+      "args": [
+        "4321",
+        4
+      ],
+      "expected": "1342"
+    },
+    {
+      "name": "一次交换把零移到前面",
+      "args": [
+        "100",
+        1
+      ],
+      "expected": "010"
+    },
+    {
+      "name": "已递增数字保持不变",
+      "args": [
+        "36789",
+        1000
+      ],
+      "expected": "36789"
+    }
+  ]
+}

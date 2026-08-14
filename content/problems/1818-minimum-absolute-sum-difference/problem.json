@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1818,
+  "slug": "minimum-absolute-sum-difference",
+  "title": "绝对差值和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-026",
+  "studyTags": [
+    "数组",
+    "二分查找",
+    "有序集合"
+  ],
+  "summary": "可把 nums1 至多一个元素替换为 nums1 中任意已有元素，最小化与 nums2 对应绝对差之和，结果取模。",
+  "insight": "排序 nums1 副本。对每个 nums2[i] 二分最接近值，计算用它替换 nums1[i] 可减少多少差值；总和减最大减少量。",
+  "pitfalls": [
+    "替换值必须来自原 nums1",
+    "只允许至多一次替换",
+    "总差值用 long，最后规范化取模"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-nearest-improvement",
+      "title": "排序后二分最佳改进",
+      "kind": "最优",
+      "idea": "独立计算每个位置作为唯一替换点的最大收益。",
+      "steps": [
+        "sorted=nums1 clone 并排序，total=0,bestGain=0",
+        "对 i 计算 original=abs(nums1[i]-nums2[i]) 并加入 total",
+        "lower_bound nums2[i]，检查位置及前一位置得到 replacementDiff，更新 bestGain=original-replacementDiff；返回 (total-bestGain)%MOD"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/sorted-nearest-improvement/Solution.java",
+        "kotlin": "solutions/sorted-nearest-improvement/Solution.kt",
+        "cpp": "solutions/sorted-nearest-improvement/solution.cpp"
+      }
+    }
+  ]
+}

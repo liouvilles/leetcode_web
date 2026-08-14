@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minFallingPathSum",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三阶最小和十三",
+      "args": [
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            4,
+            5,
+            6
+          ],
+          [
+            7,
+            8,
+            9
+          ]
+        ]
+      ],
+      "expected": 13
+    },
+    {
+      "name": "单格路径",
+      "args": [
+        [
+          [
+            7
+          ]
+        ]
+      ],
+      "expected": 7
+    },
+    {
+      "name": "负数对角选择",
+      "args": [
+        [
+          [
+            -1,
+            2,
+            3
+          ],
+          [
+            4,
+            -5,
+            6
+          ],
+          [
+            7,
+            8,
+            -9
+          ]
+        ]
+      ],
+      "expected": -15
+    }
+  ]
+}

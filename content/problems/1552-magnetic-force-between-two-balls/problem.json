@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1552,
+  "slug": "magnetic-force-between-two-balls",
+  "title": "两球之间的磁力",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-022",
+  "studyTags": [
+    "数组",
+    "二分查找",
+    "排序"
+  ],
+  "summary": "把 m 个球放入不同篮子位置，最大化任意两球间的最小距离。",
+  "insight": "给定距离 d 能否放下 m 球具有单调性。排序后贪心把每个球放在距上一个已放球至少 d 的最早位置，最能给后续留空间。",
+  "pitfalls": [
+    "位置需先排序",
+    "二分寻找最大的可行距离",
+    "第一只球固定放最左不损失最优性"
+  ],
+  "solutions": [
+    {
+      "id": "binary-search-greedy-spacing",
+      "title": "间距二分与贪心放置",
+      "kind": "最优",
+      "idea": "用线性可行性检查最大最小距离。",
+      "steps": [
+        "排序 position",
+        "feasible(distance)：从首位置开始，遇差>=distance 就放球，计数达到 m 成功",
+        "二分 left=1,right=range，mid 向上取整；可行则 left=mid，否则 right=mid-1"
+      ],
+      "complexity": {
+        "time": "O(n log range)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/binary-search-greedy-spacing/Solution.java",
+        "kotlin": "solutions/binary-search-greedy-spacing/Solution.kt",
+        "cpp": "solutions/binary-search-greedy-spacing/solution.cpp"
+      }
+    }
+  ]
+}

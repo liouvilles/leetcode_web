@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 501,
+  "slug": "find-mode-in-binary-search-tree",
+  "title": "二叉搜索树中的众数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-007",
+  "studyTags": [
+    "二叉搜索树",
+    "中序遍历",
+    "计数"
+  ],
+  "summary": "返回二叉搜索树中出现频率最高的所有节点值，结果按升序输出。",
+  "insight": "BST 中序遍历得到非递减序列，可只比较当前值与前一个值并维护连续计数，无需哈希表。",
+  "pitfalls": [
+    "可能有多个众数",
+    "中序顺序可让答案自然升序",
+    "首次节点需要单独初始化前值状态"
+  ],
+  "solutions": [
+    {
+      "id": "inorder-run-count",
+      "title": "中序连续计数",
+      "kind": "最优",
+      "idea": "在有序遍历流上统计相同值连续段并同步维护最大频次答案。",
+      "steps": [
+        "中序递归左子树",
+        "处理当前值：更新 currentCount",
+        "大于 best 时清空答案，相等时追加，递归右子树"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(h)"
+      },
+      "files": {
+        "java": "solutions/inorder-run-count/Solution.java",
+        "kotlin": "solutions/inorder-run-count/Solution.kt",
+        "cpp": "solutions/inorder-run-count/solution.cpp"
+      }
+    }
+  ]
+}

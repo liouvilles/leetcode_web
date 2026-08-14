@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "distributeCandies",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "七颗四人",
+      "args": [
+        7,
+        4
+      ],
+      "expected": [
+        1,
+        2,
+        3,
+        1
+      ]
+    },
+    {
+      "name": "十颗三人",
+      "args": [
+        10,
+        3
+      ],
+      "expected": [
+        5,
+        2,
+        3
+      ]
+    },
+    {
+      "name": "一颗一人",
+      "args": [
+        1,
+        1
+      ],
+      "expected": [
+        1
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minFlips",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "旋转配合反转最少二次",
+      "args": [
+        "111000"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "已经交替无需反转",
+      "args": [
+        "010"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "四字符最少反转一次",
+      "args": [
+        "1110"
+      ],
+      "expected": 1
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1798,
+  "slug": "maximum-number-of-consecutive-values-you-can-make",
+  "title": "你能构造出连续值的最大数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-026",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "排序"
+  ],
+  "summary": "每枚硬币最多使用一次，求从零开始能连续构造多少个整数金额。",
+  "insight": "若当前已能构造 [0,reachable]，下一枚 coin<=reachable+1 时新区间扩展到 reachable+coin；否则 reachable+1 永远无法构造。",
+  "pitfalls": [
+    "答案包含金额零",
+    "硬币需升序处理",
+    "返回连续金额数量 reachable+1"
+  ],
+  "solutions": [
+    {
+      "id": "reachable-prefix-greedy",
+      "title": "可达前缀贪心",
+      "kind": "最优",
+      "idea": "维护无空洞可构造金额区间右端点。",
+      "steps": [
+        "coins 排序，reachable=0",
+        "若 coin>reachable+1 则停止",
+        "否则 reachable+=coin，返回 reachable+1"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/reachable-prefix-greedy/Solution.java",
+        "kotlin": "solutions/reachable-prefix-greedy/Solution.kt",
+        "cpp": "solutions/reachable-prefix-greedy/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 715,
+  "slug": "range-module",
+  "title": "Range 模块",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-009",
+  "studyTags": [
+    "设计",
+    "有序集合",
+    "区间"
+  ],
+  "summary": "跟踪实数轴上的半开区间，支持添加范围、查询范围是否全部被跟踪、删除范围。",
+  "insight": "用有序映射保存互不相交且不相邻的 [start,end)；添加合并所有相交/相邻区间，删除把相交区间裁成最多左右两段。",
+  "pitfalls": [
+    "区间右端不包含",
+    "相邻区间添加时可合并",
+    "删除可能把一个区间拆成两个"
+  ],
+  "solutions": [
+    {
+      "id": "ordered-disjoint-intervals",
+      "title": "有序不交区间集合",
+      "kind": "最优",
+      "idea": "TreeMap/map 按起点定位并局部合并或拆分。",
+      "steps": [
+        "addRange 收集 end>=left 且 start<=right 的区间，合并边界后替换",
+        "queryRange 找起点不大于 left 的最后区间，检查其 end>=right",
+        "removeRange 收集与 [left,right) 正长度相交区间，删除后保留越过 left 的左段与越过 right 的右段"
+      ],
+      "complexity": {
+        "time": "O(q log n + overlaps)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/ordered-disjoint-intervals/Solution.java",
+        "kotlin": "solutions/ordered-disjoint-intervals/Solution.kt",
+        "cpp": "solutions/ordered-disjoint-intervals/solution.cpp"
+      }
+    }
+  ]
+}

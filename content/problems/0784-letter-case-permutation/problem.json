@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 784,
+  "slug": "letter-case-permutation",
+  "title": "字母大小写全排列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-010",
+  "studyTags": [
+    "字符串",
+    "回溯",
+    "位运算"
+  ],
+  "summary": "给定由字母和数字组成的字符串，返回切换任意字母大小写得到的所有字符串。",
+  "insight": "数字只有一个分支，字母有小写和大写两个分支；按位置 DFS 即可枚举完整笛卡尔积。",
+  "pitfalls": [
+    "数字不产生额外分支",
+    "每条路径结束时要复制当前字符数组",
+    "固定先小写后大写可得到稳定输出顺序"
+  ],
+  "solutions": [
+    {
+      "id": "dfs-two-case-branches",
+      "title": "逐字符大小写回溯",
+      "kind": "最优",
+      "idea": "字母创建两个分支，数字直接前进。",
+      "steps": [
+        "把字符串转为字符数组",
+        "若当前是字母，依次设为小写、递归，再设为大写、递归；数字只递归一次",
+        "到达末尾把当前字符串加入答案"
+      ],
+      "complexity": {
+        "time": "O(n·2^letters)",
+        "space": "O(n·2^letters)"
+      },
+      "files": {
+        "java": "solutions/dfs-two-case-branches/Solution.java",
+        "kotlin": "solutions/dfs-two-case-branches/Solution.kt",
+        "cpp": "solutions/dfs-two-case-branches/solution.cpp"
+      }
+    }
+  ]
+}

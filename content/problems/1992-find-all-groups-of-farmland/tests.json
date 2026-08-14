@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findFarmland",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "intMatrix",
+  "cases": [
+    {
+      "name": "单格与二乘二两组农田",
+      "args": [
+        [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            0,
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          2,
+          2
+        ]
+      ]
+    },
+    {
+      "name": "整块土地是一组",
+      "args": [
+        [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          0,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "没有农田返回空",
+      "args": [
+        [
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      "expected": []
+    }
+  ]
+}

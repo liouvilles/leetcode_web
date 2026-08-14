@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "average",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "double",
+  "cases": [
+    {
+      "name": "排除一千和四千平均二千五",
+      "args": [
+        [
+          4000,
+          3000,
+          1000,
+          2000
+        ]
+      ],
+      "expected": 2500
+    },
+    {
+      "name": "三人只剩中间工资",
+      "args": [
+        [
+          1000,
+          2000,
+          3000
+        ]
+      ],
+      "expected": 2000
+    },
+    {
+      "name": "六人工资平均三千五",
+      "args": [
+        [
+          6000,
+          5000,
+          4000,
+          3000,
+          2000,
+          1000
+        ]
+      ],
+      "expected": 3500
+    }
+  ]
+}

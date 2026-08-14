@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isSolvable",
+  "parameterTypes": [
+    "stringArray",
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "SEND MORE MONEY 有解",
+      "args": [
+        [
+          "SEND",
+          "MORE"
+        ],
+        "MONEY"
+      ],
+      "expected": true
+    },
+    {
+      "name": "SIX 加两个 SEVEN 有解",
+      "args": [
+        [
+          "SIX",
+          "SEVEN",
+          "SEVEN"
+        ],
+        "TWENTY"
+      ],
+      "expected": true
+    },
+    {
+      "name": "LEET CODE POINT 无解",
+      "args": [
+        [
+          "LEET",
+          "CODE"
+        ],
+        "POINT"
+      ],
+      "expected": false
+    }
+  ]
+}

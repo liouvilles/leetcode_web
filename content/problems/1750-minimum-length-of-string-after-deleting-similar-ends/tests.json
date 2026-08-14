@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumLength",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两端不同无法删除",
+      "args": [
+        "ca"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "多轮删除后全部清空",
+      "args": [
+        "cabaabac"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "删除两端 a 后剩余 bccab",
+      "args": [
+        "aabccabba"
+      ],
+      "expected": 3
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "longestPrefix",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "level 首尾字母相同",
+      "args": [
+        "level"
+      ],
+      "expected": "l"
+    },
+    {
+      "name": "重复 ab 的最长边界",
+      "args": [
+        "ababab"
+      ],
+      "expected": "abab"
+    },
+    {
+      "name": "前后均为 leet",
+      "args": [
+        "leetcodeleet"
+      ],
+      "expected": "leet"
+    }
+  ]
+}

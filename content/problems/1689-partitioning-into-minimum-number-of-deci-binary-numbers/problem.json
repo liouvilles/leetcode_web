@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1689,
+  "slug": "partitioning-into-minimum-number-of-deci-binary-numbers",
+  "title": "十进制数的最少数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-024",
+  "studyTags": [
+    "字符串",
+    "贪心"
+  ],
+  "summary": "把十进制字符串表示为若干只含零和一的正整数之和，求所需最少个数。",
+  "insight": "某一位数字 d 至少需要 d 个十进制二进制数在该位贡献一；把每一层非零位组成一个数又能达到全局最大数字，因此答案就是最大数位。",
+  "pitfalls": [
+    "十进制二进制数只限制每位为零或一",
+    "输入没有前导零",
+    "无需实际构造这些加数"
+  ],
+  "solutions": [
+    {
+      "id": "maximum-digit",
+      "title": "最大数位下界构造",
+      "kind": "最优",
+      "idea": "最大数位同时给出必要下界和可达上界。",
+      "steps": [
+        "扫描字符串每个数字字符",
+        "维护最大字符或数位值",
+        "返回最大数位"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/maximum-digit/Solution.java",
+        "kotlin": "solutions/maximum-digit/Solution.kt",
+        "cpp": "solutions/maximum-digit/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 538,
+  "slug": "convert-bst-to-greater-tree",
+  "title": "把二叉搜索树转换为累加树",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-007",
+  "studyTags": [
+    "二叉搜索树",
+    "逆中序遍历",
+    "前缀累加"
+  ],
+  "summary": "把 BST 每个节点值替换为原树中所有大于或等于它的节点值之和。",
+  "insight": "按右、根、左的逆中序遍历会以降序访问节点，维护累计和即可在访问时写回正确新值。",
+  "pitfalls": [
+    "必须先访问右子树",
+    "累加值跨整个遍历共享",
+    "原树节点原地修改"
+  ],
+  "solutions": [
+    {
+      "id": "reverse-inorder-sum",
+      "title": "逆中序累计和",
+      "kind": "最优",
+      "idea": "降序遍历中 sum 始终包含所有已访问的更大值。",
+      "steps": [
+        "递归右子树",
+        "sum+=node.val 并令 node.val=sum",
+        "递归左子树，返回根"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(h)"
+      },
+      "files": {
+        "java": "solutions/reverse-inorder-sum/Solution.java",
+        "kotlin": "solutions/reverse-inorder-sum/Solution.kt",
+        "cpp": "solutions/reverse-inorder-sum/solution.cpp"
+      }
+    }
+  ]
+}

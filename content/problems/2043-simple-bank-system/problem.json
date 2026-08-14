@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2043,
+  "slug": "simple-bank-system",
+  "title": "简易银行系统",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-029",
+  "studyTags": [
+    "设计",
+    "数组",
+    "哈希表",
+    "模拟"
+  ],
+  "summary": "维护一基账户余额，支持转账、存款与取款；账户无效或余额不足时失败。",
+  "insight": "余额数组直接保存状态。每次先验证账户范围，取款与转账还需验证付款方余额；通过后按操作更新 long 余额。",
+  "pitfalls": [
+    "账户编号从一开始",
+    "金额与余额使用 long",
+    "失败操作不能改变任何余额"
+  ],
+  "solutions": [
+    {
+      "id": "validated-balance-array",
+      "title": "校验后更新余额数组",
+      "kind": "最优",
+      "idea": "按操作定义做范围和资金检查。",
+      "steps": [
+        "valid(account) 判断一到余额数组长度",
+        "transfer 验证两账户与付款余额，再一减一加",
+        "deposit 验证后增加；withdraw 验证账户与余额后减少"
+      ],
+      "complexity": {
+        "time": "O(1) 每次操作",
+        "space": "O(1) 额外"
+      },
+      "files": {
+        "java": "solutions/validated-balance-array/Solution.java",
+        "kotlin": "solutions/validated-balance-array/Solution.kt",
+        "cpp": "solutions/validated-balance-array/solution.cpp"
+      }
+    }
+  ]
+}

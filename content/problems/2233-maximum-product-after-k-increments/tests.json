@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumProduct",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "零和四增加五次乘积二十",
+      "args": [
+        [
+          0,
+          4
+        ],
+        5
+      ],
+      "expected": 20
+    },
+    {
+      "name": "四元素增加两次乘积二百一十六",
+      "args": [
+        [
+          6,
+          3,
+          3,
+          2
+        ],
+        2
+      ],
+      "expected": 216
+    },
+    {
+      "name": "单元素增加三次",
+      "args": [
+        [
+          1
+        ],
+        3
+      ],
+      "expected": 4
+    }
+  ]
+}

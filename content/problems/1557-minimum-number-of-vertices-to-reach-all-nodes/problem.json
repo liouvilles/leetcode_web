@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1557,
+  "slug": "minimum-number-of-vertices-to-reach-all-nodes",
+  "title": "可以到达所有点的最少点数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-022",
+  "studyTags": [
+    "图论",
+    "有向无环图"
+  ],
+  "summary": "有向无环图中选择最少起点，使从这些点出发能到达所有节点，返回任一最小集合。",
+  "insight": "所有入度为零的节点无法从其他节点到达，必须选择；DAG 中每个非零入度节点最终都可由某个零入度祖先到达，因此这些节点也足够。",
+  "pitfalls": [
+    "只需统计直接入度",
+    "答案自然按节点扫描升序",
+    "图保证无环"
+  ],
+  "solutions": [
+    {
+      "id": "zero-indegree-vertices",
+      "title": "零入度节点",
+      "kind": "最优",
+      "idea": "DAG 的最小覆盖起点恰是全部源点。",
+      "steps": [
+        "indegree[n]=0",
+        "对每条 edge 增加 indegree[to]",
+        "收集所有 indegree[node]==0 的 node"
+      ],
+      "complexity": {
+        "time": "O(n+e)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/zero-indegree-vertices/Solution.java",
+        "kotlin": "solutions/zero-indegree-vertices/Solution.kt",
+        "cpp": "solutions/zero-indegree-vertices/solution.cpp"
+      }
+    }
+  ]
+}

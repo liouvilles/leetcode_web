@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 838,
+  "slug": "push-dominoes",
+  "title": "推多米诺",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-011",
+  "studyTags": [
+    "字符串",
+    "双向扫描",
+    "模拟"
+  ],
+  "summary": "一排多米诺初始可向左、向右受力或竖立，受相反方向同时作用时保持竖立，返回最终状态。",
+  "insight": "分别计算每个位置从左侧 R 传播的递减正力和从右侧 L 传播的递减负力；合力符号决定最终方向。",
+  "pitfalls": [
+    "遇到反向推力会清空当前传播",
+    "传播强度每远一格减一",
+    "正负力相等时保持点号"
+  ],
+  "solutions": [
+    {
+      "id": "two-pass-net-force",
+      "title": "双向传播合力",
+      "kind": "最优",
+      "idea": "用两次扫描叠加左右方向影响。",
+      "steps": [
+        "左到右：R 令 force=n，L 令零，点号令 force=max(force-1,0)，加到 forces[i]",
+        "右到左对称：L 令 force=n，R 令零，点号衰减，从 forces[i] 减去",
+        "forces[i]>0 输出 R，<0 输出 L，否则输出点号"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/two-pass-net-force/Solution.java",
+        "kotlin": "solutions/two-pass-net-force/Solution.kt",
+        "cpp": "solutions/two-pass-net-force/solution.cpp"
+      }
+    }
+  ]
+}

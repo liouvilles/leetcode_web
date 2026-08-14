@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countPoints",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "零号杆三色齐全",
+      "args": [
+        "B0B6G0R6R0R6G9"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "一号杆缺蓝色答案零",
+      "args": [
+        "B0R0G0R9R0B0G0"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "只有红环无三色杆",
+      "args": [
+        "R1R2"
+      ],
+      "expected": 0
+    }
+  ]
+}

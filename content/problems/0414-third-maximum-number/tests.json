@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "thirdMax",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "恰好三个不同值",
+      "args": [
+        [
+          3,
+          2,
+          1
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "不足三个返回最大",
+      "args": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "重复值不计名次",
+      "args": [
+        [
+          2,
+          2,
+          3,
+          1
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

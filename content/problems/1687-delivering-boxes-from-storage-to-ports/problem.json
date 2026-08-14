@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1687,
+  "slug": "delivering-boxes-from-storage-to-ports",
+  "title": "从仓库到码头运输箱子",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-024",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "队列",
+    "单调队列"
+  ],
+  "summary": "箱子须按顺序装船，每趟受箱数和总重量限制；船从仓库出发，按箱子港口顺序停靠并回仓，求最少航程段数。",
+  "insight": "一趟运送连续区间 j+1..i 的代价是区间内港口变化数加二。DP 转移可整理为 change[i]+2 加上 dp[j]-change[j+1]，用单调队列在合法窗口中取最小值。",
+  "pitfalls": [
+    "同一港口连续箱子只需停靠一次",
+    "窗口同时受箱数与重量约束",
+    "候选 j 的比较值使用 change[j+1]"
+  ],
+  "solutions": [
+    {
+      "id": "window-dp-monotonic-deque",
+      "title": "窗口 DP 与单调队列",
+      "kind": "最优",
+      "idea": "把每个合法上一断点的转移常数项维护为单调队列。",
+      "steps": [
+        "构造重量前缀 weight 与港口变化前缀 change",
+        "对 i 移除超过 maxBoxes 或 maxWeight 的队首断点 j",
+        "用队首求 dp[i]=dp[j]+change[i]-change[j+1]+2；按 dp[i]-change[i+1] 维护队列递增"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/window-dp-monotonic-deque/Solution.java",
+        "kotlin": "solutions/window-dp-monotonic-deque/Solution.kt",
+        "cpp": "solutions/window-dp-monotonic-deque/solution.cpp"
+      }
+    }
+  ]
+}

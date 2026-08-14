@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumCandies",
+  "parameterTypes": [
+    "intArray",
+    "long"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三堆分三孩每人五颗",
+      "args": [
+        [
+          5,
+          8,
+          6
+        ],
+        3
+      ],
+      "expected": 5
+    },
+    {
+      "name": "总糖不足十一孩每人一颗",
+      "args": [
+        [
+          2,
+          5
+        ],
+        11
+      ],
+      "expected": 0
+    },
+    {
+      "name": "单堆分两孩每人五颗",
+      "args": [
+        [
+          10
+        ],
+        2
+      ],
+      "expected": 5
+    }
+  ]
+}

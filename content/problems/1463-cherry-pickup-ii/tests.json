@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "cherryPickup",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典四行网格收集二十四",
+      "args": [
+        [
+          [
+            3,
+            1,
+            1
+          ],
+          [
+            2,
+            5,
+            1
+          ],
+          [
+            1,
+            5,
+            5
+          ],
+          [
+            2,
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": 24
+    },
+    {
+      "name": "单行取两端",
+      "args": [
+        [
+          [
+            1,
+            2,
+            3
+          ]
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "单列同格只计一次",
+      "args": [
+        [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ]
+        ]
+      ],
+      "expected": 6
+    }
+  ]
+}

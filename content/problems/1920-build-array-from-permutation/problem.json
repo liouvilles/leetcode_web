@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1920,
+  "slug": "build-array-from-permutation",
+  "title": "基于排列构建数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-028",
+  "studyTags": [
+    "数组",
+    "模拟"
+  ],
+  "summary": "给定零到 n-1 的排列 nums，构造 answer[i]=nums[nums[i]]。",
+  "insight": "每个 nums[i] 都是合法下标，逐项二次索引即可，输入无需修改。",
+  "pitfalls": [
+    "数组为零基排列",
+    "二次索引使用原数组",
+    "输出长度不变"
+  ],
+  "solutions": [
+    {
+      "id": "direct-double-indexing",
+      "title": "直接二次索引",
+      "kind": "最优",
+      "idea": "按定义构造每个输出位置。",
+      "steps": [
+        "创建等长 answer",
+        "遍历 i",
+        "answer[i]=nums[nums[i]]，返回"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/direct-double-indexing/Solution.java",
+        "kotlin": "solutions/direct-double-indexing/Solution.kt",
+        "cpp": "solutions/direct-double-indexing/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "consecutiveNumbersSum",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "五有两种",
+      "args": [
+        5
+      ],
+      "expected": 2
+    },
+    {
+      "name": "九有三种",
+      "args": [
+        9
+      ],
+      "expected": 3
+    },
+    {
+      "name": "十五有四种",
+      "args": [
+        15
+      ],
+      "expected": 4
+    }
+  ]
+}

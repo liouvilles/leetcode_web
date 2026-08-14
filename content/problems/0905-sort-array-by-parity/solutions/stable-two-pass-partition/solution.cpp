@@ -1,0 +1,1 @@
+class Solution { public: vector<int> sortArrayByParity(vector<int>& nums){vector<int> answer;for(int value:nums)if(value%2==0)answer.push_back(value);for(int value:nums)if(value%2)answer.push_back(value);return answer;} };

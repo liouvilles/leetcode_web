@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "openLock",
+  "parameterTypes": [
+    "stringArray",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典六步解锁",
+      "args": [
+        [
+          "0201",
+          "0101",
+          "0102",
+          "1212",
+          "2002"
+        ],
+        "0202"
+      ],
+      "expected": 6
+    },
+    {
+      "name": "一步到目标",
+      "args": [
+        [
+          "8888"
+        ],
+        "0009"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "起点死亡",
+      "args": [
+        [
+          "0000"
+        ],
+        "8888"
+      ],
+      "expected": -1
+    }
+  ]
+}

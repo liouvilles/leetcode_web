@@ -1,0 +1,1 @@
+class Solution { public: vector<int> sequentialDigits(int low,int high){string digits="123456789";vector<int> answer;for(int length=to_string(low).size();length<=(int)to_string(high).size();++length)for(int start=0;start+length<=9;++start){int value=stoi(digits.substr(start,length));if(value>=low&&value<=high)answer.push_back(value);}return answer;} };

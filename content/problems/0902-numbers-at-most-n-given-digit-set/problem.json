@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 902,
+  "slug": "numbers-at-most-n-given-digit-set",
+  "title": "最大为 N 的数字组合",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "数组",
+    "数学",
+    "数位动态规划"
+  ],
+  "summary": "用给定数字集合中的字符任意重复组成正整数，统计不大于 n 的数量。",
+  "insight": "位数小于 n 的数全部合法，贡献 d^length；位数相同时从高位扫描，当前位置选比 n 当前位小的数字可任意填后缀，选相同才能继续。",
+  "pitfalls": [
+    "数字集合不含零，因此没有前导零问题",
+    "若某位无法选到相同数字应立即返回累计值",
+    "若全部位相同匹配，n 本身还贡献一"
+  ],
+  "solutions": [
+    {
+      "id": "length-count-and-prefix-scan",
+      "title": "短位数计数与同长度前缀扫描",
+      "kind": "最优",
+      "idea": "按位组合计数而无需枚举所有数字。",
+      "steps": [
+        "text=n.toString，d=digits.length；累加 length=1..L-1 的 d^length",
+        "逐位置统计 less=digits 中小于 text[i] 的数量，answer+=less*d^(remaining)",
+        "若当前位不在 digits 中返回 answer；全部匹配后返回 answer+1"
+      ],
+      "complexity": {
+        "time": "O(L·d)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/length-count-and-prefix-scan/Solution.java",
+        "kotlin": "solutions/length-count-and-prefix-scan/Solution.kt",
+        "cpp": "solutions/length-count-and-prefix-scan/solution.cpp"
+      }
+    }
+  ]
+}

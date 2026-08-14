@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "queryString",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "包含一到三",
+      "args": [
+        "0110",
+        3
+      ],
+      "expected": true
+    },
+    {
+      "name": "缺少四",
+      "args": [
+        "0110",
+        4
+      ],
+      "expected": false
+    },
+    {
+      "name": "单个一",
+      "args": [
+        "1",
+        1
+      ],
+      "expected": true
+    }
+  ]
+}

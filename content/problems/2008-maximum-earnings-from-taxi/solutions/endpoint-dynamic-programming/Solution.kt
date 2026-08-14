@@ -1,0 +1,1 @@
+class Solution { fun maxTaxiEarnings(n:Int,rides:Array<IntArray>):Long{rides.sortBy{it[1]};val dp=LongArray(n+1);var index=0;for(position in 1..n){dp[position]=dp[position-1];while(index<rides.size&&rides[index][1]==position){val ride=rides[index++];dp[position]=maxOf(dp[position],dp[ride[0]]+ride[1]-ride[0]+ride[2])}};return dp[n]} }

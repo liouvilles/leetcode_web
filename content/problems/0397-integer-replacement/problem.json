@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 397,
+  "slug": "integer-replacement",
+  "title": "整数替换",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-006",
+  "studyTags": [
+    "贪心",
+    "位运算",
+    "整数"
+  ],
+  "summary": "把正整数通过偶数除二、奇数加一或减一变成一，求最少操作次数。",
+  "insight": "奇数时通常选择能制造更多尾随零的方向；二进制末两位为 11 时加一更优，三需要特判减一。",
+  "pitfalls": [
+    "最大整数加一会溢出，需转长整型",
+    "n=3 选择减一",
+    "偶数始终直接除二"
+  ],
+  "solutions": [
+    {
+      "id": "bit-greedy",
+      "title": "按末两位贪心",
+      "kind": "最优",
+      "idea": "每步让数值尽快获得更多可连续除二的低位零。",
+      "steps": [
+        "value 转 long",
+        "偶数右移一位",
+        "奇数若 value==3 或 bit1 为零则减一，否则加一，计数至一"
+      ],
+      "complexity": {
+        "time": "O(log n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/bit-greedy/Solution.java",
+        "kotlin": "solutions/bit-greedy/Solution.kt",
+        "cpp": "solutions/bit-greedy/solution.cpp"
+      }
+    }
+  ]
+}

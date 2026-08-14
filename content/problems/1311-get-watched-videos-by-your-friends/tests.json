@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "watchedVideosByFriends",
+  "parameterTypes": [
+    "stringListMatrix",
+    "intMatrix",
+    "int",
+    "int"
+  ],
+  "returnType": "stringList",
+  "cases": [
+    {
+      "name": "一级好友频次与字典序",
+      "args": [
+        [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "C"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "D"
+          ]
+        ],
+        [
+          [
+            1,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        0,
+        1
+      ],
+      "expected": [
+        "B",
+        "C"
+      ]
+    },
+    {
+      "name": "二级好友只看 D",
+      "args": [
+        [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "C"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "D"
+          ]
+        ],
+        [
+          [
+            1,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        0,
+        2
+      ],
+      "expected": [
+        "D"
+      ]
+    },
+    {
+      "name": "频次低的视频优先",
+      "args": [
+        [
+          [
+            "A"
+          ],
+          [
+            "X",
+            "Y"
+          ],
+          [
+            "X"
+          ]
+        ],
+        [
+          [
+            1,
+            2
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        0,
+        1
+      ],
+      "expected": [
+        "Y",
+        "X"
+      ]
+    }
+  ]
+}

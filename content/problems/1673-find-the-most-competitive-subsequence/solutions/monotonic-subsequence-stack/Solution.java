@@ -1,0 +1,1 @@
+class Solution { public int[] mostCompetitive(int[] nums,int k){int[] stack=new int[k];int size=0;for(int i=0;i<nums.length;i++){while(size>0&&stack[size-1]>nums[i]&&size-1+nums.length-i>=k)size--;if(size<k)stack[size++]=nums[i];}return stack;} }

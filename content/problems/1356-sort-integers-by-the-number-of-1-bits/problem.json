@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1356,
+  "slug": "sort-integers-by-the-number-of-1-bits",
+  "title": "根据数字二进制下 1 的数目排序",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-019",
+  "studyTags": [
+    "数组",
+    "位运算",
+    "排序"
+  ],
+  "summary": "按每个整数二进制表示中的一位数量升序排序，相同数量时按数值升序。",
+  "insight": "排序键是二元组（bitCount(value), value）；直接用语言内置位计数作为比较器即可。",
+  "pitfalls": [
+    "位数相同时必须按原数值升序",
+    "返回排序后的数组",
+    "比较器应满足稳定一致的顺序"
+  ],
+  "solutions": [
+    {
+      "id": "bit-count-comparator",
+      "title": "位计数比较器",
+      "kind": "最优",
+      "idea": "以一位数量和数值组成复合排序键。",
+      "steps": [
+        "把整数装箱或直接使用可定制比较器的排序",
+        "先比较 bitCount，再比较 value",
+        "输出排序结果"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/bit-count-comparator/Solution.java",
+        "kotlin": "solutions/bit-count-comparator/Solution.kt",
+        "cpp": "solutions/bit-count-comparator/solution.cpp"
+      }
+    }
+  ]
+}

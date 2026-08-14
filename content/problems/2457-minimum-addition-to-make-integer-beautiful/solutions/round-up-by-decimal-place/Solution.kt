@@ -1,0 +1,1 @@
+class Solution { fun makeIntegerBeautiful(nValue:Long,target:Int):Long{fun digitSum(valueInput:Long):Int{var value=valueInput;var sum=0;while(value>0){sum+=(value%10).toInt();value/=10};return sum};val original=nValue;var n=nValue;var place=10L;while(digitSum(n)>target){val remainder=n%place;if(remainder>0)n+=place-remainder;place*=10};return n-original} }

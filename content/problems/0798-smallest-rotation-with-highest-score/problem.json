@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 798,
+  "slug": "smallest-rotation-with-highest-score",
+  "title": "得分最高的最小轮调",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-010",
+  "studyTags": [
+    "数组",
+    "差分数组",
+    "前缀和"
+  ],
+  "summary": "把数组向左轮调 k 位后，若 nums[i]<=i 则该元素得一分；返回得分最高的最小 k。",
+  "insight": "每个元素随 k 变化只在一个循环区间失分；在该失分区间起点做负一差分，同时每前进一步自然有一个元素获得新位置，便可线性恢复各 k 的相对得分。",
+  "pitfalls": [
+    "轮调 k 后原下标 i 移到 (i-k+n)%n",
+    "并列时保留更小 k，因此只在严格更高时更新",
+    "差分下标需要加 n 后取模"
+  ],
+  "solutions": [
+    {
+      "id": "cyclic-bad-interval-difference",
+      "title": "循环失分区间差分",
+      "kind": "最优",
+      "idea": "累计每次轮调相对前一轮的得分变化。",
+      "steps": [
+        "对每个 i，在 (i-nums[i]+1+n)%n 处记录 change--",
+        "从 k=1 开始令 change[k]+=change[k-1]+1",
+        "比较 change[k] 与当前最佳的相对分数，严格更大时更新 best"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/cyclic-bad-interval-difference/Solution.java",
+        "kotlin": "solutions/cyclic-bad-interval-difference/Solution.kt",
+        "cpp": "solutions/cyclic-bad-interval-difference/solution.cpp"
+      }
+    }
+  ]
+}

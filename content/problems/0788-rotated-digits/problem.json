@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 788,
+  "slug": "rotated-digits",
+  "title": "旋转数字",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-010",
+  "studyTags": [
+    "数学",
+    "数位",
+    "枚举"
+  ],
+  "summary": "把数字每一位旋转 180 度，若仍是有效数字且与原数不同则为好数，统计 1..n 的好数数量。",
+  "insight": "数位 3、4、7 会使旋转无效；其余有效数中必须至少含一个 2、5、6、9 才会发生变化。",
+  "pitfalls": [
+    "0、1、8 有效但旋转后不变",
+    "只要含一个无效数位整个数字就无效",
+    "至少一个变化数位是必要条件"
+  ],
+  "solutions": [
+    {
+      "id": "digit-valid-and-changed",
+      "title": "数位有效性与变化标记",
+      "kind": "最优",
+      "idea": "逐数检查所有十进制位。",
+      "steps": [
+        "枚举 value=1..n",
+        "逐位取 digit；遇 3/4/7 标记无效，遇 2/5/6/9 标记 changed",
+        "valid 且 changed 时计入答案"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/digit-valid-and-changed/Solution.java",
+        "kotlin": "solutions/digit-valid-and-changed/Solution.kt",
+        "cpp": "solutions/digit-valid-and-changed/solution.cpp"
+      }
+    }
+  ]
+}

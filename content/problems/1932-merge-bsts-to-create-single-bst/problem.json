@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1932,
+  "slug": "merge-bsts-to-create-single-bst",
+  "title": "合并多棵二叉搜索树",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-028",
+  "studyTags": [
+    "树",
+    "二叉搜索树",
+    "深度优先搜索",
+    "哈希表"
+  ],
+  "summary": "每棵小 BST 的根可接到另一树同值叶节点，判断能否全部合成一棵合法 BST，成功返回根。",
+  "insight": "最终根不能出现在任何叶值中。DFS 最终根并携带合法值区间；遇到叶节点且其值是另一棵树根时立即嫁接，并从待合并根表删除。结束时必须只剩最终根且全树满足严格上下界。",
+  "pitfalls": [
+    "所有输入树都必须使用",
+    "BST 值严格有序",
+    "嫁接只能发生在叶节点"
+  ],
+  "solutions": [
+    {
+      "id": "root-map-graft-with-bounds",
+      "title": "根映射嫁接与区间校验",
+      "kind": "最优",
+      "idea": "一遍 DFS 同时完成嫁接、BST 校验和使用计数。",
+      "steps": [
+        "建立 rootValue→root 与所有非根叶值集合，找唯一未出现在叶值中的根",
+        "DFS(node,low,high)：越界失败；若叶值对应另一根则嫁接并移除该根",
+        "递归左右区间；最终 roots.size==1 才返回根，否则 null"
+      ],
+      "complexity": {
+        "time": "O(total nodes)",
+        "space": "O(number of trees+height)"
+      },
+      "files": {
+        "java": "solutions/root-map-graft-with-bounds/Solution.java",
+        "kotlin": "solutions/root-map-graft-with-bounds/Solution.kt",
+        "cpp": "solutions/root-map-graft-with-bounds/solution.cpp"
+      }
+    }
+  ]
+}

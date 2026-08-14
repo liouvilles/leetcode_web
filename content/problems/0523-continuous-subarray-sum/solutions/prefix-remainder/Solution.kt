@@ -1,0 +1,1 @@
+class Solution { fun checkSubarraySum(nums:IntArray,k:Int):Boolean{val first=hashMapOf(0L to -1);var sum=0L;for(i in nums.indices){sum+=nums[i];val key=if(k==0)sum else sum%k;val previous=first[key];if(previous!=null){if(i-previous>=2)return true}else first[key]=i};return false} }

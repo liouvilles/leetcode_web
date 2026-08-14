@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1833,
+  "slug": "maximum-ice-cream-bars",
+  "title": "雪糕的最大数量",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-026",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "排序"
+  ],
+  "summary": "每支雪糕有价格，总金币有限，每支至多买一次，求最多能买多少支。",
+  "insight": "为了最大化数量，应按价格升序购买，直到下一支超过剩余金币。",
+  "pitfalls": [
+    "目标是数量而非花完金币",
+    "每支雪糕只能买一次",
+    "价格相同分别计数"
+  ],
+  "solutions": [
+    {
+      "id": "cheapest-first",
+      "title": "低价优先贪心",
+      "kind": "最优",
+      "idea": "交换论证保证任何解都可把贵雪糕换成更便宜者而不减少数量。",
+      "steps": [
+        "costs 排序",
+        "answer=0",
+        "逐 cost，coins<cost 时停止，否则扣 coins 并 answer++"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/cheapest-first/Solution.java",
+        "kotlin": "solutions/cheapest-first/Solution.kt",
+        "cpp": "solutions/cheapest-first/solution.cpp"
+      }
+    }
+  ]
+}

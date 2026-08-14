@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 337,
+  "slug": "house-robber-iii",
+  "title": "打家劫舍 III",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-005",
+  "studyTags": [
+    "树形动态规划",
+    "二叉树",
+    "后序遍历"
+  ],
+  "summary": "房屋按二叉树连接，直接相连的父子节点不能同时偷取，求可偷金额最大值。",
+  "insight": "每个节点返回“不偷当前”和“偷当前”两种状态；偷当前只能接两个孩子的不偷状态。",
+  "pitfalls": [
+    "左右子树选择相互独立",
+    "不偷当前时每个孩子可取其两状态最大值",
+    "空节点两状态均为零"
+  ],
+  "solutions": [
+    {
+      "id": "tree-dp-two-states",
+      "title": "树上偷与不偷双状态",
+      "kind": "最优",
+      "idea": "后序计算每个子树两种决策下的最优金额。",
+      "steps": [
+        "递归获得左右 [skip,take]",
+        "take=node.val+left.skip+right.skip",
+        "skip=max(left)+max(right)，根取两者最大"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(h)"
+      },
+      "files": {
+        "java": "solutions/tree-dp-two-states/Solution.java",
+        "kotlin": "solutions/tree-dp-two-states/Solution.kt",
+        "cpp": "solutions/tree-dp-two-states/solution.cpp"
+      }
+    }
+  ]
+}

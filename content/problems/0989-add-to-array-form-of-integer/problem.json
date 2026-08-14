@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 989,
+  "slug": "add-to-array-form-of-integer",
+  "title": "数组形式的整数加法",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-014",
+  "studyTags": [
+    "数组",
+    "数学"
+  ],
+  "summary": "整数以最高位在前的十进制数字数组表示，返回它与非负整数 k 之和的数组形式。",
+  "insight": "从数组末位开始做竖式加法，把 k 同时作为待加数和进位；每轮加入当前数字后，结果位是 k%10，新 k 是 k/10。",
+  "pitfalls": [
+    "k 位数可能超过数组长度",
+    "结果从低位生成后要反转",
+    "当数组和 k 都处理完才停止"
+  ],
+  "solutions": [
+    {
+      "id": "backward-digit-addition",
+      "title": "逆向逐位加法",
+      "kind": "最优",
+      "idea": "复用 k 保存剩余高位和进位。",
+      "steps": [
+        "i=num.length-1，digits 为空",
+        "当 i>=0 或 k>0：若 i>=0 则 k+=num[i--]；追加 k%10，再令 k/=10",
+        "反转 digits 并返回"
+      ],
+      "complexity": {
+        "time": "O(n+digits(k))",
+        "space": "O(n+digits(k))"
+      },
+      "files": {
+        "java": "solutions/backward-digit-addition/Solution.java",
+        "kotlin": "solutions/backward-digit-addition/Solution.kt",
+        "cpp": "solutions/backward-digit-addition/solution.cpp"
+      }
+    }
+  ]
+}

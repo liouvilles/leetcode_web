@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxTurbulenceSize",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典最长五",
+      "args": [
+        [
+          9,
+          4,
+          2,
+          10,
+          7,
+          8,
+          8,
+          1,
+          9
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "单调数组最长二",
+      "args": [
+        [
+          4,
+          8,
+          12,
+          16
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "单元素",
+      "args": [
+        [
+          100
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

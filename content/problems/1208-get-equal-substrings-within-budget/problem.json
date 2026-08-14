@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1208,
+  "slug": "get-equal-substrings-within-budget",
+  "title": "尽可能使字符串相等",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-017",
+  "studyTags": [
+    "字符串",
+    "滑动窗口",
+    "双指针"
+  ],
+  "summary": "把 s 的某个连续子串逐位改成 t 对应字符，每位代价为字符码差绝对值；预算内求最大子串长度。",
+  "insight": "每位代价非负，窗口总成本超过 maxCost 时不断移动左端并扣除代价，恢复可行后当前窗口就是以右端结尾的最长可行区间。",
+  "pitfalls": [
+    "空修改也合法但字符串长度至少一",
+    "窗口代价使用 s 与 t 同一位置",
+    "只在成本超限时收缩左端"
+  ],
+  "solutions": [
+    {
+      "id": "cost-sliding-window",
+      "title": "代价滑动窗口",
+      "kind": "最优",
+      "idea": "维护总修改成本不超过预算的最长窗口。",
+      "steps": [
+        "left=0,cost=0,best=0",
+        "right 从零扫描，加入 abs(s[right]-t[right])",
+        "while cost>maxCost，扣除 left 位置代价并 left++；更新 best=max(best,right-left+1)"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/cost-sliding-window/Solution.java",
+        "kotlin": "solutions/cost-sliding-window/Solution.kt",
+        "cpp": "solutions/cost-sliding-window/solution.cpp"
+      }
+    }
+  ]
+}

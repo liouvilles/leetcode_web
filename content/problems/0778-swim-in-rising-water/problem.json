@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 778,
+  "slug": "swim-in-rising-water",
+  "title": "水位上升的泳池中游泳",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-010",
+  "studyTags": [
+    "数组",
+    "图论",
+    "Dijkstra",
+    "最小化最大值"
+  ],
+  "summary": "n×n 网格每格有高度，水位随时间升高；求从左上到右下可达所需的最早时间。",
+  "insight": "路径代价是沿途高度最大值；使用 Dijkstra，每次扩展当前路径最大高度最小的格子，首次到终点即为最优。",
+  "pitfalls": [
+    "移动到相邻格后的代价是 max(当前代价,新格高度)",
+    "不是累加边权",
+    "旧的堆状态要跳过"
+  ],
+  "solutions": [
+    {
+      "id": "minimax-dijkstra",
+      "title": "最小化最大高度的 Dijkstra",
+      "kind": "最优",
+      "idea": "以路径最大高度作为距离进行松弛。",
+      "steps": [
+        "distance[0][0]=grid[0][0] 并入小根堆",
+        "弹出格子，对四邻居计算 next=max(time,height)",
+        "若 next 更小则更新并入堆；弹出终点时返回 time"
+      ],
+      "complexity": {
+        "time": "O(n² log n)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/minimax-dijkstra/Solution.java",
+        "kotlin": "solutions/minimax-dijkstra/Solution.kt",
+        "cpp": "solutions/minimax-dijkstra/solution.cpp"
+      }
+    }
+  ]
+}

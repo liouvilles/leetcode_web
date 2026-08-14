@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1656,
+  "slug": "design-an-ordered-stream",
+  "title": "设计有序流",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-024",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "设计",
+    "数据流"
+  ],
+  "summary": "键值对以乱序 id 插入；每次插入后，从当前指针开始返回新形成的最长连续值块，并把指针移到其后。",
+  "insight": "用数组按 id 存值，指针 ptr 指向尚未输出的最小 id。插入后只要 ptr 位置已有值就连续收集并递增。",
+  "pitfalls": [
+    "id 从一开始",
+    "插入位置不等于 ptr 时通常返回空列表",
+    "每个 id 只插入一次"
+  ],
+  "solutions": [
+    {
+      "id": "array-and-pointer",
+      "title": "数组与单调指针",
+      "kind": "最优",
+      "idea": "存储乱序值并仅从当前缺口继续输出。",
+      "steps": [
+        "values 长度 n+1，pointer=1",
+        "insert 时写 values[idKey]",
+        "while pointer 有值，加入结果并 pointer++；返回结果"
+      ],
+      "complexity": {
+        "time": "O(n) 总计",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/array-and-pointer/Solution.java",
+        "kotlin": "solutions/array-and-pointer/Solution.kt",
+        "cpp": "solutions/array-and-pointer/solution.cpp"
+      }
+    }
+  ]
+}

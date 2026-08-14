@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "reverse",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "正整数反转",
+      "args": [
+        123
+      ],
+      "expected": 321
+    },
+    {
+      "name": "负整数反转",
+      "args": [
+        -123
+      ],
+      "expected": -321
+    },
+    {
+      "name": "反转后溢出",
+      "args": [
+        1534236469
+      ],
+      "expected": 0
+    }
+  ]
+}

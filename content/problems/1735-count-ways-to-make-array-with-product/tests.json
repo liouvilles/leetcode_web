@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "waysToFillArray",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "两组基础乘积查询",
+      "args": [
+        [
+          [
+            2,
+            6
+          ],
+          [
+            5,
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        4,
+        1
+      ]
+    },
+    {
+      "name": "大长度与乘积组合取模",
+      "args": [
+        [
+          [
+            73,
+            660
+          ]
+        ]
+      ],
+      "expected": [
+        50734910
+      ]
+    },
+    {
+      "name": "三位置乘积八有十种",
+      "args": [
+        [
+          [
+            3,
+            8
+          ]
+        ]
+      ],
+      "expected": [
+        10
+      ]
+    }
+  ]
+}

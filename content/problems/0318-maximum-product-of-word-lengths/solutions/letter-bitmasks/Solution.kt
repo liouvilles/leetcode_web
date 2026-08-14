@@ -1,0 +1,1 @@
+class Solution { fun maxProduct(words:Array<String>):Int{val masks=IntArray(words.size);for(i in words.indices)for(c in words[i])masks[i]=masks[i] or (1 shl (c-'a'));var answer=0;for(i in words.indices)for(j in i+1 until words.size)if(masks[i] and masks[j]==0)answer=maxOf(answer,words[i].length*words[j].length);return answer} }

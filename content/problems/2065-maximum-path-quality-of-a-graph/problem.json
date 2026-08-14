@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2065,
+  "slug": "maximum-path-quality-of-a-graph",
+  "title": "最大化一张图中的路径价值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "图论",
+    "数组",
+    "回溯"
+  ],
+  "summary": "从节点零出发，在 maxTime 内沿无向边行走并最终回到零，路径价值为访问过不同节点价值之和，求最大值。",
+  "insight": "图度数最多四且时间上限小，DFS 枚举可行行走。用 visitCount 标记节点当前路径访问次数，仅首次进入时增加价值；每次回到零更新答案。",
+  "pitfalls": [
+    "节点价值只计第一次访问",
+    "边可重复经过",
+    "路径必须在时间内回到零"
+  ],
+  "solutions": [
+    {
+      "id": "time-bounded-graph-backtracking",
+      "title": "限时图回溯",
+      "kind": "最优",
+      "idea": "枚举所有时间可行路径并维护去重价值。",
+      "steps": [
+        "建邻接 [next,cost]，visits[0]=1",
+        "dfs(node,time,quality)：node==0 更新 answer",
+        "对 time+cost<=maxTime 的边，若 next 未访问则加其 value；递归后恢复 visits"
+      ],
+      "complexity": {
+        "time": "O(branching^(maxTime/minEdge))",
+        "space": "O(path length+E)"
+      },
+      "files": {
+        "java": "solutions/time-bounded-graph-backtracking/Solution.java",
+        "kotlin": "solutions/time-bounded-graph-backtracking/Solution.kt",
+        "cpp": "solutions/time-bounded-graph-backtracking/solution.cpp"
+      }
+    }
+  ]
+}

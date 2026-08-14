@@ -1,0 +1,216 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "FindSumPairs",
+  "cases": [
+    {
+      "name": "连续更新与查询保持频次正确",
+      "constructorArgs": [
+        [
+          1,
+          1,
+          2,
+          2,
+          2,
+          3
+        ],
+        [
+          1,
+          4,
+          5,
+          2,
+          5,
+          4
+        ]
+      ],
+      "calls": [
+        {
+          "method": "count",
+          "args": [
+            7
+          ],
+          "expected": 8,
+          "parameterTypes": [
+            "int"
+          ],
+          "returnType": "int"
+        },
+        {
+          "method": "add",
+          "args": [
+            3,
+            2
+          ],
+          "parameterTypes": [
+            "int",
+            "int"
+          ]
+        },
+        {
+          "method": "count",
+          "args": [
+            8
+          ],
+          "expected": 2,
+          "parameterTypes": [
+            "int"
+          ],
+          "returnType": "int"
+        },
+        {
+          "method": "count",
+          "args": [
+            4
+          ],
+          "expected": 1,
+          "parameterTypes": [
+            "int"
+          ],
+          "returnType": "int"
+        },
+        {
+          "method": "add",
+          "args": [
+            0,
+            1
+          ],
+          "parameterTypes": [
+            "int",
+            "int"
+          ]
+        },
+        {
+          "method": "add",
+          "args": [
+            1,
+            1
+          ],
+          "parameterTypes": [
+            "int",
+            "int"
+          ]
+        },
+        {
+          "method": "count",
+          "args": [
+            7
+          ],
+          "expected": 11,
+          "parameterTypes": [
+            "int"
+          ],
+          "returnType": "int"
+        }
+      ]
+    },
+    {
+      "name": "单元素更新后补数改变",
+      "constructorArgs": [
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ],
+      "calls": [
+        {
+          "method": "count",
+          "args": [
+            2
+          ],
+          "expected": 1,
+          "parameterTypes": [
+            "int"
+          ],
+          "returnType": "int"
+        },
+        {
+          "method": "add",
+          "args": [
+            0,
+            2
+          ],
+          "parameterTypes": [
+            "int",
+            "int"
+          ]
+        },
+        {
+          "method": "count",
+          "args": [
+            2
+          ],
+          "expected": 0,
+          "parameterTypes": [
+            "int"
+          ],
+          "returnType": "int"
+        },
+        {
+          "method": "count",
+          "args": [
+            4
+          ],
+          "expected": 1,
+          "parameterTypes": [
+            "int"
+          ],
+          "returnType": "int"
+        }
+      ]
+    },
+    {
+      "name": "两数组补数计数与更新",
+      "constructorArgs": [
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "calls": [
+        {
+          "method": "count",
+          "args": [
+            7
+          ],
+          "expected": 2,
+          "parameterTypes": [
+            "int"
+          ],
+          "returnType": "int"
+        },
+        {
+          "method": "add",
+          "args": [
+            0,
+            3
+          ],
+          "parameterTypes": [
+            "int",
+            "int"
+          ]
+        },
+        {
+          "method": "count",
+          "args": [
+            9
+          ],
+          "expected": 1,
+          "parameterTypes": [
+            "int"
+          ],
+          "returnType": "int"
+        }
+      ]
+    }
+  ],
+  "constructorTypes": [
+    "intArray",
+    "intArray"
+  ]
+}

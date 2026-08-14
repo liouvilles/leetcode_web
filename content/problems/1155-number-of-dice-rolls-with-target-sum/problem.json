@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1155,
+  "slug": "number-of-dice-rolls-with-target-sum",
+  "title": "掷骰子等于目标和的方法数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-016",
+  "studyTags": [
+    "动态规划",
+    "计数",
+    "滚动数组"
+  ],
+  "summary": "有 n 个各含 k 个面的骰子，统计点数之和等于 target 的方案数，结果对 10^9+7 取模。",
+  "insight": "逐个加入骰子，dp[sum] 表示当前骰子数量凑出 sum 的方案数；新骰子的每个面都从上一层较小的和转移而来。",
+  "pitfalls": [
+    "不同骰子的结果序列视为不同方案",
+    "每次骰子迭代必须使用新数组避免层内重复",
+    "中间加法使用长整型并取模"
+  ],
+  "solutions": [
+    {
+      "id": "dice-count-rolling-dp",
+      "title": "骰子计数滚动动态规划",
+      "kind": "最优",
+      "idea": "按骰子数和目标和累计所有面值转移。",
+      "steps": [
+        "dp[0]=1，其余为零",
+        "重复 n 次：创建 next；对 sum=1..target，累加 dp[sum-face]，face=1..k 且非负",
+        "每项对模数取余，用 next 替换 dp，最终返回 dp[target]"
+      ],
+      "complexity": {
+        "time": "O(n·k·target)",
+        "space": "O(target)"
+      },
+      "files": {
+        "java": "solutions/dice-count-rolling-dp/Solution.java",
+        "kotlin": "solutions/dice-count-rolling-dp/Solution.kt",
+        "cpp": "solutions/dice-count-rolling-dp/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1496,
+  "slug": "path-crossing",
+  "title": "判断路径是否相交",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-021",
+  "studyTags": [
+    "哈希表",
+    "字符串"
+  ],
+  "summary": "从原点出发按 N、S、E、W 移动，判断是否曾到达一个已经访问过的位置。",
+  "insight": "用集合记录每一步后的坐标（包含原点）；新坐标若已存在则路径相交。",
+  "pitfalls": [
+    "原点必须预先加入集合",
+    "交叉可发生在终点回到原点",
+    "只需判断格点位置重复"
+  ],
+  "solutions": [
+    {
+      "id": "visited-coordinate-set",
+      "title": "访问坐标集合",
+      "kind": "最优",
+      "idea": "逐步更新坐标并检测重复。",
+      "steps": [
+        "x=0,y=0，seen 包含 0,0",
+        "按方向更新 x 或 y",
+        "若坐标键无法加入 seen 则返回 true，结束返回 false"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/visited-coordinate-set/Solution.java",
+        "kotlin": "solutions/visited-coordinate-set/Solution.kt",
+        "cpp": "solutions/visited-coordinate-set/solution.cpp"
+      }
+    }
+  ]
+}

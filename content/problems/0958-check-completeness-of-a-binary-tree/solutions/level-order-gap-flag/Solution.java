@@ -1,0 +1,1 @@
+class Solution { public boolean isCompleteTree(TreeNode root){Queue<TreeNode> queue=new ArrayDeque<>();queue.offer(root);boolean gap=false;while(!queue.isEmpty()){TreeNode node=queue.poll();if(node.left!=null){if(gap)return false;queue.offer(node.left);}else gap=true;if(node.right!=null){if(gap)return false;queue.offer(node.right);}else gap=true;}return true;} }

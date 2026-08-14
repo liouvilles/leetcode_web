@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1255,
+  "slug": "maximum-score-words-formed-by-letters",
+  "title": "得分最高的单词集合",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-017",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "回溯",
+    "计数"
+  ],
+  "summary": "每个字母有分值且可用字母数量有限，从单词列表中选择若干单词，每个最多一次，求能组成的最大总分。",
+  "insight": "按单词下标做选或不选回溯；尝试选择时统计该词字母需求与得分，只有所有需求不超过当前库存才扣除字母递归，之后恢复。",
+  "pitfalls": [
+    "每个可用字母实例只能使用一次",
+    "单词不能拆分且最多选择一次",
+    "字母分数可以为零"
+  ],
+  "solutions": [
+    {
+      "id": "include-exclude-letter-backtracking",
+      "title": "选或不选字母库存回溯",
+      "kind": "最优",
+      "idea": "枚举单词子集并用频次数组验证资源。",
+      "steps": [
+        "统计 letters 为 available[26]",
+        "dfs(index)：先计算跳过当前词的结果；再统计当前词 need 与 wordScore",
+        "若 need 均不超 available，则扣除、递归下一个并加 wordScore、恢复；返回选择与跳过最大值"
+      ],
+      "complexity": {
+        "time": "O(2^words·总词长)",
+        "space": "O(words+26)"
+      },
+      "files": {
+        "java": "solutions/include-exclude-letter-backtracking/Solution.java",
+        "kotlin": "solutions/include-exclude-letter-backtracking/Solution.kt",
+        "cpp": "solutions/include-exclude-letter-backtracking/solution.cpp"
+      }
+    }
+  ]
+}

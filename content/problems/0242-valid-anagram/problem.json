@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 242,
+  "slug": "valid-anagram",
+  "title": "有效的字母异位词",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-003",
+  "studyTags": [
+    "字符计数",
+    "频次抵消",
+    "字符串"
+  ],
+  "summary": "判断两个只含小写字母的字符串是否由完全相同的字符及出现次数组成。",
+  "insight": "长度相同是必要条件；一个字符串增加计数、另一个减少计数后，所有桶应归零。",
+  "pitfalls": [
+    "字符种类相同但次数不同仍不是异位词",
+    "先判断长度可以提前失败",
+    "输入限定小写英文字母"
+  ],
+  "solutions": [
+    {
+      "id": "frequency-array",
+      "title": "定长频次数组",
+      "kind": "最优",
+      "idea": "用 26 个整数同时累计两个字符串的字符差值。",
+      "steps": [
+        "长度不同直接返回假",
+        "同一位置对 s 加一、对 t 减一",
+        "检查全部计数是否为零"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/frequency-array/Solution.java",
+        "kotlin": "solutions/frequency-array/Solution.kt",
+        "cpp": "solutions/frequency-array/solution.cpp"
+      }
+    }
+  ]
+}

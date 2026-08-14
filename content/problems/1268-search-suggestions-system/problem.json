@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1268,
+  "slug": "search-suggestions-system",
+  "title": "搜索推荐系统",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "排序",
+    "二分查找"
+  ],
+  "summary": "输入商品名与搜索词；每输入一个字符，返回字典序最小的至多三个、以当前前缀开头的商品。",
+  "insight": "先排序商品。每个前缀用 lower_bound 找到不小于它的首个商品，从该处向后检查最多三项是否具有此前缀。",
+  "pitfalls": [
+    "每层推荐最多三项",
+    "不存在匹配时返回空列表",
+    "排序后同一前缀商品连续"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-lower-bound-prefix",
+      "title": "排序后二分前缀起点",
+      "kind": "最优",
+      "idea": "对每个递增长前缀定位连续匹配区间开头。",
+      "steps": [
+        "字典序排序 products",
+        "逐字符构造 prefix，对 products 二分第一个>=prefix 的位置",
+        "从位置起取至多三个 startsWith(prefix) 商品加入该层，汇总返回"
+      ],
+      "complexity": {
+        "time": "O(P log P+L log P)",
+        "space": "O(结果大小)"
+      },
+      "files": {
+        "java": "solutions/sorted-lower-bound-prefix/Solution.java",
+        "kotlin": "solutions/sorted-lower-bound-prefix/Solution.kt",
+        "cpp": "solutions/sorted-lower-bound-prefix/solution.cpp"
+      }
+    }
+  ]
+}

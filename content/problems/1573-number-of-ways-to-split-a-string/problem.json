@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1573,
+  "slug": "number-of-ways-to-split-a-string",
+  "title": "分割字符串的方案数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-022",
+  "studyTags": [
+    "数学",
+    "字符串"
+  ],
+  "summary": "把二进制字符串分成三个非空部分，使三部分一的数量相同，统计切分方案数取模。",
+  "insight": "总一数不能被三整除则无解。若全零，在 n-1 个间隙选两个；否则两处切分的可选间隙数分别是相邻目标一组之间的零数加一，二者相乘。",
+  "pitfalls": [
+    "三个部分都必须非空",
+    "全零情况单独使用组合数",
+    "切分间隙数由关键一的位置差决定"
+  ],
+  "solutions": [
+    {
+      "id": "one-position-gaps",
+      "title": "一位置间隙计数",
+      "kind": "最优",
+      "idea": "定位每三分之一与下一组之间的可选切割区间。",
+      "steps": [
+        "收集所有一的位置 ones",
+        "ones.size%3!=0 返回 0；为零返回 C(n-1,2)",
+        "part=ones.size/3，firstGap=ones[part]-ones[part-1]，secondGap=ones[2part]-ones[2part-1]，乘积取模"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/one-position-gaps/Solution.java",
+        "kotlin": "solutions/one-position-gaps/Solution.kt",
+        "cpp": "solutions/one-position-gaps/solution.cpp"
+      }
+    }
+  ]
+}

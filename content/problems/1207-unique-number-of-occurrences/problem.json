@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1207,
+  "slug": "unique-number-of-occurrences",
+  "title": "独一无二的出现次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-017",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "计数"
+  ],
+  "summary": "判断整数数组中每个不同数值的出现次数是否两两不同。",
+  "insight": "第一张哈希表统计每个值的频次，再把频次依次放入集合；若某个频次已存在，说明有两个值出现次数相同。",
+  "pitfalls": [
+    "比较的是不同数值的频次",
+    "负数可直接作为哈希键",
+    "空冲突集合不是问题"
+  ],
+  "solutions": [
+    {
+      "id": "frequency-map-and-set",
+      "title": "频次表与唯一集合",
+      "kind": "最优",
+      "idea": "用集合检测频次数值重复。",
+      "steps": [
+        "遍历 arr 统计 frequency[value]",
+        "创建 seenCounts 集合",
+        "遍历所有频次；若 add 返回假则立即返回 false，全部成功返回 true"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/frequency-map-and-set/Solution.java",
+        "kotlin": "solutions/frequency-map-and-set/Solution.kt",
+        "cpp": "solutions/frequency-map-and-set/solution.cpp"
+      }
+    }
+  ]
+}

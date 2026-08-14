@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 594,
+  "slug": "longest-harmonious-subsequence",
+  "title": "最长和谐子序列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-008",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "计数"
+  ],
+  "summary": "和谐数组的最大值和最小值恰好相差一，求原数组中最长和谐子序列长度。",
+  "insight": "子序列若和谐，只能由值 x 和 x+1 的全部出现项组成；统计频次后枚举相邻值对即可。",
+  "pitfalls": [
+    "必须同时存在两个不同且相差一的值",
+    "子序列不要求连续",
+    "只有同一个值时答案为零"
+  ],
+  "solutions": [
+    {
+      "id": "frequency-neighbor-pairs",
+      "title": "统计相邻值频次和",
+      "kind": "最优",
+      "idea": "枚举哈希表中的每个值并与后一整数的频次合并。",
+      "steps": [
+        "统计每个整数出现次数",
+        "对每个 value 检查 value+1 是否存在",
+        "存在时用两者频次之和更新答案"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/frequency-neighbor-pairs/Solution.java",
+        "kotlin": "solutions/frequency-neighbor-pairs/Solution.kt",
+        "cpp": "solutions/frequency-neighbor-pairs/solution.cpp"
+      }
+    }
+  ]
+}

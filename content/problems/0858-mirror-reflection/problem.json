@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 858,
+  "slug": "mirror-reflection",
+  "title": "镜面反射",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "数学",
+    "数论",
+    "最大公约数"
+  ],
+  "summary": "正方形房间左下角发射激光，先击中右墙距零号角 q 处并持续反射，求最终首次到达的接收器编号。",
+  "insight": "展开反射房间后，寻找 p 与 q 的最小公倍位置；约去公因数后只需看 p、q 的奇偶性决定到达右上、右下或左上。",
+  "pitfalls": [
+    "约分后 p、q 不会同时为偶数",
+    "p 奇 q 偶到零号，p 奇 q 奇到一号",
+    "p 偶 q 奇到二号"
+  ],
+  "solutions": [
+    {
+      "id": "reduced-parity-classification",
+      "title": "约分后的奇偶分类",
+      "kind": "最优",
+      "idea": "用最大公约数消去共同反射周期。",
+      "steps": [
+        "g=gcd(p,q)，令 p/=g、q/=g",
+        "若 p 为偶数返回二",
+        "否则 q 为奇数返回一，为偶数返回零"
+      ],
+      "complexity": {
+        "time": "O(log p)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/reduced-parity-classification/Solution.java",
+        "kotlin": "solutions/reduced-parity-classification/Solution.kt",
+        "cpp": "solutions/reduced-parity-classification/solution.cpp"
+      }
+    }
+  ]
+}

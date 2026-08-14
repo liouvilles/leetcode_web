@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1525,
+  "slug": "number-of-good-ways-to-split-a-string",
+  "title": "字符串的好分割数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-022",
+  "studyTags": [
+    "字符串",
+    "前缀和"
+  ],
+  "summary": "把字符串分成左右非空两部分，统计两部分不同字符数量相同的分割位置。",
+  "insight": "预计算每个位置前缀不同字符数和后缀不同字符数，切在 i 后时比较 left[i] 与 right[i+1]。",
+  "pitfalls": [
+    "左右部分都必须非空",
+    "统计不同字符而非频次",
+    "共有 n-1 个切分点"
+  ],
+  "solutions": [
+    {
+      "id": "distinct-prefix-suffix",
+      "title": "前后缀不同字符数",
+      "kind": "最优",
+      "idea": "两次扫描得到每个边界两侧的不同字符数量。",
+      "steps": [
+        "从左扫描 seen 得 leftDistinct[i]",
+        "从右扫描 seen 得 rightDistinct[i]",
+        "i=0..n-2 比较两数组并计数"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/distinct-prefix-suffix/Solution.java",
+        "kotlin": "solutions/distinct-prefix-suffix/Solution.kt",
+        "cpp": "solutions/distinct-prefix-suffix/solution.cpp"
+      }
+    }
+  ]
+}

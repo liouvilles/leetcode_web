@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 717,
+  "slug": "1-bit-and-2-bit-characters",
+  "title": "1 比特与 2 比特字符",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-009",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "模拟"
+  ],
+  "summary": "编码由 0 表示一比特字符，10 或 11 表示两比特字符；给定以 0 结尾的比特数组，判断最后一个字符是否一定是一比特字符。",
+  "insight": "从头唯一解码：遇 0 前进一步，遇 1 前进两步；处理到倒数第二位之前后，指针若正好落在最后下标则最后字符独立。",
+  "pitfalls": [
+    "数组保证以零结尾",
+    "解码方式由首位唯一决定",
+    "循环只需处理最后一位之前的字符"
+  ],
+  "solutions": [
+    {
+      "id": "greedy-decode-index",
+      "title": "按前导位推进解码指针",
+      "kind": "最优",
+      "idea": "模拟每个字符的固定长度并检查最终落点。",
+      "steps": [
+        "index=0",
+        "当 index<bits.length-1 时，bits[index]==0 前进一，否则前进二",
+        "返回 index==bits.length-1"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/greedy-decode-index/Solution.java",
+        "kotlin": "solutions/greedy-decode-index/Solution.kt",
+        "cpp": "solutions/greedy-decode-index/solution.cpp"
+      }
+    }
+  ]
+}

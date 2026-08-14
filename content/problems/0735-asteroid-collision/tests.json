@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "asteroidCollision",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "小左行星被摧毁",
+      "args": [
+        [
+          5,
+          10,
+          -5
+        ]
+      ],
+      "expected": [
+        5,
+        10
+      ]
+    },
+    {
+      "name": "相等双方消失",
+      "args": [
+        [
+          8,
+          -8
+        ]
+      ],
+      "expected": []
+    },
+    {
+      "name": "左行星连续摧毁小行星",
+      "args": [
+        [
+          10,
+          2,
+          -5
+        ]
+      ],
+      "expected": [
+        10
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": 2239,
+  "slug": "find-closest-number-to-zero",
+  "title": "找到最接近零的数字",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-032",
+  "studyTags": [
+    "数组"
+  ],
+  "summary": "返回数组中绝对值最小的数；若正负两数同样接近零，返回较大的正数。",
+  "insight": "扫描维护当前答案，绝对值更小时替换；绝对值相等时用数值更大者替换。",
+  "pitfalls": [
+    "数组可能包含零",
+    "平局选择正数",
+    "不能只比较绝对值而忽略平局"
+  ],
+  "solutions": [
+    {
+      "id": "absolute-value-scan-with-positive-tie",
+      "title": "绝对值扫描与正数优先",
+      "kind": "最优",
+      "idea": "用二级比较规则在线维护最佳值。",
+      "steps": [
+        "answer=nums[0]",
+        "遍历 value",
+        "若 abs(value)<abs(answer)，或相等且 value>answer，则更新；返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/absolute-value-scan-with-positive-tie/Solution.java",
+        "kotlin": "solutions/absolute-value-scan-with-positive-tie/Solution.kt",
+        "cpp": "solutions/absolute-value-scan-with-positive-tie/solution.cpp"
+      }
+    }
+  ]
+}

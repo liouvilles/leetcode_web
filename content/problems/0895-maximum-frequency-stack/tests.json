@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "FreqStack",
+  "constructorTypes": [],
+  "cases": [
+    {
+      "name": "经典频率与最近顺序",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            5
+          ]
+        },
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            7
+          ]
+        },
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            5
+          ]
+        },
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            7
+          ]
+        },
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            4
+          ]
+        },
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            5
+          ]
+        },
+        {
+          "method": "pop",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 5
+        },
+        {
+          "method": "pop",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 7
+        },
+        {
+          "method": "pop",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 5
+        },
+        {
+          "method": "pop",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 4
+        }
+      ]
+    },
+    {
+      "name": "同频取最近值",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ]
+        },
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ]
+        },
+        {
+          "method": "pop",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 2
+        },
+        {
+          "method": "pop",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 1
+        }
+      ]
+    },
+    {
+      "name": "重复单值",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            9
+          ]
+        },
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            9
+          ]
+        },
+        {
+          "method": "pop",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 9
+        }
+      ]
+    }
+  ]
+}

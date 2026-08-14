@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "connectTwoGroups",
+  "parameterTypes": [
+    "intListMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "二乘二最小连接成本十七",
+      "args": [
+        [
+          [
+            15,
+            96
+          ],
+          [
+            36,
+            2
+          ]
+        ]
+      ],
+      "expected": 17
+    },
+    {
+      "name": "三乘三最小连接成本四",
+      "args": [
+        [
+          [
+            1,
+            3,
+            5
+          ],
+          [
+            4,
+            1,
+            1
+          ],
+          [
+            1,
+            5,
+            3
+          ]
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "单点连接成本七",
+      "args": [
+        [
+          [
+            7
+          ]
+        ]
+      ],
+      "expected": 7
+    }
+  ]
+}

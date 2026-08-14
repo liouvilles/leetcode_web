@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "WordFilter",
+  "constructorTypes": [
+    "stringArray"
+  ],
+  "cases": [
+    {
+      "name": "单词前后缀命中",
+      "constructorArgs": [
+        [
+          "apple"
+        ]
+      ],
+      "calls": [
+        {
+          "method": "f",
+          "parameterTypes": [
+            "string",
+            "string"
+          ],
+          "args": [
+            "a",
+            "e"
+          ],
+          "returnType": "int",
+          "expected": 0
+        },
+        {
+          "method": "f",
+          "parameterTypes": [
+            "string",
+            "string"
+          ],
+          "args": [
+            "b",
+            ""
+          ],
+          "returnType": "int",
+          "expected": -1
+        }
+      ]
+    },
+    {
+      "name": "两个相近单词",
+      "constructorArgs": [
+        [
+          "apple",
+          "apply"
+        ]
+      ],
+      "calls": [
+        {
+          "method": "f",
+          "parameterTypes": [
+            "string",
+            "string"
+          ],
+          "args": [
+            "ap",
+            "le"
+          ],
+          "returnType": "int",
+          "expected": 0
+        },
+        {
+          "method": "f",
+          "parameterTypes": [
+            "string",
+            "string"
+          ],
+          "args": [
+            "ap",
+            "ly"
+          ],
+          "returnType": "int",
+          "expected": 1
+        }
+      ]
+    },
+    {
+      "name": "重复词返回最大下标",
+      "constructorArgs": [
+        [
+          "a",
+          "a"
+        ]
+      ],
+      "calls": [
+        {
+          "method": "f",
+          "parameterTypes": [
+            "string",
+            "string"
+          ],
+          "args": [
+            "",
+            ""
+          ],
+          "returnType": "int",
+          "expected": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sumOfLeftLeaves",
+  "parameterTypes": [
+    "treeNode"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两个左叶子",
+      "args": [
+        [
+          3,
+          9,
+          20,
+          null,
+          null,
+          15,
+          7
+        ]
+      ],
+      "expected": 24
+    },
+    {
+      "name": "单节点根",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "只有右叶子",
+      "args": [
+        [
+          1,
+          null,
+          2
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

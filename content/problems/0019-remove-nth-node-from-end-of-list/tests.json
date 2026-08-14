@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "removeNthFromEnd",
+  "parameterTypes": [
+    "listNode",
+    "int"
+  ],
+  "returnType": "listNode",
+  "cases": [
+    {
+      "name": "删除链表中间节点",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        2
+      ],
+      "expected": [
+        1,
+        2,
+        3,
+        5
+      ]
+    },
+    {
+      "name": "删除唯一节点",
+      "args": [
+        [
+          1
+        ],
+        1
+      ],
+      "expected": []
+    },
+    {
+      "name": "删除尾节点",
+      "args": [
+        [
+          1,
+          2
+        ],
+        1
+      ],
+      "expected": [
+        1
+      ]
+    }
+  ]
+}

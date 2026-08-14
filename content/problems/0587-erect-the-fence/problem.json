@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 587,
+  "slug": "erect-the-fence",
+  "title": "安装栅栏",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-008",
+  "studyTags": [
+    "数组",
+    "数学",
+    "几何",
+    "凸包"
+  ],
+  "summary": "给定平面上的树坐标，返回位于能包围所有树的最短栅栏边界上的全部树。",
+  "insight": "Andrew 单调链按坐标排序构造上下凸壳；只弹出严格右转点即可保留边界共线点，最后去重排序。",
+  "pitfalls": [
+    "边界线段上的共线点也必须返回",
+    "叉积应使用长整数避免溢出",
+    "上下壳端点会重复，需要去重"
+  ],
+  "solutions": [
+    {
+      "id": "monotonic-chain",
+      "title": "保留共线点的单调链凸包",
+      "kind": "最优",
+      "idea": "排序后分别构造下壳和上壳，并用严格右转判定移除内部点。",
+      "steps": [
+        "按 x、y 排序所有点",
+        "正向与反向扫描，叉积小于零时弹栈",
+        "合并两壳去重并按坐标排序返回"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/monotonic-chain/Solution.java",
+        "kotlin": "solutions/monotonic-chain/Solution.kt",
+        "cpp": "solutions/monotonic-chain/solution.cpp"
+      }
+    }
+  ]
+}

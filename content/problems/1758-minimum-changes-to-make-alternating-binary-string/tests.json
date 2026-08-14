@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minOperations",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "零一零零一零只需翻一位",
+      "args": [
+        "0100"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "全一三位需翻一位",
+      "args": [
+        "1111"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "一零已交替",
+      "args": [
+        "10"
+      ],
+      "expected": 0
+    }
+  ]
+}

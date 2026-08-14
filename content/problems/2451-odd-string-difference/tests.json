@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "oddString",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "abc 的差值签名不同",
+      "args": [
+        [
+          "adc",
+          "wzy",
+          "abc"
+        ]
+      ],
+      "expected": "abc"
+    },
+    {
+      "name": "bob 为唯一不同单词",
+      "args": [
+        [
+          "aaa",
+          "bob",
+          "ccc",
+          "ddd"
+        ]
+      ],
+      "expected": "bob"
+    },
+    {
+      "name": "abd 与两个等签名单词不同",
+      "args": [
+        [
+          "abc",
+          "bcd",
+          "abd"
+        ]
+      ],
+      "expected": "abd"
+    }
+  ]
+}

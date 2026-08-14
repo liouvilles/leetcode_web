@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2288,
+  "slug": "apply-discount-to-prices",
+  "title": "价格减免",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-033",
+  "studyTags": [
+    "字符串"
+  ],
+  "summary": "句子中形如美元符号后跟纯数字的独立单词是价格，对其应用折扣并格式化为两位小数，其余单词不变。",
+  "insight": "按空格拆词；仅当 token 长度大于一、首字符为 $ 且余下全为数字时解析为 long，乘折扣比例并用固定两位小数输出。",
+  "pitfalls": [
+    "美元符号必须在单词开头",
+    "后缀含任意非数字则不是价格",
+    "输出始终保留两位小数并使用点号"
+  ],
+  "solutions": [
+    {
+      "id": "token-validation-and-fixed-decimal-format",
+      "title": "单词校验与定点格式化",
+      "kind": "最优",
+      "idea": "逐词识别价格并替换。",
+      "steps": [
+        "按单空格 split",
+        "valid=长度>1、首字符$、其余均 digit",
+        "valid 时 price=parseLong(rest)，discounted=price*(100-discount)/100.0，格式化 $%.2f",
+        "以空格 join"
+      ],
+      "complexity": {
+        "time": "O(sentence length)",
+        "space": "O(sentence length)"
+      },
+      "files": {
+        "java": "solutions/token-validation-and-fixed-decimal-format/Solution.java",
+        "kotlin": "solutions/token-validation-and-fixed-decimal-format/Solution.kt",
+        "cpp": "solutions/token-validation-and-fixed-decimal-format/solution.cpp"
+      }
+    }
+  ]
+}

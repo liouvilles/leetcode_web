@@ -1,0 +1,1 @@
+class Solution { public: vector<int> findBall(vector<vector<int>>& grid){int rows=grid.size(),cols=grid[0].size();vector<int> answer(cols);for(int start=0;start<cols;++start){int column=start;for(int row=0;row<rows&&column>=0;++row){int next=column+grid[row][column];column=next<0||next>=cols||grid[row][next]!=grid[row][column]?-1:next;}answer[start]=column;}return answer;} };

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2187,
+  "slug": "minimum-time-to-complete-trips",
+  "title": "完成旅途的最少时间",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-032",
+  "studyTags": [
+    "数组",
+    "二分查找"
+  ],
+  "summary": "多辆公交完成一次行程所需时间固定且可连续出发，求合计完成 totalTrips 次行程的最短时间。",
+  "insight": "给定时间 t 可完成的行程数为 sum(t/time[i])，随 t 单调。二分一到最短单程时间乘总行程数。",
+  "pitfalls": [
+    "上界和乘积使用 long",
+    "累计达到 totalTrips 后可提前停止",
+    "求最小可行时间用下中位"
+  ],
+  "solutions": [
+    {
+      "id": "binary-search-total-trip-capacity",
+      "title": "二分总行程产能",
+      "kind": "最优",
+      "idea": "以时间为答案做单调可行性检查。",
+      "steps": [
+        "left=1，right=min(time)*totalTrips",
+        "middle=(left+right)/2，累计 trips",
+        "trips>=totalTrips 则 right=middle，否则 left=middle+1；返回 left"
+      ],
+      "complexity": {
+        "time": "O(n log answer)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/binary-search-total-trip-capacity/Solution.java",
+        "kotlin": "solutions/binary-search-total-trip-capacity/Solution.kt",
+        "cpp": "solutions/binary-search-total-trip-capacity/solution.cpp"
+      }
+    }
+  ]
+}

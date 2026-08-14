@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1046,
+  "slug": "last-stone-weight",
+  "title": "最后一块石头的重量",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-015",
+  "studyTags": [
+    "数组",
+    "堆",
+    "模拟"
+  ],
+  "summary": "每轮取最重两块石头碰撞；相等则都消失，否则留下重量差，求最终石头重量，无石头返回零。",
+  "insight": "最大堆始终能取出当前最重两块；若有差值就重新入堆，直到堆大小不足二。",
+  "pitfalls": [
+    "较重减较轻，差值为正",
+    "相等时不放回零",
+    "初始可能只有一块石头"
+  ],
+  "solutions": [
+    {
+      "id": "max-heap-smashing",
+      "title": "最大堆碰撞模拟",
+      "kind": "最优",
+      "idea": "反复取出堆顶两块并放回差值。",
+      "steps": [
+        "把所有 stones 放入最大堆",
+        "while heap.size>1：取 first、second",
+        "若 first>second，把 first-second 入堆；最终返回堆空为零否则堆顶"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/max-heap-smashing/Solution.java",
+        "kotlin": "solutions/max-heap-smashing/Solution.kt",
+        "cpp": "solutions/max-heap-smashing/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumPerimeter",
+  "parameterTypes": [
+    "long"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "一个苹果首层周长八",
+      "args": [
+        1
+      ],
+      "expected": 8
+    },
+    {
+      "name": "十三个苹果需要第二层",
+      "args": [
+        13
+      ],
+      "expected": 16
+    },
+    {
+      "name": "十亿苹果最小周长五百零四",
+      "args": [
+        1000000000
+      ],
+      "expected": 504
+    }
+  ]
+}

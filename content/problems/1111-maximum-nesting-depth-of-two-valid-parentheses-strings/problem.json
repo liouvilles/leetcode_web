@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1111,
+  "slug": "maximum-nesting-depth-of-two-valid-parentheses-strings",
+  "title": "有效括号的嵌套深度",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-016",
+  "studyTags": [
+    "字符串",
+    "贪心",
+    "深度"
+  ],
+  "summary": "把有效括号串每个字符分配给 A 或 B，使两者各自有效且最大嵌套深度的较大值最小，返回零一分组。",
+  "insight": "按原串深度奇偶把相邻嵌套层交替分给两组，可把总深度近似均分；左括号用进入前深度，右括号用退出后深度。",
+  "pitfalls": [
+    "配对的左右括号必须获得同一组编号",
+    "左括号赋值后增加深度",
+    "右括号先减少深度再赋值"
+  ],
+  "solutions": [
+    {
+      "id": "depth-parity-splitting",
+      "title": "深度奇偶拆分",
+      "kind": "最优",
+      "idea": "把嵌套层按奇偶交替归入两个有效子序列。",
+      "steps": [
+        "depth=0，answer 同长度",
+        "遇 (：answer[i]=depth%2，再 depth++",
+        "遇 )：先 depth--，answer[i]=depth%2；返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/depth-parity-splitting/Solution.java",
+        "kotlin": "solutions/depth-parity-splitting/Solution.kt",
+        "cpp": "solutions/depth-parity-splitting/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countKDifference",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一二二一差一共四对",
+      "args": [
+        [
+          1,
+          2,
+          2,
+          1
+        ],
+        1
+      ],
+      "expected": 4
+    },
+    {
+      "name": "三二一五四差二三对",
+      "args": [
+        [
+          3,
+          2,
+          1,
+          5,
+          4
+        ],
+        2
+      ],
+      "expected": 3
+    },
+    {
+      "name": "相同元素无法形成正差",
+      "args": [
+        [
+          1,
+          1,
+          1
+        ],
+        1
+      ],
+      "expected": 0
+    }
+  ]
+}

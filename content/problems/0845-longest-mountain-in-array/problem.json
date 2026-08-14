@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 845,
+  "slug": "longest-mountain-in-array",
+  "title": "数组中的最长山脉",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-011",
+  "studyTags": [
+    "数组",
+    "双指针",
+    "动态规划"
+  ],
+  "summary": "山脉子数组先严格递增再严格递减，且长度至少三，求最长山脉长度。",
+  "insight": "一次扫描维护当前连续上升边数 up 和下降边数 down；平台或下降后重新上升会结束旧山脉并重置状态。",
+  "pitfalls": [
+    "必须同时有上升段和下降段",
+    "相等元素会中断山脉",
+    "下降结束后遇新上升要清空旧下降和上升计数"
+  ],
+  "solutions": [
+    {
+      "id": "rolling-up-down-lengths",
+      "title": "滚动上升下降边数",
+      "kind": "最优",
+      "idea": "按相邻比较更新当前山脉状态。",
+      "steps": [
+        "up=down=0",
+        "若相等，或 down>0 后又上升，则 up=down=0",
+        "上升时 up++，下降时 down++；当 up>0 且 down>0 更新 answer=up+down+1"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/rolling-up-down-lengths/Solution.java",
+        "kotlin": "solutions/rolling-up-down-lengths/Solution.kt",
+        "cpp": "solutions/rolling-up-down-lengths/solution.cpp"
+      }
+    }
+  ]
+}

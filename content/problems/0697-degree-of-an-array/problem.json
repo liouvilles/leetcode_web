@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 697,
+  "slug": "degree-of-an-array",
+  "title": "数组的度",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-009",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "区间"
+  ],
+  "summary": "数组的度是任一元素的最大出现次数，求与原数组度相同的最短连续子数组长度。",
+  "insight": "对每个值记录首次下标、最后下标和频次；达到全局度的值，其首尾区间就是包含全部出现项的最短候选。",
+  "pitfalls": [
+    "可能有多个元素并列达到数组度",
+    "区间长度要加一",
+    "只需一次扫描即可在线更新答案"
+  ],
+  "solutions": [
+    {
+      "id": "count-first-last",
+      "title": "频次与首尾位置",
+      "kind": "最优",
+      "idea": "扫描时更新当前值覆盖区间，并在频次变化时维护全局最优。",
+      "steps": [
+        "first 首次出现时记录下标，count 累加",
+        "若 count 大于 degree，更新 degree 与 length=i-first[value]+1",
+        "若 count 等于 degree，用当前区间长度缩小 answer；返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/count-first-last/Solution.java",
+        "kotlin": "solutions/count-first-last/Solution.kt",
+        "cpp": "solutions/count-first-last/solution.cpp"
+      }
+    }
+  ]
+}

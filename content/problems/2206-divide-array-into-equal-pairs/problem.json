@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2206,
+  "slug": "divide-array-into-equal-pairs",
+  "title": "将数组划分成相等数对",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-032",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "计数"
+  ],
+  "summary": "判断偶数长度数组能否划分为若干值相等的二元组。",
+  "insight": "每个数的出现次数必须为偶数，这也是充分条件。",
+  "pitfalls": [
+    "配对顺序可任意",
+    "所有不同值都要检查",
+    "数组长度已保证偶数"
+  ],
+  "solutions": [
+    {
+      "id": "frequency-parity-check",
+      "title": "频次奇偶检查",
+      "kind": "最优",
+      "idea": "逐值验证是否能完全两两配对。",
+      "steps": [
+        "Map 统计频次",
+        "遍历频次",
+        "任一 count 为奇数返回 false，否则 true"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/frequency-parity-check/Solution.java",
+        "kotlin": "solutions/frequency-parity-check/Solution.kt",
+        "cpp": "solutions/frequency-parity-check/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 61,
+  "slug": "rotate-list",
+  "title": "旋转链表",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-004",
+  "studyTags": [
+    "链表成环",
+    "长度取模",
+    "断环"
+  ],
+  "summary": "把单链表向右旋转 k 次，使末尾 k 个节点移动到链表开头。",
+  "insight": "先首尾相连形成环；旋转后新尾位于原头之后 n-k%n-1 步，断开其后继即可。",
+  "pitfalls": [
+    "空链表直接返回",
+    "k 可能远大于链表长度",
+    "断环前要保存新头节点"
+  ],
+  "solutions": [
+    {
+      "id": "circular-list",
+      "title": "成环后定位断点",
+      "kind": "最优",
+      "idea": "计算长度并连成环，通过取模后的步数找到新尾。",
+      "steps": [
+        "遍历得到长度和原尾",
+        "原尾连接原头",
+        "走 n-k%n-1 步到新尾并断环"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/circular-list/Solution.java",
+        "kotlin": "solutions/circular-list/Solution.kt",
+        "cpp": "solutions/circular-list/solution.cpp"
+      }
+    }
+  ]
+}

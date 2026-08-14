@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1019,
+  "slug": "next-greater-node-in-linked-list",
+  "title": "链表中的下一个更大节点",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-015",
+  "studyTags": [
+    "链表",
+    "数组",
+    "单调栈"
+  ],
+  "summary": "对链表每个节点，找到其右侧第一个值严格更大的节点值，不存在记零。",
+  "insight": "把链表转为数组后从左向右维护值非递增的下标栈；当前值更大时，它就是所有被弹出下标的第一个更大值。",
+  "pitfalls": [
+    "必须严格更大，相等值不弹栈",
+    "栈保存下标以便写对应答案",
+    "未弹出的下标保持答案零"
+  ],
+  "solutions": [
+    {
+      "id": "index-monotonic-stack",
+      "title": "下标单调栈",
+      "kind": "最优",
+      "idea": "当前节点在线结算此前更小节点。",
+      "steps": [
+        "遍历链表收集 values",
+        "answer 全零，stack 保存尚未找到答案的下标",
+        "i 从零扫描；while 栈顶值<values[i]，answer[pop]=values[i]；再压入 i，返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/index-monotonic-stack/Solution.java",
+        "kotlin": "solutions/index-monotonic-stack/Solution.kt",
+        "cpp": "solutions/index-monotonic-stack/solution.cpp"
+      }
+    }
+  ]
+}

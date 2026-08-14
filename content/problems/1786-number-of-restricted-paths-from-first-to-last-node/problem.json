@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1786,
+  "slug": "number-of-restricted-paths-from-first-to-last-node",
+  "title": "从第一个节点出发到最后一个节点的受限路径数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-026",
+  "studyTags": [
+    "图论",
+    "堆（优先队列）",
+    "动态规划",
+    "最短路"
+  ],
+  "summary": "无向带权图中，受限路径要求沿途节点到 n 的最短距离严格递减，统计从 1 到 n 的受限路径数。",
+  "insight": "先从 n 做 Dijkstra 得每点距离；随后在距离严格下降的有向无环关系上记忆化 DFS 计数。",
+  "pitfalls": [
+    "比较的是到 n 的最短距离",
+    "边权为正保证严格下降关系无环",
+    "结果取模"
+  ],
+  "solutions": [
+    {
+      "id": "dijkstra-then-distance-dp",
+      "title": "Dijkstra 与距离序 DP",
+      "kind": "最优",
+      "idea": "最短距离提供合法边方向，再做路径计数。",
+      "steps": [
+        "建图并从 n Dijkstra 得 distance",
+        "dfs(node)：node==n 返回一",
+        "枚举 neighbor，distance[neighbor]<distance[node] 时累加 dfs，缓存并取模"
+      ],
+      "complexity": {
+        "time": "O(E log V)",
+        "space": "O(V+E)"
+      },
+      "files": {
+        "java": "solutions/dijkstra-then-distance-dp/Solution.java",
+        "kotlin": "solutions/dijkstra-then-distance-dp/Solution.kt",
+        "cpp": "solutions/dijkstra-then-distance-dp/solution.cpp"
+      }
+    }
+  ]
+}

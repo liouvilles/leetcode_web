@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "decodeAtIndex",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "第十个字符 o",
+      "args": [
+        "leet2code3",
+        10
+      ],
+      "expected": "o"
+    },
+    {
+      "name": "重复编码第五位",
+      "args": [
+        "ha22",
+        5
+      ],
+      "expected": "h"
+    },
+    {
+      "name": "超长编码首位",
+      "args": [
+        "a2345678999999999999999",
+        1
+      ],
+      "expected": "a"
+    }
+  ]
+}

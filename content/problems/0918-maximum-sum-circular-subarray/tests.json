@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxSubarraySumCircular",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "普通最大段三",
+      "args": [
+        [
+          1,
+          -2,
+          3,
+          -2
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "跨首尾得十",
+      "args": [
+        [
+          5,
+          -3,
+          5
+        ]
+      ],
+      "expected": 10
+    },
+    {
+      "name": "全负返回负二",
+      "args": [
+        [
+          -3,
+          -2,
+          -3
+        ]
+      ],
+      "expected": -2
+    }
+  ]
+}

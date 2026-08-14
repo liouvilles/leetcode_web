@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2185,
+  "slug": "counting-words-with-a-given-prefix",
+  "title": "统计包含给定前缀的字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-032",
+  "studyTags": [
+    "数组",
+    "字符串"
+  ],
+  "summary": "统计字符串数组中以 pref 开头的字符串数量。",
+  "insight": "逐字符串调用前缀比较即可，重复字符串分别计数。",
+  "pitfalls": [
+    "必须从下标零开始匹配",
+    "完整相等也算拥有该前缀",
+    "区分大小写但输入为小写"
+  ],
+  "solutions": [
+    {
+      "id": "prefix-scan",
+      "title": "逐词前缀检查",
+      "kind": "最优",
+      "idea": "线性检查每个单词是否以 pref 开头。",
+      "steps": [
+        "answer=0",
+        "遍历 words",
+        "word.startsWith(pref) 时 answer++"
+      ],
+      "complexity": {
+        "time": "O(total characters compared)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/prefix-scan/Solution.java",
+        "kotlin": "solutions/prefix-scan/Solution.kt",
+        "cpp": "solutions/prefix-scan/solution.cpp"
+      }
+    }
+  ]
+}

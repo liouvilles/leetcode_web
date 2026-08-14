@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "smallestRange",
+  "parameterTypes": [
+    "intListMatrix"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "经典三个列表",
+      "args": [
+        [
+          [
+            4,
+            10,
+            15,
+            24,
+            26
+          ],
+          [
+            0,
+            9,
+            12,
+            20
+          ],
+          [
+            5,
+            18,
+            22,
+            30
+          ]
+        ]
+      ],
+      "expected": [
+        20,
+        24
+      ]
+    },
+    {
+      "name": "三个单元素列表",
+      "args": [
+        [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ]
+        ]
+      ],
+      "expected": [
+        1,
+        3
+      ]
+    },
+    {
+      "name": "共同元素形成零长度区间",
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ]
+        ]
+      ],
+      "expected": [
+        1,
+        1
+      ]
+    }
+  ]
+}

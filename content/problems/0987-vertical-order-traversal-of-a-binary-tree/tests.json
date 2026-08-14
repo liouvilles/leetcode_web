@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "verticalTraversal",
+  "parameterTypes": [
+    "treeNode"
+  ],
+  "returnType": "intListMatrix",
+  "cases": [
+    {
+      "name": "平衡三节点",
+      "args": [
+        [
+          3,
+          9,
+          20,
+          null,
+          null,
+          15,
+          7
+        ]
+      ],
+      "expected": [
+        [
+          9
+        ],
+        [
+          3,
+          15
+        ],
+        [
+          20
+        ],
+        [
+          7
+        ]
+      ]
+    },
+    {
+      "name": "同坐标按值排序",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          6,
+          5,
+          7
+        ]
+      ],
+      "expected": [
+        [
+          4
+        ],
+        [
+          2
+        ],
+        [
+          1,
+          5,
+          6
+        ],
+        [
+          3
+        ],
+        [
+          7
+        ]
+      ]
+    },
+    {
+      "name": "单节点",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": [
+        [
+          1
+        ]
+      ]
+    }
+  ]
+}

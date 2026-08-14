@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 983,
+  "slug": "minimum-cost-for-tickets",
+  "title": "最低票价",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-014",
+  "studyTags": [
+    "数组",
+    "动态规划"
+  ],
+  "summary": "给定一年中的出行日和一日、七日、三十日通票价格，求覆盖所有出行日的最低花费。",
+  "insight": "按日动态规划到最后一个出行日；非出行日沿用前一天费用，出行日比较三种票覆盖区间之前的最优费用加票价。",
+  "pitfalls": [
+    "通票包含购买当天",
+    "七日票回看 day-7 的状态",
+    "只需计算到最后一个出行日"
+  ],
+  "solutions": [
+    {
+      "id": "calendar-day-dp",
+      "title": "日历天动态规划",
+      "kind": "最优",
+      "idea": "对每个出行日选择三种覆盖跨度。",
+      "steps": [
+        "标记所有 travel day，创建 dp[0..lastDay]",
+        "非出行日 dp[day]=dp[day-1]",
+        "出行日取 dp[day-1]+cost1、dp[max(0,day-7)]+cost7、dp[max(0,day-30)]+cost30 的最小值"
+      ],
+      "complexity": {
+        "time": "O(lastDay)",
+        "space": "O(lastDay)"
+      },
+      "files": {
+        "java": "solutions/calendar-day-dp/Solution.java",
+        "kotlin": "solutions/calendar-day-dp/Solution.kt",
+        "cpp": "solutions/calendar-day-dp/solution.cpp"
+      }
+    }
+  ]
+}

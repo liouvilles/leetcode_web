@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isAdditiveNumber",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "斐波那契式序列",
+      "args": [
+        "112358"
+      ],
+      "expected": true
+    },
+    {
+      "name": "含多位项",
+      "args": [
+        "199100199"
+      ],
+      "expected": true
+    },
+    {
+      "name": "前导零或和不匹配",
+      "args": [
+        "1023"
+      ],
+      "expected": false
+    }
+  ]
+}

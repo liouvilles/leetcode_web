@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1458,
+  "slug": "max-dot-product-of-two-subsequences",
+  "title": "两个子序列的最大点积",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-021",
+  "studyTags": [
+    "数组",
+    "动态规划"
+  ],
+  "summary": "从两个数组各选长度相同的非空子序列，求对应元素乘积之和的最大值。",
+  "insight": "二维 DP 类似最长公共子序列：可跳过任一当前元素，或配对两元素；配对时可从零重新开始，保证子序列非空且处理全负结果。",
+  "pitfalls": [
+    "两个子序列都必须非空",
+    "不能把答案初始化为零",
+    "配对前驱为负时应重新开始"
+  ],
+  "solutions": [
+    {
+      "id": "nonempty-pairing-dp",
+      "title": "非空配对动态规划",
+      "kind": "最优",
+      "idea": "在跳过与配对两个维度上求最大点积。",
+      "steps": [
+        "dp 初始化为负无穷",
+        "对 i,j 计算 product；候选为 product、product+max(0,dp[i-1][j-1])、跳过 nums1 或 nums2 当前元素",
+        "返回 dp[m][n]"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(mn)"
+      },
+      "files": {
+        "java": "solutions/nonempty-pairing-dp/Solution.java",
+        "kotlin": "solutions/nonempty-pairing-dp/Solution.kt",
+        "cpp": "solutions/nonempty-pairing-dp/solution.cpp"
+      }
+    }
+  ]
+}

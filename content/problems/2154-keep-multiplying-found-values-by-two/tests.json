@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findFinalValue",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三次翻倍后得到二十四",
+      "args": [
+        [
+          5,
+          3,
+          6,
+          1,
+          12
+        ],
+        3
+      ],
+      "expected": 24
+    },
+    {
+      "name": "初始值不存在直接返回",
+      "args": [
+        [
+          2,
+          7,
+          9
+        ],
+        4
+      ],
+      "expected": 4
+    },
+    {
+      "name": "重复值不额外翻倍",
+      "args": [
+        [
+          1,
+          1,
+          2
+        ],
+        1
+      ],
+      "expected": 4
+    }
+  ]
+}

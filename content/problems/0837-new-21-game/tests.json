@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "new21Game",
+  "parameterTypes": [
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "double",
+  "cases": [
+    {
+      "name": "一次抽取必不超过十",
+      "args": [
+        10,
+        1,
+        10
+      ],
+      "expected": 1
+    },
+    {
+      "name": "一次抽取六成成功",
+      "args": [
+        6,
+        1,
+        10
+      ],
+      "expected": 0.6
+    },
+    {
+      "name": "经典滑窗概率",
+      "args": [
+        21,
+        17,
+        10
+      ],
+      "expected": 0.7327777870686082
+    }
+  ]
+}

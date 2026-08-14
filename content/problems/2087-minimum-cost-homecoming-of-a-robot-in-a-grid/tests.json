@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minCost",
+  "parameterTypes": [
+    "intArray",
+    "intArray",
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "从一零到二三总代价十八",
+      "args": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          5,
+          4,
+          3
+        ],
+        [
+          8,
+          2,
+          6,
+          7
+        ]
+      ],
+      "expected": 18
+    },
+    {
+      "name": "起点等于终点代价零",
+      "args": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          5
+        ],
+        [
+          7
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "向上向左移动累加入境成本",
+      "args": [
+        [
+          2,
+          2
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          4,
+          5,
+          6
+        ]
+      ],
+      "expected": 12
+    }
+  ]
+}

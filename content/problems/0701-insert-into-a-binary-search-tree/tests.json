@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "insertIntoBST",
+  "parameterTypes": [
+    "treeNode",
+    "int"
+  ],
+  "returnType": "treeNode",
+  "cases": [
+    {
+      "name": "插入为右子树左孩子",
+      "args": [
+        [
+          4,
+          2,
+          7,
+          1,
+          3
+        ],
+        5
+      ],
+      "expected": [
+        4,
+        2,
+        7,
+        1,
+        3,
+        5
+      ]
+    },
+    {
+      "name": "空树中新建根",
+      "args": [
+        [],
+        1
+      ],
+      "expected": [
+        1
+      ]
+    },
+    {
+      "name": "插入到右链末尾",
+      "args": [
+        [
+          1,
+          null,
+          2
+        ],
+        3
+      ],
+      "expected": [
+        1,
+        null,
+        2,
+        null,
+        3
+      ]
+    }
+  ]
+}

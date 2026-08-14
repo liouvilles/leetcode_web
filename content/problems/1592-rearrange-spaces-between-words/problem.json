@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": 1592,
+  "slug": "rearrange-spaces-between-words",
+  "title": "重新排列单词间的空格",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-023",
+  "studyTags": [
+    "字符串"
+  ],
+  "summary": "重新分配文本中的全部空格：尽量平均放在相邻单词之间，余数放在末尾。",
+  "insight": "统计总空格并提取单词。多词时每个间隔放 spaces/(words-1)，末尾放余数；单词只有一个时所有空格放末尾。",
+  "pitfalls": [
+    "必须保留全部空格",
+    "单词相对顺序不变",
+    "单词只有一个时避免除零"
+  ],
+  "solutions": [
+    {
+      "id": "count-and-redistribute-spaces",
+      "title": "统计并均分空格",
+      "kind": "最优",
+      "idea": "从文本提取空格数和单词列表后按规则拼接。",
+      "steps": [
+        "spaces=count(空格)，words=trim 后按连续空格分词",
+        "gap=words.size==1?0:spaces/(words.size-1)，tail=spaces-gap*(words.size-1)",
+        "用 gap 个空格连接 words，再追加 tail 个空格"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/count-and-redistribute-spaces/Solution.java",
+        "kotlin": "solutions/count-and-redistribute-spaces/Solution.kt",
+        "cpp": "solutions/count-and-redistribute-spaces/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 908,
+  "slug": "smallest-range-i",
+  "title": "最小差值 I",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-013",
+  "studyTags": [
+    "数组",
+    "数学",
+    "贪心"
+  ],
+  "summary": "可给每个数组元素加上 [-k,k] 内任意整数，求操作后最大值与最小值的最小可能差。",
+  "insight": "原区间两端最多各向内移动 k，总跨度减少 2k；若区间重叠则可把差缩到零。",
+  "pitfalls": [
+    "每个元素可选择不同调整量",
+    "答案不能为负数",
+    "只需原数组最小和最大值"
+  ],
+  "solutions": [
+    {
+      "id": "shrink-extreme-gap",
+      "title": "收缩极值间距",
+      "kind": "最优",
+      "idea": "直接计算原范围减去两端可调幅度。",
+      "steps": [
+        "minimum=min(nums),maximum=max(nums)",
+        "gap=maximum-minimum-2*k",
+        "返回 max(0,gap)"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/shrink-extreme-gap/Solution.java",
+        "kotlin": "solutions/shrink-extreme-gap/Solution.kt",
+        "cpp": "solutions/shrink-extreme-gap/solution.cpp"
+      }
+    }
+  ]
+}

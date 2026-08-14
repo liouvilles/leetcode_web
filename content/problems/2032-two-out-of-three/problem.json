@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2032,
+  "slug": "two-out-of-three",
+  "title": "至少在两个数组中出现的值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-029",
+  "studyTags": [
+    "位运算",
+    "数组",
+    "哈希表"
+  ],
+  "summary": "返回在三个数组中至少两个数组出现过的所有不同整数，顺序任意。",
+  "insight": "对每个值维护三位来源掩码；同一数组内重复只会重复设置同一位。最后掩码置位数至少二的值进入答案。",
+  "pitfalls": [
+    "输出值不能重复",
+    "同一数组重复不算多次来源",
+    "结果顺序任意但实现按值递增"
+  ],
+  "solutions": [
+    {
+      "id": "source-bitmask-per-value",
+      "title": "每值来源位掩码",
+      "kind": "最优",
+      "idea": "用三位记录各数组是否包含该值。",
+      "steps": [
+        "mask[101]=0",
+        "遍历三个数组，mask[value]|=1<<arrayIndex",
+        "value 从 1 到 100，bitCount(mask)>=2 加入列表"
+      ],
+      "complexity": {
+        "time": "O(total length+100)",
+        "space": "O(100)"
+      },
+      "files": {
+        "java": "solutions/source-bitmask-per-value/Solution.java",
+        "kotlin": "solutions/source-bitmask-per-value/Solution.kt",
+        "cpp": "solutions/source-bitmask-per-value/solution.cpp"
+      }
+    }
+  ]
+}

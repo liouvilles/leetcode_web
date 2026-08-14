@@ -1,0 +1,1 @@
+class Solution { private var target=0;private fun dfs(nums:IntArray,index:Int,value:Int):Int=if(index==nums.size)if(value==target)1 else 0 else dfs(nums,index+1,value)+dfs(nums,index+1,value or nums[index]);fun countMaxOrSubsets(nums:IntArray):Int{target=nums.fold(0){acc,value->acc or value};return dfs(nums,0,0)} }

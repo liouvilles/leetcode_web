@@ -1,0 +1,1 @@
+class Solution { public: int minimumEffort(vector<vector<int>>& tasks){sort(tasks.begin(),tasks.end(),[](auto& a,auto& b){return a[1]-a[0]>b[1]-b[0];});int required=0,spent=0;for(auto& task:tasks){required=max(required,spent+task[1]);spent+=task[0];}return required;} };

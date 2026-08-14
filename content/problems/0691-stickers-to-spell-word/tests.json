@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minStickers",
+  "parameterTypes": [
+    "stringArray",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "thehat 需要三张",
+      "args": [
+        [
+          "with",
+          "example",
+          "science"
+        ],
+        "thehat"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "目标字母缺失",
+      "args": [
+        [
+          "notice",
+          "possible"
+        ],
+        "basicbasic"
+      ],
+      "expected": -1
+    },
+    {
+      "name": "两张单字母贴纸",
+      "args": [
+        [
+          "a",
+          "b"
+        ],
+        "ab"
+      ],
+      "expected": 2
+    }
+  ]
+}

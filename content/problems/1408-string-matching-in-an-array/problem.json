@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1408,
+  "slug": "string-matching-in-an-array",
+  "title": "数组中的字符串匹配",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-020",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "字符串匹配"
+  ],
+  "summary": "返回 words 中是另一个不同单词子字符串的所有单词。",
+  "insight": "数据规模允许枚举有序单词对；若 i≠j 且 words[j] 包含 words[i]，就把 words[i] 加入答案一次。",
+  "pitfalls": [
+    "不能与自身比较",
+    "同一单词即使被多个字符串包含也只返回一次",
+    "保持输入扫描顺序"
+  ],
+  "solutions": [
+    {
+      "id": "pairwise-containment",
+      "title": "两两包含检查",
+      "kind": "最优",
+      "idea": "为每个候选寻找任意包含它的其他单词。",
+      "steps": [
+        "外层遍历 i",
+        "内层遍历 j!=i，检查 words[j].contains(words[i])",
+        "一旦命中加入答案并结束该候选内层循环"
+      ],
+      "complexity": {
+        "time": "O(n²L²)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/pairwise-containment/Solution.java",
+        "kotlin": "solutions/pairwise-containment/Solution.kt",
+        "cpp": "solutions/pairwise-containment/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "removeAnagrams",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "stringList",
+  "cases": [
+    {
+      "name": "连续异位词组各保留首个",
+      "args": [
+        [
+          "abba",
+          "baba",
+          "bbaa",
+          "cd",
+          "cd"
+        ]
+      ],
+      "expected": [
+        "abba",
+        "cd"
+      ]
+    },
+    {
+      "name": "无异位相邻全部保留",
+      "args": [
+        [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e"
+        ]
+      ],
+      "expected": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ]
+    },
+    {
+      "name": "两个相同词只留一个",
+      "args": [
+        [
+          "a",
+          "a"
+        ]
+      ],
+      "expected": [
+        "a"
+      ]
+    }
+  ]
+}

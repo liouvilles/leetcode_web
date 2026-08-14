@@ -1,0 +1,1 @@
+class Solution { private var cameras=0;fun minCameraCover(root:TreeNode?):Int{if(state(root)==0)cameras++;return cameras};private fun state(node:TreeNode?):Int{node?:return 2;val left=state(node.left);val right=state(node.right);if(left==0||right==0){cameras++;return 1};if(left==1||right==1)return 2;return 0} }

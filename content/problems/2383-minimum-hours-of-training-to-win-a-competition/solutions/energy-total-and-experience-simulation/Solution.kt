@@ -1,0 +1,1 @@
+class Solution { fun minNumberOfHours(initialEnergy:Int,initialExperience:Int,energy:IntArray,experience:IntArray):Int{var training=maxOf(0,energy.sum()+1-initialEnergy);var current=initialExperience;for(opponent in experience){if(current<=opponent){training+=opponent+1-current;current=opponent+1};current+=opponent};return training} }

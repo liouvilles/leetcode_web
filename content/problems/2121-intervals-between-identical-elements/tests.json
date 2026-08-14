@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getDistances",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "longArray",
+  "cases": [
+    {
+      "name": "三个值分组的距离和",
+      "args": [
+        [
+          2,
+          1,
+          3,
+          1,
+          2,
+          3,
+          3
+        ]
+      ],
+      "expected": [
+        4,
+        2,
+        7,
+        2,
+        4,
+        4,
+        5
+      ]
+    },
+    {
+      "name": "三个十与一个五",
+      "args": [
+        [
+          10,
+          5,
+          10,
+          10
+        ]
+      ],
+      "expected": [
+        5,
+        0,
+        3,
+        4
+      ]
+    },
+    {
+      "name": "所有值各不相同",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}

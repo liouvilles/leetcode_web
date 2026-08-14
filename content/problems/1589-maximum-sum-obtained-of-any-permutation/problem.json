@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1589,
+  "slug": "maximum-sum-obtained-of-any-permutation",
+  "title": "所有排列中的最大和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-023",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "排序",
+    "前缀和"
+  ],
+  "summary": "可任意排列 nums，多条请求贡献指定区间元素和，求总请求和最大值取模。",
+  "insight": "差分数组计算每个下标被请求覆盖次数。重排不等式表明，把最大数分配给最大覆盖次数可使加权和最大。",
+  "pitfalls": [
+    "请求端点都包含",
+    "差分在 right+1 处减一需判边界",
+    "排序两个数组后同序相乘"
+  ],
+  "solutions": [
+    {
+      "id": "coverage-count-rearrangement",
+      "title": "覆盖频次与重排不等式",
+      "kind": "最优",
+      "idea": "把元素值与位置权重各自排序后配对。",
+      "steps": [
+        "difference[n+1]，每请求 left++、right+1--",
+        "前缀得到 frequency[n]",
+        "排序 nums 与 frequency，累加 nums[i]*frequency[i] 取模"
+      ],
+      "complexity": {
+        "time": "O(n log n+q)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/coverage-count-rearrangement/Solution.java",
+        "kotlin": "solutions/coverage-count-rearrangement/Solution.kt",
+        "cpp": "solutions/coverage-count-rearrangement/solution.cpp"
+      }
+    }
+  ]
+}

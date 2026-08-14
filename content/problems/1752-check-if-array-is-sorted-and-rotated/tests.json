@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "check",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "排序数组轮转两位",
+      "args": [
+        [
+          3,
+          4,
+          5,
+          1,
+          2
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "存在两个下降点不合法",
+      "args": [
+        [
+          2,
+          1,
+          3,
+          4
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "原数组已排序",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

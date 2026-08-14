@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxDistance",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典非递增数组最大距离二",
+      "args": [
+        [
+          55,
+          30,
+          5,
+          4,
+          2
+        ],
+        [
+          100,
+          20,
+          10,
+          10,
+          5
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "首元素即可配到末尾距离一",
+      "args": [
+        [
+          2,
+          2,
+          2
+        ],
+        [
+          10,
+          10,
+          1
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "只有同下标有效距离零",
+      "args": [
+        [
+          30,
+          29,
+          19,
+          5
+        ],
+        [
+          25,
+          25,
+          25,
+          25,
+          25
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

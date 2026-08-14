@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 150,
+  "slug": "evaluate-reverse-polish-notation",
+  "title": "逆波兰表达式求值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-003",
+  "studyTags": [
+    "栈",
+    "后缀表达式",
+    "操作数顺序"
+  ],
+  "summary": "计算由整数和加减乘除运算符组成的有效逆波兰表达式，整数除法向零截断。",
+  "insight": "数字入栈；遇到运算符时弹出右操作数和左操作数，计算结果再入栈。",
+  "pitfalls": [
+    "减法和除法必须保留左右操作数顺序",
+    "负整数 token 不是减号运算符",
+    "Java、Kotlin、C++ 整数除法均向零截断"
+  ],
+  "solutions": [
+    {
+      "id": "operand-stack",
+      "title": "操作数栈",
+      "kind": "最优",
+      "idea": "扫描后缀 token 并即时归约最近两个操作数。",
+      "steps": [
+        "数字解析后入栈",
+        "运算符先弹 right 再弹 left",
+        "计算 left op right 并压回"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/operand-stack/Solution.java",
+        "kotlin": "solutions/operand-stack/Solution.kt",
+        "cpp": "solutions/operand-stack/solution.cpp"
+      }
+    }
+  ]
+}

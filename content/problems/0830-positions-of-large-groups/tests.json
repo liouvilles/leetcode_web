@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "largeGroupPositions",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "intListMatrix",
+  "cases": [
+    {
+      "name": "中间四个 x",
+      "args": [
+        "abbxxxxzzy"
+      ],
+      "expected": [
+        [
+          3,
+          6
+        ]
+      ]
+    },
+    {
+      "name": "没有大分组",
+      "args": [
+        "abc"
+      ],
+      "expected": []
+    },
+    {
+      "name": "三个大分组",
+      "args": [
+        "abcdddeeeeaabbbcd"
+      ],
+      "expected": [
+        [
+          3,
+          5
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          12,
+          14
+        ]
+      ]
+    }
+  ]
+}

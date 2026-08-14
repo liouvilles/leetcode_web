@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "kInversePairs",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三个数零逆序",
+      "args": [
+        3,
+        0
+      ],
+      "expected": 1
+    },
+    {
+      "name": "三个数一个逆序",
+      "args": [
+        3,
+        1
+      ],
+      "expected": 2
+    },
+    {
+      "name": "三个数三个逆序",
+      "args": [
+        3,
+        3
+      ],
+      "expected": 1
+    }
+  ]
+}

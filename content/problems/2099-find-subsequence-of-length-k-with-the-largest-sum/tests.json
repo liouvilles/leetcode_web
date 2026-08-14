@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxSubsequence",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "选三与四并保持顺序",
+      "args": [
+        [
+          2,
+          1,
+          3,
+          3
+        ],
+        2
+      ],
+      "expected": [
+        3,
+        3
+      ]
+    },
+    {
+      "name": "选负一与三",
+      "args": [
+        [
+          -1,
+          -2,
+          3,
+          4
+        ],
+        3
+      ],
+      "expected": [
+        -1,
+        3,
+        4
+      ]
+    },
+    {
+      "name": "选择全部保持原数组",
+      "args": [
+        [
+          5,
+          1
+        ],
+        2
+      ],
+      "expected": [
+        5,
+        1
+      ]
+    }
+  ]
+}

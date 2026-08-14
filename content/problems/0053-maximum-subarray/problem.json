@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "id": 53,
+  "slug": "maximum-subarray",
+  "title": "最大子数组和",
+  "status": "published",
+  "qualityGate": "compile",
+  "batch": "legacy-001",
+  "studyTags": [
+    "Kadane",
+    "以当前位置结尾",
+    "状态压缩"
+  ],
+  "summary": "在数组的所有非空连续片段中，求元素总和的最大值。",
+  "insight": "以 i 结尾的最优片段，要么只包含 nums[i]，要么接在以 i-1 结尾的最优片段之后。",
+  "pitfalls": [
+    "数组可能全为负数，答案不能初始化为 0",
+    "求的是连续片段",
+    "先更新当前状态再更新全局答案"
+  ],
+  "solutions": [
+    {
+      "id": "dp-array",
+      "title": "动态规划数组",
+      "kind": "基础",
+      "idea": "dp[i] 表示必须以 i 结尾的最大子数组和，显式保存每个状态。",
+      "steps": [
+        "初始化 dp[0]",
+        "在重新开始与接续前一状态之间取最大值",
+        "扫描所有 dp 状态求全局最大值"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/dp-array/Solution.java",
+        "kotlin": "solutions/dp-array/Solution.kt",
+        "cpp": "solutions/dp-array/solution.cpp"
+      }
+    },
+    {
+      "id": "kadane",
+      "title": "Kadane 状态压缩",
+      "kind": "最优",
+      "idea": "当前状态只依赖前一个状态，因此用一个变量代替整个 dp 数组。",
+      "steps": [
+        "current 保存以上一位置结尾的最优和",
+        "决定接续还是从当前元素重启",
+        "同步维护 best"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/kadane/Solution.java",
+        "kotlin": "solutions/kadane/Solution.kt",
+        "cpp": "solutions/kadane/solution.cpp"
+      }
+    }
+  ]
+}

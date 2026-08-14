@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "racecar",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "连续两次加速",
+      "args": [
+        3
+      ],
+      "expected": 2
+    },
+    {
+      "name": "目标六",
+      "args": [
+        6
+      ],
+      "expected": 5
+    },
+    {
+      "name": "目标一",
+      "args": [
+        1
+      ],
+      "expected": 1
+    }
+  ]
+}

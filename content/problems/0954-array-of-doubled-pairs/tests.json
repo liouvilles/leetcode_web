@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "canReorderDoubled",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "含负数可配对",
+      "args": [
+        [
+          4,
+          -2,
+          2,
+          -4
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "缺少二倍数",
+      "args": [
+        [
+          3,
+          1,
+          3,
+          6
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "多余无法配对元素",
+      "args": [
+        [
+          2,
+          1,
+          2,
+          6
+        ]
+      ],
+      "expected": false
+    }
+  ]
+}

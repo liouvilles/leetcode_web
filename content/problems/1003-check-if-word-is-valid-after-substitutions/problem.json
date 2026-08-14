@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1003,
+  "slug": "check-if-word-is-valid-after-substitutions",
+  "title": "检查替换后的词是否有效",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-014",
+  "studyTags": [
+    "字符串",
+    "栈"
+  ],
+  "summary": "从空串开始可在任意位置插入 abc，判断给定字符串能否通过若干次插入得到。",
+  "insight": "顺序扫描把字符压栈；每当栈顶三个字符恰为 abc 就立即消去，等价于逆序撤销一次插入，最终栈空则有效。",
+  "pitfalls": [
+    "abc 可嵌套或并列出现",
+    "必须检查栈长度至少三",
+    "消除后可能与前缀组成新的 abc，但当前字符触发的循环已由逐次扫描覆盖"
+  ],
+  "solutions": [
+    {
+      "id": "abc-reduction-stack",
+      "title": "abc 消除栈",
+      "kind": "最优",
+      "idea": "在线撤销所有可见的合法插入块。",
+      "steps": [
+        "StringBuilder 作为栈",
+        "逐字符追加",
+        "若末三字符是 a,b,c，则把长度缩短三；扫描结束返回栈是否为空"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/abc-reduction-stack/Solution.java",
+        "kotlin": "solutions/abc-reduction-stack/Solution.kt",
+        "cpp": "solutions/abc-reduction-stack/solution.cpp"
+      }
+    }
+  ]
+}

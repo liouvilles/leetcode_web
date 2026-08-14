@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 6,
+  "slug": "zigzag-conversion",
+  "title": "Z 字形变换",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-004",
+  "studyTags": [
+    "按行模拟",
+    "方向切换",
+    "字符串"
+  ],
+  "summary": "把字符串按指定行数上下折返排列，再逐行连接得到变换后的字符串。",
+  "insight": "只需维护当前行和移动方向；到达第一行或最后一行时反转方向。",
+  "pitfalls": [
+    "行数为一时直接返回原串",
+    "有效行数可能大于字符串长度",
+    "方向应在写入当前字符后按边界切换"
+  ],
+  "solutions": [
+    {
+      "id": "row-simulation",
+      "title": "逐字符折返模拟",
+      "kind": "最优",
+      "idea": "用每行一个构造器记录字符，行指针在上下边界间往返。",
+      "steps": [
+        "创建 min(numRows,length) 行",
+        "字符加入当前行",
+        "到达首尾行切换步长正负，最后连接所有行"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/row-simulation/Solution.java",
+        "kotlin": "solutions/row-simulation/Solution.kt",
+        "cpp": "solutions/row-simulation/solution.cpp"
+      }
+    }
+  ]
+}

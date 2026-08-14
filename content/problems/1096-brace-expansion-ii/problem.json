@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1096,
+  "slug": "brace-expansion-ii",
+  "title": "花括号展开 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-016",
+  "studyTags": [
+    "字符串",
+    "递归",
+    "集合"
+  ],
+  "summary": "表达式支持小写字母、逗号并集、相邻连接和花括号嵌套，返回所有不同展开结果的字典序列表。",
+  "insight": "递归下降解析：表达式是逗号分隔的若干连接项，连接项是多个字母或子表达式的笛卡尔积；各层用集合自动去重。",
+  "pitfalls": [
+    "连接优先级高于逗号并集",
+    "遇右花括号时当前递归层结束",
+    "输出必须去重并排序"
+  ],
+  "solutions": [
+    {
+      "id": "recursive-descent-set-algebra",
+      "title": "递归下降集合代数",
+      "kind": "最优",
+      "idea": "分别实现并集与笛卡尔积两级语法。",
+      "steps": [
+        "index=0，parseExpression 解析一个 term 并吸收逗号后的 term",
+        "parseTerm 从 {\"\"} 开始，直到逗号/右括号；字母因子为单元素集合，花括号因子递归解析",
+        "term 与 factor 做两两拼接；顶层结果转有序列表"
+      ],
+      "complexity": {
+        "time": "O(output size·length)",
+        "space": "O(output size·length)"
+      },
+      "files": {
+        "java": "solutions/recursive-descent-set-algebra/Solution.java",
+        "kotlin": "solutions/recursive-descent-set-algebra/Solution.kt",
+        "cpp": "solutions/recursive-descent-set-algebra/solution.cpp"
+      }
+    }
+  ]
+}

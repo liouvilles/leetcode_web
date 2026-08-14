@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "superEggDrop",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一蛋两层",
+      "args": [
+        1,
+        2
+      ],
+      "expected": 2
+    },
+    {
+      "name": "两蛋六层",
+      "args": [
+        2,
+        6
+      ],
+      "expected": 3
+    },
+    {
+      "name": "三蛋十四层",
+      "args": [
+        3,
+        14
+      ],
+      "expected": 4
+    }
+  ]
+}

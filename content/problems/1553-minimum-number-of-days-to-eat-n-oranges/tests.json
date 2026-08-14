@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minDays",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "十个橘子四天吃完",
+      "args": [
+        10
+      ],
+      "expected": 4
+    },
+    {
+      "name": "六个橘子三天吃完",
+      "args": [
+        6
+      ],
+      "expected": 3
+    },
+    {
+      "name": "一个橘子一天吃完",
+      "args": [
+        1
+      ],
+      "expected": 1
+    }
+  ]
+}

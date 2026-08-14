@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 659,
+  "slug": "split-array-into-consecutive-subsequences",
+  "title": "分割数组为连续子序列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-008",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "贪心"
+  ],
+  "summary": "把升序整数数组分割成若干个连续递增且长度至少为三的子序列，判断是否可行。",
+  "insight": "处理当前数时优先接到以 value-1 结尾的已有序列；否则必须立即用 value+1 和 value+2 新建长度三序列。",
+  "pitfalls": [
+    "优先延长已有序列，避免留下短序列",
+    "新建序列前必须确认后两个数仍有剩余",
+    "重复值需要按频次处理"
+  ],
+  "solutions": [
+    {
+      "id": "remaining-and-tails-greedy",
+      "title": "剩余频次与序列尾频次",
+      "kind": "最优",
+      "idea": "在线决定当前元素延长旧链或新建最短合法链。",
+      "steps": [
+        "统计 remaining[value]",
+        "按 nums 顺序跳过已被使用的值并扣除当前频次",
+        "若 tails[value-1]>0 则延长；否则消耗 value+1、value+2 新建，否则失败"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/remaining-and-tails-greedy/Solution.java",
+        "kotlin": "solutions/remaining-and-tails-greedy/Solution.kt",
+        "cpp": "solutions/remaining-and-tails-greedy/solution.cpp"
+      }
+    }
+  ]
+}

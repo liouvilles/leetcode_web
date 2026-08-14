@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "checkPerfectNumber",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "二十八是完美数",
+      "args": [
+        28
+      ],
+      "expected": true
+    },
+    {
+      "name": "七不是完美数",
+      "args": [
+        7
+      ],
+      "expected": false
+    },
+    {
+      "name": "四百九十六",
+      "args": [
+        496
+      ],
+      "expected": true
+    }
+  ]
+}

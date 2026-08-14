@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2054,
+  "slug": "two-best-non-overlapping-events",
+  "title": "两个最好的不重叠活动",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "数组",
+    "二分查找",
+    "堆（优先队列）",
+    "排序"
+  ],
+  "summary": "最多参加两个闭区间活动，活动不能时间重叠，求价值和最大值。",
+  "insight": "按开始时间排序，维护按结束时间的小根堆。处理当前活动前，弹出所有 end<start 的活动并更新已结束最大价值，当前价值加它即可；单活动也由 bestEnded 或当前值覆盖。",
+  "pitfalls": [
+    "端点相等仍重叠",
+    "可以只参加一个活动",
+    "最多两个而非恰好两个"
+  ],
+  "solutions": [
+    {
+      "id": "start-scan-ended-event-heap",
+      "title": "开始时间扫描与结束堆",
+      "kind": "最优",
+      "idea": "维护当前活动之前所有可组合活动的最大价值。",
+      "steps": [
+        "events 按 start 排序，heap 放 [end,value]",
+        "处理 event 时弹出 end<start，更新 bestEnded",
+        "answer=max(answer,event.value+bestEnded)，再入堆"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/start-scan-ended-event-heap/Solution.java",
+        "kotlin": "solutions/start-scan-ended-event-heap/Solution.kt",
+        "cpp": "solutions/start-scan-ended-event-heap/solution.cpp"
+      }
+    }
+  ]
+}

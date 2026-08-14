@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1340,
+  "slug": "jump-game-v",
+  "title": "跳跃游戏 V",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-019",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "记忆化搜索"
+  ],
+  "summary": "从下标 i 可向左右最多 d 格跳到更小值，但途中不能越过大于等于 arr[i] 的元素，求最多访问下标数。",
+  "insight": "边总从较大值指向较小值，不会成环。记忆 dfs(i) 为从 i 出发最长路径，分别向左右逐格扫描，遇首个不低于当前值立即停止。",
+  "pitfalls": [
+    "阻挡元素本身不能跳也不能越过",
+    "访问下标数包含起点",
+    "左右方向分别最多扫描 d 格"
+  ],
+  "solutions": [
+    {
+      "id": "memoized-lower-jump-dfs",
+      "title": "较低值跳跃记忆搜索",
+      "kind": "最优",
+      "idea": "在按高度下降的有向无环图上求最长路。",
+      "steps": [
+        "memo[n]=0",
+        "dfs(index) 初始 best=1；对 direction=-1,+1，step=1..d 得 next",
+        "越界或 arr[next]>=arr[index] 时停止该方向，否则 best=max(best,1+dfs(next))；缓存返回，所有起点取最大"
+      ],
+      "complexity": {
+        "time": "O(n·d)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/memoized-lower-jump-dfs/Solution.java",
+        "kotlin": "solutions/memoized-lower-jump-dfs/Solution.kt",
+        "cpp": "solutions/memoized-lower-jump-dfs/solution.cpp"
+      }
+    }
+  ]
+}

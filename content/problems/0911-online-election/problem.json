@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 911,
+  "slug": "online-election",
+  "title": "在线选举",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-013",
+  "studyTags": [
+    "设计",
+    "数组",
+    "哈希表",
+    "二分查找"
+  ],
+  "summary": "按时间给出投票人，查询任意给定时刻当时领先者；票数并列时最近获得选票者领先。",
+  "insight": "构造时按票顺序维护计数与当前领先者，把每个时刻的领先者存下；查询二分最后一个不晚于 t 的投票时刻。",
+  "pitfalls": [
+    "并列使用大于等于更新领先者",
+    "查询 t 保证不早于首票时间",
+    "二分目标是 upperBound(t)-1"
+  ],
+  "solutions": [
+    {
+      "id": "prefix-leaders-binary-query",
+      "title": "前缀领先者与时间二分",
+      "kind": "最优",
+      "idea": "预计算每次投票后的领先者以常数读取查询结果。",
+      "steps": [
+        "构造时 counts[person]++；若新票数>=leader 票数则 leader=person，leaders[i]=leader",
+        "q(t) 二分第一个 times[index]>t 的位置",
+        "返回 leaders[low-1]"
+      ],
+      "complexity": {
+        "time": "O(votes + queries·log votes)",
+        "space": "O(votes+candidates)"
+      },
+      "files": {
+        "java": "solutions/prefix-leaders-binary-query/Solution.java",
+        "kotlin": "solutions/prefix-leaders-binary-query/Solution.kt",
+        "cpp": "solutions/prefix-leaders-binary-query/solution.cpp"
+      }
+    }
+  ]
+}

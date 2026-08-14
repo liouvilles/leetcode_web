@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1348,
+  "slug": "tweet-counts-per-frequency",
+  "title": "推文计数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-019",
+  "studyTags": [
+    "设计",
+    "有序映射",
+    "区间统计"
+  ],
+  "summary": "记录推文在某秒发布，并按 minute、hour、day 的桶宽查询闭区间内每个时间桶的发布次数。",
+  "insight": "为每个名称维护时间到次数的有序映射；查询时创建固定数量桶，只遍历起止区间内记录，并按 (time-start)/bucketSize 累加。",
+  "pitfalls": [
+    "相同名称同一时刻可记录多次",
+    "查询 endTime 包含在内",
+    "最后一个桶可能短于标准桶宽"
+  ],
+  "solutions": [
+    {
+      "id": "ordered-time-frequency-buckets",
+      "title": "有序时间频次分桶",
+      "kind": "最优",
+      "idea": "用有序子区间只扫描相关记录。",
+      "steps": [
+        "recordTweet 在 name 对应 TreeMap 中 merge(time,1)",
+        "查询把频率映射为 60、3600、86400，创建 (end-start)/width+1 个零",
+        "遍历 subMap(start,true,end,true)，把 count 加到 (time-start)/width 桶，返回列表"
+      ],
+      "complexity": {
+        "time": "记录 O(log n)，查询 O(log n+区间记录数)",
+        "space": "O(记录数)"
+      },
+      "files": {
+        "java": "solutions/ordered-time-frequency-buckets/Solution.java",
+        "kotlin": "solutions/ordered-time-frequency-buckets/Solution.kt",
+        "cpp": "solutions/ordered-time-frequency-buckets/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "fizzBuzz",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "stringList",
+  "cases": [
+    {
+      "name": "包含 Fizz 和 Buzz",
+      "args": [
+        5
+      ],
+      "expected": [
+        "1",
+        "2",
+        "Fizz",
+        "4",
+        "Buzz"
+      ]
+    },
+    {
+      "name": "包含 FizzBuzz",
+      "args": [
+        15
+      ],
+      "expected": [
+        "1",
+        "2",
+        "Fizz",
+        "4",
+        "Buzz",
+        "Fizz",
+        "7",
+        "8",
+        "Fizz",
+        "Buzz",
+        "11",
+        "Fizz",
+        "13",
+        "14",
+        "FizzBuzz"
+      ]
+    },
+    {
+      "name": "单项",
+      "args": [
+        1
+      ],
+      "expected": [
+        "1"
+      ]
+    }
+  ]
+}

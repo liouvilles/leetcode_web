@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumRounds",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典任务最少四轮",
+      "args": [
+        [
+          2,
+          2,
+          3,
+          3,
+          2,
+          4,
+          4,
+          4,
+          4,
+          4
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "存在单个难度任务无解",
+      "args": [
+        [
+          2,
+          3,
+          3
+        ]
+      ],
+      "expected": -1
+    },
+    {
+      "name": "四个同难度需两轮",
+      "args": [
+        [
+          5,
+          5,
+          5,
+          5
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

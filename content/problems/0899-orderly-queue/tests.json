@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "orderlyQueue",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "只能旋转得到 acb",
+      "args": [
+        "cba",
+        1
+      ],
+      "expected": "acb"
+    },
+    {
+      "name": "可任意排序",
+      "args": [
+        "baaca",
+        3
+      ],
+      "expected": "aaabc"
+    },
+    {
+      "name": "两个入口排成 abc",
+      "args": [
+        "cba",
+        2
+      ],
+      "expected": "abc"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { public int maxEqualRowsAfterFlips(int[][] matrix){Map<String,Integer> frequency=new HashMap<>();int answer=0;for(int[] row:matrix){StringBuilder key=new StringBuilder();for(int bit:row)key.append(bit^row[0]);int count=frequency.merge(key.toString(),1,Integer::sum);answer=Math.max(answer,count);}return answer;} }

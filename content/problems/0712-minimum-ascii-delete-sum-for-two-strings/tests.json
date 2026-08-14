@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumDeleteSum",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "删除 s 与 t",
+      "args": [
+        "sea",
+        "eat"
+      ],
+      "expected": 231
+    },
+    {
+      "name": "复杂公共子序列",
+      "args": [
+        "delete",
+        "leet"
+      ],
+      "expected": 403
+    },
+    {
+      "name": "相同字符串无需删除",
+      "args": [
+        "abc",
+        "abc"
+      ],
+      "expected": 0
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1514,
+  "slug": "path-with-maximum-probability",
+  "title": "概率最大的路径",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-021",
+  "studyTags": [
+    "数组",
+    "图论",
+    "堆（优先队列）",
+    "最短路"
+  ],
+  "summary": "无向图每条边有成功概率，求 start 到 end 路径概率乘积的最大值，不可达返回零。",
+  "insight": "把 Dijkstra 的距离最小化改为概率最大化：最大堆每次取当前概率最高节点，沿边乘概率松弛。概率不超过一保证已弹出的最优值不会被更差路径改进。",
+  "pitfalls": [
+    "图是无向的需添加双向边",
+    "路径概率为边概率乘积",
+    "过期堆条目应跳过"
+  ],
+  "solutions": [
+    {
+      "id": "maximum-product-dijkstra",
+      "title": "最大乘积 Dijkstra",
+      "kind": "最优",
+      "idea": "用最大堆按当前路径概率从高到低扩展。",
+      "steps": [
+        "建立邻接表，best[start]=1，堆加入 (1,start)",
+        "弹出 probability；小于 best[node] 则跳过，node==end 可返回",
+        "对每条边 candidate=probability*edgeProbability，若更大则更新并入堆"
+      ],
+      "complexity": {
+        "time": "O((V+E) log V)",
+        "space": "O(V+E)"
+      },
+      "files": {
+        "java": "solutions/maximum-product-dijkstra/Solution.java",
+        "kotlin": "solutions/maximum-product-dijkstra/Solution.kt",
+        "cpp": "solutions/maximum-product-dijkstra/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { int atMost(vector<int>& nums,int limit){if(limit<0)return 0;int left=0,odd=0,total=0;for(int right=0;right<(int)nums.size();++right){odd+=nums[right]&1;while(odd>limit)odd-=nums[left++]&1;total+=right-left+1;}return total;}public:int numberOfSubarrays(vector<int>& nums,int k){return atMost(nums,k)-atMost(nums,k-1);} };

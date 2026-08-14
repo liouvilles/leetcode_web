@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "arrangeWords",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "按二三八长度排序",
+      "args": [
+        "Leetcode is cool"
+      ],
+      "expected": "Is cool leetcode"
+    },
+    {
+      "name": "相同四字母词保持顺序",
+      "args": [
+        "Keep calm and code on"
+      ],
+      "expected": "On and keep calm code"
+    },
+    {
+      "name": "二字母词保持相对顺序",
+      "args": [
+        "To be or not to be"
+      ],
+      "expected": "To be or to be not"
+    }
+  ]
+}

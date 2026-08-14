@@ -1,0 +1,1 @@
+class Solution { fun countTexts(pressedKeys:String):Int{val mod=1_000_000_007;val dp=LongArray(pressedKeys.length+1);dp[0]=1;for(i in 1..pressedKeys.length){val key=pressedKeys[i-1];val limit=if(key=='7'||key=='9')4 else 3;var length=1;while(length<=limit&&i-length>=0&&pressedKeys[i-length]==key){dp[i]=(dp[i]+dp[i-length])%mod;length++}};return dp.last().toInt()} }

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxProfit",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "卖出后经过冷冻期再买入",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          0,
+          2
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "单日无法交易",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "先下降后一次交易",
+      "args": [
+        [
+          2,
+          1,
+          4
+        ]
+      ],
+      "expected": 3
+    }
+  ]
+}

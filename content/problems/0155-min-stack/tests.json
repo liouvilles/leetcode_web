@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "MinStack",
+  "constructorTypes": [],
+  "cases": [
+    {
+      "name": "弹出最小值后恢复旧最小值",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            -2
+          ]
+        },
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            0
+          ]
+        },
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            -3
+          ]
+        },
+        {
+          "method": "getMin",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": -3
+        },
+        {
+          "method": "pop",
+          "parameterTypes": [],
+          "args": []
+        },
+        {
+          "method": "top",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 0
+        },
+        {
+          "method": "getMin",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": -2
+        }
+      ]
+    },
+    {
+      "name": "重复最小值",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ]
+        },
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ]
+        },
+        {
+          "method": "pop",
+          "parameterTypes": [],
+          "args": []
+        },
+        {
+          "method": "getMin",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 1
+        }
+      ]
+    },
+    {
+      "name": "单元素栈",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            5
+          ]
+        },
+        {
+          "method": "top",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 5
+        },
+        {
+          "method": "getMin",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 5
+        }
+      ]
+    }
+  ]
+}

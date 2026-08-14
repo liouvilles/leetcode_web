@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1042,
+  "slug": "flower-planting-with-no-adjacent",
+  "title": "不邻接植花",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-015",
+  "studyTags": [
+    "图论",
+    "贪心",
+    "图着色"
+  ],
+  "summary": "n 个花园的无向图中每点度数至多三，用四种花给每个花园着色，使相邻花园颜色不同。",
+  "insight": "按编号依次处理花园；已着色邻居最多使用三种颜色，因此四种颜色中总有一种可用，取最小可用色即可。",
+  "pitfalls": [
+    "花园编号输入从一开始，数组下标从零开始",
+    "只需避开已着色邻居，后续邻居会自行避开当前色",
+    "答案颜色范围一到四"
+  ],
+  "solutions": [
+    {
+      "id": "four-color-greedy",
+      "title": "四颜色贪心",
+      "kind": "最优",
+      "idea": "逐点选择未被邻居使用的最小颜色。",
+      "steps": [
+        "构建零下标邻接表",
+        "garden 从零到 n-1，标记所有已着色邻居颜色 used[1..4]",
+        "选择第一个未使用颜色赋给当前花园，返回颜色数组"
+      ],
+      "complexity": {
+        "time": "O(n+paths)",
+        "space": "O(n+paths)"
+      },
+      "files": {
+        "java": "solutions/four-color-greedy/Solution.java",
+        "kotlin": "solutions/four-color-greedy/Solution.kt",
+        "cpp": "solutions/four-color-greedy/solution.cpp"
+      }
+    }
+  ]
+}

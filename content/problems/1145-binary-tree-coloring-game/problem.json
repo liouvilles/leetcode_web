@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1145,
+  "slug": "binary-tree-coloring-game",
+  "title": "二叉树着色游戏",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-016",
+  "studyTags": [
+    "树",
+    "深度优先搜索",
+    "子树大小"
+  ],
+  "summary": "先手给节点 x 着色，后手选择另一节点；双方轮流扩展相邻未着色节点，判断后手是否能保证占据更多节点。",
+  "insight": "删除 x 后树被分成左子树、右子树和父节点方向三块。后手只要选择最大的一块，就能封住唯一入口；当这块节点数超过一半时必胜。",
+  "pitfalls": [
+    "父节点方向大小为 n-1-left-right",
+    "必须严格超过 n/2 才能保证胜利",
+    "需要找到 x 并统计其左右子树大小"
+  ],
+  "solutions": [
+    {
+      "id": "three-region-subtree-count",
+      "title": "三分区子树计数",
+      "kind": "最优",
+      "idea": "统计删除 x 后三个连通块并判断最大块是否过半。",
+      "steps": [
+        "深度优先计算每棵子树大小；遇到值为 x 的节点记录其左右大小",
+        "计算 parent=n-1-left-right",
+        "若 max(left,right,parent)>n/2 返回真，否则返回假"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(height)"
+      },
+      "files": {
+        "java": "solutions/three-region-subtree-count/Solution.java",
+        "kotlin": "solutions/three-region-subtree-count/Solution.kt",
+        "cpp": "solutions/three-region-subtree-count/solution.cpp"
+      }
+    }
+  ]
+}

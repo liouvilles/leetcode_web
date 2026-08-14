@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "idealArrays",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "长度二最大值五共有十个",
+      "args": [
+        2,
+        5
+      ],
+      "expected": 10
+    },
+    {
+      "name": "长度五最大值三共有十一个",
+      "args": [
+        5,
+        3
+      ],
+      "expected": 11
+    },
+    {
+      "name": "长度一可选择任一值",
+      "args": [
+        1,
+        10
+      ],
+      "expected": 10
+    }
+  ]
+}

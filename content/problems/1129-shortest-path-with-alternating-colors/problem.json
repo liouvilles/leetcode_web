@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1129,
+  "slug": "shortest-path-with-alternating-colors",
+  "title": "颜色交替的最短路径",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-016",
+  "studyTags": [
+    "图论",
+    "广度优先搜索"
+  ],
+  "summary": "有向图边为红或蓝，求从零号节点到每个节点且相邻边颜色交替的最短路径，不可达记负一。",
+  "insight": "状态必须包含节点和上一条边颜色；从 (0,red) 与 (0,blue) 同时距离零出发，每次只沿相反颜色边扩展。",
+  "pitfalls": [
+    "同一节点以上一颜色不同是两个独立状态",
+    "起点到自身距离为零",
+    "平行边和自环按状态去重即可"
+  ],
+  "solutions": [
+    {
+      "id": "node-last-color-bfs",
+      "title": "节点与末边颜色 BFS",
+      "kind": "最优",
+      "idea": "在扩展状态图上求无权最短路。",
+      "steps": [
+        "分别构建 redGraph、blueGraph，distance[n][2] 初始化 -1",
+        "将 (0,0)、(0,1) 距离设零并入队",
+        "弹 (node,lastColor)，nextColor=1-last；沿对应图，对未访问 (neighbor,nextColor) 写 distance+1 并入队；答案取两色最小非负值"
+      ],
+      "complexity": {
+        "time": "O(n+edges)",
+        "space": "O(n+edges)"
+      },
+      "files": {
+        "java": "solutions/node-last-color-bfs/Solution.java",
+        "kotlin": "solutions/node-last-color-bfs/Solution.kt",
+        "cpp": "solutions/node-last-color-bfs/solution.cpp"
+      }
+    }
+  ]
+}

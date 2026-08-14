@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isSameTree",
+  "parameterTypes": [
+    "treeNode",
+    "treeNode"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "结构和值完全相同",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "孩子方向不同",
+      "args": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          null,
+          2
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "节点值不同",
+      "args": [
+        [
+          1,
+          2,
+          1
+        ],
+        [
+          1,
+          1,
+          2
+        ]
+      ],
+      "expected": false
+    }
+  ]
+}

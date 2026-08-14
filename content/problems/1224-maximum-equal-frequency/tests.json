@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxEqualFreq",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典最长前七项",
+      "args": [
+        [
+          2,
+          2,
+          1,
+          1,
+          5,
+          3,
+          3,
+          5
+        ]
+      ],
+      "expected": 7
+    },
+    {
+      "name": "两组三次最长五项",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          2,
+          2,
+          2
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "两个相同值也合法",
+      "args": [
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

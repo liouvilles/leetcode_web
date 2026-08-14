@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 592,
+  "slug": "fraction-addition-and-subtraction",
+  "title": "分数加减运算",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-008",
+  "studyTags": [
+    "数学",
+    "字符串",
+    "模拟",
+    "最大公约数"
+  ],
+  "summary": "计算只含分数加减的表达式，并以最简分数形式返回结果。",
+  "insight": "维护当前结果的分子分母，每读一个带符号分数就通分相加，并立刻用最大公约数约分。",
+  "pitfalls": [
+    "首个分数可能没有显式正号",
+    "中间结果可能为零",
+    "用长整数保存乘法中间值"
+  ],
+  "solutions": [
+    {
+      "id": "streaming-fraction-reduction",
+      "title": "逐项解析并约分",
+      "kind": "最优",
+      "idea": "解析符号、分子和分母，累计到统一分数。",
+      "steps": [
+        "初始化结果为 0/1",
+        "顺序解析每个分数及其符号",
+        "交叉相乘求和，以 gcd 约分后继续，最终格式化"
+      ],
+      "complexity": {
+        "time": "O(n log V)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/streaming-fraction-reduction/Solution.java",
+        "kotlin": "solutions/streaming-fraction-reduction/Solution.kt",
+        "cpp": "solutions/streaming-fraction-reduction/solution.cpp"
+      }
+    }
+  ]
+}

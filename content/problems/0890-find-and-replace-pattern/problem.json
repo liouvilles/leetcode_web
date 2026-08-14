@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 890,
+  "slug": "find-and-replace-pattern",
+  "title": "查找和替换模式",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "字符串"
+  ],
+  "summary": "返回单词列表中能通过字符一一映射变成 pattern 的所有单词。",
+  "insight": "一一映射要求双向一致：单词字符到模式字符、模式字符到单词字符都不能冲突；逐位置建立两张映射即可验证。",
+  "pitfalls": [
+    "映射必须是双射而非单向函数",
+    "同一字符重复位置必须保持一致",
+    "按输入顺序返回匹配单词"
+  ],
+  "solutions": [
+    {
+      "id": "bidirectional-character-map",
+      "title": "双向字符映射",
+      "kind": "最优",
+      "idea": "为每个候选词同步验证两方向对应关系。",
+      "steps": [
+        "对 word 建立 forward、backward 映射",
+        "逐下标读取 a=word[i],b=pattern[i]；已有映射不等则失败",
+        "否则写入两方向映射，全部通过则加入答案"
+      ],
+      "complexity": {
+        "time": "O(total characters)",
+        "space": "O(alphabet)"
+      },
+      "files": {
+        "java": "solutions/bidirectional-character-map/Solution.java",
+        "kotlin": "solutions/bidirectional-character-map/Solution.kt",
+        "cpp": "solutions/bidirectional-character-map/solution.cpp"
+      }
+    }
+  ]
+}

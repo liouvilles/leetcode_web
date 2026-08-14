@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1478,
+  "slug": "allocate-mailboxes",
+  "title": "安排邮筒",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-021",
+  "studyTags": [
+    "数组",
+    "数学",
+    "动态规划",
+    "排序"
+  ],
+  "summary": "在数轴上为房屋安排 k 个邮筒，最小化每户到最近邮筒的距离总和。",
+  "insight": "排序后，一个连续房屋段使用一个邮筒时放在中位数处最优。预计算所有段成本，再做分组动态规划。",
+  "pitfalls": [
+    "最优分组在排序后是连续段",
+    "偶数段取两个中位数任一都得到相同成本",
+    "必须恰好使用不超过房屋数的 k 个邮筒"
+  ],
+  "solutions": [
+    {
+      "id": "median-segment-partition-dp",
+      "title": "中位数分段动态规划",
+      "kind": "最优",
+      "idea": "预计算单邮筒服务区间成本并划分前缀。",
+      "steps": [
+        "排序 houses；cost[i][j]=Σ|houses[t]-houses[(i+j)/2]|",
+        "dp[boxes][count] 表示前 count 户用 boxes 个邮筒最小成本",
+        "枚举最后一段起点 previous，转移 dp[b-1][previous]+cost[previous][count-1]"
+      ],
+      "complexity": {
+        "time": "O(n³+n²k)",
+        "space": "O(n²+nk)"
+      },
+      "files": {
+        "java": "solutions/median-segment-partition-dp/Solution.java",
+        "kotlin": "solutions/median-segment-partition-dp/Solution.kt",
+        "cpp": "solutions/median-segment-partition-dp/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "smallestDistancePair",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "最小距离为零",
+      "args": [
+        [
+          1,
+          3,
+          1
+        ],
+        1
+      ],
+      "expected": 0
+    },
+    {
+      "name": "三个零距离数对取第二",
+      "args": [
+        [
+          1,
+          1,
+          1
+        ],
+        2
+      ],
+      "expected": 0
+    },
+    {
+      "name": "第三小距离为五",
+      "args": [
+        [
+          1,
+          6,
+          1
+        ],
+        3
+      ],
+      "expected": 5
+    }
+  ]
+}

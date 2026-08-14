@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 952,
+  "slug": "largest-component-size-by-common-factor",
+  "title": "按公因数计算最大组件大小",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-013",
+  "studyTags": [
+    "数组",
+    "数学",
+    "并查集",
+    "数论"
+  ],
+  "summary": "数组元素是图节点，两个数有大于一的公因数时相连，求最大连通分量大小。",
+  "insight": "对每个数分解不同质因数；同一质因数首次出现的元素作为代表，之后出现的元素与代表合并，传递关系由并查集维护。",
+  "pitfalls": [
+    "一个质因数在同一数字中只处理一次",
+    "分解结束剩余大于一的数也是质因数",
+    "并查集统计的是数组下标而非数值"
+  ],
+  "solutions": [
+    {
+      "id": "prime-factor-dsu",
+      "title": "质因数代表并查集",
+      "kind": "最优",
+      "idea": "通过共享质因数合并元素下标。",
+      "steps": [
+        "初始化下标并查集与 factor->index 映射",
+        "对 nums[i] 试除质因数；每个因数若已有代表则合并，否则记录 i，并除尽该因数",
+        "处理最终剩余质因数；统计每个根的节点数并取最大"
+      ],
+      "complexity": {
+        "time": "O(n√M α(n))",
+        "space": "O(n+primes)"
+      },
+      "files": {
+        "java": "solutions/prime-factor-dsu/Solution.java",
+        "kotlin": "solutions/prime-factor-dsu/Solution.kt",
+        "cpp": "solutions/prime-factor-dsu/solution.cpp"
+      }
+    }
+  ]
+}

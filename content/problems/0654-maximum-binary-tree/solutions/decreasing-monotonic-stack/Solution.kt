@@ -1,0 +1,1 @@
+class Solution { fun constructMaximumBinaryTree(nums:IntArray):TreeNode?{val stack=java.util.ArrayDeque<TreeNode>();for(value in nums){val node=TreeNode(value);while(stack.isNotEmpty()&&stack.peekLast().`val`<value)node.left=stack.removeLast();if(stack.isNotEmpty())stack.peekLast().right=node;stack.addLast(node)};return stack.peekFirst()} }

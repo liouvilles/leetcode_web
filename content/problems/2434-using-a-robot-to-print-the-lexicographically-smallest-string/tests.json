@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "robotWithString",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "zza 打印为 azz",
+      "args": [
+        "zza"
+      ],
+      "expected": "azz"
+    },
+    {
+      "name": "bac 打印为 abc",
+      "args": [
+        "bac"
+      ],
+      "expected": "abc"
+    },
+    {
+      "name": "bdda 打印为 addb",
+      "args": [
+        "bdda"
+      ],
+      "expected": "addb"
+    }
+  ]
+}

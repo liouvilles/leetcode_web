@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2103,
+  "slug": "rings-and-rods",
+  "title": "环和杆",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "哈希表",
+    "字符串"
+  ],
+  "summary": "字符串每两字符表示颜色环套在杆编号上，统计同时拥有红绿蓝三色环的杆数。",
+  "insight": "为十根杆维护三位颜色掩码，读每对字符设置对应位，最终掩码等于七的杆即三色齐全。",
+  "pitfalls": [
+    "同色环可重复",
+    "杆编号为单个数字",
+    "输入每两字符一组"
+  ],
+  "solutions": [
+    {
+      "id": "rod-color-bitmasks",
+      "title": "杆颜色位掩码",
+      "kind": "最优",
+      "idea": "三位二进制记录每根杆已有颜色。",
+      "steps": [
+        "mask[10]",
+        "i 每次加二，color 映射 1/2/4，rod=rings[i+1]-0",
+        "mask[rod]|=bit；统计 mask==7"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/rod-color-bitmasks/Solution.java",
+        "kotlin": "solutions/rod-color-bitmasks/Solution.kt",
+        "cpp": "solutions/rod-color-bitmasks/solution.cpp"
+      }
+    }
+  ]
+}

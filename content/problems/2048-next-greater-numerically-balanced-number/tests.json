@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "nextBeautifulNumber",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一之后的平衡数二十二",
+      "args": [
+        1
+      ],
+      "expected": 22
+    },
+    {
+      "name": "一千之后为一三三三",
+      "args": [
+        1000
+      ],
+      "expected": 1333
+    },
+    {
+      "name": "三千之后为三一三三",
+      "args": [
+        3000
+      ],
+      "expected": 3133
+    }
+  ]
+}

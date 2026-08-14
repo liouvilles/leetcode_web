@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isBoomerang",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "非共线三点",
+      "args": [
+        [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            2
+          ]
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "同一直线",
+      "args": [
+        [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            3
+          ]
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "重复点",
+      "args": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": false
+    }
+  ]
+}

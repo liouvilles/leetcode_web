@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minOperations",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一一一变递增需三次",
+      "args": [
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "复杂数组最少十四次",
+      "args": [
+        [
+          1,
+          5,
+          2,
+          4,
+          1
+        ]
+      ],
+      "expected": 14
+    },
+    {
+      "name": "已严格递增无需操作",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

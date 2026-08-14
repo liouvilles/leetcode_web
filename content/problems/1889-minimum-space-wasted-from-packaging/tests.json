@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minWastedSpace",
+  "parameterTypes": [
+    "intArray",
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "第二供应商浪费空间最少",
+      "args": [
+        [
+          2,
+          3,
+          5
+        ],
+        [
+          [
+            4,
+            8
+          ],
+          [
+            2,
+            8
+          ]
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "多家供应商中最优浪费八",
+      "args": [
+        [
+          2,
+          3,
+          5
+        ],
+        [
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      ],
+      "expected": 8
+    },
+    {
+      "name": "所有箱子都装不下最大包裹",
+      "args": [
+        [
+          3,
+          5,
+          8,
+          10,
+          11,
+          12
+        ],
+        [
+          [
+            12
+          ],
+          [
+            11,
+            9
+          ],
+          [
+            10,
+            5,
+            14
+          ]
+        ]
+      ],
+      "expected": 9
+    }
+  ]
+}

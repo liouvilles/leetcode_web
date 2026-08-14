@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countHighestScoreNodes",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "五节点树有三个最高分节点",
+      "args": [
+        [
+          -1,
+          2,
+          0,
+          2,
+          0
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "三节点链有两个最高分节点",
+      "args": [
+        [
+          -1,
+          2,
+          0
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "单节点自身唯一最高分",
+      "args": [
+        [
+          -1
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

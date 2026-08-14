@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1668,
+  "slug": "maximum-repeating-substring",
+  "title": "最大重复子字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-024",
+  "studyTags": [
+    "字符串",
+    "字符串匹配"
+  ],
+  "summary": "求最大 k，使 word 连续重复 k 次得到的字符串是 sequence 的子字符串。",
+  "insight": "从一次重复开始不断在末尾追加 word，只要 sequence 仍包含该串就增加答案，首次不存在时结束。",
+  "pitfalls": [
+    "要求连续重复形成一个子串",
+    "word 本身不存在时答案为零",
+    "不是统计 word 在 sequence 中的总出现次数"
+  ],
+  "solutions": [
+    {
+      "id": "incremental-repeat-search",
+      "title": "递增重复串查找",
+      "kind": "最优",
+      "idea": "逐步延长候选串直到不再出现。",
+      "steps": [
+        "candidate=word，answer=0",
+        "while sequence.contains(candidate)",
+        "answer++，candidate+=word；返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/incremental-repeat-search/Solution.java",
+        "kotlin": "solutions/incremental-repeat-search/Solution.kt",
+        "cpp": "solutions/incremental-repeat-search/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findMinFibonacciNumbers",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "七等于五加二",
+      "args": [
+        7
+      ],
+      "expected": 2
+    },
+    {
+      "name": "十等于八加二",
+      "args": [
+        10
+      ],
+      "expected": 2
+    },
+    {
+      "name": "十九需要三项",
+      "args": [
+        19
+      ],
+      "expected": 3
+    }
+  ]
+}

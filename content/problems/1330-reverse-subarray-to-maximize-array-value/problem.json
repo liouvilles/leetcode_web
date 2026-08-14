@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1330,
+  "slug": "reverse-subarray-to-maximize-array-value",
+  "title": "翻转子数组得到最大的数组值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "数组",
+    "数学",
+    "贪心"
+  ],
+  "summary": "数组价值为相邻元素绝对差之和，最多翻转一个连续子数组，求能得到的最大价值。",
+  "insight": "翻转内部相邻差不变，只改变区间两侧边界。枚举与数组端点相连的翻转收益；对于内部翻转，最大收益可化为两倍的“所有相邻对较小值最大值”减“较大值最小值”。",
+  "pitfalls": [
+    "允许不翻转，所以收益至少零",
+    "长度一翻转无影响",
+    "基础价值与收益用整数范围足够但公式需认真处理端点"
+  ],
+  "solutions": [
+    {
+      "id": "boundary-gains-and-inner-extremes",
+      "title": "端点收益与内部极值",
+      "kind": "最优",
+      "idea": "线性汇总所有可能翻转的最大边界改善。",
+      "steps": [
+        "base 累加所有 abs(nums[i]-nums[i+1])，gain=0",
+        "对每条相邻边，计算把前缀翻转到该边或把后缀从该边翻转的收益，更新 gain",
+        "同时维护 maxOfMin=max(min(a,b)) 与 minOfMax=min(max(a,b))；内部最大收益为 2*(maxOfMin-minOfMax)，更新 gain，返回 base+gain"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/boundary-gains-and-inner-extremes/Solution.java",
+        "kotlin": "solutions/boundary-gains-and-inner-extremes/Solution.kt",
+        "cpp": "solutions/boundary-gains-and-inner-extremes/solution.cpp"
+      }
+    }
+  ]
+}

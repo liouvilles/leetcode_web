@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "equalPairs",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三阶矩阵有一对相同行列",
+      "args": [
+        [
+          [
+            3,
+            2,
+            1
+          ],
+          [
+            1,
+            7,
+            6
+          ],
+          [
+            2,
+            7,
+            7
+          ]
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "四阶矩阵有三对",
+      "args": [
+        [
+          [
+            3,
+            1,
+            2,
+            2
+          ],
+          [
+            1,
+            4,
+            4,
+            5
+          ],
+          [
+            2,
+            4,
+            2,
+            2
+          ],
+          [
+            2,
+            4,
+            2,
+            2
+          ]
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "一阶矩阵行列必相同",
+      "args": [
+        [
+          [
+            1
+          ]
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

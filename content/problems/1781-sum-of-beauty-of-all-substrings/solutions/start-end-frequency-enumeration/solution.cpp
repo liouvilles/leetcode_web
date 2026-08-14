@@ -1,0 +1,1 @@
+class Solution { public: int beautySum(string text){int answer=0;for(int left=0;left<(int)text.size();++left){int frequency[26]={};for(int right=left;right<(int)text.size();++right){++frequency[text[right]-'a'];int maximum=0,minimum=INT_MAX;for(int count:frequency)if(count){maximum=max(maximum,count);minimum=min(minimum,count);}answer+=maximum-minimum;}}return answer;} };

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "canReach",
+  "parameterTypes": [
+    "string",
+    "int",
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "可经三和五到达末尾",
+      "args": [
+        "011010",
+        2,
+        3
+      ],
+      "expected": true
+    },
+    {
+      "name": "末尾无法从窗口到达",
+      "args": [
+        "01101110",
+        2,
+        3
+      ],
+      "expected": false
+    },
+    {
+      "name": "相邻零可一步到达",
+      "args": [
+        "00",
+        1,
+        1
+      ],
+      "expected": true
+    }
+  ]
+}

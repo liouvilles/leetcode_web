@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numsSameConsecDiff",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "三位差七",
+      "args": [
+        3,
+        7
+      ],
+      "expected": [
+        181,
+        292,
+        707,
+        818,
+        929
+      ]
+    },
+    {
+      "name": "两位差零",
+      "args": [
+        2,
+        0
+      ],
+      "expected": [
+        11,
+        22,
+        33,
+        44,
+        55,
+        66,
+        77,
+        88,
+        99
+      ]
+    },
+    {
+      "name": "一位包含零",
+      "args": [
+        1,
+        5
+      ],
+      "expected": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    }
+  ]
+}

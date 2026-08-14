@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "TreeAncestor",
+  "constructorTypes": [
+    "int",
+    "intArray"
+  ],
+  "cases": [
+    {
+      "name": "七节点树多级祖先查询",
+      "constructorArgs": [
+        7,
+        [
+          -1,
+          0,
+          0,
+          1,
+          1,
+          2,
+          2
+        ]
+      ],
+      "calls": [
+        {
+          "method": "getKthAncestor",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            3,
+            1
+          ],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "getKthAncestor",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            5,
+            2
+          ],
+          "returnType": "int",
+          "expected": 0
+        },
+        {
+          "method": "getKthAncestor",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            6,
+            3
+          ],
+          "returnType": "int",
+          "expected": -1
+        }
+      ]
+    },
+    {
+      "name": "链式树祖先查询",
+      "constructorArgs": [
+        4,
+        [
+          -1,
+          0,
+          1,
+          2
+        ]
+      ],
+      "calls": [
+        {
+          "method": "getKthAncestor",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            3,
+            3
+          ],
+          "returnType": "int",
+          "expected": 0
+        },
+        {
+          "method": "getKthAncestor",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            2,
+            3
+          ],
+          "returnType": "int",
+          "expected": -1
+        }
+      ]
+    },
+    {
+      "name": "根节点没有祖先",
+      "constructorArgs": [
+        1,
+        [
+          -1
+        ]
+      ],
+      "calls": [
+        {
+          "method": "getKthAncestor",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            0,
+            1
+          ],
+          "returnType": "int",
+          "expected": -1
+        }
+      ]
+    }
+  ]
+}

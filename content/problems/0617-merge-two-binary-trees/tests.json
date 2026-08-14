@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "mergeTrees",
+  "parameterTypes": [
+    "treeNode",
+    "treeNode"
+  ],
+  "returnType": "treeNode",
+  "cases": [
+    {
+      "name": "两棵多层树",
+      "args": [
+        [
+          1,
+          3,
+          2,
+          5
+        ],
+        [
+          2,
+          1,
+          3,
+          null,
+          4,
+          null,
+          7
+        ]
+      ],
+      "expected": [
+        3,
+        4,
+        5,
+        5,
+        4,
+        null,
+        7
+      ]
+    },
+    {
+      "name": "双方单节点",
+      "args": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "expected": [
+        3
+      ]
+    },
+    {
+      "name": "第一棵为空",
+      "args": [
+        [],
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": [
+        1,
+        2
+      ]
+    }
+  ]
+}

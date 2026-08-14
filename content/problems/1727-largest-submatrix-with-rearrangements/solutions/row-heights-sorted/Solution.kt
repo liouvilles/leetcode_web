@@ -1,0 +1,1 @@
+class Solution { fun largestSubmatrix(matrix:Array<IntArray>):Int{val heights=IntArray(matrix[0].size);var answer=0;for(row in matrix){for(col in row.indices)heights[col]=if(row[col]==0)0 else heights[col]+1;val sorted=heights.sortedDescending();for(index in sorted.indices)answer=maxOf(answer,sorted[index]*(index+1))};return answer} }

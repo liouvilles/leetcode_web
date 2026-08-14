@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1235,
+  "slug": "maximum-profit-in-job-scheduling",
+  "title": "规划兼职工作",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-017",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "二分查找",
+    "排序"
+  ],
+  "summary": "每份工作有开始、结束时间和收益，可选择互不重叠的工作，结束时间等于下一工作开始时间允许衔接，求最大收益。",
+  "insight": "按开始时间排序，dp[i] 表示从第 i 份工作起的最大收益；选择当前工作时二分第一份开始时间不小于当前结束时间的工作，与跳过当前工作比较。",
+  "pitfalls": [
+    "工作结束等于另一工作开始不算重叠",
+    "三组输入需要绑定后一起排序",
+    "二分目标是 start>=end 的 lower_bound"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-jobs-backward-dp",
+      "title": "开始时间排序与逆序动态规划",
+      "kind": "最优",
+      "idea": "对每份工作比较选择和跳过两种收益。",
+      "steps": [
+        "构造 [start,end,profit] 工作并按 start 升序，另取 starts 数组",
+        "dp[n]=0；i 从 n-1 到零，二分 next=首个 starts[next]>=jobs[i].end",
+        "dp[i]=max(dp[i+1],jobs[i].profit+dp[next])，返回 dp[0]"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/sorted-jobs-backward-dp/Solution.java",
+        "kotlin": "solutions/sorted-jobs-backward-dp/Solution.kt",
+        "cpp": "solutions/sorted-jobs-backward-dp/solution.cpp"
+      }
+    }
+  ]
+}

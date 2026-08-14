@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 526,
+  "slug": "beautiful-arrangement",
+  "title": "优美的排列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-007",
+  "studyTags": [
+    "回溯",
+    "位掩码",
+    "整除"
+  ],
+  "summary": "统计一到 n 的排列中，每个位置 position 满足 value 能整除 position 或 position 能整除 value 的方案数。",
+  "insight": "按位置逐个放置尚未使用且满足整除条件的数字，用位掩码记录已使用集合。",
+  "pitfalls": [
+    "位置和值都从一开始",
+    "每个数字恰好使用一次",
+    "两个整除条件满足任意一个即可"
+  ],
+  "solutions": [
+    {
+      "id": "bitmask-backtracking",
+      "title": "位掩码回溯",
+      "kind": "最优",
+      "idea": "递归枚举当前位置所有合法未使用数字。",
+      "steps": [
+        "dfs(position,used)",
+        "position>n 时得到一个方案",
+        "枚举 value 1..n，未使用且整除条件成立则标记并递归"
+      ],
+      "complexity": {
+        "time": "O(n!)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/bitmask-backtracking/Solution.java",
+        "kotlin": "solutions/bitmask-backtracking/Solution.kt",
+        "cpp": "solutions/bitmask-backtracking/solution.cpp"
+      }
+    }
+  ]
+}

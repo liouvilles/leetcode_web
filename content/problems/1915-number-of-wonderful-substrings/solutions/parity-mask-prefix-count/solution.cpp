@@ -1,0 +1,1 @@
+class Solution { public: long long wonderfulSubstrings(string word){long long frequency[1<<10]={1},answer=0;int mask=0;for(char letter:word){mask^=1<<(letter-'a');answer+=frequency[mask];for(int bit=0;bit<10;++bit)answer+=frequency[mask^(1<<bit)];++frequency[mask];}return answer;} };

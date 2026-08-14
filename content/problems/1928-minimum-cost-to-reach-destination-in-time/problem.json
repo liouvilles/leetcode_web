@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1928,
+  "slug": "minimum-cost-to-reach-destination-in-time",
+  "title": "规定时间内到达终点的最小花费",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-028",
+  "studyTags": [
+    "图论",
+    "动态规划",
+    "最短路"
+  ],
+  "summary": "无向图边有耗时，进入节点需付费用，求不超过 maxTime 从零到末节点的最低总费用。",
+  "insight": "费用最优不只由节点决定，还依赖已耗时间。令 dp[time][node] 为恰用 time 到达的最小费用，按时间递增并沿每条无向边松弛。",
+  "pitfalls": [
+    "起点费用也要支付",
+    "限制是不超过而非恰好 maxTime",
+    "同一节点不同耗时状态不能合并"
+  ],
+  "solutions": [
+    {
+      "id": "time-expanded-dynamic-programming",
+      "title": "时间展开图 DP",
+      "kind": "最优",
+      "idea": "把时间作为额外维度逐层松弛费用。",
+      "steps": [
+        "dp 全无穷，dp[0][0]=passingFees[0]",
+        "time 从 0 到 maxTime，对每条边从两端状态向 time+cost 松弛并加目标节点费",
+        "答案为所有 dp[time][last] 最小值，无穷则 -1"
+      ],
+      "complexity": {
+        "time": "O(maxTime·E)",
+        "space": "O(maxTime·V)"
+      },
+      "files": {
+        "java": "solutions/time-expanded-dynamic-programming/Solution.java",
+        "kotlin": "solutions/time-expanded-dynamic-programming/Solution.kt",
+        "cpp": "solutions/time-expanded-dynamic-programming/solution.cpp"
+      }
+    }
+  ]
+}

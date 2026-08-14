@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 990,
+  "slug": "satisfiability-of-equality-equations",
+  "title": "等式方程的可满足性",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-014",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "并查集"
+  ],
+  "summary": "变量为 a 到 z，方程只含 == 或 !=，判断能否为变量赋整数值使所有方程同时成立。",
+  "insight": "所有等式建立必须相同的并查集连通分量；合并完后，任一不等式两端若已在同一分量就产生矛盾。",
+  "pitfalls": [
+    "必须先处理全部等式再检查不等式",
+    "x==x 永远成立，x!=x 永远矛盾",
+    "变量只有二十六个"
+  ],
+  "solutions": [
+    {
+      "id": "equality-dsu-then-inequality-check",
+      "title": "等式并查集后检查不等式",
+      "kind": "最优",
+      "idea": "先闭包相等关系，再验证所有不同关系。",
+      "steps": [
+        "初始化二十六个变量各自为根",
+        "第一遍遇 == 就合并两变量",
+        "第二遍遇 !=，若两变量 find 根相同返回 false；全部通过返回 true"
+      ],
+      "complexity": {
+        "time": "O(total equations·α(26))",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/equality-dsu-then-inequality-check/Solution.java",
+        "kotlin": "solutions/equality-dsu-then-inequality-check/Solution.kt",
+        "cpp": "solutions/equality-dsu-then-inequality-check/solution.cpp"
+      }
+    }
+  ]
+}

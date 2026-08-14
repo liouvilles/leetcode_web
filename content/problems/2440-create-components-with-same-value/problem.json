@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2440,
+  "slug": "create-components-with-same-value",
+  "title": "创建价值相同的连通分量",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-036",
+  "studyTags": [
+    "数组",
+    "数学",
+    "树",
+    "深度优先搜索",
+    "枚举"
+  ],
+  "summary": "删除尽量多树边，使每个剩余连通分量节点值之和相同，求最多可删边数。",
+  "insight": "若形成 components 个分量，目标和必须为 total/components。按分量数从大到小枚举整除候选，后序 DFS 累加子树；达到 target 就归零形成一个分量，超过则失败。",
+  "pitfalls": [
+    "所有节点值为正",
+    "删除边数比分量数少一",
+    "目标和必须整除总和"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-component-count-and-tree-sums",
+      "title": "枚举分量数与树上归零",
+      "kind": "最优",
+      "idea": "验证给定目标和能否把树切成等和块。",
+      "steps": [
+        "建树、total=sum(nums)",
+        "components 从 n 到1，跳过 total 不整除",
+        "target=total/components，DFS 返回未成块余和；和==target 返回0，和>target 标记失败",
+        "根余和零则返回 components-1"
+      ],
+      "complexity": {
+        "time": "O(n·number of divisor candidates)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/enumerate-component-count-and-tree-sums/Solution.java",
+        "kotlin": "solutions/enumerate-component-count-and-tree-sums/Solution.kt",
+        "cpp": "solutions/enumerate-component-count-and-tree-sums/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 628,
+  "slug": "maximum-product-of-three-numbers",
+  "title": "三个数的最大乘积",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-008",
+  "studyTags": [
+    "数组",
+    "数学",
+    "一次扫描"
+  ],
+  "summary": "从整数数组中选择三个数，求它们乘积的最大值。",
+  "insight": "最优组合只可能是三个最大值，或两个最小负数与一个最大值；一次扫描维护这五个极值即可。",
+  "pitfalls": [
+    "两个绝对值很大的负数可能胜过次大正数",
+    "数组可能全为负数",
+    "中间乘积用长整数表达更稳妥"
+  ],
+  "solutions": [
+    {
+      "id": "five-extremes",
+      "title": "维护三大两小极值",
+      "kind": "最优",
+      "idea": "扫描数组更新三个最大值和两个最小值，比较两种候选。",
+      "steps": [
+        "初始化 first、second、third 为最小值，low1、low2 为最大值",
+        "逐个更新三大和两小",
+        "返回 max(first*second*third,first*low1*low2)"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/five-extremes/Solution.java",
+        "kotlin": "solutions/five-extremes/Solution.kt",
+        "cpp": "solutions/five-extremes/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "allCellsDistOrder",
+  "parameterTypes": [
+    "int",
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "intMatrix",
+  "cases": [
+    {
+      "name": "一行两列",
+      "args": [
+        1,
+        2,
+        0,
+        0
+      ],
+      "expected": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "两行两列中心左上",
+      "args": [
+        2,
+        2,
+        0,
+        0
+      ],
+      "expected": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "两行三列中心右中",
+      "args": [
+        2,
+        3,
+        1,
+        2
+      ],
+      "expected": [
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    }
+  ]
+}

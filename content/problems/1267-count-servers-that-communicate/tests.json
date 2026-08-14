@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countServers",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "对角服务器互不通信",
+      "args": [
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "同行两台服务器",
+      "args": [
+        [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "十字连接四台",
+      "args": [
+        [
+          [
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": 4
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "tilingRectangle",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "二乘三需三块",
+      "args": [
+        2,
+        3
+      ],
+      "expected": 3
+    },
+    {
+      "name": "五乘八需五块",
+      "args": [
+        5,
+        8
+      ],
+      "expected": 5
+    },
+    {
+      "name": "一乘四需四块",
+      "args": [
+        1,
+        4
+      ],
+      "expected": 4
+    }
+  ]
+}

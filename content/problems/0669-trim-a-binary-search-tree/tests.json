@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "trimBST",
+  "parameterTypes": [
+    "treeNode",
+    "int",
+    "int"
+  ],
+  "returnType": "treeNode",
+  "cases": [
+    {
+      "name": "删除过小节点",
+      "args": [
+        [
+          1,
+          0,
+          2
+        ],
+        1,
+        2
+      ],
+      "expected": [
+        1,
+        null,
+        2
+      ]
+    },
+    {
+      "name": "两侧都需修剪",
+      "args": [
+        [
+          3,
+          0,
+          4,
+          null,
+          2,
+          null,
+          null,
+          1
+        ],
+        1,
+        3
+      ],
+      "expected": [
+        3,
+        2,
+        null,
+        1
+      ]
+    },
+    {
+      "name": "整棵树超出区间",
+      "args": [
+        [
+          1
+        ],
+        2,
+        3
+      ],
+      "expected": []
+    }
+  ]
+}

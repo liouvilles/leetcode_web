@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "braceExpansionII",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "stringList",
+  "cases": [
+    {
+      "name": "连接两个并集",
+      "args": [
+        "{a,b}{c,{d,e}}"
+      ],
+      "expected": [
+        "ac",
+        "ad",
+        "ae",
+        "bc",
+        "bd",
+        "be"
+      ]
+    },
+    {
+      "name": "嵌套并集去重",
+      "args": [
+        "{{a,z},a{b,c},{ab,z}}"
+      ],
+      "expected": [
+        "a",
+        "ab",
+        "ac",
+        "z"
+      ]
+    },
+    {
+      "name": "纯连接字符串",
+      "args": [
+        "abcd"
+      ],
+      "expected": [
+        "abcd"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 861,
+  "slug": "score-after-flipping-matrix",
+  "title": "翻转矩阵后的得分",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "位运算",
+    "矩阵"
+  ],
+  "summary": "可任意翻转二进制矩阵的整行或整列，把每行看成二进制数，求行数值总和最大值。",
+  "insight": "最高位权重大于其余位总和，因此每行都应翻到首位为一；在此前提下，每列独立选择是否翻转，使该列一的数量最大。",
+  "pitfalls": [
+    "无需实际修改矩阵",
+    "行 r 列 c 的有效值是 grid[r][c] xor grid[r][0]",
+    "列权为 2^(columns-1-c)"
+  ],
+  "solutions": [
+    {
+      "id": "virtual-row-flip-column-majority",
+      "title": "虚拟行翻转与列多数",
+      "kind": "最优",
+      "idea": "贪心固定最高位后逐列取多数值。",
+      "steps": [
+        "对每列统计 effectiveOne：grid[r][c] xor grid[r][0] 为零表示行翻后该位是一",
+        "ones=max(count,rows-count)，对应选择是否翻列",
+        "answer+=ones*(1<<(columns-1-c))"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/virtual-row-flip-column-majority/Solution.java",
+        "kotlin": "solutions/virtual-row-flip-column-majority/Solution.kt",
+        "cpp": "solutions/virtual-row-flip-column-majority/solution.cpp"
+      }
+    }
+  ]
+}

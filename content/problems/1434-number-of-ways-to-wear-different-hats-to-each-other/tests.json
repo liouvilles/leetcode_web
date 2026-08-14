@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numberWays",
+  "parameterTypes": [
+    "intListMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三人选择被唯一约束",
+      "args": [
+        [
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            5
+          ]
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "两人共有两帽另有一帽",
+      "args": [
+        [
+          [
+            3,
+            5,
+            1
+          ],
+          [
+            3,
+            5
+          ]
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "三人只有两顶帽无解",
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ]
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { public void duplicateZeros(int[] arr){int zeros=0;for(int value:arr)if(value==0)zeros++;int read=arr.length-1,write=arr.length+zeros-1;while(read>=0){int value=arr[read--];if(write<arr.length)arr[write]=value;write--;if(value==0){if(write<arr.length)arr[write]=0;write--;}}} }

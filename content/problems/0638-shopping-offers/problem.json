@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 638,
+  "slug": "shopping-offers",
+  "title": "大礼包",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-008",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "回溯",
+    "记忆化搜索"
+  ],
+  "summary": "每种商品有单价和购买数量需求，可不限次使用若干礼包，但不能购买超出需求的商品，求最低总价。",
+  "insight": "需求向量决定完整状态；每个状态先按单价购买作为上界，再尝试所有不超量礼包并递归剩余需求。",
+  "pitfalls": [
+    "礼包不能导致任何商品购买超量",
+    "礼包可以重复使用",
+    "直接按单价购买必须作为可行基线"
+  ],
+  "solutions": [
+    {
+      "id": "memoized-needs-dfs",
+      "title": "需求向量记忆化搜索",
+      "kind": "最优",
+      "idea": "从当前需求扣除每个可用礼包，缓存最小费用。",
+      "steps": [
+        "计算当前 needs 全部单买的费用",
+        "对每个 special 检查各商品数量是否不超过 needs",
+        "合法时递归 nextNeeds，加礼包价更新最小值；缓存并返回"
+      ],
+      "complexity": {
+        "time": "O(states·offers·items)",
+        "space": "O(states·items)"
+      },
+      "files": {
+        "java": "solutions/memoized-needs-dfs/Solution.java",
+        "kotlin": "solutions/memoized-needs-dfs/Solution.kt",
+        "cpp": "solutions/memoized-needs-dfs/solution.cpp"
+      }
+    }
+  ]
+}

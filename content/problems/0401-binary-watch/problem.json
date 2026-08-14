@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 401,
+  "slug": "binary-watch",
+  "title": "二进制手表",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-006",
+  "studyTags": [
+    "位计数",
+    "枚举",
+    "格式化"
+  ],
+  "summary": "二进制手表用四个灯表示小时、六个灯表示分钟，返回亮灯数等于指定值的所有可能时间。",
+  "insight": "合法状态只有十二乘六十种，直接枚举并比较小时与分钟的置位数最清晰可靠。",
+  "pitfalls": [
+    "分钟不足两位要补前导零",
+    "小时不能补零",
+    "小时范围零到十一、分钟零到五十九"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-valid-times",
+      "title": "枚举全部合法时间",
+      "kind": "最优",
+      "idea": "遍历有限状态空间，用 bitCount 筛选并格式化。",
+      "steps": [
+        "枚举 hour=0..11",
+        "枚举 minute=0..59",
+        "置位数之和等于 turnedOn 时加入格式化字符串"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1) excluding output"
+      },
+      "files": {
+        "java": "solutions/enumerate-valid-times/Solution.java",
+        "kotlin": "solutions/enumerate-valid-times/Solution.kt",
+        "cpp": "solutions/enumerate-valid-times/solution.cpp"
+      }
+    }
+  ]
+}

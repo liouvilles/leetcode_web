@@ -1,0 +1,1 @@
+class Solution { public:vector<string> sortPeople(vector<string>& names,vector<int>& heights){vector<int> indices(names.size());iota(indices.begin(),indices.end(),0);sort(indices.begin(),indices.end(),[&](int a,int b){return heights[a]>heights[b];});vector<string> answer;for(int index:indices)answer.push_back(names[index]);return answer;} };

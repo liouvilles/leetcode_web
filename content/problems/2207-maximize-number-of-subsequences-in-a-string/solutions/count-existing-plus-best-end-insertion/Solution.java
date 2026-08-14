@@ -1,0 +1,1 @@
+class Solution { public long maximumSubsequenceCount(String text,String pattern){long first=0,second=0,existing=0;for(char ch:text.toCharArray()){if(ch==pattern.charAt(1)){existing+=first;second++;}if(ch==pattern.charAt(0))first++;}return existing+Math.max(first,second);} }

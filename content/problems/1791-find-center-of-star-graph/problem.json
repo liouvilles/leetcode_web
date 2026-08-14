@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": 1791,
+  "slug": "find-center-of-star-graph",
+  "title": "找出星型图的中心节点",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-026",
+  "studyTags": [
+    "图论"
+  ],
+  "summary": "星型图有一个中心与其余所有节点相连，给出边列表，返回中心节点。",
+  "insight": "前两条边必共享且只共享中心节点，比较它们的两个端点即可。",
+  "pitfalls": [
+    "无需构建完整图",
+    "至少有三节点所以至少两条边",
+    "中心可能是第一条边任一端"
+  ],
+  "solutions": [
+    {
+      "id": "first-two-edge-intersection",
+      "title": "前两边交点",
+      "kind": "最优",
+      "idea": "利用星型图任意两边共享中心的性质。",
+      "steps": [
+        "取 edges[0] 的两个端点",
+        "若其中第一个出现在 edges[1] 返回它",
+        "否则返回另一端"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/first-two-edge-intersection/Solution.java",
+        "kotlin": "solutions/first-two-edge-intersection/Solution.kt",
+        "cpp": "solutions/first-two-edge-intersection/solution.cpp"
+      }
+    }
+  ]
+}

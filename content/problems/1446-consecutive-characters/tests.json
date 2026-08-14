@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxPower",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "leetcode 有两个 e",
+      "args": [
+        "leetcode"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "abbcccddddeeeeedcba 最长五",
+      "args": [
+        "abbcccddddeeeeedcba"
+      ],
+      "expected": 5
+    },
+    {
+      "name": "单字符",
+      "args": [
+        "a"
+      ],
+      "expected": 1
+    }
+  ]
+}

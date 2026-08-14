@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "totalStrength",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一三一二总力量四十四",
+      "args": [
+        [
+          1,
+          3,
+          1,
+          2
+        ]
+      ],
+      "expected": 44
+    },
+    {
+      "name": "五四六总力量二百一十三",
+      "args": [
+        [
+          5,
+          4,
+          6
+        ]
+      ],
+      "expected": 213
+    },
+    {
+      "name": "单巫师力量平方",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

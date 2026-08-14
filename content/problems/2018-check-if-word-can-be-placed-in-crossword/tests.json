@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "placeWordInCrossword",
+  "parameterTypes": [
+    "charMatrix",
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "全空三格可放 abc",
+      "args": [
+        [
+          [
+            " ",
+            " ",
+            " "
+          ]
+        ],
+        "abc"
+      ],
+      "expected": true
+    },
+    {
+      "name": "已有首尾字母与 abc 兼容",
+      "args": [
+        [
+          [
+            "a",
+            " ",
+            "c"
+          ]
+        ],
+        "abc"
+      ],
+      "expected": true
+    },
+    {
+      "name": "两格槽位无法放三字母",
+      "args": [
+        [
+          [
+            "a",
+            "b"
+          ]
+        ],
+        "abc"
+      ],
+      "expected": false
+    }
+  ]
+}

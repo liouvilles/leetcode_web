@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1292,
+  "slug": "maximum-side-length-of-a-square-with-sum-less-than-or-equal-to-threshold",
+  "title": "元素和小于等于阈值的正方形最大边长",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "数组",
+    "二分查找",
+    "二维前缀和",
+    "矩阵"
+  ],
+  "summary": "在非负矩阵中找元素和不超过 threshold 的最大正方形边长。",
+  "insight": "二维前缀和能常数时间求任意正方形和；若某边长存在可行方形，更小边长也必可行，因此二分最大可行边长。",
+  "pitfalls": [
+    "答案可能为零",
+    "矩阵元素非负保证可行性单调",
+    "前缀坐标比原矩阵多一行一列"
+  ],
+  "solutions": [
+    {
+      "id": "prefix-sum-side-binary-search",
+      "title": "二维前缀和与边长二分",
+      "kind": "最优",
+      "idea": "用单调存在性判断搜索最大边长。",
+      "steps": [
+        "构造 prefix[r+1][c+1]",
+        "定义 feasible(side)：枚举所有右下角，用四项公式求方形和，存在<=threshold 即真",
+        "在 [0,min(rows,cols)] 二分最大可行 side，返回 left"
+      ],
+      "complexity": {
+        "time": "O(rows·cols·log min(rows,cols))",
+        "space": "O(rows·cols)"
+      },
+      "files": {
+        "java": "solutions/prefix-sum-side-binary-search/Solution.java",
+        "kotlin": "solutions/prefix-sum-side-binary-search/Solution.kt",
+        "cpp": "solutions/prefix-sum-side-binary-search/solution.cpp"
+      }
+    }
+  ]
+}

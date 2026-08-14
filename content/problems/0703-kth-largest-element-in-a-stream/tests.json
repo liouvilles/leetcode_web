@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "KthLargest",
+  "constructorTypes": [
+    "int",
+    "intArray"
+  ],
+  "cases": [
+    {
+      "name": "经典数据流",
+      "constructorArgs": [
+        3,
+        [
+          4,
+          5,
+          8,
+          2
+        ]
+      ],
+      "calls": [
+        {
+          "method": "add",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            3
+          ],
+          "returnType": "int",
+          "expected": 4
+        },
+        {
+          "method": "add",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            5
+          ],
+          "returnType": "int",
+          "expected": 5
+        },
+        {
+          "method": "add",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            10
+          ],
+          "returnType": "int",
+          "expected": 5
+        },
+        {
+          "method": "add",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            9
+          ],
+          "returnType": "int",
+          "expected": 8
+        },
+        {
+          "method": "add",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            4
+          ],
+          "returnType": "int",
+          "expected": 8
+        }
+      ]
+    },
+    {
+      "name": "k 为一且初始为空",
+      "constructorArgs": [
+        1,
+        []
+      ],
+      "calls": [
+        {
+          "method": "add",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            -3
+          ],
+          "returnType": "int",
+          "expected": -3
+        },
+        {
+          "method": "add",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            -2
+          ],
+          "returnType": "int",
+          "expected": -2
+        }
+      ]
+    },
+    {
+      "name": "不足 k 后逐渐填满",
+      "constructorArgs": [
+        2,
+        [
+          0
+        ]
+      ],
+      "calls": [
+        {
+          "method": "add",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            -1
+          ],
+          "returnType": "int",
+          "expected": -1
+        },
+        {
+          "method": "add",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ],
+          "returnType": "int",
+          "expected": 0
+        }
+      ]
+    }
+  ]
+}

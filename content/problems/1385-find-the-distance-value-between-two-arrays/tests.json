@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findTheDistanceValue",
+  "parameterTypes": [
+    "intArray",
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三个值中两个满足距离",
+      "args": [
+        [
+          4,
+          5,
+          8
+        ],
+        [
+          10,
+          9,
+          1,
+          8
+        ],
+        2
+      ],
+      "expected": 2
+    },
+    {
+      "name": "第二个经典示例",
+      "args": [
+        [
+          1,
+          4,
+          2,
+          3
+        ],
+        [
+          -4,
+          -3,
+          6,
+          10,
+          20,
+          30
+        ],
+        3
+      ],
+      "expected": 2
+    },
+    {
+      "name": "精确相同均无效",
+      "args": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        0
+      ],
+      "expected": 0
+    }
+  ]
+}

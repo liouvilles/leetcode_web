@@ -1,0 +1,1 @@
+class Solution { fun canChoose(groups:Array<IntArray>,nums:IntArray):Boolean{var position=0;for(group in groups){while(position+group.size<=nums.size&&(group.indices.any{nums[position+it]!=group[it]}))position++;if(position+group.size>nums.size)return false;position+=group.size};return true} }

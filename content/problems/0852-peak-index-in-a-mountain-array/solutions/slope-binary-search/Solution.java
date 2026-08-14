@@ -1,0 +1,1 @@
+class Solution { public int peakIndexInMountainArray(int[] arr){int low=0,high=arr.length-1;while(low<high){int middle=low+(high-low)/2;if(arr[middle]<arr[middle+1])low=middle+1;else high=middle;}return low;} }

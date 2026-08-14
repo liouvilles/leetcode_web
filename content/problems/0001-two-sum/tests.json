@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "twoSum",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "首尾之前命中",
+      "args": [[2, 7, 11, 15], 9],
+      "expected": [0, 1]
+    },
+    {
+      "name": "答案位于数组中部",
+      "args": [[3, 2, 4], 6],
+      "expected": [1, 2]
+    },
+    {
+      "name": "相同数值但不同下标",
+      "args": [[3, 3], 6],
+      "expected": [0, 1]
+    }
+  ]
+}

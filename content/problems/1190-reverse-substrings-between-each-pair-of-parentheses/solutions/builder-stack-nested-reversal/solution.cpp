@@ -1,0 +1,1 @@
+class Solution { public: string reverseParentheses(string s){stack<string> saved;string current;for(char ch:s)if(ch=='('){saved.push(current);current.clear();}else if(ch==')'){reverse(current.begin(),current.end());current=saved.top()+current;saved.pop();}else current+=ch;return current;} };

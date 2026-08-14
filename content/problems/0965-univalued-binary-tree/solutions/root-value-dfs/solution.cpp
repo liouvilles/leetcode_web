@@ -1,0 +1,1 @@
+class Solution { bool check(TreeNode* node,int target){return !node||node->val==target&&check(node->left,target)&&check(node->right,target);}public:bool isUnivalTree(TreeNode* root){return check(root,root->val);} };

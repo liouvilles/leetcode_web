@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countBinarySubstrings",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "多个相邻字符段",
+      "args": [
+        "00110011"
+      ],
+      "expected": 6
+    },
+    {
+      "name": "长零段与一段",
+      "args": [
+        "10101"
+      ],
+      "expected": 4
+    },
+    {
+      "name": "只有一个字符",
+      "args": [
+        "0"
+      ],
+      "expected": 0
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { fun numberOfUniqueGoodSubsequences(binary:String):Int{val mod=1_000_000_007L;var zero=0L;var one=0L;var hasZero=false;for(value in binary)if(value=='0'){zero=(zero+one)%mod;hasZero=true}else one=(zero+one+1)%mod;return ((zero+one+if(hasZero)1 else 0)%mod).toInt()} }

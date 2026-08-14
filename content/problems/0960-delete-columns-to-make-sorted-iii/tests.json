@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minDeletionSize",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "保留两列",
+      "args": [
+        [
+          "babca",
+          "bbazb"
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "单行严格递减",
+      "args": [
+        [
+          "edcba"
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "所有列可保留",
+      "args": [
+        [
+          "ghi",
+          "def",
+          "abc"
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

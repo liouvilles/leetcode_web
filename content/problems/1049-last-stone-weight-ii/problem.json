@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1049,
+  "slug": "last-stone-weight-ii",
+  "title": "最后一块石头的重量 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-015",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "背包"
+  ],
+  "summary": "任意选择两块石头碰撞，求可能得到的最小最终重量。",
+  "insight": "碰撞过程等价于给每块石头分配正负号，目标最小化两组重量差；做 0/1 背包寻找不超过总和一半的最大子集和。",
+  "pitfalls": [
+    "每块石头只能加入子集一次，容量要逆序更新",
+    "目标容量是 total/2 向下取整",
+    "答案为 total-2*bestSubset"
+  ],
+  "solutions": [
+    {
+      "id": "half-sum-zero-one-knapsack",
+      "title": "半和零一背包",
+      "kind": "最优",
+      "idea": "把石头分成总重尽量接近的两组。",
+      "steps": [
+        "total=sum(stones)，capacity=total/2，possible[0]=true",
+        "对每个 stone，sum 从 capacity 降到 stone，possible[sum]|=possible[sum-stone]",
+        "从 capacity 向下找首个 possible，返回 total-2*sum"
+      ],
+      "complexity": {
+        "time": "O(n·sum)",
+        "space": "O(sum)"
+      },
+      "files": {
+        "java": "solutions/half-sum-zero-one-knapsack/Solution.java",
+        "kotlin": "solutions/half-sum-zero-one-knapsack/Solution.kt",
+        "cpp": "solutions/half-sum-zero-one-knapsack/solution.cpp"
+      }
+    }
+  ]
+}

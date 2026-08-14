@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 532,
+  "slug": "k-diff-pairs-in-an-array",
+  "title": "数组中的 K-diff 数对",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-007",
+  "studyTags": [
+    "哈希表",
+    "计数",
+    "数组"
+  ],
+  "summary": "统计数组中数值不同的无序数对数量，使两数绝对差恰好为 k。",
+  "insight": "统计每个不同值频次；k 为零时需要频次至少二，k 为正时检查 value+k 是否存在。",
+  "pitfalls": [
+    "统计唯一数值对而非下标对",
+    "k 为零需要重复值",
+    "每对只按较小值检查一次"
+  ],
+  "solutions": [
+    {
+      "id": "frequency-map",
+      "title": "频次表分类计数",
+      "kind": "最优",
+      "idea": "按 k 是否为零选择重复频次或键存在性判断。",
+      "steps": [
+        "统计 value 到 frequency",
+        "若 k==0 统计 frequency>1 的键",
+        "否则统计 map 包含 value+k 的键"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/frequency-map/Solution.java",
+        "kotlin": "solutions/frequency-map/Solution.kt",
+        "cpp": "solutions/frequency-map/solution.cpp"
+      }
+    }
+  ]
+}

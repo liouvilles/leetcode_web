@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "slowestKey",
+  "parameterTypes": [
+    "intArray",
+    "string"
+  ],
+  "returnType": "char",
+  "cases": [
+    {
+      "name": "时长并列取较大字符 c",
+      "args": [
+        [
+          9,
+          29,
+          49,
+          50
+        ],
+        "cbcd"
+      ],
+      "expected": "c"
+    },
+    {
+      "name": "最后 a 持续时间最长",
+      "args": [
+        [
+          12,
+          23,
+          36,
+          46,
+          62
+        ],
+        "spuda"
+      ],
+      "expected": "a"
+    },
+    {
+      "name": "时长相同取 z",
+      "args": [
+        [
+          1,
+          2
+        ],
+        "az"
+      ],
+      "expected": "z"
+    }
+  ]
+}

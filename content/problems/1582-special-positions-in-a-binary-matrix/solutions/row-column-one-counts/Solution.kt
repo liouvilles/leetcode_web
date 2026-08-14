@@ -1,0 +1,1 @@
+class Solution { fun numSpecial(mat:Array<IntArray>):Int{val rows=IntArray(mat.size);val cols=IntArray(mat[0].size);for(row in mat.indices)for(col in mat[0].indices)if(mat[row][col]==1){rows[row]++;cols[col]++};var answer=0;for(row in mat.indices)for(col in mat[0].indices)if(mat[row][col]==1&&rows[row]==1&&cols[col]==1)answer++;return answer} }

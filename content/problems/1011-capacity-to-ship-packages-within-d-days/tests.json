@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "shipWithinDays",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "十包五天容量十五",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        5
+      ],
+      "expected": 15
+    },
+    {
+      "name": "六包三天容量六",
+      "args": [
+        [
+          3,
+          2,
+          2,
+          4,
+          1,
+          4
+        ],
+        3
+      ],
+      "expected": 6
+    },
+    {
+      "name": "五包四天容量三",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          1,
+          1
+        ],
+        4
+      ],
+      "expected": 3
+    }
+  ]
+}

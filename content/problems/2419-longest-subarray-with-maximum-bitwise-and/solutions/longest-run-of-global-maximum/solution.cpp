@@ -1,0 +1,1 @@
+class Solution { public:int longestSubarray(vector<int>& nums){int maximum=*max_element(nums.begin(),nums.end()),current=0,answer=0;for(int value:nums){current=value==maximum?current+1:0;answer=max(answer,current);}return answer;} };

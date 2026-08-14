@@ -1,0 +1,1 @@
+class Solution { public: string strWithout3a3b(int a,int b){string answer;while(a||b){int n=answer.size();bool takeA=n>=2&&answer[n-1]=='b'&&answer[n-2]=='b'||!(n>=2&&answer[n-1]=='a'&&answer[n-2]=='a')&&a>b;if(takeA){answer+='a';--a;}else{answer+='b';--b;}}return answer;} };

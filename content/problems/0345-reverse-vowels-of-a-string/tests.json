@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "reverseVowels",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "两个元音交换",
+      "args": [
+        "hello"
+      ],
+      "expected": "holle"
+    },
+    {
+      "name": "多个元音",
+      "args": [
+        "leetcode"
+      ],
+      "expected": "leotcede"
+    },
+    {
+      "name": "大小写元音",
+      "args": [
+        "aA"
+      ],
+      "expected": "Aa"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countDaysTogether",
+  "parameterTypes": [
+    "string",
+    "string",
+    "string",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "八月共同三天",
+      "args": [
+        "08-15",
+        "08-18",
+        "08-16",
+        "08-19"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "十月与十一月无交集",
+      "args": [
+        "10-01",
+        "10-31",
+        "11-01",
+        "12-31"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "同一天到达离开共同一天",
+      "args": [
+        "01-01",
+        "01-01",
+        "01-01",
+        "01-01"
+      ],
+      "expected": 1
+    }
+  ]
+}

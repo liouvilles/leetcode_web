@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2136,
+  "slug": "earliest-possible-day-of-full-bloom",
+  "title": "全部开花的最早一天",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-031",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "排序"
+  ],
+  "summary": "种子播种需占用独占的若干天，播完后并行生长，安排播种顺序以最早让全部花开放。",
+  "insight": "生长期越长越应先播。交换论证表明按 growTime 降序安排不会让最大完成日变差；累计播种天数加当前生长期就是该花开放日。",
+  "pitfalls": [
+    "每天只能播一种种子的一天工作量",
+    "生长阶段可以并行",
+    "答案是所有开放日最大值"
+  ],
+  "solutions": [
+    {
+      "id": "descending-grow-time-schedule",
+      "title": "生长期降序调度",
+      "kind": "最优",
+      "idea": "优先启动等待最久的生长过程。",
+      "steps": [
+        "建立种子下标并按 growTime 降序排序",
+        "elapsedPlanting=0",
+        "依序 elapsed+=plantTime；answer=max(answer,elapsed+growTime)"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/descending-grow-time-schedule/Solution.java",
+        "kotlin": "solutions/descending-grow-time-schedule/Solution.kt",
+        "cpp": "solutions/descending-grow-time-schedule/solution.cpp"
+      }
+    }
+  ]
+}

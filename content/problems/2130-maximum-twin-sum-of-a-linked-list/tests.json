@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "pairSum",
+  "parameterTypes": [
+    "listNode"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四节点两对同为六",
+      "args": [
+        [
+          5,
+          4,
+          2,
+          1
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "首尾对最大为七",
+      "args": [
+        [
+          4,
+          2,
+          2,
+          3
+        ]
+      ],
+      "expected": 7
+    },
+    {
+      "name": "两节点只有一对",
+      "args": [
+        [
+          1,
+          100000
+        ]
+      ],
+      "expected": 100001
+    }
+  ]
+}

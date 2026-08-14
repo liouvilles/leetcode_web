@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1047,
+  "slug": "remove-all-adjacent-duplicates-in-string",
+  "title": "删除字符串中的所有相邻重复项",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-015",
+  "studyTags": [
+    "字符串",
+    "栈"
+  ],
+  "summary": "反复删除相邻且相同的两个小写字母，直到无法继续，返回最终字符串。",
+  "insight": "用字符串构造器作为栈；当前字符与栈顶相同就弹栈，否则入栈，在线完成所有连锁消除。",
+  "pitfalls": [
+    "删除可能让原本不相邻字符变相邻",
+    "每次只消除一对",
+    "最终结果与删除顺序无关"
+  ],
+  "solutions": [
+    {
+      "id": "character-stack-cancellation",
+      "title": "字符栈消除",
+      "kind": "最优",
+      "idea": "按扫描顺序维护化简后的前缀。",
+      "steps": [
+        "创建空 StringBuilder stack",
+        "逐字符 ch：若栈非空且末字符等于 ch，删除末字符",
+        "否则追加 ch；扫描完返回 stack 字符串"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/character-stack-cancellation/Solution.java",
+        "kotlin": "solutions/character-stack-cancellation/Solution.kt",
+        "cpp": "solutions/character-stack-cancellation/solution.cpp"
+      }
+    }
+  ]
+}

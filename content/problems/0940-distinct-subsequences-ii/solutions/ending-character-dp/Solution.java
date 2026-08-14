@@ -1,0 +1,1 @@
+class Solution { public int distinctSubseqII(String s){long mod=1000000007L,total=0;long[] ending=new long[26];for(char ch:s.toCharArray()){int index=ch-'a';long next=(2*total+1-ending[index]+mod)%mod;ending[index]=(total+1)%mod;total=next;}return(int)total;} }

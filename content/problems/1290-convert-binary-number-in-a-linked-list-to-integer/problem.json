@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1290,
+  "slug": "convert-binary-number-in-a-linked-list-to-integer",
+  "title": "二进制链表转整数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "链表",
+    "数学",
+    "位运算"
+  ],
+  "summary": "链表从高位到低位存储一个二进制数，返回其十进制值。",
+  "insight": "从头向尾读取相当于不断把已有数左移一位再加入当前比特，即 value=value*2+bit。",
+  "pitfalls": [
+    "头节点是最高位",
+    "链表非空且最高位可能为零",
+    "结果在整数范围内"
+  ],
+  "solutions": [
+    {
+      "id": "left-shift-accumulation",
+      "title": "左移累积",
+      "kind": "最优",
+      "idea": "按二进制位顺序构造整数。",
+      "steps": [
+        "value=0",
+        "遍历 node：value=(value<<1)|node.val",
+        "移动到 next，链表结束返回 value"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/left-shift-accumulation/Solution.java",
+        "kotlin": "solutions/left-shift-accumulation/Solution.kt",
+        "cpp": "solutions/left-shift-accumulation/solution.cpp"
+      }
+    }
+  ]
+}

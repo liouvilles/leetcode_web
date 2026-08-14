@@ -1,0 +1,1 @@
+class Solution { public int countTexts(String pressedKeys){int mod=1_000_000_007,n=pressedKeys.length();long[] dp=new long[n+1];dp[0]=1;for(int i=1;i<=n;i++){char key=pressedKeys.charAt(i-1);int limit=key=='7'||key=='9'?4:3;for(int length=1;length<=limit&&i-length>=0&&pressedKeys.charAt(i-length)==key;length++)dp[i]=(dp[i]+dp[i-length])%mod;}return (int)dp[n];} }

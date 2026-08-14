@@ -1,0 +1,161 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "MyLinkedList",
+  "constructorTypes": [],
+  "cases": [
+    {
+      "name": "经典插入删除流程",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "addAtHead",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ]
+        },
+        {
+          "method": "addAtTail",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            3
+          ]
+        },
+        {
+          "method": "addAtIndex",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            1,
+            2
+          ]
+        },
+        {
+          "method": "get",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ],
+          "returnType": "int",
+          "expected": 2
+        },
+        {
+          "method": "deleteAtIndex",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ]
+        },
+        {
+          "method": "get",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ],
+          "returnType": "int",
+          "expected": 3
+        }
+      ]
+    },
+    {
+      "name": "非法下标",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "get",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            0
+          ],
+          "returnType": "int",
+          "expected": -1
+        },
+        {
+          "method": "addAtIndex",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            2,
+            5
+          ]
+        },
+        {
+          "method": "get",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            0
+          ],
+          "returnType": "int",
+          "expected": -1
+        }
+      ]
+    },
+    {
+      "name": "负下标按头插处理",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "addAtTail",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ]
+        },
+        {
+          "method": "addAtIndex",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            -1,
+            1
+          ]
+        },
+        {
+          "method": "get",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            0
+          ],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "get",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ],
+          "returnType": "int",
+          "expected": 2
+        }
+      ]
+    }
+  ]
+}

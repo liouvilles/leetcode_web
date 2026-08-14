@@ -1,0 +1,1 @@
+class Solution { fun findIntegers(n:Int):Int{val fib=IntArray(31);fib[0]=1;fib[1]=2;for(i in 2..30)fib[i]=fib[i-1]+fib[i-2];var answer=0;var previous=0;for(bit in 30 downTo 0){if(n and (1 shl bit)!=0){answer+=fib[bit];if(previous==1)return answer;previous=1}else previous=0};return answer+1} }

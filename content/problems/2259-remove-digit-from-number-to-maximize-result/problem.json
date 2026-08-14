@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2259,
+  "slug": "remove-digit-from-number-to-maximize-result",
+  "title": "移除指定数字得到的最大结果",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-033",
+  "studyTags": [
+    "字符串",
+    "贪心"
+  ],
+  "summary": "从十进制字符串中恰好删除一个等于 digit 的字符，使剩余数值最大，返回结果字符串。",
+  "insight": "从左到右，若某个 digit 后一位更大，删除它可让更大数位尽早前移，立即最优；若无这种位置，删除最后一次出现的 digit。",
+  "pitfalls": [
+    "必须删除恰好一次",
+    "比较等长数字可按字典序",
+    "最后位置也可能是唯一候选"
+  ],
+  "solutions": [
+    {
+      "id": "first-improving-or-last-occurrence",
+      "title": "首个增益位置否则最后出现",
+      "kind": "最优",
+      "idea": "用局部数位比较确定最优删除点。",
+      "steps": [
+        "candidate=最后一次 digit 下标",
+        "扫描 i 到 n-2，若 number[i]==digit 且 number[i+1]>digit，立即选 i",
+        "返回删除选定下标后的拼接"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/first-improving-or-last-occurrence/Solution.java",
+        "kotlin": "solutions/first-improving-or-last-occurrence/Solution.kt",
+        "cpp": "solutions/first-improving-or-last-occurrence/solution.cpp"
+      }
+    }
+  ]
+}

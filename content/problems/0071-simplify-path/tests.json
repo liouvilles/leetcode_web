@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "simplifyPath",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "移除尾随斜杠",
+      "args": [
+        "/home/"
+      ],
+      "expected": "/home"
+    },
+    {
+      "name": "根目录忽略父级",
+      "args": [
+        "/../"
+      ],
+      "expected": "/"
+    },
+    {
+      "name": "混合冗余片段",
+      "args": [
+        "/home//foo/../bar/."
+      ],
+      "expected": "/home/bar"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numberOfPairs",
+  "parameterTypes": [
+    "intArray",
+    "intArray",
+    "int"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "三个下标对全部满足",
+      "args": [
+        [
+          3,
+          2,
+          5
+        ],
+        [
+          2,
+          2,
+          1
+        ],
+        1
+      ],
+      "expected": 3
+    },
+    {
+      "name": "两元素不满足负差阈值",
+      "args": [
+        [
+          3,
+          -1
+        ],
+        [
+          -2,
+          2
+        ],
+        -1
+      ],
+      "expected": 0
+    },
+    {
+      "name": "两个相同差值构成一对",
+      "args": [
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        0
+      ],
+      "expected": 1
+    }
+  ]
+}

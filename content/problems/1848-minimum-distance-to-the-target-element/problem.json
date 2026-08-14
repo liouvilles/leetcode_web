@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": 1848,
+  "slug": "minimum-distance-to-the-target-element",
+  "title": "到目标元素的最小距离",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-026",
+  "studyTags": [
+    "数组"
+  ],
+  "summary": "给定 start 下标与 target 值，返回任一等于 target 的位置与 start 的最小下标距离。",
+  "insight": "线性扫描所有等于 target 的位置，取 |index-start| 的最小值。",
+  "pitfalls": [
+    "保证 target 至少出现一次",
+    "距离是下标差绝对值",
+    "start 位置本身可能就是 target"
+  ],
+  "solutions": [
+    {
+      "id": "target-position-scan",
+      "title": "目标位置扫描",
+      "kind": "最优",
+      "idea": "枚举全部候选并取最小下标差。",
+      "steps": [
+        "answer=∞",
+        "遍历 i，nums[i]==target 时 answer=min(answer,abs(i-start))",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/target-position-scan/Solution.java",
+        "kotlin": "solutions/target-position-scan/Solution.kt",
+        "cpp": "solutions/target-position-scan/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "TextEditor",
+  "constructorTypes": [],
+  "cases": [
+    {
+      "name": "经典添加删除与光标移动序列",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "addText",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "leetcode"
+          ]
+        },
+        {
+          "method": "deleteText",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            4
+          ],
+          "returnType": "int",
+          "expected": 4
+        },
+        {
+          "method": "addText",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "practice"
+          ]
+        },
+        {
+          "method": "cursorRight",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            3
+          ],
+          "returnType": "string",
+          "expected": "etpractice"
+        },
+        {
+          "method": "cursorLeft",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            8
+          ],
+          "returnType": "string",
+          "expected": "leet"
+        },
+        {
+          "method": "deleteText",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            10
+          ],
+          "returnType": "int",
+          "expected": 4
+        },
+        {
+          "method": "cursorLeft",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ],
+          "returnType": "string",
+          "expected": ""
+        },
+        {
+          "method": "cursorRight",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            6
+          ],
+          "returnType": "string",
+          "expected": "practi"
+        }
+      ]
+    },
+    {
+      "name": "返回内容最多十个字符",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "addText",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "abcdefghijklmnop"
+          ]
+        },
+        {
+          "method": "cursorLeft",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ],
+          "returnType": "string",
+          "expected": "fghijklmno"
+        },
+        {
+          "method": "cursorRight",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ],
+          "returnType": "string",
+          "expected": "ghijklmnop"
+        }
+      ]
+    },
+    {
+      "name": "删除和移动均受边界限制",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "addText",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "abc"
+          ]
+        },
+        {
+          "method": "deleteText",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            8
+          ],
+          "returnType": "int",
+          "expected": 3
+        },
+        {
+          "method": "cursorRight",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            5
+          ],
+          "returnType": "string",
+          "expected": ""
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 89,
+  "slug": "gray-code",
+  "title": "格雷编码",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-004",
+  "studyTags": [
+    "位运算",
+    "数学构造",
+    "异或"
+  ],
+  "summary": "生成长度为 2^n 的 n 位格雷码序列，从零开始且相邻值恰好只有一个二进制位不同。",
+  "insight": "自然数 i 的二进制反射格雷码为 i XOR (i>>1)，按 i 递增即可得到满足环状相邻条件的序列。",
+  "pitfalls": [
+    "序列必须从零开始",
+    "结果共有 2^n 个数",
+    "使用异或而不是普通加法组合高低位"
+  ],
+  "solutions": [
+    {
+      "id": "binary-reflected-formula",
+      "title": "反射格雷码公式",
+      "kind": "最优",
+      "idea": "直接对区间内每个整数应用 i^(i>>1) 映射。",
+      "steps": [
+        "计算 total=1<<n",
+        "枚举 i 从 0 到 total-1",
+        "追加 i XOR (i>>1)"
+      ],
+      "complexity": {
+        "time": "O(2^n)",
+        "space": "O(1) excluding output"
+      },
+      "files": {
+        "java": "solutions/binary-reflected-formula/Solution.java",
+        "kotlin": "solutions/binary-reflected-formula/Solution.kt",
+        "cpp": "solutions/binary-reflected-formula/solution.cpp"
+      }
+    }
+  ]
+}

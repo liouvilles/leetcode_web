@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2274,
+  "slug": "maximum-consecutive-floors-without-special-floors",
+  "title": "不含特殊楼层的最大连续楼层数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-033",
+  "studyTags": [
+    "数组",
+    "排序"
+  ],
+  "summary": "在 bottom 到 top 闭区间内给定特殊楼层，求最长连续非特殊楼层数量。",
+  "insight": "排序特殊楼层；候选空档是 bottom 到首特殊前、相邻特殊之间、末特殊后到 top，分别计算长度取最大。",
+  "pitfalls": [
+    "边界楼层可能是特殊楼层",
+    "相邻特殊楼层间空档长度差一",
+    "特殊楼层保证互异"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-special-floor-gaps",
+      "title": "排序特殊楼层空档",
+      "kind": "最优",
+      "idea": "枚举所有特殊点切出的非特殊连续区间。",
+      "steps": [
+        "排序 special",
+        "answer=special[0]-bottom",
+        "相邻 i：answer=max(answer,special[i]-special[i-1]-1)",
+        "answer=max(answer,top-lastSpecial)"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(1) 或排序空间"
+      },
+      "files": {
+        "java": "solutions/sorted-special-floor-gaps/Solution.java",
+        "kotlin": "solutions/sorted-special-floor-gaps/Solution.kt",
+        "cpp": "solutions/sorted-special-floor-gaps/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "reformat",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "数量相等从字母开始",
+      "args": [
+        "a0b1c2"
+      ],
+      "expected": "a0b1c2"
+    },
+    {
+      "name": "只有字母无法交替",
+      "args": [
+        "leetcode"
+      ],
+      "expected": ""
+    },
+    {
+      "name": "只有多个数字无法交替",
+      "args": [
+        "1229857369"
+      ],
+      "expected": ""
+    },
+    {
+      "name": "字母比数字多一个",
+      "args": [
+        "covid2019"
+      ],
+      "expected": "c2o0v1i9d"
+    }
+  ]
+}

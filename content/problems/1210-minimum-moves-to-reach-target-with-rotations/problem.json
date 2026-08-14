@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1210,
+  "slug": "minimum-moves-to-reach-target-with-rotations",
+  "title": "穿过迷宫的最少移动次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-017",
+  "studyTags": [
+    "数组",
+    "广度优先搜索",
+    "状态图",
+    "矩阵"
+  ],
+  "summary": "两格长蛇从左上横放出发，可平移或在空的二乘二区域旋转，求到右下目标横放状态的最少移动数。",
+  "insight": "状态由蛇包围盒左上坐标和方向唯一确定。所有操作代价为一，对这些状态做 BFS；按方向检查前方一格或二乘二区域即可生成合法后继。",
+  "pitfalls": [
+    "横向状态坐标表示左端，纵向表示上端",
+    "旋转要求对应二乘二方格的另外两格都为空",
+    "访问标记必须包含方向"
+  ],
+  "solutions": [
+    {
+      "id": "orientation-state-bfs",
+      "title": "方向状态广度优先搜索",
+      "kind": "最优",
+      "idea": "在位置与横纵方向组成的无权状态图上求最短路。",
+      "steps": [
+        "队列放 [0,0,横向,0]，seen[row][col][direction]",
+        "横向可向右；若下方两格空可向下且可顺时针旋转。纵向可向下；若右侧两格空可向右且可逆时针旋转",
+        "每个未访问合法状态以 distance+1 入队，首次到 [n-1,n-2,横向] 返回距离，耗尽返回 -1"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/orientation-state-bfs/Solution.java",
+        "kotlin": "solutions/orientation-state-bfs/Solution.kt",
+        "cpp": "solutions/orientation-state-bfs/solution.cpp"
+      }
+    }
+  ]
+}

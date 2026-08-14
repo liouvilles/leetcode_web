@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "amountOfTime",
+  "parameterTypes": [
+    "treeNode",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "从节点三感染全树需四分钟",
+      "args": [
+        [
+          1,
+          5,
+          3,
+          null,
+          4,
+          10,
+          6,
+          9,
+          2
+        ],
+        3
+      ],
+      "expected": 4
+    },
+    {
+      "name": "单节点树无需传播",
+      "args": [
+        [
+          1
+        ],
+        1
+      ],
+      "expected": 0
+    },
+    {
+      "name": "三节点树从叶到另一叶需两分钟",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        2
+      ],
+      "expected": 2
+    }
+  ]
+}

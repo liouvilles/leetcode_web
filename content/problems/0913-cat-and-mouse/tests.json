@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "catMouseGame",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典状态为平局",
+      "args": [
+        [
+          [
+            2,
+            5
+          ],
+          [
+            3
+          ],
+          [
+            0,
+            4,
+            5
+          ],
+          [
+            1,
+            4,
+            5
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            0,
+            2,
+            3
+          ]
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "老鼠一步进洞",
+      "args": [
+        [
+          [
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1
+          ]
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "老鼠被迫撞猫",
+      "args": [
+        [
+          [
+            2
+          ],
+          [
+            2
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

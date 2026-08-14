@@ -1,0 +1,1 @@
+class Solution { fun divisorSubstrings(num:Int,k:Int):Int{val text=num.toString();var answer=0;for(i in 0..text.length-k){val value=text.substring(i,i+k).toInt();if(value!=0&&num%value==0)answer++};return answer} }

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 641,
+  "slug": "design-circular-deque",
+  "title": "设计循环双端队列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-008",
+  "studyTags": [
+    "设计",
+    "数组",
+    "双端队列",
+    "循环缓冲区"
+  ],
+  "summary": "设计固定容量循环双端队列，支持两端插入删除、读取两端元素和判空判满。",
+  "insight": "用 head 表示队首、size 表示元素数；前插先把 head 逆向移动，后插写入 (head+size)%capacity。",
+  "pitfalls": [
+    "负向移动下标要加容量再取模",
+    "空队列读取返回 -1",
+    "删除队尾只需减少 size，不必清空数组"
+  ],
+  "solutions": [
+    {
+      "id": "array-circular-deque",
+      "title": "数组环形双端队列",
+      "kind": "最优",
+      "idea": "以队首和长度定位两端，所有操作保持常数复杂度。",
+      "steps": [
+        "初始化数组、head=0、size=0",
+        "前插移动 head 后写入，后插写入尾后位置",
+        "删除对应调整 head 或 size，读取由公式定位"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(k)"
+      },
+      "files": {
+        "java": "solutions/array-circular-deque/Solution.java",
+        "kotlin": "solutions/array-circular-deque/Solution.kt",
+        "cpp": "solutions/array-circular-deque/solution.cpp"
+      }
+    }
+  ]
+}

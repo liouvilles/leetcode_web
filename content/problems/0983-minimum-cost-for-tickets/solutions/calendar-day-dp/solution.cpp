@@ -1,0 +1,1 @@
+class Solution { public: int mincostTickets(vector<int>& days,vector<int>& costs){int last=days.back();vector<bool> travel(last+1);for(int day:days)travel[day]=true;vector<int> dp(last+1);for(int day=1;day<=last;++day)dp[day]=!travel[day]?dp[day-1]:min({dp[day-1]+costs[0],dp[max(0,day-7)]+costs[1],dp[max(0,day-30)]+costs[2]});return dp[last];} };

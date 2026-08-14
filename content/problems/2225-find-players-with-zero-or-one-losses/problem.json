@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2225,
+  "slug": "find-players-with-zero-or-one-losses",
+  "title": "找出输掉零场或一场比赛的玩家",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-032",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "计数",
+    "排序"
+  ],
+  "summary": "根据胜负记录，返回从未输过的参赛者和恰输一场的参赛者，两列表均升序。",
+  "insight": "所有胜负双方加入参赛集合，败者频次加一；按有序 Map 扫描，频次零进第一表、频次一进第二表。",
+  "pitfalls": [
+    "只在败者位置增加负场数",
+    "从未作为败者但参加过的玩家要计入零负",
+    "输出必须升序"
+  ],
+  "solutions": [
+    {
+      "id": "ordered-loss-frequency",
+      "title": "有序负场频次",
+      "kind": "最优",
+      "idea": "用 TreeMap 同时登记参与者并统计败场。",
+      "steps": [
+        "TreeMap losses",
+        "每场 winner putIfAbsent 0；loser merge +1",
+        "升序遍历，value==0 加 zeroLoss，value==1 加 oneLoss"
+      ],
+      "complexity": {
+        "time": "O(m log players)",
+        "space": "O(players)"
+      },
+      "files": {
+        "java": "solutions/ordered-loss-frequency/Solution.java",
+        "kotlin": "solutions/ordered-loss-frequency/Solution.kt",
+        "cpp": "solutions/ordered-loss-frequency/solution.cpp"
+      }
+    }
+  ]
+}

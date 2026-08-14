@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1834,
+  "slug": "single-threaded-cpu",
+  "title": "单线程 CPU",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-026",
+  "studyTags": [
+    "数组",
+    "排序",
+    "堆（优先队列）"
+  ],
+  "summary": "任务有入队时间和处理时长；CPU 空闲时选择已入队处理中时长最短、再下标最小者，返回处理顺序。",
+  "insight": "任务按入队时间排序，用小根堆维护当前可执行任务并按 [processing,index] 排序。堆空时把当前时间跳到下一任务入队时刻。",
+  "pitfalls": [
+    "时间累加使用 long",
+    "同时可用时按处理时长后下标排序",
+    "堆空不能逐时刻递增"
+  ],
+  "solutions": [
+    {
+      "id": "enqueue-sort-ready-heap",
+      "title": "入队排序与就绪堆",
+      "kind": "最优",
+      "idea": "按事件时间把任务加入符合调度规则的优先队列。",
+      "steps": [
+        "构造 [enqueue,processing,index] 并按 enqueue 排序",
+        "while 未完成：堆空时 time=max(time,next.enqueue)；把 enqueue<=time 全部入堆",
+        "弹出 processing 最小任务，记录 index，time+=processing"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/enqueue-sort-ready-heap/Solution.java",
+        "kotlin": "solutions/enqueue-sort-ready-heap/Solution.kt",
+        "cpp": "solutions/enqueue-sort-ready-heap/solution.cpp"
+      }
+    }
+  ]
+}

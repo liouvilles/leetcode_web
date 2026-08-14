@@ -1,0 +1,1 @@
+class Solution { public int findLHS(int[] nums){Map<Integer,Integer> counts=new HashMap<>();for(int value:nums)counts.put(value,counts.getOrDefault(value,0)+1);int best=0;for(Map.Entry<Integer,Integer> entry:counts.entrySet())if(counts.containsKey(entry.getKey()+1))best=Math.max(best,entry.getValue()+counts.get(entry.getKey()+1));return best;} }

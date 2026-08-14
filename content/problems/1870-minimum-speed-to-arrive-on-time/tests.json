@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minSpeedOnTime",
+  "parameterTypes": [
+    "intArray",
+    "double"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "六小时速度一即可",
+      "args": [
+        [
+          1,
+          3,
+          2
+        ],
+        6
+      ],
+      "expected": 1
+    },
+    {
+      "name": "二点七小时需要速度三",
+      "args": [
+        [
+          1,
+          3,
+          2
+        ],
+        2.7
+      ],
+      "expected": 3
+    },
+    {
+      "name": "等待时间已超限制而无解",
+      "args": [
+        [
+          1,
+          3,
+          2
+        ],
+        1.9
+      ],
+      "expected": -1
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numberOfRounds",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四十三分钟内只有一局完整",
+      "args": [
+        "12:01",
+        "12:44"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "跨午夜十小时共四十局",
+      "args": [
+        "20:00",
+        "06:00"
+      ],
+      "expected": 40
+    },
+    {
+      "name": "全天差一分钟完成九十五局",
+      "args": [
+        "00:00",
+        "23:59"
+      ],
+      "expected": 95
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countValidWords",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三个普通单词均有效",
+      "args": [
+        "cat and  dog"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "所有词元都违反规则",
+      "args": [
+        "!this  1-s b8d!"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "前五词有效而含数字连字符词无效",
+      "args": [
+        "alice and  bob are playing stone-game10"
+      ],
+      "expected": 5
+    }
+  ]
+}

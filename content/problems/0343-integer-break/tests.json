@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "integerBreak",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "拆分二",
+      "args": [
+        2
+      ],
+      "expected": 1
+    },
+    {
+      "name": "拆分十",
+      "args": [
+        10
+      ],
+      "expected": 36
+    },
+    {
+      "name": "拆分五",
+      "args": [
+        5
+      ],
+      "expected": 6
+    }
+  ]
+}

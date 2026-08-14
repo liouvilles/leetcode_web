@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 794,
+  "slug": "valid-tic-tac-toe-state",
+  "title": "有效的井字游戏",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-010",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "模拟"
+  ],
+  "summary": "给定井字棋盘状态，判断它是否可能由 X 先手、双方轮流且有人获胜后立即停止的合法对局产生。",
+  "insight": "合法计数只能是 X=O 或 X=O+1；再结合胜者约束：X 胜时必须多一步，O 胜时必须步数相等，且不能双方同时胜。",
+  "pitfalls": [
+    "空格表示未落子",
+    "八条获胜线都要检查",
+    "仅检查棋子数量不足以排除胜后继续落子的状态"
+  ],
+  "solutions": [
+    {
+      "id": "count-and-winner-consistency",
+      "title": "落子数与胜者一致性",
+      "kind": "最优",
+      "idea": "用必要且充分的计数和胜负条件验证棋盘。",
+      "steps": [
+        "统计 X、O 数量，若不满足 x==o 或 x==o+1 则失败",
+        "检查 X 和 O 是否各自有获胜线",
+        "双方同时胜失败；X 胜要求 x=o+1，O 胜要求 x=o；无胜者则计数合法即可"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/count-and-winner-consistency/Solution.java",
+        "kotlin": "solutions/count-and-winner-consistency/Solution.kt",
+        "cpp": "solutions/count-and-winner-consistency/solution.cpp"
+      }
+    }
+  ]
+}

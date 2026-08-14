@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 943,
+  "slug": "find-the-shortest-superstring",
+  "title": "最短超级串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-013",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "动态规划",
+    "状态压缩"
+  ],
+  "summary": "给定若干不同单词，求包含每个单词作为子串的最短字符串；存在多个答案时可返回任一。",
+  "insight": "预计算每对单词的最大后缀前缀重叠；状态 dp[mask][last] 保存覆盖 mask 且以 last 单词结尾的最短字符串，枚举追加下一个单词。",
+  "pitfalls": [
+    "追加时只补重叠之后的字符",
+    "状态必须记录最后一个单词",
+    "测试中长度相同用字典序打破平局以获得确定结果"
+  ],
+  "solutions": [
+    {
+      "id": "bitmask-string-dp",
+      "title": "状态压缩字符串动态规划",
+      "kind": "最优",
+      "idea": "保存各状态的最短且字典序最小代表串。",
+      "steps": [
+        "预计算 overlap[i][j]",
+        "初始化 dp[1<<i][i]=words[i]；枚举 mask、last、next 转移 candidate",
+        "按长度优先、字典序次优更新；在全掩码所有末项中选最优"
+      ],
+      "complexity": {
+        "time": "O(2^n·n²·L)",
+        "space": "O(2^n·n·L)"
+      },
+      "files": {
+        "java": "solutions/bitmask-string-dp/Solution.java",
+        "kotlin": "solutions/bitmask-string-dp/Solution.kt",
+        "cpp": "solutions/bitmask-string-dp/solution.cpp"
+      }
+    }
+  ]
+}

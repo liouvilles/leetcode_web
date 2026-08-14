@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 522,
+  "slug": "longest-uncommon-subsequence-ii",
+  "title": "最长特殊序列 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-007",
+  "studyTags": [
+    "排序",
+    "子序列判断",
+    "字符串数组"
+  ],
+  "summary": "在字符串数组中找最长字符串，使它不是任何其他字符串的子序列；不存在则返回 -1。",
+  "insight": "按长度降序考察候选，候选只需检查是否为其他每个字符串的子序列；首个合格长度即最大。",
+  "pitfalls": [
+    "完全相同的另一字符串会使候选失效",
+    "需要与所有其他下标比较",
+    "同长度候选可按字典序稳定排序"
+  ],
+  "solutions": [
+    {
+      "id": "sort-and-check-subsequence",
+      "title": "按长度排序逐个验证",
+      "kind": "最优",
+      "idea": "长候选优先，使用双指针测试它是否能嵌入每个其他字符串。",
+      "steps": [
+        "按长度降序、字典序升序排序",
+        "对每个 candidate 检查所有 other",
+        "若 candidate 不是任何 other 的子序列则返回其长度，结束返回 -1"
+      ],
+      "complexity": {
+        "time": "O(n²L)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/sort-and-check-subsequence/Solution.java",
+        "kotlin": "solutions/sort-and-check-subsequence/Solution.kt",
+        "cpp": "solutions/sort-and-check-subsequence/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 515,
+  "slug": "find-largest-value-in-each-tree-row",
+  "title": "在每个树行中找最大值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-007",
+  "studyTags": [
+    "二叉树",
+    "广度优先搜索",
+    "层序遍历"
+  ],
+  "summary": "返回二叉树每一层的最大节点值。",
+  "insight": "层序遍历固定每层队列长度，在出队该层全部节点时同步更新最大值。",
+  "pitfalls": [
+    "节点值可能全为负数，初值应为整数最小值",
+    "每层单独重置最大值",
+    "空树返回空列表"
+  ],
+  "solutions": [
+    {
+      "id": "level-order-maximum",
+      "title": "层序逐层求最大值",
+      "kind": "最优",
+      "idea": "BFS 每轮恰好处理一层并追加该层最大值。",
+      "steps": [
+        "根非空时入队",
+        "每层 maximum 初始化为最小整数",
+        "处理 size 个节点并扩展孩子，追加 maximum"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(w)"
+      },
+      "files": {
+        "java": "solutions/level-order-maximum/Solution.java",
+        "kotlin": "solutions/level-order-maximum/Solution.kt",
+        "cpp": "solutions/level-order-maximum/solution.cpp"
+      }
+    }
+  ]
+}

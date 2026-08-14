@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumBuckets",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "中间一桶喂两只仓鼠",
+      "args": [
+        ".H.H."
+      ],
+      "expected": 1
+    },
+    {
+      "name": "两端仓鼠各需一桶",
+      "args": [
+        "H..H"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "连续三只仓鼠无法全部喂食",
+      "args": [
+        ".HHH."
+      ],
+      "expected": -1
+    }
+  ]
+}

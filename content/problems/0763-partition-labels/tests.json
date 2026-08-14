@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "partitionLabels",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "intList",
+  "cases": [
+    {
+      "name": "划分成三个闭合区间",
+      "args": [
+        "ababcbacadefegdehijhklij"
+      ],
+      "expected": [
+        9,
+        7,
+        8
+      ]
+    },
+    {
+      "name": "前缀字符延伸至中部",
+      "args": [
+        "eccbbbbdec"
+      ],
+      "expected": [
+        10
+      ]
+    },
+    {
+      "name": "每个字符只出现一次",
+      "args": [
+        "abc"
+      ],
+      "expected": [
+        1,
+        1,
+        1
+      ]
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "validateStackSequences",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "合法连续弹栈",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          4,
+          5,
+          3,
+          2,
+          1
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "非法越过栈顶",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          4,
+          3,
+          5,
+          1,
+          2
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "单元素",
+      "args": [
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "addRungs",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "多个大间隔共新增二阶",
+      "args": [
+        [
+          1,
+          3,
+          5,
+          10
+        ],
+        2
+      ],
+      "expected": 2
+    },
+    {
+      "name": "距离三只需新增一阶",
+      "args": [
+        [
+          3,
+          6,
+          8,
+          10
+        ],
+        3
+      ],
+      "expected": 0
+    },
+    {
+      "name": "首个台阶过高需新增四阶",
+      "args": [
+        [
+          10
+        ],
+        2
+      ],
+      "expected": 4
+    }
+  ]
+}

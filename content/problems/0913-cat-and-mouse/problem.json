@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 913,
+  "slug": "cat-and-mouse",
+  "title": "猫和老鼠",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-013",
+  "studyTags": [
+    "图论",
+    "广度优先搜索",
+    "博弈",
+    "拓扑排序"
+  ],
+  "summary": "无向图中老鼠从一、猫从二开始轮流移动，老鼠到零获胜、猫追上老鼠获胜，重复状态视为平局，双方最优时返回结果。",
+  "insight": "对状态 (mouse,cat,turn) 做逆向拓扑：先标终局；若某父状态的当前玩家能走到自己的胜局就立即获胜，否则当所有可走后继都对其不利时判为对手胜。",
+  "pitfalls": [
+    "猫不能进入节点零",
+    "状态还必须包含轮到谁",
+    "未知状态最终就是平局零"
+  ],
+  "solutions": [
+    {
+      "id": "retrograde-game-state-bfs",
+      "title": "博弈状态逆向 BFS",
+      "kind": "最优",
+      "idea": "从已知输赢状态向所有可能父状态传播。",
+      "steps": [
+        "初始化 mouse=0 为鼠胜、mouse=cat 为猫胜；degree 为当前玩家合法移动数",
+        "队列弹 child，枚举上一步可能的 parent",
+        "若 parent 当前玩家可选择 child 并获胜，则标同结果；否则 degree[parent]--，归零时标为对手胜；返回 outcome[1][2][mouseTurn]"
+      ],
+      "complexity": {
+        "time": "O(n³)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/retrograde-game-state-bfs/Solution.java",
+        "kotlin": "solutions/retrograde-game-state-bfs/Solution.kt",
+        "cpp": "solutions/retrograde-game-state-bfs/solution.cpp"
+      }
+    }
+  ]
+}

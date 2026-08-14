@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 496,
+  "slug": "next-greater-element-i",
+  "title": "下一个更大元素 I",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-007",
+  "studyTags": [
+    "单调栈",
+    "哈希表",
+    "数组"
+  ],
+  "summary": "nums1 中每个值都在 nums2 中，返回它在 nums2 右侧第一个更大值，不存在则为 -1。",
+  "insight": "扫描 nums2 时维护尚未找到更大元素的递减栈，新值会成为所有更小栈顶的第一个更大元素。",
+  "pitfalls": [
+    "找的是右侧第一个更大值",
+    "nums2 中值互不相同",
+    "剩余栈内元素映射为 -1"
+  ],
+  "solutions": [
+    {
+      "id": "monotonic-decreasing-stack",
+      "title": "递减栈预处理映射",
+      "kind": "最优",
+      "idea": "一次扫描 nums2 建立每个值到下一个更大值的映射。",
+      "steps": [
+        "栈顶小于当前值时弹出并映射到当前值",
+        "当前值压栈",
+        "按 nums1 查询映射，缺省 -1"
+      ],
+      "complexity": {
+        "time": "O(m+n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/monotonic-decreasing-stack/Solution.java",
+        "kotlin": "solutions/monotonic-decreasing-stack/Solution.kt",
+        "cpp": "solutions/monotonic-decreasing-stack/solution.cpp"
+      }
+    }
+  ]
+}

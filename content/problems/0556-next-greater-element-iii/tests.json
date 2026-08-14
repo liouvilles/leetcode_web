@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "nextGreaterElement",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "交换两位",
+      "args": [
+        12
+      ],
+      "expected": 21
+    },
+    {
+      "name": "已是最大排列",
+      "args": [
+        21
+      ],
+      "expected": -1
+    },
+    {
+      "name": "恰好达到整数上界",
+      "args": [
+        2147483476
+      ],
+      "expected": 2147483647
+    }
+  ]
+}

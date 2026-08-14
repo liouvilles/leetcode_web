@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "champagneTower",
+  "parameterTypes": [
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "double",
+  "cases": [
+    {
+      "name": "一杯无溢出",
+      "args": [
+        1,
+        1,
+        1
+      ],
+      "expected": 0
+    },
+    {
+      "name": "两杯右下半杯",
+      "args": [
+        2,
+        1,
+        1
+      ],
+      "expected": 0.5
+    },
+    {
+      "name": "大量香槟目标杯已满",
+      "args": [
+        100000009,
+        33,
+        17
+      ],
+      "expected": 1
+    }
+  ]
+}

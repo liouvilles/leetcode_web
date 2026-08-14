@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "rearrangeCharacters",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "ilovecodingonleetcode 可拼两份 code",
+      "args": [
+        "ilovecodingonleetcode",
+        "code"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "abcba 只能拼一份 abc",
+      "args": [
+        "abcba",
+        "abc"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "字符不足无法拼出目标",
+      "args": [
+        "abbaccaddaeea",
+        "aaaaa"
+      ],
+      "expected": 1
+    }
+  ]
+}

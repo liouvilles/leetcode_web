@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "shortestSuperstring",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "两个单词重叠",
+      "args": [
+        [
+          "ab",
+          "bc"
+        ]
+      ],
+      "expected": "abc"
+    },
+    {
+      "name": "单个单词",
+      "args": [
+        [
+          "algorithm"
+        ]
+      ],
+      "expected": "algorithm"
+    },
+    {
+      "name": "无重叠按确定规则",
+      "args": [
+        [
+          "alex",
+          "loves",
+          "leetcode"
+        ]
+      ],
+      "expected": "alexleetcodeloves"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "reformatDate",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "十月二十日",
+      "args": [
+        "20th Oct 2052"
+      ],
+      "expected": "2052-10-20"
+    },
+    {
+      "name": "六月六日补零",
+      "args": [
+        "6th Jun 1933"
+      ],
+      "expected": "1933-06-06"
+    },
+    {
+      "name": "五月二十六日",
+      "args": [
+        "26th May 1960"
+      ],
+      "expected": "1960-05-26"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findMaxLength",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一零成对",
+      "args": [
+        [
+          0,
+          1
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "最长前两项",
+      "args": [
+        [
+          0,
+          1,
+          0
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "嵌套平衡区间",
+      "args": [
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1
+        ]
+      ],
+      "expected": 6
+    }
+  ]
+}

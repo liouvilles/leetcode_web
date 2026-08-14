@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1626,
+  "slug": "best-team-with-no-conflicts",
+  "title": "无矛盾的最佳球队",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-023",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "排序",
+    "最长递增子序列"
+  ],
+  "summary": "选择球员组成球队，若年轻球员分数严格高于年长球员则冲突；求无冲突球队的最大总分。",
+  "insight": "按年龄升序、同龄按分数升序排序后，只需选择分数不下降的子序列。用加权最长非下降子序列动态规划。",
+  "pitfalls": [
+    "同龄球员之间无论分数都不冲突",
+    "排序同龄时分数升序便于一起选择",
+    "总分而非人数最大"
+  ],
+  "solutions": [
+    {
+      "id": "weighted-nondecreasing-subsequence",
+      "title": "加权非下降子序列",
+      "kind": "最优",
+      "idea": "排序后对每名球员计算以其结尾的最佳总分。",
+      "steps": [
+        "构造 [age,score] 并按年龄、分数升序排序",
+        "dp[i]=score[i]",
+        "枚举 j<i，若 score[j]<=score[i] 则转移 dp[i]=max(dp[i],dp[j]+score[i])"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/weighted-nondecreasing-subsequence/Solution.java",
+        "kotlin": "solutions/weighted-nondecreasing-subsequence/Solution.kt",
+        "cpp": "solutions/weighted-nondecreasing-subsequence/solution.cpp"
+      }
+    }
+  ]
+}

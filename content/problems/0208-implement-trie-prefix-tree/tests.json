@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "Trie",
+  "constructorTypes": [],
+  "cases": [
+    {
+      "name": "区分完整单词和前缀",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "insert",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "apple"
+          ]
+        },
+        {
+          "method": "search",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "apple"
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "search",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "app"
+          ],
+          "returnType": "boolean",
+          "expected": false
+        },
+        {
+          "method": "startsWith",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "app"
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "insert",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "app"
+          ]
+        },
+        {
+          "method": "search",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "app"
+          ],
+          "returnType": "boolean",
+          "expected": true
+        }
+      ]
+    },
+    {
+      "name": "不存在的首字符",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "insert",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "cat"
+          ]
+        },
+        {
+          "method": "startsWith",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "d"
+          ],
+          "returnType": "boolean",
+          "expected": false
+        }
+      ]
+    },
+    {
+      "name": "重复插入",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "insert",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "method": "insert",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "a"
+          ]
+        },
+        {
+          "method": "search",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "a"
+          ],
+          "returnType": "boolean",
+          "expected": true
+        }
+      ]
+    }
+  ]
+}

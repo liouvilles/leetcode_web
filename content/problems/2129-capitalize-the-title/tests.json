@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "capitalizeTitle",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "混合大小写标题规范化",
+      "args": [
+        "capiTalIze tHe titLe"
+      ],
+      "expected": "Capitalize The Title"
+    },
+    {
+      "name": "短词保持小写",
+      "args": [
+        "First leTTeR of EACH Word"
+      ],
+      "expected": "First Letter of Each Word"
+    },
+    {
+      "name": "单字词小写",
+      "args": [
+        "i lOve leetcode"
+      ],
+      "expected": "i Love Leetcode"
+    }
+  ]
+}

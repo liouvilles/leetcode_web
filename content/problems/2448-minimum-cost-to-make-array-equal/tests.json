@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minCost",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "经典加权中位数开销八",
+      "args": [
+        [
+          1,
+          3,
+          5,
+          2
+        ],
+        [
+          2,
+          3,
+          1,
+          14
+        ]
+      ],
+      "expected": 8
+    },
+    {
+      "name": "数组已相等开销零",
+      "args": [
+        [
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          4,
+          2,
+          8,
+          1
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "两个等权端点开销九",
+      "args": [
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": 9
+    }
+  ]
+}

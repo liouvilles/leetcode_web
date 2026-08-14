@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "longestCommonPrefix",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "共有两个字符前缀",
+      "args": [
+        [
+          "flower",
+          "flow",
+          "flight"
+        ]
+      ],
+      "expected": "fl"
+    },
+    {
+      "name": "没有公共前缀",
+      "args": [
+        [
+          "dog",
+          "racecar",
+          "car"
+        ]
+      ],
+      "expected": ""
+    },
+    {
+      "name": "单字符串",
+      "args": [
+        [
+          "alone"
+        ]
+      ],
+      "expected": "alone"
+    }
+  ]
+}

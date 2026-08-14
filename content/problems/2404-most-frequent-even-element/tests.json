@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "mostFrequentEven",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "二出现最频繁",
+      "args": [
+        [
+          0,
+          1,
+          2,
+          2,
+          4,
+          4,
+          1
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "同频偶数取最小零",
+      "args": [
+        [
+          4,
+          4,
+          4,
+          9,
+          2,
+          4,
+          2,
+          2,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "没有偶数返回负一",
+      "args": [
+        [
+          1,
+          3,
+          5
+        ]
+      ],
+      "expected": -1
+    }
+  ]
+}

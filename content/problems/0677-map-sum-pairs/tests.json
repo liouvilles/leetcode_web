@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "MapSum",
+  "constructorTypes": [],
+  "cases": [
+    {
+      "name": "插入并覆盖",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "insert",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "apple",
+            3
+          ]
+        },
+        {
+          "method": "sum",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "ap"
+          ],
+          "returnType": "int",
+          "expected": 3
+        },
+        {
+          "method": "insert",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "app",
+            2
+          ]
+        },
+        {
+          "method": "sum",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "ap"
+          ],
+          "returnType": "int",
+          "expected": 5
+        },
+        {
+          "method": "insert",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "apple",
+            2
+          ]
+        },
+        {
+          "method": "sum",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "ap"
+          ],
+          "returnType": "int",
+          "expected": 4
+        }
+      ]
+    },
+    {
+      "name": "无匹配前缀",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "insert",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "cat",
+            5
+          ]
+        },
+        {
+          "method": "sum",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "dog"
+          ],
+          "returnType": "int",
+          "expected": 0
+        }
+      ]
+    },
+    {
+      "name": "完整键也是前缀",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "insert",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "a",
+            1
+          ]
+        },
+        {
+          "method": "insert",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "ab",
+            2
+          ]
+        },
+        {
+          "method": "sum",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "a"
+          ],
+          "returnType": "int",
+          "expected": 3
+        },
+        {
+          "method": "sum",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "ab"
+          ],
+          "returnType": "int",
+          "expected": 2
+        }
+      ]
+    }
+  ]
+}

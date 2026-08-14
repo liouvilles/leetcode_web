@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 901,
+  "slug": "online-stock-span",
+  "title": "股票价格跨度",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "设计",
+    "栈",
+    "单调栈",
+    "数据流"
+  ],
+  "summary": "逐日输入股票价格，返回当天向前连续小于等于当前价格的天数。",
+  "insight": "维护价格严格递减的栈，每项携带自身已经覆盖的跨度；新价格弹出所有不大于它的项并累加跨度，再压入。",
+  "pitfalls": [
+    "条件包含等于当前价格",
+    "被弹出的连续区间可整体合并",
+    "每个价格最多入栈出栈一次"
+  ],
+  "solutions": [
+    {
+      "id": "decreasing-price-span-stack",
+      "title": "递减价格跨度栈",
+      "kind": "最优",
+      "idea": "把已计算跨度作为可合并块保存。",
+      "steps": [
+        "栈元素为 [price,span]",
+        "next(price) 初始化 span=1",
+        "while 栈顶 price<=当前，span+=top.span 并弹出；压入当前对并返回 span"
+      ],
+      "complexity": {
+        "time": "O(1) amortized",
+        "space": "O(number of calls)"
+      },
+      "files": {
+        "java": "solutions/decreasing-price-span-stack/Solution.java",
+        "kotlin": "solutions/decreasing-price-span-stack/Solution.kt",
+        "cpp": "solutions/decreasing-price-span-stack/solution.cpp"
+      }
+    }
+  ]
+}

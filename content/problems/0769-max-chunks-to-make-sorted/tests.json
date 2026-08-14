@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxChunksToSorted",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "完全逆序",
+      "args": [
+        [
+          4,
+          3,
+          2,
+          1,
+          0
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "前两项成块",
+      "args": [
+        [
+          1,
+          0,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "已经有序",
+      "args": [
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "expected": 3
+    }
+  ]
+}

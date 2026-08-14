@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minSwaps",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一次交换得到平衡串",
+      "args": [
+        "][]["
+      ],
+      "expected": 1
+    },
+    {
+      "name": "三个右括号开头需两次",
+      "args": [
+        "]]][[["
+      ],
+      "expected": 2
+    },
+    {
+      "name": "原串已经平衡",
+      "args": [
+        "[]"
+      ],
+      "expected": 0
+    }
+  ]
+}

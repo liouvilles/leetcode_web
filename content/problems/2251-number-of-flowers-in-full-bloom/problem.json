@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2251,
+  "slug": "number-of-flowers-in-full-bloom",
+  "title": "花期内花的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-033",
+  "studyTags": [
+    "数组",
+    "二分查找",
+    "排序",
+    "前缀和"
+  ],
+  "summary": "每朵花在闭区间 start 到 end 盛开，对每个到达时刻统计正在盛开的花数。",
+  "insight": "分别排序所有开始时刻与结束时刻。时刻 t 的开放数等于 start<=t 的数量减去 end<t 的数量，用两次二分获得。",
+  "pitfalls": [
+    "花在结束时刻仍开放",
+    "结束数组要统计严格小于 t",
+    "答案顺序与 people 一致"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-start-end-binary-counts",
+      "title": "起止时刻排序二分计数",
+      "kind": "最优",
+      "idea": "把区间覆盖计数拆为已开始数减已结束数。",
+      "steps": [
+        "提取 starts、ends 并排序",
+        "upperBound(starts,t) 得 start<=t 数量",
+        "lowerBound(ends,t) 得 end<t 数量，二者相减"
+      ],
+      "complexity": {
+        "time": "O((flowers+people) log flowers)",
+        "space": "O(flowers)"
+      },
+      "files": {
+        "java": "solutions/sorted-start-end-binary-counts/Solution.java",
+        "kotlin": "solutions/sorted-start-end-binary-counts/Solution.kt",
+        "cpp": "solutions/sorted-start-end-binary-counts/solution.cpp"
+      }
+    }
+  ]
+}

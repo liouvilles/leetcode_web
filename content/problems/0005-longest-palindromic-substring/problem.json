@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 5,
+  "slug": "longest-palindromic-substring",
+  "title": "最长回文子串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-001",
+  "studyTags": [
+    "中心扩展",
+    "奇偶中心",
+    "区间更新"
+  ],
+  "summary": "在给定字符串中寻找长度最大的连续回文片段，并返回其中任意一个最长答案。",
+  "insight": "每个回文串都能由一个字符中心或两个字符之间的中心向两侧同步扩展得到。",
+  "pitfalls": [
+    "子串必须连续",
+    "需要分别处理奇数长度和偶数长度中心",
+    "多个最长答案同时存在时返回任意一个即可"
+  ],
+  "solutions": [
+    {
+      "id": "expand-around-center",
+      "title": "中心扩展",
+      "kind": "最优",
+      "idea": "枚举 2n-1 个可能的回文中心，向两侧扩展并记录最长边界。",
+      "steps": [
+        "对每个位置尝试单字符中心",
+        "再尝试相邻双字符中心",
+        "仅在得到更长回文时更新左右边界"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/expand-around-center/Solution.java",
+        "kotlin": "solutions/expand-around-center/Solution.kt",
+        "cpp": "solutions/expand-around-center/solution.cpp"
+      }
+    }
+  ]
+}

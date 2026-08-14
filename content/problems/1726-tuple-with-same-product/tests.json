@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "tupleSameProduct",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "二三四六有八个元组",
+      "args": [
+        [
+          2,
+          3,
+          4,
+          6
+        ]
+      ],
+      "expected": 8
+    },
+    {
+      "name": "六元素有四十个同积元组",
+      "args": [
+        [
+          1,
+          2,
+          4,
+          5,
+          10
+        ]
+      ],
+      "expected": 16
+    },
+    {
+      "name": "无相同数对积时为零",
+      "args": [
+        [
+          2,
+          3,
+          5
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

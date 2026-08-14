@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "removeStars",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "leet 双星删除得到 lecoe",
+      "args": [
+        "leet**cod*e"
+      ],
+      "expected": "lecoe"
+    },
+    {
+      "name": "全部字符被删除",
+      "args": [
+        "erase*****"
+      ],
+      "expected": ""
+    },
+    {
+      "name": "没有星号保持不变",
+      "args": [
+        "abc"
+      ],
+      "expected": "abc"
+    }
+  ]
+}

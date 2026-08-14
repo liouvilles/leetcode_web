@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2375,
+  "slug": "construct-smallest-number-from-di-string",
+  "title": "根据模式串构造最小数字",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-035",
+  "studyTags": [
+    "字符串",
+    "栈",
+    "贪心"
+  ],
+  "summary": "用 1 到 9 中互不重复数字构造长度 pattern+1 的最小数字，使 I 位置递增、D 位置递减。",
+  "insight": "依次压入递增数字，遇 I 或末尾时把栈全部弹出；连续 D 段因此被整体反转，且使用当前最小的一组数字。",
+  "pitfalls": [
+    "数字不能重复",
+    "末尾必须清空栈",
+    "连续 D 段需要整体逆序"
+  ],
+  "solutions": [
+    {
+      "id": "stack-reverse-decreasing-runs",
+      "title": "栈反转下降段",
+      "kind": "最优",
+      "idea": "按最小数字顺序生成并在上升边界输出。",
+      "steps": [
+        "answer 空、stack 空",
+        "i=0..pattern.length 压入字符 1+i",
+        "若到末尾或 pattern[i]==I，反复弹栈追加",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/stack-reverse-decreasing-runs/Solution.java",
+        "kotlin": "solutions/stack-reverse-decreasing-runs/Solution.kt",
+        "cpp": "solutions/stack-reverse-decreasing-runs/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1286,
+  "slug": "iterator-for-combination",
+  "title": "字母组合迭代器",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "字符串",
+    "回溯",
+    "设计",
+    "迭代器"
+  ],
+  "summary": "按字典序迭代给定有序互异字符中固定长度的所有组合，支持 next 和 hasNext。",
+  "insight": "组合总数受约束较小，可在构造时用回溯按选择下标递增顺序生成全部组合；生成顺序天然就是字典序。",
+  "pitfalls": [
+    "组合内字符保持原字符顺序",
+    "每个组合恰好指定长度",
+    "next 只在 hasNext 为真时调用"
+  ],
+  "solutions": [
+    {
+      "id": "precomputed-lexicographic-combinations",
+      "title": "预生成字典序组合",
+      "kind": "最优",
+      "idea": "构造阶段回溯生成，查询阶段顺序读取。",
+      "steps": [
+        "构造保存 combinations 与 index=0，调用 dfs(start,builder)",
+        "builder 长度达到 combinationLength 时加入字符串；否则从 start 枚举还能留足字符的下标",
+        "next 返回 combinations[index++]；hasNext 判断 index<size"
+      ],
+      "complexity": {
+        "time": "构造 O(C(n,k)·k)，操作 O(1)",
+        "space": "O(C(n,k)·k)"
+      },
+      "files": {
+        "java": "solutions/precomputed-lexicographic-combinations/Solution.java",
+        "kotlin": "solutions/precomputed-lexicographic-combinations/Solution.kt",
+        "cpp": "solutions/precomputed-lexicographic-combinations/solution.cpp"
+      }
+    }
+  ]
+}

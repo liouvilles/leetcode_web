@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxRepeating",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "ab 连续重复两次",
+      "args": [
+        "ababc",
+        "ab"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "ba 只出现一次",
+      "args": [
+        "ababc",
+        "ba"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "ac 不出现",
+      "args": [
+        "ababc",
+        "ac"
+      ],
+      "expected": 0
+    }
+  ]
+}

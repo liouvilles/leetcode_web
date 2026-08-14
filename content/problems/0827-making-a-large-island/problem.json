@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 827,
+  "slug": "making-a-large-island",
+  "title": "最大人工岛",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-011",
+  "studyTags": [
+    "数组",
+    "深度优先搜索",
+    "哈希集合",
+    "矩阵"
+  ],
+  "summary": "至多把一个零改成一，求四向相连的一岛屿可达到的最大面积。",
+  "insight": "先把每个已有岛屿染成唯一编号并记录面积；枚举零格时，把它和四邻不同编号岛屿面积相加，集合避免同一岛重复计算。",
+  "pitfalls": [
+    "四个邻居可能属于同一岛，只能加一次",
+    "全一网格答案是总格数",
+    "翻转零自身贡献一"
+  ],
+  "solutions": [
+    {
+      "id": "label-islands-and-merge-neighbors",
+      "title": "岛屿编号与邻接合并",
+      "kind": "最优",
+      "idea": "预处理连通块后常数邻居数评估每个零。",
+      "steps": [
+        "DFS 把每个一岛染成 id>=2，并记录 area[id]",
+        "答案先取已有岛最大值",
+        "枚举零格，以 one=1 开始，用集合收集四邻不同 id 并累加对应面积，更新答案"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/label-islands-and-merge-neighbors/Solution.java",
+        "kotlin": "solutions/label-islands-and-merge-neighbors/Solution.kt",
+        "cpp": "solutions/label-islands-and-merge-neighbors/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1914,
+  "slug": "cyclically-rotating-a-grid",
+  "title": "循环轮转矩阵",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-027",
+  "studyTags": [
+    "数组",
+    "矩阵",
+    "模拟"
+  ],
+  "summary": "把矩阵每一层的元素逆时针循环移动 k 次，返回轮转后的矩阵。",
+  "insight": "按顺时针顺序列出一层的全部坐标。逆时针移动 k 格后，新坐标 i 接收旧顺序中 i+k 的值；对每层独立取模并写回。",
+  "pitfalls": [
+    "每层周长不同需分别取模",
+    "四个角各只能收集一次",
+    "轮转方向是逆时针"
+  ],
+  "solutions": [
+    {
+      "id": "layer-coordinate-cycle",
+      "title": "分层坐标循环位移",
+      "kind": "最优",
+      "idea": "提取每层环形序列并按偏移映射回原坐标。",
+      "steps": [
+        "对 layer 确定 top/bottom/left/right",
+        "顺时针收集上、右、下、左四边坐标且角不重复",
+        "shift=k%length；result[position[i]]=old[position[(i+shift)%length]]"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(mn)"
+      },
+      "files": {
+        "java": "solutions/layer-coordinate-cycle/Solution.java",
+        "kotlin": "solutions/layer-coordinate-cycle/Solution.kt",
+        "cpp": "solutions/layer-coordinate-cycle/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "canVisitAllRooms",
+  "parameterTypes": [
+    "intListMatrix"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "钥匙链可访问全部",
+      "args": [
+        [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          []
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "房间二三不可达",
+      "args": [
+        [
+          [
+            1,
+            3
+          ],
+          [
+            3,
+            0,
+            1
+          ],
+          [
+            2
+          ],
+          [
+            0
+          ]
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "单房间",
+      "args": [
+        [
+          []
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

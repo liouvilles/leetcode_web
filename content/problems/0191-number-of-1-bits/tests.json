@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "hammingWeight",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三个一位",
+      "args": [
+        11
+      ],
+      "expected": 3
+    },
+    {
+      "name": "单个高位一",
+      "args": [
+        128
+      ],
+      "expected": 1
+    },
+    {
+      "name": "零没有一位",
+      "args": [
+        0
+      ],
+      "expected": 0
+    }
+  ]
+}

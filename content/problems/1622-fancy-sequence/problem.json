@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1622,
+  "slug": "fancy-sequence",
+  "title": "奇妙序列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-023",
+  "studyTags": [
+    "数学",
+    "设计",
+    "数论",
+    "费马小定理"
+  ],
+  "summary": "设计序列，支持末尾追加、全体加、全体乘和按下标查询，所有值对 1e9+7 取模。",
+  "insight": "把当前值表示为 raw*multiplier+addition。全体操作只更新两个全局仿射参数；追加时用乘法逆元反解 raw，使旧操作不作用于新元素。",
+  "pitfalls": [
+    "追加值要抵消此前所有全局操作",
+    "减法取模必须归一化为非负",
+    "查询越界返回负一"
+  ],
+  "solutions": [
+    {
+      "id": "lazy-affine-transform",
+      "title": "惰性仿射变换",
+      "kind": "最优",
+      "idea": "用一个全局一次函数表示所有批量操作。",
+      "steps": [
+        "维护 raw 列表、multiply=1、add=0",
+        "append(val) 保存 (val-add)*inverse(multiply)；addAll 与 multAll 更新仿射参数",
+        "getIndex 计算 raw[index]*multiply+add，逆元用快速幂"
+      ],
+      "complexity": {
+        "time": "O(log MOD) 追加，O(1) 其余",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/lazy-affine-transform/Solution.java",
+        "kotlin": "solutions/lazy-affine-transform/Solution.kt",
+        "cpp": "solutions/lazy-affine-transform/solution.cpp"
+      }
+    }
+  ]
+}

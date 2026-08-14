@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2167,
+  "slug": "minimum-time-to-remove-all-cars-containing-illegal-goods",
+  "title": "移除所有载有违禁货物车厢的最少时间",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-031",
+  "studyTags": [
+    "字符串",
+    "动态规划"
+  ],
+  "summary": "二进制车厢串中，一次可从任一端移除车厢耗时一，或移除任意违禁车厢耗时二，求清除所有一的最短时间。",
+  "insight": "扫描切分点：左侧用 DP 求清除违禁车的最低成本，右侧全部从右端移除。左 DP 遇一时比较单独移除加二与把整个前缀从左端移除 i+1。",
+  "pitfalls": [
+    "合法车厢无需单独移除",
+    "端点操作会连同合法车一起移除",
+    "答案至多为 n"
+  ],
+  "solutions": [
+    {
+      "id": "prefix-dp-plus-suffix-removal",
+      "title": "前缀动态规划与后缀端删",
+      "kind": "最优",
+      "idea": "枚举左右策略分界并组合成本。",
+      "steps": [
+        "leftCost=0、answer=n",
+        "i 从零到 n-1；若 s[i]==1，leftCost=min(leftCost+2,i+1)",
+        "以 leftCost+(n-1-i) 更新答案，表示右侧全部端删",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/prefix-dp-plus-suffix-removal/Solution.java",
+        "kotlin": "solutions/prefix-dp-plus-suffix-removal/Solution.kt",
+        "cpp": "solutions/prefix-dp-plus-suffix-removal/solution.cpp"
+      }
+    }
+  ]
+}

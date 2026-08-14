@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1643,
+  "slug": "kth-smallest-instructions",
+  "title": "第 K 条最小指令",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-023",
+  "studyTags": [
+    "数组",
+    "数学",
+    "组合数学",
+    "贪心"
+  ],
+  "summary": "从原点到 destination，只能向右 H 或向下 V，所有可行指令按字典序排列，返回第 k 条。",
+  "insight": "H 的字典序小于 V。逐位尝试 H，以 H 开头的后缀数量为组合数 C(h+v-1,v)；k 落在该区间就选 H，否则跳过并选 V。",
+  "pitfalls": [
+    "destination[0] 是 V 数量，destination[1] 是 H 数量",
+    "k 从一开始",
+    "选择 V 时要减去所有以 H 开头的方案数"
+  ],
+  "solutions": [
+    {
+      "id": "combinatorial-unranking",
+      "title": "组合序列反排名",
+      "kind": "最优",
+      "idea": "按每个前缀包含的方案数量定位第 k 条路径。",
+      "steps": [
+        "vertical=destination[0]，horizontal=destination[1]",
+        "两种字符都剩余时计算 startWithH=C(h+v-1,v)",
+        "k<=startWithH 追加 H，否则追加 V 并令 k-=startWithH；最后补齐剩余字符"
+      ],
+      "complexity": {
+        "time": "O(h+v)",
+        "space": "O(h+v)"
+      },
+      "files": {
+        "java": "solutions/combinatorial-unranking/Solution.java",
+        "kotlin": "solutions/combinatorial-unranking/Solution.kt",
+        "cpp": "solutions/combinatorial-unranking/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2367,
+  "slug": "number-of-arithmetic-triplets",
+  "title": "等差三元组的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "双指针",
+    "枚举"
+  ],
+  "summary": "严格递增数组中统计下标 i<j<k 且相邻数值差都等于 diff 的三元组数量。",
+  "insight": "严格递增保证只要 value、value+diff、value+2diff 都存在，其下标顺序自然正确；用集合常数时间检查。",
+  "pitfalls": [
+    "两个相邻差都必须等于 diff",
+    "数组严格递增使值唯一",
+    "按起始值计数每个三元组一次"
+  ],
+  "solutions": [
+    {
+      "id": "value-set-membership",
+      "title": "值集合存在性",
+      "kind": "最优",
+      "idea": "枚举三元组首值并检查后两个目标。",
+      "steps": [
+        "把 nums 加入集合",
+        "answer=0",
+        "对 value：若集合含 value+diff 与 value+2*diff，answer++",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/value-set-membership/Solution.java",
+        "kotlin": "solutions/value-set-membership/Solution.kt",
+        "cpp": "solutions/value-set-membership/solution.cpp"
+      }
+    }
+  ]
+}

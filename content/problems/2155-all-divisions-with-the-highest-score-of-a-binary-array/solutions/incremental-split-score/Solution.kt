@@ -1,0 +1,1 @@
+class Solution { fun maxScoreIndices(nums:IntArray):List<Int>{var score=nums.sum();var maximum=-1;val answer=mutableListOf<Int>();for(split in 0..nums.size){if(score>maximum){maximum=score;answer.clear();answer.add(split)}else if(score==maximum)answer.add(split);if(split<nums.size)score+=if(nums[split]==0)1 else -1};return answer} }

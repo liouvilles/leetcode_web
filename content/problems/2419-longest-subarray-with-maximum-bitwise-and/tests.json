@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "longestSubarray",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两个连续三构成最长段",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          3,
+          2,
+          2
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "最大值只出现一次",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "三个最大值连续",
+      "args": [
+        [
+          5,
+          5,
+          5
+        ]
+      ],
+      "expected": 3
+    }
+  ]
+}

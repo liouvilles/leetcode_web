@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countHousePlacements",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "每侧一个地块共四种",
+      "args": [
+        1
+      ],
+      "expected": 4
+    },
+    {
+      "name": "每侧两个地块共九种",
+      "args": [
+        2
+      ],
+      "expected": 9
+    },
+    {
+      "name": "每侧三个地块共二十五种",
+      "args": [
+        3
+      ],
+      "expected": 25
+    }
+  ]
+}

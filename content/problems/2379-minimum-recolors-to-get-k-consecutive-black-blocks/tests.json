@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumRecolors",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "长度七窗口最少重涂三块",
+      "args": [
+        "WBBWWBBWBW",
+        7
+      ],
+      "expected": 3
+    },
+    {
+      "name": "已有连续两个黑块",
+      "args": [
+        "WBWBBBW",
+        2
+      ],
+      "expected": 0
+    },
+    {
+      "name": "单个白块需重涂一次",
+      "args": [
+        "WWW",
+        1
+      ],
+      "expected": 1
+    }
+  ]
+}

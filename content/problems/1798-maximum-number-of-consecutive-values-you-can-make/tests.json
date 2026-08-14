@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getMaximumConsecutive",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一三硬币可构造零一",
+      "args": [
+        [
+          1,
+          3
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "一一一四可连续构造到七",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          4
+        ]
+      ],
+      "expected": 8
+    },
+    {
+      "name": "一四十缺少二",
+      "args": [
+        [
+          1,
+          4,
+          10,
+          3,
+          1
+        ]
+      ],
+      "expected": 20
+    }
+  ]
+}

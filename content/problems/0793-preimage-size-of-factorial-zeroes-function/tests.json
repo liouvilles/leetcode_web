@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "preimageSizeFZF",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "零个尾零有五个原像",
+      "args": [
+        0
+      ],
+      "expected": 5
+    },
+    {
+      "name": "五个尾零无原像",
+      "args": [
+        5
+      ],
+      "expected": 0
+    },
+    {
+      "name": "三个尾零有五个原像",
+      "args": [
+        3
+      ],
+      "expected": 5
+    }
+  ]
+}

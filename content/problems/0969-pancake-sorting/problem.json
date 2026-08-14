@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 969,
+  "slug": "pancake-sorting",
+  "title": "煎饼排序",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-014",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "排序"
+  ],
+  "summary": "每次可翻转数组前 k 个元素，返回一组不超过十倍长度的翻转序列把排列升序排列。",
+  "insight": "从目标末位向前处理：在未排序前缀中找到最大值，先把它翻到顶部，再翻到当前末位；已在末位则跳过。",
+  "pitfalls": [
+    "返回的是每次翻转长度而非下标",
+    "最大值在顶部时只需第二次翻转",
+    "已放到后缀的元素不再参与后续翻转"
+  ],
+  "solutions": [
+    {
+      "id": "place-maximum-by-two-flips",
+      "title": "两次翻转放置最大值",
+      "kind": "最优",
+      "idea": "逐步把当前最大值固定到未排序前缀末尾。",
+      "steps": [
+        "size 从 n 降到二，在 [0,size) 找最大值下标 index",
+        "若 index==size-1 跳过；若 index>0，翻转 index+1 并记录",
+        "翻转 size 并记录；最终返回记录数组"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/place-maximum-by-two-flips/Solution.java",
+        "kotlin": "solutions/place-maximum-by-two-flips/Solution.kt",
+        "cpp": "solutions/place-maximum-by-two-flips/solution.cpp"
+      }
+    }
+  ]
+}

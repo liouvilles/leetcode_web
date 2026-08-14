@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "interchangeableRectangles",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "四个相同比例形成六对",
+      "args": [
+        [
+          [
+            4,
+            8
+          ],
+          [
+            3,
+            6
+          ],
+          [
+            10,
+            20
+          ],
+          [
+            15,
+            30
+          ]
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "两个不同比例无配对",
+      "args": [
+        [
+          [
+            4,
+            5
+          ],
+          [
+            7,
+            8
+          ]
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "三个相同矩形形成三对",
+      "args": [
+        [
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            3
+          ]
+        ]
+      ],
+      "expected": 3
+    }
+  ]
+}

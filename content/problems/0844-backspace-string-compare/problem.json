@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 844,
+  "slug": "backspace-string-compare",
+  "title": "比较含退格的字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-011",
+  "studyTags": [
+    "字符串",
+    "双指针",
+    "模拟"
+  ],
+  "summary": "井号表示退格删除前一个字符，判断两个字符串在编辑器中最终是否相等。",
+  "insight": "从后向前扫描，用 skip 计数跳过被退格删除的字符；每次找到两串下一个有效字符并比较，无需构造结果串。",
+  "pitfalls": [
+    "空文本上的退格没有效果",
+    "连续井号会累计删除数量",
+    "一串先耗尽而另一串仍有有效字符时不相等"
+  ],
+  "solutions": [
+    {
+      "id": "reverse-skip-two-pointers",
+      "title": "反向退格双指针",
+      "kind": "最优",
+      "idea": "逐次定位两串的下一个可见字符。",
+      "steps": [
+        "i、j 从各自末尾开始",
+        "辅助循环：遇 # 则 skip++，遇普通字符且 skip>0 则 skip-- 并跳过，否则停下",
+        "比较停下字符；不同返回假，相同则双指针各减一，直到都结束"
+      ],
+      "complexity": {
+        "time": "O(m+n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/reverse-skip-two-pointers/Solution.java",
+        "kotlin": "solutions/reverse-skip-two-pointers/Solution.kt",
+        "cpp": "solutions/reverse-skip-two-pointers/solution.cpp"
+      }
+    }
+  ]
+}

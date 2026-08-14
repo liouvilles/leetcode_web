@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "calPoints",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "包含撤销与双倍",
+      "args": [
+        [
+          "5",
+          "2",
+          "C",
+          "D",
+          "+"
+        ]
+      ],
+      "expected": 30
+    },
+    {
+      "name": "连续复杂操作",
+      "args": [
+        [
+          "5",
+          "-2",
+          "4",
+          "C",
+          "D",
+          "9",
+          "+",
+          "+"
+        ]
+      ],
+      "expected": 27
+    },
+    {
+      "name": "单次得分",
+      "args": [
+        [
+          "1"
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

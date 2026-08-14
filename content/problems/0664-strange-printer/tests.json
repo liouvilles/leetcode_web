@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "strangePrinter",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两段重复字符",
+      "args": [
+        "aaabbb"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "首尾相同可合并",
+      "args": [
+        "aba"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "三个不同字符",
+      "args": [
+        "abc"
+      ],
+      "expected": 3
+    }
+  ]
+}

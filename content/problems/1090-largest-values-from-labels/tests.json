@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "largestValsFromLabels",
+  "parameterTypes": [
+    "intArray",
+    "intArray",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "每标签一个取九",
+      "args": [
+        [
+          5,
+          4,
+          3,
+          2,
+          1
+        ],
+        [
+          1,
+          1,
+          2,
+          2,
+          3
+        ],
+        3,
+        1
+      ],
+      "expected": 9
+    },
+    {
+      "name": "每标签两个取十二",
+      "args": [
+        [
+          5,
+          4,
+          3,
+          2,
+          1
+        ],
+        [
+          1,
+          1,
+          2,
+          2,
+          3
+        ],
+        3,
+        2
+      ],
+      "expected": 12
+    },
+    {
+      "name": "同标签只能取一个",
+      "args": [
+        [
+          9,
+          8,
+          8,
+          7,
+          6
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          1
+        ],
+        3,
+        1
+      ],
+      "expected": 16
+    }
+  ]
+}

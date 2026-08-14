@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 525,
+  "slug": "contiguous-array",
+  "title": "连续数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-007",
+  "studyTags": [
+    "前缀和",
+    "哈希表",
+    "零一转换"
+  ],
+  "summary": "给定只含零和一的数组，求零和一数量相同的最长连续子数组长度。",
+  "insight": "把零视为负一、一视为正一；两个位置前缀和相同，之间区间的零一贡献就相抵。",
+  "pitfalls": [
+    "预置前缀和零的下标为 -1",
+    "相同前缀和只保留最早位置",
+    "求连续子数组长度"
+  ],
+  "solutions": [
+    {
+      "id": "balance-prefix",
+      "title": "前缀平衡值最早位置",
+      "kind": "最优",
+      "idea": "扫描 balance 并用哈希表记录首次出现下标。",
+      "steps": [
+        "first[0]=-1",
+        "遇一 balance++，遇零 balance--",
+        "若 balance 已见则更新 i-first，否则记录 i"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/balance-prefix/Solution.java",
+        "kotlin": "solutions/balance-prefix/Solution.kt",
+        "cpp": "solutions/balance-prefix/solution.cpp"
+      }
+    }
+  ]
+}

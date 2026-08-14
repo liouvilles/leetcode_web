@@ -1,0 +1,1 @@
+class Solution { public: int deepestLeavesSum(TreeNode* root){queue<TreeNode*> pending;pending.push(root);int sum=0;while(!pending.empty()){int size=pending.size();sum=0;while(size--){TreeNode* node=pending.front();pending.pop();sum+=node->val;if(node->left)pending.push(node->left);if(node->right)pending.push(node->right);}}return sum;} };

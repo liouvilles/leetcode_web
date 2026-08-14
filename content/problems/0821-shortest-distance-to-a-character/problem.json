@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 821,
+  "slug": "shortest-distance-to-a-character",
+  "title": "字符的最短距离",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-011",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "双向扫描"
+  ],
+  "summary": "字符串中目标字符至少出现一次，返回每个位置到最近目标字符的距离。",
+  "insight": "从左到右记录最近左侧目标，从右到左记录最近右侧目标，两者距离取最小。",
+  "pitfalls": [
+    "初始最近位置要用足够远的负值",
+    "右扫直接与已有左侧距离取最小",
+    "目标位置距离为零"
+  ],
+  "solutions": [
+    {
+      "id": "two-direction-nearest-pass",
+      "title": "左右两次最近位置扫描",
+      "kind": "最优",
+      "idea": "分别传播最近目标字符的影响。",
+      "steps": [
+        "左扫维护 previous，遇目标更新为 i，answer[i]=i-previous",
+        "右扫维护 next，遇目标更新为 i",
+        "answer[i]=min(answer[i],next-i)，返回数组"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/two-direction-nearest-pass/Solution.java",
+        "kotlin": "solutions/two-direction-nearest-pass/Solution.kt",
+        "cpp": "solutions/two-direction-nearest-pass/solution.cpp"
+      }
+    }
+  ]
+}

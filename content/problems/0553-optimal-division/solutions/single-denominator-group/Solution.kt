@@ -1,0 +1,1 @@
+class Solution { fun optimalDivision(nums:IntArray):String{if(nums.size==1)return nums[0].toString();val suffix=nums.drop(1).joinToString("/");return if(nums.size==2)nums[0].toString()+"/"+suffix else nums[0].toString()+"/("+suffix+")"} }

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 653,
+  "slug": "two-sum-iv-input-is-a-bst",
+  "title": "两数之和 IV - 输入二叉搜索树",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-008",
+  "studyTags": [
+    "哈希表",
+    "二叉搜索树",
+    "深度优先搜索"
+  ],
+  "summary": "判断二叉搜索树中是否存在两个不同节点，其值之和等于目标 k。",
+  "insight": "遍历节点时用集合保存已见值，若 k-node.val 已存在即可成功；集合也自然保证使用的是不同节点。",
+  "pitfalls": [
+    "不能让同一个节点使用两次",
+    "节点值可为负数",
+    "BST 性质不是哈希方案正确性的必要条件"
+  ],
+  "solutions": [
+    {
+      "id": "dfs-complement-set",
+      "title": "遍历与补数集合",
+      "kind": "最优",
+      "idea": "一次 DFS 在线查找当前值的目标补数。",
+      "steps": [
+        "建立 seen 集合",
+        "访问节点时检查 k-node.val 是否已在集合",
+        "若未命中则加入节点值并递归左右子树"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/dfs-complement-set/Solution.java",
+        "kotlin": "solutions/dfs-complement-set/Solution.kt",
+        "cpp": "solutions/dfs-complement-set/solution.cpp"
+      }
+    }
+  ]
+}

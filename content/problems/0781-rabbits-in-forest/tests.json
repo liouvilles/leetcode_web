@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numRabbits",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两种回答",
+      "args": [
+        [
+          1,
+          1,
+          2
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "三个回答十",
+      "args": [
+        [
+          10,
+          10,
+          10
+        ]
+      ],
+      "expected": 11
+    },
+    {
+      "name": "没有受访兔子",
+      "args": [
+        []
+      ],
+      "expected": 0
+    }
+  ]
+}

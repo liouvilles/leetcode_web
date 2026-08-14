@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "waysToBuildRooms",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "链式依赖只有一种顺序",
+      "args": [
+        [
+          -1,
+          0,
+          1
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "五房间树有六种合法顺序",
+      "args": [
+        [
+          -1,
+          0,
+          0,
+          1,
+          2
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "根的两个孩子可交换次序",
+      "args": [
+        [
+          -1,
+          0,
+          0
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 977,
+  "slug": "squares-of-a-sorted-array",
+  "title": "有序数组的平方",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-014",
+  "studyTags": [
+    "数组",
+    "双指针",
+    "排序"
+  ],
+  "summary": "给定非递减整数数组，返回各元素平方后仍为非递减顺序的数组。",
+  "insight": "平方后的最大值必来自当前左右端绝对值较大者；从结果末端向前写入并向内移动相应指针。",
+  "pitfalls": [
+    "负数平方会反转负数部分的顺序",
+    "平方可能相等，任选一端均可",
+    "结果从后向前填充"
+  ],
+  "solutions": [
+    {
+      "id": "absolute-end-two-pointers",
+      "title": "绝对值双端指针",
+      "kind": "最优",
+      "idea": "每次把较大平方放到答案当前末位。",
+      "steps": [
+        "left=0,right=n-1,write=n-1",
+        "比较 |nums[left]| 与 |nums[right]|",
+        "把较大者平方写 answer[write--] 并移动对应指针，直到填满"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/absolute-end-two-pointers/Solution.java",
+        "kotlin": "solutions/absolute-end-two-pointers/Solution.kt",
+        "cpp": "solutions/absolute-end-two-pointers/solution.cpp"
+      }
+    }
+  ]
+}

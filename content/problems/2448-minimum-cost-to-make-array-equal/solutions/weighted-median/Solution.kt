@@ -1,0 +1,1 @@
+class Solution { fun minCost(nums:IntArray,cost:IntArray):Long{val order=nums.indices.sortedBy{nums[it]};val total=cost.sumOf{it.toLong()};var cumulative=0L;var target=0;for(index in order){cumulative+=cost[index];if(cumulative*2>=total){target=nums[index];break}};var answer=0L;for(i in nums.indices)answer+=kotlin.math.abs(nums[i].toLong()-target)*cost[i];return answer} }

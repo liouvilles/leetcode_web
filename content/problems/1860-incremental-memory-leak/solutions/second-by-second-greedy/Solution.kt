@@ -1,0 +1,1 @@
+class Solution { fun memLeak(memory1Value:Int,memory2Value:Int):IntArray{var memory1=memory1Value;var memory2=memory2Value;var time=1;while(maxOf(memory1,memory2)>=time){if(memory1>=memory2)memory1-=time else memory2-=time;time++};return intArrayOf(time,memory1,memory2)} }

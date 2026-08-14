@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "subarraySum",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两个单元素子数组",
+      "args": [
+        [
+          1,
+          1,
+          1
+        ],
+        2
+      ],
+      "expected": 2
+    },
+    {
+      "name": "不同长度的两个答案",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        3
+      ],
+      "expected": 2
+    },
+    {
+      "name": "零和产生多个子数组",
+      "args": [
+        [
+          0,
+          0
+        ],
+        0
+      ],
+      "expected": 3
+    }
+  ]
+}

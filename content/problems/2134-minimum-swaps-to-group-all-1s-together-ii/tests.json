@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minSwaps",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "环形窗口一次交换聚齐",
+      "args": [
+        [
+          0,
+          1,
+          0,
+          1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "五个一最少两次交换",
+      "args": [
+        [
+          0,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          0
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "全部是一无需交换",
+      "args": [
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2181,
+  "slug": "merge-nodes-in-between-zeros",
+  "title": "合并零之间的节点",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-032",
+  "studyTags": [
+    "链表",
+    "模拟"
+  ],
+  "summary": "链表首尾和分段边界均为零，把每两个零之间的节点值之和变为一个节点并删除所有零。",
+  "insight": "顺序累加非零节点；遇到零且累计段非空时创建一个和节点并把累计清零。",
+  "pitfalls": [
+    "首个零不产生节点",
+    "相邻零在约束中不会出现",
+    "最后一个零负责提交最后一段"
+  ],
+  "solutions": [
+    {
+      "id": "segment-sum-list-build",
+      "title": "分段求和构造链表",
+      "kind": "最优",
+      "idea": "以零作为提交当前累计和的分隔符。",
+      "steps": [
+        "dummy 与 tail 初始化",
+        "从 head.next 开始扫描，非零累加 sum",
+        "遇零时创建 sum 节点接到 tail，sum 清零；返回 dummy.next"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(number of segments)"
+      },
+      "files": {
+        "java": "solutions/segment-sum-list-build/Solution.java",
+        "kotlin": "solutions/segment-sum-list-build/Solution.kt",
+        "cpp": "solutions/segment-sum-list-build/solution.cpp"
+      }
+    }
+  ]
+}

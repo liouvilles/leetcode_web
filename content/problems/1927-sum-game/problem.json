@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1927,
+  "slug": "sum-game",
+  "title": "求和游戏",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-028",
+  "studyTags": [
+    "数学",
+    "博弈"
+  ],
+  "summary": "两人轮流把问号替换为数字，Alice 想让左右半边数字和不同，Bob 想相同，判断 Alice 是否必胜。",
+  "insight": "若问号总数为奇数，Alice 有最后的失衡选择。总数为偶数时，Bob 能配对抵消问号；其可恰好补偿的差值为九乘左右问号数差的一半，据此判断。",
+  "pitfalls": [
+    "字符串长度为偶数",
+    "数字可重复且含零",
+    "Alice 先手"
+  ],
+  "solutions": [
+    {
+      "id": "sum-and-question-balance",
+      "title": "半边和与问号平衡判定",
+      "kind": "最优",
+      "idea": "把博弈归约为已知和差与可补偿范围等式。",
+      "steps": [
+        "统计 leftSum/rightSum 与 leftQuestions/rightQuestions",
+        "若问号总数为奇数返回 true",
+        "比较 2*(leftSum-rightSum) 是否等于 9*(rightQuestions-leftQuestions)，不等则 Alice 胜"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/sum-and-question-balance/Solution.java",
+        "kotlin": "solutions/sum-and-question-balance/Solution.kt",
+        "cpp": "solutions/sum-and-question-balance/solution.cpp"
+      }
+    }
+  ]
+}

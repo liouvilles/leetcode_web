@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sumOfNumberAndReverse",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "一百七十二加反转为四百四十三",
+      "args": [
+        443
+      ],
+      "expected": true
+    },
+    {
+      "name": "六十三无法表示",
+      "args": [
+        63
+      ],
+      "expected": false
+    },
+    {
+      "name": "零由零加零得到",
+      "args": [
+        0
+      ],
+      "expected": true
+    }
+  ]
+}

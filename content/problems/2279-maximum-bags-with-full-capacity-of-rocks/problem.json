@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2279,
+  "slug": "maximum-bags-with-full-capacity-of-rocks",
+  "title": "装满石头的背包的最大数量",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-033",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "排序"
+  ],
+  "summary": "每个背包有容量和已有石头，可分配 additionalRocks 使尽量多背包装满，求最大数量。",
+  "insight": "每包装满所需 deficit=capacity-rocks。为最大化数量，按 deficit 升序依次填满，预算不足时停止。",
+  "pitfalls": [
+    "已满背包 deficit 为零自动计入",
+    "石头无需全部使用",
+    "只关心装满数量"
+  ],
+  "solutions": [
+    {
+      "id": "sort-capacity-deficits",
+      "title": "排序缺口贪心",
+      "kind": "最优",
+      "idea": "优先完成花费最少的背包。",
+      "steps": [
+        "计算 deficits 数组并排序",
+        "remaining=additionalRocks、answer=0",
+        "若 deficit<=remaining，扣除并 answer++，否则 break"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/sort-capacity-deficits/Solution.java",
+        "kotlin": "solutions/sort-capacity-deficits/Solution.kt",
+        "cpp": "solutions/sort-capacity-deficits/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1534,
+  "slug": "count-good-triplets",
+  "title": "统计好三元组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-022",
+  "studyTags": [
+    "数组",
+    "枚举"
+  ],
+  "summary": "统计下标 i<j<k，且三对元素绝对差分别不超过 a、b、c 的三元组数量。",
+  "insight": "数据规模较小，直接三重枚举并逐条件剪枝最清晰。",
+  "pitfalls": [
+    "三个差值约束对应不同参数",
+    "下标必须严格递增",
+    "绝对差使用整数"
+  ],
+  "solutions": [
+    {
+      "id": "triple-enumeration",
+      "title": "三重枚举",
+      "kind": "最优",
+      "idea": "依次枚举三个下标并验证全部条件。",
+      "steps": [
+        "i 从零，j 从 i+1，先检查 |arr[i]-arr[j]|<=a",
+        "k 从 j+1",
+        "同时检查 |arr[j]-arr[k]|<=b 与 |arr[i]-arr[k]|<=c，满足则计数"
+      ],
+      "complexity": {
+        "time": "O(n³)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/triple-enumeration/Solution.java",
+        "kotlin": "solutions/triple-enumeration/Solution.kt",
+        "cpp": "solutions/triple-enumeration/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1379,
+  "slug": "find-a-corresponding-node-of-a-binary-tree-in-a-clone-of-that-tree",
+  "title": "找出克隆二叉树中的相同节点",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-019",
+  "studyTags": [
+    "树",
+    "深度优先搜索"
+  ],
+  "summary": "original 与 cloned 结构和值相同，给定 original 中的 target，返回 cloned 中对应节点。",
+  "insight": "同步遍历两棵树；当原树当前节点是目标（唯一值条件下也可比较值）时，克隆树当前节点就是答案。",
+  "pitfalls": [
+    "返回的必须是 cloned 中的节点",
+    "两棵树始终同步走相同方向",
+    "节点值唯一使按值定位安全"
+  ],
+  "solutions": [
+    {
+      "id": "parallel-tree-dfs",
+      "title": "双树同步深搜",
+      "kind": "最优",
+      "idea": "在原树定位目标的同时保持克隆树指针同步。",
+      "steps": [
+        "若 original 为空返回 null",
+        "若 original.val==target.val，返回 cloned",
+        "递归左侧，找到则返回；否则递归右侧"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(h)"
+      },
+      "files": {
+        "java": "solutions/parallel-tree-dfs/Solution.java",
+        "kotlin": "solutions/parallel-tree-dfs/Solution.kt",
+        "cpp": "solutions/parallel-tree-dfs/solution.cpp"
+      }
+    }
+  ]
+}

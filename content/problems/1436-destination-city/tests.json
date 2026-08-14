@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "destCity",
+  "parameterTypes": [
+    "stringListMatrix"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "三段路线终点圣保罗",
+      "args": [
+        [
+          [
+            "London",
+            "New York"
+          ],
+          [
+            "New York",
+            "Lima"
+          ],
+          [
+            "Lima",
+            "Sao Paulo"
+          ]
+        ]
+      ],
+      "expected": "Sao Paulo"
+    },
+    {
+      "name": "两段乱序路线终点 A",
+      "args": [
+        [
+          [
+            "B",
+            "C"
+          ],
+          [
+            "D",
+            "B"
+          ],
+          [
+            "C",
+            "A"
+          ]
+        ]
+      ],
+      "expected": "A"
+    },
+    {
+      "name": "单段路线",
+      "args": [
+        [
+          [
+            "A",
+            "Z"
+          ]
+        ]
+      ],
+      "expected": "Z"
+    }
+  ]
+}

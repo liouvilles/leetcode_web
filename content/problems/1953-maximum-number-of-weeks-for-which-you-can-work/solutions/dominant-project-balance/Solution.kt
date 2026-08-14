@@ -1,0 +1,1 @@
+class Solution { fun numberOfWeeks(milestones:IntArray):Long{val sum=milestones.sumOf{it.toLong()};val maximum=milestones.maxOrNull()!!.toLong();val rest=sum-maximum;return if(maximum<=rest+1)sum else 2*rest+1} }

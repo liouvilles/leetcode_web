@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 640,
+  "slug": "solve-the-equation",
+  "title": "求解方程",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-008",
+  "studyTags": [
+    "数学",
+    "字符串",
+    "模拟"
+  ],
+  "summary": "求解只含整数、变量 x、加减号和等号的一元一次方程，返回唯一解、无解或无限解。",
+  "insight": "分别把等号两侧化为 coefficient*x+constant，再移项得到 (leftCoefficient-rightCoefficient)x=rightConstant-leftConstant。",
+  "pitfalls": [
+    "裸 x 的系数是 1",
+    "负号可能出现在一侧开头",
+    "系数为零时需区分常数是否也为零"
+  ],
+  "solutions": [
+    {
+      "id": "linear-expression-parser",
+      "title": "解析两侧系数与常数",
+      "kind": "最优",
+      "idea": "单次扫描每侧表达式并合并同类项。",
+      "steps": [
+        "按等号分割并解析每侧为 [coefficient,constant]",
+        "计算 coefficient=left[0]-right[0]、constant=right[1]-left[1]",
+        "系数零时判断无限解或无解，否则返回 x=constant/coefficient"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/linear-expression-parser/Solution.java",
+        "kotlin": "solutions/linear-expression-parser/Solution.kt",
+        "cpp": "solutions/linear-expression-parser/solution.cpp"
+      }
+    }
+  ]
+}

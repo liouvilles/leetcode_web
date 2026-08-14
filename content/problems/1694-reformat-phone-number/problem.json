@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": 1694,
+  "slug": "reformat-phone-number",
+  "title": "重新格式化电话号码",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-024",
+  "studyTags": [
+    "字符串"
+  ],
+  "summary": "移除电话号码中的空格和连字符，再从左向右分组：尽量三位一组，最后四位必须分成两个两位组。",
+  "insight": "先提取纯数字。只要剩余超过四位就取三位；剩四位时取两个两位，否则把剩余两或三位作为最后一组。",
+  "pitfalls": [
+    "不能出现最后一组只有一位",
+    "恰好四位必须分为二加二",
+    "输出组之间用单个连字符"
+  ],
+  "solutions": [
+    {
+      "id": "greedy-digit-grouping",
+      "title": "纯数字贪心分组",
+      "kind": "最优",
+      "idea": "根据剩余位数决定下一组长度。",
+      "steps": [
+        "过滤出 digits",
+        "while remaining>4，取三位加入 groups",
+        "remaining==4 取两组两位，否则取全部剩余；用连字符连接"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/greedy-digit-grouping/Solution.java",
+        "kotlin": "solutions/greedy-digit-grouping/Solution.kt",
+        "cpp": "solutions/greedy-digit-grouping/solution.cpp"
+      }
+    }
+  ]
+}

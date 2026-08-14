@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countConsistentStrings",
+  "parameterTypes": [
+    "string",
+    "stringArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "只允许 ab 时有两个一致词",
+      "args": [
+        "ab",
+        [
+          "ad",
+          "bd",
+          "aaab",
+          "baa",
+          "badab"
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "仅三个单字词一致",
+      "args": [
+        "abc",
+        [
+          "a",
+          "b",
+          "c",
+          "ab",
+          "ac",
+          "bc",
+          "abc"
+        ]
+      ],
+      "expected": 7
+    },
+    {
+      "name": "含不允许字符的词被排除",
+      "args": [
+        "cad",
+        [
+          "cc",
+          "acd",
+          "b",
+          "ba",
+          "bac",
+          "bad",
+          "ac",
+          "d"
+        ]
+      ],
+      "expected": 4
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1079,
+  "slug": "letter-tile-possibilities",
+  "title": "活字印刷",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-016",
+  "studyTags": [
+    "字符串",
+    "回溯",
+    "计数"
+  ],
+  "summary": "给定若干字母牌，每张最多使用一次，统计能拼出的不同非空字符串数量。",
+  "insight": "按字符频次回溯而非按牌下标枚举，可自动去重；每选择一种剩余字符就形成一个新字符串并继续向后扩展。",
+  "pitfalls": [
+    "不同长度字符串都计数",
+    "相同字母牌不可区分",
+    "回溯后要恢复频次"
+  ],
+  "solutions": [
+    {
+      "id": "letter-frequency-backtracking",
+      "title": "字母频次回溯",
+      "kind": "最优",
+      "idea": "在多重集合上枚举每个下一字符。",
+      "steps": [
+        "统计 count[26]",
+        "dfs 遍历所有 count>0 的字符",
+        "选择字符后 answer 加一，再递归并恢复频次；返回所有分支总和"
+      ],
+      "complexity": {
+        "time": "O(number of strings)",
+        "space": "O(length)"
+      },
+      "files": {
+        "java": "solutions/letter-frequency-backtracking/Solution.java",
+        "kotlin": "solutions/letter-frequency-backtracking/Solution.kt",
+        "cpp": "solutions/letter-frequency-backtracking/solution.cpp"
+      }
+    }
+  ]
+}

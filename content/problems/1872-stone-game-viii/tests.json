@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "stoneGameVIII",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "正负交错石堆差值五",
+      "args": [
+        [
+          -1,
+          2,
+          -3,
+          4,
+          -5
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "七堆石子最优差十三",
+      "args": [
+        [
+          7,
+          -6,
+          5,
+          10,
+          5,
+          -2,
+          -6
+        ]
+      ],
+      "expected": 13
+    },
+    {
+      "name": "两堆只能一次全部合并",
+      "args": [
+        [
+          -10,
+          -12
+        ]
+      ],
+      "expected": -22
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 233,
+  "slug": "number-of-digit-one",
+  "title": "数字 1 的个数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-005",
+  "studyTags": [
+    "数学",
+    "数位统计",
+    "位权"
+  ],
+  "summary": "统计从零到 n 的所有整数十进制表示中数字一出现的总次数。",
+  "insight": "对每个十进制位分别统计完整周期、高位余数和当前位带来的贡献，再把各位结果相加。",
+  "pitfalls": [
+    "位权和中间乘法使用长整型",
+    "当前位大于一时贡献整个位权",
+    "n 为零时答案为零"
+  ],
+  "solutions": [
+    {
+      "id": "positional-counting",
+      "title": "逐位统计完整周期",
+      "kind": "最优",
+      "idea": "以 factor 为当前位权，把 n 分成 high、current、low 三部分。",
+      "steps": [
+        "factor 从一开始乘十",
+        "high=n/(factor*10), current=(n/factor)%10, low=n%factor",
+        "贡献 high*factor，再按 current 与一的关系补余数"
+      ],
+      "complexity": {
+        "time": "O(log n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/positional-counting/Solution.java",
+        "kotlin": "solutions/positional-counting/Solution.kt",
+        "cpp": "solutions/positional-counting/solution.cpp"
+      }
+    }
+  ]
+}

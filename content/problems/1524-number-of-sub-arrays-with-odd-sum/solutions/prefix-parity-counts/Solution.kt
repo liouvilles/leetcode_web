@@ -1,0 +1,1 @@
+class Solution { fun numOfSubarrays(arr:IntArray):Int{val mod=1_000_000_007L;var even=1L;var odd=0L;var answer=0L;var parity=0;for(value in arr){parity=parity xor (value and 1);if(parity==0){answer+=odd;even++}else{answer+=even;odd++};answer%=mod};return answer.toInt()} }

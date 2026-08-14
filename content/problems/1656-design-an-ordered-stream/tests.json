@@ -1,0 +1,180 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "OrderedStream",
+  "constructorTypes": [
+    "int"
+  ],
+  "cases": [
+    {
+      "name": "经典乱序插入形成连续块",
+      "constructorArgs": [
+        5
+      ],
+      "calls": [
+        {
+          "method": "insert",
+          "parameterTypes": [
+            "int",
+            "string"
+          ],
+          "args": [
+            3,
+            "ccccc"
+          ],
+          "returnType": "stringList",
+          "expected": []
+        },
+        {
+          "method": "insert",
+          "parameterTypes": [
+            "int",
+            "string"
+          ],
+          "args": [
+            1,
+            "aaaaa"
+          ],
+          "returnType": "stringList",
+          "expected": [
+            "aaaaa"
+          ]
+        },
+        {
+          "method": "insert",
+          "parameterTypes": [
+            "int",
+            "string"
+          ],
+          "args": [
+            2,
+            "bbbbb"
+          ],
+          "returnType": "stringList",
+          "expected": [
+            "bbbbb",
+            "ccccc"
+          ]
+        },
+        {
+          "method": "insert",
+          "parameterTypes": [
+            "int",
+            "string"
+          ],
+          "args": [
+            5,
+            "eeeee"
+          ],
+          "returnType": "stringList",
+          "expected": []
+        },
+        {
+          "method": "insert",
+          "parameterTypes": [
+            "int",
+            "string"
+          ],
+          "args": [
+            4,
+            "ddddd"
+          ],
+          "returnType": "stringList",
+          "expected": [
+            "ddddd",
+            "eeeee"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "按序插入每次返回一个",
+      "constructorArgs": [
+        2
+      ],
+      "calls": [
+        {
+          "method": "insert",
+          "parameterTypes": [
+            "int",
+            "string"
+          ],
+          "args": [
+            1,
+            "a"
+          ],
+          "returnType": "stringList",
+          "expected": [
+            "a"
+          ]
+        },
+        {
+          "method": "insert",
+          "parameterTypes": [
+            "int",
+            "string"
+          ],
+          "args": [
+            2,
+            "b"
+          ],
+          "returnType": "stringList",
+          "expected": [
+            "b"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "先插尾部再一次输出全部",
+      "constructorArgs": [
+        3
+      ],
+      "calls": [
+        {
+          "method": "insert",
+          "parameterTypes": [
+            "int",
+            "string"
+          ],
+          "args": [
+            2,
+            "b"
+          ],
+          "returnType": "stringList",
+          "expected": []
+        },
+        {
+          "method": "insert",
+          "parameterTypes": [
+            "int",
+            "string"
+          ],
+          "args": [
+            3,
+            "c"
+          ],
+          "returnType": "stringList",
+          "expected": []
+        },
+        {
+          "method": "insert",
+          "parameterTypes": [
+            "int",
+            "string"
+          ],
+          "args": [
+            1,
+            "a"
+          ],
+          "returnType": "stringList",
+          "expected": [
+            "a",
+            "b",
+            "c"
+          ]
+        }
+      ]
+    }
+  ]
+}

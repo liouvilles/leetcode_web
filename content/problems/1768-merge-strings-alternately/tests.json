@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "mergeAlternately",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "等长字符串完全交替",
+      "args": [
+        "abc",
+        "pqr"
+      ],
+      "expected": "apbqcr"
+    },
+    {
+      "name": "第二串尾部直接追加",
+      "args": [
+        "ab",
+        "pqrs"
+      ],
+      "expected": "apbqrs"
+    },
+    {
+      "name": "第一串尾部直接追加",
+      "args": [
+        "abcd",
+        "pq"
+      ],
+      "expected": "apbqcd"
+    }
+  ]
+}

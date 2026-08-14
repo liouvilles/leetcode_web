@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "TopVotedCandidate",
+  "constructorTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "cases": [
+    {
+      "name": "经典多时刻查询",
+      "constructorArgs": [
+        [
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          5,
+          10,
+          15,
+          20,
+          25,
+          30
+        ]
+      ],
+      "calls": [
+        {
+          "method": "q",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            3
+          ],
+          "returnType": "int",
+          "expected": 0
+        },
+        {
+          "method": "q",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            12
+          ],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "q",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            25
+          ],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "q",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            15
+          ],
+          "returnType": "int",
+          "expected": 0
+        },
+        {
+          "method": "q",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            24
+          ],
+          "returnType": "int",
+          "expected": 0
+        },
+        {
+          "method": "q",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            8
+          ],
+          "returnType": "int",
+          "expected": 1
+        }
+      ]
+    },
+    {
+      "name": "并列时最近者领先",
+      "constructorArgs": [
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          10
+        ]
+      ],
+      "calls": [
+        {
+          "method": "q",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            10
+          ],
+          "returnType": "int",
+          "expected": 2
+        }
+      ]
+    },
+    {
+      "name": "单候选人",
+      "constructorArgs": [
+        [
+          7
+        ],
+        [
+          5
+        ]
+      ],
+      "calls": [
+        {
+          "method": "q",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            100
+          ],
+          "returnType": "int",
+          "expected": 7
+        }
+      ]
+    }
+  ]
+}

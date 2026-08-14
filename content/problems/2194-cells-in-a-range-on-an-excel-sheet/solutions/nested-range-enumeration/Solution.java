@@ -1,0 +1,1 @@
+class Solution { public List<String> cellsInRange(String s){List<String> answer=new ArrayList<>();for(char column=s.charAt(0);column<=s.charAt(3);column++)for(char row=s.charAt(1);row<=s.charAt(4);row++)answer.add(""+column+row);return answer;} }

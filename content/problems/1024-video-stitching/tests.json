@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "videoStitching",
+  "parameterTypes": [
+    "intMatrix",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典最少三段",
+      "args": [
+        [
+          [
+            0,
+            2
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            8,
+            10
+          ],
+          [
+            1,
+            9
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            5,
+            9
+          ]
+        ],
+        10
+      ],
+      "expected": 3
+    },
+    {
+      "name": "起点有缺口",
+      "args": [
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        5
+      ],
+      "expected": -1
+    },
+    {
+      "name": "一段完整覆盖",
+      "args": [
+        [
+          [
+            0,
+            4
+          ],
+          [
+            2,
+            8
+          ]
+        ],
+        4
+      ],
+      "expected": 1
+    }
+  ]
+}

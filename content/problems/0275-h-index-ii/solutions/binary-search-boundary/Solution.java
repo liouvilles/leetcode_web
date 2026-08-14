@@ -1,0 +1,1 @@
+class Solution { public int hIndex(int[] citations){int left=0,right=citations.length;while(left<right){int middle=left+(right-left)/2;if(citations[middle]>=citations.length-middle)right=middle;else left=middle+1;}return citations.length-left;} }

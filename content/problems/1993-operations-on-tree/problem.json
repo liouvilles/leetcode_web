@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1993,
+  "slug": "operations-on-tree",
+  "title": "树上的操作",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-029",
+  "studyTags": [
+    "树",
+    "深度优先搜索",
+    "设计"
+  ],
+  "summary": "设计树的加锁、解锁与升级操作；升级要求节点未锁、祖先均未锁且至少一个后代已锁，并解锁全部后代后锁定自身。",
+  "insight": "用数组保存每个节点锁定用户及父节点，邻接表保存孩子。加解锁 O(1)；升级先沿父链检查，再 DFS 后代清除锁并判断是否找到锁。",
+  "pitfalls": [
+    "解锁只能由原用户执行",
+    "升级不关心后代锁属于哪个用户",
+    "祖先检查不含节点自身"
+  ],
+  "solutions": [
+    {
+      "id": "parent-chain-and-descendant-dfs",
+      "title": "父链检查与后代 DFS",
+      "kind": "最优",
+      "idea": "直接按操作定义维护锁状态。",
+      "steps": [
+        "lockedBy 初始 -1、建立 children",
+        "lock/unlock 检查状态和用户",
+        "upgrade 检查自身与祖先；DFS 后代清锁并返回是否曾有锁，有则锁当前节点"
+      ],
+      "complexity": {
+        "time": "O(height+subtree) 升级，O(1) 加解锁",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/parent-chain-and-descendant-dfs/Solution.java",
+        "kotlin": "solutions/parent-chain-and-descendant-dfs/Solution.kt",
+        "cpp": "solutions/parent-chain-and-descendant-dfs/solution.cpp"
+      }
+    }
+  ]
+}

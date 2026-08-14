@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1879,
+  "slug": "minimum-xor-sum-of-two-arrays",
+  "title": "两个数组最小的异或值之和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-027",
+  "studyTags": [
+    "位运算",
+    "数组",
+    "动态规划",
+    "状态压缩"
+  ],
+  "summary": "任意排列第二个等长数组，最小化对应位置元素异或值之和。",
+  "insight": "用掩码表示第二个数组已使用下标，当前匹配第几个元素由掩码置位数确定；枚举尚未使用的元素并记忆最小代价。",
+  "pitfalls": [
+    "数组长度最多十四适合位压缩",
+    "相同数值的不同下标仍是不同选择",
+    "记忆值需区分尚未计算"
+  ],
+  "solutions": [
+    {
+      "id": "bitmask-assignment-dp",
+      "title": "状态压缩匹配 DP",
+      "kind": "最优",
+      "idea": "对每个已用下标集合求完成剩余匹配的最小代价。",
+      "steps": [
+        "memo[mask]，index=bitCount(mask)",
+        "若 mask 全满返回零",
+        "枚举未使用 j，取 nums1[index]^nums2[j]+dfs(mask|1<<j) 最小值"
+      ],
+      "complexity": {
+        "time": "O(n·2^n)",
+        "space": "O(2^n)"
+      },
+      "files": {
+        "java": "solutions/bitmask-assignment-dp/Solution.java",
+        "kotlin": "solutions/bitmask-assignment-dp/Solution.kt",
+        "cpp": "solutions/bitmask-assignment-dp/solution.cpp"
+      }
+    }
+  ]
+}

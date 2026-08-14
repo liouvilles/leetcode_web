@@ -1,0 +1,1 @@
+class Solution { public:vector<int> findLonely(vector<int>& nums){unordered_map<int,int> count;for(int value:nums)++count[value];vector<int> answer;for(int value:nums)if(count[value]==1&&!count.count(value-1)&&!count.count(value+1))answer.push_back(value);return answer;} };

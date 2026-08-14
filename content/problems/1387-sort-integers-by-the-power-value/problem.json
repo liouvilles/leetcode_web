@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1387,
+  "slug": "sort-integers-by-the-power-value",
+  "title": "将整数按权重排序",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-019",
+  "studyTags": [
+    "动态规划",
+    "记忆化",
+    "排序"
+  ],
+  "summary": "整数 x 的权重是按 Collatz 规则变为一所需步数；将 [lo,hi] 按权重和数值排序，返回第 k 个。",
+  "insight": "递归计算 power(x)，用哈希表缓存中间结果；排序键为（权重, 数值）。",
+  "pitfalls": [
+    "权重相同时按数值升序",
+    "区间端点都包含",
+    "缓存一的权重为零"
+  ],
+  "solutions": [
+    {
+      "id": "memoized-collatz-sort",
+      "title": "记忆化权重排序",
+      "kind": "最优",
+      "idea": "复用 Collatz 链上已经计算的后缀步数。",
+      "steps": [
+        "memo[1]=0，power(x)=1+power(x/2 或 3x+1)",
+        "生成 lo 到 hi 的整数列表",
+        "按 power、value 升序排序并返回索引 k-1"
+      ],
+      "complexity": {
+        "time": "O(R log R+链长)",
+        "space": "O(R+链上状态)"
+      },
+      "files": {
+        "java": "solutions/memoized-collatz-sort/Solution.java",
+        "kotlin": "solutions/memoized-collatz-sort/Solution.kt",
+        "cpp": "solutions/memoized-collatz-sort/solution.cpp"
+      }
+    }
+  ]
+}

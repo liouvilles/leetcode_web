@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2334,
+  "slug": "subarray-with-elements-greater-than-varying-threshold",
+  "title": "元素值大于变化阈值的子数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "数组",
+    "栈",
+    "单调栈"
+  ],
+  "summary": "寻找某个非空子数组，其每个元素都严格大于 threshold 除以子数组长度，返回任一合法长度，不存在返回负一。",
+  "insight": "条件等价于子数组最小值乘长度大于 threshold。单调栈求每个元素作为最小值能延伸到的前后首个严格更小元素，检查其最大跨度即可。",
+  "pitfalls": [
+    "不等式是严格大于",
+    "乘积用 long 更稳妥",
+    "只需返回任一合法长度"
+  ],
+  "solutions": [
+    {
+      "id": "minimum-span-monotonic-stack",
+      "title": "最小值跨度单调栈",
+      "kind": "最优",
+      "idea": "为每个候选最小值计算最大可覆盖区间。",
+      "steps": [
+        "left 求前一严格更小位置：弹出 >= 当前值",
+        "right 从右求后一严格更小位置，同样弹出 >=",
+        "对 i 计算 length=right-left-1",
+        "若 nums[i]*length>threshold 返回 length，否则最终 -1"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/minimum-span-monotonic-stack/Solution.java",
+        "kotlin": "solutions/minimum-span-monotonic-stack/Solution.kt",
+        "cpp": "solutions/minimum-span-monotonic-stack/solution.cpp"
+      }
+    }
+  ]
+}

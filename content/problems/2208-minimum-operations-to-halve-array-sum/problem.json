@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2208,
+  "slug": "minimum-operations-to-halve-array-sum",
+  "title": "将数组和减半的最少操作次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-032",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "堆（优先队列）"
+  ],
+  "summary": "每次选择一个数减半，求让数组总和至少减少原总和一半的最少操作数。",
+  "insight": "每次对当前最大数减半能获得最大即时降幅，交换论证保证贪心最优。用最大堆反复取最大值并放回一半。",
+  "pitfalls": [
+    "元素会变成小数",
+    "目标是累计减少量达到原和一半",
+    "堆按 double 降序"
+  ],
+  "solutions": [
+    {
+      "id": "max-heap-largest-halving",
+      "title": "最大堆贪心减半",
+      "kind": "最优",
+      "idea": "每步选择能带来最大降幅的当前元素。",
+      "steps": [
+        "计算 total，把所有数以 double 入最大堆",
+        "reduced=0、operations=0",
+        "while reduced<total/2：maximum=pop，half=maximum/2，reduced+=half，half 入堆，operations++"
+      ],
+      "complexity": {
+        "time": "O((n+operations) log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/max-heap-largest-halving/Solution.java",
+        "kotlin": "solutions/max-heap-largest-halving/Solution.kt",
+        "cpp": "solutions/max-heap-largest-halving/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numPermsDISequence",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "DID 有五种",
+      "args": [
+        "DID"
+      ],
+      "expected": 5
+    },
+    {
+      "name": "单个下降",
+      "args": [
+        "D"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "全递增唯一",
+      "args": [
+        "III"
+      ],
+      "expected": 1
+    }
+  ]
+}

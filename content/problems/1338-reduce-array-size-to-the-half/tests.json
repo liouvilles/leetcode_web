@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minSetSize",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "删除两个值达到一半",
+      "args": [
+        [
+          3,
+          3,
+          3,
+          3,
+          5,
+          5,
+          5,
+          2,
+          2,
+          7
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "全部值不同需两个",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "单一值只选一个",
+      "args": [
+        [
+          7,
+          7
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

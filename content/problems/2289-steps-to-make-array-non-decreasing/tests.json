@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "totalSteps",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典数组需要三轮",
+      "args": [
+        [
+          5,
+          3,
+          4,
+          4,
+          7,
+          3,
+          6,
+          11,
+          8,
+          5,
+          11
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "已非递减无需删除",
+      "args": [
+        [
+          4,
+          5,
+          7,
+          7,
+          13
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "严格下降一轮删至单元素",
+      "args": [
+        [
+          5,
+          4,
+          3,
+          2
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

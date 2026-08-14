@@ -1,0 +1,1 @@
+class Solution { public int scheduleCourse(int[][] courses){Arrays.sort(courses,Comparator.comparingInt(course->course[1]));PriorityQueue<Integer> durations=new PriorityQueue<>(Comparator.reverseOrder());int total=0;for(int[] course:courses){total+=course[0];durations.offer(course[0]);if(total>course[1])total-=durations.poll();}return durations.size();} }

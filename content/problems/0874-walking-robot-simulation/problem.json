@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 874,
+  "slug": "walking-robot-simulation",
+  "title": "模拟行走机器人",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "数组",
+    "哈希集合",
+    "模拟"
+  ],
+  "summary": "机器人从原点朝北，按前进、左转和右转指令移动，不能进入障碍格，求过程中到原点最大欧氏距离平方。",
+  "insight": "逐单位执行前进指令才能在障碍前停下；把障碍坐标编码进集合，方向用四个向量和模四下标维护。",
+  "pitfalls": [
+    "遇障碍时当前前进指令剩余步数全部停止",
+    "负一右转、负二左转",
+    "答案在每个实际移动后更新"
+  ],
+  "solutions": [
+    {
+      "id": "unit-step-obstacle-simulation",
+      "title": "逐步障碍模拟",
+      "kind": "最优",
+      "idea": "用方向下标和坐标集合执行全部命令。",
+      "steps": [
+        "把 obstacle 编码为 x,y 字符串或整数对集合",
+        "direction=北；-1 令 direction=(direction+1)%4，-2 令 direction=(direction+3)%4",
+        "正命令逐步计算 next，若是障碍 break，否则更新坐标和最大 x²+y²"
+      ],
+      "complexity": {
+        "time": "O(total steps + obstacles)",
+        "space": "O(obstacles)"
+      },
+      "files": {
+        "java": "solutions/unit-step-obstacle-simulation/Solution.java",
+        "kotlin": "solutions/unit-step-obstacle-simulation/Solution.kt",
+        "cpp": "solutions/unit-step-obstacle-simulation/solution.cpp"
+      }
+    }
+  ]
+}

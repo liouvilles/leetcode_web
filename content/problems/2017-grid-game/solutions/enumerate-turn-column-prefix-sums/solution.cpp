@@ -1,0 +1,1 @@
+class Solution { public: long long gridGame(vector<vector<int>>& grid){long long top=accumulate(grid[0].begin(),grid[0].end(),0LL),bottom=0,answer=LLONG_MAX;for(int col=0;col<(int)grid[0].size();++col){top-=grid[0][col];answer=min(answer,max(top,bottom));bottom+=grid[1][col];}return answer;} };

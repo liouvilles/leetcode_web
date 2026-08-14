@@ -1,0 +1,1 @@
+class Solution { public List<String> buildArray(int[] target,int n){List<String> answer=new ArrayList<>();int index=0;for(int value=1;value<=n&&index<target.length;value++){answer.add("Push");if(value==target[index])index++;else answer.add("Pop");}return answer;} }

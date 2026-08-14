@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 459,
+  "slug": "repeated-substring-pattern",
+  "title": "重复的子字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-006",
+  "studyTags": [
+    "KMP",
+    "字符串",
+    "周期"
+  ],
+  "summary": "判断非空字符串能否由某个比自身短的子串重复多次构成。",
+  "insight": "KMP 前缀函数给出最长相等真前后缀长度；若剩余的最小周期长度能整除总长度，就存在重复模式。",
+  "pitfalls": [
+    "重复次数至少为二",
+    "最长真前后缀长度必须大于零",
+    "总长度需能被候选周期整除"
+  ],
+  "solutions": [
+    {
+      "id": "prefix-function-period",
+      "title": "前缀函数求周期",
+      "kind": "最优",
+      "idea": "利用 border 长度推导最小周期 n-prefix[n-1]。",
+      "steps": [
+        "计算 KMP prefix 数组",
+        "period=n-prefix[n-1]",
+        "prefix 最后一项>0 且 n%period==0 时返回真"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/prefix-function-period/Solution.java",
+        "kotlin": "solutions/prefix-function-period/Solution.kt",
+        "cpp": "solutions/prefix-function-period/solution.cpp"
+      }
+    }
+  ]
+}

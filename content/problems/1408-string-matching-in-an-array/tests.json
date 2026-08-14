@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "stringMatching",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "stringList",
+  "cases": [
+    {
+      "name": "as 与 hero 是子串",
+      "args": [
+        [
+          "mass",
+          "as",
+          "hero",
+          "superhero"
+        ]
+      ],
+      "expected": [
+        "as",
+        "hero"
+      ]
+    },
+    {
+      "name": "两个不同子串",
+      "args": [
+        [
+          "leetcode",
+          "et",
+          "code"
+        ]
+      ],
+      "expected": [
+        "et",
+        "code"
+      ]
+    },
+    {
+      "name": "没有单词被包含",
+      "args": [
+        [
+          "blue",
+          "green",
+          "bu"
+        ]
+      ],
+      "expected": []
+    }
+  ]
+}

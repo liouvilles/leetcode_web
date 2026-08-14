@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numSteps",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "十三需要六步",
+      "args": [
+        "1101"
+      ],
+      "expected": 6
+    },
+    {
+      "name": "二只需除二",
+      "args": [
+        "10"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "一无需操作",
+      "args": [
+        "1"
+      ],
+      "expected": 0
+    }
+  ]
+}

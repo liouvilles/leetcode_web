@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 1631,
+  "slug": "path-with-minimum-effort",
+  "title": "最小体力消耗路径",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-023",
+  "studyTags": [
+    "数组",
+    "图论",
+    "堆（优先队列）",
+    "矩阵",
+    "最短路"
+  ],
+  "summary": "从高度矩阵左上角走到右下角，路径体力为相邻高度差的最大值，求所有路径中的最小体力。",
+  "insight": "把格子视为图节点，路径代价聚合从加法改为最大值。Dijkstra 中到邻居的新代价为 max(当前代价,边高度差)，仍满足单调性。",
+  "pitfalls": [
+    "目标是最小化路径上的最大边权",
+    "堆中旧状态需要跳过",
+    "单格矩阵答案为零"
+  ],
+  "solutions": [
+    {
+      "id": "minimax-dijkstra",
+      "title": "极小化最大边权 Dijkstra",
+      "kind": "最优",
+      "idea": "用最小堆优先扩展当前已知体力最小的格子。",
+      "steps": [
+        "effort 全为最大值，起点为零并入堆",
+        "弹出 [cost,row,col]，旧状态跳过；到终点即可返回",
+        "邻居 candidate=max(cost,abs(height差))，更小时更新并入堆"
+      ],
+      "complexity": {
+        "time": "O(mn log(mn))",
+        "space": "O(mn)"
+      },
+      "files": {
+        "java": "solutions/minimax-dijkstra/Solution.java",
+        "kotlin": "solutions/minimax-dijkstra/Solution.kt",
+        "cpp": "solutions/minimax-dijkstra/solution.cpp"
+      }
+    }
+  ]
+}

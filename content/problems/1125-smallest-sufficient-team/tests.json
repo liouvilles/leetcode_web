@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "smallestSufficientTeam",
+  "parameterTypes": [
+    "stringArray",
+    "stringListMatrix"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "三技能选零和二",
+      "args": [
+        [
+          "java",
+          "nodejs",
+          "reactjs"
+        ],
+        [
+          [
+            "java"
+          ],
+          [
+            "nodejs"
+          ],
+          [
+            "nodejs",
+            "reactjs"
+          ]
+        ]
+      ],
+      "expected": [
+        0,
+        2
+      ]
+    },
+    {
+      "name": "一人覆盖两技能",
+      "args": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ],
+          [
+            "a",
+            "b"
+          ]
+        ]
+      ],
+      "expected": [
+        2
+      ]
+    },
+    {
+      "name": "相同候选取较早者",
+      "args": [
+        [
+          "a"
+        ],
+        [
+          [
+            "a"
+          ],
+          [
+            "a"
+          ]
+        ]
+      ],
+      "expected": [
+        0
+      ]
+    }
+  ]
+}

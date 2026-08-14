@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "orderOfLargestPlusSign",
+  "parameterTypes": [
+    "int",
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "五阶网格最大二阶",
+      "args": [
+        5,
+        [
+          [
+            4,
+            2
+          ]
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "唯一格是矿",
+      "args": [
+        1,
+        [
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "二阶全一网格",
+      "args": [
+        2,
+        []
+      ],
+      "expected": 1
+    }
+  ]
+}

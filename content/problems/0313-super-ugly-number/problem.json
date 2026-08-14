@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 313,
+  "slug": "super-ugly-number",
+  "title": "超级丑数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-005",
+  "studyTags": [
+    "动态规划",
+    "多指针",
+    "有序合并"
+  ],
+  "summary": "给定一组质数，返回质因数都来自该集合的正整数序列中的第 n 个数。",
+  "insight": "每个质数形成一条已生成丑数乘该质数的递增序列，用一个指针维护各序列的下一候选。",
+  "pitfalls": [
+    "第一项是 1",
+    "多个质数可能生成相同候选，所有对应指针都要前进",
+    "乘法中间值用长整型"
+  ],
+  "solutions": [
+    {
+      "id": "multi-pointer-merge",
+      "title": "多路有序序列合并",
+      "kind": "最优",
+      "idea": "每轮取所有质数候选的最小值，并推进所有命中该值的指针。",
+      "steps": [
+        "ugly[0]=1，pointers 全零",
+        "计算每个 ugly[pointer[i]]*primes[i] 的最小值",
+        "写入 next 并推进相等候选的所有指针"
+      ],
+      "complexity": {
+        "time": "O(nk)",
+        "space": "O(n+k)"
+      },
+      "files": {
+        "java": "solutions/multi-pointer-merge/Solution.java",
+        "kotlin": "solutions/multi-pointer-merge/Solution.kt",
+        "cpp": "solutions/multi-pointer-merge/solution.cpp"
+      }
+    }
+  ]
+}

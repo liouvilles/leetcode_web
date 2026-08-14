@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2423,
+  "slug": "remove-letter-to-equalize-frequency",
+  "title": "删除字符使频率相同",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-035",
+  "studyTags": [
+    "哈希表",
+    "字符串",
+    "计数"
+  ],
+  "summary": "恰删除字符串中的一个字符后，判断所有仍出现字母的频次能否相同。",
+  "insight": "字符串较短，可枚举删除位置，重算 26 个频次并检查所有正频次是否等于首个正频次。",
+  "pitfalls": [
+    "必须恰好删除一个字符",
+    "频次为零的字母不参与比较",
+    "删除后只剩一种字母也合法"
+  ],
+  "solutions": [
+    {
+      "id": "try-each-deletion",
+      "title": "枚举删除位置",
+      "kind": "最优",
+      "idea": "直接验证每种单字符删除结果。",
+      "steps": [
+        "对 remove=0..n-1 建 frequency",
+        "统计除 remove 外字符",
+        "target=首个正频次，检查其他正频次相等",
+        "任一合法返回 true，否则 false"
+      ],
+      "complexity": {
+        "time": "O(26n+n²)",
+        "space": "O(26)"
+      },
+      "files": {
+        "java": "solutions/try-each-deletion/Solution.java",
+        "kotlin": "solutions/try-each-deletion/Solution.kt",
+        "cpp": "solutions/try-each-deletion/solution.cpp"
+      }
+    }
+  ]
+}

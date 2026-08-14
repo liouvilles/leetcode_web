@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 189,
+  "slug": "rotate-array",
+  "title": "轮转数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-003",
+  "studyTags": [
+    "三次反转",
+    "原地数组",
+    "模运算"
+  ],
+  "summary": "把数组中的元素整体向右轮转 k 个位置，要求原地完成。",
+  "insight": "先反转整个数组，再分别反转前 k 个和后 n-k 个元素，就能保持两段内部的原顺序。",
+  "pitfalls": [
+    "k 需要对数组长度取模",
+    "k 为零时通用反转流程仍可处理",
+    "反转区间边界都包含端点"
+  ],
+  "solutions": [
+    {
+      "id": "three-reversals",
+      "title": "三次区间反转",
+      "kind": "最优",
+      "idea": "通过整体反转与两段局部反转实现原地循环移动。",
+      "steps": [
+        "令 k %= n",
+        "反转整个数组",
+        "反转 [0,k-1] 和 [k,n-1]"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/three-reversals/Solution.java",
+        "kotlin": "solutions/three-reversals/Solution.kt",
+        "cpp": "solutions/three-reversals/solution.cpp"
+      }
+    }
+  ]
+}

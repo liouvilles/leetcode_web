@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumScore",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三次操作最大得分十四",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          3,
+          2,
+          1
+        ]
+      ],
+      "expected": 14
+    },
+    {
+      "name": "含负数的经典案例得一百零二",
+      "args": [
+        [
+          -5,
+          -3,
+          -3,
+          -2,
+          7,
+          1
+        ],
+        [
+          -10,
+          -5,
+          3,
+          4,
+          6
+        ]
+      ],
+      "expected": 102
+    },
+    {
+      "name": "单元素乘二得十",
+      "args": [
+        [
+          5
+        ],
+        [
+          2
+        ]
+      ],
+      "expected": 10
+    }
+  ]
+}

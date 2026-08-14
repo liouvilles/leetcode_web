@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 832,
+  "slug": "flipping-an-image",
+  "title": "翻转图像",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-011",
+  "studyTags": [
+    "数组",
+    "双指针",
+    "矩阵",
+    "位运算"
+  ],
+  "summary": "先水平翻转二进制矩阵每一行，再把所有零一反转，返回结果。",
+  "insight": "对每行对称位置同时交换并异或一；循环覆盖到中点即可把两个操作合并。",
+  "pitfalls": [
+    "奇数列的中间元素也要反转",
+    "异或一可翻转零一",
+    "可原地修改矩阵"
+  ],
+  "solutions": [
+    {
+      "id": "symmetric-swap-and-invert",
+      "title": "对称交换并同步取反",
+      "kind": "最优",
+      "idea": "一次处理每行的一对对称元素。",
+      "steps": [
+        "对每行令 left=0、right=columns-1",
+        "保存左右值，令 row[left]=rightValue xor 1，row[right]=leftValue xor 1",
+        "left++、right-- 直到交错，返回 image"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/symmetric-swap-and-invert/Solution.java",
+        "kotlin": "solutions/symmetric-swap-and-invert/Solution.kt",
+        "cpp": "solutions/symmetric-swap-and-invert/solution.cpp"
+      }
+    }
+  ]
+}

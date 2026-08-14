@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2148,
+  "slug": "count-elements-with-strictly-smaller-and-greater-elements",
+  "title": "元素计数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-031",
+  "studyTags": [
+    "数组",
+    "排序"
+  ],
+  "summary": "统计数组中同时存在严格更小元素和严格更大元素的元素个数。",
+  "insight": "条件等价于元素严格位于全局最小值与最大值之间，先求两端极值再计数即可。",
+  "pitfalls": [
+    "等于最小或最大值的不计",
+    "重复的中间值分别计数",
+    "所有值相等时答案为零"
+  ],
+  "solutions": [
+    {
+      "id": "global-min-max-scan",
+      "title": "全局极值扫描",
+      "kind": "最优",
+      "idea": "用最小最大值直接刻画合格元素。",
+      "steps": [
+        "求 minimum、maximum",
+        "遍历 nums",
+        "若 minimum<value<maximum，answer++"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/global-min-max-scan/Solution.java",
+        "kotlin": "solutions/global-min-max-scan/Solution.kt",
+        "cpp": "solutions/global-min-max-scan/solution.cpp"
+      }
+    }
+  ]
+}

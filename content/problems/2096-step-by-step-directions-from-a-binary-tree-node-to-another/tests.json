@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getDirections",
+  "parameterTypes": [
+    "treeNode",
+    "int",
+    "int"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "三到六经根方向 UURL",
+      "args": [
+        [
+          5,
+          1,
+          2,
+          3,
+          null,
+          6,
+          4
+        ],
+        3,
+        6
+      ],
+      "expected": "UURL"
+    },
+    {
+      "name": "二到一直接向左",
+      "args": [
+        [
+          5,
+          1,
+          2,
+          3,
+          null,
+          6,
+          4
+        ],
+        2,
+        1
+      ],
+      "expected": "UL"
+    },
+    {
+      "name": "同一节点无需移动",
+      "args": [
+        [
+          1
+        ],
+        1,
+        1
+      ],
+      "expected": ""
+    }
+  ]
+}

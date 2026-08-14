@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "twoEggDrop",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一百层最少十四次",
+      "args": [
+        100
+      ],
+      "expected": 14
+    },
+    {
+      "name": "两层最少两次",
+      "args": [
+        2
+      ],
+      "expected": 2
+    },
+    {
+      "name": "一层只需一次",
+      "args": [
+        1
+      ],
+      "expected": 1
+    }
+  ]
+}

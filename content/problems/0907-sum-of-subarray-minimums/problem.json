@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 907,
+  "slug": "sum-of-subarray-minimums",
+  "title": "子数组的最小值之和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-013",
+  "studyTags": [
+    "数组",
+    "单调栈",
+    "动态规划"
+  ],
+  "summary": "求所有非空连续子数组最小值之和，对 1e9+7 取模。",
+  "insight": "每个 arr[i] 作为最小值的子数组数量等于到左侧前一个严格更小元素距离乘到右侧下一个小于等于元素距离；单调栈弹出时可一次结算。",
+  "pitfalls": [
+    "重复值一侧严格、一侧非严格以避免重复计数",
+    "贡献乘法使用长整型",
+    "扫描结束要用哨兵弹出剩余元素"
+  ],
+  "solutions": [
+    {
+      "id": "monotonic-stack-contributions",
+      "title": "单调栈弹出贡献",
+      "kind": "最优",
+      "idea": "弹出下标时确定其左右最小值边界。",
+      "steps": [
+        "栈保存严格递增下标",
+        "i 从零到 n，n 处视作负无穷；当栈顶值>=current 时弹 mid",
+        "left=新栈顶或 -1，贡献 arr[mid]*(mid-left)*(i-mid)，累加取模；真实下标 i<n 时入栈"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/monotonic-stack-contributions/Solution.java",
+        "kotlin": "solutions/monotonic-stack-contributions/Solution.kt",
+        "cpp": "solutions/monotonic-stack-contributions/solution.cpp"
+      }
+    }
+  ]
+}

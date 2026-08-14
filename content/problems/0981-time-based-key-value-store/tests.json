@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "TimeMap",
+  "constructorTypes": [],
+  "cases": [
+    {
+      "name": "经典同键时间查询",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "set",
+          "parameterTypes": [
+            "string",
+            "string",
+            "int"
+          ],
+          "args": [
+            "foo",
+            "bar",
+            1
+          ]
+        },
+        {
+          "method": "get",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "foo",
+            1
+          ],
+          "returnType": "string",
+          "expected": "bar"
+        },
+        {
+          "method": "get",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "foo",
+            3
+          ],
+          "returnType": "string",
+          "expected": "bar"
+        },
+        {
+          "method": "set",
+          "parameterTypes": [
+            "string",
+            "string",
+            "int"
+          ],
+          "args": [
+            "foo",
+            "bar2",
+            4
+          ]
+        },
+        {
+          "method": "get",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "foo",
+            4
+          ],
+          "returnType": "string",
+          "expected": "bar2"
+        },
+        {
+          "method": "get",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "foo",
+            5
+          ],
+          "returnType": "string",
+          "expected": "bar2"
+        }
+      ]
+    },
+    {
+      "name": "查询早于首次写入",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "set",
+          "parameterTypes": [
+            "string",
+            "string",
+            "int"
+          ],
+          "args": [
+            "a",
+            "x",
+            5
+          ]
+        },
+        {
+          "method": "get",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "a",
+            4
+          ],
+          "returnType": "string",
+          "expected": ""
+        }
+      ]
+    },
+    {
+      "name": "不存在的键",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "get",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "missing",
+            10
+          ],
+          "returnType": "string",
+          "expected": ""
+        }
+      ]
+    }
+  ]
+}

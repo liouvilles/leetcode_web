@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1942,
+  "slug": "the-number-of-the-smallest-unoccupied-chair",
+  "title": "最小未被占据椅子的编号",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-028",
+  "studyTags": [
+    "数组",
+    "堆（优先队列）",
+    "模拟"
+  ],
+  "summary": "朋友按到达时间入座当时编号最小的空椅，离开时释放，求目标朋友所坐椅子编号。",
+  "insight": "按到达时间排序事件。到达前从按离开时间排序的忙碌堆释放所有已走朋友；空闲椅堆给出最小编号。",
+  "pitfalls": [
+    "同一时刻先处理离开再到达",
+    "到达时间互不相同",
+    "只需分配至目标朋友到达"
+  ],
+  "solutions": [
+    {
+      "id": "arrival-events-two-heaps",
+      "title": "到达事件与双堆",
+      "kind": "最优",
+      "idea": "一个堆按离开时间释放，一个堆按椅号分配。",
+      "steps": [
+        "事件 [arrival,leave,index] 按 arrival 排序，空闲堆初始 0..n-1",
+        "每次释放 leave<=arrival 的椅子",
+        "取最小空椅；若是 target 返回，否则以 leave 放入忙碌堆"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/arrival-events-two-heaps/Solution.java",
+        "kotlin": "solutions/arrival-events-two-heaps/Solution.kt",
+        "cpp": "solutions/arrival-events-two-heaps/solution.cpp"
+      }
+    }
+  ]
+}

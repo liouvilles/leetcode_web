@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "expressiveWords",
+  "parameterTypes": [
+    "string",
+    "stringArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典仅 hello 合法",
+      "args": [
+        "heeellooo",
+        [
+          "hello",
+          "hi",
+          "helo"
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "两个长字符组",
+      "args": [
+        "zzzzzyyyyy",
+        [
+          "zzyy",
+          "zy",
+          "zyy"
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "缺少末尾字符组",
+      "args": [
+        "abcd",
+        [
+          "abc"
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

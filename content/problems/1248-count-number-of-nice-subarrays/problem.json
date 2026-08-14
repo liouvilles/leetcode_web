@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1248,
+  "slug": "count-number-of-nice-subarrays",
+  "title": "统计优美子数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-017",
+  "studyTags": [
+    "数组",
+    "滑动窗口",
+    "前缀计数"
+  ],
+  "summary": "统计整数数组中恰好含 k 个奇数的连续子数组数量。",
+  "insight": "恰好 k 个等于“至多 k 个”减去“至多 k-1 个”。至多函数用滑动窗口维护奇数数目，每个右端点贡献 right-left+1 个合法子数组。",
+  "pitfalls": [
+    "偶数可以任意扩展子数组边界",
+    "atMost(-1) 应返回零",
+    "答案可能大于单个窗口长度但在整数范围内"
+  ],
+  "solutions": [
+    {
+      "id": "difference-of-at-most-windows",
+      "title": "两个至多窗口之差",
+      "kind": "最优",
+      "idea": "把精确计数转换为两个单调窗口计数。",
+      "steps": [
+        "定义 atMost(limit)，limit<0 返回零",
+        "右端扫描，遇奇数增加 odd；odd>limit 时移动 left 并扣除离开的奇数",
+        "每轮累加 right-left+1；返回 atMost(k)-atMost(k-1)"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/difference-of-at-most-windows/Solution.java",
+        "kotlin": "solutions/difference-of-at-most-windows/Solution.kt",
+        "cpp": "solutions/difference-of-at-most-windows/solution.cpp"
+      }
+    }
+  ]
+}

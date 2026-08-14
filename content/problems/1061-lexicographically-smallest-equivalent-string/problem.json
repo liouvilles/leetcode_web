@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1061,
+  "slug": "lexicographically-smallest-equivalent-string",
+  "title": "按字典序排列最小的等效字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-015",
+  "studyTags": [
+    "字符串",
+    "并查集"
+  ],
+  "summary": "s1 与 s2 对应字符两两等价，等价关系可传递；把 baseStr 每个字符替换为其等价类中字典序最小字符。",
+  "insight": "并查集合并字符时总让较小根成为父节点，因此 find 结果天然就是等价类最小字符。",
+  "pitfalls": [
+    "等价关系对称且传递",
+    "合并时不能按大小秩破坏最小根语义，或需另存最小值",
+    "不在任何关系中的字符映射到自身"
+  ],
+  "solutions": [
+    {
+      "id": "minimum-root-letter-dsu",
+      "title": "最小字符根并查集",
+      "kind": "最优",
+      "idea": "让每个等价类代表始终是字典序最小字符。",
+      "steps": [
+        "parent[i]=i",
+        "对 s1[i],s2[i] 找根，把较大根的 parent 指向较小根",
+        "遍历 baseStr，把每字符替换为 find(character) 对应字母并返回"
+      ],
+      "complexity": {
+        "time": "O(total length·α(26))",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/minimum-root-letter-dsu/Solution.java",
+        "kotlin": "solutions/minimum-root-letter-dsu/Solution.kt",
+        "cpp": "solutions/minimum-root-letter-dsu/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { fun discountPrices(sentence:String,discount:Int):String{return sentence.split(" ").joinToString(" "){word->val valid=word.length>1&&word[0]=='$'&&word.substring(1).all{it.isDigit()};if(valid){val price=word.substring(1).toLong();java.lang.String.format(java.util.Locale.US,"$%.2f",price*(100-discount)/100.0)}else word}} }

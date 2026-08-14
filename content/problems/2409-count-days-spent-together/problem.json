@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2409,
+  "slug": "count-days-spent-together",
+  "title": "统计共同度过的日子数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-035",
+  "studyTags": [
+    "数学",
+    "字符串"
+  ],
+  "summary": "给定两人在同一年内的到达与离开日期，统计两人同时在场的天数。",
+  "insight": "把 MM-DD 转换为非闰年年内序号，共同区间为较晚到达日至较早离开日，闭区间长度取非负。",
+  "pitfalls": [
+    "到达和离开日期都计入",
+    "年份不是闰年",
+    "无交集时返回零"
+  ],
+  "solutions": [
+    {
+      "id": "calendar-date-to-ordinal-overlap",
+      "title": "日期序号与闭区间交集",
+      "kind": "最优",
+      "idea": "统一成整数轴求重叠长度。",
+      "steps": [
+        "monthDays 固定",
+        "ordinal 累加此前月份天数再加 day",
+        "start=max(arrival ordinals)，end=min(leaving ordinals)",
+        "返回 max(0,end-start+1)"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/calendar-date-to-ordinal-overlap/Solution.java",
+        "kotlin": "solutions/calendar-date-to-ordinal-overlap/Solution.kt",
+        "cpp": "solutions/calendar-date-to-ordinal-overlap/solution.cpp"
+      }
+    }
+  ]
+}

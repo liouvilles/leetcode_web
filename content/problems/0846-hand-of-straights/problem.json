@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 846,
+  "slug": "hand-of-straights",
+  "title": "一手顺子",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-011",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "排序",
+    "有序映射"
+  ],
+  "summary": "把所有牌分成每组 groupSize 张的连续数字，判断是否可行。",
+  "insight": "每次从当前最小牌开始，它不可能作为更大顺子的中间，因此必须取从它起的 groupSize 个连续值；有序计数表支持重复执行。",
+  "pitfalls": [
+    "牌数不能被 groupSize 整除时立即失败",
+    "每取一张要删除或递减频次",
+    "缺少任一连续值就失败"
+  ],
+  "solutions": [
+    {
+      "id": "smallest-card-greedy-treemap",
+      "title": "有序频次表最小牌贪心",
+      "kind": "最优",
+      "idea": "反复消费以最小剩余值开头的顺子。",
+      "steps": [
+        "若 hand.length%groupSize!=0 返回假，建立有序频次表",
+        "while 表非空，start=firstKey",
+        "for value=start..start+groupSize-1，若不存在返回假；频次一则删除，否则减一；耗尽返回真"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/smallest-card-greedy-treemap/Solution.java",
+        "kotlin": "solutions/smallest-card-greedy-treemap/Solution.kt",
+        "cpp": "solutions/smallest-card-greedy-treemap/solution.cpp"
+      }
+    }
+  ]
+}

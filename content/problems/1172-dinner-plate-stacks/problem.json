@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1172,
+  "slug": "dinner-plate-stacks",
+  "title": "餐盘栈",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-016",
+  "studyTags": [
+    "设计",
+    "栈",
+    "有序集合"
+  ],
+  "summary": "维护容量固定的一排栈；push 总放入最左非满栈，pop 从最右非空栈弹出，popAtStack 从指定栈弹出。",
+  "insight": "用有序集合维护所有未满栈下标，push 取最小下标；弹出后把该栈加入未满集合，并及时裁掉尾部空栈，使普通 pop 始终访问最右非空栈。",
+  "pitfalls": [
+    "中间空洞不能直接删除栈，否则下标会变化",
+    "尾部空栈可连续裁剪",
+    "无效下标或空指定栈返回负一"
+  ],
+  "solutions": [
+    {
+      "id": "ordered-nonfull-index-set",
+      "title": "未满下标有序集合",
+      "kind": "最优",
+      "idea": "用最小可写下标和紧凑尾部同时满足两种弹出规则。",
+      "steps": [
+        "stacks 保存各栈，available 保存未满栈下标",
+        "push：available 空则新建栈，否则取最小下标；压入后若满则移出 available，否则保留",
+        "popAtStack：校验后弹出并加入 available，再删除所有尾部空栈及其下标；pop 调用最后一个栈的 popAtStack"
+      ],
+      "complexity": {
+        "time": "每次 O(log n)",
+        "space": "O(元素数+栈数)"
+      },
+      "files": {
+        "java": "solutions/ordered-nonfull-index-set/Solution.java",
+        "kotlin": "solutions/ordered-nonfull-index-set/Solution.kt",
+        "cpp": "solutions/ordered-nonfull-index-set/solution.cpp"
+      }
+    }
+  ]
+}

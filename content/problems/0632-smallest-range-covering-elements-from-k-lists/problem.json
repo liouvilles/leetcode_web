@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 632,
+  "slug": "smallest-range-covering-elements-from-k-lists",
+  "title": "最小区间",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-008",
+  "studyTags": [
+    "数组",
+    "堆",
+    "滑动窗口",
+    "排序"
+  ],
+  "summary": "给定 k 个升序整数列表，找出至少包含每个列表一个元素的最短闭区间；长度相同取左端点更小者。",
+  "insight": "小根堆保存每个列表当前候选并维护当前最大值；弹出最小值形成区间，再推进它所属列表，直到某列表耗尽。",
+  "pitfalls": [
+    "堆中始终恰好覆盖每个列表一个候选",
+    "更新答案时要处理相同长度的左端点规则",
+    "任一列表耗尽后无法再覆盖全部列表"
+  ],
+  "solutions": [
+    {
+      "id": "k-way-min-heap",
+      "title": "多路归并维护覆盖区间",
+      "kind": "最优",
+      "idea": "每次移动当前最小端点所属列表，并同步维护右端最大值。",
+      "steps": [
+        "各列表首元素入小根堆并求 currentMax",
+        "堆顶 currentMin 与 currentMax 形成候选区间",
+        "弹出后推进同一列表；耗尽则结束，否则入堆并更新 maximum"
+      ],
+      "complexity": {
+        "time": "O(total log k)",
+        "space": "O(k)"
+      },
+      "files": {
+        "java": "solutions/k-way-min-heap/Solution.java",
+        "kotlin": "solutions/k-way-min-heap/Solution.kt",
+        "cpp": "solutions/k-way-min-heap/solution.cpp"
+      }
+    }
+  ]
+}

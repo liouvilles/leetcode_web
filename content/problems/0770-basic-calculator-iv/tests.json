@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "basicCalculatorIV",
+  "parameterTypes": [
+    "string",
+    "stringArray",
+    "intArray"
+  ],
+  "returnType": "stringList",
+  "cases": [
+    {
+      "name": "代入 e 后合并常数",
+      "args": [
+        "e + 8 - a + 5",
+        [
+          "e"
+        ],
+        [
+          1
+        ]
+      ],
+      "expected": [
+        "-1*a",
+        "14"
+      ]
+    },
+    {
+      "name": "代入两个变量",
+      "args": [
+        "e - 8 + temperature - pressure",
+        [
+          "e",
+          "temperature"
+        ],
+        [
+          1,
+          12
+        ]
+      ],
+      "expected": [
+        "-1*pressure",
+        "5"
+      ]
+    },
+    {
+      "name": "平方差展开",
+      "args": [
+        "(e + 8) * (e - 8)",
+        [],
+        []
+      ],
+      "expected": [
+        "1*e*e",
+        "-64"
+      ]
+    }
+  ]
+}

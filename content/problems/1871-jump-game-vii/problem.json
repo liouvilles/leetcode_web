@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1871,
+  "slug": "jump-game-vii",
+  "title": "跳跃游戏 VII",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-027",
+  "studyTags": [
+    "字符串",
+    "动态规划",
+    "前缀和",
+    "滑动窗口"
+  ],
+  "summary": "从二进制字符串下标零出发，每次向后跳 minJump 到 maxJump，且只能落在字符零上，判断能否到达末尾。",
+  "insight": "dp[i] 是否可达取决于窗口 [i-maxJump,i-minJump] 内是否有可达点。维护该窗口 dp 真值数量即可让每个位置 O(1) 判断。",
+  "pitfalls": [
+    "只能向右跳",
+    "落点必须是零",
+    "滑动窗口两端有下标边界"
+  ],
+  "solutions": [
+    {
+      "id": "reachable-window-count",
+      "title": "可达状态滑动窗口",
+      "kind": "最优",
+      "idea": "维护当前落点对应前驱范围中的可达点数。",
+      "steps": [
+        "dp[0]=true，reachable=0",
+        "i 递增：加入 dp[i-minJump]，移除 dp[i-maxJump-1]",
+        "s[i] 为零且 reachable>0 时 dp[i]=true，最终返回末位"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/reachable-window-count/Solution.java",
+        "kotlin": "solutions/reachable-window-count/Solution.kt",
+        "cpp": "solutions/reachable-window-count/solution.cpp"
+      }
+    }
+  ]
+}

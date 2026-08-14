@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2049,
+  "slug": "count-nodes-with-the-highest-score",
+  "title": "统计最高分的节点数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "树",
+    "深度优先搜索",
+    "数组",
+    "二叉树"
+  ],
+  "summary": "删除树中一个节点后，各剩余连通块大小乘积为该节点分数，统计获得最高分的节点数量。",
+  "insight": "根树后 DFS 求每个子树大小。删除节点产生每个孩子子树，以及节点子树之外大小 n-subtreeSize 的一块；把所有非空块大小相乘。",
+  "pitfalls": [
+    "空的外部块不参与乘积",
+    "分数使用 long",
+    "树可有多个孩子"
+  ],
+  "solutions": [
+    {
+      "id": "subtree-size-score-dfs",
+      "title": "子树大小 DFS 计分",
+      "kind": "最优",
+      "idea": "后序计算子树大小并立即得到删除该节点的分数。",
+      "steps": [
+        "由 parents 建 children",
+        "DFS node：size=1、score=1；递归 child，score*=childSize，size+=childSize",
+        "outside=n-size，非零则乘；与全局最大比较并维护计数，返回 size"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/subtree-size-score-dfs/Solution.java",
+        "kotlin": "solutions/subtree-size-score-dfs/Solution.kt",
+        "cpp": "solutions/subtree-size-score-dfs/solution.cpp"
+      }
+    }
+  ]
+}

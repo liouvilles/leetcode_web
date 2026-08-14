@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxValueAfterReverse",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "翻转后价值十",
+      "args": [
+        [
+          2,
+          3,
+          1,
+          5,
+          4
+        ]
+      ],
+      "expected": 10
+    },
+    {
+      "name": "复杂数组最大六十八",
+      "args": [
+        [
+          2,
+          4,
+          9,
+          24,
+          2,
+          1,
+          10
+        ]
+      ],
+      "expected": 68
+    },
+    {
+      "name": "两个元素价值不变",
+      "args": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

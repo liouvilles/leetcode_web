@@ -1,0 +1,1 @@
+class Solution { fun rangeBitwiseAnd(leftValue:Int,rightValue:Int):Int{var left=leftValue;var right=rightValue;var shift=0;while(left!=right){left=left shr 1;right=right shr 1;shift++};return left shl shift} }

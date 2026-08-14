@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "pathsWithMaxScore",
+  "parameterTypes": [
+    "stringList"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "最大分七唯一路径",
+      "args": [
+        [
+          "E23",
+          "2X2",
+          "12S"
+        ]
+      ],
+      "expected": [
+        7,
+        1
+      ]
+    },
+    {
+      "name": "最大分四两条路径",
+      "args": [
+        [
+          "E12",
+          "1X1",
+          "21S"
+        ]
+      ],
+      "expected": [
+        4,
+        2
+      ]
+    },
+    {
+      "name": "障碍完全阻断",
+      "args": [
+        [
+          "E11",
+          "XXX",
+          "11S"
+        ]
+      ],
+      "expected": [
+        0,
+        0
+      ]
+    }
+  ]
+}

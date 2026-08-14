@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numDecodings",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两种拆分方式",
+      "args": [
+        "12"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "三种拆分方式",
+      "args": [
+        "226"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "前导零不可解码",
+      "args": [
+        "06"
+      ],
+      "expected": 0
+    }
+  ]
+}

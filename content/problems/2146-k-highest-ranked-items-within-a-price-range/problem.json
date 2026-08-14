@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2146,
+  "slug": "k-highest-ranked-items-within-a-price-range",
+  "title": "价格范围内最高排名的 K 样物品",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-031",
+  "studyTags": [
+    "数组",
+    "广度优先搜索",
+    "矩阵",
+    "排序"
+  ],
+  "summary": "从网格起点经非零格移动，在给定价格范围内按距离、价格、行、列依次排名，返回前 k 个物品坐标。",
+  "insight": "BFS 求每个可达格的最短距离；价格大于一且在范围内的格子收集为候选，最后按四级键排序取前 k。",
+  "pitfalls": [
+    "值一是可走空地而非商品",
+    "值零不可穿越",
+    "排序优先级距离高于价格"
+  ],
+  "solutions": [
+    {
+      "id": "bfs-then-four-key-sort",
+      "title": "广搜距离与四键排序",
+      "kind": "最优",
+      "idea": "先完整计算可达距离，再统一排序候选。",
+      "steps": [
+        "BFS 起点，visited 防重复，状态含 row、column、distance",
+        "弹出时若 grid value 在 pricing 且 >1，记录 [distance,price,row,column]",
+        "候选按四字段升序，取前 min(k,size) 的坐标"
+      ],
+      "complexity": {
+        "time": "O(mn log(mn))",
+        "space": "O(mn)"
+      },
+      "files": {
+        "java": "solutions/bfs-then-four-key-sort/Solution.java",
+        "kotlin": "solutions/bfs-then-four-key-sort/Solution.kt",
+        "cpp": "solutions/bfs-then-four-key-sort/solution.cpp"
+      }
+    }
+  ]
+}

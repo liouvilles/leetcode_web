@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "recoverArray",
+  "parameterTypes": [
+    "int",
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "恢复一二负三",
+      "args": [
+        3,
+        [
+          -3,
+          -2,
+          -1,
+          0,
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        -3
+      ]
+    },
+    {
+      "name": "恢复一与负一",
+      "args": [
+        2,
+        [
+          -1,
+          0,
+          0,
+          1
+        ]
+      ],
+      "expected": [
+        1,
+        -1
+      ]
+    },
+    {
+      "name": "单元素五",
+      "args": [
+        1,
+        [
+          0,
+          5
+        ]
+      ],
+      "expected": [
+        5
+      ]
+    }
+  ]
+}

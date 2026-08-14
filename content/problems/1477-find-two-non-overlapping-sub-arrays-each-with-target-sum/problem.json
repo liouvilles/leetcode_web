@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1477,
+  "slug": "find-two-non-overlapping-sub-arrays-each-with-target-sum",
+  "title": "两个和为目标值且不重叠的子数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-021",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "滑动窗口"
+  ],
+  "summary": "在正整数数组中找到两个互不重叠且和均为 target 的子数组，使长度和最小；不存在返回负一。",
+  "insight": "滑动窗口枚举每个以 right 结尾的目标子数组，同时 best[i] 保存前 i 范围内目标子数组的最短长度；当前窗口与 best[left-1] 组合即可保证不重叠。",
+  "pitfalls": [
+    "数组元素为正才能用单调滑窗",
+    "只与当前窗口左端之前的最优解组合",
+    "best 需要随 right 继承此前最小值"
+  ],
+  "solutions": [
+    {
+      "id": "sliding-window-prefix-best",
+      "title": "滑窗与前缀最短长度",
+      "kind": "最优",
+      "idea": "在线组合当前目标窗口和其左侧最短目标窗口。",
+      "steps": [
+        "left=0,sum=0,bestSoFar=INF,result=INF",
+        "right 扩展，sum>target 时移动 left；sum==target 时用 best[left-1] 更新 result，并更新 bestSoFar",
+        "best[right]=bestSoFar；结束返回 result 或 -1"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/sliding-window-prefix-best/Solution.java",
+        "kotlin": "solutions/sliding-window-prefix-best/Solution.kt",
+        "cpp": "solutions/sliding-window-prefix-best/solution.cpp"
+      }
+    }
+  ]
+}

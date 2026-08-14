@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1054,
+  "slug": "distant-barcodes",
+  "title": "距离相等的条形码",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-015",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "堆",
+    "贪心"
+  ],
+  "summary": "重排条形码数组，使任意相邻两个值不同，题目保证存在解。",
+  "insight": "最大堆每次取频次最高且不等于上一位置的值；把上一轮暂存的值在放置新值后重新入堆，避免连续相同。",
+  "pitfalls": [
+    "暂存元素要先减频次",
+    "只有在放置另一值后才归还暂存项",
+    "答案可为任一合法排列"
+  ],
+  "solutions": [
+    {
+      "id": "max-frequency-heap-cooldown",
+      "title": "最大频次堆与一步冷却",
+      "kind": "最优",
+      "idea": "用暂存上一值保证相邻不同。",
+      "steps": [
+        "统计频次并把 [count,value] 放入最大堆，同频按值小优先固定输出",
+        "previous 初始化空；每轮弹堆顶写答案并 count--",
+        "把旧 previous 若剩余放回堆，再令 current 为新 previous；返回数组"
+      ],
+      "complexity": {
+        "time": "O(n log distinct)",
+        "space": "O(distinct)"
+      },
+      "files": {
+        "java": "solutions/max-frequency-heap-cooldown/Solution.java",
+        "kotlin": "solutions/max-frequency-heap-cooldown/Solution.kt",
+        "cpp": "solutions/max-frequency-heap-cooldown/solution.cpp"
+      }
+    }
+  ]
+}

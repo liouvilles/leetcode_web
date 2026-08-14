@@ -1,0 +1,1 @@
+class Solution { fun minSteps(n:Int):Int{var value=n;var answer=0;var divisor=2;while(divisor*divisor<=value){while(value%divisor==0){answer+=divisor;value/=divisor};divisor++};if(value>1)answer+=value;return answer} }

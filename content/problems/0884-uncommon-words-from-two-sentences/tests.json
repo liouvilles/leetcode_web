@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "uncommonFromSentences",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "stringArray",
+  "cases": [
+    {
+      "name": "甜和酸各一次",
+      "args": [
+        "this apple is sweet",
+        "this apple is sour"
+      ],
+      "expected": [
+        "sweet",
+        "sour"
+      ]
+    },
+    {
+      "name": "重复苹果只剩香蕉",
+      "args": [
+        "apple apple",
+        "banana"
+      ],
+      "expected": [
+        "banana"
+      ]
+    },
+    {
+      "name": "四词均不常见",
+      "args": [
+        "a b",
+        "c d"
+      ],
+      "expected": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ]
+    }
+  ]
+}

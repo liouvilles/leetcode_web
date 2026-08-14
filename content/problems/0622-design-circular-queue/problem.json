@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 622,
+  "slug": "design-circular-queue",
+  "title": "设计循环队列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-008",
+  "studyTags": [
+    "设计",
+    "数组",
+    "队列",
+    "循环缓冲区"
+  ],
+  "summary": "设计固定容量循环队列，支持入队、出队、读取队首队尾以及判空判满。",
+  "insight": "用定长数组、队首下标和元素数量表示状态；队尾写入位置是 (head+size)%capacity。",
+  "pitfalls": [
+    "空队列读取首尾返回 -1",
+    "入队满队列和出队空队列都返回 false",
+    "下标移动必须对容量取模"
+  ],
+  "solutions": [
+    {
+      "id": "array-ring-buffer",
+      "title": "数组循环缓冲区",
+      "kind": "最优",
+      "idea": "以 head 和 size 消除首尾下标相遇时的空满歧义。",
+      "steps": [
+        "初始化 capacity、head=0、size=0",
+        "入队写入 (head+size)%capacity 后 size++",
+        "出队令 head=(head+1)%capacity、size--，其余操作由 size 判断"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(k)"
+      },
+      "files": {
+        "java": "solutions/array-ring-buffer/Solution.java",
+        "kotlin": "solutions/array-ring-buffer/Solution.kt",
+        "cpp": "solutions/array-ring-buffer/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "spiralMatrixIII",
+  "parameterTypes": [
+    "int",
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "intMatrix",
+  "cases": [
+    {
+      "name": "单行四列",
+      "args": [
+        1,
+        4,
+        0,
+        0
+      ],
+      "expected": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ]
+      ]
+    },
+    {
+      "name": "二阶网格",
+      "args": [
+        2,
+        2,
+        0,
+        0
+      ],
+      "expected": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "单列从中间开始",
+      "args": [
+        3,
+        1,
+        1,
+        0
+      ],
+      "expected": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    }
+  ]
+}

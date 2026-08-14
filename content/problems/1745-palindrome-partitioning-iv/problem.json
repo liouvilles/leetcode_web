@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1745,
+  "slug": "palindrome-partitioning-iv",
+  "title": "回文串分割 IV",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-025",
+  "studyTags": [
+    "字符串",
+    "动态规划"
+  ],
+  "summary": "判断字符串能否恰好分成三个非空连续回文子串。",
+  "insight": "预处理 palindrome[left][right]，再枚举两条切分线；三个区间都为回文时立即返回真。",
+  "pitfalls": [
+    "必须恰好三段且每段非空",
+    "回文表按区间长度递增计算",
+    "切分线位置需留出第三段"
+  ],
+  "solutions": [
+    {
+      "id": "palindrome-table-two-cuts",
+      "title": "回文表与双切点枚举",
+      "kind": "最优",
+      "idea": "常数时间验证任意候选三段。",
+      "steps": [
+        "构造 palindrome：字符相等且内部长度<=2或内部回文",
+        "firstEnd 从零到 n-3",
+        "secondEnd 从 firstEnd+1 到 n-2，检查三段回文性"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/palindrome-table-two-cuts/Solution.java",
+        "kotlin": "solutions/palindrome-table-two-cuts/Solution.kt",
+        "cpp": "solutions/palindrome-table-two-cuts/solution.cpp"
+      }
+    }
+  ]
+}

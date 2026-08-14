@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 537,
+  "slug": "complex-number-multiplication",
+  "title": "复数乘法",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-007",
+  "studyTags": [
+    "字符串解析",
+    "数学",
+    "模拟"
+  ],
+  "summary": "两个复数字符串格式为 real+imaginary i，返回它们乘积的同格式字符串。",
+  "insight": "解析实部和虚部后使用 (a+bi)(c+di)=(ac-bd)+(ad+bc)i。",
+  "pitfalls": [
+    "虚部可以为负数且格式会出现 +-/",
+    "实部和虚部范围允许普通整数",
+    "输出仍保留加号分隔实部与虚部"
+  ],
+  "solutions": [
+    {
+      "id": "parse-and-formula",
+      "title": "解析后套用复数乘法公式",
+      "kind": "最优",
+      "idea": "以加号位置和末尾 i 切分两个整数分量。",
+      "steps": [
+        "解析 first=[a,b] 和 second=[c,d]",
+        "real=a*c-b*d",
+        "imaginary=a*d+b*c，格式化 real+imaginary i"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/parse-and-formula/Solution.java",
+        "kotlin": "solutions/parse-and-formula/Solution.kt",
+        "cpp": "solutions/parse-and-formula/solution.cpp"
+      }
+    }
+  ]
+}

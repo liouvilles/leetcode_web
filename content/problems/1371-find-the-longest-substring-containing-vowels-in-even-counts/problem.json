@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1371,
+  "slug": "find-the-longest-substring-containing-vowels-in-even-counts",
+  "title": "每个元音包含偶数次的最长子字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-019",
+  "studyTags": [
+    "字符串",
+    "位运算",
+    "前缀和"
+  ],
+  "summary": "求最长子字符串，使 a、e、i、o、u 五种元音的出现次数均为偶数。",
+  "insight": "用五位掩码表示前缀中各元音计数的奇偶性；两个相同掩码之间的子串令每一位异或为零，因此记录各状态最早位置。",
+  "pitfalls": [
+    "状态零的最早位置是 -1",
+    "只记录每个状态第一次出现的位置",
+    "辅音不改变掩码"
+  ],
+  "solutions": [
+    {
+      "id": "parity-prefix-mask",
+      "title": "奇偶前缀掩码",
+      "kind": "最优",
+      "idea": "相同前缀状态的最远两位置构成合法子串。",
+      "steps": [
+        "earliest[32] 初始化未见，earliest[0]=-1",
+        "扫描字符，遇元音翻转对应位",
+        "若 mask 已见则更新 i-earliest[mask]，否则记录 i"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/parity-prefix-mask/Solution.java",
+        "kotlin": "solutions/parity-prefix-mask/Solution.kt",
+        "cpp": "solutions/parity-prefix-mask/solution.cpp"
+      }
+    }
+  ]
+}

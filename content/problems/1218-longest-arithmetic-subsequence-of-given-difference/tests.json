@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "longestSubsequence",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "完整等差序列",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        1
+      ],
+      "expected": 4
+    },
+    {
+      "name": "公差二完整序列",
+      "args": [
+        [
+          1,
+          3,
+          5,
+          7
+        ],
+        2
+      ],
+      "expected": 4
+    },
+    {
+      "name": "选择跳过元素",
+      "args": [
+        [
+          1,
+          5,
+          7,
+          8,
+          5,
+          3,
+          4,
+          2,
+          1
+        ],
+        -2
+      ],
+      "expected": 4
+    }
+  ]
+}

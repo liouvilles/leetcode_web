@@ -1,0 +1,1 @@
+class Solution { public:vector<int> sortEvenOdd(vector<int>& nums){vector<int> even,odd;for(int i=0;i<(int)nums.size();++i)(i%2?odd:even).push_back(nums[i]);sort(even.begin(),even.end());sort(odd.rbegin(),odd.rend());int e=0,o=0;for(int i=0;i<(int)nums.size();++i)nums[i]=i%2?odd[o++]:even[e++];return nums;} };

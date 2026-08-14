@@ -1,0 +1,1 @@
+class Solution { public int oddCells(int m,int n,int[][] indices){boolean[] rows=new boolean[m],columns=new boolean[n];for(int[] index:indices){rows[index[0]]=!rows[index[0]];columns[index[1]]=!columns[index[1]];}int answer=0;for(boolean row:rows)for(boolean column:columns)if(row^column)answer++;return answer;} }

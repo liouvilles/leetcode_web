@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countRoutes",
+  "parameterTypes": [
+    "intArray",
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "五城市燃油五有四条路线",
+      "args": [
+        [
+          2,
+          3,
+          6,
+          8,
+          4
+        ],
+        1,
+        3,
+        5
+      ],
+      "expected": 4
+    },
+    {
+      "name": "三城市燃油六有五条路线",
+      "args": [
+        [
+          4,
+          3,
+          1
+        ],
+        1,
+        0,
+        6
+      ],
+      "expected": 5
+    },
+    {
+      "name": "燃油不足无法到终点",
+      "args": [
+        [
+          5,
+          2,
+          1
+        ],
+        0,
+        2,
+        3
+      ],
+      "expected": 0
+    }
+  ]
+}

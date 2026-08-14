@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxProduct",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "最大乘积十六",
+      "args": [
+        [
+          "abcw",
+          "baz",
+          "foo",
+          "bar",
+          "xtfn",
+          "abcdef"
+        ]
+      ],
+      "expected": 16
+    },
+    {
+      "name": "不同长度组合",
+      "args": [
+        [
+          "a",
+          "ab",
+          "abc",
+          "d",
+          "cd",
+          "bcd",
+          "abcd"
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "都有公共字母",
+      "args": [
+        [
+          "a",
+          "aa",
+          "aaa",
+          "aaaa"
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

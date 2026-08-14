@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minMoves",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "不能翻倍只能加四次",
+      "args": [
+        5,
+        0
+      ],
+      "expected": 4
+    },
+    {
+      "name": "十九且两次翻倍需七步",
+      "args": [
+        19,
+        2
+      ],
+      "expected": 7
+    },
+    {
+      "name": "十且额度充足需四步",
+      "args": [
+        10,
+        4
+      ],
+      "expected": 4
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1471,
+  "slug": "the-k-strongest-values-in-an-array",
+  "title": "数组中的 K 个最强值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-021",
+  "studyTags": [
+    "数组",
+    "排序"
+  ],
+  "summary": "数组中位数为排序后下标 (n-1)/2 的值；强度先按与中位数绝对差、再按数值比较，返回最强 k 个。",
+  "insight": "求出中位数后按复合键（绝对差降序，数值降序）排序，取前 k 项。",
+  "pitfalls": [
+    "偶数长度取较小的中位数",
+    "强度相同时数值更大者更强",
+    "返回顺序本实现按强度降序确定"
+  ],
+  "solutions": [
+    {
+      "id": "median-strength-sort",
+      "title": "中位数强度排序",
+      "kind": "最优",
+      "idea": "依据题目定义直接构造排序比较器。",
+      "steps": [
+        "排序 arr 得 median=arr[(n-1)/2]",
+        "把元素按 abs(value-median) 降序、value 降序排序",
+        "返回前 k 项"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/median-strength-sort/Solution.java",
+        "kotlin": "solutions/median-strength-sort/Solution.kt",
+        "cpp": "solutions/median-strength-sort/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countPairs",
+  "parameterTypes": [
+    "int",
+    "intMatrix"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "经典七节点图有十四对不可达",
+      "args": [
+        7,
+        [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            1,
+            6
+          ],
+          [
+            5,
+            4
+          ]
+        ]
+      ],
+      "expected": 14
+    },
+    {
+      "name": "三个孤立点有三对",
+      "args": [
+        3,
+        []
+      ],
+      "expected": 3
+    },
+    {
+      "name": "连通图没有不可达点对",
+      "args": [
+        4,
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

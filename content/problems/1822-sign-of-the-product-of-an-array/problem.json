@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1822,
+  "slug": "sign-of-the-product-of-an-array",
+  "title": "数组元素积的符号",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-026",
+  "studyTags": [
+    "数组",
+    "数学"
+  ],
+  "summary": "返回数组乘积的符号：正为一、负为负一、零为零，不要求计算实际乘积。",
+  "insight": "遇零立即返回零；每遇一个负数翻转当前符号，正数不影响。",
+  "pitfalls": [
+    "避免真实乘积溢出",
+    "零优先决定结果",
+    "负数个数奇偶决定正负"
+  ],
+  "solutions": [
+    {
+      "id": "sign-flip-scan",
+      "title": "符号翻转扫描",
+      "kind": "最优",
+      "idea": "只维护乘积符号状态。",
+      "steps": [
+        "sign=1",
+        "value==0 返回0",
+        "value<0 时 sign=-sign，结束返回 sign"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/sign-flip-scan/Solution.java",
+        "kotlin": "solutions/sign-flip-scan/Solution.kt",
+        "cpp": "solutions/sign-flip-scan/solution.cpp"
+      }
+    }
+  ]
+}

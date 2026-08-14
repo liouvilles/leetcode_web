@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findTheLongestSubstring",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典字符串最长十三",
+      "args": [
+        "eleetminicoworoep"
+      ],
+      "expected": 13
+    },
+    {
+      "name": "第二个示例最长五",
+      "args": [
+        "leetcodeisgreat"
+      ],
+      "expected": 5
+    },
+    {
+      "name": "全是辅音",
+      "args": [
+        "bcbcbc"
+      ],
+      "expected": 6
+    }
+  ]
+}

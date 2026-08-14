@@ -1,0 +1,207 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "BrowserHistory",
+  "constructorTypes": [
+    "string"
+  ],
+  "cases": [
+    {
+      "name": "经典访问后退前进流程",
+      "constructorArgs": [
+        "leetcode.com"
+      ],
+      "calls": [
+        {
+          "method": "visit",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "google.com"
+          ]
+        },
+        {
+          "method": "visit",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "facebook.com"
+          ]
+        },
+        {
+          "method": "visit",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "youtube.com"
+          ]
+        },
+        {
+          "method": "back",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ],
+          "returnType": "string",
+          "expected": "facebook.com"
+        },
+        {
+          "method": "back",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ],
+          "returnType": "string",
+          "expected": "google.com"
+        },
+        {
+          "method": "forward",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ],
+          "returnType": "string",
+          "expected": "facebook.com"
+        },
+        {
+          "method": "visit",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "linkedin.com"
+          ]
+        },
+        {
+          "method": "forward",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ],
+          "returnType": "string",
+          "expected": "linkedin.com"
+        },
+        {
+          "method": "back",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ],
+          "returnType": "string",
+          "expected": "google.com"
+        },
+        {
+          "method": "back",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            7
+          ],
+          "returnType": "string",
+          "expected": "leetcode.com"
+        }
+      ]
+    },
+    {
+      "name": "新访问清除前进历史",
+      "constructorArgs": [
+        "a"
+      ],
+      "calls": [
+        {
+          "method": "visit",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "b"
+          ]
+        },
+        {
+          "method": "visit",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "c"
+          ]
+        },
+        {
+          "method": "back",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ],
+          "returnType": "string",
+          "expected": "b"
+        },
+        {
+          "method": "visit",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "d"
+          ]
+        },
+        {
+          "method": "forward",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            9
+          ],
+          "returnType": "string",
+          "expected": "d"
+        }
+      ]
+    },
+    {
+      "name": "单主页边界移动",
+      "constructorArgs": [
+        "home"
+      ],
+      "calls": [
+        {
+          "method": "back",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            3
+          ],
+          "returnType": "string",
+          "expected": "home"
+        },
+        {
+          "method": "forward",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            3
+          ],
+          "returnType": "string",
+          "expected": "home"
+        }
+      ]
+    }
+  ]
+}

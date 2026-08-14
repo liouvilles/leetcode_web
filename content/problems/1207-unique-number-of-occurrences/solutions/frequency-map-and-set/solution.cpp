@@ -1,0 +1,1 @@
+class Solution { public: bool uniqueOccurrences(vector<int>& arr){unordered_map<int,int> frequency;for(int value:arr)++frequency[value];unordered_set<int> seen;for(auto [value,count]:frequency)if(!seen.insert(count).second)return false;return true;} };

@@ -1,0 +1,1 @@
+class Solution { fun maxProduct(nums:IntArray):Int{var first=0;var second=0;for(value in nums)if(value>=first){second=first;first=value}else if(value>second)second=value;return (first-1)*(second-1)} }

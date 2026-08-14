@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "gardenNoAdj",
+  "parameterTypes": [
+    "int",
+    "intMatrix"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "三角形三种颜色",
+      "args": [
+        3,
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "name": "四节点链",
+      "args": [
+        4,
+        [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        1,
+        2
+      ]
+    },
+    {
+      "name": "无道路都用一色",
+      "args": [
+        3,
+        []
+      ],
+      "expected": [
+        1,
+        1,
+        1
+      ]
+    }
+  ]
+}

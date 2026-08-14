@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2157,
+  "slug": "groups-of-strings",
+  "title": "字符串分组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-031",
+  "studyTags": [
+    "字符串",
+    "并查集",
+    "位运算",
+    "哈希表"
+  ],
+  "summary": "单词字符互异；一次可增加、删除或替换一个字母，把可相互变换的单词归组，返回组数与最大组大小。",
+  "insight": "单词压成 26 位掩码。删除一位后的掩码可作为枢纽：原掩码与该掩码存在删除边；所有拥有同一删除结果的原掩码之间存在替换边。用并查集合并。",
+  "pitfalls": [
+    "字符排列不影响掩码",
+    "替换等价于两个掩码删一位后相同",
+    "重复掩码也应属于同组并累计人数"
+  ],
+  "solutions": [
+    {
+      "id": "bitmask-deletion-signatures-dsu",
+      "title": "位掩码删除签名并查集",
+      "kind": "最优",
+      "idea": "用删除后的公共签名同时覆盖增删和替换关系。",
+      "steps": [
+        "编码每个 word mask；相同 mask 立即 union，Map 保留代表下标",
+        "对每个 mask 的每个 set bit 得 removed",
+        "若完整 mask Map 中存在 removed，则 union 表示增删；若 removedOwner 已存在则 union 表示替换，否则登记当前下标",
+        "统计根数量与每根大小"
+      ],
+      "complexity": {
+        "time": "O(total characters·α(n))",
+        "space": "O(n·wordLength)"
+      },
+      "files": {
+        "java": "solutions/bitmask-deletion-signatures-dsu/Solution.java",
+        "kotlin": "solutions/bitmask-deletion-signatures-dsu/Solution.kt",
+        "cpp": "solutions/bitmask-deletion-signatures-dsu/solution.cpp"
+      }
+    }
+  ]
+}

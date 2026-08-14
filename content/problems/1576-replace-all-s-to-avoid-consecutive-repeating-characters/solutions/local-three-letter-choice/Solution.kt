@@ -1,0 +1,1 @@
+class Solution { fun modifyString(text:String):String{val chars=text.toCharArray();for(i in chars.indices)if(chars[i]=='?')for(value in 'a'..'c')if((i==0||chars[i-1]!=value)&&(i==chars.lastIndex||chars[i+1]!=value)){chars[i]=value;break};return chars.concatToString()} }

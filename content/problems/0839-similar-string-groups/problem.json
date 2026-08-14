@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 839,
+  "slug": "similar-string-groups",
+  "title": "相似字符串组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-011",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "并查集"
+  ],
+  "summary": "所有字符串互为字母异位词；若两串相同或恰交换两个位置可相同则相似，求相似关系传递闭包的组数。",
+  "insight": "字符串数量不大，枚举每对字符串，差异位置不超过二即相似并合并；最终并查集分量数就是答案。",
+  "pitfalls": [
+    "完全相同的字符串也相似",
+    "因互为异位词，差异恰为二时必可交换匹配",
+    "相似关系可传递，不能只统计直接关系"
+  ],
+  "solutions": [
+    {
+      "id": "pairwise-similarity-union-find",
+      "title": "两两相似判断并查集",
+      "kind": "最优",
+      "idea": "把直接相似字符串连接成分量。",
+      "steps": [
+        "DSU 初始 groups=n",
+        "枚举 i<j，扫描字符并统计差异，超过二提前停止",
+        "差异不超过二时 union，成功合并 groups--；返回 groups"
+      ],
+      "complexity": {
+        "time": "O(n²·L)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/pairwise-similarity-union-find/Solution.java",
+        "kotlin": "solutions/pairwise-similarity-union-find/Solution.kt",
+        "cpp": "solutions/pairwise-similarity-union-find/solution.cpp"
+      }
+    }
+  ]
+}

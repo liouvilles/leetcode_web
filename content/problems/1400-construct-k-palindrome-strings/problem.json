@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1400,
+  "slug": "construct-k-palindrome-strings",
+  "title": "构造 K 个回文字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-020",
+  "studyTags": [
+    "哈希表",
+    "字符串",
+    "贪心",
+    "计数"
+  ],
+  "summary": "判断能否使用字符串 s 的全部字符恰好构造 k 个非空回文串。",
+  "insight": "每种奇数频次字符必须占用一个回文中心，因此奇频数不能超过 k；同时每个回文非空要求字符总数至少 k。",
+  "pitfalls": [
+    "必须使用全部字符",
+    "需要恰好 k 个非空串",
+    "偶数频次可以任意拆分成对"
+  ],
+  "solutions": [
+    {
+      "id": "odd-frequency-bound",
+      "title": "奇频中心界限",
+      "kind": "最优",
+      "idea": "用回文中心数量的上下界判断可行性。",
+      "steps": [
+        "若 s.length<k 返回 false",
+        "统计 26 个字母频次并数奇频种类 odd",
+        "返回 odd<=k"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/odd-frequency-bound/Solution.java",
+        "kotlin": "solutions/odd-frequency-bound/Solution.kt",
+        "cpp": "solutions/odd-frequency-bound/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findMinDifference",
+  "parameterTypes": [
+    "stringList"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "跨午夜一分钟",
+      "args": [
+        [
+          "23:59",
+          "00:00"
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "重复时间",
+      "args": [
+        [
+          "00:00",
+          "23:59",
+          "00:00"
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "普通最小差",
+      "args": [
+        [
+          "01:01",
+          "02:01",
+          "03:00"
+        ]
+      ],
+      "expected": 59
+    }
+  ]
+}

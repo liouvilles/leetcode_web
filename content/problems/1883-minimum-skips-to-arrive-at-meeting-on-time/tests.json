@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minSkips",
+  "parameterTypes": [
+    "intArray",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "跳过一次才能两小时到达",
+      "args": [
+        [
+          1,
+          3,
+          2
+        ],
+        4,
+        2
+      ],
+      "expected": 1
+    },
+    {
+      "name": "低速十小时需跳过两次",
+      "args": [
+        [
+          7,
+          3,
+          5,
+          5
+        ],
+        2,
+        10
+      ],
+      "expected": 2
+    },
+    {
+      "name": "总行驶时间已超限制无解",
+      "args": [
+        [
+          7,
+          3,
+          5,
+          5
+        ],
+        1,
+        10
+      ],
+      "expected": -1
+    }
+  ]
+}

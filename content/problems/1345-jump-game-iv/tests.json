@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minJumps",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典数组三跳到末尾",
+      "args": [
+        [
+          100,
+          -23,
+          -23,
+          404,
+          100,
+          23,
+          23,
+          23,
+          3,
+          404
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "单元素零跳",
+      "args": [
+        [
+          7
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "首尾同值一步到达",
+      "args": [
+        [
+          7,
+          6,
+          9,
+          6,
+          9,
+          6,
+          9,
+          7
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

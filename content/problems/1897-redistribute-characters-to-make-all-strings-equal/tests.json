@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "makeEqual",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "三个单词字符可均分",
+      "args": [
+        [
+          "abc",
+          "aabc",
+          "bc"
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "两个单词字符无法均分",
+      "args": [
+        [
+          "ab",
+          "a"
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "相同单词已经满足",
+      "args": [
+        [
+          "x",
+          "x"
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1090,
+  "slug": "largest-values-from-labels",
+  "title": "受标签影响的最大值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-016",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "贪心",
+    "排序"
+  ],
+  "summary": "每项有 value 和 label，最多选择 numWanted 项且每个标签最多使用 useLimit 次，求值之和最大。",
+  "insight": "按 value 从大到小扫描；只要该标签尚未达到上限就选择，局部选择当前最大值永远不损失后续可行性。",
+  "pitfalls": [
+    "总选择数可以少于 numWanted",
+    "标签约束分别计数",
+    "值为正数，能选时无需主动跳过"
+  ],
+  "solutions": [
+    {
+      "id": "descending-value-label-quota",
+      "title": "值降序与标签配额",
+      "kind": "最优",
+      "idea": "按全局价值顺序贪心消费可用标签名额。",
+      "steps": [
+        "构造 [value,label] 项并按 value 降序",
+        "usedByLabel 计数，selected=0,sum=0",
+        "扫描项；标签未满则加入 sum、计数与 selected，达到 numWanted 停止，返回 sum"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(labels)"
+      },
+      "files": {
+        "java": "solutions/descending-value-label-quota/Solution.java",
+        "kotlin": "solutions/descending-value-label-quota/Solution.kt",
+        "cpp": "solutions/descending-value-label-quota/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findNthDigit",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "个位数区间",
+      "args": [
+        3
+      ],
+      "expected": 3
+    },
+    {
+      "name": "十的第二位",
+      "args": [
+        11
+      ],
+      "expected": 0
+    },
+    {
+      "name": "三位数区间首位",
+      "args": [
+        190
+      ],
+      "expected": 1
+    }
+  ]
+}

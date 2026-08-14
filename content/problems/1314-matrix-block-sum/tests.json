@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "matrixBlockSum",
+  "parameterTypes": [
+    "intMatrix",
+    "int"
+  ],
+  "returnType": "intMatrix",
+  "cases": [
+    {
+      "name": "三阶半径一",
+      "args": [
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            4,
+            5,
+            6
+          ],
+          [
+            7,
+            8,
+            9
+          ]
+        ],
+        1
+      ],
+      "expected": [
+        [
+          12,
+          21,
+          16
+        ],
+        [
+          27,
+          45,
+          33
+        ],
+        [
+          24,
+          39,
+          28
+        ]
+      ]
+    },
+    {
+      "name": "半径覆盖全矩阵",
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        2
+      ],
+      "expected": [
+        [
+          10,
+          10
+        ],
+        [
+          10,
+          10
+        ]
+      ]
+    },
+    {
+      "name": "单格矩阵",
+      "args": [
+        [
+          [
+            5
+          ]
+        ],
+        0
+      ],
+      "expected": [
+        [
+          5
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 738,
+  "slug": "monotone-increasing-digits",
+  "title": "单调递增的数字",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-009",
+  "studyTags": [
+    "数学",
+    "贪心",
+    "数位"
+  ],
+  "summary": "找出不大于 n 的最大非负整数，使其十进制各位从左到右单调不减。",
+  "insight": "从右向左找下降位置；每当前一位大于当前位，就把前一位减一并记录从当前位开始全部填 9，继续向左可处理借位连锁。",
+  "pitfalls": [
+    "修改前一位后可能制造更靠左的下降",
+    "标记位置后的所有数字都应变为 9",
+    "前导零在转回整数时自然消失"
+  ],
+  "solutions": [
+    {
+      "id": "right-to-left-borrow",
+      "title": "从右向左降位后填九",
+      "kind": "最优",
+      "idea": "贪心让最靠左必要位置尽量少减，并最大化后缀。",
+      "steps": [
+        "digits 为 n 的字符数组，marker=length",
+        "i 从末位到一，若 digits[i-1]>digits[i]，则 digits[i-1]-- 且 marker=i",
+        "把 marker 到末尾全部改为 9，解析整数返回"
+      ],
+      "complexity": {
+        "time": "O(d)",
+        "space": "O(d)"
+      },
+      "files": {
+        "java": "solutions/right-to-left-borrow/Solution.java",
+        "kotlin": "solutions/right-to-left-borrow/Solution.kt",
+        "cpp": "solutions/right-to-left-borrow/solution.cpp"
+      }
+    }
+  ]
+}

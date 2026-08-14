@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minCost",
+  "parameterTypes": [
+    "string",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两个 a 删除耗时三者",
+      "args": [
+        "abaac",
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "颜色均不同无需删除",
+      "args": [
+        "abc",
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "两个同色段各删一个",
+      "args": [
+        "aabaa",
+        [
+          1,
+          2,
+          3,
+          4,
+          1
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isBipartite",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "奇环不是二分图",
+      "args": [
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            1,
+            3
+          ],
+          [
+            0,
+            2
+          ]
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "偶环可以二染色",
+      "args": [
+        [
+          [
+            1,
+            3
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            0,
+            2
+          ]
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "含孤立节点",
+      "args": [
+        [
+          [],
+          [
+            2
+          ],
+          [
+            1
+          ]
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

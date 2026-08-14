@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sumScores",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "babab 总得分九",
+      "args": [
+        "babab"
+      ],
+      "expected": 9
+    },
+    {
+      "name": "azbazbzaz 总得分十四",
+      "args": [
+        "azbazbzaz"
+      ],
+      "expected": 14
+    },
+    {
+      "name": "四个相同字符总得分十",
+      "args": [
+        "aaaa"
+      ],
+      "expected": 10
+    }
+  ]
+}

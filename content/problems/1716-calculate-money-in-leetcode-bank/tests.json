@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "totalMoney",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四天存十元",
+      "args": [
+        4
+      ],
+      "expected": 10
+    },
+    {
+      "name": "十天存三十七元",
+      "args": [
+        10
+      ],
+      "expected": 37
+    },
+    {
+      "name": "二十天存九十六元",
+      "args": [
+        20
+      ],
+      "expected": 96
+    }
+  ]
+}

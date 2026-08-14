@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "atMostNGivenDigitSet",
+  "parameterTypes": [
+    "stringArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四数字到一百",
+      "args": [
+        [
+          "1",
+          "3",
+          "5",
+          "7"
+        ],
+        100
+      ],
+      "expected": 20
+    },
+    {
+      "name": "三个数字到十亿",
+      "args": [
+        [
+          "1",
+          "4",
+          "9"
+        ],
+        1000000000
+      ],
+      "expected": 29523
+    },
+    {
+      "name": "单数字七",
+      "args": [
+        [
+          "7"
+        ],
+        8
+      ],
+      "expected": 1
+    }
+  ]
+}

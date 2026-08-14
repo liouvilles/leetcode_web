@@ -1,0 +1,3 @@
+class Solution {
+    fun partition(s: String): List<List<String>> { val answer = mutableListOf<List<String>>(); val path = mutableListOf<String>(); fun palindrome(start: Int, endValue: Int): Boolean { var left = start; var right = endValue; while (left < right) if (s[left++] != s[right--]) return false; return true }; fun backtrack(start: Int) { if (start == s.length) { answer.add(path.toList()); return }; for (endValue in start until s.length) if (palindrome(start, endValue)) { path.add(s.substring(start, endValue + 1)); backtrack(endValue + 1); path.removeAt(path.lastIndex) } }; backtrack(0); return answer }
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1847,
+  "slug": "closest-room",
+  "title": "最近的房间",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-026",
+  "studyTags": [
+    "数组",
+    "二分查找",
+    "离线查询",
+    "有序集合"
+  ],
+  "summary": "房间有 id 和 size；每个查询要求 size 至少 minSize，在合格房间中选 id 与 preferred 最接近者，平局取较小 id。",
+  "insight": "房间按 size 降序、查询按 minSize 降序离线处理。逐查询把新合格房间 id 加入有序集合，只需检查 preferred 的 floor 与 ceiling。",
+  "pitfalls": [
+    "答案返回 roomId 而非数组下标",
+    "差值平局选择较小 id",
+    "无合格房间返回负一"
+  ],
+  "solutions": [
+    {
+      "id": "offline-size-sweep-ordered-ids",
+      "title": "尺寸离线扫描与有序编号集",
+      "kind": "最优",
+      "idea": "把二维条件拆成单调尺寸加入和一维最近编号查询。",
+      "steps": [
+        "rooms 按 size 降序；查询附原下标按 minSize 降序",
+        "加入所有 size>=query.minSize 的 roomId 到 TreeSet",
+        "取 floor(preferred)、ceiling(preferred)，按距离与编号选优写回"
+      ],
+      "complexity": {
+        "time": "O((r+q) log r)",
+        "space": "O(r+q)"
+      },
+      "files": {
+        "java": "solutions/offline-size-sweep-ordered-ids/Solution.java",
+        "kotlin": "solutions/offline-size-sweep-ordered-ids/Solution.kt",
+        "cpp": "solutions/offline-size-sweep-ordered-ids/solution.cpp"
+      }
+    }
+  ]
+}

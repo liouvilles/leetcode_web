@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxLength",
+  "parameterTypes": [
+    "stringList"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "un 与 iq 可串联",
+      "args": [
+        [
+          "un",
+          "iq",
+          "ue"
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "选择 chaers",
+      "args": [
+        [
+          "cha",
+          "r",
+          "act",
+          "ers"
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "覆盖完整字母表",
+      "args": [
+        [
+          "abcdefghijklmnopqrstuvwxyz"
+        ]
+      ],
+      "expected": 26
+    }
+  ]
+}

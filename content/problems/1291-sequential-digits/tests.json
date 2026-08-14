@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sequentialDigits",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "intList",
+  "cases": [
+    {
+      "name": "一百到三百",
+      "args": [
+        100,
+        300
+      ],
+      "expected": [
+        123,
+        234
+      ]
+    },
+    {
+      "name": "一千到一万三千",
+      "args": [
+        1000,
+        13000
+      ],
+      "expected": [
+        1234,
+        2345,
+        3456,
+        4567,
+        5678,
+        6789,
+        12345
+      ]
+    },
+    {
+      "name": "区间没有顺次数",
+      "args": [
+        90,
+        100
+      ],
+      "expected": []
+    }
+  ]
+}

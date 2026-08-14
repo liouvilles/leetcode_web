@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 993,
+  "slug": "cousins-in-binary-tree",
+  "title": "二叉树的堂兄弟节点",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-014",
+  "studyTags": [
+    "树",
+    "广度优先搜索",
+    "二叉树"
+  ],
+  "summary": "树中节点值互异，判断值为 x 和 y 的节点是否深度相同但父节点不同。",
+  "insight": "逐层 BFS，同时为每个入队孩子携带父节点；在同一层查到两目标时比较父节点，若一层只找到一个则它们深度不同。",
+  "pitfalls": [
+    "亲兄弟深度相同但父节点相同，不是堂兄弟",
+    "发现一层只有一个目标即可提前返回假",
+    "根节点没有父节点"
+  ],
+  "solutions": [
+    {
+      "id": "level-parent-bfs",
+      "title": "逐层父节点 BFS",
+      "kind": "最优",
+      "idea": "在目标所在层同时记录各自父节点。",
+      "steps": [
+        "队列保存 [node,parent]，从根与空父开始",
+        "每层扫描全部节点，命中 x/y 时记录 parent",
+        "层末两者都找到返回父不同；只找到一个返回 false；否则进入下一层，遍历完返回 false"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/level-parent-bfs/Solution.java",
+        "kotlin": "solutions/level-parent-bfs/Solution.kt",
+        "cpp": "solutions/level-parent-bfs/solution.cpp"
+      }
+    }
+  ]
+}

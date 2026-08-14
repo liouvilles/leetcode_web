@@ -1,0 +1,1 @@
+class Solution { public: int kConcatenationMaxSum(vector<int>& arr,int k){long long total=accumulate(arr.begin(),arr.end(),0LL),ending=0,best=0;for(int copy=0;copy<min(k,2);++copy)for(int value:arr){ending=max(0LL,ending+value);best=max(best,ending);}if(k>2&&total>0)best+=(long long)(k-2)*total;return best%1000000007;} };

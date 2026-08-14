@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": 1837,
+  "slug": "sum-of-digits-in-base-k",
+  "title": "K 进制表示下的各位数字总和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-026",
+  "studyTags": [
+    "数学"
+  ],
+  "summary": "把十进制 n 转成 k 进制，返回其各位数字之和。",
+  "insight": "反复取 n%k 得到最低位并累加，再令 n/=k 去掉最低位。",
+  "pitfalls": [
+    "无需构造进制字符串",
+    "k 可大于十但数位仍是整数",
+    "n 为正数"
+  ],
+  "solutions": [
+    {
+      "id": "repeated-base-division",
+      "title": "反复除基取余",
+      "kind": "最优",
+      "idea": "逐位提取 k 进制数位并求和。",
+      "steps": [
+        "sum=0",
+        "while n>0：sum+=n%k",
+        "n/=k，返回 sum"
+      ],
+      "complexity": {
+        "time": "O(log_k n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/repeated-base-division/Solution.java",
+        "kotlin": "solutions/repeated-base-division/Solution.kt",
+        "cpp": "solutions/repeated-base-division/solution.cpp"
+      }
+    }
+  ]
+}

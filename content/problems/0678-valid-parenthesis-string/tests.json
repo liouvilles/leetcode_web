@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "checkValidString",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "星号作为右括号",
+      "args": [
+        "(*)"
+      ],
+      "expected": true
+    },
+    {
+      "name": "星号补充闭合",
+      "args": [
+        "(*))"
+      ],
+      "expected": true
+    },
+    {
+      "name": "多余右括号",
+      "args": [
+        ")*("
+      ],
+      "expected": false
+    }
+  ]
+}

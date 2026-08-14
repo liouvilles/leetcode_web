@@ -1,0 +1,1 @@
+class Solution { public: int minimumDeleteSum(string s1,string s2){vector<int> dp(s2.size()+1);for(int j=1;j<=(int)s2.size();++j)dp[j]=dp[j-1]+s2[j-1];for(int i=1;i<=(int)s1.size();++i){int diagonal=dp[0];dp[0]+=s1[i-1];for(int j=1;j<=(int)s2.size();++j){int above=dp[j];dp[j]=s1[i-1]==s2[j-1]?diagonal:min(above+s1[i-1],dp[j-1]+s2[j-1]);diagonal=above;}}return dp.back();} };

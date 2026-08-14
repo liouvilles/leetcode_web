@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sumOfDistancesInTree",
+  "parameterTypes": [
+    "int",
+    "intMatrix"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "经典六节点树",
+      "args": [
+        6,
+        [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            2,
+            5
+          ]
+        ]
+      ],
+      "expected": [
+        8,
+        12,
+        6,
+        10,
+        10,
+        10
+      ]
+    },
+    {
+      "name": "单节点",
+      "args": [
+        1,
+        []
+      ],
+      "expected": [
+        0
+      ]
+    },
+    {
+      "name": "两节点",
+      "args": [
+        2,
+        [
+          [
+            1,
+            0
+          ]
+        ]
+      ],
+      "expected": [
+        1,
+        1
+      ]
+    }
+  ]
+}

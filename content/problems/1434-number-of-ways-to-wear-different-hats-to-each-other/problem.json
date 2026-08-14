@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 1434,
+  "slug": "number-of-ways-to-wear-different-hats-to-each-other",
+  "title": "每个人戴不同帽子的方案数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-020",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "位运算",
+    "状态压缩"
+  ],
+  "summary": "每个人有喜欢的帽子列表，帽子编号一到四十，统计给所有人分配互不相同喜欢帽子的方案数。",
+  "insight": "人数最多十，适合用人集合位掩码。按帽子逐个处理，每顶帽子可不分配或分配给某个喜欢且尚未戴帽的人。",
+  "pitfalls": [
+    "同一顶帽子最多分给一人",
+    "方案按人与帽子的匹配关系区分",
+    "按帽子迭代可天然避免重复使用"
+  ],
+  "solutions": [
+    {
+      "id": "hat-by-hat-bitmask-dp",
+      "title": "逐帽状态压缩动态规划",
+      "kind": "最优",
+      "idea": "以已分配帽子的人集合为状态推进四十顶帽子。",
+      "steps": [
+        "构建 hatToPeople[1..40]",
+        "dp[0]=1；对每顶帽子复制 dp 表示跳过",
+        "对每个 mask 和喜欢该帽子的未分配 person，next[mask|1<<person]+=dp[mask]",
+        "返回 dp[(1<<people)-1]"
+      ],
+      "complexity": {
+        "time": "O(40·2^p·p)",
+        "space": "O(2^p)"
+      },
+      "files": {
+        "java": "solutions/hat-by-hat-bitmask-dp/Solution.java",
+        "kotlin": "solutions/hat-by-hat-bitmask-dp/Solution.kt",
+        "cpp": "solutions/hat-by-hat-bitmask-dp/solution.cpp"
+      }
+    }
+  ]
+}

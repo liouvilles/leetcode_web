@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "matrixReshape",
+  "parameterTypes": [
+    "intMatrix",
+    "int",
+    "int"
+  ],
+  "returnType": "intMatrix",
+  "cases": [
+    {
+      "name": "二乘二变一乘四",
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        1,
+        4
+      ],
+      "expected": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "name": "尺寸不兼容",
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        2,
+        4
+      ],
+      "expected": [
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "name": "单元素矩阵",
+      "args": [
+        [
+          [
+            7
+          ]
+        ],
+        1,
+        1
+      ],
+      "expected": [
+        [
+          7
+        ]
+      ]
+    }
+  ]
+}

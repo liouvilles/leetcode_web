@@ -1,0 +1,1 @@
+class Solution { public: int maxCount(int m,int n,vector<vector<int>>& ops){int rows=m,columns=n;for(auto& operation:ops){rows=min(rows,operation[0]);columns=min(columns,operation[1]);}return rows*columns;} };

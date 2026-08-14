@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "monotoneIncreasingDigits",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "十变九",
+      "args": [
+        10
+      ],
+      "expected": 9
+    },
+    {
+      "name": "已经单调递增",
+      "args": [
+        1234
+      ],
+      "expected": 1234
+    },
+    {
+      "name": "连续下降修复",
+      "args": [
+        332
+      ],
+      "expected": 299
+    }
+  ]
+}

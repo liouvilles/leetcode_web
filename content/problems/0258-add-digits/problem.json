@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 258,
+  "slug": "add-digits",
+  "title": "各位相加",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-005",
+  "studyTags": [
+    "数学",
+    "数字根",
+    "同余"
+  ],
+  "summary": "反复把非负整数的十进制各位相加，直到结果只剩一位。",
+  "insight": "正整数的数字根为 1+(num-1) mod 9，零需单独返回零。",
+  "pitfalls": [
+    "零的数字根不是九",
+    "要求常量时间且不用循环",
+    "公式只适用于正整数分支"
+  ],
+  "solutions": [
+    {
+      "id": "digital-root",
+      "title": "数字根公式",
+      "kind": "最优",
+      "idea": "利用十进制位权对九同余，直接得到最终一位数。",
+      "steps": [
+        "num 为零返回零",
+        "计算 (num-1)%9",
+        "结果加一"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/digital-root/Solution.java",
+        "kotlin": "solutions/digital-root/Solution.kt",
+        "cpp": "solutions/digital-root/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumObstacles",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典网格最少移除两个障碍",
+      "args": [
+        [
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            0
+          ]
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "存在全零路径无需移除",
+      "args": [
+        [
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "两格间一个障碍",
+      "args": [
+        [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

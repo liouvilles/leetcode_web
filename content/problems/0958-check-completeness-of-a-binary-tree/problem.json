@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 958,
+  "slug": "check-completeness-of-a-binary-tree",
+  "title": "二叉树的完全性检验",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-014",
+  "studyTags": [
+    "树",
+    "广度优先搜索",
+    "二叉树"
+  ],
+  "summary": "判断二叉树是否为完全二叉树：除最后一层外全满，最后一层节点从左向右连续。",
+  "insight": "层序遍历中一旦遇到缺失子位置，此后再出现任何非空子节点就说明中间有空洞。",
+  "pitfalls": [
+    "右孩子存在而左孩子缺失立即非法",
+    "缺口状态跨层保持",
+    "无需真的把空节点放进不允许 null 的队列"
+  ],
+  "solutions": [
+    {
+      "id": "level-order-gap-flag",
+      "title": "层序缺口标记",
+      "kind": "最优",
+      "idea": "按左右子位置顺序检查是否在缺口后出现节点。",
+      "steps": [
+        "队列从根开始，gap=false",
+        "弹出节点依次检查 left、right；非空时若 gap 已出现则返回 false，否则入队",
+        "空孩子令 gap=true；遍历完返回 true"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/level-order-gap-flag/Solution.java",
+        "kotlin": "solutions/level-order-gap-flag/Solution.kt",
+        "cpp": "solutions/level-order-gap-flag/solution.cpp"
+      }
+    }
+  ]
+}

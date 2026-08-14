@@ -1,0 +1,1 @@
+class Solution { fun removeOccurrences(s:String,part:String):String{val builder=StringBuilder();for(value in s){builder.append(value);if(builder.length>=part.length){val start=builder.length-part.length;var match=true;for(i in part.indices)if(builder[start+i]!=part[i]){match=false;break};if(match)builder.delete(start,builder.length)}};return builder.toString()} }

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2186,
+  "slug": "minimum-number-of-steps-to-make-two-strings-anagram-ii",
+  "title": "使两字符串互为字母异位词的最少步骤数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-032",
+  "studyTags": [
+    "哈希表",
+    "字符串",
+    "计数"
+  ],
+  "summary": "每步可从任一字符串删除一个字符，求使两字符串字符频次相同的最少删除次数。",
+  "insight": "用一个频次数组对 s 加一、对 t 减一；每个字符的绝对差就是必须从某一侧删除的数量。",
+  "pitfalls": [
+    "两边都允许删除",
+    "不是替换操作",
+    "答案是全部频次绝对差之和"
+  ],
+  "solutions": [
+    {
+      "id": "frequency-difference-absolute-sum",
+      "title": "频次差绝对值求和",
+      "kind": "最优",
+      "idea": "每个字符独立消除多余出现。",
+      "steps": [
+        "difference[26]=0",
+        "扫描 s 加一，扫描 t 减一",
+        "返回 sum(abs(difference[ch]))"
+      ],
+      "complexity": {
+        "time": "O(|s|+|t|)",
+        "space": "O(alphabet)"
+      },
+      "files": {
+        "java": "solutions/frequency-difference-absolute-sum/Solution.java",
+        "kotlin": "solutions/frequency-difference-absolute-sum/Solution.kt",
+        "cpp": "solutions/frequency-difference-absolute-sum/solution.cpp"
+      }
+    }
+  ]
+}

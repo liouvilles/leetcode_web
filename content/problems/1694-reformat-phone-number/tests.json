@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "reformatNumber",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "十二位按三位分组",
+      "args": [
+        "1-23-45 6"
+      ],
+      "expected": "123-456"
+    },
+    {
+      "name": "最后四位拆成两个两位组",
+      "args": [
+        "123 4-567"
+      ],
+      "expected": "123-45-67"
+    },
+    {
+      "name": "长号码尾部避免单字符组",
+      "args": [
+        "12"
+      ],
+      "expected": "12"
+    }
+  ]
+}

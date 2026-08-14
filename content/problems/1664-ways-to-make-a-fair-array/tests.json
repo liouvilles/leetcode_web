@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "waysToMakeFair",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典数组仅一个删除位置平衡",
+      "args": [
+        [
+          2,
+          1,
+          6,
+          4
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "三个相同元素任意删除都平衡",
+      "args": [
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "单元素删除后空数组平衡",
+      "args": [
+        [
+          5
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

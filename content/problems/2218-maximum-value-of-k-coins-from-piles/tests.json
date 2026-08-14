@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxValueOfCoins",
+  "parameterTypes": [
+    "intListMatrix",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两堆取两枚最优一百零一",
+      "args": [
+        [
+          [
+            1,
+            100,
+            3
+          ],
+          [
+            7,
+            8,
+            9
+          ]
+        ],
+        2
+      ],
+      "expected": 101
+    },
+    {
+      "name": "七堆取七枚最优七百零六",
+      "args": [
+        [
+          [
+            100
+          ],
+          [
+            100
+          ],
+          [
+            100
+          ],
+          [
+            100
+          ],
+          [
+            100
+          ],
+          [
+            100
+          ],
+          [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            700
+          ]
+        ],
+        7
+      ],
+      "expected": 706
+    },
+    {
+      "name": "单堆只能取顶部两枚",
+      "args": [
+        [
+          [
+            1,
+            2,
+            3
+          ]
+        ],
+        2
+      ],
+      "expected": 3
+    }
+  ]
+}

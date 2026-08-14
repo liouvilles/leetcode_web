@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isValid",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "嵌套有效串",
+      "args": [
+        "aabcbc"
+      ],
+      "expected": true
+    },
+    {
+      "name": "多次插入有效",
+      "args": [
+        "abcabcababcc"
+      ],
+      "expected": true
+    },
+    {
+      "name": "顺序错误",
+      "args": [
+        "abccba"
+      ],
+      "expected": false
+    }
+  ]
+}

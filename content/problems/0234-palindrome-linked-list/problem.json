@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 234,
+  "slug": "palindrome-linked-list",
+  "title": "回文链表",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-003",
+  "studyTags": [
+    "快慢指针",
+    "链表反转",
+    "双端比较"
+  ],
+  "summary": "判断单链表中的节点值从前向后和从后向前读取是否相同，并使用常数额外空间。",
+  "insight": "快慢指针定位后半部分起点，原地反转后即可与前半部分同步比较。",
+  "pitfalls": [
+    "奇数长度时中间节点无需配对",
+    "比较次数由反转后的后半链长度决定",
+    "反转会暂时修改链表结构"
+  ],
+  "solutions": [
+    {
+      "id": "reverse-second-half",
+      "title": "反转后半链表",
+      "kind": "最优",
+      "idea": "定位中点、反转后半段，再从链表两端向中间比较。",
+      "steps": [
+        "快指针走两步、慢指针走一步",
+        "反转 slow 所在的后半链",
+        "从 head 和反转头同步比较"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/reverse-second-half/Solution.java",
+        "kotlin": "solutions/reverse-second-half/Solution.kt",
+        "cpp": "solutions/reverse-second-half/solution.cpp"
+      }
+    }
+  ]
+}

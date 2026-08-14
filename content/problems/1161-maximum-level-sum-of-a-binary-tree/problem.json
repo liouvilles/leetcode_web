@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1161,
+  "slug": "maximum-level-sum-of-a-binary-tree",
+  "title": "最大层内元素和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-016",
+  "studyTags": [
+    "树",
+    "广度优先搜索",
+    "层序遍历"
+  ],
+  "summary": "求二叉树各层节点值之和最大的最小层号，根节点为第一层。",
+  "insight": "层序遍历天然把同层节点聚在一起；逐层求和，只在严格大于历史最大值时更新层号，就能在并列时保留较小层号。",
+  "pitfalls": [
+    "节点值可能为负，最大和不能初始化为零",
+    "层号从一开始",
+    "并列最大值不更新答案"
+  ],
+  "solutions": [
+    {
+      "id": "level-order-sum",
+      "title": "层序求和",
+      "kind": "最优",
+      "idea": "用队列逐层计算节点和并记录首次最大层。",
+      "steps": [
+        "根节点入队，level=0，bestSum 为最小整数",
+        "每轮先 level++，读取当前队列 size 个节点并累加，孩子入队",
+        "若 sum>bestSum 更新 bestSum 与 bestLevel，队列耗尽后返回 bestLevel"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(width)"
+      },
+      "files": {
+        "java": "solutions/level-order-sum/Solution.java",
+        "kotlin": "solutions/level-order-sum/Solution.kt",
+        "cpp": "solutions/level-order-sum/solution.cpp"
+      }
+    }
+  ]
+}

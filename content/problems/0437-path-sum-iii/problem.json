@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 437,
+  "slug": "path-sum-iii",
+  "title": "路径总和 III",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-003",
+  "studyTags": [
+    "前缀和",
+    "树上 DFS",
+    "回溯计数"
+  ],
+  "summary": "统计二叉树中节点值之和等于目标值的向下路径数量；路径可以从任意节点开始，但必须沿父子方向连续。",
+  "insight": "若当前根到节点前缀和为 current，之前出现过 current-target 的前缀次数就是以当前节点结尾的合法路径数。",
+  "pitfalls": [
+    "路径不必从根开始或在叶结束",
+    "节点值累加需要长整型",
+    "离开子树时必须撤销当前前缀计数"
+  ],
+  "solutions": [
+    {
+      "id": "prefix-sum-dfs",
+      "title": "树上前缀和回溯",
+      "kind": "最优",
+      "idea": "DFS 路径上维护前缀和频次，进入节点增加、退出节点撤销。",
+      "steps": [
+        "初始化前缀零出现一次",
+        "累加当前值并查询 current-target",
+        "登记当前前缀、递归孩子、最后撤销"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(h)"
+      },
+      "files": {
+        "java": "solutions/prefix-sum-dfs/Solution.java",
+        "kotlin": "solutions/prefix-sum-dfs/Solution.kt",
+        "cpp": "solutions/prefix-sum-dfs/solution.cpp"
+      }
+    }
+  ]
+}

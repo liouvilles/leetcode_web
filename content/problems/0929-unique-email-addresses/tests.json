@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numUniqueEmails",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三地址归并为二",
+      "args": [
+        [
+          "test.email+alex@leetcode.com",
+          "test.e.mail+bob.cathy@leetcode.com",
+          "testemail+david@lee.tcode.com"
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "两个不同本地名",
+      "args": [
+        [
+          "a@leetcode.com",
+          "b@leetcode.com"
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "点和加号归一",
+      "args": [
+        [
+          "a.b+c@x.com",
+          "ab@x.com"
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

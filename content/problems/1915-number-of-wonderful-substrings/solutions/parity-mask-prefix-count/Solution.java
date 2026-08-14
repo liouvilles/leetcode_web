@@ -1,0 +1,1 @@
+class Solution { public long wonderfulSubstrings(String word){long[] frequency=new long[1<<10];frequency[0]=1;long answer=0;int mask=0;for(char letter:word.toCharArray()){mask^=1<<(letter-'a');answer+=frequency[mask];for(int bit=0;bit<10;bit++)answer+=frequency[mask^(1<<bit)];frequency[mask]++;}return answer;} }

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1367,
+  "slug": "linked-list-in-binary-tree",
+  "title": "二叉树中的链表",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-019",
+  "studyTags": [
+    "链表",
+    "树",
+    "深度优先搜索"
+  ],
+  "summary": "判断链表的值序列是否对应二叉树中某个节点开始、持续向下的一条路径。",
+  "insight": "对树中每个节点尝试作为起点；匹配过程中链表和树节点值相同后，递归选择左或右孩子。",
+  "pitfalls": [
+    "路径只能向下但可在每层选择左右",
+    "匹配失败后仍要在子树寻找新起点",
+    "链表耗尽即匹配成功"
+  ],
+  "solutions": [
+    {
+      "id": "start-and-match-dfs",
+      "title": "起点枚举与路径匹配",
+      "kind": "最优",
+      "idea": "外层遍历树节点，内层递归匹配链表路径。",
+      "steps": [
+        "match(list,node)：list 为空成功，node 为空或值不同失败",
+        "值相同则匹配 node.left 或 node.right",
+        "search(root) 尝试当前节点并递归搜索左右子树"
+      ],
+      "complexity": {
+        "time": "O(NL)",
+        "space": "O(H+L)"
+      },
+      "files": {
+        "java": "solutions/start-and-match-dfs/Solution.java",
+        "kotlin": "solutions/start-and-match-dfs/Solution.kt",
+        "cpp": "solutions/start-and-match-dfs/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1815,
+  "slug": "maximum-number-of-groups-getting-fresh-donuts",
+  "title": "得到新鲜甜甜圈的最多组数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-026",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "状态压缩",
+    "记忆化搜索"
+  ],
+  "summary": "每批 batchSize 个甜甜圈新鲜出炉，各组依次领取 group 大小的甜甜圈；调整组顺序，最大化拿到批次首个甜甜圈的组数。",
+  "insight": "只关心组大小模 batchSize。余数零组必开心；其余余数计数用五位编码成状态，记忆化搜索当前未用余数，若当前批次余量为零则下一个组开心。",
+  "pitfalls": [
+    "同余组可互换",
+    "状态还需包含当前已用余数",
+    "每类计数最多三十可用五位编码"
+  ],
+  "solutions": [
+    {
+      "id": "remainder-count-state-dp",
+      "title": "余数计数状态 DP",
+      "kind": "最优",
+      "idea": "枚举余数组顺序并缓存等价计数状态。",
+      "steps": [
+        "统计 counts[remainder]，answer 初始 counts[0]",
+        "把 counts[1..] 每类编码为 long 的五位字段",
+        "dfs(state,current)：若 state=0 返回零；枚举 count>0 的 remainder，得分 current==0?1:0 加递归，取最大"
+      ],
+      "complexity": {
+        "time": "O(状态数·batchSize)",
+        "space": "O(状态数)"
+      },
+      "files": {
+        "java": "solutions/remainder-count-state-dp/Solution.java",
+        "kotlin": "solutions/remainder-count-state-dp/Solution.kt",
+        "cpp": "solutions/remainder-count-state-dp/solution.cpp"
+      }
+    }
+  ]
+}

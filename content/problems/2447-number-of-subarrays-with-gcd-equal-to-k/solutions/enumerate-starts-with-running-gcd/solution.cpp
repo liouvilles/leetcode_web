@@ -1,0 +1,1 @@
+class Solution { int gcd(int a,int b){while(b){int t=a%b;a=b;b=t;}return a;}public:int subarrayGCD(vector<int>& nums,int k){int answer=0;for(int left=0;left<(int)nums.size();++left){int value=0;for(int right=left;right<(int)nums.size();++right){value=gcd(value,nums[right]);if(value==k)++answer;if(value%k)break;}}return answer;} };

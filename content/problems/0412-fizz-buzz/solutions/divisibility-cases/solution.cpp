@@ -1,0 +1,1 @@
+class Solution { public: vector<string> fizzBuzz(int n){vector<string> answer;for(int value=1;value<=n;++value){if(value%15==0)answer.push_back("FizzBuzz");else if(value%3==0)answer.push_back("Fizz");else if(value%5==0)answer.push_back("Buzz");else answer.push_back(to_string(value));}return answer;} };

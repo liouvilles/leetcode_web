@@ -1,0 +1,1 @@
+class Solution { public long numberOfWays(String s){long zeros=0,ones=0,pairs01=0,pairs10=0,answer=0;for(char ch:s.toCharArray())if(ch=='0'){answer+=pairs01;pairs10+=ones;zeros++;}else{answer+=pairs10;pairs01+=zeros;ones++;}return answer;} }

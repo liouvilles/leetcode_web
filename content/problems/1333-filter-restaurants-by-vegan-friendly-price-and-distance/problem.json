@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1333,
+  "slug": "filter-restaurants-by-vegan-friendly-price-and-distance",
+  "title": "餐厅过滤器",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-019",
+  "studyTags": [
+    "数组",
+    "排序",
+    "筛选"
+  ],
+  "summary": "餐厅字段为 id、评分、纯素标记、价格、距离；按条件过滤后以评分降序、同评分 id 降序返回 id。",
+  "insight": "先用纯素、价格和距离条件筛选整条记录，再按题目给定的二级比较器排序并投影 id。",
+  "pitfalls": [
+    "veganFriendly=0 时不限制纯素标记",
+    "价格和距离上限都包含等号",
+    "同评分优先较大 id"
+  ],
+  "solutions": [
+    {
+      "id": "filter-sort-project",
+      "title": "筛选排序投影",
+      "kind": "最优",
+      "idea": "按约束留下餐厅后应用稳定明确的排序键。",
+      "steps": [
+        "扫描 restaurants，验证 vegan 条件、price<=maxPrice、distance<=maxDistance",
+        "把合法记录加入列表",
+        "按 rating 降序、id 降序排序，收集 id 返回"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/filter-sort-project/Solution.java",
+        "kotlin": "solutions/filter-sort-project/Solution.kt",
+        "cpp": "solutions/filter-sort-project/solution.cpp"
+      }
+    }
+  ]
+}

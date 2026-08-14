@@ -1,0 +1,1 @@
+class Solution { public: int numberOfBoomerangs(vector<vector<int>>& points){int answer=0;for(auto& center:points){unordered_map<long long,int> counts;for(auto& point:points){long long dx=(long long)center[0]-point[0],dy=(long long)center[1]-point[1],distance=dx*dx+dy*dy;int count=counts[distance];answer+=2*count;counts[distance]=count+1;}}return answer;} };

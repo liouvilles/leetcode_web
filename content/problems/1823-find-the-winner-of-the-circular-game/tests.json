@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findTheWinner",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "五人每数二获胜者三",
+      "args": [
+        5,
+        2
+      ],
+      "expected": 3
+    },
+    {
+      "name": "六人每数五获胜者一",
+      "args": [
+        6,
+        5
+      ],
+      "expected": 1
+    },
+    {
+      "name": "单人直接获胜",
+      "args": [
+        1,
+        3
+      ],
+      "expected": 1
+    }
+  ]
+}

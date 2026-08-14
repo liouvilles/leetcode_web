@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "wordCount",
+  "parameterTypes": [
+    "stringArray",
+    "stringArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典起始词可得到两个目标",
+      "args": [
+        [
+          "ant",
+          "act",
+          "tack"
+        ],
+        [
+          "tack",
+          "act",
+          "acti"
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "两个目标分别由不同起始词得到",
+      "args": [
+        [
+          "ab",
+          "a"
+        ],
+        [
+          "abc",
+          "ba"
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "没有目标可由加一字母得到",
+      "args": [
+        [
+          "ab"
+        ],
+        [
+          "abcd",
+          "a"
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "Encrypter",
+  "constructorTypes": [
+    "charArray",
+    "stringArray",
+    "stringArray"
+  ],
+  "cases": [
+    {
+      "name": "经典碰撞编码加密与解密",
+      "constructorArgs": [
+        [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        [
+          "ei",
+          "zf",
+          "ei",
+          "am"
+        ],
+        [
+          "abcd",
+          "acbd",
+          "adbc",
+          "badc",
+          "dacb",
+          "cadb",
+          "cbda",
+          "abad"
+        ]
+      ],
+      "calls": [
+        {
+          "method": "encrypt",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "abcd"
+          ],
+          "returnType": "string",
+          "expected": "eizfeiam"
+        },
+        {
+          "method": "decrypt",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "eizfeiam"
+          ],
+          "returnType": "int",
+          "expected": 2
+        }
+      ]
+    },
+    {
+      "name": "简单双字符映射",
+      "constructorArgs": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "aa",
+          "bb"
+        ],
+        [
+          "ab",
+          "ba",
+          "aa"
+        ]
+      ],
+      "calls": [
+        {
+          "method": "encrypt",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "ba"
+          ],
+          "returnType": "string",
+          "expected": "bbaa"
+        },
+        {
+          "method": "decrypt",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "aabb"
+          ],
+          "returnType": "int",
+          "expected": 1
+        }
+      ]
+    },
+    {
+      "name": "两个键映射同一密文",
+      "constructorArgs": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "xx",
+          "xx"
+        ],
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "calls": [
+        {
+          "method": "decrypt",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "xx"
+          ],
+          "returnType": "int",
+          "expected": 2
+        },
+        {
+          "method": "encrypt",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "b"
+          ],
+          "returnType": "string",
+          "expected": "xx"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { fun closeStrings(word1:String,word2:String):Boolean{if(word1.length!=word2.length)return false;val first=IntArray(26);val second=IntArray(26);for(letter in word1)first[letter-'a']++;for(letter in word2)second[letter-'a']++;for(i in 0 until 26)if((first[i]==0)!=(second[i]==0))return false;first.sort();second.sort();return first.contentEquals(second)} }

@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minCostClimbingStairs",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "从十五台阶起步",
+      "args": [
+        [
+          10,
+          15,
+          20
+        ]
+      ],
+      "expected": 15
+    },
+    {
+      "name": "避开两个高费用",
+      "args": [
+        [
+          1,
+          100,
+          1,
+          1,
+          1,
+          100,
+          1,
+          1,
+          100,
+          1
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "零费用台阶",
+      "args": [
+        [
+          0,
+          0
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

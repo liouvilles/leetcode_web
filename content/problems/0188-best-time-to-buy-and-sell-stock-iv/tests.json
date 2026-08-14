@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxProfit",
+  "parameterTypes": [
+    "int",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一笔交易",
+      "args": [
+        2,
+        [
+          2,
+          4,
+          1
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "两笔交易",
+      "args": [
+        2,
+        [
+          3,
+          2,
+          6,
+          5,
+          0,
+          3
+        ]
+      ],
+      "expected": 7
+    },
+    {
+      "name": "没有价格",
+      "args": [
+        3,
+        []
+      ],
+      "expected": 0
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findMinHeightTrees",
+  "parameterTypes": [
+    "int",
+    "intMatrix"
+  ],
+  "returnType": "intList",
+  "cases": [
+    {
+      "name": "唯一中心",
+      "args": [
+        4,
+        [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ]
+        ]
+      ],
+      "expected": [
+        1
+      ]
+    },
+    {
+      "name": "两个中心",
+      "args": [
+        6,
+        [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            5,
+            4
+          ]
+        ]
+      ],
+      "expected": [
+        3,
+        4
+      ]
+    },
+    {
+      "name": "单节点",
+      "args": [
+        1,
+        []
+      ],
+      "expected": [
+        0
+      ]
+    }
+  ]
+}

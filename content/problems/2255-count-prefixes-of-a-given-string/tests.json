@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countPrefixes",
+  "parameterTypes": [
+    "stringArray",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "abc 有三个给定前缀",
+      "args": [
+        [
+          "a",
+          "b",
+          "c",
+          "ab",
+          "bc",
+          "abc"
+        ],
+        "abc"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "重复前缀分别计数",
+      "args": [
+        [
+          "a",
+          "a"
+        ],
+        "a"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "没有前缀",
+      "args": [
+        [
+          "x",
+          "y"
+        ],
+        "abc"
+      ],
+      "expected": 0
+    }
+  ]
+}

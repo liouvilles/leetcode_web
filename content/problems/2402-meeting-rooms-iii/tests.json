@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "mostBooked",
+  "parameterTypes": [
+    "int",
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两房间中零号举办最多会议",
+      "args": [
+        2,
+        [
+          [
+            0,
+            10
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            7
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "三房间中一号举办最多会议",
+      "args": [
+        3,
+        [
+          [
+            1,
+            20
+          ],
+          [
+            2,
+            10
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            4,
+            9
+          ],
+          [
+            6,
+            8
+          ]
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "单房间必返回零",
+      "args": [
+        1,
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

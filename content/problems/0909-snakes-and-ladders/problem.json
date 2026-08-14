@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 909,
+  "slug": "snakes-and-ladders",
+  "title": "蛇梯棋",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-013",
+  "studyTags": [
+    "数组",
+    "广度优先搜索",
+    "矩阵"
+  ],
+  "summary": "在蛇形编号棋盘上从一号格出发，每次掷一到六并立即按蛇或梯跳转，求到达 n² 格最少步数，不可达返回负一。",
+  "insight": "每个编号是图节点，六种骰子结果是边；把编号映射到从底向上交替方向的矩阵坐标，BFS 首次到终点最短。",
+  "pitfalls": [
+    "一回合最多只沿一条蛇或梯跳一次",
+    "编号行方向交替",
+    "不能掷过终点格"
+  ],
+  "solutions": [
+    {
+      "id": "label-space-bfs",
+      "title": "编号空间广度优先搜索",
+      "kind": "最优",
+      "idea": "按骰子边扩展并解析蛇梯目的地。",
+      "steps": [
+        "队列从 label=1,distance=0 开始",
+        "弹出 label，枚举 next=label+1..min(label+6,n²)",
+        "映射 next 到 board 坐标，若格值非 -1 则 destination=格值，否则 next；未访问入队，命中终点返回 distance+1"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/label-space-bfs/Solution.java",
+        "kotlin": "solutions/label-space-bfs/Solution.kt",
+        "cpp": "solutions/label-space-bfs/solution.cpp"
+      }
+    }
+  ]
+}

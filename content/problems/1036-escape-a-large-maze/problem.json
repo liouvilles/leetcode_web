@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1036,
+  "slug": "escape-a-large-maze",
+  "title": "逃离大迷宫",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-015",
+  "studyTags": [
+    "数组",
+    "广度优先搜索",
+    "哈希集合"
+  ],
+  "summary": "百万乘百万网格中最多两百个阻塞格，判断能否从 source 四向移动到 target。",
+  "insight": "少量阻塞格最多围住 b(b-1)/2 个空格；从一端 BFS 若访问数超过此界就证明未被围住。两端都未被阻塞围住即可连通。",
+  "pitfalls": [
+    "source 未被围住还不够，target 也可能被围住",
+    "无需搜索整个百万网格",
+    "坐标编码要使用长整型"
+  ],
+  "solutions": [
+    {
+      "id": "bounded-bidirectional-enclosure-bfs",
+      "title": "双端有界围困 BFS",
+      "kind": "最优",
+      "idea": "分别验证起点和终点能逃出阻塞点可能形成的最大包围区。",
+      "steps": [
+        "把 blocked 坐标编码进集合，limit=b*(b-1)/2",
+        "bounded(start,finish)：BFS 四邻，越界、阻塞、已见跳过；命中 finish 返回真",
+        "当 seen.size>limit 返回真，队列耗尽返回假；最终要求两方向 bounded 都为真"
+      ],
+      "complexity": {
+        "time": "O(b²)",
+        "space": "O(b²)"
+      },
+      "files": {
+        "java": "solutions/bounded-bidirectional-enclosure-bfs/Solution.java",
+        "kotlin": "solutions/bounded-bidirectional-enclosure-bfs/Solution.kt",
+        "cpp": "solutions/bounded-bidirectional-enclosure-bfs/solution.cpp"
+      }
+    }
+  ]
+}

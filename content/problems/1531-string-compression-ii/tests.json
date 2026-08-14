@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getLengthOfOptimalCompression",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "删除两字符压缩为 a3c3",
+      "args": [
+        "aaabcccd",
+        2
+      ],
+      "expected": 4
+    },
+    {
+      "name": "删除两个 b 得到 a4",
+      "args": [
+        "aabbaa",
+        2
+      ],
+      "expected": 2
+    },
+    {
+      "name": "十一连 a 压缩长度三",
+      "args": [
+        "aaaaaaaaaaa",
+        0
+      ],
+      "expected": 3
+    }
+  ]
+}

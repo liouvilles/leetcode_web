@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1817,
+  "slug": "finding-the-users-active-minutes",
+  "title": "查找用户活跃分钟数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-026",
+  "studyTags": [
+    "数组",
+    "哈希表"
+  ],
+  "summary": "日志记录用户和分钟；用户活跃分钟数是其出现过的不同分钟数量，返回活跃分钟数为 1..k 的用户数。",
+  "insight": "按用户把分钟放入集合去重，再按每个集合大小累加答案对应位置。",
+  "pitfalls": [
+    "同一用户同一分钟多条日志只算一次",
+    "答案下标 size-1",
+    "只统计出现于日志的用户"
+  ],
+  "solutions": [
+    {
+      "id": "user-minute-sets",
+      "title": "用户分钟集合",
+      "kind": "最优",
+      "idea": "两层哈希结构完成按用户去重。",
+      "steps": [
+        "map user->Set<minute>",
+        "扫描 logs 加入集合",
+        "对每个 set，answer[set.size-1]++"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/user-minute-sets/Solution.java",
+        "kotlin": "solutions/user-minute-sets/Solution.kt",
+        "cpp": "solutions/user-minute-sets/solution.cpp"
+      }
+    }
+  ]
+}

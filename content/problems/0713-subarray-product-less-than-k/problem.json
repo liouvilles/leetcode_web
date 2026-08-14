@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 713,
+  "slug": "subarray-product-less-than-k",
+  "title": "乘积小于 K 的子数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-009",
+  "studyTags": [
+    "数组",
+    "滑动窗口",
+    "双指针"
+  ],
+  "summary": "正整数数组中统计乘积严格小于 k 的连续子数组数量。",
+  "insight": "正数保证窗口乘积随右端扩展单调增大；超限时移动左端并整除，恢复合法后，以 right 结尾的合法子数组有 right-left+1 个。",
+  "pitfalls": [
+    "条件是严格小于 k",
+    "k<=1 时没有正整数乘积符合",
+    "乘积用长整数更安全"
+  ],
+  "solutions": [
+    {
+      "id": "positive-product-window",
+      "title": "正数乘积滑动窗口",
+      "kind": "最优",
+      "idea": "维护每个右端点下最大合法窗口。",
+      "steps": [
+        "k<=1 返回零",
+        "product=1、left=0，右端逐个乘入",
+        "while product>=k 整除 nums[left++]；累加 right-left+1"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/positive-product-window/Solution.java",
+        "kotlin": "solutions/positive-product-window/Solution.kt",
+        "cpp": "solutions/positive-product-window/solution.cpp"
+      }
+    }
+  ]
+}

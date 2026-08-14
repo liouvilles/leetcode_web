@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1765,
+  "slug": "map-of-highest-peak",
+  "title": "地图中的最高点",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-025",
+  "studyTags": [
+    "数组",
+    "广度优先搜索",
+    "矩阵"
+  ],
+  "summary": "水域高度必须为零，相邻格高度差至多一，为所有格分配非负高度并最大化全局最高点，返回任一最优地图。",
+  "insight": "所有水域作为高度零的多源 BFS 起点，陆地到最近水域的最短距离就是可赋的最大安全高度。",
+  "pitfalls": [
+    "所有水域同时入队",
+    "未访问陆地用负一标记",
+    "四向相邻"
+  ],
+  "solutions": [
+    {
+      "id": "multi-source-water-bfs",
+      "title": "水域多源 BFS",
+      "kind": "最优",
+      "idea": "逐层扩张得到每个陆地到最近水域的距离。",
+      "steps": [
+        "height：水域为零、陆地为负一；水域全部入队",
+        "弹出格子并检查四邻",
+        "未赋值邻居 height=current+1 并入队，返回 height"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(mn)"
+      },
+      "files": {
+        "java": "solutions/multi-source-water-bfs/Solution.java",
+        "kotlin": "solutions/multi-source-water-bfs/Solution.kt",
+        "cpp": "solutions/multi-source-water-bfs/solution.cpp"
+      }
+    }
+  ]
+}

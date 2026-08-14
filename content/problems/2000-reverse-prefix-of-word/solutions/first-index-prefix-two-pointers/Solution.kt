@@ -1,0 +1,1 @@
+class Solution { fun reversePrefix(word:String,ch:Char):String{var right=word.indexOf(ch);if(right<0)return word;val value=word.toCharArray();var left=0;while(left<right){val temporary=value[left];value[left++]=value[right];value[right--]=temporary};return value.concatToString()} }

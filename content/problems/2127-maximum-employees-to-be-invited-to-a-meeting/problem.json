@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2127,
+  "slug": "maximum-employees-to-be-invited-to-a-meeting",
+  "title": "参加会议的最多员工数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-031",
+  "studyTags": [
+    "图论",
+    "拓扑排序",
+    "深度优先搜索"
+  ],
+  "summary": "每名员工只愿坐在其唯一喜欢的人旁边，圆桌最多能安排多少员工。",
+  "insight": "喜欢关系是每点出度一的函数图。拓扑剥离非环节点并维护到各节点的最长入链；长度大于二的环只能取最大一个，所有二环则可同时拼接并附上两端最长入链。",
+  "pitfalls": [
+    "二环可以累计而非只取最大",
+    "入链长度包含环端点自身",
+    "长环不能附加入链"
+  ],
+  "solutions": [
+    {
+      "id": "functional-graph-pruning-and-cycle-count",
+      "title": "函数图剥叶与环统计",
+      "kind": "最优",
+      "idea": "拓扑阶段求链长，剩余节点组成纯环。",
+      "steps": [
+        "统计 indegree，队列加入度零节点，distance 初始一",
+        "剥离 node 时更新 distance[favorite[node]]=max(...,distance[node]+1)",
+        "遍历剩余环：二环贡献 distance[a]+distance[b] 并累计；其他环取最大长度；返回两者最大"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/functional-graph-pruning-and-cycle-count/Solution.java",
+        "kotlin": "solutions/functional-graph-pruning-and-cycle-count/Solution.kt",
+        "cpp": "solutions/functional-graph-pruning-and-cycle-count/solution.cpp"
+      }
+    }
+  ]
+}

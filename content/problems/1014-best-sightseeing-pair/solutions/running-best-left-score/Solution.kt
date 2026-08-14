@@ -1,0 +1,1 @@
+class Solution { fun maxScoreSightseeingPair(values:IntArray):Int{var bestLeft=values[0];var answer=Int.MIN_VALUE;for(j in 1 until values.size){answer=maxOf(answer,bestLeft+values[j]-j);bestLeft=maxOf(bestLeft,values[j]+j)};return answer} }

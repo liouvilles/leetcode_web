@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "secondHighest",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "数字一二三四中次大为三",
+      "args": [
+        "dfa12321afd"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "只有数字一不存在次大",
+      "args": [
+        "abc1111"
+      ],
+      "expected": -1
+    },
+    {
+      "name": "九与八次大为八",
+      "args": [
+        "ck077"
+      ],
+      "expected": 0
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1457,
+  "slug": "pseudo-palindromic-paths-in-a-binary-tree",
+  "title": "二叉树中的伪回文路径",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-021",
+  "studyTags": [
+    "位运算",
+    "树",
+    "深度优先搜索"
+  ],
+  "summary": "统计根到叶路径中，节点值重排后可以形成回文的路径数。",
+  "insight": "可重排为回文当且仅当奇数频次值不超过一个。用位掩码沿路径切换每个值的奇偶性，叶节点检查 mask 是否至多一位。",
+  "pitfalls": [
+    "只统计根到叶路径",
+    "离开节点无需显式回退，因为掩码按值传递",
+    "零掩码也合法"
+  ],
+  "solutions": [
+    {
+      "id": "parity-mask-dfs",
+      "title": "奇偶掩码深搜",
+      "kind": "最优",
+      "idea": "用一个整数压缩路径上各值出现次数奇偶。",
+      "steps": [
+        "进入 node 时 mask xor 1<<node.val",
+        "叶节点返回 (mask&(mask-1))==0 ? 1:0",
+        "非叶返回左右子树结果之和"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(h)"
+      },
+      "files": {
+        "java": "solutions/parity-mask-dfs/Solution.java",
+        "kotlin": "solutions/parity-mask-dfs/Solution.kt",
+        "cpp": "solutions/parity-mask-dfs/solution.cpp"
+      }
+    }
+  ]
+}

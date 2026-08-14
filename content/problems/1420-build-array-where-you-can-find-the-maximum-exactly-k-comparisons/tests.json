@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numOfArrays",
+  "parameterTypes": [
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "长度二值域三代价一",
+      "args": [
+        2,
+        3,
+        1
+      ],
+      "expected": 6
+    },
+    {
+      "name": "长度五值域二不可能代价三",
+      "args": [
+        5,
+        2,
+        3
+      ],
+      "expected": 0
+    },
+    {
+      "name": "九个一只有一种数组",
+      "args": [
+        9,
+        1,
+        1
+      ],
+      "expected": 1
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findMaxConsecutiveOnes",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "最长连续段三",
+      "args": [
+        [
+          1,
+          1,
+          0,
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "多个短段",
+      "args": [
+        [
+          1,
+          0,
+          1,
+          1,
+          0,
+          1
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "全零",
+      "args": [
+        [
+          0,
+          0
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getAllElements",
+  "parameterTypes": [
+    "treeNode",
+    "treeNode"
+  ],
+  "returnType": "intList",
+  "cases": [
+    {
+      "name": "两棵三节点树归并",
+      "args": [
+        [
+          2,
+          1,
+          4
+        ],
+        [
+          1,
+          0,
+          3
+        ]
+      ],
+      "expected": [
+        0,
+        1,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "name": "单节点与三节点树",
+      "args": [
+        [
+          2
+        ],
+        [
+          5,
+          1,
+          7
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        5,
+        7
+      ]
+    },
+    {
+      "name": "重复值全部保留",
+      "args": [
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ],
+      "expected": [
+        1,
+        1
+      ]
+    }
+  ]
+}

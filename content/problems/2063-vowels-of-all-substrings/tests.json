@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countVowels",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "aba 中两个 a 总贡献六",
+      "args": [
+        "aba"
+      ],
+      "expected": 6
+    },
+    {
+      "name": "abc 只有首位 a 贡献三",
+      "args": [
+        "abc"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "leetcode 总元音贡献五十八",
+      "args": [
+        "leetcode"
+      ],
+      "expected": 58
+    }
+  ]
+}

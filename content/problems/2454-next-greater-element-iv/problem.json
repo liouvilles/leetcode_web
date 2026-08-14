@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2454,
+  "slug": "next-greater-element-iv",
+  "title": "下一个更大元素 IV",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-036",
+  "studyTags": [
+    "数组",
+    "栈",
+    "单调栈"
+  ],
+  "summary": "对每个元素找其右侧第二个严格大于它的元素值，不存在返回负一。",
+  "insight": "first 栈等待第一次更大，second 栈已遇到第一次更大、等待第二次。当前值先结算 second，再把 first 中较小元素按保持单调的顺序转移到 second。",
+  "pitfalls": [
+    "必须严格大于",
+    "按出现顺序数第二个而非数值第二大",
+    "转移到第二栈时需保持正确弹出顺序"
+  ],
+  "solutions": [
+    {
+      "id": "two-stage-monotonic-stacks",
+      "title": "两阶段单调栈",
+      "kind": "最优",
+      "idea": "元素从等待第一大状态转入等待第二大状态。",
+      "steps": [
+        "answer=-1、first/second 空",
+        "对 i：while second top值<nums[i]，答案设 nums[i]",
+        "从 first 弹出所有更小下标到 moved",
+        "逆序把 moved 压入 second，再把 i 压 first",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/two-stage-monotonic-stacks/Solution.java",
+        "kotlin": "solutions/two-stage-monotonic-stacks/Solution.kt",
+        "cpp": "solutions/two-stage-monotonic-stacks/solution.cpp"
+      }
+    }
+  ]
+}

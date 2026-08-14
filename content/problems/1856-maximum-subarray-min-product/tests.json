@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxSumMinProduct",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一二三二最大最小乘积十四",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          2
+        ]
+      ],
+      "expected": 14
+    },
+    {
+      "name": "重复三的数组最大十八",
+      "args": [
+        [
+          2,
+          3,
+          3,
+          1,
+          2
+        ]
+      ],
+      "expected": 18
+    },
+    {
+      "name": "单元素三的乘积九",
+      "args": [
+        [
+          3
+        ]
+      ],
+      "expected": 9
+    }
+  ]
+}

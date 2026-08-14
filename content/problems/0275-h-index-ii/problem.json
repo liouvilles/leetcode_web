@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 275,
+  "slug": "h-index-ii",
+  "title": "H 指数 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-005",
+  "studyTags": [
+    "二分查找",
+    "有序数组",
+    "阈值"
+  ],
+  "summary": "在引用次数已按升序排列时，用对数复杂度求 H 指数。",
+  "insight": "寻找最左的下标 index，使 citations[index] 至少为 n-index；答案为其右侧论文数量。",
+  "pitfalls": [
+    "右边界可取 n 表示没有满足项",
+    "条件满足时继续向左寻找",
+    "空数组答案为零"
+  ],
+  "solutions": [
+    {
+      "id": "binary-search-boundary",
+      "title": "二分最左满足位置",
+      "kind": "最优",
+      "idea": "对单调条件 citations[index]>=n-index 做 lower bound。",
+      "steps": [
+        "区间初始化 [0,n)",
+        "中点满足条件时 right=middle",
+        "否则 left=middle+1，返回 n-left"
+      ],
+      "complexity": {
+        "time": "O(log n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/binary-search-boundary/Solution.java",
+        "kotlin": "solutions/binary-search-boundary/Solution.kt",
+        "cpp": "solutions/binary-search-boundary/solution.cpp"
+      }
+    }
+  ]
+}

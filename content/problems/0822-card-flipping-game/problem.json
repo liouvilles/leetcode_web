@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 822,
+  "slug": "card-flipping-game",
+  "title": "翻转卡片游戏",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-011",
+  "studyTags": [
+    "数组",
+    "哈希集合",
+    "枚举"
+  ],
+  "summary": "每张卡片有正反面数字，可任意翻转；求能让某数字出现在一张正面且不出现在任何背面的最小正整数，不存在返回零。",
+  "insight": "若一张卡正反相同，该值无论怎样翻都必在背面，是禁用值；其他出现在任一面的非禁用值都可通过翻转安排成候选。",
+  "pitfalls": [
+    "只需把 fronts[i]==backs[i] 的值禁用",
+    "候选可来自正面或背面",
+    "无候选时返回零"
+  ],
+  "solutions": [
+    {
+      "id": "forbidden-equal-pairs-scan",
+      "title": "等值卡片禁用集合",
+      "kind": "最优",
+      "idea": "先找不可能值，再扫描两面取最小候选。",
+      "steps": [
+        "建立 forbidden，加入所有 fronts[i]==backs[i] 的值",
+        "answer 初始化最大整数",
+        "扫描 fronts 和 backs，非 forbidden 值更新最小值；最终无候选返回零"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/forbidden-equal-pairs-scan/Solution.java",
+        "kotlin": "solutions/forbidden-equal-pairs-scan/Solution.kt",
+        "cpp": "solutions/forbidden-equal-pairs-scan/solution.cpp"
+      }
+    }
+  ]
+}

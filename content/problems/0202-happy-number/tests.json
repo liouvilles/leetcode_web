@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isHappy",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "多轮后到达一",
+      "args": [
+        19
+      ],
+      "expected": true
+    },
+    {
+      "name": "进入非一循环",
+      "args": [
+        2
+      ],
+      "expected": false
+    },
+    {
+      "name": "一自身是快乐数",
+      "args": [
+        1
+      ],
+      "expected": true
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2156,
+  "slug": "find-substring-with-given-hash-value",
+  "title": "查找给定哈希值的子串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-031",
+  "studyTags": [
+    "字符串",
+    "滑动窗口",
+    "滚动哈希"
+  ],
+  "summary": "按字符值乘 power 的递增幂定义长度 k 子串哈希，返回最左边哈希等于目标值的子串。",
+  "insight": "从右向左维护窗口，旧哈希乘 power 再加新首字符正好匹配幂次方向；窗口超过 k 时减去离开字符乘 power^k。倒序遇到匹配持续覆盖答案即可得到最左位置。",
+  "pitfalls": [
+    "字符 a 的值是一",
+    "幂次从子串左端的零次幂开始",
+    "多个匹配要返回最左边"
+  ],
+  "solutions": [
+    {
+      "id": "reverse-rolling-hash",
+      "title": "逆向滚动哈希",
+      "kind": "最优",
+      "idea": "逆序扫描让低次幂位于新加入的左端。",
+      "steps": [
+        "预计算 power^k mod modulo",
+        "i 从 n-1 到零：hash=(hash*power+value(s[i]))%modulo",
+        "若 i+k<n，减去 value(s[i+k])*power^k 并规范到非负",
+        "i<=n-k 且 hash==hashValue 时 answer=i；返回 substring(answer,answer+k)"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/reverse-rolling-hash/Solution.java",
+        "kotlin": "solutions/reverse-rolling-hash/Solution.kt",
+        "cpp": "solutions/reverse-rolling-hash/solution.cpp"
+      }
+    }
+  ]
+}

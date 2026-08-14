@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "tree2str",
+  "parameterTypes": [
+    "treeNode"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "省略叶子空括号",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": "1(2(4))(3)"
+    },
+    {
+      "name": "保留缺失左孩子括号",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          null,
+          4
+        ]
+      ],
+      "expected": "1(2()(4))(3)"
+    },
+    {
+      "name": "单节点",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": "1"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1904,
+  "slug": "the-number-of-full-rounds-you-have-played",
+  "title": "你完成的完整对局数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-027",
+  "studyTags": [
+    "数学",
+    "字符串"
+  ],
+  "summary": "游戏每十五分钟开始一局，给定登录和退出时间，求完整参与的对局数，可能跨越午夜。",
+  "insight": "把时间转成从当天零点起的分钟；跨午夜则给结束时间加一千四百四十。开始时间向上取整到十五分钟边界，结束时间向下取整，二者差除以十五。",
+  "pitfalls": [
+    "登录或退出发生在对局中间时该局不完整",
+    "结束早于开始表示跨午夜",
+    "同一时刻不视为跨一整天"
+  ],
+  "solutions": [
+    {
+      "id": "rounded-quarter-hour-boundaries",
+      "title": "十五分钟边界取整",
+      "kind": "最优",
+      "idea": "统一成分钟轴后计算完整边界区间数量。",
+      "steps": [
+        "parse HH:MM 为分钟",
+        "finish<start 时 finish+=1440",
+        "roundedStart=ceil(start/15)*15，roundedFinish=floor(finish/15)*15；返回非负差/15"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/rounded-quarter-hour-boundaries/Solution.java",
+        "kotlin": "solutions/rounded-quarter-hour-boundaries/Solution.kt",
+        "cpp": "solutions/rounded-quarter-hour-boundaries/solution.cpp"
+      }
+    }
+  ]
+}

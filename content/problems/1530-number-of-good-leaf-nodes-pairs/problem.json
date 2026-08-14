@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1530,
+  "slug": "number-of-good-leaf-nodes-pairs",
+  "title": "好叶子节点对的数量",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-022",
+  "studyTags": [
+    "树",
+    "深度优先搜索",
+    "树形 DP"
+  ],
+  "summary": "统计二叉树中两个不同叶节点间最短路径长度不超过 distance 的无序对。",
+  "insight": "后序 DFS 返回子树叶子到当前节点的距离频次；在当前节点把左右频次数组合，距离 i+j+2 不超限制的就是新叶对。",
+  "pitfalls": [
+    "只有一左一右的叶对在当前最低公共祖先处计数",
+    "叶节点返回距离零频次一",
+    "向父节点传递时距离加一"
+  ],
+  "solutions": [
+    {
+      "id": "leaf-distance-frequency-dfs",
+      "title": "叶距频次树形动态规划",
+      "kind": "最优",
+      "idea": "在每个节点合并左右子树叶距分布。",
+      "steps": [
+        "叶节点返回 count[0]=1",
+        "递归得到 left、right；枚举 i,j，若 i+j+2<=distance 则 answer+=left[i]*right[j]",
+        "返回 counts[d+1]=left[d]+right[d]"
+      ],
+      "complexity": {
+        "time": "O(n·distance²)",
+        "space": "O(h·distance)"
+      },
+      "files": {
+        "java": "solutions/leaf-distance-frequency-dfs/Solution.java",
+        "kotlin": "solutions/leaf-distance-frequency-dfs/Solution.kt",
+        "cpp": "solutions/leaf-distance-frequency-dfs/solution.cpp"
+      }
+    }
+  ]
+}

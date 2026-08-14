@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 883,
+  "slug": "projection-area-of-3d-shapes",
+  "title": "三维形体投影面积",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "数组",
+    "数学",
+    "矩阵"
+  ],
+  "summary": "网格每格堆叠若干立方体，求从顶部、前方和侧方看到的三幅投影面积总和。",
+  "insight": "顶部投影等于非零格数；前后投影按每行最大高度求和，左右投影按每列最大高度求和。",
+  "pitfalls": [
+    "高度零不贡献顶部面积",
+    "行列最大值都要统计",
+    "输入为方阵"
+  ],
+  "solutions": [
+    {
+      "id": "nonzero-and-row-column-maxima",
+      "title": "非零数与行列最大值",
+      "kind": "最优",
+      "idea": "一次扫描同时维护三向投影。",
+      "steps": [
+        "top=0，rowMax 和 columnMax 初始化零",
+        "遍历每格：非零则 top++，更新所在行列最大值",
+        "返回 top+sum(rowMax)+sum(columnMax)"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/nonzero-and-row-column-maxima/Solution.java",
+        "kotlin": "solutions/nonzero-and-row-column-maxima/Solution.kt",
+        "cpp": "solutions/nonzero-and-row-column-maxima/solution.cpp"
+      }
+    }
+  ]
+}

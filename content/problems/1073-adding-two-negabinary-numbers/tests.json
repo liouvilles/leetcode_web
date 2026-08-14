@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "addNegabinary",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "经典负二进制相加",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ]
+      ],
+      "expected": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "两个零",
+      "args": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "expected": [
+        0
+      ]
+    },
+    {
+      "name": "一加一等于二",
+      "args": [
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ],
+      "expected": [
+        1,
+        1,
+        0
+      ]
+    }
+  ]
+}

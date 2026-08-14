@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2376,
+  "slug": "count-special-integers",
+  "title": "统计特殊整数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-035",
+  "studyTags": [
+    "数学",
+    "动态规划",
+    "组合数学"
+  ],
+  "summary": "统计 1 到 n 中十进制各位互不相同的正整数数量。",
+  "insight": "先统计位数更短的数；对于与 n 等长的数，从高位到低位枚举比当前位小且未使用的候选，后缀用剩余数字排列数计算。若 n 自身无重复再加一。",
+  "pitfalls": [
+    "最高位不能为零",
+    "数字零可用于非首位",
+    "一旦 n 当前位重复就不能继续匹配前缀"
+  ],
+  "solutions": [
+    {
+      "id": "prefix-enumeration-with-permutations",
+      "title": "前缀枚举与排列数",
+      "kind": "最优",
+      "idea": "按位统计严格小于 n 的无重复数字。",
+      "steps": [
+        "短位数 length 贡献 9*P(9,length-1)",
+        "扫描 n 各位，枚举合法且更小 digit，贡献 P(剩余数字数,剩余位数)",
+        "若当前 digit 已用则停止，否则标记",
+        "完整扫描后把 n 自身计入"
+      ],
+      "complexity": {
+        "time": "O(number of digits·10)",
+        "space": "O(10)"
+      },
+      "files": {
+        "java": "solutions/prefix-enumeration-with-permutations/Solution.java",
+        "kotlin": "solutions/prefix-enumeration-with-permutations/Solution.kt",
+        "cpp": "solutions/prefix-enumeration-with-permutations/solution.cpp"
+      }
+    }
+  ]
+}

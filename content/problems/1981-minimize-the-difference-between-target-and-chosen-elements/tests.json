@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimizeTheDifference",
+  "parameterTypes": [
+    "intMatrix",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三行可恰好选出十三",
+      "args": [
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            4,
+            5,
+            6
+          ],
+          [
+            7,
+            8,
+            9
+          ]
+        ],
+        13
+      ],
+      "expected": 0
+    },
+    {
+      "name": "固定和六与目标差九十四",
+      "args": [
+        [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ]
+        ],
+        100
+      ],
+      "expected": 94
+    },
+    {
+      "name": "单行最接近六的是七",
+      "args": [
+        [
+          [
+            1,
+            2,
+            9,
+            8,
+            7
+          ]
+        ],
+        6
+      ],
+      "expected": 1
+    }
+  ]
+}

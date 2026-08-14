@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minFlips",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一零一一一有三次状态变化",
+      "args": [
+        "10111"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "一零一需三次翻转",
+      "args": [
+        "101"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "全零无需翻转",
+      "args": [
+        "00000"
+      ],
+      "expected": 0
+    }
+  ]
+}

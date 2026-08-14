@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "removeOccurrences",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "连续删除 abc 最终为 dab",
+      "args": [
+        "daabcbaabcbc",
+        "abc"
+      ],
+      "expected": "dab"
+    },
+    {
+      "name": "连接处反复形成 xy 最终为 ab",
+      "args": [
+        "axxxxyyyyb",
+        "xy"
+      ],
+      "expected": "ab"
+    },
+    {
+      "name": "不存在目标子串保持原样",
+      "args": [
+        "hello",
+        "abc"
+      ],
+      "expected": "hello"
+    }
+  ]
+}

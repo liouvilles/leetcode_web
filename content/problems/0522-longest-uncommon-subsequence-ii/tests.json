@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findLUSlength",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "任一三字字符串",
+      "args": [
+        [
+          "aba",
+          "cdc",
+          "eae"
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "全部候选均为子序列",
+      "args": [
+        [
+          "aaa",
+          "aaa",
+          "aa"
+        ]
+      ],
+      "expected": -1
+    },
+    {
+      "name": "短字符串 cb 特殊",
+      "args": [
+        [
+          "aabbcc",
+          "aabbcc",
+          "cb",
+          "abc"
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

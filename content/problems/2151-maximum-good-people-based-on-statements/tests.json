@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumGood",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两人互称好可都为好人",
+      "args": [
+        [
+          [
+            2,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "两人互称坏最多一名好人",
+      "args": [
+        [
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            2
+          ]
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "前两人一致指认第三人为坏人",
+      "args": [
+        [
+          [
+            2,
+            1,
+            0
+          ],
+          [
+            1,
+            2,
+            0
+          ],
+          [
+            0,
+            0,
+            2
+          ]
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

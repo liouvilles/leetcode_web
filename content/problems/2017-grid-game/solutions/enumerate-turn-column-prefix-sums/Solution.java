@@ -1,0 +1,1 @@
+class Solution { public long gridGame(int[][] grid){long top=0,bottom=0,answer=Long.MAX_VALUE;for(int value:grid[0])top+=value;for(int col=0;col<grid[0].length;col++){top-=grid[0][col];answer=Math.min(answer,Math.max(top,bottom));bottom+=grid[1][col];}return answer;} }

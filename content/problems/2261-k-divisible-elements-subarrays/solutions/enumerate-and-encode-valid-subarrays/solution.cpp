@@ -1,0 +1,1 @@
+class Solution { public:int countDistinct(vector<int>& nums,int k,int p){set<vector<int>> distinct;for(int start=0;start<(int)nums.size();++start){int divisible=0;vector<int> value;for(int end=start;end<(int)nums.size();++end){divisible+=nums[end]%p==0;if(divisible>k)break;value.push_back(nums[end]);distinct.insert(value);}}return distinct.size();} };

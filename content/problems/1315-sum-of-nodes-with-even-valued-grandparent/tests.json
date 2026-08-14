@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sumEvenGrandparent",
+  "parameterTypes": [
+    "treeNode"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典树贡献十八",
+      "args": [
+        [
+          6,
+          7,
+          8,
+          2,
+          7,
+          1,
+          3,
+          9,
+          null,
+          1,
+          4,
+          null,
+          null,
+          null,
+          5
+        ]
+      ],
+      "expected": 18
+    },
+    {
+      "name": "偶数根的孙子相加",
+      "args": [
+        [
+          2,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "expected": 22
+    },
+    {
+      "name": "不足三层没有贡献",
+      "args": [
+        [
+          2,
+          1,
+          3
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

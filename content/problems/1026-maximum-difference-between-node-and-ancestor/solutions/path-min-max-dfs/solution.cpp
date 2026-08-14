@@ -1,0 +1,1 @@
+class Solution { int dfs(TreeNode* node,int minimum,int maximum){if(!node)return maximum-minimum;minimum=min(minimum,node->val);maximum=max(maximum,node->val);return max(dfs(node->left,minimum,maximum),dfs(node->right,minimum,maximum));}public:int maxAncestorDiff(TreeNode* root){return dfs(root,root->val,root->val);} };

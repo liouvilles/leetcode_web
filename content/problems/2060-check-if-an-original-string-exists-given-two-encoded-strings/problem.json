@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2060,
+  "slug": "check-if-an-original-string-exists-given-two-encoded-strings",
+  "title": "同源字符串检测",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "字符串",
+    "动态规划",
+    "记忆化搜索"
+  ],
+  "summary": "编码串中字母来自原串，数字表示被替换连续子串的长度；判断两个编码串是否可能来自同一个原字符串。",
+  "insight": "记忆搜索位置 i、j 和两边尚未匹配的原串长度差 diff。数字可取连续一到三位解析并改变 diff；diff 正时用 s2 字母抵消，负时用 s1 字母抵消，零时两字母必须相等。",
+  "pitfalls": [
+    "连续数字最多三位但可有多种拆分方式",
+    "差值正负方向要一致",
+    "两串结束且差为零才成功"
+  ],
+  "solutions": [
+    {
+      "id": "memoized-position-length-difference",
+      "title": "位置与长度差记忆搜索",
+      "kind": "最优",
+      "idea": "用未匹配展开长度差连接两种编码解析。",
+      "steps": [
+        "dfs(i,j,diff) 记忆状态",
+        "s1 当前为数字时枚举一到三位并 diff+number；s2 数字同理 diff-number",
+        "diff<0 消耗 s1 字母，diff>0 消耗 s2 字母；diff==0 时相同字母同步前进"
+      ],
+      "complexity": {
+        "time": "O(nmD)",
+        "space": "O(nmD)"
+      },
+      "files": {
+        "java": "solutions/memoized-position-length-difference/Solution.java",
+        "kotlin": "solutions/memoized-position-length-difference/Solution.kt",
+        "cpp": "solutions/memoized-position-length-difference/solution.cpp"
+      }
+    }
+  ]
+}

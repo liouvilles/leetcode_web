@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1897,
+  "slug": "redistribute-characters-to-make-all-strings-equal",
+  "title": "重新分配字符使所有字符串都相等",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-027",
+  "studyTags": [
+    "哈希表",
+    "字符串",
+    "计数"
+  ],
+  "summary": "可在字符串之间任意移动字符，判断能否让数组中的所有字符串完全相同。",
+  "insight": "移动不改变每种字符的总数。若最终有 n 个相同字符串，则每种字符总频次必须能被 n 整除；这也是充分条件。",
+  "pitfalls": [
+    "字符可跨任意字符串移动",
+    "只需关心全局频次",
+    "每种字符都必须整除字符串数量"
+  ],
+  "solutions": [
+    {
+      "id": "global-frequency-divisibility",
+      "title": "全局字符频次整除",
+      "kind": "最优",
+      "idea": "汇总字符后检查能否平均分给所有字符串。",
+      "steps": [
+        "frequency[26]=0",
+        "遍历所有 word 与字符累计",
+        "若任一 count%words.length!=0 返回 false，否则 true"
+      ],
+      "complexity": {
+        "time": "O(total characters)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/global-frequency-divisibility/Solution.java",
+        "kotlin": "solutions/global-frequency-divisibility/Solution.kt",
+        "cpp": "solutions/global-frequency-divisibility/solution.cpp"
+      }
+    }
+  ]
+}

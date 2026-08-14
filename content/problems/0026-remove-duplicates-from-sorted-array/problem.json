@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 26,
+  "slug": "remove-duplicates-from-sorted-array",
+  "title": "删除有序数组中的重复项",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-002",
+  "studyTags": [
+    "快慢指针",
+    "原地修改",
+    "有序去重"
+  ],
+  "summary": "原地删除非严格递增数组中的重复值，使前 k 个位置保存所有不同元素并返回 k。",
+  "insight": "有序数组的相同值连续出现，慢指针只需指向下一个不同元素应写入的位置。",
+  "pitfalls": [
+    "返回值是不同元素数量",
+    "只要求前 k 个位置正确",
+    "空数组需要返回 0"
+  ],
+  "solutions": [
+    {
+      "id": "two-pointers",
+      "title": "快慢指针覆盖",
+      "kind": "最优",
+      "idea": "快指针扫描新值，慢指针维护去重后前缀长度。",
+      "steps": [
+        "空数组直接返回零",
+        "当前值不同于已写入前缀末尾时写到 slow",
+        "返回 slow 作为有效长度"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/two-pointers/Solution.java",
+        "kotlin": "solutions/two-pointers/Solution.kt",
+        "cpp": "solutions/two-pointers/solution.cpp"
+      }
+    }
+  ]
+}

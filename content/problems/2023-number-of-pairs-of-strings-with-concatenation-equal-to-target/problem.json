@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2023,
+  "slug": "number-of-pairs-of-strings-with-concatenation-equal-to-target",
+  "title": "连接后等于目标字符串的字符串对",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-029",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "哈希表",
+    "计数"
+  ],
+  "summary": "统计有序下标对 i!=j，使 nums[i]+nums[j] 恰等于 target。",
+  "insight": "统计每个字符串频次，枚举 target 的每个非空切分。左段与右段频次乘积给出有序配对数；若两段相同要扣除同一下标自配的一次选择。",
+  "pitfalls": [
+    "下标对有顺序",
+    "两个下标必须不同",
+    "字符串均非空所以切分点不含两端"
+  ],
+  "solutions": [
+    {
+      "id": "target-splits-frequency",
+      "title": "目标切分与频次乘积",
+      "kind": "最优",
+      "idea": "所有合法连接都唯一对应 target 的一个切分点。",
+      "steps": [
+        "统计 nums 字符串频次",
+        "split 从 1 到 target.length-1",
+        "left、right 频次乘积；相等时用 count*(count-1)，累加返回"
+      ],
+      "complexity": {
+        "time": "O(total characters+target²)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/target-splits-frequency/Solution.java",
+        "kotlin": "solutions/target-splits-frequency/Solution.kt",
+        "cpp": "solutions/target-splits-frequency/solution.cpp"
+      }
+    }
+  ]
+}

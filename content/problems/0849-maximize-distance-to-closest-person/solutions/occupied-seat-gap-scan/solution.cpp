@@ -1,0 +1,1 @@
+class Solution { public: int maxDistToClosest(vector<int>& seats){int answer=0,previous=-1;for(int i=0;i<(int)seats.size();++i)if(seats[i]){answer=previous<0?i:max(answer,(i-previous)/2);previous=i;}return max(answer,(int)seats.size()-1-previous);} };

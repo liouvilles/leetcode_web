@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findMaxAverage",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "double",
+  "cases": [
+    {
+      "name": "窗口最大和五十一",
+      "args": [
+        [
+          1,
+          12,
+          -5,
+          -6,
+          50,
+          3
+        ],
+        4
+      ],
+      "expected": 12.75
+    },
+    {
+      "name": "单元素窗口",
+      "args": [
+        [
+          5
+        ],
+        1
+      ],
+      "expected": 5
+    },
+    {
+      "name": "全负数",
+      "args": [
+        [
+          -1,
+          -12,
+          -5,
+          -6
+        ],
+        2
+      ],
+      "expected": -5.5
+    }
+  ]
+}

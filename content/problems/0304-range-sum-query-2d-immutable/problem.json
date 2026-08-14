@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 304,
+  "slug": "range-sum-query-2d-immutable",
+  "title": "二维区域和检索 - 矩阵不可变",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-005",
+  "studyTags": [
+    "二维前缀和",
+    "设计",
+    "矩阵"
+  ],
+  "summary": "对固定矩阵多次查询由左上和右下坐标定义的闭合矩形区域和。",
+  "insight": "二维前缀和保存从原点到当前位置之前矩形的总和，查询时用四项容斥。",
+  "pitfalls": [
+    "前缀矩阵行列各多一",
+    "查询坐标为闭区间",
+    "容斥需要加回重复减去的左上区域"
+  ],
+  "solutions": [
+    {
+      "id": "two-dimensional-prefix",
+      "title": "二维前缀和容斥",
+      "kind": "最优",
+      "idea": "构造累计矩形和，查询用右下减上减左加左上。",
+      "steps": [
+        "prefix[r+1][c+1] 按四项关系构建",
+        "把查询坐标映射到前缀边界",
+        "返回 D-B-C+A"
+      ],
+      "complexity": {
+        "time": "build O(mn), query O(1)",
+        "space": "O(mn)"
+      },
+      "files": {
+        "java": "solutions/two-dimensional-prefix/Solution.java",
+        "kotlin": "solutions/two-dimensional-prefix/Solution.kt",
+        "cpp": "solutions/two-dimensional-prefix/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "hardestWorker",
+  "parameterTypes": [
+    "int",
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "员工一执行最后任务六单位",
+      "args": [
+        10,
+        [
+          [
+            0,
+            3
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            0,
+            9
+          ],
+          [
+            1,
+            15
+          ]
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "员工三任务时长六最大",
+      "args": [
+        26,
+        [
+          [
+            1,
+            1
+          ],
+          [
+            3,
+            7
+          ],
+          [
+            2,
+            12
+          ],
+          [
+            7,
+            17
+          ]
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "时长并列取员工一",
+      "args": [
+        3,
+        [
+          [
+            2,
+            2
+          ],
+          [
+            1,
+            4
+          ]
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

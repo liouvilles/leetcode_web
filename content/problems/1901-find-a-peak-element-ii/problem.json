@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1901,
+  "slug": "find-a-peak-element-ii",
+  "title": "寻找峰值 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-027",
+  "studyTags": [
+    "数组",
+    "二分查找",
+    "矩阵"
+  ],
+  "summary": "在相邻元素均不同且边界视为负一的矩阵中，返回任一严格大于上下左右邻居的元素坐标。",
+  "insight": "对中间列找该列最大元素，它天然大于上下邻居。若右邻更大，则右半区域必有峰值；否则收缩到包含当前列的左半。最终列最大元素即峰值。",
+  "pitfalls": [
+    "可返回任意峰值但测试需使用算法确定的坐标",
+    "先取列最大可自动满足上下条件",
+    "二分比较右邻时只在非末列进行"
+  ],
+  "solutions": [
+    {
+      "id": "binary-search-columns",
+      "title": "按列二分峰值",
+      "kind": "最优",
+      "idea": "用列最大元素与右邻的上升方向决定搜索侧。",
+      "steps": [
+        "left=0、right=cols-1",
+        "middle 列找到最大值所在 row；若其右邻更大则 left=middle+1，否则 right=middle",
+        "收敛后取该列最大元素行并返回坐标"
+      ],
+      "complexity": {
+        "time": "O(rows log cols)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/binary-search-columns/Solution.java",
+        "kotlin": "solutions/binary-search-columns/Solution.kt",
+        "cpp": "solutions/binary-search-columns/solution.cpp"
+      }
+    }
+  ]
+}

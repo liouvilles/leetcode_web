@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2366,
+  "slug": "minimum-replacements-to-sort-the-array",
+  "title": "将数组排序的最少替换次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "数组",
+    "数学",
+    "贪心"
+  ],
+  "summary": "每次可把一个正整数替换成两个和等于它的正整数，求使最终数组非递减的最少操作数。",
+  "insight": "从右向左维护当前元素各拆分部分允许的最大值 limit。若 value>limit，至少要拆成 parts=ceil(value/limit) 份，操作数加 parts-1；为让左侧最宽松，均匀拆分后新的最大允许值取 floor(value/parts)。",
+  "pitfalls": [
+    "一次拆成 parts 份需要 parts-1 次二分替换",
+    "必须从右向左贪心",
+    "操作数可能超过 int"
+  ],
+  "solutions": [
+    {
+      "id": "right-to-left-balanced-splitting",
+      "title": "从右向左均匀拆分",
+      "kind": "最优",
+      "idea": "用右侧最小首项约束当前拆分后的每一份。",
+      "steps": [
+        "limit=最后元素、answer=0",
+        "从倒数第二项向左",
+        "parts=ceil(value/limit)，answer+=parts-1",
+        "limit=floor(value/parts)",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/right-to-left-balanced-splitting/Solution.java",
+        "kotlin": "solutions/right-to-left-balanced-splitting/Solution.kt",
+        "cpp": "solutions/right-to-left-balanced-splitting/solution.cpp"
+      }
+    }
+  ]
+}

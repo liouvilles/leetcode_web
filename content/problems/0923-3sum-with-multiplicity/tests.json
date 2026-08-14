@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "threeSumMulti",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "多组组合二十种",
+      "args": [
+        [
+          1,
+          1,
+          2,
+          2,
+          3,
+          3,
+          4,
+          4,
+          5,
+          5
+        ],
+        8
+      ],
+      "expected": 20
+    },
+    {
+      "name": "两个一四个二",
+      "args": [
+        [
+          1,
+          1,
+          2,
+          2,
+          2,
+          2
+        ],
+        5
+      ],
+      "expected": 12
+    },
+    {
+      "name": "三个零",
+      "args": [
+        [
+          0,
+          0,
+          0
+        ],
+        0
+      ],
+      "expected": 1
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxEvents",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三个事件全参加",
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "重复事件仍可分天参加",
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            1,
+            2
+          ]
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "同一天三个事件只能参加一个",
+      "args": [
+        [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

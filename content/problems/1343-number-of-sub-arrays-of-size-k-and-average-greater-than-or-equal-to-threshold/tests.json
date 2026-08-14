@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numOfSubarrays",
+  "parameterTypes": [
+    "intArray",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典窗口三个",
+      "args": [
+        [
+          2,
+          2,
+          2,
+          2,
+          5,
+          5,
+          5,
+          8
+        ],
+        3,
+        4
+      ],
+      "expected": 3
+    },
+    {
+      "name": "所有单元素均达标",
+      "args": [
+        [
+          11,
+          13,
+          17,
+          23,
+          29,
+          31,
+          7,
+          5,
+          2,
+          3
+        ],
+        1,
+        5
+      ],
+      "expected": 8
+    },
+    {
+      "name": "没有窗口达标",
+      "args": [
+        [
+          1,
+          1,
+          1
+        ],
+        2,
+        2
+      ],
+      "expected": 0
+    }
+  ]
+}

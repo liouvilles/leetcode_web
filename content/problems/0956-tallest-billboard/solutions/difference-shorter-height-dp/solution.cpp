@@ -1,0 +1,1 @@
+class Solution { public: int tallestBillboard(vector<int>& rods){unordered_map<int,int> dp{{0,0}};for(int rod:rods){auto next=dp;for(auto [difference,shorter]:dp){next[difference+rod]=max(next[difference+rod],shorter);int newDifference=abs(difference-rod);next[newDifference]=max(next[newDifference],shorter+min(difference,rod));}dp.swap(next);}return dp[0];} };

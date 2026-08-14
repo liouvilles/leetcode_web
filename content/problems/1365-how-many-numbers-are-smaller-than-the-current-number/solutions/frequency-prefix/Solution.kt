@@ -1,0 +1,1 @@
+class Solution { fun smallerNumbersThanCurrent(nums:IntArray):IntArray{val count=IntArray(101);for(value in nums)count[value]++;var smaller=0;for(value in count.indices){val frequency=count[value];count[value]=smaller;smaller+=frequency};for(i in nums.indices)nums[i]=count[nums[i]];return nums} }

@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "FindElements",
+  "constructorTypes": [
+    "treeNode"
+  ],
+  "cases": [
+    {
+      "name": "只有右孩子",
+      "constructorArgs": [
+        [
+          -1,
+          null,
+          -1
+        ]
+      ],
+      "calls": [
+        {
+          "method": "find",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ],
+          "returnType": "boolean",
+          "expected": false
+        },
+        {
+          "method": "find",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ],
+          "returnType": "boolean",
+          "expected": true
+        }
+      ]
+    },
+    {
+      "name": "完全两层树",
+      "constructorArgs": [
+        [
+          -1,
+          -1,
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "calls": [
+        {
+          "method": "find",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            3
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "find",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            4
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "find",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            5
+          ],
+          "returnType": "boolean",
+          "expected": false
+        }
+      ]
+    },
+    {
+      "name": "单根节点",
+      "constructorArgs": [
+        [
+          -1
+        ]
+      ],
+      "calls": [
+        {
+          "method": "find",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            0
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "find",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ],
+          "returnType": "boolean",
+          "expected": false
+        }
+      ]
+    }
+  ]
+}

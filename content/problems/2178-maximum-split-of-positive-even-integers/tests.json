@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumEvenSplit",
+  "parameterTypes": [
+    "long"
+  ],
+  "returnType": "longList",
+  "cases": [
+    {
+      "name": "十二拆成二四六",
+      "args": [
+        12
+      ],
+      "expected": [
+        2,
+        4,
+        6
+      ]
+    },
+    {
+      "name": "二十八最多拆成四项",
+      "args": [
+        28
+      ],
+      "expected": [
+        2,
+        4,
+        6,
+        16
+      ]
+    },
+    {
+      "name": "奇数无解",
+      "args": [
+        7
+      ],
+      "expected": []
+    }
+  ]
+}

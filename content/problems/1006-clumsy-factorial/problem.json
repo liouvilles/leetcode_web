@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1006,
+  "slug": "clumsy-factorial",
+  "title": "笨阶乘",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-015",
+  "studyTags": [
+    "数学",
+    "栈",
+    "模拟"
+  ],
+  "summary": "从 n 递减到一，按乘、除、加、减循环运算并遵循通常优先级，整数除法向零截断，求结果。",
+  "insight": "用栈处理优先级：乘除立即与栈顶合并，加法压入正数，减法压入负数；最后求栈和。",
+  "pitfalls": [
+    "操作符循环从 n*(n-1) 开始",
+    "乘除优先于加减",
+    "减法后的数以负数压栈"
+  ],
+  "solutions": [
+    {
+      "id": "operator-cycle-stack",
+      "title": "运算符循环栈模拟",
+      "kind": "最优",
+      "idea": "即时结算乘除并把加减项留到最后求和。",
+      "steps": [
+        "栈先压 n，current 从 n-1 递减，operation 从零循环",
+        "operation%4 为零乘栈顶，为一除栈顶，为二压正 current，为三压负 current",
+        "所有数处理完后求栈内项之和"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/operator-cycle-stack/Solution.java",
+        "kotlin": "solutions/operator-cycle-stack/Solution.kt",
+        "cpp": "solutions/operator-cycle-stack/solution.cpp"
+      }
+    }
+  ]
+}

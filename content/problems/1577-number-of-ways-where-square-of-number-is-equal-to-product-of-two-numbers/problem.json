@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1577,
+  "slug": "number-of-ways-where-square-of-number-is-equal-to-product-of-two-numbers",
+  "title": "数的平方等于两数乘积的方法数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-022",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "数学"
+  ],
+  "summary": "统计两类三元组：nums1 一个数的平方等于 nums2 中两个不同下标数的乘积，或反方向。",
+  "insight": "分别固定一侧的单个数，枚举另一侧所有下标对并用 long 比较平方与乘积；两个方向结果相加。",
+  "pitfalls": [
+    "同数组的两个下标必须不同",
+    "重复数值的不同下标分别计数",
+    "平方和乘积使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "two-direction-pair-enumeration",
+      "title": "双向数对枚举",
+      "kind": "最优",
+      "idea": "对两种数组角色各执行一次固定值与数对比较。",
+      "steps": [
+        "count(singles,pairs)：对 single 计算 square",
+        "枚举 pairs 中 left<right，product==square 时计数",
+        "返回 count(nums1,nums2)+count(nums2,nums1)"
+      ],
+      "complexity": {
+        "time": "O(nm²+mn²)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/two-direction-pair-enumeration/Solution.java",
+        "kotlin": "solutions/two-direction-pair-enumeration/Solution.kt",
+        "cpp": "solutions/two-direction-pair-enumeration/solution.cpp"
+      }
+    }
+  ]
+}

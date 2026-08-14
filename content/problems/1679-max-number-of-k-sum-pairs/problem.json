@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1679,
+  "slug": "max-number-of-k-sum-pairs",
+  "title": "K 和数对的最大数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-024",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "双指针",
+    "排序"
+  ],
+  "summary": "每次选两个和为 k 的元素并移除，求最多可执行多少次。",
+  "insight": "扫描数组，用哈希表保存尚未配对的数。若当前值的补数已有库存就立即配对，否则把当前值加入库存；贪心配对不会影响最优数目。",
+  "pitfalls": [
+    "每个元素最多使用一次",
+    "补数可能等于当前值，此时需要此前已有一个",
+    "哈希表存频次而非仅存是否出现"
+  ],
+  "solutions": [
+    {
+      "id": "complement-frequency-map",
+      "title": "补数频次哈希表",
+      "kind": "最优",
+      "idea": "在线匹配当前元素与此前未使用补数。",
+      "steps": [
+        "available 为空，answer=0",
+        "对 value 计算 complement=k-value",
+        "若 available[complement]>0 则减频次并 answer++，否则增加 available[value]"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/complement-frequency-map/Solution.java",
+        "kotlin": "solutions/complement-frequency-map/Solution.kt",
+        "cpp": "solutions/complement-frequency-map/solution.cpp"
+      }
+    }
+  ]
+}

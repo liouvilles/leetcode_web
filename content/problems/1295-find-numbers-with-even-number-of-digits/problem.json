@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1295,
+  "slug": "find-numbers-with-even-number-of-digits",
+  "title": "统计位数为偶数的数字",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "数组",
+    "数学",
+    "数位"
+  ],
+  "summary": "统计数组中十进制位数为偶数的正整数数量。",
+  "insight": "对每个数反复整除十统计位数，再判断奇偶；约束下也可用范围判断，但统一数位循环更直观。",
+  "pitfalls": [
+    "输入均为正整数",
+    "一千有四位",
+    "每个数单独重置位数计数"
+  ],
+  "solutions": [
+    {
+      "id": "decimal-digit-count",
+      "title": "十进制位数计数",
+      "kind": "最优",
+      "idea": "逐数整除十并判断位数奇偶。",
+      "steps": [
+        "answer=0",
+        "对 value 令 digits=0，循环 number>0 时 digits++、number/=10",
+        "digits 为偶数则 answer++，返回"
+      ],
+      "complexity": {
+        "time": "O(n log V)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/decimal-digit-count/Solution.java",
+        "kotlin": "solutions/decimal-digit-count/Solution.kt",
+        "cpp": "solutions/decimal-digit-count/solution.cpp"
+      }
+    }
+  ]
+}

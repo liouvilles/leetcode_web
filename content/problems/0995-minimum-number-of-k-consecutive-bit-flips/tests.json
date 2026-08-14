@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minKBitFlips",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "每次翻一位",
+      "args": [
+        [
+          0,
+          1,
+          0
+        ],
+        1
+      ],
+      "expected": 2
+    },
+    {
+      "name": "无法翻成全一",
+      "args": [
+        [
+          1,
+          1,
+          0
+        ],
+        2
+      ],
+      "expected": -1
+    },
+    {
+      "name": "经典三次翻转",
+      "args": [
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          1,
+          0
+        ],
+        3
+      ],
+      "expected": 3
+    }
+  ]
+}

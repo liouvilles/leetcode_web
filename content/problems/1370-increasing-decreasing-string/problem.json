@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1370,
+  "slug": "increasing-decreasing-string",
+  "title": "上升下降字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-019",
+  "studyTags": [
+    "字符串",
+    "计数",
+    "模拟"
+  ],
+  "summary": "反复按未使用字符从小到大各取一次、再从大到小各取一次，生成重排字符串。",
+  "insight": "只有二十六个小写字母；维护频次，每轮正向和反向扫描各取一个仍有剩余的字符即可。",
+  "pitfalls": [
+    "每次经过一个字符最多取一个",
+    "正向后立刻执行反向",
+    "重复直到输出长度等于输入长度"
+  ],
+  "solutions": [
+    {
+      "id": "alternating-frequency-scan",
+      "title": "交替扫描频次",
+      "kind": "最优",
+      "idea": "在固定字母表上反复升序与降序取字符。",
+      "steps": [
+        "统计 count[26]",
+        "答案未满时从 a 到 z 各取一个，再从 z 到 a 各取一个",
+        "频次取用后减一，返回字符串"
+      ],
+      "complexity": {
+        "time": "O(26n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/alternating-frequency-scan/Solution.java",
+        "kotlin": "solutions/alternating-frequency-scan/Solution.kt",
+        "cpp": "solutions/alternating-frequency-scan/solution.cpp"
+      }
+    }
+  ]
+}

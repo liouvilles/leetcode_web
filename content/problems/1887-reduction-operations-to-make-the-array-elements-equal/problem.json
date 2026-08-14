@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1887,
+  "slug": "reduction-operations-to-make-the-array-elements-equal",
+  "title": "使数组元素相等的减少操作次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-027",
+  "studyTags": [
+    "数组",
+    "排序"
+  ],
+  "summary": "每次把一个最大元素降到严格小于它的当前最大值，求使所有元素相等的操作次数。",
+  "insight": "排序后，每遇到一个新的更大数值，前面 i 个元素代表比它低的层级；这一层及之后的元素最终都需跨越相应层级，累计 i 即可。",
+  "pitfalls": [
+    "一次只能降到下一个不同值",
+    "重复最大值分别需要操作",
+    "答案可通过排序层级累计"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-level-count",
+      "title": "排序后累计不同层级",
+      "kind": "最优",
+      "idea": "在升序数组的每个新层级加入其下标。",
+      "steps": [
+        "升序排序",
+        "answer=0",
+        "i 从 1 开始，若 nums[i]!=nums[i-1] 则 answer+=i，返回"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/sorted-level-count/Solution.java",
+        "kotlin": "solutions/sorted-level-count/Solution.kt",
+        "cpp": "solutions/sorted-level-count/solution.cpp"
+      }
+    }
+  ]
+}

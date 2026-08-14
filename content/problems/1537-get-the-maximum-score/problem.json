@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1537,
+  "slug": "get-the-maximum-score",
+  "title": "最大得分",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-022",
+  "studyTags": [
+    "数组",
+    "双指针",
+    "动态规划",
+    "贪心"
+  ],
+  "summary": "沿两个严格递增数组之一前进，在公共值处可切换数组，每个不同位置值最多计一次，求最大路径和取模。",
+  "insight": "双指针累加两条路径在相邻公共值间的区段和；遇公共值时选择较大区段和加上该公共值，并同步两条累计得分。",
+  "pitfalls": [
+    "公共值只加一次",
+    "末尾还需取两条剩余路径较大值",
+    "比较最大值后才取模"
+  ],
+  "solutions": [
+    {
+      "id": "two-path-segment-merge",
+      "title": "双路径区段合并",
+      "kind": "最优",
+      "idea": "在每个交点选择此前收益更大的路径。",
+      "steps": [
+        "i=j=0,sumFirst=sumSecond=0",
+        "较小元素加入对应 sum 并前进；相等时 common=max(sumFirst,sumSecond)+value，两 sum 都设为 common",
+        "扫描剩余项，返回 max(sumFirst,sumSecond)%MOD"
+      ],
+      "complexity": {
+        "time": "O(m+n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/two-path-segment-merge/Solution.java",
+        "kotlin": "solutions/two-path-segment-merge/Solution.kt",
+        "cpp": "solutions/two-path-segment-merge/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "MagicDictionary",
+  "constructorTypes": [],
+  "cases": [
+    {
+      "name": "经典字典查询",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "buildDict",
+          "parameterTypes": [
+            "stringArray"
+          ],
+          "args": [
+            [
+              "hello",
+              "leetcode"
+            ]
+          ]
+        },
+        {
+          "method": "search",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "hello"
+          ],
+          "returnType": "boolean",
+          "expected": false
+        },
+        {
+          "method": "search",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "hhllo"
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "search",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "hell"
+          ],
+          "returnType": "boolean",
+          "expected": false
+        },
+        {
+          "method": "search",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "leetcoded"
+          ],
+          "returnType": "boolean",
+          "expected": false
+        }
+      ]
+    },
+    {
+      "name": "恰好一处不同",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "buildDict",
+          "parameterTypes": [
+            "stringArray"
+          ],
+          "args": [
+            [
+              "abc",
+              "xyz"
+            ]
+          ]
+        },
+        {
+          "method": "search",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "abd"
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "search",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "axy"
+          ],
+          "returnType": "boolean",
+          "expected": false
+        }
+      ]
+    },
+    {
+      "name": "单字符字典",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "buildDict",
+          "parameterTypes": [
+            "stringArray"
+          ],
+          "args": [
+            [
+              "a"
+            ]
+          ]
+        },
+        {
+          "method": "search",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "b"
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "search",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "a"
+          ],
+          "returnType": "boolean",
+          "expected": false
+        }
+      ]
+    }
+  ]
+}

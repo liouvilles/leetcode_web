@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "checkTree",
+  "parameterTypes": [
+    "treeNode"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "十等于四六之和",
+      "args": [
+        [
+          10,
+          4,
+          6
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "五不等于三一之和",
+      "args": [
+        [
+          5,
+          3,
+          1
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "二等于一一之和",
+      "args": [
+        [
+          2,
+          1,
+          1
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

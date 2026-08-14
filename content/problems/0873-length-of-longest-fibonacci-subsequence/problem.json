@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 873,
+  "slug": "length-of-longest-fibonacci-subsequence",
+  "title": "最长的斐波那契子序列的长度",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "哈希表"
+  ],
+  "summary": "严格递增数组中，求满足每项等于前两项之和且长度至少三的最长子序列长度，不存在返回零。",
+  "insight": "dp[j][i] 表示以 arr[j],arr[i] 结尾的长度；所需前值是 arr[i]-arr[j]，若它小于 arr[j] 且存在下标 k<j，则从 dp[k][j] 延伸。",
+  "pitfalls": [
+    "子序列不要求连续",
+    "前值必须小于 arr[j] 才保证下标在前",
+    "没有三项序列时返回零而非二"
+  ],
+  "solutions": [
+    {
+      "id": "pair-ending-index-dp",
+      "title": "结尾下标对动态规划",
+      "kind": "最优",
+      "idea": "用值到下标映射常数时间寻找前一项。",
+      "steps": [
+        "建立 index[value]",
+        "i 从零扫描，j<i；previous=arr[i]-arr[j]",
+        "若 previous<arr[j] 且映射存在 k，dp[j][i]=max(3,dp[k][j]+1)，更新答案；返回答案"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/pair-ending-index-dp/Solution.java",
+        "kotlin": "solutions/pair-ending-index-dp/Solution.kt",
+        "cpp": "solutions/pair-ending-index-dp/solution.cpp"
+      }
+    }
+  ]
+}

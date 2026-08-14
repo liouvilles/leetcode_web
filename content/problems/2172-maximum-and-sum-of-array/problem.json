@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2172,
+  "slug": "maximum-and-sum-of-array",
+  "title": "数组的最大与和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-031",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "位运算",
+    "状态压缩"
+  ],
+  "summary": "把每个数放入编号一到 numSlots 的槽，每槽至多两个数，最大化每个数与槽编号按位与之和。",
+  "insight": "每个槽容量为零、一、二，可用三进制状态记录占用数。按 nums 下标递归，把当前数尝试放进任一未满槽，记忆化状态。",
+  "pitfalls": [
+    "槽编号从一开始参与按位与",
+    "不是每个槽都必须使用",
+    "三进制位值二表示已满"
+  ],
+  "solutions": [
+    {
+      "id": "ternary-mask-dynamic-programming",
+      "title": "三进制状态压缩动态规划",
+      "kind": "最优",
+      "idea": "用每槽三种占用状态避免展开成重复位置排列。",
+      "steps": [
+        "powers[slot]=3^slot，memo 按 mask 初始化未计算",
+        "dfs(index,mask)：index==nums.length 返回零",
+        "枚举 slot，digit=(mask/powers[slot])%3；digit<2 时转移 (nums[index]&(slot+1))+dfs(index+1,mask+powers[slot])",
+        "缓存最大值"
+      ],
+      "complexity": {
+        "time": "O(3^slots·slots)",
+        "space": "O(3^slots)"
+      },
+      "files": {
+        "java": "solutions/ternary-mask-dynamic-programming/Solution.java",
+        "kotlin": "solutions/ternary-mask-dynamic-programming/Solution.kt",
+        "cpp": "solutions/ternary-mask-dynamic-programming/solution.cpp"
+      }
+    }
+  ]
+}

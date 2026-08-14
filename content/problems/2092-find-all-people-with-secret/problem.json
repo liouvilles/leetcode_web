@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2092,
+  "slug": "find-all-people-with-secret",
+  "title": "找出知晓秘密的所有专家",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "并查集",
+    "图论",
+    "数组",
+    "排序"
+  ],
+  "summary": "零号与 firstPerson 初始知道秘密；会议按时间发生，同一时刻秘密可瞬时多次传播，返回最终所有知情人。",
+  "insight": "会议按时间分组。同一时间先合并所有参会者，让秘密在该时间连通分量内传播；组结束后，把不与零号连通的参会者重置为独立集合，防止连接跨时间保留。",
+  "pitfalls": [
+    "同一时刻传播可经过多场会议",
+    "非知情连接只在该时刻有效",
+    "初始先连接零与 firstPerson"
+  ],
+  "solutions": [
+    {
+      "id": "time-grouped-resettable-union-find",
+      "title": "按时间分组可重置并查集",
+      "kind": "最优",
+      "idea": "每个时间片临时建连接，仅保留含秘密的分量。",
+      "steps": [
+        "会议按 time 排序，union(0,firstPerson)",
+        "每个相同时间组：合并会议双方并收集参与者",
+        "组后对参与者，若 find(person)!=find(0) 则 parent[person]=person；结束收集与零同根者"
+      ],
+      "complexity": {
+        "time": "O(m log m+m α(n))",
+        "space": "O(n+m)"
+      },
+      "files": {
+        "java": "solutions/time-grouped-resettable-union-find/Solution.java",
+        "kotlin": "solutions/time-grouped-resettable-union-find/Solution.kt",
+        "cpp": "solutions/time-grouped-resettable-union-find/solution.cpp"
+      }
+    }
+  ]
+}

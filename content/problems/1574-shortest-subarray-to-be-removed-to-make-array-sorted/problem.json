@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1574,
+  "slug": "shortest-subarray-to-be-removed-to-make-array-sorted",
+  "title": "删除最短子数组使剩余数组有序",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-022",
+  "studyTags": [
+    "数组",
+    "双指针"
+  ],
+  "summary": "删除一个连续子数组，使剩余元素非递减，求删除长度最小值。",
+  "insight": "找到最长有序前缀和最长有序后缀。答案可删掉一整侧，也可用双指针寻找能拼接的前缀末尾与后缀开头。",
+  "pitfalls": [
+    "数组本来有序时返回零",
+    "拼接条件是 arr[left]<=arr[right]",
+    "删除区间可在数组边缘"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-prefix-suffix-merge",
+      "title": "有序前后缀双指针拼接",
+      "kind": "最优",
+      "idea": "枚举保留前缀结尾并推进可连接的后缀起点。",
+      "steps": [
+        "找 prefixEnd 与 suffixStart；若 prefixEnd==n-1 返回 0",
+        "answer=min(n-prefixEnd-1,suffixStart)",
+        "i=0,j=suffixStart；若 arr[i]<=arr[j] 更新 j-i-1 并 i++，否则 j++"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/sorted-prefix-suffix-merge/Solution.java",
+        "kotlin": "solutions/sorted-prefix-suffix-merge/Solution.kt",
+        "cpp": "solutions/sorted-prefix-suffix-merge/solution.cpp"
+      }
+    }
+  ]
+}

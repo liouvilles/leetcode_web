@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "MyCalendarTwo",
+  "constructorTypes": [],
+  "cases": [
+    {
+      "name": "经典双重预订流程",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "book",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            10,
+            20
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "book",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            50,
+            60
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "book",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            10,
+            40
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "book",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            5,
+            15
+          ],
+          "returnType": "boolean",
+          "expected": false
+        },
+        {
+          "method": "book",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            5,
+            10
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "book",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            25,
+            55
+          ],
+          "returnType": "boolean",
+          "expected": true
+        }
+      ]
+    },
+    {
+      "name": "第三次相同区间被拒绝",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "book",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            1,
+            5
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "book",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            1,
+            5
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "book",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            1,
+            5
+          ],
+          "returnType": "boolean",
+          "expected": false
+        }
+      ]
+    },
+    {
+      "name": "三个不相交区间",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "book",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            1,
+            2
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "book",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            2,
+            3
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "book",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            3,
+            4
+          ],
+          "returnType": "boolean",
+          "expected": true
+        }
+      ]
+    }
+  ]
+}

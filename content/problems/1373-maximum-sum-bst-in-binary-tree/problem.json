@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1373,
+  "slug": "maximum-sum-bst-in-binary-tree",
+  "title": "二叉搜索子树的最大键值和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-019",
+  "studyTags": [
+    "树",
+    "深度优先搜索",
+    "二叉搜索树",
+    "动态规划"
+  ],
+  "summary": "在二叉树中寻找节点值总和最大的二叉搜索子树，并返回其和。",
+  "insight": "后序遍历返回子树是否为 BST、最小值、最大值和总和；左右都合法且 left.max<node.val<right.min 时当前子树也合法。",
+  "pitfalls": [
+    "必须使用严格大小关系",
+    "空树提供正负无穷边界",
+    "所有值为负时允许选择空子树，答案为零"
+  ],
+  "solutions": [
+    {
+      "id": "postorder-bst-state",
+      "title": "后序 BST 状态合并",
+      "kind": "最优",
+      "idea": "自底向上同时验证有序性并计算子树和。",
+      "steps": [
+        "空节点返回 valid、min=+INF、max=-INF、sum=0",
+        "合并左右状态，满足严格边界时计算 sum 并更新答案",
+        "不满足时返回 invalid；最终返回全局答案"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(h)"
+      },
+      "files": {
+        "java": "solutions/postorder-bst-state/Solution.java",
+        "kotlin": "solutions/postorder-bst-state/Solution.kt",
+        "cpp": "solutions/postorder-bst-state/solution.cpp"
+      }
+    }
+  ]
+}

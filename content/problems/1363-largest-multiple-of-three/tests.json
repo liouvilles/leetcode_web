@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "largestMultipleOfThree",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "八一九组成九八一",
+      "args": [
+        [
+          8,
+          1,
+          9
+        ]
+      ],
+      "expected": "981"
+    },
+    {
+      "name": "删除后降序组成",
+      "args": [
+        [
+          8,
+          6,
+          7,
+          1,
+          0
+        ]
+      ],
+      "expected": "8760"
+    },
+    {
+      "name": "单个一无法组成",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": ""
+    },
+    {
+      "name": "多个零规范化",
+      "args": [
+        [
+          0,
+          0
+        ]
+      ],
+      "expected": "0"
+    }
+  ]
+}

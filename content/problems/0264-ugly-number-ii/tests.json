@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "nthUglyNumber",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "第十个",
+      "args": [
+        10
+      ],
+      "expected": 12
+    },
+    {
+      "name": "第一个",
+      "args": [
+        1
+      ],
+      "expected": 1
+    },
+    {
+      "name": "第一百六十九个",
+      "args": [
+        169
+      ],
+      "expected": 8748
+    }
+  ]
+}

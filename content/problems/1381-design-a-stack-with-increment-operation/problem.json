@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1381,
+  "slug": "design-a-stack-with-increment-operation",
+  "title": "设计一个支持增量操作的栈",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-019",
+  "studyTags": [
+    "设计",
+    "数组",
+    "栈"
+  ],
+  "summary": "实现有最大容量的栈，支持 push、pop，以及给栈底最多 k 个元素统一增加 val。",
+  "insight": "容量有限且约束较小，可用数组存栈；increment 直接遍历前 min(k,size) 个位置相加。",
+  "pitfalls": [
+    "栈满时 push 无效果",
+    "空栈 pop 返回负一",
+    "increment 只影响当前存在的底部元素"
+  ],
+  "solutions": [
+    {
+      "id": "bounded-array-stack",
+      "title": "定长数组栈",
+      "kind": "最优",
+      "idea": "数组前缀保存栈内容并直接更新底部区间。",
+      "steps": [
+        "values 固定为 maxSize，size 表示元素数",
+        "push 在未满时写 values[size++]；pop 在非空时返回 values[--size]",
+        "increment 遍历 0 到 min(k,size)-1 加 val"
+      ],
+      "complexity": {
+        "time": "O(k)",
+        "space": "O(maxSize)"
+      },
+      "files": {
+        "java": "solutions/bounded-array-stack/Solution.java",
+        "kotlin": "solutions/bounded-array-stack/Solution.kt",
+        "cpp": "solutions/bounded-array-stack/solution.cpp"
+      }
+    }
+  ]
+}

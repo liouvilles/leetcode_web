@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "CountIntervals",
+  "constructorTypes": [],
+  "cases": [
+    {
+      "name": "经典区间合并计数",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "add",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            2,
+            3
+          ]
+        },
+        {
+          "method": "add",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            7,
+            10
+          ]
+        },
+        {
+          "method": "count",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 6
+        },
+        {
+          "method": "add",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            5,
+            8
+          ]
+        },
+        {
+          "method": "count",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 8
+        }
+      ]
+    },
+    {
+      "name": "相邻区间自动合并",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "add",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            1,
+            1
+          ]
+        },
+        {
+          "method": "count",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "add",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            2,
+            2
+          ]
+        },
+        {
+          "method": "count",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 2
+        }
+      ]
+    },
+    {
+      "name": "重复添加不增加覆盖",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "add",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            3,
+            5
+          ]
+        },
+        {
+          "method": "add",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            4,
+            4
+          ]
+        },
+        {
+          "method": "count",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 3
+        }
+      ]
+    }
+  ]
+}

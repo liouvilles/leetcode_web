@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 996,
+  "slug": "number-of-squareful-arrays",
+  "title": "正方形数组的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-014",
+  "studyTags": [
+    "数组",
+    "回溯",
+    "数学"
+  ],
+  "summary": "统计 nums 的不同排列中，相邻元素之和均为完全平方数的排列数量；重复元素排列只计一次。",
+  "insight": "用值到剩余频次而非下标做回溯，天然去除重复排列；每步只选择与上一值之和为完全平方数的候选。",
+  "pitfalls": [
+    "相同值的不同下标不能重复计数",
+    "首个位置无需相邻约束",
+    "判断完全平方数要验证 root*root==sum"
+  ],
+  "solutions": [
+    {
+      "id": "frequency-square-adjacency-backtracking",
+      "title": "频次与平方邻接回溯",
+      "kind": "最优",
+      "idea": "在多重集合上枚举合法下一值。",
+      "steps": [
+        "统计每个值频次",
+        "DFS(depth,previous,hasPrevious)：depth==n 返回一",
+        "枚举频次大于零的 value；若无前值或 previous+value 是平方，则频次减一递归，再恢复；累加返回"
+      ],
+      "complexity": {
+        "time": "O(unique permutations·n)",
+        "space": "O(n+unique)"
+      },
+      "files": {
+        "java": "solutions/frequency-square-adjacency-backtracking/Solution.java",
+        "kotlin": "solutions/frequency-square-adjacency-backtracking/Solution.kt",
+        "cpp": "solutions/frequency-square-adjacency-backtracking/solution.cpp"
+      }
+    }
+  ]
+}

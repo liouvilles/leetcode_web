@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findLengthOfShortestSubarray",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "删除中间三项后有序",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          10,
+          4,
+          2,
+          3,
+          5
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "严格递减需删除四项",
+      "args": [
+        [
+          5,
+          4,
+          3,
+          2,
+          1
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "已非递减无需删除",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

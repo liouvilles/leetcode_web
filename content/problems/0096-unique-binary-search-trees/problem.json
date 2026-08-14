@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 96,
+  "slug": "unique-binary-search-trees",
+  "title": "不同的二叉搜索树",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-004",
+  "studyTags": [
+    "动态规划",
+    "卡特兰数",
+    "树形计数"
+  ],
+  "summary": "计算由 1 到 n 组成且节点值各不相同的二叉搜索树一共有多少种结构。",
+  "insight": "选择 root 后，左右子树的节点数量确定且结构选择相互独立；枚举根并累加左右方案数乘积。",
+  "pitfalls": [
+    "空子树的方案数为一",
+    "只与节点数量有关而与具体值无关",
+    "每个根都要计入总和"
+  ],
+  "solutions": [
+    {
+      "id": "catalan-dp",
+      "title": "卡特兰动态规划",
+      "kind": "最优",
+      "idea": "dp[nodes] 表示给定节点数的不同 BST 数量，通过根位置划分左右规模。",
+      "steps": [
+        "dp[0]=dp[1]=1",
+        "枚举总节点数",
+        "枚举左子树节点数并累加 dp[left]*dp[right]"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/catalan-dp/Solution.java",
+        "kotlin": "solutions/catalan-dp/Solution.kt",
+        "cpp": "solutions/catalan-dp/solution.cpp"
+      }
+    }
+  ]
+}

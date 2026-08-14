@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "SORTracker",
+  "constructorTypes": [],
+  "cases": [
+    {
+      "name": "经典交错添加与排名查询",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "add",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "bradford",
+            2
+          ]
+        },
+        {
+          "method": "add",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "branford",
+            3
+          ]
+        },
+        {
+          "method": "get",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "string",
+          "expected": "branford"
+        },
+        {
+          "method": "add",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "alps",
+            2
+          ]
+        },
+        {
+          "method": "get",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "string",
+          "expected": "alps"
+        },
+        {
+          "method": "add",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "orland",
+            2
+          ]
+        },
+        {
+          "method": "get",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "string",
+          "expected": "bradford"
+        }
+      ]
+    },
+    {
+      "name": "同分名称字典序决定排名",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "add",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "b",
+            1
+          ]
+        },
+        {
+          "method": "add",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "a",
+            1
+          ]
+        },
+        {
+          "method": "get",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "string",
+          "expected": "a"
+        },
+        {
+          "method": "get",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "string",
+          "expected": "b"
+        }
+      ]
+    },
+    {
+      "name": "高分晚加入会重排已选边界",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "add",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "low",
+            1
+          ]
+        },
+        {
+          "method": "get",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "string",
+          "expected": "low"
+        },
+        {
+          "method": "add",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "high",
+            5
+          ]
+        },
+        {
+          "method": "add",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "mid",
+            3
+          ]
+        },
+        {
+          "method": "get",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "string",
+          "expected": "mid"
+        }
+      ]
+    }
+  ]
+}

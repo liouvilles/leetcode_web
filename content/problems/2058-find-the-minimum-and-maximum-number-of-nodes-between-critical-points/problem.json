@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": 2058,
+  "slug": "find-the-minimum-and-maximum-number-of-nodes-between-critical-points",
+  "title": "找出临界点之间的最小和最大距离",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "链表"
+  ],
+  "summary": "链表内部节点若严格大于或小于两邻居则为临界点，返回任意相邻临界点最小距离及首尾临界点最大距离；不足两个返回负一。",
+  "insight": "一次遍历记录首个、上一个临界点下标。每发现新临界点，用与上一个的差更新最小值，用与首个的差自然形成最终最大值。",
+  "pitfalls": [
+    "头尾节点不能是临界点",
+    "比较必须严格",
+    "不足两个临界点返回两个负一"
+  ],
+  "solutions": [
+    {
+      "id": "single-pass-critical-indices",
+      "title": "单遍临界下标",
+      "kind": "最优",
+      "idea": "滚动三节点窗口并维护首个与最近临界位置。",
+      "steps": [
+        "previous=head、current=head.next、index=1",
+        "current 同时大于或小于两邻时处理临界下标",
+        "更新 first、last、minimum；最终若无两点返回 [-1,-1]，否则 [minimum,last-first]"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/single-pass-critical-indices/Solution.java",
+        "kotlin": "solutions/single-pass-critical-indices/Solution.kt",
+        "cpp": "solutions/single-pass-critical-indices/solution.cpp"
+      }
+    }
+  ]
+}

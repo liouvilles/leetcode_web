@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "rotate",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "void",
+  "cases": [
+    {
+      "name": "向右轮转三位",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        3
+      ],
+      "expectedArgs": [
+        {
+          "index": 0,
+          "type": "intArray",
+          "expected": [
+            5,
+            6,
+            7,
+            1,
+            2,
+            3,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "name": "含负数的短数组",
+      "args": [
+        [
+          -1,
+          -100,
+          3,
+          99
+        ],
+        2
+      ],
+      "expectedArgs": [
+        {
+          "index": 0,
+          "type": "intArray",
+          "expected": [
+            3,
+            99,
+            -1,
+            -100
+          ]
+        }
+      ]
+    },
+    {
+      "name": "轮转次数大于长度",
+      "args": [
+        [
+          1,
+          2
+        ],
+        5
+      ],
+      "expectedArgs": [
+        {
+          "index": 0,
+          "type": "intArray",
+          "expected": [
+            2,
+            1
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 383,
+  "slug": "ransom-note",
+  "title": "赎金信",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-006",
+  "studyTags": [
+    "字符计数",
+    "哈希表",
+    "字符串"
+  ],
+  "summary": "判断能否只使用杂志字符串中的字母组成赎金信，每个字符最多使用其出现次数。",
+  "insight": "先统计杂志中每个小写字母的库存，再逐字符消耗赎金信需求，库存不足立即失败。",
+  "pitfalls": [
+    "每个字符不能重复超量使用",
+    "只含小写英文字母可用固定数组",
+    "空赎金信总能组成"
+  ],
+  "solutions": [
+    {
+      "id": "frequency-inventory",
+      "title": "字母库存计数",
+      "kind": "最优",
+      "idea": "固定长度计数数组模拟字符资源的领取。",
+      "steps": [
+        "统计 magazine 的 26 个字母频次",
+        "扫描 ransomNote 并先递减对应频次",
+        "频次降到负数返回假，否则成功"
+      ],
+      "complexity": {
+        "time": "O(m+n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/frequency-inventory/Solution.java",
+        "kotlin": "solutions/frequency-inventory/Solution.kt",
+        "cpp": "solutions/frequency-inventory/solution.cpp"
+      }
+    }
+  ]
+}

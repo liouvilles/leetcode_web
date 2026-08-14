@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "construct2DArray",
+  "parameterTypes": [
+    "intArray",
+    "int",
+    "int"
+  ],
+  "returnType": "intMatrix",
+  "cases": [
+    {
+      "name": "四项构造二乘二矩阵",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        2,
+        2
+      ],
+      "expected": [
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "name": "三项构造一行",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        1,
+        3
+      ],
+      "expected": [
+        [
+          1,
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "name": "元素数不匹配返回空",
+      "args": [
+        [
+          1,
+          2
+        ],
+        2,
+        2
+      ],
+      "expected": []
+    }
+  ]
+}

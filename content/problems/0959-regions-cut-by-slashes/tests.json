@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "regionsBySlashes",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "交叉边界形成两区",
+      "args": [
+        [
+          " /",
+          "/ "
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "单斜线未封闭",
+      "args": [
+        [
+          " /",
+          "  "
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "正反斜杠形成五区",
+      "args": [
+        [
+          "/\\",
+          "\\/"
+        ]
+      ],
+      "expected": 5
+    }
+  ]
+}

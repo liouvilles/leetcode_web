@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "decodeCiphertext",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "三行斜读得到 cipher",
+      "args": [
+        "ch   ie   pr",
+        3
+      ],
+      "expected": "cipher"
+    },
+    {
+      "name": "四行斜读得到短句",
+      "args": [
+        "iveo    eed   l te   olc",
+        4
+      ],
+      "expected": "i love leetcode"
+    },
+    {
+      "name": "单行文本保持不变",
+      "args": [
+        "coding",
+        1
+      ],
+      "expected": "coding"
+    }
+  ]
+}

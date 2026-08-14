@@ -1,0 +1,1 @@
+class Solution { public: int minimumBoxes(int n){int height=0,used=0,floor=0;while(true){int nextLayer=(height+1)*(height+2)/2;if(used+nextLayer>n)break;++height;used+=nextLayer;floor+=height;}int remaining=n-used;for(int capacity=1;remaining>0;++capacity){remaining-=capacity;++floor;}return floor;} };

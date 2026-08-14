@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1343,
+  "slug": "number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold",
+  "title": "大小为 K 且平均值大于等于阈值的子数组数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-019",
+  "studyTags": [
+    "数组",
+    "滑动窗口"
+  ],
+  "summary": "统计长度恰为 k 且平均值至少 threshold 的连续子数组数量。",
+  "insight": "平均值条件等价于窗口和至少 k·threshold；维护固定长度滑动窗口和即可常数时间判断每个窗口。",
+  "pitfalls": [
+    "窗口长度必须恰好为 k",
+    "用乘法比较避免浮点误差",
+    "移动时先加新值再减超出窗口的旧值"
+  ],
+  "solutions": [
+    {
+      "id": "fixed-window-sum",
+      "title": "固定窗口和",
+      "kind": "最优",
+      "idea": "在线性扫描中维护最近 k 个元素之和。",
+      "steps": [
+        "sum=0,answer=0,target=k*threshold",
+        "right 扫描加 arr[right]，若 right>=k 则减 arr[right-k]",
+        "right>=k-1 且 sum>=target 时 answer++，返回"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/fixed-window-sum/Solution.java",
+        "kotlin": "solutions/fixed-window-sum/Solution.kt",
+        "cpp": "solutions/fixed-window-sum/solution.cpp"
+      }
+    }
+  ]
+}

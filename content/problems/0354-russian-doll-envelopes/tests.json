@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxEnvelopes",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三级嵌套",
+      "args": [
+        [
+          [
+            5,
+            4
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            2,
+            3
+          ]
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "完全相同不能嵌套",
+      "args": [
+        [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "同宽不同高",
+      "args": [
+        [
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            5
+          ]
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

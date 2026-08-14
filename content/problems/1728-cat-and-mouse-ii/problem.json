@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1728,
+  "slug": "cat-and-mouse-ii",
+  "title": "猫和老鼠 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-025",
+  "studyTags": [
+    "图论",
+    "记忆化搜索",
+    "博弈"
+  ],
+  "summary": "网格中老鼠先走，双方每回合可停留或沿四向跳不超过各自距离且不能穿墙；老鼠先到食物获胜，猫抓到老鼠、先到食物或千回合未决则猫胜，判断老鼠能否必胜。",
+  "insight": "状态由回合数、鼠位置、猫位置组成。记忆化极小极大搜索：鼠回合只需存在一个必胜动作；猫回合只需存在一个让鼠失败的动作。",
+  "pitfalls": [
+    "跳跃途中遇墙立即停止该方向",
+    "双方都允许停留原地",
+    "回合达到一千视为老鼠失败"
+  ],
+  "solutions": [
+    {
+      "id": "turn-limited-minimax",
+      "title": "限回合记忆化极小极大",
+      "kind": "最优",
+      "idea": "在有限状态博弈树中分别执行存在与全称选择。",
+      "steps": [
+        "记录 grid、起点、食物与 memo[turn,mouse,cat]",
+        "终局：猫到鼠或食物为 false，鼠到食物为 true，turn>=1000 为 false",
+        "枚举当前方可停留及四向跳跃位置；鼠有任一 true 即 true，猫有任一 false 即 false，并缓存"
+      ],
+      "complexity": {
+        "time": "O(1000·V²·J)",
+        "space": "O(1000·V²)"
+      },
+      "files": {
+        "java": "solutions/turn-limited-minimax/Solution.java",
+        "kotlin": "solutions/turn-limited-minimax/Solution.kt",
+        "cpp": "solutions/turn-limited-minimax/solution.cpp"
+      }
+    }
+  ]
+}

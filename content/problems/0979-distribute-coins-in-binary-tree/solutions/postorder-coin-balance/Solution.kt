@@ -1,0 +1,1 @@
+class Solution { private var moves=0;fun distributeCoins(root:TreeNode?):Int{moves=0;balance(root);return moves};private fun balance(node:TreeNode?):Int{node?:return 0;val left=balance(node.left);val right=balance(node.right);moves+=kotlin.math.abs(left)+kotlin.math.abs(right);return node.`val`+left+right-1} }

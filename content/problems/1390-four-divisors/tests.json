@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sumFourDivisors",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "只有二十一贡献三十二",
+      "args": [
+        [
+          21,
+          4,
+          7
+        ]
+      ],
+      "expected": 32
+    },
+    {
+      "name": "重复元素分别贡献",
+      "args": [
+        [
+          21,
+          21
+        ]
+      ],
+      "expected": 64
+    },
+    {
+      "name": "没有四因数",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          5
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

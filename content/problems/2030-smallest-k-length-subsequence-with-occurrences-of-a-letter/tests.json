@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "smallestSubsequence",
+  "parameterTypes": [
+    "string",
+    "int",
+    "char",
+    "int"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "leet 取三位且一个 e 得 eet",
+      "args": [
+        "leet",
+        3,
+        "e",
+        1
+      ],
+      "expected": "eet"
+    },
+    {
+      "name": "leetcode 取四位两个 e 得 ecde",
+      "args": [
+        "leetcode",
+        4,
+        "e",
+        2
+      ],
+      "expected": "ecde"
+    },
+    {
+      "name": "两个 b 全部必须保留",
+      "args": [
+        "bb",
+        2,
+        "b",
+        2
+      ],
+      "expected": "bb"
+    }
+  ]
+}

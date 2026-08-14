@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countAsterisks",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典字符串外部两个星号",
+      "args": [
+        "l|*e*et|c**o|*de|"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "没有星号",
+      "args": [
+        "iamprogrammer"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "首尾与分隔后各有星号",
+      "args": [
+        "**|***|*"
+      ],
+      "expected": 3
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countSubstrings",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "aba 与 baba 有六组",
+      "args": [
+        "aba",
+        "baba"
+      ],
+      "expected": 6
+    },
+    {
+      "name": "ab 与 bb 有三组",
+      "args": [
+        "ab",
+        "bb"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "相同单字符没有合法配对",
+      "args": [
+        "a",
+        "a"
+      ],
+      "expected": 0
+    }
+  ]
+}

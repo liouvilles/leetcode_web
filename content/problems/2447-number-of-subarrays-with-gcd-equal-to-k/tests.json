@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "subarrayGCD",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典数组有四个公因数九子数组",
+      "args": [
+        [
+          9,
+          3,
+          1,
+          2,
+          6,
+          3
+        ],
+        3
+      ],
+      "expected": 4
+    },
+    {
+      "name": "全为四有三个子数组",
+      "args": [
+        [
+          4,
+          4
+        ],
+        4
+      ],
+      "expected": 3
+    },
+    {
+      "name": "没有公因数二子数组",
+      "args": [
+        [
+          3,
+          5,
+          7
+        ],
+        2
+      ],
+      "expected": 0
+    }
+  ]
+}

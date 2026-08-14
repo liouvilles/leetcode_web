@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 964,
+  "slug": "least-operators-to-express-number",
+  "title": "表示数字的最少运算符",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-014",
+  "studyTags": [
+    "数学",
+    "动态规划",
+    "进制"
+  ],
+  "summary": "只使用若干个 x 和加减乘除运算且不加括号，构造 target，求最少运算符数量。",
+  "insight": "把 target 按 x 进制逐位处理；每位既可正向使用 digit 个 x^k，也可向高位借一后使用 x-digit 个负项，维护两种最小代价。",
+  "pitfalls": [
+    "最低位的 1 要写成 x/x，代价与高位幂不同",
+    "最终负状态还需补一个更高位 x^k",
+    "结果中的首项不需要前导加号，因此最后减一"
+  ],
+  "solutions": [
+    {
+      "id": "base-x-carry-dp",
+      "title": "x 进制进借位动态规划",
+      "kind": "最优",
+      "idea": "逐位维护正表示与向高位借位表示的运算符代价。",
+      "steps": [
+        "positive=negative=0,k=0，逐位取 digit=target%x",
+        "k=0 时 positive=2*digit，negative=2*(x-digit)",
+        "高位更新 positive=min(oldPositive+digit*k,oldNegative+(digit+1)*k)，negative=min(oldPositive+(x-digit)*k,oldNegative+(x-digit-1)*k)",
+        "处理完返回 min(positive,negative+k)-1"
+      ],
+      "complexity": {
+        "time": "O(log_x target)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/base-x-carry-dp/Solution.java",
+        "kotlin": "solutions/base-x-carry-dp/Solution.kt",
+        "cpp": "solutions/base-x-carry-dp/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isIsomorphic",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "两个字符稳定映射",
+      "args": [
+        "egg",
+        "add"
+      ],
+      "expected": true
+    },
+    {
+      "name": "同一字符映射不一致",
+      "args": [
+        "foo",
+        "bar"
+      ],
+      "expected": false
+    },
+    {
+      "name": "两个源字符争用目标字符",
+      "args": [
+        "badc",
+        "baba"
+      ],
+      "expected": false
+    }
+  ]
+}

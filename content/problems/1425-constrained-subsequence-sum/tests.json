@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "constrainedSubsetSum",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "跳过负十获得三十七",
+      "args": [
+        [
+          10,
+          2,
+          -10,
+          5,
+          20
+        ],
+        2
+      ],
+      "expected": 37
+    },
+    {
+      "name": "全负数选择负一",
+      "args": [
+        [
+          -1,
+          -2,
+          -3
+        ],
+        1
+      ],
+      "expected": -1
+    },
+    {
+      "name": "距离限制下获得二十三",
+      "args": [
+        [
+          10,
+          -2,
+          -10,
+          -5,
+          20
+        ],
+        2
+      ],
+      "expected": 23
+    }
+  ]
+}

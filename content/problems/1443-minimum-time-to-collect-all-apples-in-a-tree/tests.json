@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minTime",
+  "parameterTypes": [
+    "int",
+    "intMatrix",
+    "booleanList"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典树收集三个苹果",
+      "args": [
+        7,
+        [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            6
+          ]
+        ],
+        [
+          false,
+          false,
+          true,
+          false,
+          true,
+          true,
+          false
+        ]
+      ],
+      "expected": 8
+    },
+    {
+      "name": "单节点无须移动",
+      "args": [
+        1,
+        [],
+        [
+          false
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "链末端有苹果需往返",
+      "args": [
+        3,
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          false,
+          false,
+          true
+        ]
+      ],
+      "expected": 4
+    }
+  ]
+}

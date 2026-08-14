@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 623,
+  "slug": "add-one-row-to-tree",
+  "title": "在二叉树中增加一行",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-008",
+  "studyTags": [
+    "二叉树",
+    "深度优先搜索",
+    "树修改"
+  ],
+  "summary": "在二叉树指定深度插入值为 val 的一整行，新节点按规则接回原有左右子树。",
+  "insight": "递归到深度 d-1 的所有节点，在每个节点下创建两个新节点，并把原左子树接到新左节点左侧、原右子树接到新右节点右侧。",
+  "pitfalls": [
+    "depth=1 时需要创建新根",
+    "新左节点不接右子树，新右节点不接左子树",
+    "只修改原深度 d-1 的节点"
+  ],
+  "solutions": [
+    {
+      "id": "dfs-to-parent-level",
+      "title": "递归到插入层父节点",
+      "kind": "最优",
+      "idea": "特殊处理新根，其余在目标父层原地接入新节点。",
+      "steps": [
+        "depth=1 时创建 val 根并令其左孩子为旧根",
+        "递归遍历并记录当前深度",
+        "到 depth-1 时保存旧孩子、创建新左右节点并按规则接回"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(h)"
+      },
+      "files": {
+        "java": "solutions/dfs-to-parent-level/Solution.java",
+        "kotlin": "solutions/dfs-to-parent-level/Solution.kt",
+        "cpp": "solutions/dfs-to-parent-level/solution.cpp"
+      }
+    }
+  ]
+}

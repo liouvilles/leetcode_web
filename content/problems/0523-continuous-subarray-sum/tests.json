@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "checkSubarraySum",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "二三加二可被六整除",
+      "args": [
+        [
+          23,
+          2,
+          4,
+          6,
+          7
+        ],
+        6
+      ],
+      "expected": true
+    },
+    {
+      "name": "不存在十三倍数区间",
+      "args": [
+        [
+          23,
+          2,
+          6,
+          4,
+          7
+        ],
+        13
+      ],
+      "expected": false
+    },
+    {
+      "name": "两个零且 k 为零",
+      "args": [
+        [
+          0,
+          0
+        ],
+        0
+      ],
+      "expected": true
+    }
+  ]
+}

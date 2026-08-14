@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numRollsToTarget",
+  "parameterTypes": [
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "单骰唯一面值",
+      "args": [
+        1,
+        6,
+        3
+      ],
+      "expected": 1
+    },
+    {
+      "name": "双骰和为七",
+      "args": [
+        2,
+        6,
+        7
+      ],
+      "expected": 6
+    },
+    {
+      "name": "大规模取模",
+      "args": [
+        30,
+        30,
+        500
+      ],
+      "expected": 222616187
+    }
+  ]
+}

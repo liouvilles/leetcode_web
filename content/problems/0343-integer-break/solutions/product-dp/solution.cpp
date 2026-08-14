@@ -1,0 +1,1 @@
+class Solution { public: int integerBreak(int n){vector<int> dp(n+1);for(int value=2;value<=n;++value)for(int first=1;first<value;++first)dp[value]=max(dp[value],first*max(value-first,dp[value-first]));return dp[n];} };

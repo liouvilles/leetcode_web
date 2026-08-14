@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1094,
+  "slug": "car-pooling",
+  "title": "拼车",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-016",
+  "studyTags": [
+    "数组",
+    "差分",
+    "前缀和"
+  ],
+  "summary": "每个行程给出乘客数、上车位置和下车位置，车辆沿单向东行，判断容量是否在全程足够。",
+  "insight": "在上车点增加人数、下车点减少人数构造差分数组；沿位置求前缀和就是车内人数，任一超过容量即失败。",
+  "pitfalls": [
+    "乘客在 to 位置先下车，因此差分在 to 减少",
+    "位置范围小可直接数组",
+    "同时上下车的净变化自然合并"
+  ],
+  "solutions": [
+    {
+      "id": "location-difference-sweep",
+      "title": "位置差分扫描",
+      "kind": "最优",
+      "idea": "把区间载客量转成端点变化。",
+      "steps": [
+        "difference[1001] 初始化零",
+        "对 [passengers,from,to]，difference[from]+=passengers，difference[to]-=passengers",
+        "从西向东累加 onboard，超过 capacity 返回 false；扫描完返回 true"
+      ],
+      "complexity": {
+        "time": "O(trips+1000)",
+        "space": "O(1000)"
+      },
+      "files": {
+        "java": "solutions/location-difference-sweep/Solution.java",
+        "kotlin": "solutions/location-difference-sweep/Solution.kt",
+        "cpp": "solutions/location-difference-sweep/solution.cpp"
+      }
+    }
+  ]
+}

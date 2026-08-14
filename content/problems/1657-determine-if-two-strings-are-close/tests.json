@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "closeStrings",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "abc 可通过位置交换变换",
+      "args": [
+        "abc",
+        "bca"
+      ],
+      "expected": true
+    },
+    {
+      "name": "不同字符集合无法变换",
+      "args": [
+        "a",
+        "aa"
+      ],
+      "expected": false
+    },
+    {
+      "name": "相同字符集和频次多重集可变换",
+      "args": [
+        "cabbba",
+        "abbccc"
+      ],
+      "expected": true
+    }
+  ]
+}

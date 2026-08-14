@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 860,
+  "slug": "lemonade-change",
+  "title": "柠檬水找零",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "数组",
+    "贪心"
+  ],
+  "summary": "柠檬水售价五元，顾客依次用五、十或二十元付款，判断能否为每位顾客正确找零。",
+  "insight": "只需记录五元和十元钞票；二十元找零时优先用十加五，保留更多五元能应对十元付款和剩余组合。",
+  "pitfalls": [
+    "最初没有零钱",
+    "收到钞票应在完成找零后计入对应库存",
+    "二十元无法用十加五时才尝试三张五元"
+  ],
+  "solutions": [
+    {
+      "id": "greedy-largest-change-first",
+      "title": "优先使用大额找零",
+      "kind": "最优",
+      "idea": "维护五元十元库存并按顾客顺序处理。",
+      "steps": [
+        "bill=5 时 fives++",
+        "bill=10 时必须 fives--、tens++，不足失败",
+        "bill=20 时优先 tens>0 且 fives>0，否则需 fives>=3；不足失败，全部处理返回真"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/greedy-largest-change-first/Solution.java",
+        "kotlin": "solutions/greedy-largest-change-first/Solution.kt",
+        "cpp": "solutions/greedy-largest-change-first/solution.cpp"
+      }
+    }
+  ]
+}

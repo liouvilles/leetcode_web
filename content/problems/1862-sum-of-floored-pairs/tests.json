@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sumOfFlooredPairs",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "二五九向下取整和十",
+      "args": [
+        [
+          2,
+          5,
+          9
+        ]
+      ],
+      "expected": 10
+    },
+    {
+      "name": "七个七产生四十九",
+      "args": [
+        [
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7
+        ]
+      ],
+      "expected": 49
+    },
+    {
+      "name": "一二三总和九",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 9
+    }
+  ]
+}

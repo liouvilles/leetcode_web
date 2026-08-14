@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findAllRecipes",
+  "parameterTypes": [
+    "stringArray",
+    "stringListMatrix",
+    "stringArray"
+  ],
+  "returnType": "stringList",
+  "cases": [
+    {
+      "name": "菜谱依赖链依次解锁",
+      "args": [
+        [
+          "bread",
+          "sandwich",
+          "burger"
+        ],
+        [
+          [
+            "yeast",
+            "flour"
+          ],
+          [
+            "bread",
+            "meat"
+          ],
+          [
+            "sandwich",
+            "bread"
+          ]
+        ],
+        [
+          "yeast",
+          "flour",
+          "meat"
+        ]
+      ],
+      "expected": [
+        "bread",
+        "sandwich",
+        "burger"
+      ]
+    },
+    {
+      "name": "缺失材料无法制作",
+      "args": [
+        [
+          "bread"
+        ],
+        [
+          [
+            "yeast",
+            "flour"
+          ]
+        ],
+        [
+          "yeast"
+        ]
+      ],
+      "expected": []
+    },
+    {
+      "name": "循环依赖没有初始入口",
+      "args": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          [
+            "b"
+          ],
+          [
+            "a"
+          ]
+        ],
+        []
+      ],
+      "expected": []
+    }
+  ]
+}

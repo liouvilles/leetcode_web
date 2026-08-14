@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1748,
+  "slug": "sum-of-unique-elements",
+  "title": "唯一元素的和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-025",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "计数"
+  ],
+  "summary": "若一个元素在数组中恰好出现一次则为唯一元素，返回所有唯一元素之和。",
+  "insight": "先统计每个值频次，再累加频次等于一的键。",
+  "pitfalls": [
+    "重复两次或更多都不计入",
+    "累加数值而非唯一元素数量",
+    "数组元素均为正数"
+  ],
+  "solutions": [
+    {
+      "id": "frequency-then-sum",
+      "title": "频次统计后求和",
+      "kind": "最优",
+      "idea": "用哈希表区分恰好出现一次的元素。",
+      "steps": [
+        "哈希表统计 frequency",
+        "answer=0",
+        "遍历键值对，count==1 时 answer+=value"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/frequency-then-sum/Solution.java",
+        "kotlin": "solutions/frequency-then-sum/Solution.kt",
+        "cpp": "solutions/frequency-then-sum/solution.cpp"
+      }
+    }
+  ]
+}

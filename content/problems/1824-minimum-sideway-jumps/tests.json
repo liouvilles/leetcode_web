@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minSideJumps",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典障碍需两次侧跳",
+      "args": [
+        [
+          0,
+          1,
+          2,
+          3,
+          0
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "只需一次侧跳",
+      "args": [
+        [
+          0,
+          1,
+          1,
+          3,
+          3,
+          0
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "无障碍无需侧跳",
+      "args": [
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1992,
+  "slug": "find-all-groups-of-farmland",
+  "title": "找到所有的农场组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-029",
+  "studyTags": [
+    "深度优先搜索",
+    "广度优先搜索",
+    "数组",
+    "矩阵"
+  ],
+  "summary": "二进制土地中每组农田是互不相邻的实心矩形，返回每组左上与右下坐标。",
+  "insight": "矩形左上角的上方与左方都不是农田。遇到左上角后沿当前行、当前列找到连续一的最右列和最下行即可。",
+  "pitfalls": [
+    "各组不会四方向相邻",
+    "输出顺序任意",
+    "坐标包含右下端点"
+  ],
+  "solutions": [
+    {
+      "id": "detect-top-left-expand-rectangle",
+      "title": "识别左上角并扩展矩形",
+      "kind": "最优",
+      "idea": "只在矩形起点计算其边界。",
+      "steps": [
+        "遍历 land 中值一单元格",
+        "若上方或左方为一则不是左上角",
+        "向右与向下扩展连续一，加入 [row,col,bottom,right]"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(1) 除输出"
+      },
+      "files": {
+        "java": "solutions/detect-top-left-expand-rectangle/Solution.java",
+        "kotlin": "solutions/detect-top-left-expand-rectangle/Solution.kt",
+        "cpp": "solutions/detect-top-left-expand-rectangle/solution.cpp"
+      }
+    }
+  ]
+}

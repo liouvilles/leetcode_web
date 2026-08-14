@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1414,
+  "slug": "find-the-minimum-number-of-fibonacci-numbers-whose-sum-is-k",
+  "title": "和为 K 的最少斐波那契数字数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-020",
+  "studyTags": [
+    "数学",
+    "贪心"
+  ],
+  "summary": "可重复选择斐波那契数，求和恰为 k 所需的最少数量。",
+  "insight": "斐波那契数具有规范贪心性质；每次选择不超过剩余值的最大斐波那契数，重复减去即可得到最少项数。",
+  "pitfalls": [
+    "一在序列中无需保留重复副本",
+    "生成到首次大于 k 即可",
+    "每次从最大可用数向下寻找"
+  ],
+  "solutions": [
+    {
+      "id": "largest-fibonacci-greedy",
+      "title": "最大斐波那契数贪心",
+      "kind": "最优",
+      "idea": "反复用最大可用斐波那契数削减剩余值。",
+      "steps": [
+        "生成 1,2,... 直到最后一个不小于 k",
+        "从序列末尾向前，若 fib<=k 则 k-=fib、answer++",
+        "k 归零时返回 answer"
+      ],
+      "complexity": {
+        "time": "O(log k)",
+        "space": "O(log k)"
+      },
+      "files": {
+        "java": "solutions/largest-fibonacci-greedy/Solution.java",
+        "kotlin": "solutions/largest-fibonacci-greedy/Solution.kt",
+        "cpp": "solutions/largest-fibonacci-greedy/solution.cpp"
+      }
+    }
+  ]
+}

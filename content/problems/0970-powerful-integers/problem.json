@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 970,
+  "slug": "powerful-integers",
+  "title": "强整数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-014",
+  "studyTags": [
+    "数学",
+    "枚举",
+    "哈希集合"
+  ],
+  "summary": "返回所有不超过 bound 且可写成 x^i+y^j 的正整数，其中 i、j 为非负整数。",
+  "insight": "当底数大于一时幂次只需枚举到超过 bound，底数为一时幂值始终为一；双层枚举并用集合去重。",
+  "pitfalls": [
+    "i 和 j 可以为零，因此幂从一开始",
+    "x 或 y 等于一时必须显式终止避免死循环",
+    "不同幂组合可能得到相同和"
+  ],
+  "solutions": [
+    {
+      "id": "bounded-power-pair-enumeration",
+      "title": "有界幂对枚举",
+      "kind": "最优",
+      "idea": "生成两个有限幂集合的所有合法和。",
+      "steps": [
+        "外层 a 从 1 按 x 倍增，内层 b 从 1 按 y 倍增",
+        "若 a+b≤bound 加入有序集合",
+        "底数为一或下一次乘法会越界时停止对应循环，返回集合列表"
+      ],
+      "complexity": {
+        "time": "O(log_x B·log_y B)",
+        "space": "O(result)"
+      },
+      "files": {
+        "java": "solutions/bounded-power-pair-enumeration/Solution.java",
+        "kotlin": "solutions/bounded-power-pair-enumeration/Solution.kt",
+        "cpp": "solutions/bounded-power-pair-enumeration/solution.cpp"
+      }
+    }
+  ]
+}

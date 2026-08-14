@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "kIncreasing",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "严格下降数组修改四处",
+      "args": [
+        [
+          5,
+          4,
+          3,
+          2,
+          1
+        ],
+        1
+      ],
+      "expected": 4
+    },
+    {
+      "name": "两个分组本就非递减",
+      "args": [
+        [
+          4,
+          1,
+          5,
+          2,
+          6,
+          2
+        ],
+        2
+      ],
+      "expected": 0
+    },
+    {
+      "name": "三个分组需要修改两处",
+      "args": [
+        [
+          4,
+          1,
+          5,
+          2,
+          6,
+          2
+        ],
+        3
+      ],
+      "expected": 2
+    }
+  ]
+}

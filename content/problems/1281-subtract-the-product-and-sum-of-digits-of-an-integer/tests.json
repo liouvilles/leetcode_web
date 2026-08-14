@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "subtractProductAndSum",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "二三四差十五",
+      "args": [
+        234
+      ],
+      "expected": 15
+    },
+    {
+      "name": "四四二一差二十一",
+      "args": [
+        4421
+      ],
+      "expected": 21
+    },
+    {
+      "name": "含零乘积为零",
+      "args": [
+        105
+      ],
+      "expected": -6
+    }
+  ]
+}

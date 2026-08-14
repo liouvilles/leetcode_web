@@ -1,0 +1,1 @@
+class Solution { public int findLeastNumOfUniqueInts(int[] arr,int k){Map<Integer,Integer> count=new HashMap<>();for(int value:arr)count.merge(value,1,Integer::sum);List<Integer> frequencies=new ArrayList<>(count.values());Collections.sort(frequencies);int unique=frequencies.size();for(int frequency:frequencies){if(k<frequency)break;k-=frequency;unique--;}return unique;} }

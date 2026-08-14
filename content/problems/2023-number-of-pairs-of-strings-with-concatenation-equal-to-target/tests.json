@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numOfPairs",
+  "parameterTypes": [
+    "stringArray",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一与一八一配成一八一",
+      "args": [
+        [
+          "777",
+          "7",
+          "77",
+          "77"
+        ],
+        "7777"
+      ],
+      "expected": 4
+    },
+    {
+      "name": "一与十一形成三个有序对",
+      "args": [
+        [
+          "1",
+          "1",
+          "1"
+        ],
+        "11"
+      ],
+      "expected": 6
+    },
+    {
+      "name": "没有可连接的字符串对",
+      "args": [
+        [
+          "ab",
+          "c"
+        ],
+        "abcx"
+      ],
+      "expected": 0
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 954,
+  "slug": "array-of-doubled-pairs",
+  "title": "二倍数对数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-013",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "排序",
+    "贪心"
+  ],
+  "summary": "判断能否重排偶数长度数组，使前一半每个元素的二倍等于后一半对应元素。",
+  "insight": "按绝对值从小到大处理，保证给 x 匹配 2x 时不会错误消耗本应作为更小值二倍数的元素；用频次表扣减。",
+  "pitfalls": [
+    "负数也必须按绝对值排序",
+    "零必须成对出现",
+    "匹配后 x 和 2x 都各减少一次"
+  ],
+  "solutions": [
+    {
+      "id": "absolute-order-frequency-pairing",
+      "title": "绝对值排序频次配对",
+      "kind": "最优",
+      "idea": "从最接近零的未配元素贪心找其二倍。",
+      "steps": [
+        "统计每个值频次，并把元素装箱后按绝对值升序",
+        "依次处理 x；若 count[x]==0 跳过",
+        "若 count[2*x]==0 返回 false，否则两者频次各减一；全部完成返回 true"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/absolute-order-frequency-pairing/Solution.java",
+        "kotlin": "solutions/absolute-order-frequency-pairing/Solution.kt",
+        "cpp": "solutions/absolute-order-frequency-pairing/solution.cpp"
+      }
+    }
+  ]
+}

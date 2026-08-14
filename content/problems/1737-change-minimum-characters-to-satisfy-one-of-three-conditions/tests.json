@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minCharacters",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "aba 与 caa 最少修改二",
+      "args": [
+        "aba",
+        "caa"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "dabadd 与 cda 最少修改三",
+      "args": [
+        "dabadd",
+        "cda"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "相同单字符无需修改",
+      "args": [
+        "a",
+        "a"
+      ],
+      "expected": 0
+    }
+  ]
+}

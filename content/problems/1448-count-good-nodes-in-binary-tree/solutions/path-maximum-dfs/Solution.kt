@@ -1,0 +1,1 @@
+class Solution { private fun dfs(node:TreeNode?,maximum:Int):Int{if(node==null)return 0;val good=if(node.`val`>=maximum)1 else 0;val nextMaximum=maxOf(maximum,node.`val`);return good+dfs(node.left,nextMaximum)+dfs(node.right,nextMaximum)};fun goodNodes(root:TreeNode?):Int=dfs(root,Int.MIN_VALUE) }

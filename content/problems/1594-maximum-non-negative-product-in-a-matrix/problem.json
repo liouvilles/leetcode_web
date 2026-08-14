@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1594,
+  "slug": "maximum-non-negative-product-in-a-matrix",
+  "title": "矩阵的最大非负积",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-023",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "矩阵"
+  ],
+  "summary": "从左上只能向右或向下到右下，求路径元素乘积的最大非负值；所有路径为负则返回负一，否则取模。",
+  "insight": "负数会交换最大最小值角色，因此每格同时保存到达它的最大积与最小积，从上方与左方的四个候选乘当前值取极值。",
+  "pitfalls": [
+    "比较应在取模前完成",
+    "需要同时维护最大与最小乘积",
+    "终点最大积为负返回负一"
+  ],
+  "solutions": [
+    {
+      "id": "max-min-product-grid-dp",
+      "title": "最大最小乘积网格动态规划",
+      "kind": "最优",
+      "idea": "以双极值状态处理负数符号翻转。",
+      "steps": [
+        "maximum、minimum long 矩阵，起点均为 grid[0][0]",
+        "逐格收集上方与左方各自 max/min 乘 value 的候选",
+        "写候选最大最小；终点 max<0 返回 -1，否则 max%MOD"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(mn)"
+      },
+      "files": {
+        "java": "solutions/max-min-product-grid-dp/Solution.java",
+        "kotlin": "solutions/max-min-product-grid-dp/Solution.kt",
+        "cpp": "solutions/max-min-product-grid-dp/solution.cpp"
+      }
+    }
+  ]
+}

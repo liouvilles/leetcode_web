@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1926,
+  "slug": "nearest-exit-from-entrance-in-maze",
+  "title": "迷宫中离入口最近的出口",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-028",
+  "studyTags": [
+    "广度优先搜索",
+    "数组",
+    "矩阵"
+  ],
+  "summary": "从迷宫入口出发，只走空格，求到边界上另一空格出口的最短步数，不存在返回负一。",
+  "insight": "无权网格最短路使用 BFS。入口先标记访问；弹出位置若不是入口且位于边界就是最近出口。",
+  "pitfalls": [
+    "入口即使在边界也不算出口",
+    "只能走点号单元格",
+    "入队时标记避免重复"
+  ],
+  "solutions": [
+    {
+      "id": "breadth-first-grid-search",
+      "title": "网格 BFS",
+      "kind": "最优",
+      "idea": "按距离层次扩展直到首次到达合法边界。",
+      "steps": [
+        "入口入队并改为加号",
+        "逐层弹出坐标，非入口边界立即返回当前距离",
+        "四邻点号标记并入队；队空返回 -1"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(mn)"
+      },
+      "files": {
+        "java": "solutions/breadth-first-grid-search/Solution.java",
+        "kotlin": "solutions/breadth-first-grid-search/Solution.kt",
+        "cpp": "solutions/breadth-first-grid-search/solution.cpp"
+      }
+    }
+  ]
+}

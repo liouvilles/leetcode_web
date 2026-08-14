@@ -1,0 +1,1 @@
+class Solution { public: vector<int> missingRolls(vector<int>& rolls,int mean,int n){int missing=mean*(rolls.size()+n)-accumulate(rolls.begin(),rolls.end(),0);if(missing<n||missing>6*n)return{};vector<int> answer(n,missing/n);for(int i=0;i<missing%n;++i)++answer[i];return answer;} };

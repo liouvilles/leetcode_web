@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "checkString",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "先 a 后 b 合法",
+      "args": [
+        "aaabbb"
+      ],
+      "expected": true
+    },
+    {
+      "name": "出现 ba 逆序",
+      "args": [
+        "abab"
+      ],
+      "expected": false
+    },
+    {
+      "name": "全 b 合法",
+      "args": [
+        "bbb"
+      ],
+      "expected": true
+    }
+  ]
+}

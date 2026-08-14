@@ -1,0 +1,1 @@
+class Solution { public int subarraysDivByK(int[] nums,int k){int[] frequency=new int[k];frequency[0]=1;int remainder=0,answer=0;for(int value:nums){remainder=((remainder+value)%k+k)%k;answer+=frequency[remainder]++;}return answer;} }

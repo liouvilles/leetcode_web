@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "wordPattern",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "合法双射",
+      "args": [
+        "abba",
+        "dog cat cat dog"
+      ],
+      "expected": true
+    },
+    {
+      "name": "同字符对应不同单词",
+      "args": [
+        "abba",
+        "dog cat cat fish"
+      ],
+      "expected": false
+    },
+    {
+      "name": "不同字符对应同一单词",
+      "args": [
+        "aaaa",
+        "dog cat cat dog"
+      ],
+      "expected": false
+    }
+  ]
+}

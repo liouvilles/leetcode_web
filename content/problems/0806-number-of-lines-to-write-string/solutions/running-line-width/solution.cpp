@@ -1,0 +1,1 @@
+class Solution { public: vector<int> numberOfLines(vector<int>& widths,string s){int lines=1,width=0;for(char c:s){int next=widths[c-'a'];if(width+next>100){++lines;width=next;}else width+=next;}return{lines,width};} };

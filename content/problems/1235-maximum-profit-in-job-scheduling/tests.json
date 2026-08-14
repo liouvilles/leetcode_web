@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "jobScheduling",
+  "parameterTypes": [
+    "intArray",
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "选择首尾两份收益一百二",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          3
+        ],
+        [
+          3,
+          4,
+          5,
+          6
+        ],
+        [
+          50,
+          10,
+          40,
+          70
+        ]
+      ],
+      "expected": 120
+    },
+    {
+      "name": "三份可衔接收益一百五",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        [
+          3,
+          5,
+          10,
+          6,
+          9
+        ],
+        [
+          20,
+          20,
+          100,
+          70,
+          60
+        ]
+      ],
+      "expected": 150
+    },
+    {
+      "name": "重叠时选最高收益",
+      "args": [
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          5,
+          6,
+          4
+        ]
+      ],
+      "expected": 6
+    }
+  ]
+}

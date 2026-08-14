@@ -1,0 +1,1 @@
+class Solution { public String arrangeWords(String text){text=Character.toLowerCase(text.charAt(0))+text.substring(1);List<String> words=new ArrayList<>(Arrays.asList(text.split(" ")));words.sort(Comparator.comparingInt(String::length));String joined=String.join(" ",words);return Character.toUpperCase(joined.charAt(0))+joined.substring(1);} }

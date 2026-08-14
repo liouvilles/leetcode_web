@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2149,
+  "slug": "rearrange-array-elements-by-sign",
+  "title": "按符号重排数组元素",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-031",
+  "studyTags": [
+    "数组",
+    "双指针",
+    "模拟"
+  ],
+  "summary": "数组正负数数量相等，按正负交替且正数开头重排，同时保持同符号元素的原相对顺序。",
+  "insight": "答案偶数下标只放正数、奇数下标只放负数。顺序扫描输入，用两个写指针分别从零和一开始每次跨两格。",
+  "pitfalls": [
+    "正数先出现",
+    "零不在输入范围内",
+    "同符号相对顺序必须稳定"
+  ],
+  "solutions": [
+    {
+      "id": "two-parity-write-pointers",
+      "title": "奇偶双写指针",
+      "kind": "最优",
+      "idea": "直接把两类元素稳定写入各自下标。",
+      "steps": [
+        "positive=0、negative=1",
+        "扫描 nums",
+        "value>0 写 answer[positive] 后 positive+=2，否则写 negative 后 negative+=2"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/two-parity-write-pointers/Solution.java",
+        "kotlin": "solutions/two-parity-write-pointers/Solution.kt",
+        "cpp": "solutions/two-parity-write-pointers/solution.cpp"
+      }
+    }
+  ]
+}

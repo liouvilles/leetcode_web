@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1363,
+  "slug": "largest-multiple-of-three",
+  "title": "形成三的最大倍数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-019",
+  "studyTags": [
+    "数组",
+    "数学",
+    "贪心",
+    "计数"
+  ],
+  "summary": "从给定数字中选取若干位并任意排序，形成能被三整除的最大整数。",
+  "insight": "数字和对三的余数决定需要删除的最小数字：余一时删一个余一或两个余二，余二时反之；最后降序拼接。",
+  "pitfalls": [
+    "删除时选择数值最小的可行数字",
+    "全零结果规范为单个 0",
+    "无法保留任何位时返回空串"
+  ],
+  "solutions": [
+    {
+      "id": "remainder-greedy-counts",
+      "title": "余数贪心计数",
+      "kind": "最优",
+      "idea": "用十个数字的频次完成最小损失的余数修正。",
+      "steps": [
+        "统计 count 与 digit sum",
+        "按 sum%3 优先删除一个同余数字，否则删除两个互补余数数字",
+        "从 9 到 0 降序输出；首位为零则返回 0"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/remainder-greedy-counts/Solution.java",
+        "kotlin": "solutions/remainder-greedy-counts/Solution.kt",
+        "cpp": "solutions/remainder-greedy-counts/solution.cpp"
+      }
+    }
+  ]
+}

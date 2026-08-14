@@ -1,0 +1,1 @@
+class Solution { public String sortSentence(String sentence){String[] words=sentence.split(" "),result=new String[words.length];for(String word:words)result[word.charAt(word.length()-1)-'1']=word.substring(0,word.length()-1);return String.join(" ",result);} }

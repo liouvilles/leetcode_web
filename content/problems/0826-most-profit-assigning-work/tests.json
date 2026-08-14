@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxProfitAssignment",
+  "parameterTypes": [
+    "intArray",
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "五名工人总收益",
+      "args": [
+        [
+          2,
+          4,
+          6,
+          8,
+          10
+        ],
+        [
+          10,
+          20,
+          30,
+          40,
+          50
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "expected": 100
+    },
+    {
+      "name": "都无法完成",
+      "args": [
+        [
+          85,
+          47,
+          57
+        ],
+        [
+          24,
+          66,
+          99
+        ],
+        [
+          40,
+          25,
+          25
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "重复分配最高收益",
+      "args": [
+        [
+          1,
+          2
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "expected": 20
+    }
+  ]
+}

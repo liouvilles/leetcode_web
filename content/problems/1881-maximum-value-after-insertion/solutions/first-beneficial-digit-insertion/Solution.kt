@@ -1,0 +1,1 @@
+class Solution { fun maxValue(n:String,x:Int):String{var index=if(n[0]=='-')1 else 0;if(n[0]=='-')while(index<n.length&&n[index]-'0'<=x)index++ else while(index<n.length&&n[index]-'0'>=x)index++;return n.substring(0,index)+x+n.substring(index)} }

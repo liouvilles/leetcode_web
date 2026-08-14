@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2121,
+  "slug": "intervals-between-identical-elements",
+  "title": "相同元素的间隔之和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-031",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "前缀和"
+  ],
+  "summary": "对数组每个位置，计算它到所有相同值位置的下标距离总和。",
+  "insight": "把同值下标按升序分组。对组内位置 i，用前缀和分别计算左侧距离 i*index-leftSum 与右侧距离 rightSum-(count-i-1)*index。",
+  "pitfalls": [
+    "结果可能超过 int",
+    "只有一次的值答案为零",
+    "距离使用下标差绝对值"
+  ],
+  "solutions": [
+    {
+      "id": "group-indices-prefix-sums",
+      "title": "同值下标分组前缀和",
+      "kind": "最优",
+      "idea": "每个同值组线性计算所有位置的左右距离贡献。",
+      "steps": [
+        "Map<value,List<index>> 收集下标",
+        "每组求全部下标和 total，并维护 leftSum",
+        "第 i 个位置答案=index*i-leftSum+(total-leftSum-index)-index*(size-i-1)"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/group-indices-prefix-sums/Solution.java",
+        "kotlin": "solutions/group-indices-prefix-sums/Solution.kt",
+        "cpp": "solutions/group-indices-prefix-sums/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sortItems",
+  "parameterTypes": [
+    "int",
+    "int",
+    "intArray",
+    "intListMatrix"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "两组依赖链",
+      "args": [
+        4,
+        2,
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          [],
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      ],
+      "expected": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "name": "未分组项目链",
+      "args": [
+        3,
+        0,
+        [
+          -1,
+          -1,
+          -1
+        ],
+        [
+          [],
+          [
+            0
+          ],
+          [
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "name": "组内循环无解",
+      "args": [
+        3,
+        1,
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          [
+            2
+          ],
+          [
+            0
+          ],
+          [
+            1
+          ]
+        ]
+      ],
+      "expected": []
+    }
+  ]
+}

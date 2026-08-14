@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 936,
+  "slug": "stamping-the-sequence",
+  "title": "戳印序列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-013",
+  "studyTags": [
+    "字符串",
+    "贪心",
+    "模拟"
+  ],
+  "summary": "从问号串开始，每次把 stamp 覆盖到一个位置，求不超过十倍目标长度的操作序列生成 target；无解返回空数组。",
+  "insight": "反向思考为擦除 target：某窗口的未擦字符都与 stamp 对应位置相同且至少能新擦一个字符时即可擦除；持续贪心直到全为星号。",
+  "pitfalls": [
+    "窗口中已有星号可匹配任意字符",
+    "一次操作必须新擦除至少一个字符",
+    "反向擦除位置收集后要逆序返回"
+  ],
+  "solutions": [
+    {
+      "id": "reverse-greedy-erasure",
+      "title": "反向贪心擦除",
+      "kind": "最优",
+      "idea": "不断擦除当前可与印章匹配的窗口。",
+      "steps": [
+        "把 target 转字符数组，done 标记已使用窗口",
+        "循环扫描所有窗口；若未擦字符均匹配且存在未擦字符，则置星并记录位置",
+        "若一轮无进展且尚未全擦返回空；全部擦除后逆序 moves"
+      ],
+      "complexity": {
+        "time": "O(n²m)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/reverse-greedy-erasure/Solution.java",
+        "kotlin": "solutions/reverse-greedy-erasure/Solution.kt",
+        "cpp": "solutions/reverse-greedy-erasure/solution.cpp"
+      }
+    }
+  ]
+}

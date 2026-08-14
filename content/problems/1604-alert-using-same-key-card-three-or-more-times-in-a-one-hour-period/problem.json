@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1604,
+  "slug": "alert-using-same-key-card-three-or-more-times-in-a-one-hour-period",
+  "title": "警告一小时内使用相同员工卡三次以上的人",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-023",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "字符串",
+    "排序"
+  ],
+  "summary": "给定员工刷卡姓名和时间，返回任意一小时内刷卡至少三次的员工姓名并按字典序排序。",
+  "insight": "按人收集分钟数并排序；若存在 i 使 times[i+2]-times[i]<=60，就有三次落在一小时窗口。",
+  "pitfalls": [
+    "恰好相差六十分钟也触发",
+    "时间在同一天内无需跨日处理",
+    "结果按姓名字典序"
+  ],
+  "solutions": [
+    {
+      "id": "per-person-sorted-window",
+      "title": "按人排序三次窗口",
+      "kind": "最优",
+      "idea": "为每人检查任意连续三次刷卡的时间跨度。",
+      "steps": [
+        "把 HH:MM 转分钟并按姓名分组",
+        "对每人 times 排序",
+        "若任意 i 到 i+2 差<=60 则加入答案，最后排序姓名"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/per-person-sorted-window/Solution.java",
+        "kotlin": "solutions/per-person-sorted-window/Solution.kt",
+        "cpp": "solutions/per-person-sorted-window/solution.cpp"
+      }
+    }
+  ]
+}

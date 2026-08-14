@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1124,
+  "slug": "longest-well-performing-interval",
+  "title": "表现良好的最长时间段",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-016",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "前缀和"
+  ],
+  "summary": "每天工作超过八小时记为劳累日，否则非劳累日；求劳累日数严格多于非劳累日数的最长连续区间。",
+  "insight": "把劳累映射为 +1，其余为 -1。前缀和 positive 时从开头已良好；否则寻找最早出现的 prefix-1，二者差为正且能给最长区间。",
+  "pitfalls": [
+    "严格多于对应区间和大于零",
+    "每个前缀值只记录最早下标",
+    "查询 prefix-1 而非任意更小值即可，因为步长为一"
+  ],
+  "solutions": [
+    {
+      "id": "prefix-score-earliest-index",
+      "title": "前缀分数最早下标",
+      "kind": "最优",
+      "idea": "用单位步长前缀和定位最远更小前缀。",
+      "steps": [
+        "score=0,answer=0，earliest 空",
+        "扫描 i，hours[i]>8 加一否则减一",
+        "若 score>0，answer=i+1；否则若 earliest 有 score-1，更新 i-earliest[score-1]；最后 putIfAbsent(score,i)，返回答案"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/prefix-score-earliest-index/Solution.java",
+        "kotlin": "solutions/prefix-score-earliest-index/Solution.kt",
+        "cpp": "solutions/prefix-score-earliest-index/solution.cpp"
+      }
+    }
+  ]
+}

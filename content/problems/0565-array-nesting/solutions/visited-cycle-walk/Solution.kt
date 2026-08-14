@@ -1,0 +1,1 @@
+class Solution { fun arrayNesting(nums:IntArray):Int{val visited=BooleanArray(nums.size);var best=0;for(start in nums.indices)if(!visited[start]){var length=0;var current=start;while(!visited[current]){visited[current]=true;current=nums[current];length++};best=maxOf(best,length)};return best} }

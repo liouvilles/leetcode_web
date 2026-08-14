@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 917,
+  "slug": "reverse-only-letters",
+  "title": "仅仅反转字母",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-013",
+  "studyTags": [
+    "字符串",
+    "双指针"
+  ],
+  "summary": "反转字符串中所有英文字母的相对顺序，非字母字符保持原位置不动。",
+  "insight": "字符数组两端指针分别跳过非字母，找到两个字母后交换并向内移动。",
+  "pitfalls": [
+    "大小写字母都参与反转",
+    "标点位置不能改变",
+    "指针交错时结束"
+  ],
+  "solutions": [
+    {
+      "id": "letter-skipping-two-pointers",
+      "title": "跳过非字母的双指针",
+      "kind": "最优",
+      "idea": "只交换两端当前字母。",
+      "steps": [
+        "chars=s.toCharArray，left=0,right=n-1",
+        "left 非字母则 left++，right 非字母则 right--",
+        "两端都是字母时交换并同时移动，返回新字符串"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/letter-skipping-two-pointers/Solution.java",
+        "kotlin": "solutions/letter-skipping-two-pointers/Solution.kt",
+        "cpp": "solutions/letter-skipping-two-pointers/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countNicePairs",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四数有两个好对子",
+      "args": [
+        [
+          42,
+          11,
+          1,
+          97
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "五数有四个好对子",
+      "args": [
+        [
+          13,
+          10,
+          35,
+          24,
+          76
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "单元素没有对子",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

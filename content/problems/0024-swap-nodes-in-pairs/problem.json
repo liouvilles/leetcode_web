@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 24,
+  "slug": "swap-nodes-in-pairs",
+  "title": "两两交换链表中的节点",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-002",
+  "studyTags": [
+    "链表改线",
+    "虚拟头结点",
+    "局部交换"
+  ],
+  "summary": "在不修改节点值的前提下，每两个相邻节点交换一次并返回新的链表头。",
+  "insight": "虚拟头结点让每一对节点前面始终有一个可操作的 prev，三次改线即可完成局部交换。",
+  "pitfalls": [
+    "交换的是节点而不是节点值",
+    "奇数长度时最后一个节点保持不动",
+    "改线顺序错误会丢失后续链表"
+  ],
+  "solutions": [
+    {
+      "id": "iterative-relink",
+      "title": "迭代改线",
+      "kind": "最优",
+      "idea": "每轮保存一对节点，通过 prev、first、second 三个指针调整连接关系。",
+      "steps": [
+        "创建 dummy 指向 head",
+        "把 prev.next 改为 second，再让 first 指向 second 后继",
+        "让 second 指向 first，并把 prev 移到 first"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/iterative-relink/Solution.java",
+        "kotlin": "solutions/iterative-relink/Solution.kt",
+        "cpp": "solutions/iterative-relink/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { public: int minSwaps(vector<vector<int>>& grid){int n=grid.size();vector<int> zeros(n);for(int row=0;row<n;++row)for(int col=n-1;col>=0&&!grid[row][col];--col)++zeros[row];int answer=0;for(int i=0;i<n;++i){int row=i,need=n-1-i;while(row<n&&zeros[row]<need)++row;if(row==n)return -1;answer+=row-i;while(row>i){swap(zeros[row],zeros[row-1]);--row;}}return answer;} };

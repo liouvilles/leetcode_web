@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxNumOfSubstrings",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "stringList",
+  "cases": [
+    {
+      "name": "选择 e f 与 ccc",
+      "args": [
+        "adefaddaccc"
+      ],
+      "expected": [
+        "e",
+        "f",
+        "ccc"
+      ]
+    },
+    {
+      "name": "三个最小闭包互不重叠",
+      "args": [
+        "abbaccd"
+      ],
+      "expected": [
+        "bb",
+        "cc",
+        "d"
+      ]
+    },
+    {
+      "name": "相互依赖只能选完整字符串",
+      "args": [
+        "abab"
+      ],
+      "expected": [
+        "abab"
+      ]
+    }
+  ]
+}

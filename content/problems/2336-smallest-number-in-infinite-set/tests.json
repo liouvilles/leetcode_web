@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "SmallestInfiniteSet",
+  "constructorTypes": [],
+  "cases": [
+    {
+      "name": "弹出后回补最小值",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "popSmallest",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "popSmallest",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 2
+        },
+        {
+          "method": "addBack",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ]
+        },
+        {
+          "method": "popSmallest",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "popSmallest",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 3
+        }
+      ]
+    },
+    {
+      "name": "重复回补只保留一次",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "popSmallest",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "addBack",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ]
+        },
+        {
+          "method": "addBack",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ]
+        },
+        {
+          "method": "popSmallest",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "popSmallest",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 2
+        }
+      ]
+    },
+    {
+      "name": "未弹出的数回补不改变顺序",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "addBack",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            5
+          ]
+        },
+        {
+          "method": "popSmallest",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "popSmallest",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 2
+        }
+      ]
+    }
+  ]
+}

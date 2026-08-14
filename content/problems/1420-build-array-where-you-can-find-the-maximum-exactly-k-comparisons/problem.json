@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1420,
+  "slug": "build-array-where-you-can-find-the-maximum-exactly-k-comparisons",
+  "title": "生成数组使最大值恰好比较 K 次",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-020",
+  "studyTags": [
+    "动态规划",
+    "前缀和"
+  ],
+  "summary": "统计长度 n、值域 1..m 的数组，使扫描中新最大值出现次数恰为 k。",
+  "insight": "dp[cost][max] 表示当前长度、搜索代价和当前最大值的方案数。追加不超过 max 的值有 max 种，追加更大的 newMax 会令代价加一。",
+  "pitfalls": [
+    "第一个元素必产生一次搜索代价",
+    "值可以重复",
+    "三重转移均需取模"
+  ],
+  "solutions": [
+    {
+      "id": "length-cost-maximum-dp",
+      "title": "长度代价最大值动态规划",
+      "kind": "最优",
+      "idea": "以当前最大值压缩数组前缀信息。",
+      "steps": [
+        "初始化长度一时 dp[1][max]=1",
+        "每增长一位：保留最大值贡献 dp[cost][max]*max；枚举 newMax>max 转到 next[cost+1][newMax]",
+        "迭代到长度 n，汇总 dp[k][1..m]"
+      ],
+      "complexity": {
+        "time": "O(nkm²)",
+        "space": "O(km)"
+      },
+      "files": {
+        "java": "solutions/length-cost-maximum-dp/Solution.java",
+        "kotlin": "solutions/length-cost-maximum-dp/Solution.kt",
+        "cpp": "solutions/length-cost-maximum-dp/solution.cpp"
+      }
+    }
+  ]
+}

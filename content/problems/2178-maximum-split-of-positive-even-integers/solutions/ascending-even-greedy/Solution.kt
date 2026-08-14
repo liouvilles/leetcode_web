@@ -1,0 +1,1 @@
+class Solution { fun maximumEvenSplit(finalSumValue:Long):List<Long>{var finalSum=finalSumValue;val answer=mutableListOf<Long>();if(finalSum%2L==1L)return answer;var next=2L;while(finalSum>=next){answer.add(next);finalSum-=next;next+=2};if(answer.isNotEmpty())answer[answer.lastIndex]+=finalSum;return answer} }

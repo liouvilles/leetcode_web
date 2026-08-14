@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minOperationsToFlip",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "与括号或表达式一次可翻转",
+      "args": [
+        "1&(0|1)"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "全零与表达式最少三次",
+      "args": [
+        "(0&0)&(0&0&0)"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "单个零翻转为一需一次",
+      "args": [
+        "0"
+      ],
+      "expected": 1
+    }
+  ]
+}

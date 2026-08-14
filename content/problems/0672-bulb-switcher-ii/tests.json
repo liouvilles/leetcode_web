@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "flipLights",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一盏灯一次操作",
+      "args": [
+        1,
+        1
+      ],
+      "expected": 2
+    },
+    {
+      "name": "两盏灯一次操作",
+      "args": [
+        2,
+        1
+      ],
+      "expected": 3
+    },
+    {
+      "name": "三盏灯一次操作",
+      "args": [
+        3,
+        1
+      ],
+      "expected": 4
+    }
+  ]
+}

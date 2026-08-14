@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "deleteDuplicates",
+  "parameterTypes": [
+    "listNode"
+  ],
+  "returnType": "listNode",
+  "cases": [
+    {
+      "name": "一组重复值",
+      "args": [
+        [
+          1,
+          1,
+          2
+        ]
+      ],
+      "expected": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "多组重复值",
+      "args": [
+        [
+          1,
+          1,
+          2,
+          3,
+          3
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "name": "空链表",
+      "args": [
+        []
+      ],
+      "expected": []
+    }
+  ]
+}

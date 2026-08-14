@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countOdds",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三到七有三个奇数",
+      "args": [
+        3,
+        7
+      ],
+      "expected": 3
+    },
+    {
+      "name": "八到十只有九",
+      "args": [
+        8,
+        10
+      ],
+      "expected": 1
+    },
+    {
+      "name": "单个偶数没有奇数",
+      "args": [
+        2,
+        2
+      ],
+      "expected": 0
+    }
+  ]
+}

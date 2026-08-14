@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1840,
+  "slug": "maximum-building-height",
+  "title": "最高建筑高度",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-026",
+  "studyTags": [
+    "数组",
+    "数学",
+    "排序"
+  ],
+  "summary": "n 栋建筑高度非负，相邻高度差至多一，建筑一高度必须为零，部分建筑有上限，求可达到的全局最大高度。",
+  "insight": "加入 [1,0] 与 [n,n-1] 限制并排序，前后两遍收紧每个限制点上限。两个相邻限制间可形成帐篷峰值 floor((h1+h2+distance)/2)。",
+  "pitfalls": [
+    "限制是高度上限",
+    "需双向传播相邻差约束",
+    "末建筑的 n-1 是隐含可达上限"
+  ],
+  "solutions": [
+    {
+      "id": "tightened-restrictions-tent-peaks",
+      "title": "收紧限制与区间帐篷峰值",
+      "kind": "最优",
+      "idea": "只在限制点及其间最佳峰值处寻找答案。",
+      "steps": [
+        "加入端点限制并按 id 排序",
+        "从左到右 h[i]=min(h[i],h[i-1]+distance)，再从右向左对称收紧",
+        "相邻限制 pair 的最大峰=(h1+h2+distance)/2，取最大"
+      ],
+      "complexity": {
+        "time": "O(r log r)",
+        "space": "O(r)"
+      },
+      "files": {
+        "java": "solutions/tightened-restrictions-tent-peaks/Solution.java",
+        "kotlin": "solutions/tightened-restrictions-tent-peaks/Solution.kt",
+        "cpp": "solutions/tightened-restrictions-tent-peaks/solution.cpp"
+      }
+    }
+  ]
+}

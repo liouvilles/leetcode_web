@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2035,
+  "slug": "partition-array-into-two-arrays-to-minimize-sum-difference",
+  "title": "将数组分成两个数组并最小化数组和的差",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-029",
+  "studyTags": [
+    "位运算",
+    "数组",
+    "双指针",
+    "二分查找",
+    "分治"
+  ],
+  "summary": "长度 2n 数组分成各 n 个元素的两组，最小化两组元素和的绝对差。",
+  "insight": "把数组分成两半，分别枚举所有子集并按选择个数分桶。若左半选 c 个，右半必须选 n-c 个；在右桶二分最接近 total/2-leftSum 的值。",
+  "pitfalls": [
+    "两组元素数量必须相等",
+    "数值可为负数",
+    "总和与中间差使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "meet-in-the-middle-by-cardinality",
+      "title": "按选取数量折半搜索",
+      "kind": "最优",
+      "idea": "枚举两半子集和并按基数配对逼近总和一半。",
+      "steps": [
+        "枚举左右所有 mask，把 sum 放入 buckets[bitCount]",
+        "排序每个右侧桶",
+        "对左桶每个 sum，在 right[n-count] 二分 target=total/2-sum，并检查插入点两侧，更新 |total-2selectedSum|"
+      ],
+      "complexity": {
+        "time": "O(n2^n)",
+        "space": "O(2^n)"
+      },
+      "files": {
+        "java": "solutions/meet-in-the-middle-by-cardinality/Solution.java",
+        "kotlin": "solutions/meet-in-the-middle-by-cardinality/Solution.kt",
+        "cpp": "solutions/meet-in-the-middle-by-cardinality/solution.cpp"
+      }
+    }
+  ]
+}

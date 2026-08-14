@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1401,
+  "slug": "circle-and-rectangle-overlapping",
+  "title": "圆和矩形是否有重叠",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-020",
+  "studyTags": [
+    "数学",
+    "几何"
+  ],
+  "summary": "判断给定圆与轴对齐矩形是否至少共享一个点。",
+  "insight": "把圆心分别钳制到矩形横纵坐标区间，得到矩形中离圆心最近的点；其距离不超过半径即重叠。",
+  "pitfalls": [
+    "边界相切也算重叠",
+    "圆心在矩形内时最近点就是圆心",
+    "平方距离避免开方误差"
+  ],
+  "solutions": [
+    {
+      "id": "closest-point-clamping",
+      "title": "最近点坐标钳制",
+      "kind": "最优",
+      "idea": "计算圆心到矩形最近点的平方距离。",
+      "steps": [
+        "closestX=min(max(xCenter,x1),x2)，纵坐标同理",
+        "dx=xCenter-closestX，dy=yCenter-closestY",
+        "返回 dx²+dy²<=radius²"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/closest-point-clamping/Solution.java",
+        "kotlin": "solutions/closest-point-clamping/Solution.kt",
+        "cpp": "solutions/closest-point-clamping/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 918,
+  "slug": "maximum-sum-circular-subarray",
+  "title": "环形子数组的最大和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-013",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "Kadane"
+  ],
+  "summary": "环形整数数组中求非空连续子数组最大和，子数组最多跨越首尾一次。",
+  "insight": "最优要么是不跨边界的普通最大子数组，要么跨边界并等于总和减去中间最小子数组；全负时后式会选择空集，必须单独返回普通最大值。",
+  "pitfalls": [
+    "子数组必须非空",
+    "全负数组不能使用 total-minimum",
+    "同时滚动最大与最小 Kadane 状态"
+  ],
+  "solutions": [
+    {
+      "id": "maximum-and-minimum-kadane",
+      "title": "最大最小双 Kadane",
+      "kind": "最优",
+      "idea": "比较普通最大段与排除最小中段的环形段。",
+      "steps": [
+        "初始化 total、currentMax、bestMax、currentMin、bestMin",
+        "扫描每值滚动 currentMax=max(value,currentMax+value)、currentMin=min(value,currentMin+value)，更新极值和 total",
+        "若 bestMax<0 返回 bestMax，否则返回 max(bestMax,total-bestMin)"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/maximum-and-minimum-kadane/Solution.java",
+        "kotlin": "solutions/maximum-and-minimum-kadane/Solution.kt",
+        "cpp": "solutions/maximum-and-minimum-kadane/solution.cpp"
+      }
+    }
+  ]
+}

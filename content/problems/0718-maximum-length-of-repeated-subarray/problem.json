@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 718,
+  "slug": "maximum-length-of-repeated-subarray",
+  "title": "最长重复子数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-009",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "滚动数组"
+  ],
+  "summary": "给定两个整数数组，求同时出现在两者中的最长连续子数组长度。",
+  "insight": "dp[j] 表示以 nums1 当前元素和 nums2[j-1] 结尾的公共子数组长度；相等时由左上角加一，不等时归零。",
+  "pitfalls": [
+    "要求连续子数组而非子序列",
+    "一维 DP 必须从右向左更新以保留上一行左上角",
+    "不等时必须显式置零"
+  ],
+  "solutions": [
+    {
+      "id": "reverse-rolling-dp",
+      "title": "结尾匹配长度滚动 DP",
+      "kind": "最优",
+      "idea": "用逆序更新的一维数组压缩二维公共后缀状态。",
+      "steps": [
+        "dp 长度 nums2.length+1",
+        "对 nums1 每个值，从 j=nums2.length 到 1 逆序",
+        "相等令 dp[j]=dp[j-1]+1，否则置零；同步更新最大值"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/reverse-rolling-dp/Solution.java",
+        "kotlin": "solutions/reverse-rolling-dp/Solution.kt",
+        "cpp": "solutions/reverse-rolling-dp/solution.cpp"
+      }
+    }
+  ]
+}

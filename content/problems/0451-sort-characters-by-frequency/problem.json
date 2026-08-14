@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 451,
+  "slug": "sort-characters-by-frequency",
+  "title": "根据字符出现频率排序",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-006",
+  "studyTags": [
+    "字符计数",
+    "排序",
+    "字符串"
+  ],
+  "summary": "把字符串字符按出现频率从高到低重排；同频顺序不限，本实现按字符码升序稳定输出。",
+  "insight": "先计数不同字符，再只对字符种类排序，最后按频次重复追加。",
+  "pitfalls": [
+    "相同字符必须聚集输出",
+    "同频可任意但稳定规则便于测试",
+    "大小写视为不同字符"
+  ],
+  "solutions": [
+    {
+      "id": "frequency-sort",
+      "title": "频次排序字符种类",
+      "kind": "最优",
+      "idea": "固定 ASCII 计数后按频次降序、字符升序排列。",
+      "steps": [
+        "统计每个字符频次",
+        "收集出现过的字符并排序",
+        "按排序顺序重复追加 count 次"
+      ],
+      "complexity": {
+        "time": "O(n+σ log σ)",
+        "space": "O(σ)"
+      },
+      "files": {
+        "java": "solutions/frequency-sort/Solution.java",
+        "kotlin": "solutions/frequency-sort/Solution.kt",
+        "cpp": "solutions/frequency-sort/solution.cpp"
+      }
+    }
+  ]
+}

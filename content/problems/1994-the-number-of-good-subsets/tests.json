@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numberOfGoodSubsets",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一二三四有六个好子集",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "二三十五组合有五个",
+      "args": [
+        [
+          4,
+          2,
+          3,
+          15
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "只有一不能形成好子集",
+      "args": [
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

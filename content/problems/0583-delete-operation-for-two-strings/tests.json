@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minDistance",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "保留公共子序列",
+      "args": [
+        "sea",
+        "eat"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "相同字符串",
+      "args": [
+        "leetcode",
+        "leetcode"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "无公共字符",
+      "args": [
+        "a",
+        "b"
+      ],
+      "expected": 2
+    }
+  ]
+}

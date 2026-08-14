@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 1610,
+  "slug": "maximum-number-of-visible-points",
+  "title": "可见点的最大数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-023",
+  "studyTags": [
+    "数组",
+    "数学",
+    "几何",
+    "滑动窗口",
+    "排序"
+  ],
+  "summary": "观察者固定在 location，可选择朝向，在给定视角内最多看到多少点；与观察者重合的点始终可见。",
+  "insight": "把非重合点转成极角并排序，复制一份角度加 2π 处理跨零窗口。用双指针找角宽不超过 view 的最长区间，再加重合点数。",
+  "pitfalls": [
+    "与 location 重合的点没有方向且总可见",
+    "角度边界包含端点",
+    "复制角数组时窗口长度不能超过原非重合点数"
+  ],
+  "solutions": [
+    {
+      "id": "circular-angle-window",
+      "title": "环形极角滑窗",
+      "kind": "最优",
+      "idea": "将二维方向问题转成排序角度区间最大覆盖。",
+      "steps": [
+        "重合点计数 same，其余用 atan2 得 angles",
+        "angle>=360 直接返回总点数；排序并追加每角+2π",
+        "right 扫描，差>radians+epsilon 时移动 left，最大窗口限制不超过原大小；返回 best+same"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/circular-angle-window/Solution.java",
+        "kotlin": "solutions/circular-angle-window/Solution.kt",
+        "cpp": "solutions/circular-angle-window/solution.cpp"
+      }
+    }
+  ]
+}

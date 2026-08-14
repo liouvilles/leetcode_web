@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "canConvertString",
+  "parameterTypes": [
+    "string",
+    "string",
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "各非零位移可在九次内完成",
+      "args": [
+        "input",
+        "ouput",
+        9
+      ],
+      "expected": true
+    },
+    {
+      "name": "三个相同位移无法复用操作",
+      "args": [
+        "abc",
+        "bcd",
+        10
+      ],
+      "expected": false
+    },
+    {
+      "name": "第二个同位移安排在二十七",
+      "args": [
+        "aab",
+        "bbb",
+        27
+      ],
+      "expected": true
+    }
+  ]
+}

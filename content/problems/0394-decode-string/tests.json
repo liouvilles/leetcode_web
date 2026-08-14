@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "decodeString",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "两个连续编码片段",
+      "args": [
+        "3[a]2[bc]"
+      ],
+      "expected": "aaabcbc"
+    },
+    {
+      "name": "嵌套编码",
+      "args": [
+        "3[a2[c]]"
+      ],
+      "expected": "accaccacc"
+    },
+    {
+      "name": "多位重复次数",
+      "args": [
+        "10[a]"
+      ],
+      "expected": "aaaaaaaaaa"
+    }
+  ]
+}

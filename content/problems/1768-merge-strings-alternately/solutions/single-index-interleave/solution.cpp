@@ -1,0 +1,1 @@
+class Solution { public: string mergeAlternately(string word1,string word2){string answer;for(int i=0;i<(int)max(word1.size(),word2.size());++i){if(i<(int)word1.size())answer+=word1[i];if(i<(int)word2.size())answer+=word2[i];}return answer;} };

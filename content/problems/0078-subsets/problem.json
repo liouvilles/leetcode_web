@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 78,
+  "slug": "subsets",
+  "title": "子集",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-001",
+  "studyTags": [
+    "回溯",
+    "组合枚举",
+    "空集"
+  ],
+  "summary": "给定一个不含重复元素的整数数组，返回它的所有子集，包括空集和数组本身。",
+  "insight": "当前路径本身就是一个合法子集；随后只从更大的下标继续选择，便能保证每个子集只出现一次。",
+  "pitfalls": [
+    "空集必须包含在答案中",
+    "递归下一层从 index + 1 开始",
+    "保存当前路径时需要创建副本"
+  ],
+  "solutions": [
+    {
+      "id": "backtracking",
+      "title": "递增下标回溯",
+      "kind": "最优",
+      "idea": "每到一个递归节点先保存当前路径，再依次选择后续元素继续扩展。",
+      "steps": [
+        "保存当前路径作为一个子集",
+        "从 start 开始枚举下一元素",
+        "递归后删除最后加入的元素"
+      ],
+      "complexity": {
+        "time": "O(n · 2ⁿ)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/backtracking/Solution.java",
+        "kotlin": "solutions/backtracking/Solution.kt",
+        "cpp": "solutions/backtracking/solution.cpp"
+      }
+    }
+  ]
+}

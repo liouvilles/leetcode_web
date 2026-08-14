@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 230,
+  "slug": "kth-smallest-element-in-a-bst",
+  "title": "二叉搜索树中第 K 小的元素",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-003",
+  "studyTags": [
+    "中序遍历",
+    "二叉搜索树",
+    "迭代栈"
+  ],
+  "summary": "在二叉搜索树中找出按值升序排列后的第 k 个元素。",
+  "insight": "二叉搜索树中序遍历天然按升序产生节点，弹出栈中的第 k 个节点即可返回。",
+  "pitfalls": [
+    "k 从一开始计数",
+    "必须先沿左链压栈",
+    "弹出节点后转向它的右子树"
+  ],
+  "solutions": [
+    {
+      "id": "iterative-inorder",
+      "title": "迭代中序遍历",
+      "kind": "最优",
+      "idea": "显式栈逐个生成升序节点，并在第 k 次弹栈时停止。",
+      "steps": [
+        "沿当前节点左链入栈",
+        "弹栈后递减 k",
+        "k 为零返回，否则转向右孩子"
+      ],
+      "complexity": {
+        "time": "O(h+k)",
+        "space": "O(h)"
+      },
+      "files": {
+        "java": "solutions/iterative-inorder/Solution.java",
+        "kotlin": "solutions/iterative-inorder/Solution.kt",
+        "cpp": "solutions/iterative-inorder/solution.cpp"
+      }
+    }
+  ]
+}

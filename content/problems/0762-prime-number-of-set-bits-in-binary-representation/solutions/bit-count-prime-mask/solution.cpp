@@ -1,0 +1,1 @@
+class Solution { public: int countPrimeSetBits(int left,int right){bool prime[33]{};for(int value:{2,3,5,7,11,13,17,19})prime[value]=true;int answer=0;for(int value=left;value<=right;++value)answer+=prime[__builtin_popcount(value)];return answer;} };

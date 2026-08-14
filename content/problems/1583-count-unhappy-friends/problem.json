@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1583,
+  "slug": "count-unhappy-friends",
+  "title": "统计不开心的朋友",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-022",
+  "studyTags": [
+    "数组",
+    "模拟"
+  ],
+  "summary": "朋友两两配对；若 x 比当前搭档 y 更喜欢 u，且 u 也比自己的搭档 v 更喜欢 x，则 x 不开心，统计人数。",
+  "insight": "预处理 rank[x][friend] 为偏好名次和 partner 映射。对每个 x，只枚举排在当前搭档之前的人 u，检查 u 是否也更偏好 x。",
+  "pitfalls": [
+    "只统计人 x 一次",
+    "不开心关系不要求对称计数但条件涉及双方偏好",
+    "偏好列表不含自己"
+  ],
+  "solutions": [
+    {
+      "id": "preference-rank-check",
+      "title": "偏好名次矩阵检查",
+      "kind": "最优",
+      "idea": "用 O(1) 名次比较验证每个更偏好候选。",
+      "steps": [
+        "构造 rank 与 partner",
+        "对每个 x，遍历 preferences[x] 直到 partner[x] 之前",
+        "若 rank[u][x]<rank[u][partner[u]]，标记 x 不开心并停止；计数返回"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/preference-rank-check/Solution.java",
+        "kotlin": "solutions/preference-rank-check/Solution.kt",
+        "cpp": "solutions/preference-rank-check/solution.cpp"
+      }
+    }
+  ]
+}

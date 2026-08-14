@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1282,
+  "slug": "group-the-people-given-the-group-size-they-belong-to",
+  "title": "用户分组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "贪心"
+  ],
+  "summary": "每个人给出其所属组的准确人数，把所有人划分到符合各自 groupSizes 的若干组。",
+  "insight": "按所需组大小维护尚未装满的桶；扫描到一个人就放入对应桶，桶大小达到要求时立即输出并换新桶。",
+  "pitfalls": [
+    "相同组大小可能形成多个组",
+    "每个人恰好出现一次",
+    "题目保证至少存在一种合法分组"
+  ],
+  "solutions": [
+    {
+      "id": "size-buckets-flush",
+      "title": "组大小桶即时输出",
+      "kind": "最优",
+      "idea": "桶装满即形成一个独立合法组。",
+      "steps": [
+        "pending 映射 size 到当前未满成员列表，answer 为空",
+        "扫描 person，加入 pending[groupSizes[person]]",
+        "若列表大小等于 size，复制或移入 answer 并从 pending 删除，返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/size-buckets-flush/Solution.java",
+        "kotlin": "solutions/size-buckets-flush/Solution.kt",
+        "cpp": "solutions/size-buckets-flush/solution.cpp"
+      }
+    }
+  ]
+}

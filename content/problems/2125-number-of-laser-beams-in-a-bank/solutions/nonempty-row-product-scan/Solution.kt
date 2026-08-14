@@ -1,0 +1,1 @@
+class Solution { fun numberOfBeams(bank:Array<String>):Int{var previous=0;var answer=0;for(row in bank){val current=row.count{it=='1'};if(current>0){answer+=previous*current;previous=current}};return answer} }

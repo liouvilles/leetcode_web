@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "decode",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "四项编码恢复五项排列",
+      "args": [
+        [
+          3,
+          1
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "name": "经典五元素排列",
+      "args": [
+        [
+          6,
+          5,
+          4,
+          6
+        ]
+      ],
+      "expected": [
+        2,
+        4,
+        1,
+        5,
+        3
+      ]
+    },
+    {
+      "name": "n 一时为空编码",
+      "args": [
+        []
+      ],
+      "expected": [
+        1
+      ]
+    }
+  ]
+}

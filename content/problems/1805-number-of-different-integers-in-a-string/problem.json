@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1805,
+  "slug": "number-of-different-integers-in-a-string",
+  "title": "字符串中不同整数的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-026",
+  "studyTags": [
+    "哈希表",
+    "字符串"
+  ],
+  "summary": "把字符串中字母替换为空格后得到若干十进制整数，忽略前导零，统计不同整数数量。",
+  "insight": "扫描连续数字段，跳过其前导零；若整段都是零则规范化为字符串 0，否则用剩余数字子串作为哈希键，避免大整数溢出。",
+  "pitfalls": [
+    "连续数字组成一个整数",
+    "任意多前导零不影响数值",
+    "整数可能超过原生数值范围"
+  ],
+  "solutions": [
+    {
+      "id": "normalized-digit-substrings",
+      "title": "规范化数字子串集合",
+      "kind": "最优",
+      "idea": "以去前导零后的字符串作为任意精度整数标识。",
+      "steps": [
+        "扫描找到每段 [start,end) 数字",
+        "normalizedStart 跳过零到 end",
+        "加入 end 时用 \"0\"，否则 substring(normalizedStart,end)，返回集合大小"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/normalized-digit-substrings/Solution.java",
+        "kotlin": "solutions/normalized-digit-substrings/Solution.kt",
+        "cpp": "solutions/normalized-digit-substrings/solution.cpp"
+      }
+    }
+  ]
+}

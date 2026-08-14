@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": 1780,
+  "slug": "check-if-number-is-a-sum-of-powers-of-three",
+  "title": "判断一个数字是否可以表示成三的幂的和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-025",
+  "studyTags": [
+    "数学"
+  ],
+  "summary": "判断 n 能否表示为若干个互不相同的三的幂之和。",
+  "insight": "互不相同的三次幂对应三进制每一位只能为零或一。不断除三，若任一余数为二则不可表示。",
+  "pitfalls": [
+    "每个三的幂最多用一次",
+    "包括 3^0=1",
+    "三进制余数二立即失败"
+  ],
+  "solutions": [
+    {
+      "id": "ternary-digits-zero-or-one",
+      "title": "三进制位检查",
+      "kind": "最优",
+      "idea": "把幂的选择映射为三进制系数。",
+      "steps": [
+        "while n>0",
+        "若 n%3==2 返回 false",
+        "n/=3，循环结束返回 true"
+      ],
+      "complexity": {
+        "time": "O(log₃ n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/ternary-digits-zero-or-one/Solution.java",
+        "kotlin": "solutions/ternary-digits-zero-or-one/Solution.kt",
+        "cpp": "solutions/ternary-digits-zero-or-one/solution.cpp"
+      }
+    }
+  ]
+}

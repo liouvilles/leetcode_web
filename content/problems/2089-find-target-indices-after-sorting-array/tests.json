@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "targetIndices",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "intList",
+  "cases": [
+    {
+      "name": "两个二排序后下标一二",
+      "args": [
+        [
+          1,
+          2,
+          5,
+          2,
+          3
+        ],
+        2
+      ],
+      "expected": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "三排序后下标三",
+      "args": [
+        [
+          1,
+          2,
+          5,
+          2,
+          3
+        ],
+        3
+      ],
+      "expected": [
+        3
+      ]
+    },
+    {
+      "name": "目标不存在返回空",
+      "args": [
+        [
+          1,
+          2
+        ],
+        3
+      ],
+      "expected": []
+    }
+  ]
+}

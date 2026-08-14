@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2018,
+  "slug": "check-if-word-can-be-placed-in-crossword",
+  "title": "判断单词是否能放入填字游戏内",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-029",
+  "studyTags": [
+    "数组",
+    "矩阵",
+    "枚举"
+  ],
+  "summary": "判断单词能否横向或纵向、正向或反向填入由井号分隔的恰好等长槽位，已有字母必须匹配。",
+  "insight": "分别扫描每行和每列被井号切开的连续段。只有段长恰等于单词长度时，检查正向或反向逐格兼容：空格可填，字母需相等。",
+  "pitfalls": [
+    "槽位两端必须是边界或井号",
+    "不能把单词放入更长空段的一部分",
+    "支持两个方向"
+  ],
+  "solutions": [
+    {
+      "id": "scan-hash-delimited-slots",
+      "title": "扫描井号分隔槽位",
+      "kind": "最优",
+      "idea": "枚举所有横纵连续非井号段并检查双向匹配。",
+      "steps": [
+        "辅助 check(line,start,end)：长度相等且正向或反向兼容",
+        "逐行以 col<=cols 扫描 # 或末端，检查上一段",
+        "逐列同理；任一成功 true，否则 false"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(max(m,n))"
+      },
+      "files": {
+        "java": "solutions/scan-hash-delimited-slots/Solution.java",
+        "kotlin": "solutions/scan-hash-delimited-slots/Solution.kt",
+        "cpp": "solutions/scan-hash-delimited-slots/solution.cpp"
+      }
+    }
+  ]
+}

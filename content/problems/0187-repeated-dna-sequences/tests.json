@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findRepeatedDnaSequences",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "stringList",
+  "cases": [
+    {
+      "name": "两个重复片段",
+      "args": [
+        "AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT"
+      ],
+      "expected": [
+        "AAAAACCCCC",
+        "CCCCCAAAAA"
+      ]
+    },
+    {
+      "name": "高度重复",
+      "args": [
+        "AAAAAAAAAAAAA"
+      ],
+      "expected": [
+        "AAAAAAAAAA"
+      ]
+    },
+    {
+      "name": "长度不足",
+      "args": [
+        "ACGT"
+      ],
+      "expected": []
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "deleteString",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "重复 abc 前缀可删除两次",
+      "args": [
+        "abcabcdabc"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "aaabaab 最多删除四次",
+      "args": [
+        "aaabaab"
+      ],
+      "expected": 4
+    },
+    {
+      "name": "五个 a 可逐个删除",
+      "args": [
+        "aaaaa"
+      ],
+      "expected": 5
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1567,
+  "slug": "maximum-length-of-subarray-with-positive-product",
+  "title": "乘积为正数的最长子数组长度",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-022",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "贪心"
+  ],
+  "summary": "返回乘积为正数的最长连续子数组长度。",
+  "insight": "扫描维护以当前位置结尾、乘积为正与负的最长长度。正数延长两者；负数交换正负角色；零清空状态。",
+  "pitfalls": [
+    "负数会把正负状态互换",
+    "零不能包含在非零乘积子数组中",
+    "答案只取正状态长度"
+  ],
+  "solutions": [
+    {
+      "id": "positive-negative-ending-lengths",
+      "title": "正负结尾长度动态规划",
+      "kind": "最优",
+      "idea": "压缩记录当前结尾两种乘积符号的最优长度。",
+      "steps": [
+        "positive=negative=answer=0",
+        "value>0：positive++,negative 若非零则++；value<0：newPositive=negative>0?negative+1:0,newNegative=positive+1；零清零",
+        "用 positive 更新答案"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/positive-negative-ending-lengths/Solution.java",
+        "kotlin": "solutions/positive-negative-ending-lengths/Solution.kt",
+        "cpp": "solutions/positive-negative-ending-lengths/solution.cpp"
+      }
+    }
+  ]
+}

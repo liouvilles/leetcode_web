@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "canBeIncreasing",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "删除十后严格递增",
+      "args": [
+        [
+          1,
+          2,
+          10,
+          5,
+          7
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "一处删除无法修复两处关系",
+      "args": [
+        [
+          2,
+          3,
+          1,
+          2
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "三个相等元素删除一个仍不递增",
+      "args": [
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": false
+    }
+  ]
+}

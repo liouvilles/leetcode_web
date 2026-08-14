@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1463,
+  "slug": "cherry-pickup-ii",
+  "title": "摘樱桃 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-021",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "矩阵"
+  ],
+  "summary": "两个机器人从首行左右端出发，每行各向左下、下或右下移动，求收集樱桃最大数；同格只计一次。",
+  "insight": "状态由行号和两个机器人列号唯一决定。记忆化枚举下一行九种列组合，加上当前一格或两格收益。",
+  "pitfalls": [
+    "两机器人同格不能重复计数",
+    "列号必须保持在边界内",
+    "两者始终同步进入下一行"
+  ],
+  "solutions": [
+    {
+      "id": "two-robot-row-dp",
+      "title": "双机器人行动态规划",
+      "kind": "最优",
+      "idea": "按行推进两个列位置的联合状态。",
+      "steps": [
+        "dfs(row,col1,col2)，越界返回负无穷，末行之后返回零",
+        "current=grid[row][col1]+(col1==col2?0:grid[row][col2])",
+        "枚举 move1,move2∈{-1,0,1} 取下一状态最大值，记忆化返回"
+      ],
+      "complexity": {
+        "time": "O(rows·cols²·9)",
+        "space": "O(rows·cols²)"
+      },
+      "files": {
+        "java": "solutions/two-robot-row-dp/Solution.java",
+        "kotlin": "solutions/two-robot-row-dp/Solution.kt",
+        "cpp": "solutions/two-robot-row-dp/solution.cpp"
+      }
+    }
+  ]
+}

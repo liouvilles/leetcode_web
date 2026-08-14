@@ -1,0 +1,1 @@
+class Solution { public: string makeFancyString(string s){string result;for(char value:s){int n=result.size();if(n>=2&&result[n-1]==value&&result[n-2]==value)continue;result+=value;}return result;} };

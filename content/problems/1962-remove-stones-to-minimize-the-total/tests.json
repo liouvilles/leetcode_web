@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minStoneSum",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三次处理后剩余十二",
+      "args": [
+        [
+          5,
+          4,
+          9
+        ],
+        2
+      ],
+      "expected": 12
+    },
+    {
+      "name": "重复处理四堆后剩余十二",
+      "args": [
+        [
+          4,
+          3,
+          6,
+          7
+        ],
+        3
+      ],
+      "expected": 12
+    },
+    {
+      "name": "单堆移除一次保留三",
+      "args": [
+        [
+          5
+        ],
+        1
+      ],
+      "expected": 3
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "fillCups",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一四二需要四秒",
+      "args": [
+        [
+          1,
+          4,
+          2
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "五四四共需七秒",
+      "args": [
+        [
+          5,
+          4,
+          4
+        ]
+      ],
+      "expected": 7
+    },
+    {
+      "name": "单一类型五杯需五秒",
+      "args": [
+        [
+          5,
+          0,
+          0
+        ]
+      ],
+      "expected": 5
+    }
+  ]
+}

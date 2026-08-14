@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1750,
+  "slug": "minimum-length-of-string-after-deleting-similar-ends",
+  "title": "删除字符串两端相同字符后的最短长度",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-025",
+  "studyTags": [
+    "双指针",
+    "字符串"
+  ],
+  "summary": "若字符串首尾字符相同，可同时删除非空且不重叠的同字符前缀和后缀，反复操作后求最短长度。",
+  "insight": "当两端字符相等时，最优一次删掉两端该字符的整段。双指针跳过左端连续段和右端连续段，直到两端不同或相遇。",
+  "pitfalls": [
+    "前后缀不能重叠",
+    "一次操作的前后缀都由同一字符组成",
+    "全部删完时返回零"
+  ],
+  "solutions": [
+    {
+      "id": "two-end-run-removal",
+      "title": "两端同字符段双指针",
+      "kind": "最优",
+      "idea": "每轮最大化删除当前可删的两侧连续段。",
+      "steps": [
+        "left=0,right=n-1",
+        "while left<right 且 chars 相同，记 target",
+        "while left<=right 且 text[left]==target 左移；同理从右跳过 target",
+        "返回 max(0,right-left+1)"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/two-end-run-removal/Solution.java",
+        "kotlin": "solutions/two-end-run-removal/Solution.kt",
+        "cpp": "solutions/two-end-run-removal/solution.cpp"
+      }
+    }
+  ]
+}

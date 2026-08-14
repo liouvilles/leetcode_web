@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": 2220,
+  "slug": "minimum-bit-flips-to-convert-number",
+  "title": "转换数字的最少位翻转次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-032",
+  "studyTags": [
+    "位运算"
+  ],
+  "summary": "每步翻转 start 二进制表示的一位，求变成 goal 的最少翻转次数。",
+  "insight": "start 异或 goal 的一位恰对应需要翻转的位置，答案是异或值的置位数。",
+  "pitfalls": [
+    "前导零位无需显式表示",
+    "每个不同位恰翻一次",
+    "使用无符号移位或内置位计数"
+  ],
+  "solutions": [
+    {
+      "id": "xor-popcount",
+      "title": "异或置位计数",
+      "kind": "最优",
+      "idea": "直接统计两数不同的二进制位。",
+      "steps": [
+        "difference=start xor goal",
+        "统计 difference 中一位数量",
+        "返回计数"
+      ],
+      "complexity": {
+        "time": "O(number of bits)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/xor-popcount/Solution.java",
+        "kotlin": "solutions/xor-popcount/Solution.kt",
+        "cpp": "solutions/xor-popcount/solution.cpp"
+      }
+    }
+  ]
+}

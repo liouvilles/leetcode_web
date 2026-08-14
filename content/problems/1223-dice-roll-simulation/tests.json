@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "dieSimulator",
+  "parameterTypes": [
+    "int",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一次总有六种",
+      "args": [
+        1,
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "不同连续上限",
+      "args": [
+        2,
+        [
+          1,
+          1,
+          2,
+          2,
+          2,
+          3
+        ]
+      ],
+      "expected": 34
+    },
+    {
+      "name": "所有面不能连掷",
+      "args": [
+        2,
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": 30
+    }
+  ]
+}

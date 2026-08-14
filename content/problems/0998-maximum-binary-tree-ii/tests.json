@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "insertIntoMaxTree",
+  "parameterTypes": [
+    "treeNode",
+    "int"
+  ],
+  "returnType": "treeNode",
+  "cases": [
+    {
+      "name": "追加最大值成为根",
+      "args": [
+        [
+          4,
+          1,
+          3,
+          null,
+          null,
+          2
+        ],
+        5
+      ],
+      "expected": [
+        5,
+        4,
+        null,
+        1,
+        3,
+        null,
+        null,
+        2
+      ]
+    },
+    {
+      "name": "插入右脊中间",
+      "args": [
+        [
+          5,
+          2,
+          4,
+          null,
+          1
+        ],
+        3
+      ],
+      "expected": [
+        5,
+        2,
+        4,
+        null,
+        1,
+        null,
+        3
+      ]
+    },
+    {
+      "name": "单节点前追加更大值",
+      "args": [
+        [
+          1
+        ],
+        2
+      ],
+      "expected": [
+        2,
+        1
+      ]
+    }
+  ]
+}

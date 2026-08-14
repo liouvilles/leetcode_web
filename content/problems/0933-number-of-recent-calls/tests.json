@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "RecentCounter",
+  "constructorTypes": [],
+  "cases": [
+    {
+      "name": "经典请求序列",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "ping",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "ping",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            100
+          ],
+          "returnType": "int",
+          "expected": 2
+        },
+        {
+          "method": "ping",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            3001
+          ],
+          "returnType": "int",
+          "expected": 3
+        },
+        {
+          "method": "ping",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            3002
+          ],
+          "returnType": "int",
+          "expected": 3
+        }
+      ]
+    },
+    {
+      "name": "边界包含三千毫秒",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "ping",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "ping",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            3001
+          ],
+          "returnType": "int",
+          "expected": 2
+        }
+      ]
+    },
+    {
+      "name": "旧请求全部过期",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "ping",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            10
+          ],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "ping",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            20
+          ],
+          "returnType": "int",
+          "expected": 2
+        },
+        {
+          "method": "ping",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            4000
+          ],
+          "returnType": "int",
+          "expected": 1
+        }
+      ]
+    }
+  ]
+}

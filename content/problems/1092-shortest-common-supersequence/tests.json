@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "shortestCommonSupersequence",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "共享首字符",
+      "args": [
+        "ab",
+        "ac"
+      ],
+      "expected": "abc"
+    },
+    {
+      "name": "两串相同",
+      "args": [
+        "abc",
+        "abc"
+      ],
+      "expected": "abc"
+    },
+    {
+      "name": "无共同字符按第一串优先",
+      "args": [
+        "a",
+        "b"
+      ],
+      "expected": "ab"
+    }
+  ]
+}

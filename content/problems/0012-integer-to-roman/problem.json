@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 12,
+  "slug": "integer-to-roman",
+  "title": "整数转罗马数字",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-004",
+  "studyTags": [
+    "贪心",
+    "符号表",
+    "减法组合"
+  ],
+  "summary": "把给定范围内的正整数转换为标准罗马数字表示。",
+  "insight": "把普通符号和六种减法组合一起按数值降序排列，反复取当前最大可用符号即可。",
+  "pitfalls": [
+    "必须把 4、9、40 等减法组合放进符号表",
+    "每个数值可能重复使用",
+    "符号选择顺序必须从大到小"
+  ],
+  "solutions": [
+    {
+      "id": "greedy-symbol-table",
+      "title": "降序符号贪心",
+      "kind": "最优",
+      "idea": "按降序表不断减去最大不超过剩余值的数并追加符号。",
+      "steps": [
+        "准备数值与符号对应表",
+        "对每项在剩余值足够时重复追加",
+        "剩余值归零后返回结果"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/greedy-symbol-table/Solution.java",
+        "kotlin": "solutions/greedy-symbol-table/Solution.kt",
+        "cpp": "solutions/greedy-symbol-table/solution.cpp"
+      }
+    }
+  ]
+}

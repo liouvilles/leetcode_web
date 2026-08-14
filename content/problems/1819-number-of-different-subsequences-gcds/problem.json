@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1819,
+  "slug": "number-of-different-subsequences-gcds",
+  "title": "序列中不同最大公约数的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-026",
+  "studyTags": [
+    "数组",
+    "数学",
+    "计数",
+    "数论"
+  ],
+  "summary": "统计 nums 所有非空子序列可能产生多少种不同最大公约数。",
+  "insight": "候选 gcd 必在 1..max。对每个 candidate，只需枚举它的倍数中存在于 nums 的值并累计 gcd；若最终恰等于 candidate，则存在对应子序列。",
+  "pitfalls": [
+    "子序列无需连续",
+    "只枚举存在值中的 candidate 倍数",
+    "累计 gcd 达到 candidate 后可提前确认"
+  ],
+  "solutions": [
+    {
+      "id": "candidate-multiple-gcd",
+      "title": "候选倍数 GCD",
+      "kind": "最优",
+      "idea": "反向枚举每种可能公约数并验证。",
+      "steps": [
+        "present 标记 nums 值，maximum=max(nums)",
+        "candidate 从一到 maximum，gcd=0",
+        "枚举 multiple=candidate,2candidate...，存在则 gcd=gcd(gcd,multiple)；最终 gcd==candidate 时计数"
+      ],
+      "complexity": {
+        "time": "O(max·log max)",
+        "space": "O(max)"
+      },
+      "files": {
+        "java": "solutions/candidate-multiple-gcd/Solution.java",
+        "kotlin": "solutions/candidate-multiple-gcd/Solution.kt",
+        "cpp": "solutions/candidate-multiple-gcd/solution.cpp"
+      }
+    }
+  ]
+}

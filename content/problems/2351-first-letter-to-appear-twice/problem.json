@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2351,
+  "slug": "first-letter-to-appear-twice",
+  "title": "第一个出现两次的字母",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "哈希表",
+    "字符串",
+    "位运算",
+    "计数"
+  ],
+  "summary": "字符串中恰有某些字母重复，返回从左到右第二次出现位置最早的字母。",
+  "insight": "扫描时用位掩码记录已见字母；当前位已设置时立即返回，否则把它加入掩码。",
+  "pitfalls": [
+    "比较的是第二次出现位置",
+    "题目保证存在答案",
+    "只含小写英文字母"
+  ],
+  "solutions": [
+    {
+      "id": "seen-letter-bitmask",
+      "title": "已见字母位掩码",
+      "kind": "最优",
+      "idea": "常数空间检测首次重复。",
+      "steps": [
+        "mask=0",
+        "对 ch 计算 bit=1<<(ch-a)",
+        "若 mask&bit 非零返回 ch",
+        "否则 mask|=bit"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/seen-letter-bitmask/Solution.java",
+        "kotlin": "solutions/seen-letter-bitmask/Solution.kt",
+        "cpp": "solutions/seen-letter-bitmask/solution.cpp"
+      }
+    }
+  ]
+}

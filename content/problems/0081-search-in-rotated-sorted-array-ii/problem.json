@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 81,
+  "slug": "search-in-rotated-sorted-array-ii",
+  "title": "搜索旋转排序数组 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-004",
+  "studyTags": [
+    "二分查找",
+    "旋转数组",
+    "重复元素"
+  ],
+  "summary": "判断目标值是否存在于可能包含重复元素的旋转非递减数组中。",
+  "insight": "若左右端点与中点相同，无法判断有序侧，只能同时收缩；否则至少一侧有序，可据目标范围排除另一侧。",
+  "pitfalls": [
+    "重复元素会破坏普通旋转数组二分的判定",
+    "最坏情况下会退化为线性复杂度",
+    "范围比较要包含有序侧端点"
+  ],
+  "solutions": [
+    {
+      "id": "duplicate-aware-binary-search",
+      "title": "跳过重复端点的二分",
+      "kind": "最优",
+      "idea": "先消除无法判断的三点相等情形，再利用有序半区定位目标。",
+      "steps": [
+        "比较 middle 是否命中",
+        "三点相等时左右同时收缩",
+        "判断有序侧及目标是否落在其中并缩小区间"
+      ],
+      "complexity": {
+        "time": "O(n) worst, O(log n) average",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/duplicate-aware-binary-search/Solution.java",
+        "kotlin": "solutions/duplicate-aware-binary-search/Solution.kt",
+        "cpp": "solutions/duplicate-aware-binary-search/solution.cpp"
+      }
+    }
+  ]
+}

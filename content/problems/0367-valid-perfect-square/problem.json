@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 367,
+  "slug": "valid-perfect-square",
+  "title": "有效的完全平方数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-006",
+  "studyTags": [
+    "二分查找",
+    "数学",
+    "整数"
+  ],
+  "summary": "不使用内置平方根函数，判断正整数是否为某个整数的平方。",
+  "insight": "平方值随非负整数单调增加，可在一到 num 范围二分查找平方等于目标的数。",
+  "pitfalls": [
+    "乘法使用长整型避免溢出",
+    "中点平方小于目标时舍弃左侧",
+    "一是完全平方数"
+  ],
+  "solutions": [
+    {
+      "id": "binary-search-root",
+      "title": "二分整数平方根",
+      "kind": "最优",
+      "idea": "在可能根值的单调区间中比较 middle² 与 num。",
+      "steps": [
+        "left=1,right=num",
+        "用 long 计算 square",
+        "相等返回真，偏小左移，偏大右移"
+      ],
+      "complexity": {
+        "time": "O(log n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/binary-search-root/Solution.java",
+        "kotlin": "solutions/binary-search-root/Solution.kt",
+        "cpp": "solutions/binary-search-root/solution.cpp"
+      }
+    }
+  ]
+}

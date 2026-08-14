@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "rotateRight",
+  "parameterTypes": [
+    "listNode",
+    "int"
+  ],
+  "returnType": "listNode",
+  "cases": [
+    {
+      "name": "向右旋转两位",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        2
+      ],
+      "expected": [
+        4,
+        5,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "name": "步数超过长度",
+      "args": [
+        [
+          0,
+          1,
+          2
+        ],
+        4
+      ],
+      "expected": [
+        2,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "空链表",
+      "args": [
+        [],
+        3
+      ],
+      "expected": []
+    }
+  ]
+}

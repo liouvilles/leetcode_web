@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 904,
+  "slug": "fruit-into-baskets",
+  "title": "水果成篮",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "滑动窗口"
+  ],
+  "summary": "从一排果树连续采摘，每棵取一个果实且两个篮子各只能装一种，求最多能采摘多少。",
+  "insight": "等价于最长只含至多两种值的连续子数组；右端扩展计数，种类超过二时移动左端并删除频次归零类型。",
+  "pitfalls": [
+    "必须选择连续树段",
+    "同类型果实数量不限",
+    "窗口缩小时只在频次归零后减少类型数"
+  ],
+  "solutions": [
+    {
+      "id": "at-most-two-sliding-window",
+      "title": "至多两类滑动窗口",
+      "kind": "最优",
+      "idea": "维护当前窗口果实类型频次。",
+      "steps": [
+        "left=0，frequency 映射",
+        "right 扫描并增加 fruits[right]",
+        "while frequency.size>2，递减 fruits[left++]，归零删除；更新 answer=max(answer,right-left+1)"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(2)"
+      },
+      "files": {
+        "java": "solutions/at-most-two-sliding-window/Solution.java",
+        "kotlin": "solutions/at-most-two-sliding-window/Solution.kt",
+        "cpp": "solutions/at-most-two-sliding-window/solution.cpp"
+      }
+    }
+  ]
+}

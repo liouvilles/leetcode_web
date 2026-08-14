@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1276,
+  "slug": "number-of-burgers-with-no-waste-of-ingredients",
+  "title": "不浪费原料的汉堡制作方案",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "数学",
+    "方程"
+  ],
+  "summary": "巨无霸需四片番茄和一片奶酪，小皇堡需两片番茄和一片奶酪，求恰好用完原料时两种汉堡数量。",
+  "insight": "设 jumbo=x、small=y，则 x+y=cheese、4x+2y=tomato，解得 x=(tomato-2cheese)/2、y=cheese-x；只需验证整除与非负。",
+  "pitfalls": [
+    "番茄差必须是非负偶数",
+    "两种汉堡数量都不能为负",
+    "无解返回空列表"
+  ],
+  "solutions": [
+    {
+      "id": "linear-equation-closed-form",
+      "title": "二元方程闭式解",
+      "kind": "最优",
+      "idea": "直接解出两种汉堡数量并校验。",
+      "steps": [
+        "difference=tomatoSlices-2*cheeseSlices",
+        "若 difference<0 或为奇数返回空",
+        "jumbo=difference/2，small=cheese-jumbo；若 small<0 返回空，否则返回 [jumbo,small]"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/linear-equation-closed-form/Solution.java",
+        "kotlin": "solutions/linear-equation-closed-form/Solution.kt",
+        "cpp": "solutions/linear-equation-closed-form/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 303,
+  "slug": "range-sum-query-immutable",
+  "title": "区域和检索 - 数组不可变",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-005",
+  "studyTags": [
+    "前缀和",
+    "设计",
+    "区间查询"
+  ],
+  "summary": "对固定整数数组多次查询闭区间 left 到 right 的元素和。",
+  "insight": "构造时保存前缀和 prefix[i+1]，任意区间和可由两个前缀相减常数时间得到。",
+  "pitfalls": [
+    "前缀数组比原数组多一个零位",
+    "闭区间右端对应 prefix[right+1]",
+    "同一对象会执行多次查询"
+  ],
+  "solutions": [
+    {
+      "id": "prefix-sums",
+      "title": "一维前缀和",
+      "kind": "最优",
+      "idea": "预处理从开头到每个位置之前的总和。",
+      "steps": [
+        "prefix[0]=0",
+        "prefix[i+1]=prefix[i]+nums[i]",
+        "sumRange=prefix[right+1]-prefix[left]"
+      ],
+      "complexity": {
+        "time": "build O(n), query O(1)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/prefix-sums/Solution.java",
+        "kotlin": "solutions/prefix-sums/Solution.kt",
+        "cpp": "solutions/prefix-sums/solution.cpp"
+      }
+    }
+  ]
+}

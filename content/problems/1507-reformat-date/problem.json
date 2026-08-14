@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": 1507,
+  "slug": "reformat-date",
+  "title": "转变日期格式",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-021",
+  "studyTags": [
+    "字符串"
+  ],
+  "summary": "把形如“20th Oct 2052”的日期转换成 YYYY-MM-DD 格式。",
+  "insight": "按空格拆出日、月、年；日去掉最后两个序数后缀，月份用固定映射转换，再补零格式化。",
+  "pitfalls": [
+    "日期可能是一位数",
+    "月份使用英文三字母缩写",
+    "年份保持四位"
+  ],
+  "solutions": [
+    {
+      "id": "token-map-format",
+      "title": "分词映射格式化",
+      "kind": "最优",
+      "idea": "解析三个日期组件并按固定宽度输出。",
+      "steps": [
+        "parts=text.split 空格",
+        "day=Integer.parseInt(parts[0] 去末两字符)，month 从月份列表查一基序号",
+        "返回 format(year,month,day)"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/token-map-format/Solution.java",
+        "kotlin": "solutions/token-map-format/Solution.kt",
+        "cpp": "solutions/token-map-format/solution.cpp"
+      }
+    }
+  ]
+}

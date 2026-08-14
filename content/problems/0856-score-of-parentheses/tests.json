@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "scoreOfParentheses",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "单对括号",
+      "args": [
+        "()"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "嵌套一层",
+      "args": [
+        "(())"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "两个并列括号",
+      "args": [
+        "()()"
+      ],
+      "expected": 2
+    }
+  ]
+}

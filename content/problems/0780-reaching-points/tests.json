@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "reachingPoints",
+  "parameterTypes": [
+    "int",
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "可通过多步到达",
+      "args": [
+        1,
+        1,
+        3,
+        5
+      ],
+      "expected": true
+    },
+    {
+      "name": "两坐标同时翻倍不可达",
+      "args": [
+        1,
+        1,
+        2,
+        2
+      ],
+      "expected": false
+    },
+    {
+      "name": "起点就是终点",
+      "args": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "expected": true
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimizeArrayValue",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典数组最小最大值五",
+      "args": [
+        [
+          3,
+          7,
+          1,
+          6
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "首项十无法向右移动",
+      "args": [
+        [
+          10,
+          1
+        ]
+      ],
+      "expected": 10
+    },
+    {
+      "name": "全零最大值零",
+      "args": [
+        [
+          0,
+          0
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

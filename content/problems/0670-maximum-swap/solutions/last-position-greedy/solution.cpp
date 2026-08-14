@@ -1,0 +1,1 @@
+class Solution { public: int maximumSwap(int num){string digits=to_string(num);int last[10]{};for(int i=0;i<(int)digits.size();++i)last[digits[i]-'0']=i;for(int i=0;i<(int)digits.size();++i)for(int digit=9;digit>digits[i]-'0';--digit)if(last[digit]>i){swap(digits[i],digits[last[digit]]);return stoi(digits);}return num;} };

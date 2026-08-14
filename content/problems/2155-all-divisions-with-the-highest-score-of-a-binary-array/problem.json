@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2155,
+  "slug": "all-divisions-with-the-highest-score-of-a-binary-array",
+  "title": "分组得分最高的所有下标",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-031",
+  "studyTags": [
+    "数组",
+    "前缀和"
+  ],
+  "summary": "在二进制数组任一边界切分，得分为左侧零数量加右侧一数量，返回所有最高分切分下标。",
+  "insight": "切分零处得分是全数组一的数量。边界每右移一格，跨过零则得分加一，跨过一则得分减一；在线维护最大值和对应下标。",
+  "pitfalls": [
+    "切分下标包括零和 n",
+    "左侧不含切分位置",
+    "可能有多个并列答案"
+  ],
+  "solutions": [
+    {
+      "id": "incremental-split-score",
+      "title": "增量切分得分",
+      "kind": "最优",
+      "idea": "从空左侧开始逐边界更新得分。",
+      "steps": [
+        "score=count ones，maximum=-1",
+        "遍历 split=0..n：先比较并维护答案",
+        "若 split<n，跨过 nums[split]：零使 score++，一使 score--"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(number of answers)"
+      },
+      "files": {
+        "java": "solutions/incremental-split-score/Solution.java",
+        "kotlin": "solutions/incremental-split-score/Solution.kt",
+        "cpp": "solutions/incremental-split-score/solution.cpp"
+      }
+    }
+  ]
+}

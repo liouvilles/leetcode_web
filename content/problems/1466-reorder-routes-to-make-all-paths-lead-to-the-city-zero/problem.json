@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1466,
+  "slug": "reorder-routes-to-make-all-paths-lead-to-the-city-zero",
+  "title": "重新规划路线使所有路通向城市零",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-021",
+  "studyTags": [
+    "深度优先搜索",
+    "图论"
+  ],
+  "summary": "n 个城市的无向结构是一棵树，但每条路有方向，求最少反转多少条边才能让所有城市都能到达城市零。",
+  "insight": "从零沿树向外遍历；原边若是当前节点指向孩子，它背离零必须反转，记成本一；反向邻接边成本零。",
+  "pitfalls": [
+    "遍历用无向视角建立两条邻接记录",
+    "只统计首次从父到子的边",
+    "树结构保证无环但仍需跳过父亲"
+  ],
+  "solutions": [
+    {
+      "id": "directed-cost-tree-dfs",
+      "title": "带方向成本的树遍历",
+      "kind": "最优",
+      "idea": "把每条原有方向编码为从零向外遍历时的反转成本。",
+      "steps": [
+        "对 connection u->v 加 (u,v,1) 与 (v,u,0)",
+        "dfs(0,parent=-1)",
+        "对每个非父邻居累加 edgeCost+dfs(child,node)"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/directed-cost-tree-dfs/Solution.java",
+        "kotlin": "solutions/directed-cost-tree-dfs/Solution.kt",
+        "cpp": "solutions/directed-cost-tree-dfs/solution.cpp"
+      }
+    }
+  ]
+}

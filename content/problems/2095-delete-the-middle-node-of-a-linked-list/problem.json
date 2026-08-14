@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2095,
+  "slug": "delete-the-middle-node-of-a-linked-list",
+  "title": "删除链表的中间节点",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "链表",
+    "双指针"
+  ],
+  "summary": "删除零基下标 floor(n/2) 的链表节点并返回头节点。",
+  "insight": "快指针每次两步、慢指针每次一步，同时维护慢指针前驱；快指针到尾时慢指针恰在中间，跳过它即可。单节点直接返回空。",
+  "pitfalls": [
+    "偶数长度删除右侧中点",
+    "单节点删除后为空",
+    "需保存慢指针前驱"
+  ],
+  "solutions": [
+    {
+      "id": "slow-fast-with-predecessor",
+      "title": "快慢指针与前驱",
+      "kind": "最优",
+      "idea": "一次遍历定位 floor(n/2) 节点。",
+      "steps": [
+        "单节点返回 null",
+        "slow=fast=head、previous=null",
+        "fast 可走两步时 previous=slow、slow=slow.next、fast=fast.next.next；结束 previous.next=slow.next"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/slow-fast-with-predecessor/Solution.java",
+        "kotlin": "solutions/slow-fast-with-predecessor/Solution.kt",
+        "cpp": "solutions/slow-fast-with-predecessor/solution.cpp"
+      }
+    }
+  ]
+}

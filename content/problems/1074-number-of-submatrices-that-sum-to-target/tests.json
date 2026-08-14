@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numSubmatrixSumTarget",
+  "parameterTypes": [
+    "intMatrix",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四个零和子矩阵",
+      "args": [
+        [
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        0
+      ],
+      "expected": 4
+    },
+    {
+      "name": "五个目标零",
+      "args": [
+        [
+          [
+            1,
+            -1
+          ],
+          [
+            -1,
+            1
+          ]
+        ],
+        0
+      ],
+      "expected": 5
+    },
+    {
+      "name": "单格命中",
+      "args": [
+        [
+          [
+            904
+          ]
+        ],
+        0
+      ],
+      "expected": 0
+    }
+  ]
+}

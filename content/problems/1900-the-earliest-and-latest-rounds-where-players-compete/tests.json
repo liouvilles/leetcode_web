@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "earliestAndLatest",
+  "parameterTypes": [
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "十一人二号四号最早三轮最晚四轮",
+      "args": [
+        11,
+        2,
+        4
+      ],
+      "expected": [
+        3,
+        4
+      ]
+    },
+    {
+      "name": "首尾选手第一轮直接相遇",
+      "args": [
+        5,
+        1,
+        5
+      ],
+      "expected": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "四人一号二号第二轮相遇",
+      "args": [
+        4,
+        1,
+        2
+      ],
+      "expected": [
+        2,
+        2
+      ]
+    }
+  ]
+}

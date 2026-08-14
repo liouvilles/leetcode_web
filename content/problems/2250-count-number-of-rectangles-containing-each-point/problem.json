@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2250,
+  "slug": "count-number-of-rectangles-containing-each-point",
+  "title": "统计包含每个点的矩形数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-033",
+  "studyTags": [
+    "数组",
+    "二分查找",
+    "排序"
+  ],
+  "summary": "矩形左下角为原点、右上角给定，统计每个点被多少矩形包含。矩形高度不超过一百。",
+  "insight": "按高度分桶存矩形宽度并排序。对点 (x,y)，只遍历高度 y 到一百的桶，二分第一个宽度不小于 x，桶后缀数量都包含该点。",
+  "pitfalls": [
+    "边界上的点也算包含",
+    "矩形按宽高分别比较",
+    "返回顺序与 points 一致"
+  ],
+  "solutions": [
+    {
+      "id": "height-buckets-width-binary-search",
+      "title": "高度分桶与宽度二分",
+      "kind": "最优",
+      "idea": "利用小高度范围把二维支配查询降为多次一维查询。",
+      "steps": [
+        "buckets[101] 收集每个 rectangle width，按桶排序",
+        "对 point 初始化 count=0",
+        "height 从 point.y 到 100，在桶中 lower_bound(point.x)，累加 size-index"
+      ],
+      "complexity": {
+        "time": "O(rectangles log rectangles+points·100 log rectangles)",
+        "space": "O(rectangles)"
+      },
+      "files": {
+        "java": "solutions/height-buckets-width-binary-search/Solution.java",
+        "kotlin": "solutions/height-buckets-width-binary-search/Solution.kt",
+        "cpp": "solutions/height-buckets-width-binary-search/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1948,
+  "slug": "delete-duplicate-folders-in-system",
+  "title": "删除系统中的重复文件夹",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-028",
+  "studyTags": [
+    "字典树",
+    "哈希表",
+    "字符串",
+    "序列化"
+  ],
+  "summary": "若两个文件夹拥有相同的非空子文件夹结构与名称，则删除它们及后代，返回其余所有路径。",
+  "insight": "把路径建成字典树并按子文件夹名排序序列化每棵子树。统计非叶节点签名频次；第二次遍历时跳过频次大于一的节点及整棵子树。",
+  "pitfalls": [
+    "叶文件夹的空结构不视为重复",
+    "文件夹自身名称不进入其子树签名",
+    "重复标记同时生效，删除后不再次计算"
+  ],
+  "solutions": [
+    {
+      "id": "folder-trie-subtree-signatures",
+      "title": "目录 Trie 子树签名",
+      "kind": "最优",
+      "idea": "用确定性序列化识别完全相同的非空目录结构。",
+      "steps": [
+        "按路径建立 children TreeMap",
+        "后序 encode：拼接 (childName+childSignature)，非根非叶签名计数",
+        "前序 collect：重复签名节点直接跳过，否则加入当前路径并递归"
+      ],
+      "complexity": {
+        "time": "O(total path characters log degree)",
+        "space": "O(total path characters)"
+      },
+      "files": {
+        "java": "solutions/folder-trie-subtree-signatures/Solution.java",
+        "kotlin": "solutions/folder-trie-subtree-signatures/Solution.kt",
+        "cpp": "solutions/folder-trie-subtree-signatures/solution.cpp"
+      }
+    }
+  ]
+}

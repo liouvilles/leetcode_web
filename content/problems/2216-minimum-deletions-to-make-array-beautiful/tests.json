@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minDeletion",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "删除一个重复一即可美化",
+      "args": [
+        [
+          1,
+          1,
+          2,
+          3,
+          5
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "六元素需删除两项",
+      "args": [
+        [
+          1,
+          1,
+          2,
+          2,
+          3,
+          3
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "单元素必须删除",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 257,
+  "slug": "binary-tree-paths",
+  "title": "二叉树的所有路径",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-005",
+  "studyTags": [
+    "二叉树",
+    "深度优先搜索",
+    "回溯"
+  ],
+  "summary": "返回二叉树中所有从根到叶子的路径，每条路径用箭头连接节点值。",
+  "insight": "深度优先沿路径追加当前值，只有到叶子时才把完整路径加入答案。",
+  "pitfalls": [
+    "路径必须结束于叶子",
+    "空树返回空列表",
+    "左右子树的输出顺序保持从左到右"
+  ],
+  "solutions": [
+    {
+      "id": "dfs-path-string",
+      "title": "DFS 构造路径字符串",
+      "kind": "最优",
+      "idea": "递归参数携带父路径字符串，进入节点时追加当前值。",
+      "steps": [
+        "空节点不处理",
+        "构造 currentPath",
+        "叶子加入答案，否则递归左右孩子"
+      ],
+      "complexity": {
+        "time": "O(n·h)",
+        "space": "O(h)"
+      },
+      "files": {
+        "java": "solutions/dfs-path-string/Solution.java",
+        "kotlin": "solutions/dfs-path-string/Solution.kt",
+        "cpp": "solutions/dfs-path-string/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countNumbersWithUniqueDigits",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两位范围",
+      "args": [
+        2
+      ],
+      "expected": 91
+    },
+    {
+      "name": "零位范围",
+      "args": [
+        0
+      ],
+      "expected": 1
+    },
+    {
+      "name": "三位范围",
+      "args": [
+        3
+      ],
+      "expected": 739
+    }
+  ]
+}

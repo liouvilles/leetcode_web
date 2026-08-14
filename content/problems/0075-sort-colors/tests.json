@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sortColors",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "void",
+  "cases": [
+    {
+      "name": "三种颜色混合",
+      "args": [
+        [
+          2,
+          0,
+          2,
+          1,
+          1,
+          0
+        ]
+      ],
+      "expectedArgs": [
+        {
+          "index": 0,
+          "type": "intArray",
+          "expected": [
+            0,
+            0,
+            1,
+            1,
+            2,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "name": "短数组逆序",
+      "args": [
+        [
+          2,
+          0,
+          1
+        ]
+      ],
+      "expectedArgs": [
+        {
+          "index": 0,
+          "type": "intArray",
+          "expected": [
+            0,
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "name": "单一颜色",
+      "args": [
+        [
+          1,
+          1
+        ]
+      ],
+      "expectedArgs": [
+        {
+          "index": 0,
+          "type": "intArray",
+          "expected": [
+            1,
+            1
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1004,
+  "slug": "max-consecutive-ones-iii",
+  "title": "最大连续 1 的个数 III",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-014",
+  "studyTags": [
+    "数组",
+    "滑动窗口"
+  ],
+  "summary": "最多把 k 个零翻成一，求数组中可得到的最长连续一段。",
+  "insight": "等价于寻找含零数不超过 k 的最长子数组；右端扩张计零，超过限制时移动左端直到重新合法。",
+  "pitfalls": [
+    "k 可以为零",
+    "窗口中一的数量无需单独维护",
+    "每个元素最多进出窗口一次"
+  ],
+  "solutions": [
+    {
+      "id": "zero-budget-sliding-window",
+      "title": "零预算滑动窗口",
+      "kind": "最优",
+      "idea": "维护窗口内零数不超过可翻转预算。",
+      "steps": [
+        "left=0,zeros=0,answer=0",
+        "右指针扫描，遇零 zeros++",
+        "zeros>k 时移动 left，移出的值为零则 zeros--；更新窗口长度最大值"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/zero-budget-sliding-window/Solution.java",
+        "kotlin": "solutions/zero-budget-sliding-window/Solution.kt",
+        "cpp": "solutions/zero-budget-sliding-window/solution.cpp"
+      }
+    }
+  ]
+}

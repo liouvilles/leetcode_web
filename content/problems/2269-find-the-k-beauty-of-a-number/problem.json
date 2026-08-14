@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2269,
+  "slug": "find-the-k-beauty-of-a-number",
+  "title": "找到一个数字的 K 美丽值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-033",
+  "studyTags": [
+    "数学",
+    "字符串",
+    "滑动窗口"
+  ],
+  "summary": "num 的长度 k 十进制子串若对应整数非零且能整除 num，则为一个因子，统计这样的子串数量。",
+  "insight": "把 num 转字符串枚举所有长度 k 窗口，解析整数并检查非零与 num%value==0。重复子串按位置分别计数。",
+  "pitfalls": [
+    "值零不能作除数",
+    "前导零按普通整数解析",
+    "窗口包含所有起点"
+  ],
+  "solutions": [
+    {
+      "id": "fixed-length-decimal-window",
+      "title": "固定长度十进制窗口",
+      "kind": "最优",
+      "idea": "逐窗口解析并测试整除。",
+      "steps": [
+        "text=String(num)",
+        "i=0..length-k",
+        "value=parse substring；若 value!=0 且 num%value==0，answer++"
+      ],
+      "complexity": {
+        "time": "O(d·k)",
+        "space": "O(k)"
+      },
+      "files": {
+        "java": "solutions/fixed-length-decimal-window/Solution.java",
+        "kotlin": "solutions/fixed-length-decimal-window/Solution.kt",
+        "cpp": "solutions/fixed-length-decimal-window/solution.cpp"
+      }
+    }
+  ]
+}

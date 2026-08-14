@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2258,
+  "slug": "escape-the-spreading-fire",
+  "title": "逃离火灾",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-033",
+  "studyTags": [
+    "数组",
+    "二分查找",
+    "广度优先搜索",
+    "矩阵"
+  ],
+  "summary": "人在左上、避难所在右下，火每分钟扩散到相邻草地；可先等待若干分钟再移动，求最大安全等待时间，永远可达返回十亿，无路返回负一。",
+  "insight": "多源 BFS 先求火到每格的最早时间。给定等待 w 后 BFS 人的移动：普通格到达必须严格早于火，避难所允许与火同时到达。可行性对 w 单调，二分最大等待。",
+  "pitfalls": [
+    "人先移动后火扩散等价于普通格严格小于火时刻",
+    "终点允许同一分钟到达",
+    "墙阻挡人与火"
+  ],
+  "solutions": [
+    {
+      "id": "fire-time-bfs-and-wait-binary-search",
+      "title": "火时 BFS 与等待时间二分",
+      "kind": "最优",
+      "idea": "预计算环境后对等待时间做单调可达性判定。",
+      "steps": [
+        "多源 BFS 所有火源得 fireTime，墙不入队",
+        "can(wait)：若起点等待时已着火失败；BFS 人，目标 arrival<=fireTime，其他格 arrival<fireTime",
+        "若 can(0) 否返回 -1；can(1e9) 返回 1e9；否则二分最大可行 wait"
+      ],
+      "complexity": {
+        "time": "O(mn log 1e9)",
+        "space": "O(mn)"
+      },
+      "files": {
+        "java": "solutions/fire-time-bfs-and-wait-binary-search/Solution.java",
+        "kotlin": "solutions/fire-time-bfs-and-wait-binary-search/Solution.kt",
+        "cpp": "solutions/fire-time-bfs-and-wait-binary-search/solution.cpp"
+      }
+    }
+  ]
+}

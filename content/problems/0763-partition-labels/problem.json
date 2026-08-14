@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 763,
+  "slug": "partition-labels",
+  "title": "划分字母区间",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-003",
+  "studyTags": [
+    "贪心",
+    "最远出现位置",
+    "区间闭合"
+  ],
+  "summary": "把字符串划分为尽可能多的连续片段，使每个字母最多出现在一个片段中，返回各片段长度。",
+  "insight": "扫描片段时，其内任一字符的最后出现位置都会扩展片段右边界；到达该最远边界时才能安全切分。",
+  "pitfalls": [
+    "目标是片段数量尽可能多",
+    "右边界要取当前片段所有字符最后位置的最大值",
+    "切分后新片段从下一字符开始"
+  ],
+  "solutions": [
+    {
+      "id": "last-occurrence-greedy",
+      "title": "最后位置贪心",
+      "kind": "最优",
+      "idea": "预处理每个字符的最后下标，再扫描形成最早可闭合区间。",
+      "steps": [
+        "记录 26 个字符最后位置",
+        "end=max(end,last[current])",
+        "index==end 时记录长度并更新 start"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/last-occurrence-greedy/Solution.java",
+        "kotlin": "solutions/last-occurrence-greedy/Solution.kt",
+        "cpp": "solutions/last-occurrence-greedy/solution.cpp"
+      }
+    }
+  ]
+}

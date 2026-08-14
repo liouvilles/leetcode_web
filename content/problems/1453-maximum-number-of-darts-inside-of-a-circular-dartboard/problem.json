@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1453,
+  "slug": "maximum-number-of-darts-inside-of-a-circular-dartboard",
+  "title": "圆形靶内的最大飞镖数量",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-021",
+  "studyTags": [
+    "数组",
+    "数学",
+    "几何"
+  ],
+  "summary": "移动半径为 r 的圆形飞镖靶，求最多能同时覆盖多少给定点，边界也算覆盖。",
+  "insight": "最优圆若覆盖至少两点，可平移到使两点位于边界。枚举距离不超过 2r 的点对，计算经过两点的两个半径 r 圆心并计数。",
+  "pitfalls": [
+    "点对对应两个可能圆心",
+    "浮点比较需要误差容忍",
+    "答案至少为一个点"
+  ],
+  "solutions": [
+    {
+      "id": "pair-defined-circle-centers",
+      "title": "点对确定候选圆心",
+      "kind": "最优",
+      "idea": "枚举所有由两点边界约束产生的圆并统计覆盖点。",
+      "steps": [
+        "answer=1，枚举点对距离 d<=2r",
+        "mid 为中点，沿垂直单位向量偏移 sqrt(r²-d²/4) 得两个圆心",
+        "对每个圆心统计平方距离<=r²+epsilon 的点数并更新"
+      ],
+      "complexity": {
+        "time": "O(n³)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/pair-defined-circle-centers/Solution.java",
+        "kotlin": "solutions/pair-defined-circle-centers/Solution.kt",
+        "cpp": "solutions/pair-defined-circle-centers/solution.cpp"
+      }
+    }
+  ]
+}

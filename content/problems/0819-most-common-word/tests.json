@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "mostCommonWord",
+  "parameterTypes": [
+    "string",
+    "stringArray"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "标点与禁用词",
+      "args": [
+        "Bob hit a ball, the hit BALL flew far after it was hit.",
+        [
+          "hit"
+        ]
+      ],
+      "expected": "ball"
+    },
+    {
+      "name": "单词后有标点",
+      "args": [
+        "a.",
+        [
+          ""
+        ]
+      ],
+      "expected": "a"
+    },
+    {
+      "name": "忽略大小写",
+      "args": [
+        "Cat cat dog.",
+        [
+          "dog"
+        ]
+      ],
+      "expected": "cat"
+    }
+  ]
+}

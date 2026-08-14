@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "checkValid",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "三阶拉丁方合法",
+      "args": [
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            3,
+            1,
+            2
+          ],
+          [
+            2,
+            3,
+            1
+          ]
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "某行某列存在重复",
+      "args": [
+        [
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            1,
+            2,
+            3
+          ]
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "单元素矩阵合法",
+      "args": [
+        [
+          [
+            1
+          ]
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isAlienSorted",
+  "parameterTypes": [
+    "stringArray",
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "自定义顺序合法",
+      "args": [
+        [
+          "hello",
+          "leetcode"
+        ],
+        "hlabcdefgijkmnopqrstuvwxyz"
+      ],
+      "expected": true
+    },
+    {
+      "name": "首个不同字符逆序",
+      "args": [
+        [
+          "word",
+          "world",
+          "row"
+        ],
+        "worldabcefghijkmnpqstuvxyz"
+      ],
+      "expected": false
+    },
+    {
+      "name": "长词在前缀前非法",
+      "args": [
+        [
+          "apple",
+          "app"
+        ],
+        "abcdefghijklmnopqrstuvwxyz"
+      ],
+      "expected": false
+    }
+  ]
+}

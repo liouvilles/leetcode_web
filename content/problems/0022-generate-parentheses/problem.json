@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 22,
+  "slug": "generate-parentheses",
+  "title": "括号生成",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-001",
+  "studyTags": [
+    "回溯",
+    "合法前缀",
+    "剪枝"
+  ],
+  "summary": "给定括号对数 n，生成所有由 n 对圆括号组成且整体合法的不同字符串。",
+  "insight": "构造过程中只要保证右括号使用数不超过左括号，当前前缀就仍有机会扩展成合法答案。",
+  "pitfalls": [
+    "左括号和右括号都必须恰好使用 n 个",
+    "不能等到生成完整字符串后才判断合法性",
+    "回溯返回前要撤销刚加入的字符"
+  ],
+  "solutions": [
+    {
+      "id": "backtracking",
+      "title": "合法前缀回溯",
+      "kind": "最优",
+      "idea": "记录已经使用的左右括号数量，只扩展仍满足合法前缀条件的分支。",
+      "steps": [
+        "左括号不足 n 个时可以继续添加",
+        "右括号少于左括号时才允许添加右括号",
+        "字符串长度达到 2n 时保存答案"
+      ],
+      "complexity": {
+        "time": "O(Cₙ · n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/backtracking/Solution.java",
+        "kotlin": "solutions/backtracking/Solution.kt",
+        "cpp": "solutions/backtracking/solution.cpp"
+      }
+    }
+  ]
+}

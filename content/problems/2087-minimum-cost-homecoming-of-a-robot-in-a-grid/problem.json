@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2087,
+  "slug": "minimum-cost-homecoming-of-a-robot-in-a-grid",
+  "title": "网格图中机器人回家的最小代价",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "数组",
+    "贪心"
+  ],
+  "summary": "机器人从起点沿四方向回家，进入某行或列分别付对应代价，求最小总代价。",
+  "insight": "任何绕路都会额外进入行列并产生非负费用，最优路径在行和列方向各单调走到目标。每进入一条新行或列累加其成本，行列移动顺序不影响总和。",
+  "pitfalls": [
+    "起点所在行列不付费",
+    "目标行列要付进入费用",
+    "可先走行或列，代价相同"
+  ],
+  "solutions": [
+    {
+      "id": "monotone-row-column-cost",
+      "title": "行列单调移动费用",
+      "kind": "最优",
+      "idea": "分别沿两个坐标方向累加入境成本。",
+      "steps": [
+        "row 从 startRow 向 homeRow 每步移动并加 rowCosts[newRow]",
+        "col 同理加 colCosts[newCol]",
+        "返回总和"
+      ],
+      "complexity": {
+        "time": "O(|dr|+|dc|)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/monotone-row-column-cost/Solution.java",
+        "kotlin": "solutions/monotone-row-column-cost/Solution.kt",
+        "cpp": "solutions/monotone-row-column-cost/solution.cpp"
+      }
+    }
+  ]
+}

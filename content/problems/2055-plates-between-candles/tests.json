@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "platesBetweenCandles",
+  "parameterTypes": [
+    "string",
+    "intMatrix"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "两个查询盘子数二和三",
+      "args": [
+        "**|**|***|",
+        [
+          [
+            2,
+            5
+          ],
+          [
+            5,
+            9
+          ]
+        ]
+      ],
+      "expected": [
+        2,
+        3
+      ]
+    },
+    {
+      "name": "整段只有一支蜡烛答案零",
+      "args": [
+        "***|***",
+        [
+          [
+            0,
+            6
+          ]
+        ]
+      ],
+      "expected": [
+        0
+      ]
+    },
+    {
+      "name": "相邻蜡烛间没有盘子",
+      "args": [
+        "||",
+        [
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        0
+      ]
+    }
+  ]
+}

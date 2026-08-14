@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumRemoval",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "经典四袋最少拿走四颗",
+      "args": [
+        [
+          4,
+          1,
+          6,
+          5
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "保留十颗的一袋最优",
+      "args": [
+        [
+          2,
+          10,
+          3,
+          2
+        ]
+      ],
+      "expected": 7
+    },
+    {
+      "name": "所有袋相同无需拿走",
+      "args": [
+        [
+          5,
+          5
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

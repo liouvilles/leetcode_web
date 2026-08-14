@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2164,
+  "slug": "sort-even-and-odd-indices-independently",
+  "title": "对奇偶下标分别排序",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-031",
+  "studyTags": [
+    "数组",
+    "排序"
+  ],
+  "summary": "偶数下标上的值按非递减顺序，奇数下标上的值按非递增顺序重新排列。",
+  "insight": "提取两类下标的值分别排序，再按下标奇偶交替写回。",
+  "pitfalls": [
+    "排序的是下标分组而非数值奇偶",
+    "奇数下标为降序",
+    "保持原数组长度"
+  ],
+  "solutions": [
+    {
+      "id": "split-sort-and-merge",
+      "title": "分组排序后交替合并",
+      "kind": "最优",
+      "idea": "独立处理偶数位与奇数位。",
+      "steps": [
+        "收集 evenValues、oddValues",
+        "even 升序，odd 降序",
+        "遍历下标，从对应列表依次取值写回"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/split-sort-and-merge/Solution.java",
+        "kotlin": "solutions/split-sort-and-merge/Solution.kt",
+        "cpp": "solutions/split-sort-and-merge/solution.cpp"
+      }
+    }
+  ]
+}

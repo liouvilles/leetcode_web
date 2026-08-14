@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "smallestEvenMultiple",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "五的最小偶倍数十",
+      "args": [
+        5
+      ],
+      "expected": 10
+    },
+    {
+      "name": "六本身已是偶数",
+      "args": [
+        6
+      ],
+      "expected": 6
+    },
+    {
+      "name": "一的最小偶倍数二",
+      "args": [
+        1
+      ],
+      "expected": 2
+    }
+  ]
+}

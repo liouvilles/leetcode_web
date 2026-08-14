@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 714,
+  "slug": "best-time-to-buy-and-sell-stock-with-transaction-fee",
+  "title": "买卖股票的最佳时机含手续费",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-009",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "状态机"
+  ],
+  "summary": "可多次买卖股票但同时最多持有一股，每笔交易支付一次手续费，求最大利润。",
+  "insight": "每天只需维护收盘后不持股的最大现金 cash 和持股状态的最大净资产 hold；买入和卖出从前一天状态转移。",
+  "pitfalls": [
+    "同一天不能依赖已更新后的 cash 再买入",
+    "手续费可在卖出时统一扣除",
+    "最终答案是不持股状态 cash"
+  ],
+  "solutions": [
+    {
+      "id": "two-state-dp",
+      "title": "持股与空仓双状态",
+      "kind": "最优",
+      "idea": "滚动更新每天两种资产状态。",
+      "steps": [
+        "cash=0、hold=-prices[0]",
+        "保存 oldCash；cash=max(cash,hold+price-fee)，hold=max(hold,oldCash-price)",
+        "扫描结束返回 cash"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/two-state-dp/Solution.java",
+        "kotlin": "solutions/two-state-dp/Solution.kt",
+        "cpp": "solutions/two-state-dp/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minNumberOfHours",
+  "parameterTypes": [
+    "int",
+    "int",
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典比赛需要八小时训练",
+      "args": [
+        5,
+        3,
+        [
+          1,
+          4,
+          3,
+          2
+        ],
+        [
+          2,
+          6,
+          3,
+          1
+        ]
+      ],
+      "expected": 8
+    },
+    {
+      "name": "初始属性足够无需训练",
+      "args": [
+        2,
+        4,
+        [
+          1
+        ],
+        [
+          3
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "能量经验各需训练一小时",
+      "args": [
+        1,
+        1,
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

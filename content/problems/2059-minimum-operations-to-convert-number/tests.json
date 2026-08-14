@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumOperations",
+  "parameterTypes": [
+    "intArray",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "可经范围外值两步到目标",
+      "args": [
+        [
+          2,
+          4,
+          12
+        ],
+        2,
+        12
+      ],
+      "expected": 2
+    },
+    {
+      "name": "零经三再减七到负四",
+      "args": [
+        [
+          3,
+          5,
+          7
+        ],
+        0,
+        -4
+      ],
+      "expected": 2
+    },
+    {
+      "name": "每步加一需三步",
+      "args": [
+        [
+          1
+        ],
+        0,
+        3
+      ],
+      "expected": 3
+    }
+  ]
+}

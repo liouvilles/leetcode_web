@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumInvitations",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "二环附加入链可邀请三人",
+      "args": [
+        [
+          2,
+          2,
+          1,
+          2
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "三人环全部邀请",
+      "args": [
+        [
+          1,
+          2,
+          0
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "四人长环优于外部入链",
+      "args": [
+        [
+          3,
+          0,
+          1,
+          4,
+          1
+        ]
+      ],
+      "expected": 4
+    }
+  ]
+}

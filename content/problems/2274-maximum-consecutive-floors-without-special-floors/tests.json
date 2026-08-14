@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxConsecutive",
+  "parameterTypes": [
+    "int",
+    "int",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "二到九跳过四六最长三层",
+      "args": [
+        2,
+        9,
+        [
+          4,
+          6
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "区间全部为特殊楼层",
+      "args": [
+        6,
+        8,
+        [
+          7,
+          6,
+          8
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "单个特殊层分出较大尾段",
+      "args": [
+        1,
+        10,
+        [
+          3
+        ]
+      ],
+      "expected": 7
+    }
+  ]
+}

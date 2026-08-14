@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1254,
+  "slug": "number-of-closed-islands",
+  "title": "统计封闭岛屿的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-017",
+  "studyTags": [
+    "数组",
+    "深度优先搜索",
+    "矩阵",
+    "连通分量"
+  ],
+  "summary": "零表示陆地、一表示水，统计完全被水包围且不接触矩阵边界的陆地连通分量数量。",
+  "insight": "先从四条边界淹没所有与边界连通的零格，它们一定不封闭；之后内部剩下的每个零连通分量都是封闭岛屿，逐个计数并淹没。",
+  "pitfalls": [
+    "零是陆地而一是水",
+    "只按上下左右连接",
+    "边界陆地本身以及与它相连的内部陆地都不计数"
+  ],
+  "solutions": [
+    {
+      "id": "boundary-flood-then-components",
+      "title": "边界淹没后计数分量",
+      "kind": "最优",
+      "idea": "先排除所有开放陆地，再枚举剩余封闭分量。",
+      "steps": [
+        "对每一行的首尾格、每一列的首尾格调用 flood，把相连零改为一",
+        "遍历内部所有格；遇零时 answer++ 并 flood 整个分量",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(rows·cols)",
+        "space": "O(rows·cols) 递归栈上界"
+      },
+      "files": {
+        "java": "solutions/boundary-flood-then-components/Solution.java",
+        "kotlin": "solutions/boundary-flood-then-components/Solution.kt",
+        "cpp": "solutions/boundary-flood-then-components/solution.cpp"
+      }
+    }
+  ]
+}

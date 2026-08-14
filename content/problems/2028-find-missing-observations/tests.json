@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "missingRolls",
+  "parameterTypes": [
+    "intArray",
+    "int",
+    "int"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "缺失两次均为六",
+      "args": [
+        [
+          3,
+          2,
+          4,
+          3
+        ],
+        4,
+        2
+      ],
+      "expected": [
+        6,
+        6
+      ]
+    },
+    {
+      "name": "缺失和九均匀分为三二二二",
+      "args": [
+        [
+          1,
+          5,
+          6
+        ],
+        3,
+        4
+      ],
+      "expected": [
+        3,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "name": "缺失总和超过骰子上限",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        6,
+        4
+      ],
+      "expected": []
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "arraySign",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "偶数个负数乘积为正",
+      "args": [
+        [
+          -1,
+          -2,
+          -3,
+          -4,
+          3,
+          2,
+          1
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "包含零乘积为零",
+      "args": [
+        [
+          1,
+          5,
+          0,
+          2,
+          -3
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "一个负数乘积为负",
+      "args": [
+        [
+          -1,
+          1,
+          -1,
+          1,
+          -1
+        ]
+      ],
+      "expected": -1
+    }
+  ]
+}

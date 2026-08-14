@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 643,
+  "slug": "maximum-average-subarray-i",
+  "title": "子数组最大平均数 I",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-008",
+  "studyTags": [
+    "数组",
+    "滑动窗口",
+    "定长窗口"
+  ],
+  "summary": "给定整数数组和长度 k，找出长度恰好为 k 的连续子数组的最大平均值。",
+  "insight": "相同长度的平均值大小只由区间和决定；维护定长滑动窗口和即可线性枚举。",
+  "pitfalls": [
+    "窗口长度必须恰好为 k",
+    "和可为负数，最大值不能初始化为零",
+    "最后用浮点数除法"
+  ],
+  "solutions": [
+    {
+      "id": "fixed-window-sum",
+      "title": "定长滑动窗口和",
+      "kind": "最优",
+      "idea": "每次加入新元素并移除离开窗口的元素，维护最大和。",
+      "steps": [
+        "求前 k 项 windowSum 并初始化 best",
+        "从 k 开始依次加 nums[right]、减 nums[right-k]",
+        "更新 best，返回 best/k 的浮点结果"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/fixed-window-sum/Solution.java",
+        "kotlin": "solutions/fixed-window-sum/Solution.kt",
+        "cpp": "solutions/fixed-window-sum/solution.cpp"
+      }
+    }
+  ]
+}

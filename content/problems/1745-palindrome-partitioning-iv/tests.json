@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "checkPartitioning",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "a bcb dd 三段均回文",
+      "args": [
+        "abcbdd"
+      ],
+      "expected": true
+    },
+    {
+      "name": "无法切成三个回文段",
+      "args": [
+        "bcbddxy"
+      ],
+      "expected": false
+    },
+    {
+      "name": "三个单字符均为回文",
+      "args": [
+        "aaa"
+      ],
+      "expected": true
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 378,
+  "slug": "kth-smallest-element-in-a-sorted-matrix",
+  "title": "有序矩阵中第 K 小的元素",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-006",
+  "studyTags": [
+    "二分答案",
+    "矩阵",
+    "阶梯计数"
+  ],
+  "summary": "矩阵每行每列都按非递减排列，返回所有元素中的第 k 小值。",
+  "insight": "对数值范围二分，并从左下角线性统计小于等于 middle 的元素数，计数随 middle 单调。",
+  "pitfalls": [
+    "矩阵中可有重复值",
+    "二分的是数值而非下标",
+    "计数达到 k 时收缩右边界并保留 middle"
+  ],
+  "solutions": [
+    {
+      "id": "value-binary-search",
+      "title": "数值域二分 + 阶梯计数",
+      "kind": "最优",
+      "idea": "利用有序矩阵在 O(n) 内计算不大于候选值的元素数量。",
+      "steps": [
+        "left=matrix[0][0], right=matrix[n-1][n-1]",
+        "从左下角统计 <=middle 的数量",
+        "count<k 时 left=middle+1，否则 right=middle，返回 left"
+      ],
+      "complexity": {
+        "time": "O(n log range)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/value-binary-search/Solution.java",
+        "kotlin": "solutions/value-binary-search/Solution.kt",
+        "cpp": "solutions/value-binary-search/solution.cpp"
+      }
+    }
+  ]
+}

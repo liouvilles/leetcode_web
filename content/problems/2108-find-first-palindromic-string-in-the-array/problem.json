@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2108,
+  "slug": "find-first-palindromic-string-in-the-array",
+  "title": "找出数组中的第一个回文字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "数组",
+    "双指针",
+    "字符串"
+  ],
+  "summary": "按数组顺序返回第一个正反读相同的字符串，不存在返回空串。",
+  "insight": "逐词使用双指针从两端比较；首个全部匹配的词立即返回。",
+  "pitfalls": [
+    "按输入顺序而非长度",
+    "单字符总是回文",
+    "不存在返回空"
+  ],
+  "solutions": [
+    {
+      "id": "ordered-two-pointer-palindrome-check",
+      "title": "顺序双指针回文检查",
+      "kind": "最优",
+      "idea": "逐个单词验证两端字符。",
+      "steps": [
+        "遍历 words",
+        "left=0、right=last，向内比较",
+        "全部相等立即返回 word；结束返回空串"
+      ],
+      "complexity": {
+        "time": "O(total characters)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/ordered-two-pointer-palindrome-check/Solution.java",
+        "kotlin": "solutions/ordered-two-pointer-palindrome-check/Solution.kt",
+        "cpp": "solutions/ordered-two-pointer-palindrome-check/solution.cpp"
+      }
+    }
+  ]
+}

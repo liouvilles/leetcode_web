@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1773,
+  "slug": "count-items-matching-a-rule",
+  "title": "统计匹配检索规则的物品数量",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-025",
+  "studyTags": [
+    "数组",
+    "字符串"
+  ],
+  "summary": "每件物品依次含 type、color、name，给出 ruleKey 与 ruleValue，统计对应字段相等的物品数。",
+  "insight": "把三个字段名映射为下标零、一、二，然后逐物品比较该下标字段即可。",
+  "pitfalls": [
+    "字段顺序固定",
+    "只比较规则指定字段",
+    "字符串需精确相等"
+  ],
+  "solutions": [
+    {
+      "id": "rule-column-count",
+      "title": "规则字段列计数",
+      "kind": "最优",
+      "idea": "将字段名转换为矩阵列下标。",
+      "steps": [
+        "index=ruleKey 为 type/color/name 对应 0/1/2",
+        "answer=0",
+        "遍历 item，item[index]==ruleValue 时计数"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/rule-column-count/Solution.java",
+        "kotlin": "solutions/rule-column-count/Solution.kt",
+        "cpp": "solutions/rule-column-count/solution.cpp"
+      }
+    }
+  ]
+}

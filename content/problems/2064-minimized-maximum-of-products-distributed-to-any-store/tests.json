@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimizedMaximum",
+  "parameterTypes": [
+    "int",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "十一个六个商品分六店最大三",
+      "args": [
+        6,
+        [
+          11,
+          6
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "三类商品分七店最大五",
+      "args": [
+        7,
+        [
+          15,
+          10,
+          10
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "单店承接全部十万件",
+      "args": [
+        1,
+        [
+          100000
+        ]
+      ],
+      "expected": 100000
+    }
+  ]
+}

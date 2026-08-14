@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 959,
+  "slug": "regions-cut-by-slashes",
+  "title": "由斜杠划分区域",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-014",
+  "studyTags": [
+    "数组",
+    "深度优先搜索",
+    "矩阵"
+  ],
+  "summary": "字符网格中的正斜杠和反斜杠把单位方格分割，求整个网格形成的区域数量。",
+  "insight": "把每格放大为 3×3 像素，斜杠用三个阻塞像素画出，问题转化为统计放大网格中空白连通分量。",
+  "pitfalls": [
+    "空格不画阻塞线",
+    "三倍分辨率足以阻断斜向穿越",
+    "正反斜杠的三个像素方向相反"
+  ],
+  "solutions": [
+    {
+      "id": "threefold-grid-flood-fill",
+      "title": "三倍网格洪泛",
+      "kind": "最优",
+      "idea": "栅格化斜线后统计空白区域。",
+      "steps": [
+        "创建大小 3n 的 blocked 网格",
+        "字符 / 标记右上、中间、左下；字符码 92 的反斜杠标记左上、中间、右下",
+        "遍历所有未阻塞像素，每发现一个就区域数加一并 BFS 标记其四连通分量"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/threefold-grid-flood-fill/Solution.java",
+        "kotlin": "solutions/threefold-grid-flood-fill/Solution.kt",
+        "cpp": "solutions/threefold-grid-flood-fill/solution.cpp"
+      }
+    }
+  ]
+}

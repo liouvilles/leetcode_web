@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 871,
+  "slug": "minimum-number-of-refueling-stops",
+  "title": "最低加油次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "堆"
+  ],
+  "summary": "汽车从零出发，每单位燃料行驶一单位，沿途加油站可取全部燃料，求到 target 的最少加油次数，不可达返回负一。",
+  "insight": "只在油量不足以到终点时决定过去在哪站加油；所有已可达站中选择燃料最多者，可最大化下一次可达范围且不增加加油次数。",
+  "pitfalls": [
+    "起始燃料等价于初始可达距离",
+    "站点按位置升序给出",
+    "堆空且仍到不了目标时不可达"
+  ],
+  "solutions": [
+    {
+      "id": "reachable-stations-max-heap",
+      "title": "可达加油站最大堆",
+      "kind": "最优",
+      "idea": "延迟决策并每次选择历史最大油量。",
+      "steps": [
+        "fuel=startFuel,index=0,stops=0",
+        "while fuel<target，把 position<=fuel 的站油量压入最大堆",
+        "若堆空返回 -1；否则弹最大油量加到 fuel，stops++，到达后返回 stops"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/reachable-stations-max-heap/Solution.java",
+        "kotlin": "solutions/reachable-stations-max-heap/Solution.kt",
+        "cpp": "solutions/reachable-stations-max-heap/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { private fun check(nums:IntArray,skip:Int):Boolean{var previous=-1;for(i in nums.indices)if(i!=skip){if(previous!=-1&&nums[previous]>=nums[i])return false;previous=i};return true};fun canBeIncreasing(nums:IntArray):Boolean{for(i in 0 until nums.lastIndex)if(nums[i]>=nums[i+1])return check(nums,i)||check(nums,i+1);return true} }

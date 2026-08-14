@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 86,
+  "slug": "partition-list",
+  "title": "分隔链表",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-004",
+  "studyTags": [
+    "链表",
+    "双链表",
+    "稳定分区"
+  ],
+  "summary": "把链表按给定值 x 分区，使小于 x 的节点位于其余节点之前，同时保持两组节点的原相对顺序。",
+  "insight": "分别把节点追加到“小于”和“不小于”两条链表，扫描结束后连接两条链表即可保持稳定性。",
+  "pitfalls": [
+    "必须保留每组内部的原始顺序",
+    "较大链表尾部要置空以避免环",
+    "哑节点可简化空分区处理"
+  ],
+  "solutions": [
+    {
+      "id": "two-stable-lists",
+      "title": "双链表稳定拼接",
+      "kind": "最优",
+      "idea": "一次扫描按条件把原节点追加到两条临时链表尾部。",
+      "steps": [
+        "创建 before/after 两个哑节点",
+        "逐节点追加到对应尾部",
+        "after 尾置空并连接两组"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/two-stable-lists/Solution.java",
+        "kotlin": "solutions/two-stable-lists/Solution.kt",
+        "cpp": "solutions/two-stable-lists/solution.cpp"
+      }
+    }
+  ]
+}

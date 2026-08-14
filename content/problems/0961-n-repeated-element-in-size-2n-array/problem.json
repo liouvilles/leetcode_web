@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 961,
+  "slug": "n-repeated-element-in-size-2n-array",
+  "title": "在长度 2N 的数组中找出重复 N 次的元素",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-014",
+  "studyTags": [
+    "数组",
+    "哈希集合"
+  ],
+  "summary": "长度 2n 的数组含 n+1 个不同元素，其中一个恰出现 n 次，其余各一次，返回重复元素。",
+  "insight": "扫描时第一个无法加入集合的元素必然就是唯一重复元素。",
+  "pitfalls": [
+    "n 可能为二，重复元素只出现两次",
+    "无需统计完整频次",
+    "题目保证存在且唯一"
+  ],
+  "solutions": [
+    {
+      "id": "first-duplicate-set",
+      "title": "首个重复集合检测",
+      "kind": "最优",
+      "idea": "用已见集合识别第二次出现的元素。",
+      "steps": [
+        "创建空集合 seen",
+        "依次尝试加入 nums 中元素",
+        "若 add 返回 false 就立即返回该值"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/first-duplicate-set/Solution.java",
+        "kotlin": "solutions/first-duplicate-set/Solution.kt",
+        "cpp": "solutions/first-duplicate-set/solution.cpp"
+      }
+    }
+  ]
+}

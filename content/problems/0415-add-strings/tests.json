@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "addStrings",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "三位数相加",
+      "args": [
+        "11",
+        "123"
+      ],
+      "expected": "134"
+    },
+    {
+      "name": "产生最高位进位",
+      "args": [
+        "456",
+        "77"
+      ],
+      "expected": "533"
+    },
+    {
+      "name": "两个零",
+      "args": [
+        "0",
+        "0"
+      ],
+      "expected": "0"
+    }
+  ]
+}

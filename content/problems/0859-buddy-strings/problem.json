@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 859,
+  "slug": "buddy-strings",
+  "title": "亲密字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "字符串",
+    "哈希表"
+  ],
+  "summary": "判断能否在字符串 s 中恰好交换两个不同位置的字符，使其等于 goal。",
+  "insight": "若两串不同，必须恰有两个错位且交叉字符匹配；若本就相同，只有存在重复字符时才能交换两个相同字符保持不变。",
+  "pitfalls": [
+    "长度不同直接失败",
+    "相同字符串也必须执行一次交换",
+    "错位数量必须恰好为二"
+  ],
+  "solutions": [
+    {
+      "id": "mismatch-pair-or-duplicate",
+      "title": "错位对或重复字符判定",
+      "kind": "最优",
+      "idea": "按字符串是否已经相等分两种情况处理。",
+      "steps": [
+        "长度不同返回假",
+        "若 s==goal，扫描字符集合，发现重复字符返回真，否则假",
+        "否则记录错位下标，超过二失败；最后要求恰两个且 s[first]==goal[second]、s[second]==goal[first]"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(character set)"
+      },
+      "files": {
+        "java": "solutions/mismatch-pair-or-duplicate/Solution.java",
+        "kotlin": "solutions/mismatch-pair-or-duplicate/Solution.kt",
+        "cpp": "solutions/mismatch-pair-or-duplicate/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": 1556,
+  "slug": "thousand-separator",
+  "title": "千位分隔数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-022",
+  "studyTags": [
+    "字符串"
+  ],
+  "summary": "把非负整数 n 的十进制表示每三位从右向左插入点号分隔。",
+  "insight": "从右向左读取数字，每加入三位且前面仍有数字时插入点号，最后反转。",
+  "pitfalls": [
+    "不足四位不插点",
+    "零返回 0",
+    "分组从最低位开始"
+  ],
+  "solutions": [
+    {
+      "id": "reverse-grouping",
+      "title": "逆向三位分组",
+      "kind": "最优",
+      "idea": "从个位向高位构造反向结果再翻转。",
+      "steps": [
+        "text=toString(n),builder 空",
+        "i 从末尾向零，每累计三位且 i>0 时追加点",
+        "反转 builder 返回"
+      ],
+      "complexity": {
+        "time": "O(log n)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/reverse-grouping/Solution.java",
+        "kotlin": "solutions/reverse-grouping/Solution.kt",
+        "cpp": "solutions/reverse-grouping/solution.cpp"
+      }
+    }
+  ]
+}

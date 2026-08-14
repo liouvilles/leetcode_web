@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1646,
+  "slug": "get-maximum-in-generated-array",
+  "title": "获取生成数组中的最大值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-023",
+  "studyTags": [
+    "数组",
+    "模拟"
+  ],
+  "summary": "按给定递推规则生成长度 n+1 的数组：偶数下标复制一半位置，奇数下标为相邻两个位置之和，返回最大值。",
+  "insight": "递推引用的下标都小于当前下标，可按下标从二开始顺序生成，同时维护最大值。",
+  "pitfalls": [
+    "n 为零时数组只有零",
+    "n 大于零时 nums[1]=1",
+    "奇数公式使用 nums[i/2]+nums[i/2+1]"
+  ],
+  "solutions": [
+    {
+      "id": "forward-simulation",
+      "title": "递推顺序模拟",
+      "kind": "最优",
+      "idea": "直接实现数组定义并在线取最大值。",
+      "steps": [
+        "n==0 返回零，初始化 nums[1]=1、answer=1",
+        "i 从二到 n：偶数复制 nums[i/2]，奇数相加",
+        "用生成值更新 answer 并返回"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/forward-simulation/Solution.java",
+        "kotlin": "solutions/forward-simulation/Solution.kt",
+        "cpp": "solutions/forward-simulation/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxDistance",
+  "parameterTypes": [
+    "intListMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三个升序数组",
+      "args": [
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            1,
+            2,
+            3
+          ]
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "两个单元素数组",
+      "args": [
+        [
+          [
+            1
+          ],
+          [
+            1
+          ]
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "含负数跨数组",
+      "args": [
+        [
+          [
+            -10,
+            -5
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            3,
+            9
+          ]
+        ]
+      ],
+      "expected": 19
+    }
+  ]
+}

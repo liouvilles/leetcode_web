@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "ambiguousCoordinates",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "stringList",
+  "cases": [
+    {
+      "name": "三位数字四种坐标",
+      "args": [
+        "(123)"
+      ],
+      "expected": [
+        "(1, 23)",
+        "(1, 2.3)",
+        "(12, 3)",
+        "(1.2, 3)"
+      ]
+    },
+    {
+      "name": "前导零限制",
+      "args": [
+        "(00011)"
+      ],
+      "expected": [
+        "(0, 0.011)",
+        "(0.001, 1)"
+      ]
+    },
+    {
+      "name": "两位数字唯一坐标",
+      "args": [
+        "(10)"
+      ],
+      "expected": [
+        "(1, 0)"
+      ]
+    }
+  ]
+}

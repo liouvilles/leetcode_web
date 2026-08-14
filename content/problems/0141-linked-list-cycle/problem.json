@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "id": 141,
+  "slug": "linked-list-cycle",
+  "title": "环形链表",
+  "status": "published",
+  "qualityGate": "compile",
+  "batch": "legacy-001",
+  "studyTags": [
+    "快慢指针",
+    "Floyd 判圈",
+    "访问状态"
+  ],
+  "summary": "判断单链表沿 next 指针前进时是否会进入一个环。",
+  "insight": "如果存在环，快指针进入环后会不断缩小与慢指针的环上距离，最终相遇。",
+  "pitfalls": [
+    "检查 fast 与 fast.next 后才能走两步",
+    "比较的是结点身份而非结点值",
+    "空链表与单结点无环都要返回 false"
+  ],
+  "solutions": [
+    {
+      "id": "visited-set",
+      "title": "记录访问结点",
+      "kind": "基础",
+      "idea": "把每个访问过的结点引用存入集合，再次遇到同一引用即可确认有环。",
+      "steps": [
+        "从头结点开始遍历",
+        "当前结点已在集合中则返回 true",
+        "记录结点并继续，走到 null 则无环"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/visited-set/Solution.java",
+        "kotlin": "solutions/visited-set/Solution.kt",
+        "cpp": "solutions/visited-set/solution.cpp"
+      }
+    },
+    {
+      "id": "floyd",
+      "title": "Floyd 快慢指针",
+      "kind": "最优",
+      "idea": "慢指针每次一步、快指针每次两步；有环时二者必然相遇。",
+      "steps": [
+        "slow 与 fast 都从头部出发",
+        "确认快指针可走两步后推进",
+        "相遇则有环，快指针到 null 则无环"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/floyd/Solution.java",
+        "kotlin": "solutions/floyd/Solution.kt",
+        "cpp": "solutions/floyd/solution.cpp"
+      }
+    }
+  ]
+}

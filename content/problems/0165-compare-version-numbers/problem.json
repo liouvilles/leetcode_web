@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 165,
+  "slug": "compare-version-numbers",
+  "title": "比较版本号",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-004",
+  "studyTags": [
+    "字符串解析",
+    "双指针",
+    "分段比较"
+  ],
+  "summary": "逐段比较两个点分十进制版本号，忽略每段前导零以及末尾缺省的零段。",
+  "insight": "把两个版本拆成修订号数组，逐位置解析数值；缺少的修订号视为零，第一次不同即决定大小。",
+  "pitfalls": [
+    "不能按字符串字典序比较数字段",
+    "前导零不影响数值",
+    "较短版本的缺失段等价于零"
+  ],
+  "solutions": [
+    {
+      "id": "revision-by-revision",
+      "title": "逐修订号数值比较",
+      "kind": "最优",
+      "idea": "同步遍历最长段数，每次取对应数值或零并比较。",
+      "steps": [
+        "按点拆分两个版本",
+        "枚举到较长数组末尾",
+        "解析对应段，首次不同返回 -1 或 1，否则返回 0"
+      ],
+      "complexity": {
+        "time": "O(m+n)",
+        "space": "O(m+n)"
+      },
+      "files": {
+        "java": "solutions/revision-by-revision/Solution.java",
+        "kotlin": "solutions/revision-by-revision/Solution.kt",
+        "cpp": "solutions/revision-by-revision/solution.cpp"
+      }
+    }
+  ]
+}

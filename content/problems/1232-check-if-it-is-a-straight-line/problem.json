@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1232,
+  "slug": "check-if-it-is-a-straight-line",
+  "title": "缀点成线",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-017",
+  "studyTags": [
+    "数组",
+    "数学",
+    "几何",
+    "叉积"
+  ],
+  "summary": "判断二维平面上的所有给定点是否位于同一条直线上。",
+  "insight": "以第一个点为基准方向，所有其他点与该方向共线当且仅当二维叉积为零；交叉相乘避免斜率除法和竖直线特殊处理。",
+  "pitfalls": [
+    "不要使用浮点斜率比较",
+    "乘法用长整型避免溢出",
+    "前两个点保证不同"
+  ],
+  "solutions": [
+    {
+      "id": "cross-product-collinearity",
+      "title": "叉积共线判断",
+      "kind": "最优",
+      "idea": "验证所有相对向量与基准向量叉积为零。",
+      "steps": [
+        "取 dx=x1-x0、dy=y1-y0",
+        "从第三个点开始计算 relativeX、relativeY",
+        "若 dx*relativeY != dy*relativeX 返回 false；全部通过返回 true"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/cross-product-collinearity/Solution.java",
+        "kotlin": "solutions/cross-product-collinearity/Solution.kt",
+        "cpp": "solutions/cross-product-collinearity/solution.cpp"
+      }
+    }
+  ]
+}

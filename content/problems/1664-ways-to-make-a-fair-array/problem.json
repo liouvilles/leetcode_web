@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1664,
+  "slug": "ways-to-make-a-fair-array",
+  "title": "生成平衡数组的方案数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-024",
+  "studyTags": [
+    "数组",
+    "前缀和"
+  ],
+  "summary": "删除一个元素后其右侧下标左移，统计新数组偶数下标和等于奇数下标和的删除位置数。",
+  "insight": "预先求原数组奇偶下标总和。枚举删除点时，左侧奇偶性不变，右侧奇偶性互换，据此 O(1) 算出删除后的两类和。",
+  "pitfalls": [
+    "删除点右侧所有元素奇偶性翻转",
+    "删除元素本身不进入任一和",
+    "单元素数组删除后两和均为零"
+  ],
+  "solutions": [
+    {
+      "id": "parity-prefix-sums",
+      "title": "奇偶前缀和",
+      "kind": "最优",
+      "idea": "分别组合删除点左侧原奇偶和与右侧翻转后的和。",
+      "steps": [
+        "计算 totalEven、totalOdd，维护 leftEven、leftOdd",
+        "枚举 i，求去掉当前值后的 rightEven、rightOdd",
+        "newEven=leftEven+rightOdd，newOdd=leftOdd+rightEven；相等则计数，再把当前值加入左侧"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/parity-prefix-sums/Solution.java",
+        "kotlin": "solutions/parity-prefix-sums/Solution.kt",
+        "cpp": "solutions/parity-prefix-sums/solution.cpp"
+      }
+    }
+  ]
+}

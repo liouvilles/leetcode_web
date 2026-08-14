@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "constructDistancedSequence",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "n 三的字典序最大序列",
+      "args": [
+        3
+      ],
+      "expected": [
+        3,
+        1,
+        2,
+        3,
+        2
+      ]
+    },
+    {
+      "name": "n 五的字典序最大序列",
+      "args": [
+        5
+      ],
+      "expected": [
+        5,
+        3,
+        1,
+        4,
+        3,
+        5,
+        2,
+        4,
+        2
+      ]
+    },
+    {
+      "name": "n 一只有单个一",
+      "args": [
+        1
+      ],
+      "expected": [
+        1
+      ]
+    }
+  ]
+}

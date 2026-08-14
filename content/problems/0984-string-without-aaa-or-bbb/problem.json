@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 984,
+  "slug": "string-without-aaa-or-bbb",
+  "title": "不含 AAA 或 BBB 的字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-014",
+  "studyTags": [
+    "字符串",
+    "贪心"
+  ],
+  "summary": "使用恰好 a 个字母 a 和 b 个字母 b 构造不含 aaa、bbb 子串的任意字符串，题目保证有解。",
+  "insight": "通常追加剩余数量更多的字符；但若结果末尾已有两个相同字符，就强制追加另一个字符，既避免三连又优先消耗多数。",
+  "pitfalls": [
+    "必须用完给定数量的两种字符",
+    "检测结果最后两个字符再决定强制分支",
+    "剩余数量相同时固定选择 b 可得到确定输出"
+  ],
+  "solutions": [
+    {
+      "id": "remaining-majority-greedy",
+      "title": "剩余多数贪心",
+      "kind": "最优",
+      "idea": "受三连约束时强制换字符，否则取余量更多者。",
+      "steps": [
+        "维护 StringBuilder 与剩余 a、b",
+        "若末尾为 aa 则追加 b；末尾为 bb 则追加 a",
+        "否则 a>b 时追加 a，其余追加 b；对应计数减一，直到用完"
+      ],
+      "complexity": {
+        "time": "O(a+b)",
+        "space": "O(a+b)"
+      },
+      "files": {
+        "java": "solutions/remaining-majority-greedy/Solution.java",
+        "kotlin": "solutions/remaining-majority-greedy/Solution.kt",
+        "cpp": "solutions/remaining-majority-greedy/solution.cpp"
+      }
+    }
+  ]
+}

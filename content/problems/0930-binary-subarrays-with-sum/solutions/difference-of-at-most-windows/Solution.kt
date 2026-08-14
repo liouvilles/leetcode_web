@@ -1,0 +1,1 @@
+class Solution { fun numSubarraysWithSum(nums:IntArray,goal:Int):Int=atMost(nums,goal)-atMost(nums,goal-1);private fun atMost(nums:IntArray,limit:Int):Int{if(limit<0)return 0;var left=0;var sum=0;var count=0;for(right in nums.indices){sum+=nums[right];while(sum>limit)sum-=nums[left++];count+=right-left+1};return count} }

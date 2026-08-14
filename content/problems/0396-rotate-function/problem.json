@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 396,
+  "slug": "rotate-function",
+  "title": "旋转函数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-006",
+  "studyTags": [
+    "递推",
+    "数组",
+    "数学"
+  ],
+  "summary": "定义数组每次循环右移后的加权和，求所有旋转状态中的最大加权和。",
+  "insight": "从前一状态右移一次时，大多数元素权重加一，而移到首位的元素少了 n 倍，因此可常数时间递推。",
+  "pitfalls": [
+    "初始状态 F(0) 需要直接计算",
+    "使用总和避免每轮重算",
+    "旋转取出的元素下标为 n-k"
+  ],
+  "solutions": [
+    {
+      "id": "rotation-recurrence",
+      "title": "旋转加权和递推",
+      "kind": "最优",
+      "idea": "利用 F(k)=F(k-1)+sum-n*nums[n-k] 逐状态更新。",
+      "steps": [
+        "计算 sum 和 F0",
+        "k 从一到 n-1 更新 current",
+        "持续维护最大值"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/rotation-recurrence/Solution.java",
+        "kotlin": "solutions/rotation-recurrence/Solution.kt",
+        "cpp": "solutions/rotation-recurrence/solution.cpp"
+      }
+    }
+  ]
+}

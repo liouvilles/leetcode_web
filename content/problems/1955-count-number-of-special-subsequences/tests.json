@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countSpecialSubsequences",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一个零一与两个二有三种",
+      "args": [
+        [
+          0,
+          1,
+          2,
+          2
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "二在零之前无法形成特殊序列",
+      "args": [
+        [
+          2,
+          2,
+          0,
+          0
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "零一二恰有一种",
+      "args": [
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

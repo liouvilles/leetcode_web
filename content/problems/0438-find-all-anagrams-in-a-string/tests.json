@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findAnagrams",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "intList",
+  "cases": [
+    {
+      "name": "两个相距较远的异位词",
+      "args": [
+        "cbaebabacd",
+        "abc"
+      ],
+      "expected": [
+        0,
+        6
+      ]
+    },
+    {
+      "name": "重叠异位词",
+      "args": [
+        "abab",
+        "ab"
+      ],
+      "expected": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "name": "模式比文本更长",
+      "args": [
+        "a",
+        "ab"
+      ],
+      "expected": []
+    }
+  ]
+}

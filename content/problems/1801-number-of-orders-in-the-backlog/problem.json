@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1801,
+  "slug": "number-of-orders-in-the-backlog",
+  "title": "积压订单中的订单总数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-026",
+  "studyTags": [
+    "数组",
+    "堆（优先队列）",
+    "模拟"
+  ],
+  "summary": "买卖订单按顺序到达；买单优先匹配最低卖价且不高于买价，卖单匹配最高买价且不低于卖价，求最终积压数量。",
+  "insight": "买单用最高买价大根堆、卖单用最低卖价小根堆，按价格条件不断撮合并扣减数量，剩余才入对应堆。",
+  "pitfalls": [
+    "订单类型零为买、一为卖",
+    "匹配可跨多个积压订单",
+    "最终数量取模且用 long"
+  ],
+  "solutions": [
+    {
+      "id": "dual-price-heaps",
+      "title": "买卖双价格堆",
+      "kind": "最优",
+      "idea": "分别维护当前最有利的买价与卖价。",
+      "steps": [
+        "buy 按 price 降序，sell 按 price 升序",
+        "买单 while sell.price<=price 撮合；卖单对称处理 buy.price>=price",
+        "剩余 amount 入堆，最后累加两堆数量取模"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/dual-price-heaps/Solution.java",
+        "kotlin": "solutions/dual-price-heaps/Solution.kt",
+        "cpp": "solutions/dual-price-heaps/solution.cpp"
+      }
+    }
+  ]
+}

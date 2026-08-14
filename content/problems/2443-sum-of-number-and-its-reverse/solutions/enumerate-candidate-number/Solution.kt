@@ -1,0 +1,1 @@
+class Solution { fun sumOfNumberAndReverse(num:Int):Boolean{for(value in 0..num){var x=value;var reversed=0;while(x>0){reversed=reversed*10+x%10;x/=10};if(value+reversed==num)return true};return false} }

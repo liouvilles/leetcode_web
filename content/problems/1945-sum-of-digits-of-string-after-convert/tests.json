@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getLucky",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四个 i 首轮和三十六",
+      "args": [
+        "iiii",
+        1
+      ],
+      "expected": 36
+    },
+    {
+      "name": "leetcode 两轮后为六",
+      "args": [
+        "leetcode",
+        2
+      ],
+      "expected": 6
+    },
+    {
+      "name": "zbax 两轮后为八",
+      "args": [
+        "zbax",
+        2
+      ],
+      "expected": 8
+    }
+  ]
+}

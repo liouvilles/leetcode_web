@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isCousins",
+  "parameterTypes": [
+    "treeNode",
+    "int",
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "深度不同",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        4,
+        3
+      ],
+      "expected": false
+    },
+    {
+      "name": "同深度不同父",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          null,
+          4,
+          null,
+          5
+        ],
+        5,
+        4
+      ],
+      "expected": true
+    },
+    {
+      "name": "亲兄弟不是堂兄弟",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        2,
+        3
+      ],
+      "expected": false
+    }
+  ]
+}

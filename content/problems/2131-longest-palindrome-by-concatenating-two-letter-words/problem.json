@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2131,
+  "slug": "longest-palindrome-by-concatenating-two-letter-words",
+  "title": "连接两字母单词得到的最长回文串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-031",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "字符串",
+    "贪心"
+  ],
+  "summary": "每个单词恰有两个小写字母，可任选并重排连接，求所得回文串的最大长度。",
+  "insight": "非对称单词 ab 只能与 ba 成对贡献四；对称单词 aa 每两份贡献四，最后还可选一个剩余对称单词放在中心贡献二。",
+  "pitfalls": [
+    "每个单词最多使用一次",
+    "中心最多放一个对称单词",
+    "只遍历无序字符对以免重复计数"
+  ],
+  "solutions": [
+    {
+      "id": "pair-reversed-word-counts",
+      "title": "反向单词配对计数",
+      "kind": "最优",
+      "idea": "按 26×26 频次数组直接计算可用对。",
+      "steps": [
+        "统计 count[first][second]",
+        "对 a<b 累加 min(count[a][b],count[b][a])*4",
+        "对 a==b 累加 count/2*4，并记录是否存在奇数剩余；有则最终加二"
+      ],
+      "complexity": {
+        "time": "O(n+alphabet²)",
+        "space": "O(alphabet²)"
+      },
+      "files": {
+        "java": "solutions/pair-reversed-word-counts/Solution.java",
+        "kotlin": "solutions/pair-reversed-word-counts/Solution.kt",
+        "cpp": "solutions/pair-reversed-word-counts/solution.cpp"
+      }
+    }
+  ]
+}

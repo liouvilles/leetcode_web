@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2406,
+  "slug": "divide-intervals-into-minimum-number-of-groups",
+  "title": "将区间分为最少组数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-035",
+  "studyTags": [
+    "数组",
+    "双指针",
+    "贪心",
+    "排序"
+  ],
+  "summary": "把闭区间分组，使同组任意区间不相交，求最少组数。",
+  "insight": "最少组数等于任一点被覆盖的最大区间数。分别排序所有起点和终点，起点不大于最早终点时增加活跃数，否则释放一个区间。",
+  "pitfalls": [
+    "区间闭合，起点等于终点仍相交",
+    "答案是最大同时活跃数",
+    "终点事件在严格小于下一起点时先释放"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-endpoint-sweep",
+      "title": "排序端点扫描线",
+      "kind": "最优",
+      "idea": "计算闭区间最大重叠深度。",
+      "steps": [
+        "提取并排序 starts、ends",
+        "i=j=active=answer=0",
+        "若 starts[i]<=ends[j]，active++、i++ 并更新 answer",
+        "否则 active--、j++；返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/sorted-endpoint-sweep/Solution.java",
+        "kotlin": "solutions/sorted-endpoint-sweep/Solution.kt",
+        "cpp": "solutions/sorted-endpoint-sweep/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1409,
+  "slug": "queries-on-a-permutation-with-key",
+  "title": "查询带键的排列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-020",
+  "studyTags": [
+    "数组",
+    "模拟"
+  ],
+  "summary": "初始排列为 1 到 m；每次查询某值当前下标并将该值移到排列开头，返回所有下标。",
+  "insight": "用动态列表直接查找与移动即可清晰模拟；题目规模足以接受每次线性操作。",
+  "pitfalls": [
+    "下标从零开始",
+    "每次查询后立即移动元素",
+    "后续查询基于更新后的排列"
+  ],
+  "solutions": [
+    {
+      "id": "list-move-to-front",
+      "title": "列表移到前端模拟",
+      "kind": "最优",
+      "idea": "对每个查询执行查找、删除和头插。",
+      "steps": [
+        "初始化 permutation=[1..m]",
+        "对 query 求 indexOf 并记录",
+        "remove(index) 后 add(0,query)"
+      ],
+      "complexity": {
+        "time": "O(qm)",
+        "space": "O(m)"
+      },
+      "files": {
+        "java": "solutions/list-move-to-front/Solution.java",
+        "kotlin": "solutions/list-move-to-front/Solution.kt",
+        "cpp": "solutions/list-move-to-front/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { fun maxMatrixSum(matrix:Array<IntArray>):Long{var sum=0L;var negatives=0;var minimum=Int.MAX_VALUE;for(row in matrix)for(value in row){if(value<0)negatives++;val absolute=kotlin.math.abs(value);sum+=absolute;minimum=minOf(minimum,absolute)};return if(negatives%2==0)sum else sum-2L*minimum} }

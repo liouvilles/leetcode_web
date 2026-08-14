@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1025,
+  "slug": "divisor-game",
+  "title": "除数博弈",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-015",
+  "studyTags": [
+    "数学",
+    "博弈"
+  ],
+  "summary": "两人从 n 开始轮流选 0<x<n 且 n%x=0，并把 n 替换为 n-x；无法操作者输，判断先手是否必胜。",
+  "insight": "偶数时先手可选 x=1 把奇数交给对手；奇数的所有因子都是奇数，减后得到偶数，因此奇偶状态互相归纳，先手仅在 n 为偶数时胜。",
+  "pitfalls": [
+    "x 必须严格小于 n",
+    "n=1 无合法操作所以先手输",
+    "结论是偶数充要条件"
+  ],
+  "solutions": [
+    {
+      "id": "parity-game-invariant",
+      "title": "奇偶博弈不变量",
+      "kind": "最优",
+      "idea": "用归纳得到偶数必胜、奇数必败。",
+      "steps": [
+        "观察 n=1 为败态，n=2 可减一到败态",
+        "偶数总可选一转成奇数；奇数任一合法因子均为奇数，减后成为偶数",
+        "因此直接返回 n%2==0"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/parity-game-invariant/Solution.java",
+        "kotlin": "solutions/parity-game-invariant/Solution.kt",
+        "cpp": "solutions/parity-game-invariant/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2338,
+  "slug": "count-the-number-of-ideal-arrays",
+  "title": "统计理想数组的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "数学",
+    "动态规划",
+    "组合数学",
+    "数论",
+    "质因数分解"
+  ],
+  "summary": "统计长度 n、元素不超过 maxValue，且每个元素整除下一个元素的正整数数组数量，结果取模。",
+  "insight": "固定末值 v 并分解质因数。某质因子的 e 次指数增长可分配到 n-1 个转移间隙及初始位置，方案数为 C(n-1+e,e)；各质因子独立相乘后对 v 求和。",
+  "pitfalls": [
+    "组合数参数与 n 有关但指数很小",
+    "不同质因子的指数分配彼此独立",
+    "需要模逆元完成组合数递推"
+  ],
+  "solutions": [
+    {
+      "id": "prime-exponents-stars-and-bars",
+      "title": "质因数指数插板法",
+      "kind": "最优",
+      "idea": "按末值质因数指数计算非降指数序列数。",
+      "steps": [
+        "预计算 combination[e]=C(n-1+e,e)，e 至多 14",
+        "枚举 value=1..maxValue 并质因数分解",
+        "ways=各指数对应 combination 的乘积；若剩余质因子指数一再乘 combination[1]",
+        "累加 ways 取模"
+      ],
+      "complexity": {
+        "time": "O(maxValue·sqrt(maxValue))",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/prime-exponents-stars-and-bars/Solution.java",
+        "kotlin": "solutions/prime-exponents-stars-and-bars/Solution.kt",
+        "cpp": "solutions/prime-exponents-stars-and-bars/solution.cpp"
+      }
+    }
+  ]
+}

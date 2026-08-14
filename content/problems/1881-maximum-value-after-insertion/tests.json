@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxValue",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "相同九追加仍为最大",
+      "args": [
+        "99",
+        9
+      ],
+      "expected": "999"
+    },
+    {
+      "name": "负数在三前插二",
+      "args": [
+        "-13",
+        2
+      ],
+      "expected": "-123"
+    },
+    {
+      "name": "正数在首个较小位前插入",
+      "args": [
+        "469",
+        5
+      ],
+      "expected": "5469"
+    }
+  ]
+}

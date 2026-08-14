@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "reachNumber",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "目标二需要三步",
+      "args": [
+        2
+      ],
+      "expected": 3
+    },
+    {
+      "name": "目标三需要两步",
+      "args": [
+        3
+      ],
+      "expected": 2
+    },
+    {
+      "name": "负目标对称",
+      "args": [
+        -4
+      ],
+      "expected": 3
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "bestTeamScore",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "分数年龄同步递增可全选",
+      "args": [
+        [
+          1,
+          3,
+          5,
+          10,
+          15
+        ],
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": 34
+    },
+    {
+      "name": "同龄球员可组成高分队",
+      "args": [
+        [
+          4,
+          5,
+          6,
+          5
+        ],
+        [
+          2,
+          1,
+          2,
+          1
+        ]
+      ],
+      "expected": 16
+    },
+    {
+      "name": "高分年轻球员与年长低分冲突",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          5
+        ],
+        [
+          8,
+          9,
+          10,
+          1
+        ]
+      ],
+      "expected": 6
+    }
+  ]
+}

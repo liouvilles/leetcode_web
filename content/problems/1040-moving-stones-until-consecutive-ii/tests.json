@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numMovesStonesII",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "三石子一到两步",
+      "args": [
+        [
+          7,
+          4,
+          9
+        ]
+      ],
+      "expected": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "特殊连续块需两步",
+      "args": [
+        [
+          6,
+          5,
+          4,
+          3,
+          10
+        ]
+      ],
+      "expected": [
+        2,
+        3
+      ]
+    },
+    {
+      "name": "已经连续",
+      "args": [
+        [
+          100,
+          101,
+          104,
+          102,
+          103
+        ]
+      ],
+      "expected": [
+        0,
+        0
+      ]
+    }
+  ]
+}

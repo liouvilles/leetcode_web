@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "kthDistinct",
+  "parameterTypes": [
+    "stringArray",
+    "int"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "第二个独一字符串为 a",
+      "args": [
+        [
+          "d",
+          "b",
+          "c",
+          "b",
+          "c",
+          "a"
+        ],
+        2
+      ],
+      "expected": "a"
+    },
+    {
+      "name": "第三个唯一字符串为 aaa",
+      "args": [
+        [
+          "aaa",
+          "aa",
+          "a"
+        ],
+        3
+      ],
+      "expected": "a"
+    },
+    {
+      "name": "没有足够唯一字符串返回空",
+      "args": [
+        [
+          "a",
+          "b",
+          "a"
+        ],
+        2
+      ],
+      "expected": ""
+    }
+  ]
+}

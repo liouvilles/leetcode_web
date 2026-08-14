@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1808,
+  "slug": "maximize-number-of-nice-divisors",
+  "title": "好因子的最大数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-026",
+  "studyTags": [
+    "数学",
+    "递归",
+    "数论"
+  ],
+  "summary": "一个数的好因子是其质因子；给定质因子总数 primeFactors，构造正整数使好因子数量最大，结果取模。",
+  "insight": "等价于把 primeFactors 拆成若干正整数，使乘积最大。整数拆分最优尽量用三；余数一时把 3+1 改成 2+2，余数二直接乘二。",
+  "pitfalls": [
+    "primeFactors<=3 时答案就是自身",
+    "快速幂取模",
+    "余数一需少用一个三再乘四"
+  ],
+  "solutions": [
+    {
+      "id": "integer-break-by-threes",
+      "title": "按三整数拆分",
+      "kind": "最优",
+      "idea": "利用固定和下乘积最大化的经典结论。",
+      "steps": [
+        "若 primeFactors<=3 返回它",
+        "quotient=p/3,remainder=p%3",
+        "remainder0 返回 3^q；remainder1 返回 3^(q-1)*4；remainder2 返回 3^q*2，均取模"
+      ],
+      "complexity": {
+        "time": "O(log p)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/integer-break-by-threes/Solution.java",
+        "kotlin": "solutions/integer-break-by-threes/Solution.kt",
+        "cpp": "solutions/integer-break-by-threes/solution.cpp"
+      }
+    }
+  ]
+}

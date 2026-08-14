@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "equalSubstring",
+  "parameterTypes": [
+    "string",
+    "string",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "预算十覆盖三位",
+      "args": [
+        "abcd",
+        "bcdf",
+        3
+      ],
+      "expected": 3
+    },
+    {
+      "name": "预算三覆盖一位",
+      "args": [
+        "abcd",
+        "cdef",
+        3
+      ],
+      "expected": 1
+    },
+    {
+      "name": "零代价相同后缀",
+      "args": [
+        "abcd",
+        "acde",
+        0
+      ],
+      "expected": 1
+    }
+  ]
+}

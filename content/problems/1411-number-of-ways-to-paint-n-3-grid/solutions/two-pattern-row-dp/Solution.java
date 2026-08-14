@@ -1,0 +1,1 @@
+class Solution { public int numOfWays(int n){long same=6,different=6,mod=1_000_000_007L;for(int row=2;row<=n;row++){long nextSame=(3*same+2*different)%mod,nextDifferent=(2*same+2*different)%mod;same=nextSame;different=nextDifferent;}return (int)((same+different)%mod);} }

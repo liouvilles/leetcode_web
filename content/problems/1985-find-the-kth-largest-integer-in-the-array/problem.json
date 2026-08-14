@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1985,
+  "slug": "find-the-kth-largest-integer-in-the-array",
+  "title": "找出数组中的第 K 大整数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-029",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "排序"
+  ],
+  "summary": "数字以无前导零字符串给出，返回按数值排序第 k 大的字符串。",
+  "insight": "非负无前导零整数先按长度比较，长度相同再按字典序比较。按降序排序后取 k-1。",
+  "pitfalls": [
+    "数值可能远超内置整数",
+    "重复值分别占排名",
+    "无前导零保证长度比较成立"
+  ],
+  "solutions": [
+    {
+      "id": "numeric-string-order",
+      "title": "数字字符串比较排序",
+      "kind": "最优",
+      "idea": "用长度和字典序实现任意精度整数降序。",
+      "steps": [
+        "排序 comparator：长度降序",
+        "长度相同字符串降序",
+        "返回 nums[k-1]"
+      ],
+      "complexity": {
+        "time": "O(n log n·L)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/numeric-string-order/Solution.java",
+        "kotlin": "solutions/numeric-string-order/Solution.kt",
+        "cpp": "solutions/numeric-string-order/solution.cpp"
+      }
+    }
+  ]
+}

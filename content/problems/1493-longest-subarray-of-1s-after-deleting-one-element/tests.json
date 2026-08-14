@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "longestSubarray",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "删除中间零得到三个一",
+      "args": [
+        [
+          1,
+          1,
+          0,
+          1
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "多个零时最长五",
+      "args": [
+        [
+          0,
+          1,
+          1,
+          1,
+          0,
+          1,
+          1,
+          0,
+          1
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "全一数组必须删一个",
+      "args": [
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

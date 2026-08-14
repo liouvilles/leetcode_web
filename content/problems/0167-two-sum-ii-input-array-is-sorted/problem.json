@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 167,
+  "slug": "two-sum-ii-input-array-is-sorted",
+  "title": "两数之和 II：输入有序数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-003",
+  "studyTags": [
+    "双指针",
+    "有序数组",
+    "一基下标"
+  ],
+  "summary": "在非递减数组中找出两个不同元素之和等于目标值，并返回从一开始计数的两个下标。",
+  "insight": "两端之和偏小只能增大左端，偏大只能减小右端，有序性保证不会漏掉唯一答案。",
+  "pitfalls": [
+    "返回下标从一开始",
+    "不能重复使用同一个元素",
+    "题目保证恰有一个答案"
+  ],
+  "solutions": [
+    {
+      "id": "two-pointers",
+      "title": "相向双指针",
+      "kind": "最优",
+      "idea": "根据当前两端和与目标的大小单调收缩搜索区间。",
+      "steps": [
+        "left=0、right=n-1",
+        "和偏小左移，偏大右移",
+        "命中后返回 left+1 与 right+1"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/two-pointers/Solution.java",
+        "kotlin": "solutions/two-pointers/Solution.kt",
+        "cpp": "solutions/two-pointers/solution.cpp"
+      }
+    }
+  ]
+}

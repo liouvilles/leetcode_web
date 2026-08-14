@@ -1,0 +1,1 @@
+class Solution { fun smallestDivisor(nums:IntArray,threshold:Int):Int{var left=1;var right=nums.max();while(left<right){val middle=(left+right)/2;var sum=0;for(value in nums)sum+=(value+middle-1)/middle;if(sum<=threshold)right=middle else left=middle+1};return left} }

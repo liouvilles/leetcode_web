@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "checkOnesSegment",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "所有一连续为一段",
+      "args": [
+        "1001"
+      ],
+      "expected": false
+    },
+    {
+      "name": "连续一后全零合法",
+      "args": [
+        "110"
+      ],
+      "expected": true
+    },
+    {
+      "name": "单个一合法",
+      "args": [
+        "1"
+      ],
+      "expected": true
+    }
+  ]
+}

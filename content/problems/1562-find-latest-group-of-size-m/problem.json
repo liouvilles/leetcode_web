@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1562,
+  "slug": "find-latest-group-of-size-m",
+  "title": "查找大小为 M 的最新分组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-022",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "模拟"
+  ],
+  "summary": "长度 n 的二进制串初始全零，按 arr 每步置一，返回最后仍存在长度恰为 m 的连续一段的步骤编号。",
+  "insight": "用 boundary length 技巧维护每个连续一段两端的长度。加入位置时合并左右段，并按被合并/新段是否长度 m 更新当前 m 段数量。",
+  "pitfalls": [
+    "步骤编号从一开始",
+    "合并会同时消灭左右两个旧分组",
+    "只需在新区间两端写长度"
+  ],
+  "solutions": [
+    {
+      "id": "boundary-length-union",
+      "title": "边界长度合并",
+      "kind": "最优",
+      "idea": "常数时间更新新置一位置所属连续段长度。",
+      "steps": [
+        "length[n+2]=0,groups=0,answer=-1",
+        "step 处 position=arr[step-1]，left=length[position-1],right=length[position+1]；旧段等于 m 时 groups--",
+        "merged=left+1+right，写到 position-left 与 position+right；若 merged==m groups++；groups>0 时 answer=step"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/boundary-length-union/Solution.java",
+        "kotlin": "solutions/boundary-length-union/Solution.kt",
+        "cpp": "solutions/boundary-length-union/solution.cpp"
+      }
+    }
+  ]
+}

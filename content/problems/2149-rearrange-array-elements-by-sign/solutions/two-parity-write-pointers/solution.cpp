@@ -1,0 +1,1 @@
+class Solution { public:vector<int> rearrangeArray(vector<int>& nums){vector<int> answer(nums.size());int positive=0,negative=1;for(int value:nums)if(value>0){answer[positive]=value;positive+=2;}else{answer[negative]=value;negative+=2;}return answer;} };

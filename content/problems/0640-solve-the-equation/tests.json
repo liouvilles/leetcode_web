@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "solveEquation",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "唯一整数解",
+      "args": [
+        "x+5-3+x=6+x-2"
+      ],
+      "expected": "x=2"
+    },
+    {
+      "name": "无限多解",
+      "args": [
+        "x=x"
+      ],
+      "expected": "Infinite solutions"
+    },
+    {
+      "name": "解为零",
+      "args": [
+        "2x=x"
+      ],
+      "expected": "x=0"
+    }
+  ]
+}

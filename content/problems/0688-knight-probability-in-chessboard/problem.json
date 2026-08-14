@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 688,
+  "slug": "knight-probability-in-chessboard",
+  "title": "骑士在棋盘上的概率",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-009",
+  "studyTags": [
+    "动态规划",
+    "矩阵",
+    "概率"
+  ],
+  "summary": "骑士从 n×n 棋盘指定位置出发，随机选择八种走法并恰好走 k 步，求仍留在棋盘内的概率。",
+  "insight": "维护每步后骑士在各格子的概率，向八个合法落点分配当前概率的八分之一；离开棋盘的质量直接丢弃。",
+  "pitfalls": [
+    "每一步八种走法等概率，包括出界走法",
+    "要求恰好走 k 步",
+    "k=0 时留在棋盘概率为一"
+  ],
+  "solutions": [
+    {
+      "id": "rolling-probability-dp",
+      "title": "滚动棋盘概率分布",
+      "kind": "最优",
+      "idea": "按步数传播仍在棋盘内的概率质量。",
+      "steps": [
+        "dp[row][column]=1",
+        "重复 k 次，新建 next 并对每个格子向八个合法位置加 dp/8",
+        "滚动结束后累加所有格子概率"
+      ],
+      "complexity": {
+        "time": "O(k·n²)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/rolling-probability-dp/Solution.java",
+        "kotlin": "solutions/rolling-probability-dp/Solution.kt",
+        "cpp": "solutions/rolling-probability-dp/solution.cpp"
+      }
+    }
+  ]
+}

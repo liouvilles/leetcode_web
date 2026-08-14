@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "kthSmallestPrimeFraction",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "第三小分数",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          5
+        ],
+        3
+      ],
+      "expected": [
+        2,
+        5
+      ]
+    },
+    {
+      "name": "唯一分数",
+      "args": [
+        [
+          1,
+          7
+        ],
+        1
+      ],
+      "expected": [
+        1,
+        7
+      ]
+    },
+    {
+      "name": "最小分数",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          5
+        ],
+        1
+      ],
+      "expected": [
+        1,
+        5
+      ]
+    }
+  ]
+}

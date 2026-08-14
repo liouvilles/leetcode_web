@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "waysToPartition",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "修改一个二为三可得一处分割",
+      "args": [
+        [
+          2,
+          -1,
+          2
+        ],
+        3
+      ],
+      "expected": 1
+    },
+    {
+      "name": "全零原本有两个分割",
+      "args": [
+        [
+          0,
+          0,
+          0
+        ],
+        1
+      ],
+      "expected": 2
+    },
+    {
+      "name": "四个一只有中间分割",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        2
+      ],
+      "expected": 1
+    }
+  ]
+}

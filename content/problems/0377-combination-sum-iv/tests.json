@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "combinationSum4",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一二三凑四",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        4
+      ],
+      "expected": 7
+    },
+    {
+      "name": "无法凑出目标",
+      "args": [
+        [
+          9
+        ],
+        3
+      ],
+      "expected": 0
+    },
+    {
+      "name": "二三凑七",
+      "args": [
+        [
+          2,
+          3
+        ],
+        7
+      ],
+      "expected": 3
+    }
+  ]
+}

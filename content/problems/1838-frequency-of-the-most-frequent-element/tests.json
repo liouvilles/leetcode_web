@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxFrequency",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "五次操作可让三元素相等",
+      "args": [
+        [
+          1,
+          2,
+          4
+        ],
+        5
+      ],
+      "expected": 3
+    },
+    {
+      "name": "五次操作最大频数二",
+      "args": [
+        [
+          1,
+          4,
+          8,
+          13
+        ],
+        5
+      ],
+      "expected": 2
+    },
+    {
+      "name": "两次操作也只能频数一",
+      "args": [
+        [
+          3,
+          9,
+          6
+        ],
+        2
+      ],
+      "expected": 1
+    }
+  ]
+}

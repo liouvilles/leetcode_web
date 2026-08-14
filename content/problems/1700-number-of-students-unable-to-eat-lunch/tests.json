@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countStudents",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "所有学生都能取到午餐",
+      "args": [
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "三名学生最终无法进餐",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          1,
+          1
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "单学生偏好不匹配",
+      "args": [
+        [
+          0
+        ],
+        [
+          1
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

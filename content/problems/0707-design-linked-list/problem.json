@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 707,
+  "slug": "design-linked-list",
+  "title": "设计链表",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-009",
+  "studyTags": [
+    "设计",
+    "链表",
+    "双向链表"
+  ],
+  "summary": "设计支持按下标读取、头插、尾插、指定下标插入和删除的链表。",
+  "insight": "使用首尾哨兵的双向链表统一边界操作，维护 size 并从更近的一端定位节点。",
+  "pitfalls": [
+    "get 非法下标返回 -1",
+    "addAtIndex index 等于 size 时等价尾插，大于 size 不操作",
+    "deleteAtIndex 只处理有效下标"
+  ],
+  "solutions": [
+    {
+      "id": "sentinel-doubly-linked-list",
+      "title": "双哨兵双向链表",
+      "kind": "最优",
+      "idea": "哨兵消除头尾插入删除的特殊分支。",
+      "steps": [
+        "建立 head、tail 哨兵相连并维护 size",
+        "nodeAt 根据 index 与 size/2 从近端走",
+        "insertBefore 把新节点接到目标前；各添加方法复用它，删除时断开目标节点"
+      ],
+      "complexity": {
+        "time": "O(min(index,n-index))",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/sentinel-doubly-linked-list/Solution.java",
+        "kotlin": "solutions/sentinel-doubly-linked-list/Solution.kt",
+        "cpp": "solutions/sentinel-doubly-linked-list/solution.cpp"
+      }
+    }
+  ]
+}

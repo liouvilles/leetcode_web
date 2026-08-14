@@ -1,0 +1,1 @@
+class Solution { fun maxWidthRamp(nums:IntArray):Int{val stack=java.util.ArrayDeque<Int>();for(i in nums.indices)if(stack.isEmpty()||nums[i]<nums[stack.peek()])stack.push(i);var answer=0;for(j in nums.lastIndex downTo 0)while(stack.isNotEmpty()&&nums[stack.peek()]<=nums[j])answer=maxOf(answer,j-stack.pop());return answer} }

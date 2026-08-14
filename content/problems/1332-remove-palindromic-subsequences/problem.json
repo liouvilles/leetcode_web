@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1332,
+  "slug": "remove-palindromic-subsequences",
+  "title": "删除回文子序列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-019",
+  "studyTags": [
+    "字符串",
+    "双指针",
+    "脑筋急转弯"
+  ],
+  "summary": "字符串只含 a、b，每次可删除一个回文子序列，求删除整个字符串的最少次数。",
+  "insight": "若原串本身回文，一次即可全部删除；否则分别删除所有 a 和所有 b，这两个单字符重复序列都为回文，所以最多两次。",
+  "pitfalls": [
+    "删除的是子序列而非子串",
+    "字符串非空",
+    "只有两种字符使答案只可能一或二"
+  ],
+  "solutions": [
+    {
+      "id": "whole-palindrome-or-two-letters",
+      "title": "整串回文或分字符删除",
+      "kind": "最优",
+      "idea": "用回文判断直接得到闭式答案。",
+      "steps": [
+        "left=0、right=n-1 向中间比较",
+        "若任一对字符不同返回二",
+        "全部相等返回一"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/whole-palindrome-or-two-letters/Solution.java",
+        "kotlin": "solutions/whole-palindrome-or-two-letters/Solution.kt",
+        "cpp": "solutions/whole-palindrome-or-two-letters/solution.cpp"
+      }
+    }
+  ]
+}

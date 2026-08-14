@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1980,
+  "slug": "find-unique-binary-string",
+  "title": "找出不同的二进制字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-028",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "康托对角线"
+  ],
+  "summary": "给定 n 个长度 n 且互不相同的二进制字符串，返回任一不在数组中的长度 n 字符串。",
+  "insight": "康托对角构造：答案第 i 位取 nums[i][i] 的反位，因此它与第 i 个输入至少在第 i 位不同，必不等于任何输入。",
+  "pitfalls": [
+    "可返回任意合法答案",
+    "输出长度必须为 n",
+    "无需枚举 2^n 个候选"
+  ],
+  "solutions": [
+    {
+      "id": "cantor-diagonal-complement",
+      "title": "对角线逐位取反",
+      "kind": "最优",
+      "idea": "让答案分别在一个确定位置区别于每个输入。",
+      "steps": [
+        "answer 字符数组长度 n",
+        "i 位若 nums[i][i] 为零则放一，否则放零",
+        "返回字符串"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/cantor-diagonal-complement/Solution.java",
+        "kotlin": "solutions/cantor-diagonal-complement/Solution.kt",
+        "cpp": "solutions/cantor-diagonal-complement/solution.cpp"
+      }
+    }
+  ]
+}

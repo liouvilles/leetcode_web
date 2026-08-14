@@ -1,0 +1,1 @@
+class Solution { public int maxAscendingSum(int[] nums){int current=nums[0],answer=current;for(int i=1;i<nums.length;i++){current=nums[i]>nums[i-1]?current+nums[i]:nums[i];answer=Math.max(answer,current);}return answer;} }

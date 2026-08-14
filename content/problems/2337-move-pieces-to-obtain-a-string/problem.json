@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2337,
+  "slug": "move-pieces-to-obtain-a-string",
+  "title": "移动片段得到字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "双指针",
+    "字符串"
+  ],
+  "summary": "字符串中 L 只能向左跨过空位、R 只能向右跨过空位，判断能否从 start 移动得到 target。",
+  "insight": "忽略下划线后，L/R 的相对顺序永远不变。双指针依次匹配非空片段，并检查 L 的源下标不能小于目标下标、R 的源下标不能大于目标下标。",
+  "pitfalls": [
+    "片段不能彼此穿越",
+    "L 不能右移，R 不能左移",
+    "两边所有非空字符必须一一对应"
+  ],
+  "solutions": [
+    {
+      "id": "nonblank-order-and-direction-check",
+      "title": "非空顺序与方向检查",
+      "kind": "最优",
+      "idea": "匹配同一片段序列并验证每个片段可移动方向。",
+      "steps": [
+        "i=j=0，反复跳过两串下划线",
+        "若一边结束，要求另一边也结束",
+        "字符不同返回 false",
+        "若 L 且 i<j 或 R 且 i>j 返回 false；双指针前进"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/nonblank-order-and-direction-check/Solution.java",
+        "kotlin": "solutions/nonblank-order-and-direction-check/Solution.kt",
+        "cpp": "solutions/nonblank-order-and-direction-check/solution.cpp"
+      }
+    }
+  ]
+}

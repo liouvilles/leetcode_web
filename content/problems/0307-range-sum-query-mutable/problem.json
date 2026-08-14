@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 307,
+  "slug": "range-sum-query-mutable",
+  "title": "区域和检索 - 数组可修改",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-005",
+  "studyTags": [
+    "树状数组",
+    "设计",
+    "前缀和"
+  ],
+  "summary": "维护可修改整数数组，支持单点更新和多次闭区间求和查询。",
+  "insight": "树状数组保存若干低位块的和，单点差值沿父索引更新，前缀查询沿低位跳转累加。",
+  "pitfalls": [
+    "更新需要先求新旧值差",
+    "树状数组使用一基下标",
+    "区间和等于两个前缀和之差"
+  ],
+  "solutions": [
+    {
+      "id": "fenwick-tree",
+      "title": "树状数组",
+      "kind": "最优",
+      "idea": "构造时逐点加入，更新和查询都只访问对数个节点。",
+      "steps": [
+        "values 保存当前元素",
+        "add(index+1,delta) 更新树状数组",
+        "sumRange=prefix(right+1)-prefix(left)"
+      ],
+      "complexity": {
+        "time": "build O(n log n), operation O(log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/fenwick-tree/Solution.java",
+        "kotlin": "solutions/fenwick-tree/Solution.kt",
+        "cpp": "solutions/fenwick-tree/solution.cpp"
+      }
+    }
+  ]
+}

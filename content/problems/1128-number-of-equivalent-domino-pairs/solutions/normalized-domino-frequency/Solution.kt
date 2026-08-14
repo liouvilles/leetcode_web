@@ -1,0 +1,1 @@
+class Solution { fun numEquivDominoPairs(dominoes:Array<IntArray>):Int{val frequency=IntArray(100);var answer=0;for(domino in dominoes){val key=10*minOf(domino[0],domino[1])+maxOf(domino[0],domino[1]);answer+=frequency[key]++};return answer} }

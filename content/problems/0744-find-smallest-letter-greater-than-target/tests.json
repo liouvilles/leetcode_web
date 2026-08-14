@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "nextGreatestLetter",
+  "parameterTypes": [
+    "charArray",
+    "char"
+  ],
+  "returnType": "char",
+  "cases": [
+    {
+      "name": "目标小于首字符",
+      "args": [
+        [
+          "c",
+          "f",
+          "j"
+        ],
+        "a"
+      ],
+      "expected": "c"
+    },
+    {
+      "name": "找到 f",
+      "args": [
+        [
+          "c",
+          "f",
+          "j"
+        ],
+        "c"
+      ],
+      "expected": "f"
+    },
+    {
+      "name": "超过末字符环回",
+      "args": [
+        [
+          "x",
+          "x",
+          "y",
+          "y"
+        ],
+        "z"
+      ],
+      "expected": "x"
+    }
+  ]
+}

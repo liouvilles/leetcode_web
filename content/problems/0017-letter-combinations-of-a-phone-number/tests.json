@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "letterCombinations",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "stringList",
+  "cases": [
+    {
+      "name": "两个三字母按键",
+      "args": [
+        "23"
+      ],
+      "expected": [
+        "ad",
+        "ae",
+        "af",
+        "bd",
+        "be",
+        "bf",
+        "cd",
+        "ce",
+        "cf"
+      ]
+    },
+    {
+      "name": "空数字串",
+      "args": [
+        ""
+      ],
+      "expected": []
+    },
+    {
+      "name": "单个四字母按键",
+      "args": [
+        "7"
+      ],
+      "expected": [
+        "p",
+        "q",
+        "r",
+        "s"
+      ]
+    }
+  ]
+}

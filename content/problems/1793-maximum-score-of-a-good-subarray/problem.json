@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1793,
+  "slug": "maximum-score-of-a-good-subarray",
+  "title": "好子数组的最大分数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-026",
+  "studyTags": [
+    "数组",
+    "双指针",
+    "贪心"
+  ],
+  "summary": "好子数组必须包含下标 k，分数为子数组最小值乘长度，求最大分数。",
+  "insight": "从 k 向两侧扩张；每步优先纳入下一值较大的一侧，能让当前宽度下的最小值尽可能大。扩张后更新 minimum*width。",
+  "pitfalls": [
+    "子数组必须包含 k",
+    "边界一侧用尽时只能扩另一侧",
+    "最小值随扩张单调不增"
+  ],
+  "solutions": [
+    {
+      "id": "greedy-two-sided-expansion",
+      "title": "两侧较大值优先扩张",
+      "kind": "最优",
+      "idea": "从必含点生成每种宽度下的最佳候选。",
+      "steps": [
+        "left=right=k，minimum=nums[k]",
+        "未覆盖全数组时，比较边界外 nums[left-1] 与 nums[right+1]，扩较大者",
+        "更新 minimum 与 answer=maximum(answer,minimum*(right-left+1))"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/greedy-two-sided-expansion/Solution.java",
+        "kotlin": "solutions/greedy-two-sided-expansion/Solution.kt",
+        "cpp": "solutions/greedy-two-sided-expansion/solution.cpp"
+      }
+    }
+  ]
+}

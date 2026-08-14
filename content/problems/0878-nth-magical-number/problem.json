@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 878,
+  "slug": "nth-magical-number",
+  "title": "第 N 个神奇数字",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "数学",
+    "二分查找",
+    "数论"
+  ],
+  "summary": "能被 a 或 b 整除的正整数是神奇数字，返回第 n 个神奇数字对 1e9+7 取模。",
+  "insight": "不超过 x 的神奇数字数量由容斥为 x/a+x/b-x/lcm(a,b)，随 x 单调；二分第一个计数至少 n 的 x。",
+  "pitfalls": [
+    "最小公倍数计算要用长整型",
+    "二分答案本身先不取模",
+    "上界可用 n*min(a,b)"
+  ],
+  "solutions": [
+    {
+      "id": "inclusion-exclusion-binary-search",
+      "title": "容斥计数二分答案",
+      "kind": "最优",
+      "idea": "在数值域查找第 n 个并集倍数。",
+      "steps": [
+        "lcm=a/gcd(a,b)*b",
+        "low=1,high=n*min(a,b)",
+        "若 count(middle)>=n 则 high=middle，否则 low=middle+1；返回 low%MOD"
+      ],
+      "complexity": {
+        "time": "O(log(n·min(a,b)))",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/inclusion-exclusion-binary-search/Solution.java",
+        "kotlin": "solutions/inclusion-exclusion-binary-search/Solution.kt",
+        "cpp": "solutions/inclusion-exclusion-binary-search/solution.cpp"
+      }
+    }
+  ]
+}

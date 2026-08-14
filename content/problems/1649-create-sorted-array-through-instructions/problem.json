@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1649,
+  "slug": "create-sorted-array-through-instructions",
+  "title": "通过指令创建有序数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-023",
+  "studyTags": [
+    "数组",
+    "树状数组",
+    "有序集合"
+  ],
+  "summary": "依次把 instruction 插入有序数组，代价为插入前严格小于它与严格大于它的元素数中的较小值，求总代价模 1e9+7。",
+  "insight": "树状数组维护已插入各值的频次前缀和。小于 x 的数量是 query(x-1)，大于 x 的数量是已插入数减 query(x)。",
+  "pitfalls": [
+    "相等元素既不算小于也不算大于",
+    "查询后再插入当前值",
+    "总代价需要取模"
+  ],
+  "solutions": [
+    {
+      "id": "fenwick-frequency-prefix",
+      "title": "树状数组频次前缀和",
+      "kind": "最优",
+      "idea": "用对数时间获得当前值两侧元素数量。",
+      "steps": [
+        "Fenwick 大小取最大指令值",
+        "处理第 i 个 x：less=query(x-1)，greater=i-query(x)",
+        "cost 加 min(less,greater) 并 update(x,1)，最后取模"
+      ],
+      "complexity": {
+        "time": "O(n log V)",
+        "space": "O(V)"
+      },
+      "files": {
+        "java": "solutions/fenwick-frequency-prefix/Solution.java",
+        "kotlin": "solutions/fenwick-frequency-prefix/Solution.kt",
+        "cpp": "solutions/fenwick-frequency-prefix/solution.cpp"
+      }
+    }
+  ]
+}

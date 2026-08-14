@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "plusOne",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "末位直接加一",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        4
+      ]
+    },
+    {
+      "name": "连续进位并扩容",
+      "args": [
+        [
+          9,
+          9
+        ]
+      ],
+      "expected": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "零加一",
+      "args": [
+        [
+          0
+        ]
+      ],
+      "expected": [
+        1
+      ]
+    }
+  ]
+}

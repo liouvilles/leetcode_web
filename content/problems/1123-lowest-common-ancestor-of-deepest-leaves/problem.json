@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1123,
+  "slug": "lowest-common-ancestor-of-deepest-leaves",
+  "title": "最深叶节点的最近公共祖先",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-016",
+  "studyTags": [
+    "树",
+    "深度优先搜索",
+    "后序遍历"
+  ],
+  "summary": "返回二叉树中所有最深叶节点的最近公共祖先。",
+  "insight": "后序返回子树最深叶相对深度和其公共祖先；左右深度相等时当前节点覆盖两侧最深叶，是新祖先，较深一侧则沿用其祖先。",
+  "pitfalls": [
+    "空子树深度为零",
+    "叶节点左右空深度相等，所以返回自身且深度一",
+    "比较的是子树相对深度"
+  ],
+  "solutions": [
+    {
+      "id": "postorder-depth-lca-pair",
+      "title": "后序深度祖先二元组",
+      "kind": "最优",
+      "idea": "每个节点汇总最深方向与对应公共祖先。",
+      "steps": [
+        "Result 包含 node 与 depth，空返回 [null,0]",
+        "递归左右；若深度相等返回 [current,left.depth+1]",
+        "左更深返回 [left.node,left.depth+1]，右更深对称；根结果 node 即答案"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(height)"
+      },
+      "files": {
+        "java": "solutions/postorder-depth-lca-pair/Solution.java",
+        "kotlin": "solutions/postorder-depth-lca-pair/Solution.kt",
+        "cpp": "solutions/postorder-depth-lca-pair/solution.cpp"
+      }
+    }
+  ]
+}

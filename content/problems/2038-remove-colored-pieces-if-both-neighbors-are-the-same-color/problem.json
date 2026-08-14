@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2038,
+  "slug": "remove-colored-pieces-if-both-neighbors-are-the-same-color",
+  "title": "如果相邻两个颜色均相同则删除当前颜色",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-029",
+  "studyTags": [
+    "数学",
+    "字符串",
+    "博弈"
+  ],
+  "summary": "Alice 只能删除两侧都是 A 的 A，Bob 同理删除 B，Alice 先手，双方最优判断 Alice 是否获胜。",
+  "insight": "每段长度 L 的同色连续块提供 max(0,L-2) 次独立合法删除。两人操作互不影响对方块，总可操作次数多者获胜；平局时 Alice 先耗尽而输。",
+  "pitfalls": [
+    "不能删除端点",
+    "Alice 先手但平局仍输",
+    "只需统计连续段"
+  ],
+  "solutions": [
+    {
+      "id": "run-removal-counts",
+      "title": "连续段可删次数比较",
+      "kind": "最优",
+      "idea": "统计两色所有长度减二后的正贡献。",
+      "steps": [
+        "扫描连续相同字符段",
+        "moves=max(0,length-2) 加到对应玩家",
+        "返回 aliceMoves>bobMoves"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/run-removal-counts/Solution.java",
+        "kotlin": "solutions/run-removal-counts/Solution.kt",
+        "cpp": "solutions/run-removal-counts/solution.cpp"
+      }
+    }
+  ]
+}

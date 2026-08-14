@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "winnerOfGame",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "Alice 有一次更多操作",
+      "args": [
+        "AAABABB"
+      ],
+      "expected": true
+    },
+    {
+      "name": "双方均无操作 Alice 失败",
+      "args": [
+        "AA"
+      ],
+      "expected": false
+    },
+    {
+      "name": "Bob 可操作而 Alice 不可",
+      "args": [
+        "ABBBBBBBAAA"
+      ],
+      "expected": false
+    }
+  ]
+}

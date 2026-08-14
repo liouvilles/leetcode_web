@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 791,
+  "slug": "custom-sort-string",
+  "title": "自定义字符串排序",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-010",
+  "studyTags": [
+    "字符串",
+    "哈希表",
+    "计数排序"
+  ],
+  "summary": "order 给出部分字符的相对次序，重排 s 使其中出现在 order 的字符遵循该顺序，其余字符位置任意。",
+  "insight": "统计 s 中各字符频次，按 order 依次取尽；再输出未指定字符。为使结果稳定，可按字符升序追加剩余字符。",
+  "pitfalls": [
+    "order 中字符互不重复",
+    "s 中不在 order 的字符也必须保留",
+    "同一字符可能重复多次"
+  ],
+  "solutions": [
+    {
+      "id": "frequency-custom-order",
+      "title": "频次表按自定义次序输出",
+      "kind": "最优",
+      "idea": "先消费 order 字符，再有序追加余量。",
+      "steps": [
+        "统计 s 的 26 个小写字母频次",
+        "扫描 order，对每个字符追加 frequency 次并清零",
+        "按 a 到 z 追加所有剩余字符"
+      ],
+      "complexity": {
+        "time": "O(|s|+|order|)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/frequency-custom-order/Solution.java",
+        "kotlin": "solutions/frequency-custom-order/Solution.kt",
+        "cpp": "solutions/frequency-custom-order/solution.cpp"
+      }
+    }
+  ]
+}

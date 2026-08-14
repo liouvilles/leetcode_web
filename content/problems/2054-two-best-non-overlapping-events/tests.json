@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxTwoEvents",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两个不重叠活动价值四",
+      "args": [
+        [
+          [
+            1,
+            3,
+            2
+          ],
+          [
+            4,
+            5,
+            2
+          ],
+          [
+            2,
+            4,
+            3
+          ]
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "跨全程高价值活动单选为五",
+      "args": [
+        [
+          [
+            1,
+            3,
+            2
+          ],
+          [
+            4,
+            5,
+            2
+          ],
+          [
+            1,
+            5,
+            5
+          ]
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "端点相等不能组合",
+      "args": [
+        [
+          [
+            1,
+            2,
+            4
+          ],
+          [
+            2,
+            3,
+            5
+          ]
+        ]
+      ],
+      "expected": 5
+    }
+  ]
+}

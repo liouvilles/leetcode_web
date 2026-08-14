@@ -1,0 +1,1 @@
+class Solution { fun tallestBillboard(rods:IntArray):Int{var dp=mutableMapOf(0 to 0);for(rod in rods){val next=dp.toMutableMap();for((difference,shorter) in dp){next[difference+rod]=maxOf(next[difference+rod]?:0,shorter);val newDifference=kotlin.math.abs(difference-rod);next[newDifference]=maxOf(next[newDifference]?:0,shorter+minOf(difference,rod))};dp=next};return dp[0]!!} }

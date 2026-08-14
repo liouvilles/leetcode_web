@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": 1779,
+  "slug": "find-nearest-point-that-has-the-same-x-or-y-coordinate",
+  "title": "找到最近的有相同 X 或 Y 坐标的点",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-025",
+  "studyTags": [
+    "数组"
+  ],
+  "summary": "有效点需与给定点共享 x 或 y 坐标，返回曼哈顿距离最小的有效点下标；并列取较小下标，无有效点返回负一。",
+  "insight": "按下标顺序扫描有效点，计算曼哈顿距离；只在严格更小时更新，便自然保留并列的最小下标。",
+  "pitfalls": [
+    "有效条件是共享任一坐标",
+    "曼哈顿距离为横纵差绝对值之和",
+    "并列不更新"
+  ],
+  "solutions": [
+    {
+      "id": "valid-point-linear-scan",
+      "title": "有效点线性扫描",
+      "kind": "最优",
+      "idea": "一次遍历完成过滤、距离计算与下标平局规则。",
+      "steps": [
+        "bestDistance=∞，answer=-1",
+        "遍历 points，若 px==x 或 py==y 则计算 distance",
+        "distance<bestDistance 时更新二者，返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/valid-point-linear-scan/Solution.java",
+        "kotlin": "solutions/valid-point-linear-scan/Solution.kt",
+        "cpp": "solutions/valid-point-linear-scan/solution.cpp"
+      }
+    }
+  ]
+}

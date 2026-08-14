@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1405,
+  "slug": "longest-happy-string",
+  "title": "最长快乐字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-020",
+  "studyTags": [
+    "字符串",
+    "贪心",
+    "堆（优先队列）"
+  ],
+  "summary": "使用不超过给定数量的 a、b、c 构造不含三个连续相同字符的最长字符串。",
+  "insight": "每步优先使用剩余最多的字符；若它会形成三连，就临时使用次多字符，次多不存在时已无法继续。",
+  "pitfalls": [
+    "字符数量只要求不超过给定值",
+    "使用次多字符后要把最大字符放回堆",
+    "同频时固定字母序以生成确定结果"
+  ],
+  "solutions": [
+    {
+      "id": "max-heap-greedy",
+      "title": "最大堆贪心",
+      "kind": "最优",
+      "idea": "优先消耗数量最多且不会形成三连的字符。",
+      "steps": [
+        "把正频次字符以数量降序、字母升序入堆",
+        "弹出最多字符；若答案末两位相同则改取次多字符并放回最多项",
+        "追加所选字符、频次减一后仍有剩余则放回，直到堆空或无法选择"
+      ],
+      "complexity": {
+        "time": "O(a+b+c)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/max-heap-greedy/Solution.java",
+        "kotlin": "solutions/max-heap-greedy/Solution.kt",
+        "cpp": "solutions/max-heap-greedy/solution.cpp"
+      }
+    }
+  ]
+}

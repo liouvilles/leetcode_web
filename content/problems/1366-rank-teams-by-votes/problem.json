@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1366,
+  "slug": "rank-teams-by-votes",
+  "title": "通过投票对团队排名",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-019",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "计数",
+    "排序"
+  ],
+  "summary": "每张选票给出全部队伍的名次，按各名次获得票数依次比较并排序队伍。",
+  "insight": "为每个字母统计它在每个位置出现的次数；比较两队时从第一名票数逐位比较，全部相同则字母序更小者优先。",
+  "pitfalls": [
+    "比较的是逐名次字典序而非总分",
+    "完全相同时按队名字母序",
+    "只有选票中出现的队伍参与输出"
+  ],
+  "solutions": [
+    {
+      "id": "position-frequency-sort",
+      "title": "名次频次排序",
+      "kind": "最优",
+      "idea": "使用每队的名次票数向量作为降序排序键。",
+      "steps": [
+        "统计 count[team][position]",
+        "对第一张选票中的队伍排序，逐 position 比较票数降序",
+        "所有票数相同时按字符升序并拼接"
+      ],
+      "complexity": {
+        "time": "O(Vm+m² log m)",
+        "space": "O(m²)"
+      },
+      "files": {
+        "java": "solutions/position-frequency-sort/Solution.java",
+        "kotlin": "solutions/position-frequency-sort/Solution.kt",
+        "cpp": "solutions/position-frequency-sort/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "mirrorReflection",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "二一到二号",
+      "args": [
+        2,
+        1
+      ],
+      "expected": 2
+    },
+    {
+      "name": "三一到一号",
+      "args": [
+        3,
+        1
+      ],
+      "expected": 1
+    },
+    {
+      "name": "四三到二号",
+      "args": [
+        4,
+        3
+      ],
+      "expected": 2
+    }
+  ]
+}

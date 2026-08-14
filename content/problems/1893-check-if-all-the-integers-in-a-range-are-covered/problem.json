@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1893,
+  "slug": "check-if-all-the-integers-in-a-range-are-covered",
+  "title": "检查是否区域内所有整数都被覆盖",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-027",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "前缀和"
+  ],
+  "summary": "给定若干闭区间，判断从 left 到 right 的每个整数是否至少被一个区间覆盖。",
+  "insight": "数值范围很小，可用差分数组标记每段覆盖增减，再做前缀和逐点确认目标区间覆盖计数大于零。",
+  "pitfalls": [
+    "区间与目标都是闭区间",
+    "区间可重叠",
+    "只需检查 left 到 right"
+  ],
+  "solutions": [
+    {
+      "id": "small-range-difference",
+      "title": "小范围差分覆盖",
+      "kind": "最优",
+      "idea": "把区间批量加一并通过前缀和恢复覆盖次数。",
+      "steps": [
+        "difference[start]++、difference[end+1]--",
+        "从最小值向右累计 coverage",
+        "目标范围内若 coverage==0 返回 false，否则最终 true"
+      ],
+      "complexity": {
+        "time": "O(ranges+U)",
+        "space": "O(U)"
+      },
+      "files": {
+        "java": "solutions/small-range-difference/Solution.java",
+        "kotlin": "solutions/small-range-difference/Solution.kt",
+        "cpp": "solutions/small-range-difference/solution.cpp"
+      }
+    }
+  ]
+}

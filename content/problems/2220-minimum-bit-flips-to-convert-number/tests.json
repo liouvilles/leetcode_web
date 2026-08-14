@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minBitFlips",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "十转七有三位不同",
+      "args": [
+        10,
+        7
+      ],
+      "expected": 3
+    },
+    {
+      "name": "三转四有三位不同",
+      "args": [
+        3,
+        4
+      ],
+      "expected": 3
+    },
+    {
+      "name": "相同数字无需翻转",
+      "args": [
+        5,
+        5
+      ],
+      "expected": 0
+    }
+  ]
+}

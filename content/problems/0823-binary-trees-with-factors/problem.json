@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 823,
+  "slug": "binary-trees-with-factors",
+  "title": "带因子的二叉树",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-011",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "哈希表",
+    "排序"
+  ],
+  "summary": "用数组中的互异大于一整数构造二叉树，每个非叶节点等于两子节点乘积，求不同树数量。",
+  "insight": "排序后，以 value 为根的树只依赖更小因子；枚举左因子，若配对右因子已出现，就累加左右方案数乘积，有序子树顺序自然分别计数。",
+  "pitfalls": [
+    "每个值作为单节点树先贡献一",
+    "左右子树交换通常是不同树，枚举每个左因子会自动覆盖",
+    "计数乘法使用长整型并取模"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-factor-product-dp",
+      "title": "排序因子乘积 DP",
+      "kind": "最优",
+      "idea": "按根值从小到大累计所有因子组合。",
+      "steps": [
+        "排序 arr，ways[value] 初始为一",
+        "对每个 i 枚举 j<i；若 arr[i]%arr[j]==0 且 quotient 已在 ways 中，累加 ways[left]*ways[right]",
+        "把 dp[i] 写入映射并累加总答案，全部对模取余"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/sorted-factor-product-dp/Solution.java",
+        "kotlin": "solutions/sorted-factor-product-dp/Solution.kt",
+        "cpp": "solutions/sorted-factor-product-dp/solution.cpp"
+      }
+    }
+  ]
+}

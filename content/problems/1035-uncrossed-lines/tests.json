@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxUncrossedLines",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两条不交叉线",
+      "args": [
+        [
+          1,
+          4,
+          2
+        ],
+        [
+          1,
+          2,
+          4
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "三条线",
+      "args": [
+        [
+          2,
+          5,
+          1,
+          2,
+          5
+        ],
+        [
+          10,
+          5,
+          2,
+          1,
+          5,
+          2
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "无相同元素",
+      "args": [
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumRows",
+  "parameterTypes": [
+    "intMatrix",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "选四列中的两列最多覆盖三行",
+      "args": [
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        2
+      ],
+      "expected": 3
+    },
+    {
+      "name": "选唯一列覆盖两行",
+      "args": [
+        [
+          [
+            1
+          ],
+          [
+            0
+          ]
+        ],
+        1
+      ],
+      "expected": 2
+    },
+    {
+      "name": "不选列覆盖全部零行",
+      "args": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        0
+      ],
+      "expected": 2
+    }
+  ]
+}

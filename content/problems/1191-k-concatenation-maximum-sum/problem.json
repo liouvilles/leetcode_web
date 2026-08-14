@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1191,
+  "slug": "k-concatenation-maximum-sum",
+  "title": "K 次串联后最大子数组之和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-017",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "Kadane",
+    "数学"
+  ],
+  "summary": "把数组首尾串联 k 次，求其中非空连续子数组的最大和；若最大和为负则返回零，结果对 10^9+7 取模。",
+  "insight": "跨副本的最优子数组边界形态在两份数组内已经确定。先对最多两个副本做 Kadane；若数组总和为正且 k>2，中间完整的 k-2 份都应加入。",
+  "pitfalls": [
+    "题目规定负答案返回零",
+    "中间乘法与总和使用长整型",
+    "取模只用于最终数值，不参与大小比较"
+  ],
+  "solutions": [
+    {
+      "id": "two-copy-kadane-plus-middle",
+      "title": "双副本 Kadane 与中间整段",
+      "kind": "最优",
+      "idea": "把首尾贡献和正总和的完整中间副本分开。",
+      "steps": [
+        "求数组 total；遍历 min(k,2) 份，Kadane 维护 ending=max(0,ending+x) 与 best",
+        "若 k>2 且 total>0，则 best+=(k-2)*total",
+        "返回 best mod 1e9+7"
+      ],
+      "complexity": {
+        "time": "O(n·min(k,2))",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/two-copy-kadane-plus-middle/Solution.java",
+        "kotlin": "solutions/two-copy-kadane-plus-middle/Solution.kt",
+        "cpp": "solutions/two-copy-kadane-plus-middle/solution.cpp"
+      }
+    }
+  ]
+}

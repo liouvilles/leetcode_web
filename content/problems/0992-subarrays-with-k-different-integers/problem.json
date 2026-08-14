@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 992,
+  "slug": "subarrays-with-k-different-integers",
+  "title": "K 个不同整数的子数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-014",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "滑动窗口"
+  ],
+  "summary": "统计恰好含 k 个不同整数的连续子数组数量。",
+  "insight": "恰好 k 种等于至多 k 种的子数组数减去至多 k-1 种；至多限制可用标准左右滑动窗口线性计数。",
+  "pitfalls": [
+    "每个右端贡献 right-left+1 个至多限制子数组",
+    "某值频次降为零时不同数计数才减少",
+    "k-1 可能为零但窗口算法仍适用"
+  ],
+  "solutions": [
+    {
+      "id": "difference-of-distinct-at-most",
+      "title": "不同数至多窗口作差",
+      "kind": "最优",
+      "idea": "用两个单调滑动窗口得到精确种类数。",
+      "steps": [
+        "定义 atMost(limit)：维护频次、left、distinct、count",
+        "扩展 right，新值令 distinct++；超过 limit 时移动 left 并在频次归零时 distinct--",
+        "累加 right-left+1，返回 atMost(k)-atMost(k-1)"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/difference-of-distinct-at-most/Solution.java",
+        "kotlin": "solutions/difference-of-distinct-at-most/Solution.kt",
+        "cpp": "solutions/difference-of-distinct-at-most/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countSubarrays",
+  "parameterTypes": [
+    "intArray",
+    "long"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "经典数组有六个合法子数组",
+      "args": [
+        [
+          2,
+          1,
+          4,
+          3,
+          5
+        ],
+        10
+      ],
+      "expected": 6
+    },
+    {
+      "name": "三个一中长度三窗口不合法",
+      "args": [
+        [
+          1,
+          1,
+          1
+        ],
+        5
+      ],
+      "expected": 5
+    },
+    {
+      "name": "阈值一时无正数窗口合法",
+      "args": [
+        [
+          1,
+          2
+        ],
+        1
+      ],
+      "expected": 0
+    }
+  ]
+}

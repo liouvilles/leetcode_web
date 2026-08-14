@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 172,
+  "slug": "factorial-trailing-zeroes",
+  "title": "阶乘后的零",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-004",
+  "studyTags": [
+    "数学",
+    "因子计数",
+    "整除"
+  ],
+  "summary": "计算 n 的阶乘十进制表示末尾连续零的数量。",
+  "insight": "每个末尾零需要一对因子 2 和 5，而阶乘中 2 更多，因此只需累计 5、25、125 等贡献的五因子数量。",
+  "pitfalls": [
+    "25 的倍数会额外贡献一个五因子",
+    "无需真正计算阶乘",
+    "循环不断令 n 除以五即可覆盖所有幂次"
+  ],
+  "solutions": [
+    {
+      "id": "count-factors-of-five",
+      "title": "累计五因子",
+      "kind": "最优",
+      "idea": "反复整除五，每轮商表示至少还能贡献一个五因子的数的数量。",
+      "steps": [
+        "answer 初始化为零",
+        "n/=5",
+        "把当前 n 加入 answer，直到 n 为零"
+      ],
+      "complexity": {
+        "time": "O(log5 n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/count-factors-of-five/Solution.java",
+        "kotlin": "solutions/count-factors-of-five/Solution.kt",
+        "cpp": "solutions/count-factors-of-five/solution.cpp"
+      }
+    }
+  ]
+}

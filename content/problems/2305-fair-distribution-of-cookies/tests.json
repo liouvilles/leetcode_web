@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "distributeCookies",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "五袋分给两人最优三十一",
+      "args": [
+        [
+          8,
+          15,
+          10,
+          20,
+          8
+        ],
+        2
+      ],
+      "expected": 31
+    },
+    {
+      "name": "八袋分给三人最优七",
+      "args": [
+        [
+          6,
+          1,
+          3,
+          2,
+          2,
+          4,
+          1,
+          2
+        ],
+        3
+      ],
+      "expected": 7
+    },
+    {
+      "name": "袋数等于孩子数",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        3
+      ],
+      "expected": 3
+    }
+  ]
+}

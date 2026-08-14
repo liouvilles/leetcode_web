@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "shortestCompletingWord",
+  "parameterTypes": [
+    "string",
+    "stringArray"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "需要 s p t",
+      "args": [
+        "1s3 PSt",
+        [
+          "step",
+          "steps",
+          "stripe",
+          "stepple"
+        ]
+      ],
+      "expected": "steps"
+    },
+    {
+      "name": "只需字母 s",
+      "args": [
+        "1s3 456",
+        [
+          "looks",
+          "pest",
+          "stew",
+          "show"
+        ]
+      ],
+      "expected": "pest"
+    },
+    {
+      "name": "忽略数字保留 a h",
+      "args": [
+        "Ah71752",
+        [
+          "suggest",
+          "letter",
+          "of",
+          "husband",
+          "easy",
+          "education",
+          "drug",
+          "prevent",
+          "writer",
+          "old"
+        ]
+      ],
+      "expected": "husband"
+    }
+  ]
+}

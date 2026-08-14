@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1131,
+  "slug": "maximum-of-absolute-value-expression",
+  "title": "绝对值表达式的最大值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-016",
+  "studyTags": [
+    "数组",
+    "数学"
+  ],
+  "summary": "在两个等长数组中选择 i、j，最大化 |arr1[i]-arr1[j]|+|arr2[i]-arr2[j]|+|i-j|。",
+  "insight": "绝对值之和等于若干符号线性式的最大差；固定 arr1 系数为正，枚举 arr2 与下标的正负四种组合，记录每种表达式最大最小值。",
+  "pitfalls": [
+    "i 与 j 可相同但不会改善最大值",
+    "四种符号已利用整体取反对称覆盖八种情况",
+    "各线性值在整数范围内"
+  ],
+  "solutions": [
+    {
+      "id": "four-sign-linear-extremes",
+      "title": "四符号线性极值",
+      "kind": "最优",
+      "idea": "把三项绝对值展开为线性函数的范围。",
+      "steps": [
+        "answer=0",
+        "枚举 signB∈{-1,1}、signI∈{-1,1}",
+        "扫描 i 计算 value=arr1[i]+signB*arr2[i]+signI*i，维护 maximum/minimum，answer=max(answer,maximum-minimum)，返回"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/four-sign-linear-extremes/Solution.java",
+        "kotlin": "solutions/four-sign-linear-extremes/Solution.kt",
+        "cpp": "solutions/four-sign-linear-extremes/solution.cpp"
+      }
+    }
+  ]
+}

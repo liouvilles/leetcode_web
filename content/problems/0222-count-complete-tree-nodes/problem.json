@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 222,
+  "slug": "count-complete-tree-nodes",
+  "title": "完全二叉树的节点个数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-005",
+  "studyTags": [
+    "完全二叉树",
+    "递归",
+    "高度"
+  ],
+  "summary": "计算完全二叉树的节点数量，并利用其结构获得优于普通线性遍历的复杂度。",
+  "insight": "若一棵完全树最左路径高度等于最右路径高度，它就是满二叉树，节点数可直接由高度计算。",
+  "pitfalls": [
+    "空树高度为零",
+    "相等高度时节点数为 2^h-1",
+    "高度不等时递归统计两棵子树"
+  ],
+  "solutions": [
+    {
+      "id": "perfect-subtree-detection",
+      "title": "检测满子树",
+      "kind": "最优",
+      "idea": "每层比较左右边界高度，满子树直接计数，否则递归。",
+      "steps": [
+        "计算最左和最右高度",
+        "相等返回 (1<<height)-1",
+        "否则返回 1+左右递归结果"
+      ],
+      "complexity": {
+        "time": "O(log² n)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/perfect-subtree-detection/Solution.java",
+        "kotlin": "solutions/perfect-subtree-detection/Solution.kt",
+        "cpp": "solutions/perfect-subtree-detection/solution.cpp"
+      }
+    }
+  ]
+}

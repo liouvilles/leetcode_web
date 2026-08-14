@@ -1,0 +1,1 @@
+class Solution { public int firstDayBeenInAllRooms(int[] nextVisit){long[] dp=new long[nextVisit.length];for(int i=1;i<dp.length;i++)dp[i]=(2*dp[i-1]-dp[nextVisit[i-1]]+2+1_000_000_007)%1_000_000_007;return (int)dp[dp.length-1];} }

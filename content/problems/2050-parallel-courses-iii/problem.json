@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2050,
+  "slug": "parallel-courses-iii",
+  "title": "并行课程 III",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "图论",
+    "拓扑排序",
+    "动态规划"
+  ],
+  "summary": "课程有先修关系且可并行学习，求完成全部课程的最短月份数。",
+  "insight": "在 DAG 拓扑序上维护 finish[course] 为该课程最早完成时间。每条先修边 u→v 转移 finish[v]=max(finish[v],finish[u]+time[v])。",
+  "pitfalls": [
+    "课程编号从一开始",
+    "无依赖课程从零月开始学习",
+    "多个先修课取完成时间最大值"
+  ],
+  "solutions": [
+    {
+      "id": "topological-longest-path",
+      "title": "拓扑序最长完成路径",
+      "kind": "最优",
+      "idea": "关键路径长度就是全部课程并行后的最短总时间。",
+      "steps": [
+        "建图与 indegree，入度零课程 finish=time 入队",
+        "弹出 course；对 next 更新 finish 并减入度，归零入队",
+        "返回 finish 最大值"
+      ],
+      "complexity": {
+        "time": "O(V+E)",
+        "space": "O(V+E)"
+      },
+      "files": {
+        "java": "solutions/topological-longest-path/Solution.java",
+        "kotlin": "solutions/topological-longest-path/Solution.kt",
+        "cpp": "solutions/topological-longest-path/solution.cpp"
+      }
+    }
+  ]
+}

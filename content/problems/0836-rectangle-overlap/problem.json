@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 836,
+  "slug": "rectangle-overlap",
+  "title": "矩形重叠",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-011",
+  "studyTags": [
+    "数组",
+    "数学",
+    "几何"
+  ],
+  "summary": "给定两个与坐标轴平行且面积非零的矩形，判断它们是否有正面积重叠。",
+  "insight": "两矩形正面积相交当且仅当 x 方向投影和 y 方向投影都具有严格正长度交集。",
+  "pitfalls": [
+    "只接触边或角不算重叠",
+    "比较必须严格小于",
+    "坐标可为负数"
+  ],
+  "solutions": [
+    {
+      "id": "strict-projection-intersection",
+      "title": "严格投影交集",
+      "kind": "最优",
+      "idea": "分别检查横纵区间是否相交。",
+      "steps": [
+        "横向要求 max(left1,left2)<min(right1,right2)",
+        "纵向要求 max(bottom1,bottom2)<min(top1,top2)",
+        "两条件同时成立返回真"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/strict-projection-intersection/Solution.java",
+        "kotlin": "solutions/strict-projection-intersection/Solution.kt",
+        "cpp": "solutions/strict-projection-intersection/solution.cpp"
+      }
+    }
+  ]
+}

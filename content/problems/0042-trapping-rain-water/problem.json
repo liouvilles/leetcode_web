@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "id": 42,
+  "slug": "trapping-rain-water",
+  "title": "接雨水",
+  "status": "published",
+  "qualityGate": "compile",
+  "batch": "legacy-001",
+  "studyTags": [
+    "前后缀最大值",
+    "短板原理",
+    "空间优化"
+  ],
+  "summary": "给定一组非负柱高，计算下雨后这些柱子之间能够留住的水量。",
+  "insight": "位置 i 的水位由左侧最高柱和右侧最高柱中的较矮者决定，再减去当前位置高度。",
+  "pitfalls": [
+    "边界位置无法蓄水",
+    "累加的是每个位置上方的水量",
+    "双指针移动哪侧取决于两侧当前高度"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-columns",
+      "title": "逐列向两侧扫描",
+      "kind": "基础",
+      "idea": "对每个内部位置分别扫描左侧和右侧最高柱，再计算这一列能够容纳的水。",
+      "steps": [
+        "枚举每个非边界位置",
+        "向两侧扫描得到 leftMax 与 rightMax",
+        "累加 min(leftMax, rightMax) - height[i]"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/enumerate-columns/Solution.java",
+        "kotlin": "solutions/enumerate-columns/Solution.kt",
+        "cpp": "solutions/enumerate-columns/solution.cpp"
+      }
+    },
+    {
+      "id": "prefix-suffix-max",
+      "title": "前后缀最大值",
+      "kind": "进阶",
+      "idea": "预先计算每个位置左侧与右侧最高柱，把重复扫描变成常数时间查询。",
+      "steps": [
+        "从左到右构造 leftMax",
+        "从右到左构造 rightMax",
+        "逐位置计算并累加水量"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/prefix-suffix-max/Solution.java",
+        "kotlin": "solutions/prefix-suffix-max/Solution.kt",
+        "cpp": "solutions/prefix-suffix-max/solution.cpp"
+      }
+    },
+    {
+      "id": "two-pointers",
+      "title": "双指针空间优化",
+      "kind": "最优",
+      "idea": "较矮一侧的最高值已经足以确定该侧当前位置水量，因此可以边移动边结算。",
+      "steps": [
+        "左右指针从两端出发并维护两侧最高值",
+        "处理当前高度较矮的一侧",
+        "用该侧最高值减去当前高度并移动指针"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/two-pointers/Solution.java",
+        "kotlin": "solutions/two-pointers/Solution.kt",
+        "cpp": "solutions/two-pointers/solution.cpp"
+      }
+    }
+  ]
+}

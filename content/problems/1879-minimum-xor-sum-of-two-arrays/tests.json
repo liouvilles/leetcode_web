@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumXORSum",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "交换配对后异或和二",
+      "args": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "三个元素最小异或和八",
+      "args": [
+        [
+          1,
+          0,
+          3
+        ],
+        [
+          5,
+          3,
+          4
+        ]
+      ],
+      "expected": 8
+    },
+    {
+      "name": "两个零异或和零",
+      "args": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

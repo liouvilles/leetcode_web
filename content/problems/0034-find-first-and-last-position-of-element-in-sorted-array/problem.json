@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 34,
+  "slug": "find-first-and-last-position-of-element-in-sorted-array",
+  "title": "在排序数组中查找元素的第一个和最后一个位置",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-002",
+  "studyTags": [
+    "二分边界",
+    "lower bound",
+    "闭开区间"
+  ],
+  "summary": "在非递减数组中返回目标值第一次和最后一次出现的下标，不存在时返回 [-1,-1]。",
+  "insight": "分别查找第一个不小于 target 和第一个大于 target 的位置，就能得到目标区间。",
+  "pitfalls": [
+    "第二个边界是 target + 1 的 lower bound 语义",
+    "要先验证左边界确实命中目标",
+    "空数组同样适用"
+  ],
+  "solutions": [
+    {
+      "id": "two-lower-bounds",
+      "title": "两次边界二分",
+      "kind": "最优",
+      "idea": "统一实现首个不小于给定值的位置，分别求左右边界。",
+      "steps": [
+        "求 lowerBound(target)",
+        "检查是否越界或未命中",
+        "求 lowerBound(target + 1) 并减一"
+      ],
+      "complexity": {
+        "time": "O(log n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/two-lower-bounds/Solution.java",
+        "kotlin": "solutions/two-lower-bounds/Solution.kt",
+        "cpp": "solutions/two-lower-bounds/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "frequencySort",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "最高频字符前置",
+      "args": [
+        "tree"
+      ],
+      "expected": "eert"
+    },
+    {
+      "name": "同频按字符升序",
+      "args": [
+        "cccaaa"
+      ],
+      "expected": "aaaccc"
+    },
+    {
+      "name": "区分大小写",
+      "args": [
+        "Aabb"
+      ],
+      "expected": "bbAa"
+    }
+  ]
+}

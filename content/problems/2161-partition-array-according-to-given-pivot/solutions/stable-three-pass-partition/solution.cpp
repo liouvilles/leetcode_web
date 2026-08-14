@@ -1,0 +1,1 @@
+class Solution { public:vector<int> pivotArray(vector<int>& nums,int pivot){vector<int> answer;for(int value:nums)if(value<pivot)answer.push_back(value);for(int value:nums)if(value==pivot)answer.push_back(value);for(int value:nums)if(value>pivot)answer.push_back(value);return answer;} };

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 675,
+  "slug": "cut-off-trees-for-golf-event",
+  "title": "为高尔夫比赛砍树",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-009",
+  "studyTags": [
+    "矩阵",
+    "广度优先搜索",
+    "最短路"
+  ],
+  "summary": "森林网格中零不可通行，大于一的格子是树；必须按树高升序依次砍掉所有树，求最少步数，不可完成返回 -1。",
+  "insight": "树的顺序由高度唯一确定；每两个连续目标之间用 BFS 求网格最短路，砍树后该格仍可通行。",
+  "pitfalls": [
+    "起点固定为左上角",
+    "高度各不相同",
+    "某一段目标不可达时立即返回 -1"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-targets-bfs",
+      "title": "树高排序与分段 BFS",
+      "kind": "最优",
+      "idea": "对固定目标顺序逐段计算无权网格最短距离。",
+      "steps": [
+        "收集 [height,row,column] 并按 height 排序",
+        "从当前位置 BFS 到下一棵树",
+        "不可达返回 -1，否则累计距离并更新当前位置；全部完成返回总步数"
+      ],
+      "complexity": {
+        "time": "O(t·mn)",
+        "space": "O(mn)"
+      },
+      "files": {
+        "java": "solutions/sorted-targets-bfs/Solution.java",
+        "kotlin": "solutions/sorted-targets-bfs/Solution.kt",
+        "cpp": "solutions/sorted-targets-bfs/solution.cpp"
+      }
+    }
+  ]
+}

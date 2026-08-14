@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numDecodings",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "单个星号",
+      "args": [
+        "*"
+      ],
+      "expected": 9
+    },
+    {
+      "name": "一后接星号",
+      "args": [
+        "1*"
+      ],
+      "expected": 18
+    },
+    {
+      "name": "两个星号",
+      "args": [
+        "**"
+      ],
+      "expected": 96
+    }
+  ]
+}

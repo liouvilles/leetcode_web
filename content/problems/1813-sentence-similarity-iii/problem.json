@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1813,
+  "slug": "sentence-similarity-iii",
+  "title": "句子相似性 III",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-026",
+  "studyTags": [
+    "数组",
+    "双指针",
+    "字符串"
+  ],
+  "summary": "若可在一个句子任意位置插入一段完整单词序列使其等于另一个句子，则两句相似，判断相似性。",
+  "insight": "让 shorter 指单词数较少的句子。它必须等于 longer 的某个前缀加某个后缀；统计共同前缀与不重叠的共同后缀，覆盖 shorter 即可。",
+  "pitfalls": [
+    "插入内容可为空",
+    "只能在一个位置插入连续单词序列",
+    "前后匹配不能要求中间也相同"
+  ],
+  "solutions": [
+    {
+      "id": "common-prefix-suffix-coverage",
+      "title": "公共前后缀覆盖",
+      "kind": "最优",
+      "idea": "检查短句全部单词能否由长句两端匹配。",
+      "steps": [
+        "按空格拆词，保证 first 为较短数组",
+        "prefix 从左统计相同词",
+        "suffix 从右统计且 prefix+suffix<shorter.length，返回两者和等于短句长度"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/common-prefix-suffix-coverage/Solution.java",
+        "kotlin": "solutions/common-prefix-suffix-coverage/Solution.kt",
+        "cpp": "solutions/common-prefix-suffix-coverage/solution.cpp"
+      }
+    }
+  ]
+}

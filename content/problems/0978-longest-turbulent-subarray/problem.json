@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 978,
+  "slug": "longest-turbulent-subarray",
+  "title": "最长湍流子数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-014",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "滑动窗口"
+  ],
+  "summary": "连续子数组相邻比较符号必须交替，求最长湍流子数组长度。",
+  "insight": "维护以当前位置结尾且最后一步上升的长度 up、最后一步下降的长度 down；本次上升只能接在此前下降序列后，反之亦然。",
+  "pitfalls": [
+    "相邻相等会把两种长度都重置为一",
+    "单元素本身是长度一的湍流子数组",
+    "只需常数空间滚动状态"
+  ],
+  "solutions": [
+    {
+      "id": "alternating-sign-ending-dp",
+      "title": "交替符号结尾动态规划",
+      "kind": "最优",
+      "idea": "用上升和下降两个状态互相转移。",
+      "steps": [
+        "up=down=answer=1",
+        "若 arr[i]>arr[i-1]，up=down+1、down=1；若小于则 down=up+1、up=1",
+        "相等时都重置一；每步更新 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/alternating-sign-ending-dp/Solution.java",
+        "kotlin": "solutions/alternating-sign-ending-dp/Solution.kt",
+        "cpp": "solutions/alternating-sign-ending-dp/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1883,
+  "slug": "minimum-skips-to-arrive-at-meeting-on-time",
+  "title": "准时抵达会议现场的最小跳过休息次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-027",
+  "studyTags": [
+    "数组",
+    "动态规划"
+  ],
+  "summary": "每段道路后需等到整数小时才能继续，允许跳过若干次等待，求在期限内到达的最少跳过次数。",
+  "insight": "把时间乘以 speed，全部使用整数距离刻度避免浮点误差。dp[j] 表示处理到当前道路前、跳过 j 次的最小刻度时间；不跳过则向上取整到 speed 的倍数，跳过则保留原值。",
+  "pitfalls": [
+    "最后一段之后无需等待",
+    "浮点比较容易产生精度误差",
+    "总时间与乘法使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "scaled-time-skip-dp",
+      "title": "整数缩放跳过 DP",
+      "kind": "最优",
+      "idea": "按道路更新不同跳过次数下的最早到达刻度。",
+      "steps": [
+        "dp[0]=0，其余无穷",
+        "每段对每个 skips：不跳过时若非末段向上取整；非末段也可转移到 skips+1 且不取整",
+        "完成后找首个 dp[skips]<=hoursBefore*speed"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/scaled-time-skip-dp/Solution.java",
+        "kotlin": "solutions/scaled-time-skip-dp/Solution.kt",
+        "cpp": "solutions/scaled-time-skip-dp/solution.cpp"
+      }
+    }
+  ]
+}

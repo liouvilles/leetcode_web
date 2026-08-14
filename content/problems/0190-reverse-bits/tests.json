@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "reverseBits",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "普通三十二位模式",
+      "args": [
+        43261596
+      ],
+      "expected": 964176192
+    },
+    {
+      "name": "全零位模式",
+      "args": [
+        0
+      ],
+      "expected": 0
+    },
+    {
+      "name": "最低第二位移到次高位",
+      "args": [
+        2
+      ],
+      "expected": 1073741824
+    }
+  ]
+}

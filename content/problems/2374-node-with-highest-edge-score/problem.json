@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2374,
+  "slug": "node-with-highest-edge-score",
+  "title": "边积分最高的节点",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-035",
+  "studyTags": [
+    "哈希表",
+    "图论"
+  ],
+  "summary": "每个节点 i 有一条指向 edges[i] 的边，节点积分为所有指向它的源节点下标之和，返回积分最高且下标最小的节点。",
+  "insight": "一次扫描把源下标 i 加到 score[edges[i]]，再按下标升序找严格更高积分即可自然保留最小下标。",
+  "pitfalls": [
+    "累加的是源节点下标",
+    "积分需 long",
+    "并列取下标较小者"
+  ],
+  "solutions": [
+    {
+      "id": "accumulate-incoming-source-indices",
+      "title": "累加入边源下标",
+      "kind": "最优",
+      "idea": "构造每个目标节点积分后选最大。",
+      "steps": [
+        "scores[n] 为 long",
+        "对 i 执行 scores[edges[i]]+=i",
+        "answer=0，i 升序比较严格大于当前积分时更新",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/accumulate-incoming-source-indices/Solution.java",
+        "kotlin": "solutions/accumulate-incoming-source-indices/Solution.kt",
+        "cpp": "solutions/accumulate-incoming-source-indices/solution.cpp"
+      }
+    }
+  ]
+}

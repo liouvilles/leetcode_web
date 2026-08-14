@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "bulbSwitch",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三盏灯",
+      "args": [
+        3
+      ],
+      "expected": 1
+    },
+    {
+      "name": "零盏灯",
+      "args": [
+        0
+      ],
+      "expected": 0
+    },
+    {
+      "name": "完全平方数",
+      "args": [
+        16
+      ],
+      "expected": 4
+    }
+  ]
+}

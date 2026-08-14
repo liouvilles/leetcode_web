@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1489,
+  "slug": "find-critical-and-pseudo-critical-edges-in-minimum-spanning-tree",
+  "title": "找出最小生成树里的关键边和伪关键边",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-021",
+  "studyTags": [
+    "并查集",
+    "图论",
+    "排序",
+    "最小生成树"
+  ],
+  "summary": "分类加权无向图的边：删除后最小生成树权重增加的是关键边；能出现在某棵最小生成树中的是伪关键边。",
+  "insight": "先用 Kruskal 求基准权重。对每条边分别禁用一次；若权重变大则关键。否则强制先选该边再跑 Kruskal，若仍等于基准则伪关键。",
+  "pitfalls": [
+    "返回原输入边下标",
+    "图断开视为权重无穷",
+    "关键边不再归入伪关键列表"
+  ],
+  "solutions": [
+    {
+      "id": "kruskal-exclude-force",
+      "title": "Kruskal 排除与强制测试",
+      "kind": "最优",
+      "idea": "通过两次受约束最小生成树计算判定每条边。",
+      "steps": [
+        "给边附原下标并按权重排序，base=kruskal(-1,-1)",
+        "对 index：若 kruskal(index,-1)>base 加入 critical",
+        "否则若 kruskal(-1,index)==base 加入 pseudo，返回两列表"
+      ],
+      "complexity": {
+        "time": "O(E² α(V))",
+        "space": "O(E+V)"
+      },
+      "files": {
+        "java": "solutions/kruskal-exclude-force/Solution.java",
+        "kotlin": "solutions/kruskal-exclude-force/Solution.kt",
+        "cpp": "solutions/kruskal-exclude-force/solution.cpp"
+      }
+    }
+  ]
+}

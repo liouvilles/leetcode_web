@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "arrayStringsAreEqual",
+  "parameterTypes": [
+    "stringArray",
+    "stringArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "不同分块连接后均为 abc",
+      "args": [
+        [
+          "ab",
+          "c"
+        ],
+        [
+          "a",
+          "bc"
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "连接结果字符顺序不同",
+      "args": [
+        [
+          "a",
+          "cb"
+        ],
+        [
+          "ab",
+          "c"
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "多个片段连接结果相同",
+      "args": [
+        [
+          "abc",
+          "d",
+          "defg"
+        ],
+        [
+          "abcddefg"
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

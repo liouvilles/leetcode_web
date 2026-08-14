@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "shiftingLetters",
+  "parameterTypes": [
+    "string",
+    "intArray"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "经典三字符",
+      "args": [
+        "abc",
+        [
+          3,
+          5,
+          9
+        ]
+      ],
+      "expected": "rpl"
+    },
+    {
+      "name": "递增移位",
+      "args": [
+        "aaa",
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": "gfd"
+    },
+    {
+      "name": "z 环回 a",
+      "args": [
+        "z",
+        [
+          1
+        ]
+      ],
+      "expected": "a"
+    }
+  ]
+}

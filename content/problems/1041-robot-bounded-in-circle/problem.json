@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1041,
+  "slug": "robot-bounded-in-circle",
+  "title": "困于环中的机器人",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-015",
+  "studyTags": [
+    "字符串",
+    "数学",
+    "模拟"
+  ],
+  "summary": "机器人从原点朝北，按指令 G 前进、L/R 转九十度，无限重复指令，判断轨迹是否被限制在某个圆内。",
+  "insight": "执行一轮后，若回到原点显然有界；若朝向改变，最多四轮方向恢复且位移会相互抵消；只有不在原点且仍朝北时会无限远离。",
+  "pitfalls": [
+    "只需模拟一轮指令",
+    "转向不改变位置",
+    "方向用模四索引维护"
+  ],
+  "solutions": [
+    {
+      "id": "single-cycle-position-direction",
+      "title": "单周期位置朝向判定",
+      "kind": "最优",
+      "idea": "用一轮结束状态概括无限重复轨迹。",
+      "steps": [
+        "方向按北东南西定义位移数组，x=y=direction=0",
+        "G 按当前方向移动；L 令 direction=(direction+3)%4，R 令 direction=(direction+1)%4",
+        "返回位置为原点或 direction!=0"
+      ],
+      "complexity": {
+        "time": "O(|instructions|)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/single-cycle-position-direction/Solution.java",
+        "kotlin": "solutions/single-cycle-position-direction/Solution.kt",
+        "cpp": "solutions/single-cycle-position-direction/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1380,
+  "slug": "lucky-numbers-in-a-matrix",
+  "title": "矩阵中的幸运数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-019",
+  "studyTags": [
+    "数组",
+    "矩阵"
+  ],
+  "summary": "返回矩阵中同时是所在行最小值、所在列最大值的所有元素。",
+  "insight": "预处理每行最小值和每列最大值，再扫描每个单元格同时比较两个条件。",
+  "pitfalls": [
+    "行条件取最小，列条件取最大",
+    "可能存在多个幸运数",
+    "只返回矩阵中的实际元素"
+  ],
+  "solutions": [
+    {
+      "id": "row-min-column-max",
+      "title": "行最小与列最大",
+      "kind": "最优",
+      "idea": "用两个一维数组保存每行每列的极值。",
+      "steps": [
+        "rowMin 初始化正无穷，colMax 初始化负无穷并扫描矩阵更新",
+        "再次扫描每个 cell",
+        "若 cell==rowMin[row] 且 cell==colMax[col]，加入答案"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(m+n)"
+      },
+      "files": {
+        "java": "solutions/row-min-column-max/Solution.java",
+        "kotlin": "solutions/row-min-column-max/Solution.kt",
+        "cpp": "solutions/row-min-column-max/solution.cpp"
+      }
+    }
+  ]
+}

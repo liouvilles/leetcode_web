@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2336,
+  "slug": "smallest-number-in-infinite-set",
+  "title": "无限集中的最小数字",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "哈希表",
+    "设计",
+    "堆（优先队列）",
+    "有序集合"
+  ],
+  "summary": "设计初始包含所有正整数的集合，支持取出并删除当前最小值，以及把一个正整数加回集合。",
+  "insight": "用 current 表示从未弹出的最小整数，所有 current 以上数字隐式存在；只需用有序集合保存被弹出后又加回且小于 current 的数字。",
+  "pitfalls": [
+    "重复 addBack 不能产生重复元素",
+    "尚未弹出的数字无需显式加入",
+    "优先弹出有序集合中的较小回补值"
+  ],
+  "solutions": [
+    {
+      "id": "implicit-tail-with-ordered-addbacks",
+      "title": "隐式无限尾部与有序回补集",
+      "kind": "最优",
+      "idea": "只显式维护 current 前方的回补数字。",
+      "steps": [
+        "current=1、addedBack 为空 TreeSet",
+        "pop：若 addedBack 非空 pollFirst，否则返回 current++",
+        "addBack(num)：仅 num<current 时加入集合"
+      ],
+      "complexity": {
+        "time": "O(log q) 回补与回补弹出，O(1) 新数弹出",
+        "space": "O(q)"
+      },
+      "files": {
+        "java": "solutions/implicit-tail-with-ordered-addbacks/Solution.java",
+        "kotlin": "solutions/implicit-tail-with-ordered-addbacks/Solution.kt",
+        "cpp": "solutions/implicit-tail-with-ordered-addbacks/solution.cpp"
+      }
+    }
+  ]
+}

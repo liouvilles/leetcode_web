@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 872,
+  "slug": "leaf-similar-trees",
+  "title": "叶子相似的树",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "树",
+    "深度优先搜索"
+  ],
+  "summary": "从左到右读取二叉树所有叶子值形成序列，判断两棵树的叶值序列是否相同。",
+  "insight": "分别 DFS 收集叶子；节点左右都为空时追加其值，否则继续递归左右子树，最后直接比较列表。",
+  "pitfalls": [
+    "只有无左右孩子的节点才是叶子",
+    "顺序是从左到右",
+    "树形可不同，只比较叶序列"
+  ],
+  "solutions": [
+    {
+      "id": "collect-leaves-dfs",
+      "title": "深搜收集叶序列",
+      "kind": "最优",
+      "idea": "按左后右顺序记录两树叶子并比较。",
+      "steps": [
+        "创建两个列表",
+        "collect(node)：空返回；若左右空则追加值，否则递归 left、right",
+        "返回 first.equals(second)"
+      ],
+      "complexity": {
+        "time": "O(n+m)",
+        "space": "O(h1+h2+leaves)"
+      },
+      "files": {
+        "java": "solutions/collect-leaves-dfs/Solution.java",
+        "kotlin": "solutions/collect-leaves-dfs/Solution.kt",
+        "cpp": "solutions/collect-leaves-dfs/solution.cpp"
+      }
+    }
+  ]
+}

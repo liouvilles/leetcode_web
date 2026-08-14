@@ -1,0 +1,1 @@
+class Solution { public:long long countSubarrays(vector<int>& nums,int minK,int maxK){int bad=-1,lastMin=-1,lastMax=-1;long long answer=0;for(int i=0;i<(int)nums.size();++i){if(nums[i]<minK||nums[i]>maxK)bad=i;if(nums[i]==minK)lastMin=i;if(nums[i]==maxK)lastMax=i;answer+=max(0,min(lastMin,lastMax)-bad);}return answer;} };

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 806,
+  "slug": "number-of-lines-to-write-string",
+  "title": "写字符串需要的行数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-011",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "模拟"
+  ],
+  "summary": "每行最多宽一百，给定各小写字母宽度，顺序书写字符串，返回所需行数和最后一行宽度。",
+  "insight": "维护当前行宽；下一个字符放不下时新开一行并以该字符宽度开始，否则累加。",
+  "pitfalls": [
+    "字符不能拆分",
+    "恰好宽一百仍放在当前行",
+    "返回顺序为行数、最后行宽"
+  ],
+  "solutions": [
+    {
+      "id": "running-line-width",
+      "title": "滚动维护当前行宽",
+      "kind": "最优",
+      "idea": "一次扫描模拟换行。",
+      "steps": [
+        "lines=1,width=0",
+        "读取字符宽 next；若 width+next>100，则 lines++ 且 width=next，否则 width+=next",
+        "返回 [lines,width]"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/running-line-width/Solution.java",
+        "kotlin": "solutions/running-line-width/Solution.kt",
+        "cpp": "solutions/running-line-width/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1995,
+  "slug": "count-special-quadruplets",
+  "title": "统计特殊四元组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-029",
+  "studyTags": [
+    "数组",
+    "枚举"
+  ],
+  "summary": "统计下标 a<b<c<d 且 nums[a]+nums[b]+nums[c]=nums[d] 的四元组数量。",
+  "insight": "数组最多五十，直接按严格下标顺序枚举四个位置，清晰且足够快。",
+  "pitfalls": [
+    "按下标四元组计数",
+    "下标必须严格递增",
+    "数值可重复"
+  ],
+  "solutions": [
+    {
+      "id": "four-index-enumeration",
+      "title": "四下标直接枚举",
+      "kind": "最优",
+      "idea": "按顺序枚举所有合法下标组合并检查等式。",
+      "steps": [
+        "四重循环 a<b<c<d",
+        "比较三数和与 nums[d]",
+        "相等计数，返回"
+      ],
+      "complexity": {
+        "time": "O(n^4)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/four-index-enumeration/Solution.java",
+        "kotlin": "solutions/four-index-enumeration/Solution.kt",
+        "cpp": "solutions/four-index-enumeration/solution.cpp"
+      }
+    }
+  ]
+}

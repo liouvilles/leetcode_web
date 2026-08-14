@@ -1,0 +1,1 @@
+class Solution { public: string maxValue(string n,int x){int index=n[0]=='-'?1:0;if(n[0]=='-')while(index<(int)n.size()&&n[index]-'0'<=x)++index;else while(index<(int)n.size()&&n[index]-'0'>=x)++index;return n.substr(0,index)+char('0'+x)+n.substr(index);} };

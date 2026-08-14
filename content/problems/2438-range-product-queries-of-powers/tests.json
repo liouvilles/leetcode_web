@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "productQueries",
+  "parameterTypes": [
+    "int",
+    "intMatrix"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "十五的三个范围乘积",
+      "args": [
+        15,
+        [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            3
+          ]
+        ]
+      ],
+      "expected": [
+        2,
+        4,
+        64
+      ]
+    },
+    {
+      "name": "二只有一个幂",
+      "args": [
+        2,
+        [
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      "expected": [
+        2
+      ]
+    },
+    {
+      "name": "十的两个幂乘积十六",
+      "args": [
+        10,
+        [
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        16
+      ]
+    }
+  ]
+}

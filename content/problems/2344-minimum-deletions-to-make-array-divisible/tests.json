@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minOperations",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "删除两个二后最小值三可整除",
+      "args": [
+        [
+          2,
+          3,
+          2,
+          4,
+          3
+        ],
+        [
+          9,
+          6,
+          9,
+          3,
+          15
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "没有任何元素能整除公约数",
+      "args": [
+        [
+          4,
+          3,
+          6
+        ],
+        [
+          8,
+          2,
+          6,
+          10
+        ]
+      ],
+      "expected": -1
+    },
+    {
+      "name": "最小值一无需删除",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          4,
+          8
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

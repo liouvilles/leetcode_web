@@ -1,0 +1,1 @@
+class Solution { public: bool repeatedSubstringPattern(string s){vector<int> prefix(s.size());for(int i=1;i<(int)s.size();++i){int j=prefix[i-1];while(j>0&&s[i]!=s[j])j=prefix[j-1];if(s[i]==s[j])++j;prefix[i]=j;}int border=prefix.back(),period=s.size()-border;return border>0&&s.size()%period==0;} };

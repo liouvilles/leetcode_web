@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumCardPickup",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典卡牌最短四张",
+      "args": [
+        [
+          3,
+          4,
+          2,
+          3,
+          4,
+          7
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "相邻相同卡牌长度二",
+      "args": [
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "无重复返回负一",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": -1
+    }
+  ]
+}

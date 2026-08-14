@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1239,
+  "slug": "maximum-length-of-a-concatenated-string-with-unique-characters",
+  "title": "串联字符串的最大长度",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-017",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "位运算",
+    "回溯"
+  ],
+  "summary": "从字符串数组中选择一个子序列并串联，使结果每个字符只出现一次，求最大长度。",
+  "insight": "每个合法字符串压成 26 位掩码。维护所有可达的不重复字符集合；新掩码与旧集合无交集时可合并，逐步扩展状态并取置位数最大值。",
+  "pitfalls": [
+    "单个字符串内部有重复字符时不能使用",
+    "选择顺序固定但字符集合足以表示状态",
+    "空选择长度为零"
+  ],
+  "solutions": [
+    {
+      "id": "reachable-disjoint-masks",
+      "title": "可达互斥掩码集合",
+      "kind": "最优",
+      "idea": "逐字符串扩展所有不冲突字符集合。",
+      "steps": [
+        "states 初始只含掩码零，answer=0",
+        "为每个 word 构造 mask；若内部字符重复则跳过",
+        "遍历加入前的 states 快照，若 state&mask==0 则加入 state|mask，并用 bitCount 更新 answer"
+      ],
+      "complexity": {
+        "time": "O(2^26) 状态上界",
+        "space": "O(2^26) 状态上界"
+      },
+      "files": {
+        "java": "solutions/reachable-disjoint-masks/Solution.java",
+        "kotlin": "solutions/reachable-disjoint-masks/Solution.kt",
+        "cpp": "solutions/reachable-disjoint-masks/solution.cpp"
+      }
+    }
+  ]
+}

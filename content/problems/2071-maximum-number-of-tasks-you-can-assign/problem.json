@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2071,
+  "slug": "maximum-number-of-tasks-you-can-assign",
+  "title": "你可以安排的最多任务数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "数组",
+    "二分查找",
+    "贪心",
+    "排序"
+  ],
+  "summary": "每名工人最多一项任务，可给至多 pills 名工人增加 strength，求最多可完成任务数。",
+  "insight": "完成任务数具有单调性，二分 k。检查时取最容易的 k 项和最强的 k 名工人，从最难任务向下处理：优先使用无需药丸的最弱可行工人，否则用药丸后的最弱可行工人。",
+  "pitfalls": [
+    "药丸每人最多一颗",
+    "只需选择部分任务和工人",
+    "检查 k 时任务取最容易 k 个"
+  ],
+  "solutions": [
+    {
+      "id": "binary-search-count-multiset-greedy",
+      "title": "二分数量与工人多重集贪心",
+      "kind": "最优",
+      "idea": "用有序工人集合为每项任务选择最弱足够者。",
+      "steps": [
+        "排序 tasks、workers",
+        "check(k)：TreeMap 放最强 k 工人，task 从 k-1 降到零",
+        "先 ceiling(task)；没有则需 pill 并 ceiling(task-strength)，否则失败；消耗工人，二分最大可行 k"
+      ],
+      "complexity": {
+        "time": "O((n+m) log(n+m)+min(n,m) log²m)",
+        "space": "O(m)"
+      },
+      "files": {
+        "java": "solutions/binary-search-count-multiset-greedy/Solution.java",
+        "kotlin": "solutions/binary-search-count-multiset-greedy/Solution.kt",
+        "cpp": "solutions/binary-search-count-multiset-greedy/solution.cpp"
+      }
+    }
+  ]
+}

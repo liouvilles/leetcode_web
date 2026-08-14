@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "spiralOrder",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "intList",
+  "cases": [
+    {
+      "name": "三阶方阵",
+      "args": [
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            4,
+            5,
+            6
+          ],
+          [
+            7,
+            8,
+            9
+          ]
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        3,
+        6,
+        9,
+        8,
+        7,
+        4,
+        5
+      ]
+    },
+    {
+      "name": "两行矩阵",
+      "args": [
+        [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            5,
+            6,
+            7,
+            8
+          ]
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        3,
+        4,
+        8,
+        7,
+        6,
+        5
+      ]
+    },
+    {
+      "name": "单列矩阵",
+      "args": [
+        [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ]
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        3
+      ]
+    }
+  ]
+}

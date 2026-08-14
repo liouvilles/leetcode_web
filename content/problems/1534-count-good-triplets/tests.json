@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countGoodTriplets",
+  "parameterTypes": [
+    "intArray",
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典数组四个好三元组",
+      "args": [
+        [
+          3,
+          0,
+          1,
+          1,
+          9,
+          7
+        ],
+        7,
+        2,
+        3
+      ],
+      "expected": 4
+    },
+    {
+      "name": "全部相同有四种三元组",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        0,
+        0,
+        0
+      ],
+      "expected": 4
+    },
+    {
+      "name": "差值限制太小无结果",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        0,
+        0,
+        0
+      ],
+      "expected": 0
+    }
+  ]
+}

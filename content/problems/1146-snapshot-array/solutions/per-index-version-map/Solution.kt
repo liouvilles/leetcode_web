@@ -1,0 +1,1 @@
+class SnapshotArray(length:Int) { private val history=MutableList(length){java.util.TreeMap<Int,Int>().apply{put(0,0)}};private var currentSnap=0;fun set(index:Int,`val`:Int){history[index][currentSnap]=`val`};fun snap():Int=currentSnap++;fun get(index:Int,snapId:Int):Int=history[index].floorEntry(snapId).value }

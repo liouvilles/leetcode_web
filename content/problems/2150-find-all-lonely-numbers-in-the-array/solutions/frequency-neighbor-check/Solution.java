@@ -1,0 +1,1 @@
+class Solution { public List<Integer> findLonely(int[] nums){Map<Integer,Integer> count=new HashMap<>();for(int value:nums)count.merge(value,1,Integer::sum);List<Integer> answer=new ArrayList<>();for(int value:nums)if(count.get(value)==1&&!count.containsKey(value-1)&&!count.containsKey(value+1))answer.add(value);return answer;} }

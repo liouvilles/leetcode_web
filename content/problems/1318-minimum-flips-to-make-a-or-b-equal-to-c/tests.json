@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minFlips",
+  "parameterTypes": [
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "二六五需三次",
+      "args": [
+        2,
+        6,
+        5
+      ],
+      "expected": 3
+    },
+    {
+      "name": "四二七需一次",
+      "args": [
+        4,
+        2,
+        7
+      ],
+      "expected": 1
+    },
+    {
+      "name": "一二三无需翻转",
+      "args": [
+        1,
+        2,
+        3
+      ],
+      "expected": 0
+    }
+  ]
+}

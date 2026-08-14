@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "smallestNumber",
+  "parameterTypes": [
+    "long"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "正数零移到非首位",
+      "args": [
+        310
+      ],
+      "expected": 103
+    },
+    {
+      "name": "负数按绝对值降序",
+      "args": [
+        -7605
+      ],
+      "expected": -7650
+    },
+    {
+      "name": "零保持为零",
+      "args": [
+        0
+      ],
+      "expected": 0
+    }
+  ]
+}

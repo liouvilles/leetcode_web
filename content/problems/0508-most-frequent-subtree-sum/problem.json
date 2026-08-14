@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 508,
+  "slug": "most-frequent-subtree-sum",
+  "title": "出现次数最多的子树元素和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-007",
+  "studyTags": [
+    "二叉树",
+    "后序遍历",
+    "哈希表"
+  ],
+  "summary": "计算每棵以任意节点为根的子树元素和，返回出现频率最高的所有和并按升序输出。",
+  "insight": "后序遍历先得到左右子树和，当前子树和即可计算并更新频次表。",
+  "pitfalls": [
+    "每个节点都定义一棵子树",
+    "可能有多个并列频率最高的和",
+    "结果顺序不限但本实现排序以稳定输出"
+  ],
+  "solutions": [
+    {
+      "id": "postorder-frequency",
+      "title": "后序求和计频",
+      "kind": "最优",
+      "idea": "递归返回子树和并同步维护最大出现次数。",
+      "steps": [
+        "空节点返回零",
+        "sum=node.val+leftSum+rightSum",
+        "递增 counts[sum] 并更新 best，遍历后收集 count==best 的键并排序"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/postorder-frequency/Solution.java",
+        "kotlin": "solutions/postorder-frequency/Solution.kt",
+        "cpp": "solutions/postorder-frequency/solution.cpp"
+      }
+    }
+  ]
+}

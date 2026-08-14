@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isSymmetric",
+  "parameterTypes": [
+    "treeNode"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "完整镜像结构",
+      "args": [
+        [
+          1,
+          2,
+          2,
+          3,
+          4,
+          4,
+          3
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "空节点位置不对称",
+      "args": [
+        [
+          1,
+          2,
+          2,
+          null,
+          3,
+          null,
+          3
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "空树对称",
+      "args": [
+        []
+      ],
+      "expected": true
+    }
+  ]
+}

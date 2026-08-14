@@ -1,0 +1,1 @@
+class MyHashSet { vector<bool> present;public:MyHashSet():present(1000001){}void add(int key){present[key]=true;}void remove(int key){present[key]=false;}bool contains(int key){return present[key];} };

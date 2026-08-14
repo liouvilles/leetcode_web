@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 830,
+  "slug": "positions-of-large-groups",
+  "title": "较大分组的位置",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-011",
+  "studyTags": [
+    "字符串",
+    "双指针"
+  ],
+  "summary": "字符串中相同字符连续形成分组，返回长度至少三的所有分组起止下标。",
+  "insight": "双指针找每个最大连续段，段尾减段首加一不少于三就记录。",
+  "pitfalls": [
+    "下标从零开始且结束位置包含在组内",
+    "字符串末尾也要结算",
+    "输出按出现顺序自然递增"
+  ],
+  "solutions": [
+    {
+      "id": "scan-maximal-runs",
+      "title": "扫描最大连续字符段",
+      "kind": "最优",
+      "idea": "逐段定位尾后位置并判断长度。",
+      "steps": [
+        "start=0",
+        "令 end 从 start+1 前进到字符改变或字符串结束",
+        "若 end-start>=3，加入 [start,end-1]；令 start=end 继续"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(output)"
+      },
+      "files": {
+        "java": "solutions/scan-maximal-runs/Solution.java",
+        "kotlin": "solutions/scan-maximal-runs/Solution.kt",
+        "cpp": "solutions/scan-maximal-runs/solution.cpp"
+      }
+    }
+  ]
+}

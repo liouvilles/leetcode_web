@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2002,
+  "slug": "maximum-product-of-the-length-of-two-palindromic-subsequences",
+  "title": "两个回文子序列长度的最大乘积",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-029",
+  "studyTags": [
+    "位运算",
+    "字符串",
+    "枚举",
+    "状态压缩"
+  ],
+  "summary": "从字符串选两个不相交的非空回文子序列，最大化它们长度乘积。",
+  "insight": "字符串长度最多十二，可用掩码表示子序列。预先判断每个掩码按原顺序组成的字符串是否回文并记录长度，再枚举互不相交的两个回文掩码。",
+  "pitfalls": [
+    "子序列不要求连续",
+    "两个子序列不能共享下标",
+    "各自必须非空"
+  ],
+  "solutions": [
+    {
+      "id": "palindromic-subset-masks",
+      "title": "回文子集掩码枚举",
+      "kind": "最优",
+      "idea": "穷举所有下标子集并组合互斥回文。",
+      "steps": [
+        "对 mask 双指针检查其选中字符序列是否回文，记录 bitCount 或零",
+        "枚举 first 与 second",
+        "若 (first&second)==0，更新 length[first]*length[second]"
+      ],
+      "complexity": {
+        "time": "O(4^n·n)",
+        "space": "O(2^n)"
+      },
+      "files": {
+        "java": "solutions/palindromic-subset-masks/Solution.java",
+        "kotlin": "solutions/palindromic-subset-masks/Solution.kt",
+        "cpp": "solutions/palindromic-subset-masks/solution.cpp"
+      }
+    }
+  ]
+}

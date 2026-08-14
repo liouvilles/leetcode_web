@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "pathSum",
+  "parameterTypes": [
+    "treeNode",
+    "int"
+  ],
+  "returnType": "intListMatrix",
+  "cases": [
+    {
+      "name": "两条目标路径",
+      "args": [
+        [
+          5,
+          4,
+          8,
+          11,
+          null,
+          13,
+          4,
+          7,
+          2,
+          null,
+          null,
+          5,
+          1
+        ],
+        22
+      ],
+      "expected": [
+        [
+          5,
+          4,
+          11,
+          2
+        ],
+        [
+          5,
+          8,
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "name": "无目标路径",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        5
+      ],
+      "expected": []
+    },
+    {
+      "name": "单条目标路径",
+      "args": [
+        [
+          1,
+          2
+        ],
+        3
+      ],
+      "expected": [
+        [
+          1,
+          2
+        ]
+      ]
+    }
+  ]
+}

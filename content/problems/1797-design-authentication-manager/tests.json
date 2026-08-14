@@ -1,0 +1,188 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "AuthenticationManager",
+  "constructorTypes": [
+    "int"
+  ],
+  "cases": [
+    {
+      "name": "经典生成续期与过期流程",
+      "constructorArgs": [
+        5
+      ],
+      "calls": [
+        {
+          "method": "renew",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "aaa",
+            1
+          ]
+        },
+        {
+          "method": "generate",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "aaa",
+            2
+          ]
+        },
+        {
+          "method": "countUnexpiredTokens",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            6
+          ],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "generate",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "bbb",
+            7
+          ]
+        },
+        {
+          "method": "renew",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "aaa",
+            8
+          ]
+        },
+        {
+          "method": "renew",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "bbb",
+            10
+          ]
+        },
+        {
+          "method": "countUnexpiredTokens",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            15
+          ],
+          "returnType": "int",
+          "expected": 0
+        }
+      ]
+    },
+    {
+      "name": "有效令牌续期延长寿命",
+      "constructorArgs": [
+        3
+      ],
+      "calls": [
+        {
+          "method": "generate",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "x",
+            1
+          ]
+        },
+        {
+          "method": "renew",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "x",
+            3
+          ]
+        },
+        {
+          "method": "countUnexpiredTokens",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            5
+          ],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "countUnexpiredTokens",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            6
+          ],
+          "returnType": "int",
+          "expected": 0
+        }
+      ]
+    },
+    {
+      "name": "两个令牌同时有效",
+      "constructorArgs": [
+        10
+      ],
+      "calls": [
+        {
+          "method": "generate",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "a",
+            1
+          ]
+        },
+        {
+          "method": "generate",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "b",
+            2
+          ]
+        },
+        {
+          "method": "countUnexpiredTokens",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            3
+          ],
+          "returnType": "int",
+          "expected": 2
+        }
+      ]
+    }
+  ]
+}

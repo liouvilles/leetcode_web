@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1619,
+  "slug": "mean-of-array-after-removing-some-elements",
+  "title": "删除某些元素后的数组均值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-023",
+  "studyTags": [
+    "数组",
+    "排序"
+  ],
+  "summary": "删除数组中最小的 5% 和最大的 5% 元素，返回其余元素的平均值。",
+  "insight": "排序后两端各跳过 n/20 个元素，对中间连续区间求和并除以剩余数量。",
+  "pitfalls": [
+    "数组长度保证是二十的倍数",
+    "两端删除数量都为 n/20",
+    "使用 double 累加和除法"
+  ],
+  "solutions": [
+    {
+      "id": "sort-and-trim",
+      "title": "排序后截尾求均值",
+      "kind": "最优",
+      "idea": "排序使待删除元素集中在数组两端。",
+      "steps": [
+        "排序 arr",
+        "trim=n/20，累加 [trim,n-trim) 元素",
+        "总和除以 n-2*trim"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/sort-and-trim/Solution.java",
+        "kotlin": "solutions/sort-and-trim/Solution.kt",
+        "cpp": "solutions/sort-and-trim/solution.cpp"
+      }
+    }
+  ]
+}

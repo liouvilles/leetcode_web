@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 73,
+  "slug": "set-matrix-zeroes",
+  "title": "矩阵置零",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-002",
+  "studyTags": [
+    "原地标记",
+    "首行首列",
+    "矩阵"
+  ],
+  "summary": "若矩阵中某元素为零，就把它所在的整行和整列都设为零，要求原地完成。",
+  "insight": "用矩阵第一行和第一列充当标记数组，再额外记录它们自身是否原本包含零。",
+  "pitfalls": [
+    "首行首列需要独立布尔标记",
+    "写标记时不能提前清零整行整列",
+    "最后处理首行首列"
+  ],
+  "solutions": [
+    {
+      "id": "first-row-column-markers",
+      "title": "首行首列复用标记",
+      "kind": "最优",
+      "idea": "扫描内部零并在对应首行首列位置做标记，第二遍据此清零。",
+      "steps": [
+        "记录首行和首列是否含零",
+        "扫描内部元素并写行列标记",
+        "清零内部后按布尔标记处理首行首列"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/first-row-column-markers/Solution.java",
+        "kotlin": "solutions/first-row-column-markers/Solution.kt",
+        "cpp": "solutions/first-row-column-markers/solution.cpp"
+      }
+    }
+  ]
+}

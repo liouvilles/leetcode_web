@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": 2074,
+  "slug": "reverse-nodes-in-even-length-groups",
+  "title": "反转偶数长度组的节点",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "链表"
+  ],
+  "summary": "链表依次按目标长度一、二、三等分组，最后一组可不足；把实际长度为偶数的组反转。",
+  "insight": "逐组先探测实际节点数和组后节点。偶数组用标准局部链表反转，并把上一组尾接新头、旧头接 next；奇数组只移动指针。",
+  "pitfalls": [
+    "判断实际长度而非目标组长",
+    "最后一组可能不足",
+    "反转后旧组头变为组尾"
+  ],
+  "solutions": [
+    {
+      "id": "probe-and-reverse-groups",
+      "title": "探测实际组长后局部反转",
+      "kind": "最优",
+      "idea": "按组维护前驱、组头与下一组起点。",
+      "steps": [
+        "dummy→head，groupSize 从一递增",
+        "从 groupStart 走至多 groupSize 得 actual 与 next",
+        "actual 偶数时反转 [start,next)，重接 previous.next 与 start.next；否则 previous 移到组尾，继续"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/probe-and-reverse-groups/Solution.java",
+        "kotlin": "solutions/probe-and-reverse-groups/Solution.kt",
+        "cpp": "solutions/probe-and-reverse-groups/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "decode",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "异或序列恢复一零二一",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        1
+      ],
+      "expected": [
+        1,
+        0,
+        2,
+        1
+      ]
+    },
+    {
+      "name": "单个编码恢复两元素",
+      "args": [
+        [
+          6
+        ],
+        4
+      ],
+      "expected": [
+        4,
+        2
+      ]
+    },
+    {
+      "name": "空编码只返回首元素",
+      "args": [
+        [],
+        7
+      ],
+      "expected": [
+        7
+      ]
+    }
+  ]
+}

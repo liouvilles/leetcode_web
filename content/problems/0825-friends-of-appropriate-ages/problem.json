@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 825,
+  "slug": "friends-of-appropriate-ages",
+  "title": "适龄的朋友",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-011",
+  "studyTags": [
+    "数组",
+    "计数",
+    "枚举"
+  ],
+  "summary": "每个人不会向年龄 y 满足 y<=x/2+7、y>x 或 y>100 且 x<100 的人发送请求，求所有有序好友请求数量。",
+  "insight": "年龄范围仅 1..120，统计每个年龄人数，再枚举发送者与接收者年龄；合法年龄对贡献 count[x]*count[y]，同龄时排除自己。",
+  "pitfalls": [
+    "请求有方向",
+    "同一人不能向自己发送",
+    "年龄条件使用整数比较可写成 2*y<=x+14"
+  ],
+  "solutions": [
+    {
+      "id": "age-frequency-pair-enumeration",
+      "title": "年龄频次数对枚举",
+      "kind": "最优",
+      "idea": "在固定小年龄域上聚合计算请求数。",
+      "steps": [
+        "统计 ages[1..120]",
+        "枚举 sender、receiver 且频次非零，按三条规则跳过不合法年龄对",
+        "贡献 count[sender]*count[receiver]，同龄再减 count[sender] 排除自请求"
+      ],
+      "complexity": {
+        "time": "O(n+120²)",
+        "space": "O(120)"
+      },
+      "files": {
+        "java": "solutions/age-frequency-pair-enumeration/Solution.java",
+        "kotlin": "solutions/age-frequency-pair-enumeration/Solution.kt",
+        "cpp": "solutions/age-frequency-pair-enumeration/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxTrailingZeros",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "单个十有一个尾零",
+      "args": [
+        [
+          [
+            10
+          ]
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "四个十的最长转角含三个格",
+      "args": [
+        [
+          [
+            10,
+            10
+          ],
+          [
+            10,
+            10
+          ]
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "因子分布组合可得两个尾零",
+      "args": [
+        [
+          [
+            2,
+            5
+          ],
+          [
+            4,
+            25
+          ]
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

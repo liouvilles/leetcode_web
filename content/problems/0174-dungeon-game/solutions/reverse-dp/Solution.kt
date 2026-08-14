@@ -1,0 +1,1 @@
+class Solution { fun calculateMinimumHP(dungeon:Array<IntArray>):Int { val n=dungeon[0].size; val dp=IntArray(n+1){Int.MAX_VALUE}; dp[n-1]=1; for(r in dungeon.lastIndex downTo 0) for(c in n-1 downTo 0){ val next=minOf(dp[c],dp[c+1]); dp[c]=maxOf(1,next-dungeon[r][c]) }; return dp[0] } }

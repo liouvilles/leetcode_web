@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 290,
+  "slug": "word-pattern",
+  "title": "单词规律",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-005",
+  "studyTags": [
+    "哈希表",
+    "双射",
+    "字符串"
+  ],
+  "summary": "判断模式字符与句子中的单词之间是否存在一一对应关系。",
+  "insight": "同时维护字符到单词与单词到字符的映射，才能排除多对一或一对多。",
+  "pitfalls": [
+    "模式长度必须等于单词数",
+    "映射必须是双射",
+    "同一映射在所有位置保持一致"
+  ],
+  "solutions": [
+    {
+      "id": "two-way-mapping",
+      "title": "双向映射校验",
+      "kind": "最优",
+      "idea": "逐位置建立或验证两个方向的对应关系。",
+      "steps": [
+        "按空格拆分句子并检查数量",
+        "查询两个方向已有映射",
+        "不一致返回假，否则写入映射"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/two-way-mapping/Solution.java",
+        "kotlin": "solutions/two-way-mapping/Solution.kt",
+        "cpp": "solutions/two-way-mapping/solution.cpp"
+      }
+    }
+  ]
+}

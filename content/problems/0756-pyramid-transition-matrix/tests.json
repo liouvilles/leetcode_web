@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "pyramidTransition",
+  "parameterTypes": [
+    "string",
+    "stringList"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "可构造到顶端",
+      "args": [
+        "BCD",
+        [
+          "BCC",
+          "CDE",
+          "CEA",
+          "FFF"
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "所有组合均失败",
+      "args": [
+        "AAAA",
+        [
+          "AAB",
+          "AAC",
+          "BCD",
+          "BBE",
+          "DEF"
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "单字符底层",
+      "args": [
+        "A",
+        []
+      ],
+      "expected": true
+    }
+  ]
+}

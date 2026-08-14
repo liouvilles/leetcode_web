@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 354,
+  "slug": "russian-doll-envelopes",
+  "title": "俄罗斯套娃信封问题",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-006",
+  "studyTags": [
+    "排序",
+    "最长递增子序列",
+    "二分查找"
+  ],
+  "summary": "信封只有宽和高都严格更大时才能套入，求最多可嵌套多少个。",
+  "insight": "宽升序且同宽高度降序排序后，问题转化为高度的严格最长递增子序列；同宽不会被误选。",
+  "pitfalls": [
+    "宽高都必须严格增加",
+    "同宽高度必须降序排列",
+    "高度 LIS 使用 lower bound"
+  ],
+  "solutions": [
+    {
+      "id": "sort-and-lis",
+      "title": "排序后高度 LIS",
+      "kind": "最优",
+      "idea": "特殊排序消除同宽干扰，再维护高度子序列的最小结尾。",
+      "steps": [
+        "按宽升序、同宽高降序排序",
+        "对每个高度在 tails 中找首个不小于它的位置",
+        "替换或追加并返回 tails 长度"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/sort-and-lis/Solution.java",
+        "kotlin": "solutions/sort-and-lis/Solution.kt",
+        "cpp": "solutions/sort-and-lis/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxScoreSightseeingPair",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典最高十一",
+      "args": [
+        [
+          8,
+          1,
+          5,
+          2,
+          6
+        ]
+      ],
+      "expected": 11
+    },
+    {
+      "name": "两个一",
+      "args": [
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "递增数组",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 4
+    }
+  ]
+}

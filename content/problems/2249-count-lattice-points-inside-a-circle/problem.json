@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2249,
+  "slug": "count-lattice-points-inside-a-circle",
+  "title": "统计圆内格点数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-033",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "数学",
+    "几何"
+  ],
+  "summary": "给定若干圆，统计位于至少一个圆内部或边界上的整数坐标点数量。",
+  "insight": "坐标和半径范围很小，枚举每个圆包围盒内的整数点，检查平方距离不超过半径平方，并用集合去重。",
+  "pitfalls": [
+    "边界点也计入",
+    "多个圆重叠点只计一次",
+    "用平方距离避免浮点误差"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-circle-bounding-boxes",
+      "title": "枚举圆包围盒格点",
+      "kind": "最优",
+      "idea": "逐圆添加所有内部格点到坐标集合。",
+      "steps": [
+        "Set encodedPoints",
+        "对 circle 枚举 x-r..x+r、y-r..y+r",
+        "若 dx²+dy²<=r²，编码坐标加入 Set；返回 size"
+      ],
+      "complexity": {
+        "time": "O(sum radius²)",
+        "space": "O(number of covered points)"
+      },
+      "files": {
+        "java": "solutions/enumerate-circle-bounding-boxes/Solution.java",
+        "kotlin": "solutions/enumerate-circle-bounding-boxes/Solution.kt",
+        "cpp": "solutions/enumerate-circle-bounding-boxes/solution.cpp"
+      }
+    }
+  ]
+}

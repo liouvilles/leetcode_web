@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "repeatedCharacter",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "char",
+  "cases": [
+    {
+      "name": "c 最先第二次出现",
+      "args": [
+        "abccbaacz"
+      ],
+      "expected": "c"
+    },
+    {
+      "name": "d 最先重复",
+      "args": [
+        "abcdd"
+      ],
+      "expected": "d"
+    },
+    {
+      "name": "双 a 直接返回 a",
+      "args": [
+        "aa"
+      ],
+      "expected": "a"
+    }
+  ]
+}

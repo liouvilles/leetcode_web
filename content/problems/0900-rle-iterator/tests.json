@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "RLEIterator",
+  "constructorTypes": [
+    "intArray"
+  ],
+  "cases": [
+    {
+      "name": "经典游程消费",
+      "constructorArgs": [
+        [
+          3,
+          8,
+          0,
+          9,
+          2,
+          5
+        ]
+      ],
+      "calls": [
+        {
+          "method": "next",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ],
+          "returnType": "int",
+          "expected": 8
+        },
+        {
+          "method": "next",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ],
+          "returnType": "int",
+          "expected": 8
+        },
+        {
+          "method": "next",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ],
+          "returnType": "int",
+          "expected": 5
+        },
+        {
+          "method": "next",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ],
+          "returnType": "int",
+          "expected": -1
+        }
+      ]
+    },
+    {
+      "name": "跨段消费",
+      "constructorArgs": [
+        [
+          1,
+          1,
+          2,
+          2
+        ]
+      ],
+      "calls": [
+        {
+          "method": "next",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ],
+          "returnType": "int",
+          "expected": 2
+        },
+        {
+          "method": "next",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ],
+          "returnType": "int",
+          "expected": 2
+        }
+      ]
+    },
+    {
+      "name": "零次数开头",
+      "constructorArgs": [
+        [
+          0,
+          7,
+          1,
+          4
+        ]
+      ],
+      "calls": [
+        {
+          "method": "next",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ],
+          "returnType": "int",
+          "expected": 4
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2453,
+  "slug": "destroy-sequential-targets",
+  "title": "摧毁一系列目标",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-036",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "计数"
+  ],
+  "summary": "选择 nums 中一个起点并摧毁所有与它相差 space 整数倍的目标，求可摧毁最多目标时的最小起点。",
+  "insight": "能被同一起点覆盖的数具有相同除以 space 的余数。统计每个余数组大小与组内最小值，选频次最大、平局最小值最小的组。",
+  "pitfalls": [
+    "起点必须来自 nums",
+    "按余数分组",
+    "平局比较具体起点值"
+  ],
+  "solutions": [
+    {
+      "id": "remainder-group-frequency",
+      "title": "余数组频次",
+      "kind": "最优",
+      "idea": "同余类恰是可连续摧毁集合。",
+      "steps": [
+        "frequency[remainder]++、minimum[remainder] 更新",
+        "扫描 nums 完成分组",
+        "选 count 更大或同 count 最小值更小的 remainder 组",
+        "返回组内 minimum"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(space or groups)"
+      },
+      "files": {
+        "java": "solutions/remainder-group-frequency/Solution.java",
+        "kotlin": "solutions/remainder-group-frequency/Solution.kt",
+        "cpp": "solutions/remainder-group-frequency/solution.cpp"
+      }
+    }
+  ]
+}

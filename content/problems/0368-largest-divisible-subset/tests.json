@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "largestDivisibleSubset",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intList",
+  "cases": [
+    {
+      "name": "并列时选首次链",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "完整幂链",
+      "args": [
+        [
+          1,
+          2,
+          4,
+          8
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        4,
+        8
+      ]
+    },
+    {
+      "name": "跳过不兼容元素",
+      "args": [
+        [
+          4,
+          8,
+          10,
+          240
+        ]
+      ],
+      "expected": [
+        4,
+        8,
+        240
+      ]
+    }
+  ]
+}

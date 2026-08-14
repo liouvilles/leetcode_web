@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": 1523,
+  "slug": "count-odd-numbers-in-an-interval-range",
+  "title": "在区间范围内统计奇数数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-022",
+  "studyTags": [
+    "数学"
+  ],
+  "summary": "统计闭区间 [low,high] 中的奇数数量。",
+  "insight": "不超过 x 的正奇数数量是 (x+1)/2；两个前缀计数相减得到区间答案。",
+  "pitfalls": [
+    "区间包含两个端点",
+    "整数除法自动向下取整",
+    "low 可为零"
+  ],
+  "solutions": [
+    {
+      "id": "odd-prefix-count",
+      "title": "奇数前缀计数",
+      "kind": "最优",
+      "idea": "用不超过边界的奇数数目作差。",
+      "steps": [
+        "countUpTo(x)=(x+1)/2",
+        "high 前缀包含 high",
+        "减去 low-1 前缀等价于减 low/2"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/odd-prefix-count/Solution.java",
+        "kotlin": "solutions/odd-prefix-count/Solution.kt",
+        "cpp": "solutions/odd-prefix-count/solution.cpp"
+      }
+    }
+  ]
+}

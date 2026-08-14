@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxProductDifference",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "九八乘积减二四乘积六十四",
+      "args": [
+        [
+          5,
+          6,
+          2,
+          7,
+          4
+        ]
+      ],
+      "expected": 34
+    },
+    {
+      "name": "重复大数仍按不同下标选择",
+      "args": [
+        [
+          4,
+          2,
+          5,
+          9,
+          7,
+          4,
+          8
+        ]
+      ],
+      "expected": 64
+    },
+    {
+      "name": "四个连续数乘积差十",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": 10
+    }
+  ]
+}

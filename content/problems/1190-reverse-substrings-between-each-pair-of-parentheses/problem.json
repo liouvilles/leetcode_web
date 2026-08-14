@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1190,
+  "slug": "reverse-substrings-between-each-pair-of-parentheses",
+  "title": "反转每对括号间的子串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-017",
+  "studyTags": [
+    "字符串",
+    "栈",
+    "模拟"
+  ],
+  "summary": "从内到外反转每对匹配括号中的字符串，最终删除所有括号并返回结果。",
+  "insight": "遇左括号时把外层已构造字符串压栈并开始新片段；遇右括号时反转当前内层片段，再接到弹出的外层后方，天然按嵌套顺序处理。",
+  "pitfalls": [
+    "括号保证匹配且不出现在结果中",
+    "反转发生在每一层闭合时",
+    "普通字符直接追加到当前片段"
+  ],
+  "solutions": [
+    {
+      "id": "builder-stack-nested-reversal",
+      "title": "构造器栈嵌套反转",
+      "kind": "最优",
+      "idea": "用栈保存每层左括号之前的外部前缀。",
+      "steps": [
+        "current 为空，stack 为空",
+        "遇 (：压入 current 并新建空 current；遇 )：反转 current，弹出 outer 并令 current=outer+current",
+        "普通字母追加 current，扫描结束返回 current"
+      ],
+      "complexity": {
+        "time": "O(n²) 最坏，常见 O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/builder-stack-nested-reversal/Solution.java",
+        "kotlin": "solutions/builder-stack-nested-reversal/Solution.kt",
+        "cpp": "solutions/builder-stack-nested-reversal/solution.cpp"
+      }
+    }
+  ]
+}

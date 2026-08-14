@@ -1,0 +1,1 @@
+class FindElements(root:TreeNode?) { private val values=mutableSetOf<Int>();init{recover(root,0)};private fun recover(node:TreeNode?,value:Int){node?:return;node.`val`=value;values.add(value);recover(node.left,value*2+1);recover(node.right,value*2+2)};fun find(target:Int):Boolean=target in values }

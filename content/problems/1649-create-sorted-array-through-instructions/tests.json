@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "createSortedArray",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一五六二总代价一",
+      "args": [
+        [
+          1,
+          5,
+          6,
+          2
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "递增后逆序尾部总代价三",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          6,
+          5,
+          4
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "含重复元素总代价四",
+      "args": [
+        [
+          1,
+          3,
+          3,
+          3,
+          2,
+          4,
+          2,
+          1,
+          2
+        ]
+      ],
+      "expected": 4
+    }
+  ]
+}

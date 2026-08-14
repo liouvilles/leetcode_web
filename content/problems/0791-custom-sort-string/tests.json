@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "customSortString",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "反向前三字符",
+      "args": [
+        "cba",
+        "abcd"
+      ],
+      "expected": "cbad"
+    },
+    {
+      "name": "部分顺序字符缺失",
+      "args": [
+        "bcafg",
+        "abcd"
+      ],
+      "expected": "bcad"
+    },
+    {
+      "name": "重复字符",
+      "args": [
+        "kqep",
+        "pekeq"
+      ],
+      "expected": "kqeep"
+    }
+  ]
+}

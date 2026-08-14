@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1482,
+  "slug": "minimum-number-of-days-to-make-m-bouquets",
+  "title": "制作 M 束花所需的最少天数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-021",
+  "studyTags": [
+    "数组",
+    "二分查找"
+  ],
+  "summary": "第 bloomDay[i] 天第 i 朵花开放，每束需 k 朵相邻开放花，求制作 m 束的最早天数。",
+  "insight": "给定天数能否制作足够花束具有单调性。二分天数，线性扫描连续开放花数并每满 k 朵组成一束。",
+  "pitfalls": [
+    "同一朵花不能重复使用",
+    "花束中的花必须相邻",
+    "m*k>花朵数时直接无解"
+  ],
+  "solutions": [
+    {
+      "id": "binary-search-feasible-day",
+      "title": "可行天数二分",
+      "kind": "最优",
+      "idea": "在最小与最大开放日间寻找首个可行值。",
+      "steps": [
+        "若 (long)m*k>n 返回 -1",
+        "feasible(day) 扫描 bloomDay，开放则 consecutive++，满 k 后 bouquets++ 并清零；未开放清零",
+        "二分闭区间，feasible(mid) 收缩右界，否则左界右移"
+      ],
+      "complexity": {
+        "time": "O(n log D)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/binary-search-feasible-day/Solution.java",
+        "kotlin": "solutions/binary-search-feasible-day/Solution.kt",
+        "cpp": "solutions/binary-search-feasible-day/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "smallestDivisor",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "阈值六答案五",
+      "args": [
+        [
+          1,
+          2,
+          5,
+          9
+        ],
+        6
+      ],
+      "expected": 5
+    },
+    {
+      "name": "阈值五答案三",
+      "args": [
+        [
+          2,
+          3,
+          5,
+          7,
+          11
+        ],
+        11
+      ],
+      "expected": 3
+    },
+    {
+      "name": "阈值五答案四十四",
+      "args": [
+        [
+          19
+        ],
+        5
+      ],
+      "expected": 4
+    }
+  ]
+}

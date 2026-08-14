@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getMaxLen",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两个负数使整段乘积为正",
+      "args": [
+        [
+          1,
+          -2,
+          -3,
+          4
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "零分隔后最长三",
+      "args": [
+        [
+          0,
+          1,
+          -2,
+          -3,
+          -4
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "三个负数前两项乘积为正",
+      "args": [
+        [
+          -1,
+          -2,
+          -3,
+          0,
+          1
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2420,
+  "slug": "find-all-good-indices",
+  "title": "找到所有好下标",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-035",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "前缀和"
+  ],
+  "summary": "下标 i 为好下标需其前 k 个元素非递增，后 k 个元素非递减，返回所有好下标。",
+  "insight": "left[i] 记录以 i 结尾的非递增长度，right[i] 记录以 i 开始的非递减长度；候选 i 检查 left[i-1] 与 right[i+1] 是否至少 k。",
+  "pitfalls": [
+    "不包含下标 i 自身",
+    "相等满足非递增和非递减",
+    "候选范围需左右各留 k 个元素"
+  ],
+  "solutions": [
+    {
+      "id": "directional-monotone-run-lengths",
+      "title": "双向单调连续长度",
+      "kind": "最优",
+      "idea": "预处理两侧所需的单调段长度。",
+      "steps": [
+        "left[0]=1，nums[i]<=nums[i-1] 时递增否则1",
+        "right[n-1]=1，nums[i]<=nums[i+1] 时递增否则1",
+        "i 从 k 到 n-k-1，若 left[i-1]>=k 且 right[i+1]>=k 加入",
+        "返回列表"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/directional-monotone-run-lengths/Solution.java",
+        "kotlin": "solutions/directional-monotone-run-lengths/Solution.kt",
+        "cpp": "solutions/directional-monotone-run-lengths/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "lastSubstring",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "重复 ab 的最大后缀",
+      "args": [
+        "abab"
+      ],
+      "expected": "bab"
+    },
+    {
+      "name": "leetcode 最大后缀",
+      "args": [
+        "leetcode"
+      ],
+      "expected": "tcode"
+    },
+    {
+      "name": "全相同保留完整串",
+      "args": [
+        "aaaa"
+      ],
+      "expected": "aaaa"
+    }
+  ]
+}

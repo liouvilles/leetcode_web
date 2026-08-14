@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 885,
+  "slug": "spiral-matrix-iii",
+  "title": "螺旋矩阵 III",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "数组",
+    "矩阵",
+    "模拟"
+  ],
+  "summary": "从网格内指定位置开始，按东南西北方向向外螺旋行走，返回按访问顺序遇到的全部网格坐标。",
+  "insight": "移动长度序列为一、一、二、二、三、三；即每走两个方向后步长加一，途中只记录落在网格内的坐标，网格外仍继续走。",
+  "pitfalls": [
+    "起点首先加入答案",
+    "走出网格不能停止或截断该方向",
+    "收集满 rows*cols 个坐标后立即返回"
+  ],
+  "solutions": [
+    {
+      "id": "expanding-spiral-simulation",
+      "title": "递增长度螺旋模拟",
+      "kind": "最优",
+      "idea": "按固定四方向和每两次增加的步长行走。",
+      "steps": [
+        "answer 加入起点，direction=0,steps=1",
+        "循环两次：沿当前方向走 steps 个单位，每步若在界内加入；方向顺时针更新",
+        "两方向后 steps++，直到收满网格坐标"
+      ],
+      "complexity": {
+        "time": "O(path length)",
+        "space": "O(rows·cols)"
+      },
+      "files": {
+        "java": "solutions/expanding-spiral-simulation/Solution.java",
+        "kotlin": "solutions/expanding-spiral-simulation/Solution.kt",
+        "cpp": "solutions/expanding-spiral-simulation/solution.cpp"
+      }
+    }
+  ]
+}

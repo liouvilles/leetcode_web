@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumTime",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "三辆车五趟最少三时间",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        5
+      ],
+      "expected": 3
+    },
+    {
+      "name": "单辆车一趟需两时间",
+      "args": [
+        [
+          2
+        ],
+        1
+      ],
+      "expected": 2
+    },
+    {
+      "name": "两辆同速十趟需十五",
+      "args": [
+        [
+          3,
+          3
+        ],
+        10
+      ],
+      "expected": 15
+    }
+  ]
+}

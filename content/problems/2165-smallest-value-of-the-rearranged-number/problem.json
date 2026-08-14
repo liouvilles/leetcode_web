@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2165,
+  "slug": "smallest-value-of-the-rearranged-number",
+  "title": "重排数字的最小值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-031",
+  "studyTags": [
+    "数学",
+    "排序"
+  ],
+  "summary": "重排有符号整数的全部数位且结果不能有前导零，求可能的最小值。",
+  "insight": "正数要数值最小：数位升序并把最小非零数换到首位；负数要数值最小即绝对值最大，数位降序即可。",
+  "pitfalls": [
+    "零直接返回零",
+    "正数前导零需交换处理",
+    "负号不属于可重排数位"
+  ],
+  "solutions": [
+    {
+      "id": "sign-aware-digit-sorting",
+      "title": "按符号排序数位",
+      "kind": "最优",
+      "idea": "正数最小化绝对值，负数最大化绝对值。",
+      "steps": [
+        "num==0 返回零",
+        "取 abs(num) 字符数组",
+        "正数升序并把第一个非零位换到首位；负数降序",
+        "解析数位，按原符号返回"
+      ],
+      "complexity": {
+        "time": "O(d log d)",
+        "space": "O(d)"
+      },
+      "files": {
+        "java": "solutions/sign-aware-digit-sorting/Solution.java",
+        "kotlin": "solutions/sign-aware-digit-sorting/Solution.kt",
+        "cpp": "solutions/sign-aware-digit-sorting/solution.cpp"
+      }
+    }
+  ]
+}

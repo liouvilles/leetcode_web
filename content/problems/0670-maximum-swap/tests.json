@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumSwap",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "提升最高位",
+      "args": [
+        2736
+      ],
+      "expected": 7236
+    },
+    {
+      "name": "已经最大",
+      "args": [
+        9973
+      ],
+      "expected": 9973
+    },
+    {
+      "name": "选择最右侧相同大数字",
+      "args": [
+        98368
+      ],
+      "expected": 98863
+    }
+  ]
+}

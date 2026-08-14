@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 108,
+  "slug": "convert-sorted-array-to-binary-search-tree",
+  "title": "将有序数组转换为二叉搜索树",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-004",
+  "studyTags": [
+    "二叉搜索树",
+    "递归分治",
+    "平衡树"
+  ],
+  "summary": "把严格递增数组转换为一棵高度平衡的二叉搜索树。",
+  "insight": "每次选择区间中点作为根，左右半区分别递归建树，子树规模之差自然不超过一。",
+  "pitfalls": [
+    "空区间返回空节点",
+    "中点选上中位或下中位都可",
+    "结果需同时满足 BST 与高度平衡"
+  ],
+  "solutions": [
+    {
+      "id": "middle-as-root",
+      "title": "中点递归建树",
+      "kind": "最优",
+      "idea": "把数组中点作为根，并对左右子区间重复相同过程。",
+      "steps": [
+        "递归接收闭区间 left/right",
+        "选 middle 并创建根",
+        "左右区间分别构造子树"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/middle-as-root/Solution.java",
+        "kotlin": "solutions/middle-as-root/Solution.kt",
+        "cpp": "solutions/middle-as-root/solution.cpp"
+      }
+    }
+  ]
+}

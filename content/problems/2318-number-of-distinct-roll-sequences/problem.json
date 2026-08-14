@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2318,
+  "slug": "number-of-distinct-roll-sequences",
+  "title": "不同骰子序列的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "动态规划",
+    "记忆化搜索"
+  ],
+  "summary": "统计长度 n 的六面骰序列：相邻数字互质且不同，并且相距两个位置的数字也不同，结果取模。",
+  "insight": "下一数字是否合法只依赖前两个数字。用 dp[previous][last] 表示当前序列最后两项，枚举新点数并检查与 last 互质、与 last 和 previous 均不同。",
+  "pitfalls": [
+    "一与一虽互质但相邻仍不允许相等",
+    "还要禁止新值等于前前值",
+    "n 为一时直接有六种"
+  ],
+  "solutions": [
+    {
+      "id": "last-two-values-dp",
+      "title": "末两点数状态 DP",
+      "kind": "最优",
+      "idea": "用 36 个状态滚动扩展序列。",
+      "steps": [
+        "n==1 返回 6",
+        "初始化所有合法长度二状态 dp[first][second]=1",
+        "长度从三到 n：枚举 previous,last,next，满足约束则转移到 next[last][next]",
+        "汇总最终状态并取模"
+      ],
+      "complexity": {
+        "time": "O(n·6³)",
+        "space": "O(6²)"
+      },
+      "files": {
+        "java": "solutions/last-two-values-dp/Solution.java",
+        "kotlin": "solutions/last-two-values-dp/Solution.kt",
+        "cpp": "solutions/last-two-values-dp/solution.cpp"
+      }
+    }
+  ]
+}

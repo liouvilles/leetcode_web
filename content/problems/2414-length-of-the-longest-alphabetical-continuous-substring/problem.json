@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2414,
+  "slug": "length-of-the-longest-alphabetical-continuous-substring",
+  "title": "最长字母连续递增子字符串的长度",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-035",
+  "studyTags": [
+    "字符串"
+  ],
+  "summary": "求最长连续子字符串，使每个字符恰为前一字符在字母表中的下一个。",
+  "insight": "扫描维护以当前位置结尾的连续长度；当前字符等于前一字符加一时递增，否则重置为一。",
+  "pitfalls": [
+    "要求子字符串连续",
+    "增量必须恰好为一",
+    "单字符长度为一"
+  ],
+  "solutions": [
+    {
+      "id": "running-consecutive-length",
+      "title": "滚动连续长度",
+      "kind": "最优",
+      "idea": "一次扫描统计最长相邻字母链。",
+      "steps": [
+        "current=answer=1",
+        "i 从1开始，若 s[i]==s[i-1]+1 则 current++，否则 current=1",
+        "answer=max(answer,current)",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/running-consecutive-length/Solution.java",
+        "kotlin": "solutions/running-consecutive-length/Solution.kt",
+        "cpp": "solutions/running-consecutive-length/solution.cpp"
+      }
+    }
+  ]
+}

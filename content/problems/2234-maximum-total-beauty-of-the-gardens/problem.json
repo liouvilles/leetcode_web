@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2234,
+  "slug": "maximum-total-beauty-of-the-gardens",
+  "title": "花园的最大总美丽值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-032",
+  "studyTags": [
+    "数组",
+    "二分查找",
+    "贪心",
+    "排序"
+  ],
+  "summary": "分配至多 newFlowers 朵花；达到 target 的花园各贡献 full，未达到的花园共同贡献其最小花数乘 partial，求最大总美丽值。",
+  "insight": "先把花数封顶 target 并排序，已有完整花园固定计 full。枚举再把最大的若干未完整花园补到 target；对剩余前缀用预算尽量抬高其最小值，通过前缀和与二分找能共同抬升的元素数量。",
+  "pitfalls": [
+    "完整花园不参与 partial 最小值",
+    "未完整花园的最小值最多 target-1",
+    "花数、预算和美丽值使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-completed-suffix-and-level-prefix",
+      "title": "枚举完整后缀并抬高未完整前缀",
+      "kind": "最优",
+      "idea": "排序后最优完整花园一定来自当前花数最大的后缀。",
+      "steps": [
+        "排序并把每项 cap 到 target，prefix 求和；m 为原本未完整数量",
+        "remain 从 m 降到零，fullCost 累加把后缀补满的成本；若不超预算则计算 fullCount=n-remain",
+        "remain>0 时二分最大 p，使把前 p 个抬到 flowers[p-1] 的成本不超剩余预算；level=min(target-1,(prefix[p]+budget)/p)",
+        "更新 fullCount*full+level*partial"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/enumerate-completed-suffix-and-level-prefix/Solution.java",
+        "kotlin": "solutions/enumerate-completed-suffix-and-level-prefix/Solution.kt",
+        "cpp": "solutions/enumerate-completed-suffix-and-level-prefix/solution.cpp"
+      }
+    }
+  ]
+}

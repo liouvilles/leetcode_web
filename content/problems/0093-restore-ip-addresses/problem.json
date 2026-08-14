@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 93,
+  "slug": "restore-ip-addresses",
+  "title": "复原 IP 地址",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-004",
+  "studyTags": [
+    "回溯",
+    "字符串分段",
+    "剪枝"
+  ],
+  "summary": "在只含数字的字符串中插入三个点，返回所有每段在 0 到 255 且格式合法的 IPv4 地址。",
+  "insight": "深度固定为四段，每段尝试一到三位；用剩余字符数与剩余段数的范围提前剪枝。",
+  "pitfalls": [
+    "多位段不能以零开头",
+    "段值不能超过 255",
+    "必须恰好使用全部字符并得到四段"
+  ],
+  "solutions": [
+    {
+      "id": "four-segment-backtracking",
+      "title": "四段回溯",
+      "kind": "最优",
+      "idea": "按顺序枚举每段长度，合法时递归构造下一段。",
+      "steps": [
+        "检查剩余字符能否填满剩余段",
+        "尝试长度 1..3 并校验前导零和值",
+        "四段且用完字符串时加入答案"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1) excluding output"
+      },
+      "files": {
+        "java": "solutions/four-segment-backtracking/Solution.java",
+        "kotlin": "solutions/four-segment-backtracking/Solution.kt",
+        "cpp": "solutions/four-segment-backtracking/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumOperations",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "六元素最少修改三处",
+      "args": [
+        [
+          3,
+          1,
+          3,
+          2,
+          4,
+          3
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "两侧最高值冲突需用次高",
+      "args": [
+        [
+          1,
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "已经交替无需修改",
+      "args": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

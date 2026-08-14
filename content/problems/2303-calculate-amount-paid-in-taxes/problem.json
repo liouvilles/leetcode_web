@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2303,
+  "slug": "calculate-amount-paid-in-taxes",
+  "title": "计算应缴税款总额",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "数组",
+    "模拟"
+  ],
+  "summary": "税级给出各档累计收入上限和税率，计算指定收入应缴纳的税款。",
+  "insight": "逐档只对落在上一档上限与当前上限之间的收入征税，最后一档也只取实际收入覆盖部分。",
+  "pitfalls": [
+    "税率需除以一百",
+    "上限是累计边界而非本档宽度",
+    "收入为零时税款为零"
+  ],
+  "solutions": [
+    {
+      "id": "progressive-bracket-simulation",
+      "title": "累进税档模拟",
+      "kind": "最优",
+      "idea": "逐段累加实际落入该税档的收入乘税率。",
+      "steps": [
+        "previous=0、tax=0",
+        "遍历 [upper,percent]，taxable=max(0,min(income,upper)-previous)",
+        "tax+=taxable*percent/100；若 income<=upper 结束，否则 previous=upper",
+        "返回 tax"
+      ],
+      "complexity": {
+        "time": "O(number of brackets)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/progressive-bracket-simulation/Solution.java",
+        "kotlin": "solutions/progressive-bracket-simulation/Solution.kt",
+        "cpp": "solutions/progressive-bracket-simulation/solution.cpp"
+      }
+    }
+  ]
+}

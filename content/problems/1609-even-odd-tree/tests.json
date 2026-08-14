@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isEvenOddTree",
+  "parameterTypes": [
+    "treeNode"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "经典树满足奇偶单调规则",
+      "args": [
+        [
+          1,
+          10,
+          4,
+          3,
+          null,
+          7,
+          9,
+          12,
+          8,
+          6,
+          null,
+          null,
+          2
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "第二层出现偶数值违规",
+      "args": [
+        [
+          5,
+          4,
+          2,
+          3,
+          3,
+          7
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "单根奇数合法",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

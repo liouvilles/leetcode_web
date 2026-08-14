@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2117,
+  "slug": "abbreviating-the-product-of-a-range",
+  "title": "一个区间内所有数乘积的缩写",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-031",
+  "studyTags": [
+    "数学",
+    "字符串",
+    "数论"
+  ],
+  "summary": "计算闭区间整数乘积，去掉尾随零；结果不超过十位时完整输出，否则保留前五位与后五位，并附零的数量。",
+  "insight": "逐数剥离因子二和五，配对数就是尾零；剩余因子在 10^10 下取模可恢复短结果和后五位。对数和减去尾零给出有效乘积位数与前五位。",
+  "pitfalls": [
+    "后五位必须补足前导零",
+    "先去尾零再判断是否缩写",
+    "未配对的二或五仍属于有效乘积"
+  ],
+  "solutions": [
+    {
+      "id": "factor-count-modulo-and-logarithm",
+      "title": "因子计数、模运算与对数",
+      "kind": "最优",
+      "idea": "分别维护尾零、低位和高位，避免构造巨大整数。",
+      "steps": [
+        "累计 log10，同时剥离每个数的二五因子并把其余部分乘入 mod 10^10",
+        "配对二五得到 zeros，把多余因子乘回低位；logarithm-=zeros",
+        "位数不超过十则输出低位；否则由对数小数部分算前五位，低位模十万并补零"
+      ],
+      "complexity": {
+        "time": "O(right-left+log product)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/factor-count-modulo-and-logarithm/Solution.java",
+        "kotlin": "solutions/factor-count-modulo-and-logarithm/Solution.kt",
+        "cpp": "solutions/factor-count-modulo-and-logarithm/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 910,
+  "slug": "smallest-range-ii",
+  "title": "最小差值 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-013",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "排序"
+  ],
+  "summary": "必须给每个元素加 k 或减 k，求操作后最大值与最小值的最小差。",
+  "insight": "排序后最优方案可由一个切分点描述：左段统一加 k、右段统一减 k；枚举切分点计算新极值。",
+  "pitfalls": [
+    "每个元素必须二选一操作",
+    "切分点两侧都可为空的基线是原范围",
+    "新最大来自原最大减 k 或左段末加 k，新最小对称"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-sign-split",
+      "title": "排序后正负调整切分",
+      "kind": "最优",
+      "idea": "枚举所有加减分界并更新范围。",
+      "steps": [
+        "排序 nums，answer=last-first",
+        "i=0..n-2：high=max(last-k,nums[i]+k)",
+        "low=min(first+k,nums[i+1]-k)，answer=min(answer,high-low)，返回"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/sorted-sign-split/Solution.java",
+        "kotlin": "solutions/sorted-sign-split/Solution.kt",
+        "cpp": "solutions/sorted-sign-split/solution.cpp"
+      }
+    }
+  ]
+}

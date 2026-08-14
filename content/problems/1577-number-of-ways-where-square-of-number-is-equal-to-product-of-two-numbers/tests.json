@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numTriplets",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四的平方等于二乘八",
+      "args": [
+        [
+          7,
+          4
+        ],
+        [
+          5,
+          2,
+          8,
+          9
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "全一数组共有九种",
+      "args": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": 9
+    },
+    {
+      "name": "三的平方不等于二乘二",
+      "args": [
+        [
+          3
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

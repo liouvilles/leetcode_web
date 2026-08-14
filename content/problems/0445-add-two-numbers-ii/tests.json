@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "addTwoNumbers",
+  "parameterTypes": [
+    "listNode",
+    "listNode"
+  ],
+  "returnType": "listNode",
+  "cases": [
+    {
+      "name": "不同长度相加",
+      "args": [
+        [
+          7,
+          2,
+          4,
+          3
+        ],
+        [
+          5,
+          6,
+          4
+        ]
+      ],
+      "expected": [
+        7,
+        8,
+        0,
+        7
+      ]
+    },
+    {
+      "name": "产生最高位进位",
+      "args": [
+        [
+          9,
+          9,
+          9
+        ],
+        [
+          1
+        ]
+      ],
+      "expected": [
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "两个零",
+      "args": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "expected": [
+        0
+      ]
+    }
+  ]
+}

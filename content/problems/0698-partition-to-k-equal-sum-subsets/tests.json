@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "canPartitionKSubsets",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "可分四个和五子集",
+      "args": [
+        [
+          4,
+          3,
+          2,
+          3,
+          5,
+          2,
+          1
+        ],
+        4
+      ],
+      "expected": true
+    },
+    {
+      "name": "总和不能整除",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        3
+      ],
+      "expected": false
+    },
+    {
+      "name": "整除但无法分桶",
+      "args": [
+        [
+          2,
+          2,
+          2,
+          2,
+          3,
+          4,
+          5
+        ],
+        4
+      ],
+      "expected": false
+    }
+  ]
+}

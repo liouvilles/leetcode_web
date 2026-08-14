@@ -1,0 +1,1 @@
+class Solution { public: int longestBeautifulSubstring(string word){int start=0,distinct=1,answer=0;for(int i=1;i<(int)word.size();++i){if(word[i]<word[i-1]){start=i;distinct=1;}else if(word[i]>word[i-1])++distinct;if(distinct==5)answer=max(answer,i-start+1);}return answer;} };

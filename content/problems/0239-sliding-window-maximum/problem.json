@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 239,
+  "slug": "sliding-window-maximum",
+  "title": "滑动窗口最大值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-003",
+  "studyTags": [
+    "单调队列",
+    "滑动窗口",
+    "下标过期"
+  ],
+  "summary": "固定长度 k 的窗口从数组左端滑到右端，返回每个窗口中的最大值。",
+  "insight": "双端队列只保留值严格递减的候选下标；队首永远是当前窗口最大值，较小且更早的元素永久失去竞争力。",
+  "pitfalls": [
+    "队列保存下标才能判断过期",
+    "新值入队前要从队尾移除不大于它的值",
+    "右端到达 k-1 后才产生答案"
+  ],
+  "solutions": [
+    {
+      "id": "monotonic-deque",
+      "title": "递减单调队列",
+      "kind": "最优",
+      "idea": "维护当前窗口中仍可能成为最大值的下标序列。",
+      "steps": [
+        "移除小于窗口左边界的队首",
+        "移除值不大于当前值的队尾",
+        "当前下标入队并在窗口成形后记录队首值"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(k)"
+      },
+      "files": {
+        "java": "solutions/monotonic-deque/Solution.java",
+        "kotlin": "solutions/monotonic-deque/Solution.kt",
+        "cpp": "solutions/monotonic-deque/solution.cpp"
+      }
+    }
+  ]
+}

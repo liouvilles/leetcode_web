@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1941,
+  "slug": "check-if-all-characters-have-equal-number-of-occurrences",
+  "title": "检查是否所有字符出现次数相同",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-028",
+  "studyTags": [
+    "哈希表",
+    "字符串",
+    "计数"
+  ],
+  "summary": "判断字符串中所有出现过的不同字符，其出现次数是否完全相同。",
+  "insight": "统计二十六个频次，取首个正频次为基准，其他正频次必须与其相等；未出现字符忽略。",
+  "pitfalls": [
+    "频次零不参与比较",
+    "字符串非空",
+    "只含小写字母"
+  ],
+  "solutions": [
+    {
+      "id": "frequency-baseline",
+      "title": "频次基准比较",
+      "kind": "最优",
+      "idea": "计数后比较所有正频次。",
+      "steps": [
+        "frequency[26]",
+        "统计字符",
+        "baseline 初始零；正频次首次赋值，后续不等返回 false，最终 true"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/frequency-baseline/Solution.java",
+        "kotlin": "solutions/frequency-baseline/Solution.kt",
+        "cpp": "solutions/frequency-baseline/solution.cpp"
+      }
+    }
+  ]
+}

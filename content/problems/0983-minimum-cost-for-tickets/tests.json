@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "mincostTickets",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典十一元",
+      "args": [
+        [
+          1,
+          4,
+          6,
+          7,
+          8,
+          20
+        ],
+        [
+          2,
+          7,
+          15
+        ]
+      ],
+      "expected": 11
+    },
+    {
+      "name": "连续跨月十七元",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          30,
+          31
+        ],
+        [
+          2,
+          7,
+          15
+        ]
+      ],
+      "expected": 17
+    },
+    {
+      "name": "单次出行",
+      "args": [
+        [
+          365
+        ],
+        [
+          2,
+          7,
+          15
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

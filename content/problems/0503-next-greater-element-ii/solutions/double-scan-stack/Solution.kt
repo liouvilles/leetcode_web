@@ -1,0 +1,1 @@
+class Solution { fun nextGreaterElements(nums:IntArray):IntArray{val answer=IntArray(nums.size){-1};val stack=ArrayDeque<Int>();for(index in 0 until 2*nums.size){val current=index%nums.size;while(stack.isNotEmpty()&&nums[stack.last()]<nums[current])answer[stack.removeLast()]=nums[current];if(index<nums.size)stack.addLast(current)};return answer} }

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 636,
+  "slug": "exclusive-time-of-functions",
+  "title": "函数的独占时间",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-008",
+  "studyTags": [
+    "数组",
+    "栈",
+    "日志解析"
+  ],
+  "summary": "单线程程序的函数可递归调用，给定开始结束日志，计算每个函数实际独占执行的时间。",
+  "insight": "栈顶是当前运行函数；每条日志到来时，先把与上一时间点之间的区间归给旧栈顶，结束时间戳还要包含当前单位。",
+  "pitfalls": [
+    "end 时间戳是闭区间",
+    "函数可递归调用自身",
+    "结束后下一未处理时间是 timestamp+1"
+  ],
+  "solutions": [
+    {
+      "id": "call-stack-timeline",
+      "title": "调用栈切分时间轴",
+      "kind": "最优",
+      "idea": "用 previous 标记尚未归属区间的起点，并在日志边界结算栈顶。",
+      "steps": [
+        "解析 id、start/end、timestamp",
+        "start 时先给旧栈顶累加 timestamp-previous，再压入新函数并令 previous=timestamp",
+        "end 时给栈顶累加 timestamp-previous+1，弹栈并令 previous=timestamp+1"
+      ],
+      "complexity": {
+        "time": "O(log count)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/call-stack-timeline/Solution.java",
+        "kotlin": "solutions/call-stack-timeline/Solution.kt",
+        "cpp": "solutions/call-stack-timeline/solution.cpp"
+      }
+    }
+  ]
+}

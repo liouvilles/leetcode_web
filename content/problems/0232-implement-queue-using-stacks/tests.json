@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "MyQueue",
+  "constructorTypes": [],
+  "cases": [
+    {
+      "name": "先进先出",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ]
+        },
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ]
+        },
+        {
+          "method": "peek",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "pop",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "empty",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "boolean",
+          "expected": false
+        }
+      ]
+    },
+    {
+      "name": "转移后继续入队",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            3
+          ]
+        },
+        {
+          "method": "pop",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 3
+        },
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            4
+          ]
+        },
+        {
+          "method": "peek",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 4
+        }
+      ]
+    },
+    {
+      "name": "初始为空",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "empty",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "boolean",
+          "expected": true
+        }
+      ]
+    }
+  ]
+}

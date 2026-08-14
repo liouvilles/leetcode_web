@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 524,
+  "slug": "longest-word-in-dictionary-through-deleting",
+  "title": "通过删除字母匹配到字典里最长单词",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-007",
+  "studyTags": [
+    "双指针",
+    "子序列",
+    "贪心比较"
+  ],
+  "summary": "从字典中找能作为给定字符串子序列的最长单词；同长度时返回字典序最小者。",
+  "insight": "逐候选双指针检查子序列，并按长度优先、字典序次优的规则维护答案。",
+  "pitfalls": [
+    "只能删除原字符串字符不能重排",
+    "同长度需要选择字典序更小者",
+    "不存在时返回空字符串"
+  ],
+  "solutions": [
+    {
+      "id": "scan-dictionary",
+      "title": "逐词子序列验证",
+      "kind": "最优",
+      "idea": "不必排序字典，在线比较每个合法候选与当前最佳。",
+      "steps": [
+        "对 word 用双指针判断是否为 s 子序列",
+        "合法且更长时替换 best",
+        "同长且字典序更小时替换，返回 best"
+      ],
+      "complexity": {
+        "time": "O(total dictionary chars+|s|·words)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/scan-dictionary/Solution.java",
+        "kotlin": "solutions/scan-dictionary/Solution.kt",
+        "cpp": "solutions/scan-dictionary/solution.cpp"
+      }
+    }
+  ]
+}

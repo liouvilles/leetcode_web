@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "scoreOfStudents",
+  "parameterTypes": [
+    "string",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "正确与错误括号答案共七分",
+      "args": [
+        "7+3*1*2",
+        [
+          20,
+          13,
+          42
+        ]
+      ],
+      "expected": 7
+    },
+    {
+      "name": "多个重复学生答案累计十九分",
+      "args": [
+        "3+5*2",
+        [
+          13,
+          0,
+          10,
+          13,
+          13,
+          16,
+          16
+        ]
+      ],
+      "expected": 19
+    },
+    {
+      "name": "简单加法一个正确答案五分",
+      "args": [
+        "1+2",
+        [
+          3,
+          4
+        ]
+      ],
+      "expected": 5
+    }
+  ]
+}

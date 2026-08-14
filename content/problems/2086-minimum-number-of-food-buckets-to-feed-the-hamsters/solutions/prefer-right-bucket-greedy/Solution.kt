@@ -1,0 +1,1 @@
+class Solution { fun minimumBuckets(street:String):Int{val value=street.toCharArray();var answer=0;for(i in value.indices)if(value[i]=='H'){if(i>0&&value[i-1]=='B')continue;if(i+1<value.size&&value[i+1]=='.'){value[i+1]='B';answer++}else if(i>0&&value[i-1]=='.'){value[i-1]='B';answer++}else return -1};return answer} }

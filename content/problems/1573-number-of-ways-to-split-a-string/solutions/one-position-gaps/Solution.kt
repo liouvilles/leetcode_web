@@ -1,0 +1,1 @@
+class Solution { fun numWays(text:String):Int{val ones=text.indices.filter{text[it]=='1'};val mod=1_000_000_007L;if(ones.size%3!=0)return 0;if(ones.isEmpty())return (((text.length-1L)*(text.length-2)/2)%mod).toInt();val part=ones.size/3;return ((ones[part]-ones[part-1]).toLong()*(ones[2*part]-ones[2*part-1])%mod).toInt()} }

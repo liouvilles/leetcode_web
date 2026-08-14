@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minStartValue",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "最低前缀为负四",
+      "args": [
+        [
+          -3,
+          2,
+          -3,
+          4,
+          2
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "全正数从一开始",
+      "args": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "后缀把前缀降到负四",
+      "args": [
+        [
+          1,
+          -2,
+          -3
+        ]
+      ],
+      "expected": 5
+    }
+  ]
+}

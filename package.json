@@ -1,0 +1,36 @@
+{
+  "name": "leetcode-solution-lab",
+  "private": true,
+  "version": "0.2.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "prebuild": "npm run content:build",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "precheck": "npm run content:build",
+    "check": "tsc -b",
+    "content:migrate": "node scripts/migrate-content.mjs",
+    "content:import-batch": "node scripts/import-content-batch.mjs",
+    "content:build": "node scripts/build-problem-content.mjs",
+    "validate:content": "node scripts/validate-content.mjs",
+    "validate:snippets": "node scripts/validate-snippets.mjs",
+    "validate:behavior": "node scripts/validate-behavior.mjs",
+    "validate": "npm run validate:content && npm run validate:snippets && npm run validate:behavior && npm run build",
+    "import:catalog": "node scripts/import-problem-catalog.mjs"
+  },
+  "dependencies": {
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.10",
+    "@types/react-dom": "^19.1.7",
+    "@vitejs/plugin-react": "^5.0.2",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.2"
+  }
+}

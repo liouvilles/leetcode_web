@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": 2057,
+  "slug": "smallest-index-with-equal-value",
+  "title": "值相等的最小索引",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "数组"
+  ],
+  "summary": "返回最小下标 i，使 i 模十等于 nums[i]，不存在返回负一。",
+  "insight": "按下标递增直接检查定义，首个满足即最小答案。",
+  "pitfalls": [
+    "下标从零开始",
+    "取模基数十",
+    "只需返回首个"
+  ],
+  "solutions": [
+    {
+      "id": "left-to-right-definition-check",
+      "title": "从左到右按定义检查",
+      "kind": "最优",
+      "idea": "线性扫描直到首次命中。",
+      "steps": [
+        "i 从零到末尾",
+        "若 i%10==nums[i] 返回 i",
+        "结束返回 -1"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/left-to-right-definition-check/Solution.java",
+        "kotlin": "solutions/left-to-right-definition-check/Solution.kt",
+        "cpp": "solutions/left-to-right-definition-check/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 211,
+  "slug": "design-add-and-search-words-data-structure",
+  "title": "添加与搜索单词",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-005",
+  "studyTags": [
+    "字典树",
+    "深度优先搜索",
+    "设计"
+  ],
+  "summary": "设计支持添加单词和搜索模式的数据结构，搜索中的点号可以匹配任意一个字母。",
+  "insight": "字典树处理普通字符；遇到点号时对当前节点的所有孩子递归尝试剩余模式。",
+  "pitfalls": [
+    "点号只匹配一个字符",
+    "完整匹配还需检查单词结束标记",
+    "同一实例会连续执行多次操作"
+  ],
+  "solutions": [
+    {
+      "id": "trie-dfs",
+      "title": "字典树 + 通配符 DFS",
+      "kind": "最优",
+      "idea": "按字符建立前缀树，搜索函数在通配符位置分叉。",
+      "steps": [
+        "addWord 逐字符建节点",
+        "search 普通字符沿唯一分支前进",
+        "点号枚举全部非空孩子，末尾检查结束标记"
+      ],
+      "complexity": {
+        "time": "O(L·26^wildcards)",
+        "space": "O(total characters)"
+      },
+      "files": {
+        "java": "solutions/trie-dfs/Solution.java",
+        "kotlin": "solutions/trie-dfs/Solution.kt",
+        "cpp": "solutions/trie-dfs/solution.cpp"
+      }
+    }
+  ]
+}

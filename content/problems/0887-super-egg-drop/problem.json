@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 887,
+  "slug": "super-egg-drop",
+  "title": "鸡蛋掉落",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "数学",
+    "动态规划"
+  ],
+  "summary": "有 k 枚相同鸡蛋和 n 层楼，求最坏情况下确定临界楼层所需的最少操作次数。",
+  "insight": "反向定义 reachable[e] 为给定操作次数和 e 枚蛋可判定的最大楼层数；多一次操作可覆盖碎裂侧、当前层和未碎侧，共 reachable[e-1]+1+reachable[e]。",
+  "pitfalls": [
+    "鸡蛋维度必须倒序更新",
+    "零次操作可覆盖零层",
+    "当 reachable[k]>=n 时当前 moves 即答案"
+  ],
+  "solutions": [
+    {
+      "id": "moves-to-reachable-floors-dp",
+      "title": "操作次数对应可测楼层 DP",
+      "kind": "最优",
+      "idea": "逐次增加操作数直到覆盖全部楼层。",
+      "steps": [
+        "reachable[0..k]=0,moves=0",
+        "while reachable[k]<n：moves++",
+        "eggs 从 k 到一倒序，reachable[eggs]=reachable[eggs]+reachable[eggs-1]+1；返回 moves"
+      ],
+      "complexity": {
+        "time": "O(k log n)",
+        "space": "O(k)"
+      },
+      "files": {
+        "java": "solutions/moves-to-reachable-floors-dp/Solution.java",
+        "kotlin": "solutions/moves-to-reachable-floors-dp/Solution.kt",
+        "cpp": "solutions/moves-to-reachable-floors-dp/solution.cpp"
+      }
+    }
+  ]
+}

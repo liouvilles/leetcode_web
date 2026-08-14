@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1722,
+  "slug": "minimize-hamming-distance-after-swap-operations",
+  "title": "执行交换操作后的最小汉明距离",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-025",
+  "studyTags": [
+    "数组",
+    "深度优先搜索",
+    "并查集"
+  ],
+  "summary": "可任意多次交换 allowedSwaps 给出的下标对，求 source 能达到的数组与 target 的最小汉明距离。",
+  "insight": "可交换边的每个连通分量内元素能任意排列。对每个分量统计 source 与 target 的值频次差，无法相互抵消的正频次数量就是该分量最少不匹配数。",
+  "pitfalls": [
+    "交换关系具有传递性",
+    "不同分量之间不能移动元素",
+    "重复值必须按频次抵消"
+  ],
+  "solutions": [
+    {
+      "id": "component-frequency-balance",
+      "title": "并查集分量频次平衡",
+      "kind": "最优",
+      "idea": "在每个可置换分量中做多重集匹配。",
+      "steps": [
+        "并查集连接 allowedSwaps",
+        "对每个 index，在 root 对应 map 中 source值+1、target值-1",
+        "遍历所有频次差，只累加正值作为最小不匹配数"
+      ],
+      "complexity": {
+        "time": "O((n+e) α(n))",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/component-frequency-balance/Solution.java",
+        "kotlin": "solutions/component-frequency-balance/Solution.kt",
+        "cpp": "solutions/component-frequency-balance/solution.cpp"
+      }
+    }
+  ]
+}

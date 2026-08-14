@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1946,
+  "slug": "largest-number-after-mutating-substring",
+  "title": "子字符串突变后可能得到的最大整数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-028",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "贪心"
+  ],
+  "summary": "可选择至多一个连续子串，把每位数字按映射 change 替换，求最大结果字符串。",
+  "insight": "从高位找第一个映射值严格变大的位置开始突变；开始后，只要映射值不小于原值就继续，相等不会变差且能连接后续增益；首次变小就停止。",
+  "pitfalls": [
+    "只能突变一个连续区间",
+    "开始前映射相等不必启动",
+    "开始后相等应继续"
+  ],
+  "solutions": [
+    {
+      "id": "first-gain-contiguous-mutation",
+      "title": "首个增益连续贪心",
+      "kind": "最优",
+      "idea": "在最早能提高高位处开始，持续到首次负收益。",
+      "steps": [
+        "字符数组 result，started=false",
+        "未开始且 mapped>digit 时开始；开始后 mapped>=digit 就替换",
+        "开始后遇 mapped<digit 立即停止扫描，返回字符串"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/first-gain-contiguous-mutation/Solution.java",
+        "kotlin": "solutions/first-gain-contiguous-mutation/Solution.kt",
+        "cpp": "solutions/first-gain-contiguous-mutation/solution.cpp"
+      }
+    }
+  ]
+}

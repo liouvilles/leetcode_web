@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1324,
+  "slug": "print-words-vertically",
+  "title": "竖直打印单词",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "模拟"
+  ],
+  "summary": "把句子中各单词横向排列后按列竖直读取，列内缺失字符用空格占位并删除末尾空格，返回各列字符串。",
+  "insight": "求最长单词长度作为输出行数；对字符列逐个查看每个单词，有对应字符就追加，否则追加空格，最后去掉右侧空格。",
+  "pitfalls": [
+    "单词之间原输入只有单空格",
+    "中间缺字符需保留空格以维持列位置",
+    "每个输出字符串末尾不能有空格"
+  ],
+  "solutions": [
+    {
+      "id": "column-wise-word-matrix",
+      "title": "按列读取单词矩阵",
+      "kind": "最优",
+      "idea": "把不同长度单词视为右侧补空格的字符矩阵。",
+      "steps": [
+        "按空格拆 words，求 maximumLength",
+        "column 从零到 maximumLength-1，builder 遍历每个 word，存在字符则追加否则空格",
+        "删除 builder 末尾空格，加入 answer，返回"
+      ],
+      "complexity": {
+        "time": "O(句子字符数)",
+        "space": "O(结果大小)"
+      },
+      "files": {
+        "java": "solutions/column-wise-word-matrix/Solution.java",
+        "kotlin": "solutions/column-wise-word-matrix/Solution.kt",
+        "cpp": "solutions/column-wise-word-matrix/solution.cpp"
+      }
+    }
+  ]
+}

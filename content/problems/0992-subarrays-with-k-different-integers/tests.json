@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "subarraysWithKDistinct",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两种不同数共七段",
+      "args": [
+        [
+          1,
+          2,
+          1,
+          2,
+          3
+        ],
+        2
+      ],
+      "expected": 7
+    },
+    {
+      "name": "三种不同数共三段",
+      "args": [
+        [
+          1,
+          2,
+          1,
+          3,
+          4
+        ],
+        3
+      ],
+      "expected": 3
+    },
+    {
+      "name": "全相同三段",
+      "args": [
+        [
+          1,
+          1
+        ],
+        1
+      ],
+      "expected": 3
+    }
+  ]
+}

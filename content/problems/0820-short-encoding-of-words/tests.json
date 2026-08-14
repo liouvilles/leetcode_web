@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumLengthEncoding",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "me 是 time 后缀",
+      "args": [
+        [
+          "time",
+          "me",
+          "bell"
+        ]
+      ],
+      "expected": 10
+    },
+    {
+      "name": "单字母",
+      "args": [
+        [
+          "t"
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "重复和后缀",
+      "args": [
+        [
+          "time",
+          "time",
+          "me"
+        ]
+      ],
+      "expected": 5
+    }
+  ]
+}

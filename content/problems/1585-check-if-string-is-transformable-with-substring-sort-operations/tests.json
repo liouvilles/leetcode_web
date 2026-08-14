@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isTransformable",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "84532 可变为 34852",
+      "args": [
+        "84532",
+        "34852"
+      ],
+      "expected": true
+    },
+    {
+      "name": "34521 无法变为 23415",
+      "args": [
+        "34521",
+        "23415"
+      ],
+      "expected": true
+    },
+    {
+      "name": "12345 无法逆序",
+      "args": [
+        "12345",
+        "12435"
+      ],
+      "expected": false
+    }
+  ]
+}

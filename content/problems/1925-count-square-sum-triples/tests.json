@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countTriples",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "五以内有三四五及交换",
+      "args": [
+        5
+      ],
+      "expected": 2
+    },
+    {
+      "name": "十以内再含六八十及交换",
+      "args": [
+        10
+      ],
+      "expected": 4
+    },
+    {
+      "name": "一以内没有平方和三元组",
+      "args": [
+        1
+      ],
+      "expected": 0
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "reverseOnlyLetters",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "连字符不动",
+      "args": [
+        "ab-cd"
+      ],
+      "expected": "dc-ba"
+    },
+    {
+      "name": "多个标点",
+      "args": [
+        "a-bC-dEf-ghIj"
+      ],
+      "expected": "j-Ih-gfE-dCba"
+    },
+    {
+      "name": "数字标点混合",
+      "args": [
+        "Test1ng-Leet=code-Q!"
+      ],
+      "expected": "Qedo1ct-eeLg=ntse-T!"
+    }
+  ]
+}

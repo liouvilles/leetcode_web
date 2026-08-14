@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numberOfWeakCharacters",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "五五被六三支配条件不全",
+      "args": [
+        [
+          [
+            5,
+            5
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            3,
+            6
+          ]
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "二二被三三支配",
+      "args": [
+        [
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            3
+          ]
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "一五被十十支配",
+      "args": [
+        [
+          [
+            1,
+            5
+          ],
+          [
+            10,
+            4
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            10,
+            10
+          ]
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

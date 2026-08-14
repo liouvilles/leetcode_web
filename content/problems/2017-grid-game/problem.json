@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2017,
+  "slug": "grid-game",
+  "title": "网格游戏",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-029",
+  "studyTags": [
+    "数组",
+    "前缀和",
+    "矩阵"
+  ],
+  "summary": "两机器人依次走两行网格，第一机器人把路径格清零并想最小化第二机器人最大得分，求博弈结果。",
+  "insight": "第一机器人只会在某列从上行转到底行。第二机器人此后只能选择该列右侧剩余上行和，或左侧剩余下行和中的较大者；枚举转折列取最小。",
+  "pitfalls": [
+    "第一机器人目标是最小化对手最优得分",
+    "两条候选区域不重叠",
+    "前缀和使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-turn-column-prefix-sums",
+      "title": "枚举转折列前缀和",
+      "kind": "最优",
+      "idea": "由转折列直接计算第二机器人的两种最佳区域。",
+      "steps": [
+        "topRemaining=上行总和、bottomPassed=0",
+        "遍历 col：先从 topRemaining 减 grid[0][col]",
+        "answer=min(answer,max(topRemaining,bottomPassed))；再把 grid[1][col] 加入 bottomPassed"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/enumerate-turn-column-prefix-sums/Solution.java",
+        "kotlin": "solutions/enumerate-turn-column-prefix-sums/Solution.kt",
+        "cpp": "solutions/enumerate-turn-column-prefix-sums/solution.cpp"
+      }
+    }
+  ]
+}

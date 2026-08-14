@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "constructRectangle",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "正方形面积",
+      "args": [
+        4
+      ],
+      "expected": [
+        2,
+        2
+      ]
+    },
+    {
+      "name": "质数面积",
+      "args": [
+        37
+      ],
+      "expected": [
+        37,
+        1
+      ]
+    },
+    {
+      "name": "较大合数",
+      "args": [
+        122122
+      ],
+      "expected": [
+        427,
+        286
+      ]
+    }
+  ]
+}

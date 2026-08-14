@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 210,
+  "slug": "course-schedule-ii",
+  "title": "课程表 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-003",
+  "studyTags": [
+    "拓扑排序",
+    "入度",
+    "课程顺序"
+  ],
+  "summary": "根据课程先修关系返回一个可以完成全部课程的学习顺序；若依赖图有环则返回空数组。",
+  "insight": "依次选择入度为零的课程并删除它的出边，得到的处理顺序就是一种拓扑序。",
+  "pitfalls": [
+    "关系 [a,b] 表示 b 是 a 的先修课",
+    "可能存在多个合法顺序",
+    "处理数量不足 numCourses 时必须返回空数组"
+  ],
+  "solutions": [
+    {
+      "id": "kahn-order",
+      "title": "Kahn 拓扑序",
+      "kind": "最优",
+      "idea": "零入度队列逐步释放后继课程，同时写入结果数组。",
+      "steps": [
+        "建立邻接表与入度",
+        "所有零入度课程入队",
+        "弹出并减少后继入度，最后检查处理数量"
+      ],
+      "complexity": {
+        "time": "O(V+E)",
+        "space": "O(V+E)"
+      },
+      "files": {
+        "java": "solutions/kahn-order/Solution.java",
+        "kotlin": "solutions/kahn-order/Solution.kt",
+        "cpp": "solutions/kahn-order/solution.cpp"
+      }
+    }
+  ]
+}

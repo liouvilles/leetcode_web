@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 495,
+  "slug": "teemo-attacking",
+  "title": "提莫攻击",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-007",
+  "studyTags": [
+    "区间合并",
+    "数组",
+    "线性扫描"
+  ],
+  "summary": "每次攻击让目标中毒 duration 秒，后续攻击会重置持续时间，求总中毒时长。",
+  "insight": "相邻攻击之间贡献的新增中毒时间是间隔与 duration 的较小值，最后一次攻击完整贡献 duration。",
+  "pitfalls": [
+    "重叠中毒时间不能重复计算",
+    "攻击时间严格递增",
+    "空攻击序列总时长为零"
+  ],
+  "solutions": [
+    {
+      "id": "overlap-contribution",
+      "title": "累加相邻新增时长",
+      "kind": "最优",
+      "idea": "对每对相邻攻击只计入前一次实际覆盖到下一次之前的部分。",
+      "steps": [
+        "空数组返回零",
+        "对 i=1..n-1 累加 min(duration,time[i]-time[i-1])",
+        "最后加 duration"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/overlap-contribution/Solution.java",
+        "kotlin": "solutions/overlap-contribution/Solution.kt",
+        "cpp": "solutions/overlap-contribution/solution.cpp"
+      }
+    }
+  ]
+}

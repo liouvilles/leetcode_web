@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1312,
+  "slug": "minimum-insertion-steps-to-make-a-string-palindrome",
+  "title": "让字符串成为回文串的最少插入次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "字符串",
+    "动态规划",
+    "最长公共子序列"
+  ],
+  "summary": "可在任意位置插入字符，求把字符串变成回文串的最少插入次数。",
+  "insight": "能保留而不需配对插入的最长骨架是原串与反串的最长公共子序列，也就是最长回文子序列；答案为 n-LPS。",
+  "pitfalls": [
+    "只能插入但不删除，计数仍等价于补齐非 LPS 字符",
+    "空与单字符无需插入",
+    "滚动 LCS 时要保留上一行左上值"
+  ],
+  "solutions": [
+    {
+      "id": "lcs-with-reverse",
+      "title": "原串反串最长公共子序列",
+      "kind": "最优",
+      "idea": "求最长回文子序列后用总长度相减。",
+      "steps": [
+        "reverse 为 s 反转，dp[n+1] 初始零",
+        "对原串每个字符新建 next；相等时 next[j]=dp[j-1]+1，否则取 max(dp[j],next[j-1])",
+        "最终 LPS=dp[n]，返回 n-LPS"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/lcs-with-reverse/Solution.java",
+        "kotlin": "solutions/lcs-with-reverse/Solution.kt",
+        "cpp": "solutions/lcs-with-reverse/solution.cpp"
+      }
+    }
+  ]
+}

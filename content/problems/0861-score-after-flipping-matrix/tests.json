@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "matrixScore",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典矩阵得分三十九",
+      "args": [
+        [
+          [
+            0,
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            0,
+            0
+          ]
+        ]
+      ],
+      "expected": 39
+    },
+    {
+      "name": "单零翻为一",
+      "args": [
+        [
+          [
+            0
+          ]
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "两行全一",
+      "args": [
+        [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": 6
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { public: int numWays(string text){vector<int> ones;for(int i=0;i<(int)text.size();++i)if(text[i]=='1')ones.push_back(i);const long long mod=1000000007;if(ones.size()%3)return 0;if(ones.empty())return (text.size()-1LL)*(text.size()-2)/2%mod;int part=ones.size()/3;return 1LL*(ones[part]-ones[part-1])*(ones[2*part]-ones[2*part-1])%mod;} };

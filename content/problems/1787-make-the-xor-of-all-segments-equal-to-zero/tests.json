@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minChanges",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "k 一需把三个非零值改零",
+      "args": [
+        [
+          1,
+          2,
+          0,
+          3,
+          0
+        ],
+        1
+      ],
+      "expected": 3
+    },
+    {
+      "name": "三组异或约束最少修改三",
+      "args": [
+        [
+          3,
+          4,
+          5,
+          2,
+          1,
+          7,
+          3,
+          4,
+          7
+        ],
+        3
+      ],
+      "expected": 3
+    },
+    {
+      "name": "每组常量但组异或需改三项",
+      "args": [
+        [
+          1,
+          2,
+          4,
+          1,
+          2,
+          5,
+          1,
+          2,
+          6
+        ],
+        3
+      ],
+      "expected": 3
+    }
+  ]
+}

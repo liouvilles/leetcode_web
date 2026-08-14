@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1743,
+  "slug": "restore-the-array-from-adjacent-pairs",
+  "title": "从相邻元素对还原数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-025",
+  "studyTags": [
+    "数组",
+    "哈希表"
+  ],
+  "summary": "给出原数组所有无序相邻元素对，原数组元素互不相同，还原任意一个符合的数组。",
+  "insight": "相邻对构成一条无向路径，两个端点度数为一。任选端点开始，每步走向不是上一个节点的邻居即可恢复整条路径。",
+  "pitfalls": [
+    "每个 pair 内顺序不代表原数组方向",
+    "正向或反向答案都合法但测试需选确定端点",
+    "内部节点恰有两个邻居"
+  ],
+  "solutions": [
+    {
+      "id": "path-endpoint-walk",
+      "title": "无向路径端点遍历",
+      "kind": "最优",
+      "idea": "把相邻关系图沿唯一未回退方向走到底。",
+      "steps": [
+        "构建 value 到邻居列表",
+        "选一个 degree==1 的节点为 answer[0]",
+        "依次从当前邻居中选不等于 previous 的值，填满 n 个位置"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/path-endpoint-walk/Solution.java",
+        "kotlin": "solutions/path-endpoint-walk/Solution.kt",
+        "cpp": "solutions/path-endpoint-walk/solution.cpp"
+      }
+    }
+  ]
+}

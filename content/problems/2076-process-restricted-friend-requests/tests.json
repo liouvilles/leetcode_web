@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "friendRequests",
+  "parameterTypes": [
+    "int",
+    "intMatrix",
+    "intMatrix"
+  ],
+  "returnType": "booleanArray",
+  "cases": [
+    {
+      "name": "限制零一使首请求接受次请求拒绝",
+      "args": [
+        3,
+        [
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            0,
+            2
+          ],
+          [
+            2,
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        true,
+        false
+      ]
+    },
+    {
+      "name": "已有朋友圈跨限制合并被拒绝",
+      "args": [
+        5,
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        true,
+        true,
+        false
+      ]
+    },
+    {
+      "name": "无限制请求全部接受",
+      "args": [
+        3,
+        [],
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ]
+      ],
+      "expected": [
+        true,
+        true
+      ]
+    }
+  ]
+}

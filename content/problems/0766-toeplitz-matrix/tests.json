@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isToeplitzMatrix",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "三行托普利茨矩阵",
+      "args": [
+        [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            5,
+            1,
+            2,
+            3
+          ],
+          [
+            9,
+            5,
+            1,
+            2
+          ]
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "主对角线不一致",
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ]
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "单行矩阵",
+      "args": [
+        [
+          [
+            1,
+            2,
+            3
+          ]
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

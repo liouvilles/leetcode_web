@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minSumOfLengths",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "首尾两个三长度和二",
+      "args": [
+        [
+          3,
+          2,
+          2,
+          4,
+          3
+        ],
+        3
+      ],
+      "expected": 2
+    },
+    {
+      "name": "两个七各为单元素",
+      "args": [
+        [
+          7,
+          3,
+          4,
+          7
+        ],
+        7
+      ],
+      "expected": 2
+    },
+    {
+      "name": "只有一个目标子数组",
+      "args": [
+        [
+          4,
+          3,
+          2,
+          6,
+          2,
+          3,
+          4
+        ],
+        6
+      ],
+      "expected": -1
+    }
+  ]
+}

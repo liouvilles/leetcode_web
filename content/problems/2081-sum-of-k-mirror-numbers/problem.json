@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2081,
+  "slug": "sum-of-k-mirror-numbers",
+  "title": "K 镜像数字的和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "数学",
+    "枚举"
+  ],
+  "summary": "正整数若十进制和 k 进制表示都为回文则是 k 镜像数，求最小 n 个之和。",
+  "insight": "按十进制位数与前半部分递增构造十进制回文，天然按数值升序；逐个转换为 k 进制并双指针检查回文，收集前 n 个。",
+  "pitfalls": [
+    "不允许前导零",
+    "偶数与奇数长度镜像方式不同",
+    "答案使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "generate-decimal-palindromes",
+      "title": "生成十进制回文并检查 K 进制",
+      "kind": "最优",
+      "idea": "只枚举必满足十进制条件的候选。",
+      "steps": [
+        "length 从一递增，half 位数范围 [10^(h-1),10^h)",
+        "由 half 镜像构造 palindrome：奇数长度跳过 half 最后一位再镜像",
+        "检查 base-k 数位是否回文；命中累加直到 n 个"
+      ],
+      "complexity": {
+        "time": "O(candidates·log value)",
+        "space": "O(log value)"
+      },
+      "files": {
+        "java": "solutions/generate-decimal-palindromes/Solution.java",
+        "kotlin": "solutions/generate-decimal-palindromes/Solution.kt",
+        "cpp": "solutions/generate-decimal-palindromes/solution.cpp"
+      }
+    }
+  ]
+}

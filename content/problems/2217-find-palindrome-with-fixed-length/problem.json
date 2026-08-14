@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2217,
+  "slug": "find-palindrome-with-fixed-length",
+  "title": "找到指定长度的回文数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-032",
+  "studyTags": [
+    "数组",
+    "数学"
+  ],
+  "summary": "对每个查询 k，返回按升序排列的第 k 个指定长度回文数，不存在则负一。",
+  "insight": "回文数由前半部分唯一决定。长度 half=(L+1)/2 的最小前半是 10^(half-1)，第 k 个前半加 k-1，再把其适当反转拼接。",
+  "pitfalls": [
+    "偶数长度镜像整个前半，奇数长度跳过中间位",
+    "查询从一开始",
+    "结果使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-palindrome-halves",
+      "title": "按前半部分编号构造",
+      "kind": "最优",
+      "idea": "把回文数序列映射到连续前半整数。",
+      "steps": [
+        "halfLength=(intLength+1)/2，start=10^(halfLength-1)，limit=9*start",
+        "对 query：offset=query-1，超 limit 返回 -1",
+        "half=start+offset；result=half，mirror=奇数时 half/10 否则 half；逐位追加 mirror%10"
+      ],
+      "complexity": {
+        "time": "O(queries·intLength)",
+        "space": "O(1) 除答案"
+      },
+      "files": {
+        "java": "solutions/enumerate-palindrome-halves/Solution.java",
+        "kotlin": "solutions/enumerate-palindrome-halves/Solution.kt",
+        "cpp": "solutions/enumerate-palindrome-halves/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "change",
+  "parameterTypes": [
+    "int",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "五元四种组合",
+      "args": [
+        5,
+        [
+          1,
+          2,
+          5
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "无法凑出",
+      "args": [
+        3,
+        [
+          2
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "零金额",
+      "args": [
+        0,
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

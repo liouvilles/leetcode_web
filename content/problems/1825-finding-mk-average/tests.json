@@ -1,0 +1,181 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "MKAverage",
+  "constructorTypes": [
+    "int",
+    "int"
+  ],
+  "cases": [
+    {
+      "name": "经典窗口更新与 MK 平均",
+      "constructorArgs": [
+        3,
+        1
+      ],
+      "calls": [
+        {
+          "method": "addElement",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            3
+          ]
+        },
+        {
+          "method": "addElement",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ]
+        },
+        {
+          "method": "calculateMKAverage",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": -1
+        },
+        {
+          "method": "addElement",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            10
+          ]
+        },
+        {
+          "method": "calculateMKAverage",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 3
+        },
+        {
+          "method": "addElement",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            5
+          ]
+        },
+        {
+          "method": "addElement",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            5
+          ]
+        },
+        {
+          "method": "addElement",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            5
+          ]
+        },
+        {
+          "method": "calculateMKAverage",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 5
+        }
+      ]
+    },
+    {
+      "name": "五项窗口去掉两端各一项",
+      "constructorArgs": [
+        5,
+        1
+      ],
+      "calls": [
+        {
+          "method": "addElement",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ]
+        },
+        {
+          "method": "addElement",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ]
+        },
+        {
+          "method": "addElement",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            3
+          ]
+        },
+        {
+          "method": "addElement",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            4
+          ]
+        },
+        {
+          "method": "addElement",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            100
+          ]
+        },
+        {
+          "method": "calculateMKAverage",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 3
+        }
+      ]
+    },
+    {
+      "name": "不足窗口返回负一",
+      "constructorArgs": [
+        4,
+        1
+      ],
+      "calls": [
+        {
+          "method": "addElement",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            7
+          ]
+        },
+        {
+          "method": "calculateMKAverage",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": -1
+        }
+      ]
+    }
+  ]
+}

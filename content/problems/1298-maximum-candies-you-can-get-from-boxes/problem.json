@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1298,
+  "slug": "maximum-candies-you-can-get-from-boxes",
+  "title": "你能从盒子里获得的最大糖果数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "数组",
+    "广度优先搜索",
+    "状态模拟"
+  ],
+  "summary": "盒子可能锁住，打开后获得糖果、钥匙与其他盒子；从初始拥有盒子出发，求最终最多糖果数。",
+  "insight": "盒子能打开需同时满足已拥有和本身开放或已取得钥匙。每次获得钥匙或盒子时重新把可能变为可打开的盒子入队，用 opened 防止重复计糖。",
+  "pitfalls": [
+    "拥有锁盒不等于能打开",
+    "钥匙可能在获得对应盒子之前或之后取得",
+    "同一盒子只打开一次"
+  ],
+  "solutions": [
+    {
+      "id": "owned-key-open-queue",
+      "title": "所有权与钥匙状态队列",
+      "kind": "最优",
+      "idea": "事件驱动处理新获得盒子与钥匙。",
+      "steps": [
+        "owned、key、opened 布尔数组；初始盒子标 owned 并入队",
+        "弹出 box，若已开或未拥有或既关闭又无钥匙则跳过；否则标 opened 并加 candies",
+        "把其中 keys 标记并在对应盒已拥有时入队；把 containedBoxes 标 owned 并入队，队列耗尽返回总糖果"
+      ],
+      "complexity": {
+        "time": "O(盒子数+关系数)",
+        "space": "O(盒子数)"
+      },
+      "files": {
+        "java": "solutions/owned-key-open-queue/Solution.java",
+        "kotlin": "solutions/owned-key-open-queue/Solution.kt",
+        "cpp": "solutions/owned-key-open-queue/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countGoodSubstrings",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "只有 xyz 一个好窗口",
+      "args": [
+        "xyzzaz"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "重复出现四个好窗口",
+      "args": [
+        "aababcabc"
+      ],
+      "expected": 4
+    },
+    {
+      "name": "三个不同字符恰有一个窗口",
+      "args": [
+        "abc"
+      ],
+      "expected": 1
+    }
+  ]
+}

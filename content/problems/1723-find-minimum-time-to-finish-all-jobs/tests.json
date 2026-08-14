@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumTimeRequired",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三工作两工人最短十一",
+      "args": [
+        [
+          3,
+          2,
+          3
+        ],
+        3
+      ],
+      "expected": 3
+    },
+    {
+      "name": "五工作两工人最短十一",
+      "args": [
+        [
+          1,
+          2,
+          4,
+          7,
+          8
+        ],
+        2
+      ],
+      "expected": 11
+    },
+    {
+      "name": "单工人承担全部工作",
+      "args": [
+        [
+          5,
+          5,
+          5
+        ],
+        1
+      ],
+      "expected": 15
+    }
+  ]
+}

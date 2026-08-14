@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isValid",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "合法 CDATA",
+      "args": [
+        "<DIV>This is the first line <![CDATA[<div>]]></DIV>"
+      ],
+      "expected": true
+    },
+    {
+      "name": "标签交叉闭合",
+      "args": [
+        "<A>  <B> </A>   </B>"
+      ],
+      "expected": false
+    },
+    {
+      "name": "根标签未闭合",
+      "args": [
+        "<DIV>  div tag is not closed  <DIV>"
+      ],
+      "expected": false
+    }
+  ]
+}

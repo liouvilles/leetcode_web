@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "xorOperation",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "零二四六八异或八",
+      "args": [
+        5,
+        0
+      ],
+      "expected": 8
+    },
+    {
+      "name": "三五七九异或八",
+      "args": [
+        4,
+        3
+      ],
+      "expected": 8
+    },
+    {
+      "name": "单元素保持起始值",
+      "args": [
+        1,
+        7
+      ],
+      "expected": 7
+    }
+  ]
+}

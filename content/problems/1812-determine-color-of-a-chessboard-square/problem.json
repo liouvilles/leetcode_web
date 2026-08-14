@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1812,
+  "slug": "determine-color-of-a-chessboard-square",
+  "title": "判断国际象棋棋盘中一个格子的颜色",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-026",
+  "studyTags": [
+    "字符串",
+    "数学"
+  ],
+  "summary": "给定棋盘坐标，判断该格是否为白色。",
+  "insight": "棋盘横纵坐标奇偶性相同时为黑或白可由 a1 校准；零基列号加一基行号为偶数时是白色。",
+  "pitfalls": [
+    "a1 是黑色",
+    "列字母 a 到 h",
+    "返回是否为白色"
+  ],
+  "solutions": [
+    {
+      "id": "coordinate-parity",
+      "title": "坐标奇偶性",
+      "kind": "最优",
+      "idea": "用棋盘交替染色的奇偶不变量判断。",
+      "steps": [
+        "column=letter-a，row=digit-0",
+        "计算 column+row",
+        "偶数返回 true，奇数 false"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/coordinate-parity/Solution.java",
+        "kotlin": "solutions/coordinate-parity/Solution.kt",
+        "cpp": "solutions/coordinate-parity/solution.cpp"
+      }
+    }
+  ]
+}

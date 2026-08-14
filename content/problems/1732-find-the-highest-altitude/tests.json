@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "largestAltitude",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "起伏路线最高海拔一",
+      "args": [
+        [
+          -5,
+          1,
+          5,
+          0,
+          -7
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "全程下降最高为起点零",
+      "args": [
+        [
+          -4,
+          -3,
+          -2,
+          -1,
+          4,
+          3,
+          2
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "连续上升最高为六",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 6
+    }
+  ]
+}

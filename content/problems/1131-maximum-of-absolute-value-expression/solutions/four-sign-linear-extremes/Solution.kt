@@ -1,0 +1,1 @@
+class Solution { fun maxAbsValExpr(arr1:IntArray,arr2:IntArray):Int{var answer=0;for(signB in intArrayOf(-1,1))for(signI in intArrayOf(-1,1)){var minimum=Int.MAX_VALUE;var maximum=Int.MIN_VALUE;for(i in arr1.indices){val value=arr1[i]+signB*arr2[i]+signI*i;minimum=minOf(minimum,value);maximum=maxOf(maximum,value)};answer=maxOf(answer,maximum-minimum)};return answer} }

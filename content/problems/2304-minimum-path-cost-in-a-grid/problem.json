@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2304,
+  "slug": "minimum-path-cost-in-a-grid",
+  "title": "网格中的最小路径代价",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "矩阵"
+  ],
+  "summary": "从网格首行任一格出发，每行向下一行任一列移动，代价包含访问格值与由当前格值决定的移动费用，求到末行最小总代价。",
+  "insight": "逐行动态规划。dp[col] 表示到当前行该列的最小代价，从值 grid[row][col] 向下一行 next 的转移额外付 moveCost[value][next]+grid[row+1][next]。",
+  "pitfalls": [
+    "起点格与终点格值都计入代价",
+    "移动费用按当前格的值索引",
+    "首行可以从任意列开始"
+  ],
+  "solutions": [
+    {
+      "id": "row-dynamic-programming",
+      "title": "逐行动态规划",
+      "kind": "最优",
+      "idea": "保留到当前行每列的最优代价并全连接转移。",
+      "steps": [
+        "dp 初始化为 grid[0]",
+        "逐行建立 next 全为无穷",
+        "枚举当前 col 和下一列 nc，更新 dp[col]+moveCost[grid[row][col]][nc]+grid[row+1][nc]",
+        "返回末行 dp 最小值"
+      ],
+      "complexity": {
+        "time": "O(rows·columns²)",
+        "space": "O(columns)"
+      },
+      "files": {
+        "java": "solutions/row-dynamic-programming/Solution.java",
+        "kotlin": "solutions/row-dynamic-programming/Solution.kt",
+        "cpp": "solutions/row-dynamic-programming/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "interpret",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "三种标记依次解释",
+      "args": [
+        "G()(al)"
+      ],
+      "expected": "Goal"
+    },
+    {
+      "name": "重复空括号解释为两个 o",
+      "args": [
+        "G()()()()(al)"
+      ],
+      "expected": "Gooooal"
+    },
+    {
+      "name": "交错标记保持顺序",
+      "args": [
+        "(al)G(al)()()G"
+      ],
+      "expected": "alGalooG"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 494,
+  "slug": "target-sum",
+  "title": "目标和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-007",
+  "studyTags": [
+    "动态规划",
+    "哈希表",
+    "状态计数"
+  ],
+  "summary": "给数组每个数添加正号或负号，统计最终表达式结果等于 target 的不同方法数。",
+  "insight": "逐元素扩展当前所有可达和的方案数，把每个状态分别转移到 sum+value 与 sum-value。",
+  "pitfalls": [
+    "相同结果和的方案数要累加",
+    "零会让正负两种选择贡献两次",
+    "目标可为负数"
+  ],
+  "solutions": [
+    {
+      "id": "sum-count-map",
+      "title": "可达和计数动态规划",
+      "kind": "最优",
+      "idea": "哈希表压缩每一层所有表达式和及其方案数。",
+      "steps": [
+        "ways 初始 {0:1}",
+        "对每个 value 构造 next，累加 sum±value",
+        "返回最终 ways[target] 或零"
+      ],
+      "complexity": {
+        "time": "O(n·states)",
+        "space": "O(states)"
+      },
+      "files": {
+        "java": "solutions/sum-count-map/Solution.java",
+        "kotlin": "solutions/sum-count-map/Solution.kt",
+        "cpp": "solutions/sum-count-map/solution.cpp"
+      }
+    }
+  ]
+}

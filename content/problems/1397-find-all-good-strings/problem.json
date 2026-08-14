@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1397,
+  "slug": "find-all-good-strings",
+  "title": "找到所有好字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-020",
+  "studyTags": [
+    "字符串",
+    "动态规划",
+    "KMP",
+    "数位 DP"
+  ],
+  "summary": "统计长度 n、字典序位于 s1 与 s2 之间且不含 evil 子串的字符串数量。",
+  "insight": "用 KMP 状态表示当前后缀与 evil 前缀匹配长度，再做带上下界约束的逐字符 DP；一旦匹配完整 evil 就舍弃。",
+  "pitfalls": [
+    "上下界均包含",
+    "KMP 失配需要沿前缀函数回退",
+    "状态同时包含位置、匹配长度和两个紧约束标记"
+  ],
+  "solutions": [
+    {
+      "id": "bounded-kmp-digit-dp",
+      "title": "上下界 KMP 数位动态规划",
+      "kind": "最优",
+      "idea": "在字典序上下界内枚举字符并携带禁串自动机状态。",
+      "steps": [
+        "构造 evil 的 prefix 与 matched×26 转移表",
+        "dfs(position,matched,tightLow,tightHigh)，字符范围由紧约束确定",
+        "matched==evil.length 返回零，position==n 返回一；记忆化非终止状态"
+      ],
+      "complexity": {
+        "time": "O(n·|evil|·26)",
+        "space": "O(n·|evil|)"
+      },
+      "files": {
+        "java": "solutions/bounded-kmp-digit-dp/Solution.java",
+        "kotlin": "solutions/bounded-kmp-digit-dp/Solution.kt",
+        "cpp": "solutions/bounded-kmp-digit-dp/solution.cpp"
+      }
+    }
+  ]
+}

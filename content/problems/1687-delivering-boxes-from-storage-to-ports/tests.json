@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "boxDelivering",
+  "parameterTypes": [
+    "intMatrix",
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三箱跨港往返最少四段",
+      "args": [
+        [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        2,
+        3,
+        3
+      ],
+      "expected": 4
+    },
+    {
+      "name": "重量与箱数共同限制需六段",
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        3,
+        3,
+        6
+      ],
+      "expected": 6
+    },
+    {
+      "name": "同港两箱一趟只需往返",
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        1,
+        2,
+        5
+      ],
+      "expected": 2
+    }
+  ]
+}

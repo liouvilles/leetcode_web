@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 504,
+  "slug": "base-7",
+  "title": "七进制数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-007",
+  "studyTags": [
+    "进制转换",
+    "数学",
+    "字符串"
+  ],
+  "summary": "把整数转换为七进制字符串表示。",
+  "insight": "对绝对值反复除七并记录余数，得到的低位逆序后再按原符号添加负号。",
+  "pitfalls": [
+    "零需单独返回字符串零",
+    "负号不参与进制转换",
+    "低位先生成后需要反转"
+  ],
+  "solutions": [
+    {
+      "id": "repeated-division",
+      "title": "反复除七取余",
+      "kind": "最优",
+      "idea": "标准进制转换并处理符号。",
+      "steps": [
+        "num==0 返回 0",
+        "value=abs(num)，循环追加 value%7 并 value/=7",
+        "若原数为负追加负号，再整体反转"
+      ],
+      "complexity": {
+        "time": "O(log7 |n|)",
+        "space": "O(log7 |n|)"
+      },
+      "files": {
+        "java": "solutions/repeated-division/Solution.java",
+        "kotlin": "solutions/repeated-division/Solution.kt",
+        "cpp": "solutions/repeated-division/solution.cpp"
+      }
+    }
+  ]
+}

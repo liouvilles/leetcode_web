@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numberOfSubstrings",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "重复 abc 共有十个",
+      "args": [
+        "abcabc"
+      ],
+      "expected": 10
+    },
+    {
+      "name": "多个 a 后出现 cb",
+      "args": [
+        "aaacb"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "恰好三个字符",
+      "args": [
+        "abc"
+      ],
+      "expected": 1
+    }
+  ]
+}

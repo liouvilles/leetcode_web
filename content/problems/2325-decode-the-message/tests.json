@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "decodeMessage",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "经典密钥解出秘密消息",
+      "args": [
+        "the quick brown fox jumps over the lazy dog",
+        "vkbs bs t suepuv"
+      ],
+      "expected": "this is a secret"
+    },
+    {
+      "name": "乱序密钥解出完整句子",
+      "args": [
+        "eljuxhpwnyrdgtqkviszcfmabo",
+        "zwx hnfx lqantp mnoeius ycgk vcnjrdb"
+      ],
+      "expected": "the five boxing wizards jump quickly"
+    },
+    {
+      "name": "标准字母表映射保持原文",
+      "args": [
+        "abcdefghijklmnopqrstuvwxyz",
+        "abc xyz"
+      ],
+      "expected": "abc xyz"
+    }
+  ]
+}

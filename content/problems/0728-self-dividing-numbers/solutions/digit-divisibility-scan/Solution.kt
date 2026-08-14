@@ -1,0 +1,1 @@
+class Solution { fun selfDividingNumbers(left:Int,right:Int):List<Int>{return (left..right).filter{valid(it)}};private fun valid(value:Int):Boolean{var remaining=value;while(remaining>0){val digit=remaining%10;if(digit==0||value%digit!=0)return false;remaining/=10};return true} }

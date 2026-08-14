@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 521,
+  "slug": "longest-uncommon-subsequence-i",
+  "title": "最长特殊序列 I",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-007",
+  "studyTags": [
+    "字符串",
+    "逻辑判断",
+    "子序列"
+  ],
+  "summary": "给定两个字符串，返回只作为其中一个字符串子序列的最长字符串长度；不存在则返回 -1。",
+  "insight": "若两字符串相等，它们的所有子序列都同时属于两者；若不同，较长字符串本身不可能是较短或不同等长字符串的子序列。",
+  "pitfalls": [
+    "特殊序列可以直接是整个字符串",
+    "相等字符串答案为负一",
+    "不同等长字符串答案就是共同长度"
+  ],
+  "solutions": [
+    {
+      "id": "equality-observation",
+      "title": "相等性结论",
+      "kind": "最优",
+      "idea": "直接由两个字符串是否完全相等决定答案。",
+      "steps": [
+        "比较 a 与 b",
+        "相等返回 -1",
+        "否则返回两者最大长度"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/equality-observation/Solution.java",
+        "kotlin": "solutions/equality-observation/Solution.kt",
+        "cpp": "solutions/equality-observation/solution.cpp"
+      }
+    }
+  ]
+}

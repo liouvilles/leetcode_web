@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1688,
+  "slug": "count-of-matches-in-tournament",
+  "title": "比赛中的配对次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-024",
+  "studyTags": [
+    "数学",
+    "模拟"
+  ],
+  "summary": "淘汰赛每场淘汰一支队伍，奇数队时一队轮空，求产生冠军前总比赛场数。",
+  "insight": "从 n 支队伍到一支冠军必须恰好淘汰 n-1 支队伍，而每场比赛淘汰一支，因此总场数恒为 n-1。",
+  "pitfalls": [
+    "轮空不产生比赛也不淘汰队伍",
+    "奇偶轮次不改变总淘汰数",
+    "n 至少为一"
+  ],
+  "solutions": [
+    {
+      "id": "elimination-invariant",
+      "title": "淘汰数量不变量",
+      "kind": "最优",
+      "idea": "用每场淘汰一队的恒等关系直接求解。",
+      "steps": [
+        "初始有 n 支队",
+        "冠军之外 n-1 支都需被淘汰",
+        "每场淘汰一支，所以返回 n-1"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/elimination-invariant/Solution.java",
+        "kotlin": "solutions/elimination-invariant/Solution.kt",
+        "cpp": "solutions/elimination-invariant/solution.cpp"
+      }
+    }
+  ]
+}

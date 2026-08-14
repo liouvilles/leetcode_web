@@ -1,0 +1,188 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "Cashier",
+  "constructorTypes": [
+    "int",
+    "int",
+    "intArray",
+    "intArray"
+  ],
+  "cases": [
+    {
+      "name": "第三单应用五折",
+      "constructorArgs": [
+        3,
+        50,
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          100,
+          200,
+          300,
+          400,
+          300,
+          200,
+          100
+        ]
+      ],
+      "calls": [
+        {
+          "method": "getBill",
+          "parameterTypes": [
+            "intArray",
+            "intArray"
+          ],
+          "args": [
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "returnType": "double",
+          "expected": 500
+        },
+        {
+          "method": "getBill",
+          "parameterTypes": [
+            "intArray",
+            "intArray"
+          ],
+          "args": [
+            [
+              3,
+              7
+            ],
+            [
+              10,
+              10
+            ]
+          ],
+          "returnType": "double",
+          "expected": 4000
+        },
+        {
+          "method": "getBill",
+          "parameterTypes": [
+            "intArray",
+            "intArray"
+          ],
+          "args": [
+            [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ]
+          ],
+          "returnType": "double",
+          "expected": 800
+        }
+      ]
+    },
+    {
+      "name": "每单都打八折",
+      "constructorArgs": [
+        1,
+        20,
+        [
+          5
+        ],
+        [
+          10
+        ]
+      ],
+      "calls": [
+        {
+          "method": "getBill",
+          "parameterTypes": [
+            "intArray",
+            "intArray"
+          ],
+          "args": [
+            [
+              5
+            ],
+            [
+              3
+            ]
+          ],
+          "returnType": "double",
+          "expected": 24
+        }
+      ]
+    },
+    {
+      "name": "每第二单打七五折",
+      "constructorArgs": [
+        2,
+        25,
+        [
+          1
+        ],
+        [
+          8
+        ]
+      ],
+      "calls": [
+        {
+          "method": "getBill",
+          "parameterTypes": [
+            "intArray",
+            "intArray"
+          ],
+          "args": [
+            [
+              1
+            ],
+            [
+              1
+            ]
+          ],
+          "returnType": "double",
+          "expected": 8
+        },
+        {
+          "method": "getBill",
+          "parameterTypes": [
+            "intArray",
+            "intArray"
+          ],
+          "args": [
+            [
+              1
+            ],
+            [
+              1
+            ]
+          ],
+          "returnType": "double",
+          "expected": 6
+        }
+      ]
+    }
+  ]
+}

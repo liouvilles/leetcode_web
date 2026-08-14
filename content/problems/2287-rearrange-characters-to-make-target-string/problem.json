@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2287,
+  "slug": "rearrange-characters-to-make-target-string",
+  "title": "重排字符形成目标字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-033",
+  "studyTags": [
+    "哈希表",
+    "字符串",
+    "计数"
+  ],
+  "summary": "可重排 s 的字符，求最多能拼出多少份 target。",
+  "insight": "统计 s 与 target 的字符频次；对 target 中每个字符，可制作份数上限为 available/required，取所有上限最小值。",
+  "pitfalls": [
+    "每个字符资源不可重复使用",
+    "target 中重复字符需要对应倍数",
+    "只检查 target 出现的字符"
+  ],
+  "solutions": [
+    {
+      "id": "frequency-ratio-minimum",
+      "title": "字符频次比值最小值",
+      "kind": "最优",
+      "idea": "最短缺字符决定可制作份数。",
+      "steps": [
+        "source[26]、need[26] 计数",
+        "answer=MAX",
+        "对 need[ch]>0，answer=min(answer,source[ch]/need[ch])；返回 answer"
+      ],
+      "complexity": {
+        "time": "O(|s|+|target|)",
+        "space": "O(alphabet)"
+      },
+      "files": {
+        "java": "solutions/frequency-ratio-minimum/Solution.java",
+        "kotlin": "solutions/frequency-ratio-minimum/Solution.kt",
+        "cpp": "solutions/frequency-ratio-minimum/solution.cpp"
+      }
+    }
+  ]
+}

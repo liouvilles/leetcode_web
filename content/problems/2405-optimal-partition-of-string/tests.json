@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "partitionString",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "abacaba 最少四段",
+      "args": [
+        "abacaba"
+      ],
+      "expected": 4
+    },
+    {
+      "name": "六个相同字符需六段",
+      "args": [
+        "ssssss"
+      ],
+      "expected": 6
+    },
+    {
+      "name": "字符互异只需一段",
+      "args": [
+        "world"
+      ],
+      "expected": 1
+    }
+  ]
+}

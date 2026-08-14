@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "canDistribute",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "所有整数不同无法满足两个相同数",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          2
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "数字三重复两次可满足",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          3
+        ],
+        [
+          2
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "两种数字各重复两次",
+      "args": [
+        [
+          1,
+          1,
+          2,
+          2
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

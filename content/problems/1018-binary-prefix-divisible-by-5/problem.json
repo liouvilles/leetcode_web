@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1018,
+  "slug": "binary-prefix-divisible-by-5",
+  "title": "可被 5 整除的二进制前缀",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-015",
+  "studyTags": [
+    "数组",
+    "模运算"
+  ],
+  "summary": "对二进制数组每个前缀，判断其表示的整数是否能被五整除，返回布尔列表。",
+  "insight": "无需构造越来越大的数，只维护前缀对五的余数 remainder=(remainder*2+bit)%5；余数为零即整除。",
+  "pitfalls": [
+    "结果长度与输入相同",
+    "前导零不影响余数递推",
+    "每步都取模避免溢出"
+  ],
+  "solutions": [
+    {
+      "id": "prefix-remainder-five",
+      "title": "前缀模五递推",
+      "kind": "最优",
+      "idea": "用常数大小余数表示整个前缀。",
+      "steps": [
+        "remainder=0，answer 为空",
+        "依次处理 bit，remainder=(remainder*2+bit)%5",
+        "把 remainder==0 加入 answer，返回列表"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/prefix-remainder-five/Solution.java",
+        "kotlin": "solutions/prefix-remainder-five/Solution.kt",
+        "cpp": "solutions/prefix-remainder-five/solution.cpp"
+      }
+    }
+  ]
+}

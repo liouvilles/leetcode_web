@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countArrangement",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两个数两种排列",
+      "args": [
+        2
+      ],
+      "expected": 2
+    },
+    {
+      "name": "一个数",
+      "args": [
+        1
+      ],
+      "expected": 1
+    },
+    {
+      "name": "三个数",
+      "args": [
+        3
+      ],
+      "expected": 3
+    }
+  ]
+}

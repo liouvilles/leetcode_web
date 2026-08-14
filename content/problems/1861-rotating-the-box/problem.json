@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1861,
+  "slug": "rotating-the-box",
+  "title": "旋转盒子",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-027",
+  "studyTags": [
+    "数组",
+    "双指针",
+    "矩阵",
+    "模拟"
+  ],
+  "summary": "盒中石头受重力向右下落但不能穿过障碍，然后把盒子顺时针旋转九十度，返回结果。",
+  "insight": "对每行从右向左模拟重力，用 empty 指向当前障碍段最右空位；障碍重置 empty。完成后按 result[col][rows-1-row] 映射顺时针旋转。",
+  "pitfalls": [
+    "石头不能越过障碍",
+    "旋转前重力方向是向右",
+    "结果尺寸为 cols×rows"
+  ],
+  "solutions": [
+    {
+      "id": "row-gravity-then-rotate",
+      "title": "逐行重力与坐标旋转",
+      "kind": "最优",
+      "idea": "先在原坐标稳定石头，再做一次矩阵映射。",
+      "steps": [
+        "复制 box；每行 empty=cols-1，从右到左",
+        "障碍时 empty=col-1；石头时移到 empty 并 empty--",
+        "创建 cols×rows，result[col][rows-1-row]=settled[row][col]"
+      ],
+      "complexity": {
+        "time": "O(rows·cols)",
+        "space": "O(rows·cols)"
+      },
+      "files": {
+        "java": "solutions/row-gravity-then-rotate/Solution.java",
+        "kotlin": "solutions/row-gravity-then-rotate/Solution.kt",
+        "cpp": "solutions/row-gravity-then-rotate/solution.cpp"
+      }
+    }
+  ]
+}

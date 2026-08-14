@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2013,
+  "slug": "detect-squares",
+  "title": "检测正方形",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-029",
+  "studyTags": [
+    "设计",
+    "数组",
+    "哈希表",
+    "计数"
+  ],
+  "summary": "维护平面上的点，可重复添加；查询给定点与已添加点组成的轴对齐正方形数量。",
+  "insight": "按 x 坐标保存 y 频次。查询 (x,y) 时枚举同列另一个 y2 作为竖边，边长确定后检查 x±side 两列的两个横向顶点；四点频次乘积计入。",
+  "pitfalls": [
+    "查询点不必已添加",
+    "重复点会成倍增加方案",
+    "正方形边必须平行坐标轴"
+  ],
+  "solutions": [
+    {
+      "id": "vertical-partner-frequency",
+      "title": "同列伙伴与点频次",
+      "kind": "最优",
+      "idea": "枚举一条竖边即可唯一确定左右两个候选正方形。",
+      "steps": [
+        "columns[x][y]++",
+        "count 时遍历 columns[x] 的 (y2,verticalCount)，跳过 y2==y",
+        "side=|y2-y|；累加 verticalCount*count(x±side,y)*count(x±side,y2)"
+      ],
+      "complexity": {
+        "time": "O(points per query column)",
+        "space": "O(number of distinct points)"
+      },
+      "files": {
+        "java": "solutions/vertical-partner-frequency/Solution.java",
+        "kotlin": "solutions/vertical-partner-frequency/Solution.kt",
+        "cpp": "solutions/vertical-partner-frequency/solution.cpp"
+      }
+    }
+  ]
+}

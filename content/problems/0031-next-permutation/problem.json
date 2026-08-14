@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 31,
+  "slug": "next-permutation",
+  "title": "下一个排列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-002",
+  "studyTags": [
+    "字典序",
+    "逆序后缀",
+    "原地修改"
+  ],
+  "summary": "把整数数组原地变为字典序中紧邻的下一个更大排列；若已是最大排列，则变为最小排列。",
+  "insight": "从右向左找到第一个仍可增大的位置，用后缀中刚好更大的数替换，再把后缀变为最小升序。",
+  "pitfalls": [
+    "后缀原本是非递增序列",
+    "交换对象必须是最右侧大于 pivot 的值",
+    "不存在 pivot 时需要反转整个数组"
+  ],
+  "solutions": [
+    {
+      "id": "pivot-swap-reverse",
+      "title": "转折点交换并反转",
+      "kind": "最优",
+      "idea": "定位最长非递增后缀前的 pivot，交换后反转后缀得到最小增量。",
+      "steps": [
+        "从右向左找到 nums[i] < nums[i+1]",
+        "从末尾找到第一个大于 nums[i] 的值并交换",
+        "反转 i+1 到末尾的后缀"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/pivot-swap-reverse/Solution.java",
+        "kotlin": "solutions/pivot-swap-reverse/Solution.kt",
+        "cpp": "solutions/pivot-swap-reverse/solution.cpp"
+      }
+    }
+  ]
+}

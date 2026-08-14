@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxProduct",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "ababbb 两回文乘积九",
+      "args": [
+        "ababbb"
+      ],
+      "expected": 9
+    },
+    {
+      "name": "两个长度三回文乘积九",
+      "args": [
+        "zaaaxbbby"
+      ],
+      "expected": 9
+    },
+    {
+      "name": "五个相同字符最优三乘一",
+      "args": [
+        "aaaaa"
+      ],
+      "expected": 3
+    }
+  ]
+}

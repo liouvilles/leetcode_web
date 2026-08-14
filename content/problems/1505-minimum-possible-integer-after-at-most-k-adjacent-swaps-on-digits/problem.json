@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1505,
+  "slug": "minimum-possible-integer-after-at-most-k-adjacent-swaps-on-digits",
+  "title": "最多 K 次交换相邻数位后得到的最小整数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-021",
+  "studyTags": [
+    "字符串",
+    "贪心",
+    "树状数组"
+  ],
+  "summary": "最多交换相邻数字 k 次，求可得到的字典序最小数字字符串。",
+  "insight": "从答案高位开始贪心尝试数字零到九的最早未使用位置。树状数组维护仍在序列中的位置数，该位置前剩余元素数就是移到当前输出位的交换成本。",
+  "pitfalls": [
+    "相同数字始终使用最早位置最省成本",
+    "已取走位置会减少后续移动成本",
+    "前导零允许保留"
+  ],
+  "solutions": [
+    {
+      "id": "digit-queues-fenwick-greedy",
+      "title": "数字位置队列与树状数组贪心",
+      "kind": "最优",
+      "idea": "快速计算每个候选数位移动到当前前端的成本。",
+      "steps": [
+        "为 0..9 建原下标队列，Fenwick 初始每个位置为一",
+        "每个输出位从 digit=0..9 尝试队首 position，cost=query(position)-1",
+        "首个 cost<=k 的数字加入答案，扣成本、弹队首并在 Fenwick 删除该位置"
+      ],
+      "complexity": {
+        "time": "O(10n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/digit-queues-fenwick-greedy/Solution.java",
+        "kotlin": "solutions/digit-queues-fenwick-greedy/Solution.kt",
+        "cpp": "solutions/digit-queues-fenwick-greedy/solution.cpp"
+      }
+    }
+  ]
+}

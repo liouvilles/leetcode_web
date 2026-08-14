@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 731,
+  "slug": "my-calendar-ii",
+  "title": "我的日程安排表 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-009",
+  "studyTags": [
+    "设计",
+    "区间",
+    "扫描"
+  ],
+  "summary": "日历允许时间段最多被双重预订；每次尝试预订半开区间，若会造成三重重叠则拒绝。",
+  "insight": "保存所有已接受区间以及它们两两产生的重叠区间；新日程若与任一已有重叠区间相交就会形成三重预订。",
+  "pitfalls": [
+    "拒绝的预订不能改变任何状态",
+    "边界相接不算重叠",
+    "接受后要把它与每个旧日程的交集加入双重区间列表"
+  ],
+  "solutions": [
+    {
+      "id": "bookings-and-double-overlaps",
+      "title": "维护单次预订与双重重叠",
+      "kind": "最优",
+      "idea": "直接用已有双重区间作为三重冲突禁区。",
+      "steps": [
+        "先枚举 overlaps，若与新区间正长度相交则返回假",
+        "枚举 bookings，把每个正长度交集加入 overlaps",
+        "把新区间加入 bookings 并返回真"
+      ],
+      "complexity": {
+        "time": "O(n²) total",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/bookings-and-double-overlaps/Solution.java",
+        "kotlin": "solutions/bookings-and-double-overlaps/Solution.kt",
+        "cpp": "solutions/bookings-and-double-overlaps/solution.cpp"
+      }
+    }
+  ]
+}

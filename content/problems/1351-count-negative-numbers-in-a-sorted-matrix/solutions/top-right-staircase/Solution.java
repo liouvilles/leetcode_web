@@ -1,0 +1,1 @@
+class Solution { public int countNegatives(int[][] grid){int rows=grid.length,row=0,column=grid[0].length-1,answer=0;while(row<rows&&column>=0)if(grid[row][column]<0){answer+=rows-row;column--;}else row++;return answer;} }

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 960,
+  "slug": "delete-columns-to-make-sorted-iii",
+  "title": "删列造序 III",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-014",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "动态规划"
+  ],
+  "summary": "删除公共列，使每个字符串自身从左到右非递减，求最少删除列数。",
+  "insight": "选择保留列的最长子序列：若列 i 能在列 j 前保留，必须对每一行都有 strs[row][i]≤strs[row][j]；在列上做最长上升子序列动态规划。",
+  "pitfalls": [
+    "约束发生在每个字符串内部，不是字符串数组之间",
+    "两列的兼容性要对所有行成立",
+    "答案是总列数减最长可保留列数"
+  ],
+  "solutions": [
+    {
+      "id": "column-subsequence-dp",
+      "title": "列子序列动态规划",
+      "kind": "最优",
+      "idea": "把兼容列关系视作偏序上的最长链。",
+      "steps": [
+        "dp[j]=1 表示只保留列 j",
+        "对 i<j，若所有行的 i 列字符不大于 j 列字符，则 dp[j]=max(dp[j],dp[i]+1)",
+        "返回 columns-max(dp)"
+      ],
+      "complexity": {
+        "time": "O(rows·cols²)",
+        "space": "O(cols)"
+      },
+      "files": {
+        "java": "solutions/column-subsequence-dp/Solution.java",
+        "kotlin": "solutions/column-subsequence-dp/Solution.kt",
+        "cpp": "solutions/column-subsequence-dp/solution.cpp"
+      }
+    }
+  ]
+}

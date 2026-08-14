@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 869,
+  "slug": "reordered-power-of-2",
+  "title": "重新排序得到 2 的幂",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "数学",
+    "字符串",
+    "计数"
+  ],
+  "summary": "判断正整数十进制数字能否重新排列且首位不为零，组成二的幂。",
+  "insight": "数字排列是否相同只由十个数位频次决定；计算 n 的规范化数位签名，与 32 位范围内所有二的幂签名比较。",
+  "pitfalls": [
+    "不能丢弃或增加数字",
+    "签名相同的二的幂本身不会有前导零问题",
+    "只需枚举不超过十亿量级的二的幂"
+  ],
+  "solutions": [
+    {
+      "id": "digit-signature-power-enumeration",
+      "title": "数位签名枚举二的幂",
+      "kind": "最优",
+      "idea": "排序数字字符形成与排列无关的表示。",
+      "steps": [
+        "signature(value) 把十进制字符排序",
+        "计算 target=signature(n)",
+        "从 power=1 开始不断乘二直到十亿，若签名相同返回真；结束返回假"
+      ],
+      "complexity": {
+        "time": "O(log limit·digits log digits)",
+        "space": "O(digits)"
+      },
+      "files": {
+        "java": "solutions/digit-signature-power-enumeration/Solution.java",
+        "kotlin": "solutions/digit-signature-power-enumeration/Solution.kt",
+        "cpp": "solutions/digit-signature-power-enumeration/solution.cpp"
+      }
+    }
+  ]
+}

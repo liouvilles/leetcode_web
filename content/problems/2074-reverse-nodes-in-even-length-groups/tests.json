@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "reverseEvenLengthGroups",
+  "parameterTypes": [
+    "listNode"
+  ],
+  "returnType": "listNode",
+  "cases": [
+    {
+      "name": "十节点按偶数组反转",
+      "args": [
+        [
+          5,
+          2,
+          6,
+          3,
+          9,
+          1,
+          7,
+          3,
+          8,
+          4
+        ]
+      ],
+      "expected": [
+        5,
+        6,
+        2,
+        3,
+        9,
+        1,
+        4,
+        8,
+        3,
+        7
+      ]
+    },
+    {
+      "name": "四节点只反转第二组",
+      "args": [
+        [
+          1,
+          1,
+          0,
+          6
+        ]
+      ],
+      "expected": [
+        1,
+        0,
+        1,
+        6
+      ]
+    },
+    {
+      "name": "三节点末组长度二反转",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        1,
+        3,
+        2
+      ]
+    }
+  ]
+}

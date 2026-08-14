@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxNonOverlapping",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "五个一可取两个长度二子数组",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        2
+      ],
+      "expected": 2
+    },
+    {
+      "name": "含负数可取两个和六区间",
+      "args": [
+        [
+          -1,
+          3,
+          5,
+          1,
+          4,
+          2,
+          -9
+        ],
+        6
+      ],
+      "expected": 2
+    },
+    {
+      "name": "三个零各自成段",
+      "args": [
+        [
+          0,
+          0,
+          0
+        ],
+        0
+      ],
+      "expected": 3
+    }
+  ]
+}

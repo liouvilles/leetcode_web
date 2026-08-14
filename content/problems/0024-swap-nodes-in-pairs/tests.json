@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "swapPairs",
+  "parameterTypes": [
+    "listNode"
+  ],
+  "returnType": "listNode",
+  "cases": [
+    {
+      "name": "偶数个节点全部交换",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": [
+        2,
+        1,
+        4,
+        3
+      ]
+    },
+    {
+      "name": "空链表",
+      "args": [
+        []
+      ],
+      "expected": []
+    },
+    {
+      "name": "奇数个节点保留末尾",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        2,
+        1,
+        3
+      ]
+    }
+  ]
+}

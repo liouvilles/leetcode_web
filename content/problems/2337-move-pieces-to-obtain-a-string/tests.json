@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "canChange",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "L 左移且 R 右移可达",
+      "args": [
+        "_L__R__R_",
+        "L______RR"
+      ],
+      "expected": true
+    },
+    {
+      "name": "片段相对顺序不一致不可达",
+      "args": [
+        "R_L_",
+        "__LR"
+      ],
+      "expected": false
+    },
+    {
+      "name": "R 不能向左移动",
+      "args": [
+        "_R",
+        "R_"
+      ],
+      "expected": false
+    }
+  ]
+}

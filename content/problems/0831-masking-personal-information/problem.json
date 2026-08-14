@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 831,
+  "slug": "masking-personal-information",
+  "title": "隐藏个人信息",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-011",
+  "studyTags": [
+    "字符串",
+    "模拟"
+  ],
+  "summary": "把电子邮件或电话号码按指定规则转换为小写并隐藏中间信息。",
+  "insight": "含 @ 的输入按邮箱处理；否则提取所有数字，保留末四位并根据总位数生成可选国家码掩码。",
+  "pitfalls": [
+    "邮箱整体转小写",
+    "电话号码要忽略所有非数字字符",
+    "国家码长度为总数字数减十，零位时不带加号"
+  ],
+  "solutions": [
+    {
+      "id": "classify-and-format-mask",
+      "title": "分类提取并格式化脱敏",
+      "kind": "最优",
+      "idea": "分别套用邮箱和电话的固定模板。",
+      "steps": [
+        "若含 @，转小写后取本地名首尾字符，输出 first*****last@domain",
+        "否则过滤数字，country=digits.length-10，保留 last4",
+        "country>0 时输出 + 加 country 个星号和连字符，再追加 ***-***-last4；否则直接追加国内模板"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/classify-and-format-mask/Solution.java",
+        "kotlin": "solutions/classify-and-format-mask/Solution.kt",
+        "cpp": "solutions/classify-and-format-mask/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1498,
+  "slug": "number-of-subsequences-that-satisfy-the-given-sum-condition",
+  "title": "满足条件的子序列数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-021",
+  "studyTags": [
+    "数组",
+    "双指针",
+    "排序"
+  ],
+  "summary": "统计非空子序列，使其中最小值与最大值之和不超过 target，结果取模。",
+  "insight": "排序后用左右指针。若 nums[left]+nums[right]<=target，以 left 为最小值、从中间元素任取的子序列共有 2^(right-left) 个；否则最大值过大。",
+  "pitfalls": [
+    "子序列按下标选择计数",
+    "需要预计算二的幂并取模",
+    "满足时移动左指针，不满足时移动右指针"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-two-pointers-powers",
+      "title": "排序双指针与二次幂",
+      "kind": "最优",
+      "idea": "固定当前最小值时一次计数所有可选其余元素。",
+      "steps": [
+        "排序 nums，pow2[i]=2^i mod MOD",
+        "left=0,right=n-1",
+        "和不超过 target 时 answer+=pow2[right-left],left++；否则 right--"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/sorted-two-pointers-powers/Solution.java",
+        "kotlin": "solutions/sorted-two-pointers-powers/Solution.kt",
+        "cpp": "solutions/sorted-two-pointers-powers/solution.cpp"
+      }
+    }
+  ]
+}

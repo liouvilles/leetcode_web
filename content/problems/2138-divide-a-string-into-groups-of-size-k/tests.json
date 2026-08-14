@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "divideString",
+  "parameterTypes": [
+    "string",
+    "int",
+    "char"
+  ],
+  "returnType": "stringArray",
+  "cases": [
+    {
+      "name": "末组补两个字符",
+      "args": [
+        "abcdefghi",
+        3,
+        "x"
+      ],
+      "expected": [
+        "abc",
+        "def",
+        "ghi"
+      ]
+    },
+    {
+      "name": "十字符按三分组并补 x",
+      "args": [
+        "abcdefghij",
+        3,
+        "x"
+      ],
+      "expected": [
+        "abc",
+        "def",
+        "ghi",
+        "jxx"
+      ]
+    },
+    {
+      "name": "单字符补满",
+      "args": [
+        "a",
+        3,
+        "z"
+      ],
+      "expected": [
+        "azz"
+      ]
+    }
+  ]
+}

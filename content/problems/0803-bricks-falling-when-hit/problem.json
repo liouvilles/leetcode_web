@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 803,
+  "slug": "bricks-falling-when-hit",
+  "title": "打砖块",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-011",
+  "studyTags": [
+    "数组",
+    "并查集",
+    "逆向处理",
+    "矩阵"
+  ],
+  "summary": "依次敲掉网格指定位置的砖块，每次敲击后与顶边不再连通的砖块会掉落，返回各次掉落数量。",
+  "insight": "正向删除难以维护连通分裂，反向把砖块逐个加回即可用并查集合并；与虚拟屋顶连通分量大小的增量减去新砖块本身，就是正向该次掉落数。",
+  "pitfalls": [
+    "敲击空格或重复位置不产生掉落",
+    "先应用全部敲击再建立剩余砖块连通性",
+    "答案要减去反向加入的砖块自身并截断为零"
+  ],
+  "solutions": [
+    {
+      "id": "reverse-union-find-roof",
+      "title": "逆向并查集连接虚拟屋顶",
+      "kind": "最优",
+      "idea": "倒序恢复砖块并比较屋顶分量大小。",
+      "steps": [
+        "复制 grid 并对每个 hit 位置减一，值一才表示最终仍存在的砖块",
+        "为剩余砖块建并查集，顶行与虚拟 roof 合并",
+        "逆序令位置加一；仅恢复到一时，记录 roof 大小、与顶边和四邻合并，再令答案=max(0,after-before-1)"
+      ],
+      "complexity": {
+        "time": "O(mn+h·α(mn))",
+        "space": "O(mn)"
+      },
+      "files": {
+        "java": "solutions/reverse-union-find-roof/Solution.java",
+        "kotlin": "solutions/reverse-union-find-roof/Solution.kt",
+        "cpp": "solutions/reverse-union-find-roof/solution.cpp"
+      }
+    }
+  ]
+}

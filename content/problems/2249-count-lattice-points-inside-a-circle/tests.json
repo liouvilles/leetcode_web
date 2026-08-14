@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countLatticePoints",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "半径一圆含五个格点",
+      "args": [
+        [
+          [
+            2,
+            2,
+            1
+          ]
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "两个不重叠半径一圆共十点",
+      "args": [
+        [
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            5,
+            5,
+            1
+          ]
+        ]
+      ],
+      "expected": 10
+    },
+    {
+      "name": "相同圆重叠不重复计数",
+      "args": [
+        [
+          [
+            2,
+            2,
+            1
+          ],
+          [
+            2,
+            2,
+            1
+          ]
+        ]
+      ],
+      "expected": 5
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1162,
+  "slug": "as-far-from-land-as-possible",
+  "title": "地图分析",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-016",
+  "studyTags": [
+    "数组",
+    "广度优先搜索",
+    "矩阵",
+    "多源最短路"
+  ],
+  "summary": "零一网格中一表示陆地、零表示海洋，求某个海洋格到最近陆地的最大曼哈顿距离；全陆地或全海洋返回负一。",
+  "insight": "把所有陆地同时作为 BFS 起点，扩展层数就是每个海洋格到最近陆地的距离；最后被访问的海洋层距离最大。",
+  "pitfalls": [
+    "所有陆地必须同时入队",
+    "访问海洋格时立即标为陆地避免重复",
+    "全陆地和全海洋都没有有效答案"
+  ],
+  "solutions": [
+    {
+      "id": "multi-source-land-bfs",
+      "title": "陆地多源广度优先搜索",
+      "kind": "最优",
+      "idea": "从所有陆地同步向海洋逐层扩散。",
+      "steps": [
+        "扫描网格把所有陆地坐标入队；若队列为空或覆盖全图返回 -1",
+        "distance=-1；每轮处理当前队列整层并 distance++",
+        "枚举四邻海洋格，标记为一并入队；队列耗尽后返回 distance"
+      ],
+      "complexity": {
+        "time": "O(rows·cols)",
+        "space": "O(rows·cols)"
+      },
+      "files": {
+        "java": "solutions/multi-source-land-bfs/Solution.java",
+        "kotlin": "solutions/multi-source-land-bfs/Solution.kt",
+        "cpp": "solutions/multi-source-land-bfs/solution.cpp"
+      }
+    }
+  ]
+}

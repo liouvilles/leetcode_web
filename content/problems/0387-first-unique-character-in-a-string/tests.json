@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "firstUniqChar",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "首字符唯一",
+      "args": [
+        "leetcode"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "唯一字符在中间",
+      "args": [
+        "loveleetcode"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "没有唯一字符",
+      "args": [
+        "aabb"
+      ],
+      "expected": -1
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "eatenApples",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典生长序列最多吃七个",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          5,
+          2
+        ],
+        [
+          3,
+          2,
+          1,
+          4,
+          2
+        ]
+      ],
+      "expected": 7
+    },
+    {
+      "name": "首尾两批最多吃五个",
+      "args": [
+        [
+          3,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          3,
+          0,
+          0,
+          0,
+          0,
+          2
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "没有苹果可吃",
+      "args": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

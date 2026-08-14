@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isPossible",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "两条长度三序列",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "两条长度四序列",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          3,
+          4,
+          4,
+          5,
+          5
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "剩余短序列",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          4,
+          5
+        ]
+      ],
+      "expected": false
+    }
+  ]
+}

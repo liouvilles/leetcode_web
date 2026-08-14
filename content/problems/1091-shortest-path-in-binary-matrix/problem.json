@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1091,
+  "slug": "shortest-path-in-binary-matrix",
+  "title": "二进制矩阵中的最短路径",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-016",
+  "studyTags": [
+    "数组",
+    "广度优先搜索",
+    "矩阵"
+  ],
+  "summary": "在方阵中从左上零格出发，可向八个方向走零格，到达右下的最短路径长度按经过格数计；不存在返回负一。",
+  "insight": "无权图最短路用 BFS；起点入队时距离为一，访问邻格时立即标记，首次到终点即最短。",
+  "pitfalls": [
+    "起点或终点为一直接无解",
+    "允许对角线移动",
+    "路径长度包含起点和终点"
+  ],
+  "solutions": [
+    {
+      "id": "eight-direction-bfs",
+      "title": "八方向广度优先搜索",
+      "kind": "最优",
+      "idea": "逐层扩展所有可达零格。",
+      "steps": [
+        "检查两端为零，队列放 [0,0,1] 并把起点置一",
+        "弹出位置，若是终点返回 distance",
+        "枚举 dr,dc∈[-1,1] 除零向量；合法零格置一并以 distance+1 入队，耗尽返回 -1"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/eight-direction-bfs/Solution.java",
+        "kotlin": "solutions/eight-direction-bfs/Solution.kt",
+        "cpp": "solutions/eight-direction-bfs/solution.cpp"
+      }
+    }
+  ]
+}

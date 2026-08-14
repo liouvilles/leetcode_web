@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumSwap",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两个同类错配一次",
+      "args": [
+        "xx",
+        "yy"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "异类错配需两次",
+      "args": [
+        "xy",
+        "yx"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "奇数错配无解",
+      "args": [
+        "xx",
+        "xy"
+      ],
+      "expected": -1
+    }
+  ]
+}

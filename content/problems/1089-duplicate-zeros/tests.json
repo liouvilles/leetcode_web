@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "duplicateZeros",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "void",
+  "cases": [
+    {
+      "name": "多个零复写",
+      "args": [
+        [
+          1,
+          0,
+          2,
+          3,
+          0,
+          4,
+          5,
+          0
+        ]
+      ],
+      "expectedArgs": [
+        {
+          "index": 0,
+          "type": "intArray",
+          "expected": [
+            1,
+            0,
+            0,
+            2,
+            3,
+            0,
+            0,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "name": "没有零不变",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expectedArgs": [
+        {
+          "index": 0,
+          "type": "intArray",
+          "expected": [
+            1,
+            2,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "name": "尾部零被截断",
+      "args": [
+        [
+          1,
+          2,
+          0
+        ]
+      ],
+      "expectedArgs": [
+        {
+          "index": 0,
+          "type": "intArray",
+          "expected": [
+            1,
+            2,
+            0
+          ]
+        }
+      ]
+    }
+  ]
+}

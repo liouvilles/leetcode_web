@@ -1,0 +1,1 @@
+class Solution { fun concatenatedBinary(n:Int):Int{val mod=1_000_000_007L;var answer=0L;var bits=0;for(value in 1..n){if(value and (value-1)==0)bits++;answer=((answer shl bits)+value)%mod};return answer.toInt()} }

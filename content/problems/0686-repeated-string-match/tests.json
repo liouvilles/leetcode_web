@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "repeatedStringMatch",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "需要重复四次",
+      "args": [
+        "abcd",
+        "cdabcdab"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "单字符重复",
+      "args": [
+        "a",
+        "aa"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "不可能匹配",
+      "args": [
+        "abc",
+        "wxyz"
+      ],
+      "expected": -1
+    }
+  ]
+}

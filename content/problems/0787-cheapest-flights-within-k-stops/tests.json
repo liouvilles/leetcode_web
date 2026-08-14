@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findCheapestPrice",
+  "parameterTypes": [
+    "int",
+    "intMatrix",
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "允许一次中转",
+      "args": [
+        3,
+        [
+          [
+            0,
+            1,
+            100
+          ],
+          [
+            1,
+            2,
+            100
+          ],
+          [
+            0,
+            2,
+            500
+          ]
+        ],
+        0,
+        2,
+        1
+      ],
+      "expected": 200
+    },
+    {
+      "name": "不允许中转",
+      "args": [
+        3,
+        [
+          [
+            0,
+            1,
+            100
+          ],
+          [
+            1,
+            2,
+            100
+          ],
+          [
+            0,
+            2,
+            500
+          ]
+        ],
+        0,
+        2,
+        0
+      ],
+      "expected": 500
+    },
+    {
+      "name": "目的地不可达",
+      "args": [
+        3,
+        [
+          [
+            0,
+            1,
+            100
+          ]
+        ],
+        0,
+        2,
+        1
+      ],
+      "expected": -1
+    }
+  ]
+}

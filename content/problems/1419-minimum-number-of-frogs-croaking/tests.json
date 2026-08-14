@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minNumberOfFrogs",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两个连续 croak 复用一只",
+      "args": [
+        "croakcroak"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "两个声音交错需两只",
+      "args": [
+        "crcoakroak"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "字符顺序非法",
+      "args": [
+        "croakcrook"
+      ],
+      "expected": -1
+    }
+  ]
+}

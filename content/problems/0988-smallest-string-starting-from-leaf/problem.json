@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 988,
+  "slug": "smallest-string-starting-from-leaf",
+  "title": "从叶结点开始的最小字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-014",
+  "studyTags": [
+    "树",
+    "深度优先搜索",
+    "字符串"
+  ],
+  "summary": "树节点值 0 到 25 对应 a 到 z；每个叶到根形成字符串，返回字典序最小者。",
+  "insight": "DFS 维护根到当前节点路径；到叶时反转得到叶到根候选，与当前最佳字符串比较，回溯时移除末字符。",
+  "pitfalls": [
+    "字符串方向是叶到根",
+    "只有左右孩子都为空才是叶节点",
+    "不同路径长度按普通字典序比较"
+  ],
+  "solutions": [
+    {
+      "id": "root-path-leaf-comparison",
+      "title": "根路径叶端比较",
+      "kind": "最优",
+      "idea": "在叶节点反转当前路径生成候选。",
+      "steps": [
+        "path 为空、best 为空，DFS 根",
+        "进入节点追加 (char)(a+val)",
+        "叶节点构造 reverse(path)，若 best 为空或候选更小则更新；否则递归左右，离开时删除末字符"
+      ],
+      "complexity": {
+        "time": "O(n·height)",
+        "space": "O(height)"
+      },
+      "files": {
+        "java": "solutions/root-path-leaf-comparison/Solution.java",
+        "kotlin": "solutions/root-path-leaf-comparison/Solution.kt",
+        "cpp": "solutions/root-path-leaf-comparison/solution.cpp"
+      }
+    }
+  ]
+}

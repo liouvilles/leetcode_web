@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2091,
+  "slug": "removing-minimum-and-maximum-from-array",
+  "title": "从数组中移除最大值和最小值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "数组",
+    "贪心"
+  ],
+  "summary": "每次只能移除数组首或尾元素，求同时移除唯一最小值和最大值的最少删除次数。",
+  "insight": "设两下标排序为 first<second，只有三种最优方式：都从左删 second+1、都从右删 n-first，或从两端各删 first+1 与 n-second，取最小。",
+  "pitfalls": [
+    "最小最大值唯一",
+    "删除后下标变化已由三种公式覆盖",
+    "单元素答案一"
+  ],
+  "solutions": [
+    {
+      "id": "three-end-deletion-patterns",
+      "title": "三种端点删除模式",
+      "kind": "最优",
+      "idea": "枚举两个目标分别从哪一端被覆盖。",
+      "steps": [
+        "找到 minIndex、maxIndex 并令 first=min、second=max",
+        "leftOnly=second+1，rightOnly=n-first",
+        "bothEnds=first+1+n-second；返回三者最小"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/three-end-deletion-patterns/Solution.java",
+        "kotlin": "solutions/three-end-deletion-patterns/Solution.kt",
+        "cpp": "solutions/three-end-deletion-patterns/solution.cpp"
+      }
+    }
+  ]
+}

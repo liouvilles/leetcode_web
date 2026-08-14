@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "validMountainArray",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "长度不足",
+      "args": [
+        [
+          2,
+          1
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "峰顶平台",
+      "args": [
+        [
+          3,
+          5,
+          5
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "严格山形",
+      "args": [
+        [
+          0,
+          3,
+          2,
+          1
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

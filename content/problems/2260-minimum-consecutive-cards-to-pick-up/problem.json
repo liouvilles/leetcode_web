@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2260,
+  "slug": "minimum-consecutive-cards-to-pick-up",
+  "title": "必须拿起的最小连续卡牌数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-033",
+  "studyTags": [
+    "数组",
+    "哈希表"
+  ],
+  "summary": "选择一段连续卡牌，要求其中至少有一对值相同，求最短段长度；不存在返回负一。",
+  "insight": "相同值形成的最短段一定来自相邻两次出现。扫描记录每个值上次下标，当前再次出现时用 i-last+1 更新答案。",
+  "pitfalls": [
+    "段长度包含两个端点",
+    "只需保留最近出现位置",
+    "无重复时负一"
+  ],
+  "solutions": [
+    {
+      "id": "last-index-distance-scan",
+      "title": "最近下标距离扫描",
+      "kind": "最优",
+      "idea": "在线计算同值相邻出现间最短闭区间。",
+      "steps": [
+        "Map lastIndex、answer=MAX",
+        "遍历 cards 下标 i",
+        "若 value 已出现，answer=min(answer,i-last[value]+1)；更新 last[value]=i",
+        "返回 answer 未更新时 -1"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/last-index-distance-scan/Solution.java",
+        "kotlin": "solutions/last-index-distance-scan/Solution.kt",
+        "cpp": "solutions/last-index-distance-scan/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "wonderfulSubstrings",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "aba 有四个最美子串",
+      "args": [
+        "aba"
+      ],
+      "expected": 4
+    },
+    {
+      "name": "aabb 有九个最美子串",
+      "args": [
+        "aabb"
+      ],
+      "expected": 9
+    },
+    {
+      "name": "两个不同字符仅单字符满足",
+      "args": [
+        "he"
+      ],
+      "expected": 2
+    }
+  ]
+}

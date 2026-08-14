@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "reversePrefix",
+  "parameterTypes": [
+    "string",
+    "char"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "到 d 的前缀反转",
+      "args": [
+        "abcdefd",
+        "d"
+      ],
+      "expected": "dcbaefd"
+    },
+    {
+      "name": "到 z 的前缀反转",
+      "args": [
+        "xyxzxe",
+        "z"
+      ],
+      "expected": "zxyxxe"
+    },
+    {
+      "name": "字符不存在保持原样",
+      "args": [
+        "abcd",
+        "z"
+      ],
+      "expected": "abcd"
+    }
+  ]
+}

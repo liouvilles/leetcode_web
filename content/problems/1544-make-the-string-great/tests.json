@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "makeGood",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "连续消去 Ee",
+      "args": [
+        "leEeetcode"
+      ],
+      "expected": "leetcode"
+    },
+    {
+      "name": "连锁消去全部字符",
+      "args": [
+        "abBAcC"
+      ],
+      "expected": ""
+    },
+    {
+      "name": "单字符保持",
+      "args": [
+        "s"
+      ],
+      "expected": "s"
+    }
+  ]
+}

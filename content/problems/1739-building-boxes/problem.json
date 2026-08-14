@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1739,
+  "slug": "building-boxes",
+  "title": "放置盒子",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-025",
+  "studyTags": [
+    "数学",
+    "贪心",
+    "二分查找"
+  ],
+  "summary": "在墙角地面堆 n 个立方盒，非地面盒的下、左、后都必须有盒子支撑，求最少接触地面的盒子数。",
+  "insight": "先放尽可能大的完整四面体层：高 h 使用 h(h+1)(h+2)/6 个盒、地面占 h(h+1)/2 个。剩余盒沿新斜层扩展，第 1、2、3 个新增地面位置分别可承载 1、2、3 个剩余盒。",
+  "pitfalls": [
+    "完整层盒数是四面体数",
+    "地面数是三角形数",
+    "不足完整层的扩展容量按一、二、三递增"
+  ],
+  "solutions": [
+    {
+      "id": "complete-layers-then-fringe",
+      "title": "完整层与边缘贪心",
+      "kind": "最优",
+      "idea": "最大化完整金字塔后用最少新地面列覆盖余量。",
+      "steps": [
+        "height 从零增长，直到下一完整层盒数超过 n",
+        "remaining=n-tetrahedral(height)，floor=triangular(height)",
+        "addition=1,2,...；每次 remaining-=addition、floor++，直到 remaining<=0"
+      ],
+      "complexity": {
+        "time": "O(n^(1/3)+sqrt n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/complete-layers-then-fringe/Solution.java",
+        "kotlin": "solutions/complete-layers-then-fringe/Solution.kt",
+        "cpp": "solutions/complete-layers-then-fringe/solution.cpp"
+      }
+    }
+  ]
+}

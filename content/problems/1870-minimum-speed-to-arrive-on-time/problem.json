@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1870,
+  "slug": "minimum-speed-to-arrive-on-time",
+  "title": "准时到达的列车最小时速",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-027",
+  "studyTags": [
+    "数组",
+    "二分查找"
+  ],
+  "summary": "各段列车只能整点发车，末段到站无需等待，求在给定小时内到达的最小整数时速。",
+  "insight": "速度越快，总时间越短，具有单调性。二分速度；前 n-1 段用向上取整的整数小时，末段保留小数。",
+  "pitfalls": [
+    "最后一段不用等整点",
+    "hour 小于等于 n-1 时必定无解",
+    "速度上界为一千万"
+  ],
+  "solutions": [
+    {
+      "id": "binary-search-speed",
+      "title": "二分最小可行速度",
+      "kind": "最优",
+      "idea": "在速度的单调可行区间中找左边界。",
+      "steps": [
+        "若 hour<=n-1 返回 -1",
+        "二分 [1,10000000]",
+        "检查前 n-1 段 ceil(dist/speed)，末段直接除；可行时收缩右端"
+      ],
+      "complexity": {
+        "time": "O(n log 10^7)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/binary-search-speed/Solution.java",
+        "kotlin": "solutions/binary-search-speed/Solution.kt",
+        "cpp": "solutions/binary-search-speed/solution.cpp"
+      }
+    }
+  ]
+}

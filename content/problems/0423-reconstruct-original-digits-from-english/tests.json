@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "originalDigits",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "重建零一二",
+      "args": [
+        "owoztneoer"
+      ],
+      "expected": "012"
+    },
+    {
+      "name": "重建四五",
+      "args": [
+        "fviefuro"
+      ],
+      "expected": "45"
+    },
+    {
+      "name": "重复零",
+      "args": [
+        "zerozero"
+      ],
+      "expected": "00"
+    }
+  ]
+}

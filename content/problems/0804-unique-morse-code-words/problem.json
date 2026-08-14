@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 804,
+  "slug": "unique-morse-code-words",
+  "title": "唯一摩尔斯密码词",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-011",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "哈希集合"
+  ],
+  "summary": "把每个小写英文单词按固定摩尔斯编码表转换，返回不同转换结果的数量。",
+  "insight": "逐字符拼接对应编码并放入集合，集合大小就是唯一表示数。",
+  "pitfalls": [
+    "编码间不加分隔符",
+    "相同转换结果只计一次",
+    "输入只含小写字母"
+  ],
+  "solutions": [
+    {
+      "id": "encode-into-set",
+      "title": "编码结果集合去重",
+      "kind": "最优",
+      "idea": "对每个单词构造摩尔斯串并加入集合。",
+      "steps": [
+        "准备 26 个字母编码表",
+        "遍历单词字符并追加 code[c-a]",
+        "把结果加入集合，最终返回集合大小"
+      ],
+      "complexity": {
+        "time": "O(total characters)",
+        "space": "O(total encoded length)"
+      },
+      "files": {
+        "java": "solutions/encode-into-set/Solution.java",
+        "kotlin": "solutions/encode-into-set/Solution.kt",
+        "cpp": "solutions/encode-into-set/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "luckyNumbers",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "intList",
+  "cases": [
+    {
+      "name": "三乘三幸运数十五",
+      "args": [
+        [
+          [
+            3,
+            7,
+            8
+          ],
+          [
+            9,
+            11,
+            13
+          ],
+          [
+            15,
+            16,
+            17
+          ]
+        ]
+      ],
+      "expected": [
+        15
+      ]
+    },
+    {
+      "name": "三乘四幸运数十二",
+      "args": [
+        [
+          [
+            1,
+            10,
+            4,
+            2
+          ],
+          [
+            9,
+            3,
+            8,
+            7
+          ],
+          [
+            15,
+            16,
+            17,
+            12
+          ]
+        ]
+      ],
+      "expected": [
+        12
+      ]
+    },
+    {
+      "name": "两乘二幸运数七",
+      "args": [
+        [
+          [
+            7,
+            8
+          ],
+          [
+            1,
+            2
+          ]
+        ]
+      ],
+      "expected": [
+        7
+      ]
+    }
+  ]
+}

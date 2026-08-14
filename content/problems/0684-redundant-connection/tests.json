@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findRedundantConnection",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "三节点环",
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ]
+        ]
+      ],
+      "expected": [
+        2,
+        3
+      ]
+    },
+    {
+      "name": "环在图后半部分闭合",
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            5
+          ]
+        ]
+      ],
+      "expected": [
+        1,
+        4
+      ]
+    },
+    {
+      "name": "最小环",
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        3,
+        1
+      ]
+    }
+  ]
+}

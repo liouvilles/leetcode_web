@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1028,
+  "slug": "recover-a-tree-from-preorder-traversal",
+  "title": "从先序遍历还原二叉树",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-015",
+  "studyTags": [
+    "树",
+    "字符串",
+    "栈"
+  ],
+  "summary": "字符串用连续短横线表示节点深度并随后写节点值，给出二叉树先序遍历；若节点只有一个孩子则为左孩子，重建树。",
+  "insight": "栈中保持当前根到上一节点的路径；解析新节点深度 d 后把栈弹到长度 d，其栈顶就是父节点，再优先填左孩子否则填右孩子。",
+  "pitfalls": [
+    "节点值可能有多位",
+    "深度短横线与负号无关，值均为正",
+    "栈长度应等于新节点深度后再连接"
+  ],
+  "solutions": [
+    {
+      "id": "depth-path-stack-parser",
+      "title": "深度路径栈解析",
+      "kind": "最优",
+      "idea": "边解析先序字符串边维护祖先路径。",
+      "steps": [
+        "index 扫描字符串；先数短横线得到 depth，再解析十进制 value",
+        "while stack.size>depth 弹栈",
+        "创建 node；若栈非空，父节点 left 为空则接 left，否则接 right；压入 node",
+        "首个节点保存为 root，扫描完返回"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(height)"
+      },
+      "files": {
+        "java": "solutions/depth-path-stack-parser/Solution.java",
+        "kotlin": "solutions/depth-path-stack-parser/Solution.kt",
+        "cpp": "solutions/depth-path-stack-parser/solution.cpp"
+      }
+    }
+  ]
+}

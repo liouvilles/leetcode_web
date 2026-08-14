@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 485,
+  "slug": "max-consecutive-ones",
+  "title": "最大连续 1 的个数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-006",
+  "studyTags": [
+    "数组",
+    "线性扫描",
+    "连续段"
+  ],
+  "summary": "给定只含零和一的数组，返回其中最长连续一段的长度。",
+  "insight": "遇到一就扩展当前连续段，遇到零清零，并持续维护历史最大长度。",
+  "pitfalls": [
+    "只统计连续元素",
+    "全零数组答案为零",
+    "数组末尾的连续段也需更新"
+  ],
+  "solutions": [
+    {
+      "id": "running-streak",
+      "title": "当前连续段计数",
+      "kind": "最优",
+      "idea": "单次扫描维护 current 和 best。",
+      "steps": [
+        "current=best=0",
+        "value==1 时 current++，否则 current=0",
+        "best=max(best,current)"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/running-streak/Solution.java",
+        "kotlin": "solutions/running-streak/Solution.kt",
+        "cpp": "solutions/running-streak/solution.cpp"
+      }
+    }
+  ]
+}

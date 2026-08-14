@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countPairs",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "五个数与二形成七对",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        2
+      ],
+      "expected": 7
+    },
+    {
+      "name": "没有乘积被五整除",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        5
+      ],
+      "expected": 0
+    },
+    {
+      "name": "三个五倍数全部配对",
+      "args": [
+        [
+          5,
+          10,
+          15
+        ],
+        5
+      ],
+      "expected": 3
+    }
+  ]
+}

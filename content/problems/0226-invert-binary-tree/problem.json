@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "id": 226,
+  "slug": "invert-binary-tree",
+  "title": "翻转二叉树",
+  "status": "published",
+  "qualityGate": "compile",
+  "batch": "legacy-001",
+  "studyTags": [
+    "交换子树",
+    "结构递归",
+    "树的遍历"
+  ],
+  "summary": "交换二叉树中每个结点的左右子树，返回翻转后的根结点。",
+  "insight": "整棵树的镜像由根结点交换左右孩子，以及两个子树各自完成镜像组成。",
+  "pitfalls": [
+    "需要交换每一个非空结点",
+    "注意保存或同时交换引用",
+    "允许原地修改树结构"
+  ],
+  "solutions": [
+    {
+      "id": "recursive-dfs",
+      "title": "递归 DFS",
+      "kind": "最优",
+      "idea": "交换当前结点的左右孩子，再递归翻转两个孩子。",
+      "steps": [
+        "空结点直接返回",
+        "交换 left 与 right",
+        "递归处理交换后的两个子树"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(h)"
+      },
+      "files": {
+        "java": "solutions/recursive-dfs/Solution.java",
+        "kotlin": "solutions/recursive-dfs/Solution.kt",
+        "cpp": "solutions/recursive-dfs/solution.cpp"
+      }
+    },
+    {
+      "id": "iterative-bfs",
+      "title": "队列 BFS",
+      "kind": "进阶",
+      "idea": "逐层取出结点、交换孩子，再把非空孩子放入队列。",
+      "steps": [
+        "根结点非空则入队",
+        "弹出并交换左右孩子",
+        "把交换后的非空孩子入队"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(w)"
+      },
+      "files": {
+        "java": "solutions/iterative-bfs/Solution.java",
+        "kotlin": "solutions/iterative-bfs/Solution.kt",
+        "cpp": "solutions/iterative-bfs/solution.cpp"
+      }
+    }
+  ]
+}

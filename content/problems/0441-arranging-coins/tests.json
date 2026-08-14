@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "arrangeCoins",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "五枚硬币两行",
+      "args": [
+        5
+      ],
+      "expected": 2
+    },
+    {
+      "name": "八枚硬币三行",
+      "args": [
+        8
+      ],
+      "expected": 3
+    },
+    {
+      "name": "一枚硬币",
+      "args": [
+        1
+      ],
+      "expected": 1
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 274,
+  "slug": "h-index",
+  "title": "H 指数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-005",
+  "studyTags": [
+    "排序",
+    "计数",
+    "论文引用"
+  ],
+  "summary": "根据每篇论文的引用次数，求最大的 h，使至少 h 篇论文各被引用不少于 h 次。",
+  "insight": "升序排序后，位置 index 右侧有 n-index 篇论文；首次满足 citations[index]>=n-index 时就是最大 h。",
+  "pitfalls": [
+    "h 同时受论文数和引用数限制",
+    "空数组结果为零",
+    "排序会修改输入但题目允许"
+  ],
+  "solutions": [
+    {
+      "id": "sort-and-scan",
+      "title": "排序后扫描阈值",
+      "kind": "最优",
+      "idea": "把引用次数排序，寻找论文数与最小引用数首次相交的位置。",
+      "steps": [
+        "数组升序排序",
+        "枚举 index 并令 h=n-index",
+        "若 citations[index]>=h 则返回 h，结束返回零"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/sort-and-scan/Solution.java",
+        "kotlin": "solutions/sort-and-scan/Solution.kt",
+        "cpp": "solutions/sort-and-scan/solution.cpp"
+      }
+    }
+  ]
+}

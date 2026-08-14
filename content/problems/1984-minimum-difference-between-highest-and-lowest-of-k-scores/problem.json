@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1984,
+  "slug": "minimum-difference-between-highest-and-lowest-of-k-scores",
+  "title": "学生分数的最小差值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-029",
+  "studyTags": [
+    "数组",
+    "排序",
+    "滑动窗口"
+  ],
+  "summary": "从分数数组选择 k 个学生，最小化最高分与最低分之差。",
+  "insight": "排序后，任一最优集合可替换为覆盖其最小最大值之间的连续 k 项而不增大差值，枚举长度 k 窗口即可。",
+  "pitfalls": [
+    "k 为一时答案零",
+    "选择的是任意下标但排序不影响值差",
+    "窗口端点差为 max-min"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-k-window",
+      "title": "排序长度 K 窗口",
+      "kind": "最优",
+      "idea": "枚举排序后每组连续 k 个分数。",
+      "steps": [
+        "排序 nums",
+        "answer=∞",
+        "right 从 k-1 到 n-1，更新 nums[right]-nums[right-k+1]，返回"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/sorted-k-window/Solution.java",
+        "kotlin": "solutions/sorted-k-window/Solution.kt",
+        "cpp": "solutions/sorted-k-window/solution.cpp"
+      }
+    }
+  ]
+}

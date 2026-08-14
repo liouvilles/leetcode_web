@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1422,
+  "slug": "maximum-score-after-splitting-a-string",
+  "title": "分割字符串的最大得分",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-020",
+  "studyTags": [
+    "字符串",
+    "前缀和"
+  ],
+  "summary": "把二进制字符串分成两个非空部分，得分为左侧零数加右侧一数，求最大得分。",
+  "insight": "先统计全串一的数量作为 rightOnes；移动切分点时把当前字符从右侧移到左侧，并维护 leftZeros 与 rightOnes。",
+  "pitfalls": [
+    "切分点不能在末尾之后",
+    "当前字符为一时应减少右侧一数",
+    "每移动一位后计算该切分得分"
+  ],
+  "solutions": [
+    {
+      "id": "running-zero-one-counts",
+      "title": "左右计数扫描",
+      "kind": "最优",
+      "idea": "在线维护切分两侧的目标字符数量。",
+      "steps": [
+        "rightOnes 统计全串的一，leftZeros=0",
+        "i 从零到 n-2，字符零则 leftZeros++，否则 rightOnes--",
+        "用 leftZeros+rightOnes 更新最大值"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/running-zero-one-counts/Solution.java",
+        "kotlin": "solutions/running-zero-one-counts/Solution.kt",
+        "cpp": "solutions/running-zero-one-counts/solution.cpp"
+      }
+    }
+  ]
+}

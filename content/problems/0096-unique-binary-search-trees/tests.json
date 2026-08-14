@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numTrees",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三个节点",
+      "args": [
+        3
+      ],
+      "expected": 5
+    },
+    {
+      "name": "一个节点",
+      "args": [
+        1
+      ],
+      "expected": 1
+    },
+    {
+      "name": "五个节点",
+      "args": [
+        5
+      ],
+      "expected": 42
+    }
+  ]
+}

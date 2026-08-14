@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "rotatedDigits",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一到十",
+      "args": [
+        10
+      ],
+      "expected": 4
+    },
+    {
+      "name": "一不是好数",
+      "args": [
+        1
+      ],
+      "expected": 0
+    },
+    {
+      "name": "一到二十",
+      "args": [
+        20
+      ],
+      "expected": 9
+    }
+  ]
+}

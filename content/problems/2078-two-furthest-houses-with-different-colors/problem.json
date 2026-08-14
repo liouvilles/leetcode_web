@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2078,
+  "slug": "two-furthest-houses-with-different-colors",
+  "title": "两栋颜色不同且距离最远的房子",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "数组",
+    "贪心"
+  ],
+  "summary": "房子沿直线排列，求颜色不同的两栋房子的最大下标距离。",
+  "insight": "任一最远合法对至少包含首栋或末栋：若两端颜色不同已最远；否则从末端找与首色不同、从首端找与末色不同，取较大距离。",
+  "pitfalls": [
+    "保证至少两种颜色",
+    "距离是下标差",
+    "只需比较与两端的候选"
+  ],
+  "solutions": [
+    {
+      "id": "compare-against-both-ends",
+      "title": "分别与首尾端点比较",
+      "kind": "最优",
+      "idea": "利用最大距离对必触及一个数组端点。",
+      "steps": [
+        "从末尾向左找 colors[i]!=colors[0]，候选 i",
+        "从开头向右找 colors[i]!=colors[n-1]，候选 n-1-i",
+        "返回两者最大"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/compare-against-both-ends/Solution.java",
+        "kotlin": "solutions/compare-against-both-ends/Solution.kt",
+        "cpp": "solutions/compare-against-both-ends/solution.cpp"
+      }
+    }
+  ]
+}

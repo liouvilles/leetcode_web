@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "spellchecker",
+  "parameterTypes": [
+    "stringArray",
+    "stringArray"
+  ],
+  "returnType": "stringArray",
+  "cases": [
+    {
+      "name": "经典优先级查询",
+      "args": [
+        [
+          "KiTe",
+          "kite",
+          "hare",
+          "Hare"
+        ],
+        [
+          "kite",
+          "Kite",
+          "KiTe",
+          "Hare",
+          "HARE",
+          "Hear",
+          "hear",
+          "keti",
+          "keet",
+          "keto"
+        ]
+      ],
+      "expected": [
+        "kite",
+        "KiTe",
+        "KiTe",
+        "Hare",
+        "hare",
+        "",
+        "",
+        "KiTe",
+        "",
+        "KiTe"
+      ]
+    },
+    {
+      "name": "精确优先于小写",
+      "args": [
+        [
+          "Yellow",
+          "yellow"
+        ],
+        [
+          "yellow",
+          "YELLOW"
+        ]
+      ],
+      "expected": [
+        "yellow",
+        "Yellow"
+      ]
+    },
+    {
+      "name": "无匹配返回空",
+      "args": [
+        [
+          "apple"
+        ],
+        [
+          "orange"
+        ]
+      ],
+      "expected": [
+        ""
+      ]
+    }
+  ]
+}

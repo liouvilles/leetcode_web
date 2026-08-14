@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1375,
+  "slug": "number-of-times-binary-string-is-prefix-aligned",
+  "title": "二进制字符串前缀一致的次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-019",
+  "studyTags": [
+    "数组",
+    "数学"
+  ],
+  "summary": "按 flips 顺序把二进制串对应位置置一，统计每步之后所有已置一位恰好形成前缀的次数。",
+  "insight": "执行第 i 步后已有 i 个一；它们形成长度 i 的前缀，当且仅当目前翻转位置最大值等于 i。",
+  "pitfalls": [
+    "flips 使用一基位置",
+    "第 i 步按一开始计数",
+    "只需维护最大位置，无需真的构造字符串"
+  ],
+  "solutions": [
+    {
+      "id": "running-maximum",
+      "title": "前缀最大值",
+      "kind": "最优",
+      "idea": "用已翻转位置最大值判断一的集合是否无空洞。",
+      "steps": [
+        "maximum=0,answer=0",
+        "按 step 从一开始扫描，更新 maximum=max(maximum,flips[step-1])",
+        "若 maximum==step 则 answer++，返回"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/running-maximum/Solution.java",
+        "kotlin": "solutions/running-maximum/Solution.kt",
+        "cpp": "solutions/running-maximum/solution.cpp"
+      }
+    }
+  ]
+}

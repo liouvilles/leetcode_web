@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxCandies",
+  "parameterTypes": [
+    "intArray",
+    "intArray",
+    "intMatrix",
+    "intMatrix",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典盒子链获得十六",
+      "args": [
+        [
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          7,
+          5,
+          4,
+          100
+        ],
+        [
+          [],
+          [],
+          [
+            1
+          ],
+          []
+        ],
+        [
+          [
+            1,
+            2
+          ],
+          [
+            3
+          ],
+          [],
+          []
+        ],
+        [
+          0
+        ]
+      ],
+      "expected": 16
+    },
+    {
+      "name": "先从开放盒取得锁盒钥匙",
+      "args": [
+        [
+          1,
+          0
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          [
+            1
+          ],
+          []
+        ],
+        [
+          [
+            1
+          ],
+          []
+        ],
+        [
+          0
+        ]
+      ],
+      "expected": 15
+    },
+    {
+      "name": "只有锁盒且没有钥匙",
+      "args": [
+        [
+          0
+        ],
+        [
+          9
+        ],
+        [
+          []
+        ],
+        [
+          []
+        ],
+        [
+          0
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

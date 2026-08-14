@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "bagOfTokensScore",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "能量不足",
+      "args": [
+        [
+          100
+        ],
+        50
+      ],
+      "expected": 0
+    },
+    {
+      "name": "买一个令牌",
+      "args": [
+        [
+          100,
+          200
+        ],
+        150
+      ],
+      "expected": 1
+    },
+    {
+      "name": "周转得到两分",
+      "args": [
+        [
+          100,
+          200,
+          300,
+          400
+        ],
+        200
+      ],
+      "expected": 2
+    }
+  ]
+}

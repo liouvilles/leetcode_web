@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "NumArray",
+  "constructorTypes": [
+    "intArray"
+  ],
+  "cases": [
+    {
+      "name": "多个区间查询",
+      "constructorArgs": [
+        [
+          -2,
+          0,
+          3,
+          -5,
+          2,
+          -1
+        ]
+      ],
+      "calls": [
+        {
+          "method": "sumRange",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            0,
+            2
+          ],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "sumRange",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            2,
+            5
+          ],
+          "returnType": "int",
+          "expected": -1
+        },
+        {
+          "method": "sumRange",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            0,
+            5
+          ],
+          "returnType": "int",
+          "expected": -3
+        }
+      ]
+    },
+    {
+      "name": "单元素",
+      "constructorArgs": [
+        [
+          7
+        ]
+      ],
+      "calls": [
+        {
+          "method": "sumRange",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            0,
+            0
+          ],
+          "returnType": "int",
+          "expected": 7
+        }
+      ]
+    },
+    {
+      "name": "含负值区间",
+      "constructorArgs": [
+        [
+          1,
+          -2,
+          4
+        ]
+      ],
+      "calls": [
+        {
+          "method": "sumRange",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            1,
+            2
+          ],
+          "returnType": "int",
+          "expected": 2
+        }
+      ]
+    }
+  ]
+}

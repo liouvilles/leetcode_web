@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "largestVariance",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "aababbb 最大波动三",
+      "args": [
+        "aababbb"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "字符各不相同波动零",
+      "args": [
+        "abcde"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "五个 a 与一个 b 波动四",
+      "args": [
+        "aaaaab"
+      ],
+      "expected": 4
+    }
+  ]
+}

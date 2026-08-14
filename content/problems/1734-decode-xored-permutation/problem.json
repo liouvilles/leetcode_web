@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1734,
+  "slug": "decode-xored-permutation",
+  "title": "解码异或后的排列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-025",
+  "studyTags": [
+    "数组",
+    "位运算"
+  ],
+  "summary": "perm 是 1..n 的奇数长度排列，encoded[i]=perm[i] xor perm[i+1]，恢复 perm。",
+  "insight": "1..n 全部异或值，再异或 encoded 的奇数下标项，可消去 perm[1]..perm[n-1] 并得到 perm[0]；之后按相邻异或递推。",
+  "pitfalls": [
+    "n=encoded.length+1 且为奇数",
+    "只异或 encoded 下标一、三、五等项",
+    "恢复后续元素公式与普通异或解码相同"
+  ],
+  "solutions": [
+    {
+      "id": "xor-cancellation-first-value",
+      "title": "异或消元求首项",
+      "kind": "最优",
+      "idea": "先通过全排列异或性质求第一项，再线性恢复。",
+      "steps": [
+        "total=XOR(1..n)",
+        "first=total XOR encoded[1] XOR encoded[3]...",
+        "answer[0]=first，answer[i+1]=answer[i] XOR encoded[i]"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/xor-cancellation-first-value/Solution.java",
+        "kotlin": "solutions/xor-cancellation-first-value/Solution.kt",
+        "cpp": "solutions/xor-cancellation-first-value/solution.cpp"
+      }
+    }
+  ]
+}

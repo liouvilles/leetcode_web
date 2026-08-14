@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "longestZigZag",
+  "parameterTypes": [
+    "treeNode"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "左后右后左共三边",
+      "args": [
+        [
+          1,
+          2,
+          null,
+          null,
+          3,
+          4
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "单根节点为零",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "根有两个孩子最长一边",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

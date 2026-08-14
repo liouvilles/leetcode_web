@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2045,
+  "slug": "second-minimum-time-to-reach-destination",
+  "title": "到达目的地的第二短时间",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-029",
+  "studyTags": [
+    "广度优先搜索",
+    "图论",
+    "最短路"
+  ],
+  "summary": "无向图每条边耗时相同，所有节点信号同步绿红交替，绿灯可离开、红灯必须等，求从一到 n 的严格第二小到达时间。",
+  "insight": "相同边数的路径经历相同灯态，因此先 BFS 求目的地最短和严格次短边数。再按次短边数模拟：每次出发前若处红灯阶段则等到下一绿灯，再走一条边。",
+  "pitfalls": [
+    "到达节点后若是绿灯不能主动等待",
+    "第二小必须严格大于最小",
+    "每个节点需保存两个不同边数距离"
+  ],
+  "solutions": [
+    {
+      "id": "two-hop-distances-then-signal-simulation",
+      "title": "双边数 BFS 与信号模拟",
+      "kind": "最优",
+      "idea": "把拓扑次短路和统一时间函数分开计算。",
+      "steps": [
+        "图 BFS，first/second 初始无穷；新距离小于 first 时顺移，介于 first 与 second 时更新 second",
+        "得到 steps=second[n]",
+        "重复 steps 次：若 (time/change)%2 为一则等待到下一 change 倍数，再 time+=edgeTime，返回"
+      ],
+      "complexity": {
+        "time": "O(V+E)",
+        "space": "O(V+E)"
+      },
+      "files": {
+        "java": "solutions/two-hop-distances-then-signal-simulation/Solution.java",
+        "kotlin": "solutions/two-hop-distances-then-signal-simulation/Solution.kt",
+        "cpp": "solutions/two-hop-distances-then-signal-simulation/solution.cpp"
+      }
+    }
+  ]
+}

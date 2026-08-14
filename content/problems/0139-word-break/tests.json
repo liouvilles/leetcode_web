@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "wordBreak",
+  "parameterTypes": [
+    "string",
+    "stringList"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "拆成两个不同单词",
+      "args": [
+        "leetcode",
+        [
+          "leet",
+          "code"
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "重复使用同一单词",
+      "args": [
+        "applepenapple",
+        [
+          "apple",
+          "pen"
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "局部可拆但整体失败",
+      "args": [
+        "catsandog",
+        [
+          "cats",
+          "dog",
+          "sand",
+          "and",
+          "cat"
+        ]
+      ],
+      "expected": false
+    }
+  ]
+}

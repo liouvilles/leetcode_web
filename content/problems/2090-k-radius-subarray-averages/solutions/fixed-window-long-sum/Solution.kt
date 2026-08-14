@@ -1,0 +1,1 @@
+class Solution { fun getAverages(nums:IntArray,k:Int):IntArray{val answer=IntArray(nums.size){-1};val window=2*k+1;if(window>nums.size)return answer;var sum=0L;for(i in 0 until window)sum+=nums[i];for(center in k until nums.size-k){answer[center]=(sum/window).toInt();if(center+k+1<nums.size)sum+=nums[center+k+1]-nums[center-k]};return answer} }

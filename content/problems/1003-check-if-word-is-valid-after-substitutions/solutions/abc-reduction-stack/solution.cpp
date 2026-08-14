@@ -1,0 +1,1 @@
+class Solution { public: bool isValid(string s){string stack;for(char ch:s){stack+=ch;int n=stack.size();if(n>=3&&stack[n-3]=='a'&&stack[n-2]=='b'&&stack[n-1]=='c')stack.resize(n-3);}return stack.empty();} };

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2130,
+  "slug": "maximum-twin-sum-of-a-linked-list",
+  "title": "链表最大孪生和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-031",
+  "studyTags": [
+    "链表",
+    "双指针",
+    "栈"
+  ],
+  "summary": "偶数长度链表中首尾对称节点互为孪生，求所有孪生节点值之和的最大值。",
+  "insight": "快慢指针找到后半段起点，原地反转后半段，再让前半段与反转后的后半段同步前进即可逐对求和。",
+  "pitfalls": [
+    "链表长度保证为偶数",
+    "只遍历 n/2 对",
+    "反转会修改输入链表后半段"
+  ],
+  "solutions": [
+    {
+      "id": "reverse-second-half",
+      "title": "反转后半链表",
+      "kind": "最优",
+      "idea": "把尾部逆序后与头部对齐比较。",
+      "steps": [
+        "快慢指针：fast 每次两步、slow 每次一步，slow 停在后半起点",
+        "反转 slow 开始的链表",
+        "first=head、second=反转头，同步遍历并更新最大和"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/reverse-second-half/Solution.java",
+        "kotlin": "solutions/reverse-second-half/Solution.kt",
+        "cpp": "solutions/reverse-second-half/solution.cpp"
+      }
+    }
+  ]
+}

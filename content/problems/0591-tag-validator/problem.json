@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 591,
+  "slug": "tag-validator",
+  "title": "标签验证器",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-008",
+  "studyTags": [
+    "字符串",
+    "栈",
+    "解析"
+  ],
+  "summary": "判断代码片段是否由唯一根标签正确包裹，标签名、嵌套关系和 CDATA 片段均符合规则。",
+  "insight": "从左到右解析并用栈维护未闭合标签；CDATA 只在栈非空时整体跳过，根标签关闭后不得再有字符。",
+  "pitfalls": [
+    "标签名只能由 1 到 9 个大写字母组成",
+    "CDATA 只能出现在已打开的标签内部",
+    "整个输入必须恰好由一个根标签包住"
+  ],
+  "solutions": [
+    {
+      "id": "stack-parser",
+      "title": "单遍栈式语法解析",
+      "kind": "最优",
+      "idea": "按当前位置区分 CDATA、结束标签、开始标签和普通文本。",
+      "steps": [
+        "遇 CDATA 时确认栈非空并寻找结束标记",
+        "遇标签时校验名称，开始标签入栈、结束标签匹配栈顶",
+        "普通字符要求栈非空，最终栈为空且至少出现根标签"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(depth)"
+      },
+      "files": {
+        "java": "solutions/stack-parser/Solution.java",
+        "kotlin": "solutions/stack-parser/Solution.kt",
+        "cpp": "solutions/stack-parser/solution.cpp"
+      }
+    }
+  ]
+}

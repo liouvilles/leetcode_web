@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 100,
+  "slug": "same-tree",
+  "title": "相同的树",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-002",
+  "studyTags": [
+    "同步递归",
+    "结构比较",
+    "二叉树"
+  ],
+  "summary": "判断两棵二叉树在结构和每个对应节点的值上是否完全相同。",
+  "insight": "同步检查两个当前位置：同时为空相同，一空一非空或值不同则失败，其余递归比较左右孩子。",
+  "pitfalls": [
+    "仅遍历节点值会遗漏结构差异",
+    "两个空节点应返回真",
+    "左右子树必须按相同方向对应"
+  ],
+  "solutions": [
+    {
+      "id": "synchronous-recursion",
+      "title": "同步递归比较",
+      "kind": "最优",
+      "idea": "每次递归处理一对对应节点并组合左右子树结果。",
+      "steps": [
+        "同时为空返回真",
+        "空状态或值不同返回假",
+        "递归比较左对左、右对右"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(h)"
+      },
+      "files": {
+        "java": "solutions/synchronous-recursion/Solution.java",
+        "kotlin": "solutions/synchronous-recursion/Solution.kt",
+        "cpp": "solutions/synchronous-recursion/solution.cpp"
+      }
+    }
+  ]
+}

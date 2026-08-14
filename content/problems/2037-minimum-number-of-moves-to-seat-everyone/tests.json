@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minMovesToSeat",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三个学生最少移动四次",
+      "args": [
+        [
+          3,
+          1,
+          5
+        ],
+        [
+          2,
+          7,
+          4
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "重复座位位置总移动七次",
+      "args": [
+        [
+          4,
+          1,
+          5,
+          9
+        ],
+        [
+          1,
+          3,
+          2,
+          6
+        ]
+      ],
+      "expected": 7
+    },
+    {
+      "name": "位置完全匹配无需移动",
+      "args": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

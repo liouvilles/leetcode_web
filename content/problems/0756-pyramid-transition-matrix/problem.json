@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 756,
+  "slug": "pyramid-transition-matrix",
+  "title": "金字塔转换矩阵",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-010",
+  "studyTags": [
+    "哈希表",
+    "字符串",
+    "回溯"
+  ],
+  "summary": "底层字符串上方每个字符由下方相邻字符对按 allowed 三元组生成，判断能否逐层构造到单字符顶端。",
+  "insight": "把每个二字符底边映射到所有可选顶字符；对当前行从左到右回溯生成下一行，完成后递归处理下一层。",
+  "pitfalls": [
+    "同一字符对可能有多个顶字符选择",
+    "某位置没有允许转换时当前分支立即失败",
+    "长度一的底层已经成功"
+  ],
+  "solutions": [
+    {
+      "id": "row-by-row-backtracking",
+      "title": "逐层字符串回溯生成",
+      "kind": "最优",
+      "idea": "预处理相邻对到顶字符列表，并搜索所有下一层组合。",
+      "steps": [
+        "建立 pair→characters 映射",
+        "solve(row) 长度一返回真，否则 build(position,next)",
+        "build 对 row[position..position+1] 的所有候选追加字符；完成 next 时递归 solve(next)，成功立即返回"
+      ],
+      "complexity": {
+        "time": "O(branches^(n²))",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/row-by-row-backtracking/Solution.java",
+        "kotlin": "solutions/row-by-row-backtracking/Solution.kt",
+        "cpp": "solutions/row-by-row-backtracking/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1443,
+  "slug": "minimum-time-to-collect-all-apples-in-a-tree",
+  "title": "收集树上所有苹果的最少时间",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-020",
+  "studyTags": [
+    "树",
+    "深度优先搜索",
+    "树形 DP"
+  ],
+  "summary": "从节点零出发，在无向树中收集所有苹果并返回零，每条边耗时一，求最少总时间。",
+  "insight": "一条父子边只在孩子子树含苹果时需要往返，贡献二。后序 DFS 汇总每个孩子所需成本与该边成本。",
+  "pitfalls": [
+    "起点自身有苹果不需要移动",
+    "父边不能在子树无苹果时计入",
+    "树边建立为双向并跳过父节点"
+  ],
+  "solutions": [
+    {
+      "id": "apple-subtree-dfs",
+      "title": "含苹果子树深搜",
+      "kind": "最优",
+      "idea": "只为通向至少一个苹果的边支付往返成本。",
+      "steps": [
+        "建立无向邻接表",
+        "dfs(node,parent) 遍历孩子并获得 childCost",
+        "若 childCost>0 或 hasApple[child]，累加 childCost+2；返回根成本"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/apple-subtree-dfs/Solution.java",
+        "kotlin": "solutions/apple-subtree-dfs/Solution.kt",
+        "cpp": "solutions/apple-subtree-dfs/solution.cpp"
+      }
+    }
+  ]
+}

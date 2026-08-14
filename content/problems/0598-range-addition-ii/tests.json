@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxCount",
+  "parameterTypes": [
+    "int",
+    "int",
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两个范围取交集",
+      "args": [
+        3,
+        3,
+        [
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            3
+          ]
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "没有操作",
+      "args": [
+        3,
+        3,
+        []
+      ],
+      "expected": 9
+    },
+    {
+      "name": "单行交集",
+      "args": [
+        4,
+        5,
+        [
+          [
+            3,
+            4
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            2
+          ]
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

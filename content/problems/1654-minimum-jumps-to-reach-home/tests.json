@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumJumps",
+  "parameterTypes": [
+    "intArray",
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "连续三次前跳到九",
+      "args": [
+        [
+          14,
+          4,
+          18,
+          1,
+          15
+        ],
+        3,
+        15,
+        9
+      ],
+      "expected": 3
+    },
+    {
+      "name": "禁区与步长导致不可达",
+      "args": [
+        [
+          8,
+          3,
+          16,
+          6,
+          12,
+          20
+        ],
+        15,
+        13,
+        11
+      ],
+      "expected": -1
+    },
+    {
+      "name": "先前跳再后跳两步到家",
+      "args": [
+        [
+          1,
+          6,
+          2,
+          14,
+          5,
+          17,
+          4
+        ],
+        16,
+        9,
+        7
+      ],
+      "expected": 2
+    }
+  ]
+}

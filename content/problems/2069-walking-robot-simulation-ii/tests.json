@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "Robot",
+  "constructorTypes": [
+    "int",
+    "int"
+  ],
+  "cases": [
+    {
+      "name": "六乘三矩形连续移动与转向",
+      "constructorArgs": [
+        6,
+        3
+      ],
+      "calls": [
+        {
+          "method": "step",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ]
+        },
+        {
+          "method": "getPos",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "intArray",
+          "expected": [
+            2,
+            0
+          ]
+        },
+        {
+          "method": "getDir",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "string",
+          "expected": "East"
+        },
+        {
+          "method": "step",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            4
+          ]
+        },
+        {
+          "method": "getPos",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "intArray",
+          "expected": [
+            5,
+            1
+          ]
+        },
+        {
+          "method": "getDir",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "string",
+          "expected": "North"
+        }
+      ]
+    },
+    {
+      "name": "整圈回原点朝南",
+      "constructorArgs": [
+        3,
+        2
+      ],
+      "calls": [
+        {
+          "method": "step",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            6
+          ]
+        },
+        {
+          "method": "getPos",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "intArray",
+          "expected": [
+            0,
+            0
+          ]
+        },
+        {
+          "method": "getDir",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "string",
+          "expected": "South"
+        }
+      ]
+    },
+    {
+      "name": "初始位置与方向",
+      "constructorArgs": [
+        2,
+        2
+      ],
+      "calls": [
+        {
+          "method": "getPos",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "intArray",
+          "expected": [
+            0,
+            0
+          ]
+        },
+        {
+          "method": "getDir",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "string",
+          "expected": "East"
+        }
+      ]
+    }
+  ]
+}

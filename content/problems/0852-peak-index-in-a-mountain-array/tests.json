@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "peakIndexInMountainArray",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三元素峰顶",
+      "args": [
+        [
+          0,
+          1,
+          0
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "峰值二",
+      "args": [
+        [
+          0,
+          2,
+          1,
+          0
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "峰值十",
+      "args": [
+        [
+          0,
+          10,
+          5,
+          2
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

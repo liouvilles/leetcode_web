@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1732,
+  "slug": "find-the-highest-altitude",
+  "title": "找到最高海拔",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-025",
+  "studyTags": [
+    "数组",
+    "前缀和"
+  ],
+  "summary": "骑手从海拔零出发，gain[i] 是相邻点净海拔变化，返回旅途中到达的最高海拔。",
+  "insight": "顺序累加 gain 得到每个点海拔，并在线维护最大值；起点海拔零也要参与比较。",
+  "pitfalls": [
+    "gain 长度比点数少一",
+    "最高海拔可能就是起点零",
+    "净变化可为负数"
+  ],
+  "solutions": [
+    {
+      "id": "running-altitude-prefix",
+      "title": "海拔前缀和",
+      "kind": "最优",
+      "idea": "把每段净变化累积成当前位置海拔。",
+      "steps": [
+        "altitude=highest=0",
+        "遍历 gain：altitude+=change",
+        "highest=max(highest,altitude)，返回 highest"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/running-altitude-prefix/Solution.java",
+        "kotlin": "solutions/running-altitude-prefix/Solution.kt",
+        "cpp": "solutions/running-altitude-prefix/solution.cpp"
+      }
+    }
+  ]
+}

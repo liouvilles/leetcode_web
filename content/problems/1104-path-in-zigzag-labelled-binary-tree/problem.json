@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1104,
+  "slug": "path-in-zigzag-labelled-binary-tree",
+  "title": "二叉树寻路",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-016",
+  "studyTags": [
+    "树",
+    "数学"
+  ],
+  "summary": "无限满二叉树各层编号连续但方向交替，给定 label，返回根到该节点的编号路径。",
+  "insight": "当前层编号范围 [start,end] 中，之字形 label 的镜像正常编号是 start+end-label；其父节点编号再除二，即可逐层向上。",
+  "pitfalls": [
+    "层号从零开始",
+    "每次求父前使用当前层范围",
+    "自底向上收集后要反转"
+  ],
+  "solutions": [
+    {
+      "id": "level-mirror-parent-walk",
+      "title": "层内镜像父节点回溯",
+      "kind": "最优",
+      "idea": "用每层首尾和把之字编号映射到父层。",
+      "steps": [
+        "从 label 所在 level=floor(log2(label)) 开始",
+        "while label>=1：加入 label，start=2^level,end=2^(level+1)-1",
+        "label=(start+end-label)/2，level--；最后反转路径"
+      ],
+      "complexity": {
+        "time": "O(log label)",
+        "space": "O(log label)"
+      },
+      "files": {
+        "java": "solutions/level-mirror-parent-walk/Solution.java",
+        "kotlin": "solutions/level-mirror-parent-walk/Solution.kt",
+        "cpp": "solutions/level-mirror-parent-walk/solution.cpp"
+      }
+    }
+  ]
+}

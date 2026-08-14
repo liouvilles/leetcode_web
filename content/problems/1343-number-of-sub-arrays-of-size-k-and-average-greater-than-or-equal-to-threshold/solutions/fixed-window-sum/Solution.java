@@ -1,0 +1,1 @@
+class Solution { public int numOfSubarrays(int[] arr,int k,int threshold){int sum=0,answer=0,target=k*threshold;for(int right=0;right<arr.length;right++){sum+=arr[right];if(right>=k)sum-=arr[right-k];if(right>=k-1&&sum>=target)answer++;}return answer;} }

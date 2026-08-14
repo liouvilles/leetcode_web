@@ -1,0 +1,1 @@
+class Solution { fun countLatticePoints(circles:Array<IntArray>):Int{val points=HashSet<String>();for(circle in circles)for(x in circle[0]-circle[2]..circle[0]+circle[2])for(y in circle[1]-circle[2]..circle[1]+circle[2]){val dx=x-circle[0];val dy=y-circle[1];if(dx*dx+dy*dy<=circle[2]*circle[2])points.add("$x,$y")};return points.size} }

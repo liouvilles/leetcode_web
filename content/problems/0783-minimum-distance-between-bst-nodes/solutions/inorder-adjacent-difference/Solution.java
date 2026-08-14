@@ -1,0 +1,1 @@
+class Solution { private Integer previous;private int answer=Integer.MAX_VALUE;public int minDiffInBST(TreeNode root){inorder(root);return answer;}private void inorder(TreeNode node){if(node==null)return;inorder(node.left);if(previous!=null)answer=Math.min(answer,node.val-previous);previous=node.val;inorder(node.right);} }

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1943,
+  "slug": "describe-the-painting",
+  "title": "描述绘画结果",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-028",
+  "studyTags": [
+    "数组",
+    "前缀和",
+    "有序集合"
+  ],
+  "summary": "若干半开线段涂有互不相同的颜色值，重叠处颜色值相加，返回每段非空区间及其混合颜色和。",
+  "insight": "在线段起点给颜色和加值、终点减值，用有序映射保存差分。按坐标扫描时，前一坐标到当前坐标的活动颜色和固定，若非零就输出。",
+  "pitfalls": [
+    "输入区间是左闭右开",
+    "混合颜色和可能超过 int",
+    "输出按坐标递增"
+  ],
+  "solutions": [
+    {
+      "id": "ordered-coordinate-difference",
+      "title": "有序坐标差分",
+      "kind": "最优",
+      "idea": "只扫描所有端点并输出相邻端点间的活动颜色和。",
+      "steps": [
+        "TreeMap[start]+=color，TreeMap[end]-=color",
+        "按坐标递增，先用当前 active 输出 [previous,position)",
+        "再应用当前位置 delta 并更新 previous"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/ordered-coordinate-difference/Solution.java",
+        "kotlin": "solutions/ordered-coordinate-difference/Solution.kt",
+        "cpp": "solutions/ordered-coordinate-difference/solution.cpp"
+      }
+    }
+  ]
+}

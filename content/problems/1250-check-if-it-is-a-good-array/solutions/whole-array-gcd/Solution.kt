@@ -1,0 +1,1 @@
+class Solution { fun isGoodArray(nums:IntArray):Boolean{var gcd=0;for(value in nums){gcd=gcd(gcd,value);if(gcd==1)return true};return false};private fun gcd(first:Int,second:Int):Int{var a=first;var b=second;while(b!=0){val remainder=a%b;a=b;b=remainder};return a} }

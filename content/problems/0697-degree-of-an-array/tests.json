@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findShortestSubArray",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两个元素并列为度二",
+      "args": [
+        [
+          1,
+          2,
+          2,
+          3,
+          1
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "度为三的最短区间",
+      "args": [
+        [
+          1,
+          2,
+          2,
+          3,
+          1,
+          4,
+          2
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "所有元素不同",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

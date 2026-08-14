@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumElementAfterDecrementingAndRearranging",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "二二一二一最大值二",
+      "args": [
+        [
+          2,
+          2,
+          1,
+          2,
+          1
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "一百一与千最大值三",
+      "args": [
+        [
+          100,
+          1,
+          1000
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "连续数组最大值五",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": 5
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "firstDayBeenInAllRooms",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两个房间第二天全部访问",
+      "args": [
+        [
+          0,
+          0
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "三个房间第六天全部访问",
+      "args": [
+        [
+          0,
+          0,
+          2
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "四房间递推结果六",
+      "args": [
+        [
+          0,
+          1,
+          2,
+          0
+        ]
+      ],
+      "expected": 6
+    }
+  ]
+}

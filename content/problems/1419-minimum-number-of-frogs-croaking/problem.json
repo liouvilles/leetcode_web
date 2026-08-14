@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1419,
+  "slug": "minimum-number-of-frogs-croaking",
+  "title": "数青蛙",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-020",
+  "studyTags": [
+    "字符串",
+    "计数"
+  ],
+  "summary": "若 croakOfFrogs 是若干青蛙并行完整发出 croak 的字符序列，求同时所需最少青蛙数；非法返回负一。",
+  "insight": "每个字符必须从 c→r→o→a→k 推进一个正在发声的阶段；c 增加活跃青蛙，k 结束一只，过程中取活跃峰值。",
+  "pitfalls": [
+    "字符阶段数量不能出现负数",
+    "结束后所有阶段必须清空",
+    "新的 c 可复用已经发完 k 的青蛙，因此峰值就是最少数量"
+  ],
+  "solutions": [
+    {
+      "id": "croak-stage-counting",
+      "title": "发声阶段计数",
+      "kind": "最优",
+      "idea": "按五个阶段验证序列并维护并发量。",
+      "steps": [
+        "stage[5] 表示最近处于各字符阶段的数量，active=0",
+        "遇 c：stage[0]++、active++；其他字符必须从前一阶段移出再进入当前阶段",
+        "遇 k 后 active--，更新最大并发；结束要求前四阶段均为零"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/croak-stage-counting/Solution.java",
+        "kotlin": "solutions/croak-stage-counting/Solution.kt",
+        "cpp": "solutions/croak-stage-counting/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1314,
+  "slug": "matrix-block-sum",
+  "title": "矩阵区域和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "数组",
+    "矩阵",
+    "二维前缀和"
+  ],
+  "summary": "对矩阵每格返回以它为中心、行列距离不超过 k 且落在边界内的矩形区域元素和。",
+  "insight": "构造二维前缀和后，每格区域裁剪到合法上下左右边界，用四项公式常数时间求和。",
+  "pitfalls": [
+    "区域边界包含端点",
+    "靠边格的范围需要裁剪",
+    "结果矩阵与输入同形"
+  ],
+  "solutions": [
+    {
+      "id": "clipped-rectangle-prefix-sum",
+      "title": "裁剪矩形二维前缀和",
+      "kind": "最优",
+      "idea": "预处理后常数时间求每个中心的区域和。",
+      "steps": [
+        "构造 prefix[rows+1][cols+1]",
+        "每格计算 top=max(0,r-k)、bottom=min(rows-1,r+k)、left、right",
+        "answer[r][c]=prefix[bottom+1][right+1]-prefix[top][right+1]-prefix[bottom+1][left]+prefix[top][left]，返回"
+      ],
+      "complexity": {
+        "time": "O(rows·cols)",
+        "space": "O(rows·cols)"
+      },
+      "files": {
+        "java": "solutions/clipped-rectangle-prefix-sum/Solution.java",
+        "kotlin": "solutions/clipped-rectangle-prefix-sum/Solution.kt",
+        "cpp": "solutions/clipped-rectangle-prefix-sum/solution.cpp"
+      }
+    }
+  ]
+}

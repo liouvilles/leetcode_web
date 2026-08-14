@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findReplaceString",
+  "parameterTypes": [
+    "string",
+    "intArray",
+    "stringArray",
+    "stringArray"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "两个替换都匹配",
+      "args": [
+        "abcd",
+        [
+          0,
+          2
+        ],
+        [
+          "a",
+          "cd"
+        ],
+        [
+          "eee",
+          "ffff"
+        ]
+      ],
+      "expected": "eeebffff"
+    },
+    {
+      "name": "第二个替换不匹配",
+      "args": [
+        "abcd",
+        [
+          0,
+          2
+        ],
+        [
+          "ab",
+          "ec"
+        ],
+        [
+          "eee",
+          "ffff"
+        ]
+      ],
+      "expected": "eeecd"
+    },
+    {
+      "name": "替换字符串变短",
+      "args": [
+        "abc",
+        [
+          1
+        ],
+        [
+          "b"
+        ],
+        [
+          "x"
+        ]
+      ],
+      "expected": "axc"
+    }
+  ]
+}

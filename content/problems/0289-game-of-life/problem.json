@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 289,
+  "slug": "game-of-life",
+  "title": "生命游戏",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-005",
+  "studyTags": [
+    "矩阵",
+    "原地编码",
+    "模拟"
+  ],
+  "summary": "根据每个细胞周围八个邻居的存活数，同时更新生命游戏棋盘到下一状态。",
+  "insight": "用整数低位保存旧状态、第二位保存新状态；统计时只读低位，最后统一右移完成同步更新。",
+  "pitfalls": [
+    "所有细胞必须基于同一旧状态更新",
+    "边界外邻居忽略",
+    "原地修改不能另建同规模棋盘"
+  ],
+  "solutions": [
+    {
+      "id": "two-bit-state",
+      "title": "双比特原地编码",
+      "kind": "最优",
+      "idea": "第一遍计算并写入新状态位，第二遍丢弃旧状态位。",
+      "steps": [
+        "遍历八邻域并以 value&1 统计旧存活",
+        "满足存活规则时 board[row][col]|=2",
+        "全部完成后每格右移一位"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/two-bit-state/Solution.java",
+        "kotlin": "solutions/two-bit-state/Solution.kt",
+        "cpp": "solutions/two-bit-state/solution.cpp"
+      }
+    }
+  ]
+}

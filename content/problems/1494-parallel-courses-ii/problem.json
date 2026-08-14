@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1494,
+  "slug": "parallel-courses-ii",
+  "title": "并行课程 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-021",
+  "studyTags": [
+    "动态规划",
+    "位运算",
+    "图论",
+    "状态压缩"
+  ],
+  "summary": "有 n 门课和先修关系，每学期最多选 k 门所有先修已完成的课，求完成全部课程的最少学期数。",
+  "insight": "用 mask 表示已完成课程。计算当前所有可选课程 available；若不超过 k 门全选，否则枚举 available 中大小为 k 的子集作为本学期课程。",
+  "pitfalls": [
+    "关系课程编号从一开始",
+    "只有先修集合完全包含于 mask 才可选",
+    "可选超过 k 时没必要少于 k 门"
+  ],
+  "solutions": [
+    {
+      "id": "available-subset-mask-dp",
+      "title": "可选课程子集状态压缩",
+      "kind": "最优",
+      "idea": "对已完成集合枚举下一学期最多 k 门的选择。",
+      "steps": [
+        "构造 prerequisite[course] 位掩码，dp[0]=0",
+        "对 mask 计算未完成且 prerequisite 是 mask 子集的 available",
+        "bitCount<=k 时转移全部，否则枚举 available 子掩码且位数为 k，更新 dp[next]"
+      ],
+      "complexity": {
+        "time": "O(3^n)",
+        "space": "O(2^n)"
+      },
+      "files": {
+        "java": "solutions/available-subset-mask-dp/Solution.java",
+        "kotlin": "solutions/available-subset-mask-dp/Solution.kt",
+        "cpp": "solutions/available-subset-mask-dp/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2090,
+  "slug": "k-radius-subarray-averages",
+  "title": "半径为 K 的子数组平均值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "数组",
+    "滑动窗口"
+  ],
+  "summary": "对每个下标，若能取左右各 k 个元素，则返回长度 2k+1 子数组的向下取整平均值，否则负一。",
+  "insight": "固定窗口长度，用 long 维护滑动和。窗口首次达到长度时把平均值写到中心下标，并在向右滑动前移除最左元素。",
+  "pitfalls": [
+    "平均值使用整数除法",
+    "无完整窗口的位置为负一",
+    "窗口和可能超过 int"
+  ],
+  "solutions": [
+    {
+      "id": "fixed-window-long-sum",
+      "title": "固定窗口长整型和",
+      "kind": "最优",
+      "idea": "滑动长度 2k+1 的窗口并写入其中心。",
+      "steps": [
+        "answer 填 -1，window=2k+1；window>n 直接返回",
+        "求前 window 项 long sum",
+        "center 从 k 到 n-k-1：写 sum/window；若还有下个窗口则加右新项减左旧项"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1) 除输出"
+      },
+      "files": {
+        "java": "solutions/fixed-window-long-sum/Solution.java",
+        "kotlin": "solutions/fixed-window-long-sum/Solution.kt",
+        "cpp": "solutions/fixed-window-long-sum/solution.cpp"
+      }
+    }
+  ]
+}

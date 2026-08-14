@@ -1,0 +1,1 @@
+class Solution { public: bool canVisitAllRooms(vector<vector<int>>& rooms){vector<bool> seen(rooms.size());stack<int> pending;seen[0]=true;pending.push(0);int visited=0;while(!pending.empty()){int room=pending.top();pending.pop();++visited;for(int key:rooms[room])if(!seen[key]){seen[key]=true;pending.push(key);}}return visited==(int)rooms.size();} };

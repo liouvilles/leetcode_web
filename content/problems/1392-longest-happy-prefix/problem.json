@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1392,
+  "slug": "longest-happy-prefix",
+  "title": "最长快乐前缀",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-020",
+  "studyTags": [
+    "字符串",
+    "字符串匹配",
+    "KMP"
+  ],
+  "summary": "返回字符串中既是非空前缀又是后缀的最长字符串，但不能等于整个字符串。",
+  "insight": "KMP 前缀函数 pi[i] 就是 s[0..i] 的最长真前后缀长度；答案长度为 pi[n-1]。",
+  "pitfalls": [
+    "前缀和后缀可重叠",
+    "不能选择整个字符串",
+    "不存在时返回空串"
+  ],
+  "solutions": [
+    {
+      "id": "kmp-prefix-function",
+      "title": "KMP 前缀函数",
+      "kind": "最优",
+      "idea": "计算完整字符串最后位置的最长边界长度。",
+      "steps": [
+        "pi[0]=0",
+        "对 i 从一开始，失配时沿 pi 回退，匹配时长度加一",
+        "返回 s.substring(0,pi[n-1])"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/kmp-prefix-function/Solution.java",
+        "kotlin": "solutions/kmp-prefix-function/Solution.kt",
+        "cpp": "solutions/kmp-prefix-function/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2111,
+  "slug": "minimum-operations-to-make-the-array-k-increasing",
+  "title": "使数组 K 递增的最少操作次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-031",
+  "studyTags": [
+    "数组",
+    "二分查找",
+    "最长递增子序列"
+  ],
+  "summary": "每次可改动一个元素，求让所有相距 k 的相邻位置满足前者不大于后者所需的最少改动。",
+  "insight": "按下标模 k 拆成互不影响的序列。每条序列保留最长非递减子序列，其余位置全部修改；非递减子序列用 upper_bound 维护结尾。",
+  "pitfalls": [
+    "要求非递减而非严格递增",
+    "每个模 k 分组独立",
+    "二分位置是第一个大于当前值"
+  ],
+  "solutions": [
+    {
+      "id": "grouped-longest-nondecreasing-subsequence",
+      "title": "分组最长非递减子序列",
+      "kind": "最优",
+      "idea": "每组长度减去其最长非递减子序列长度即最少修改数。",
+      "steps": [
+        "按 start=0..k-1 遍历链 start,start+k,...",
+        "维护 tails；对 value 查找第一个 > value 的位置并替换或追加",
+        "累加 groupLength-tailsLength"
+      ],
+      "complexity": {
+        "time": "O(n log(n/k))",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/grouped-longest-nondecreasing-subsequence/Solution.java",
+        "kotlin": "solutions/grouped-longest-nondecreasing-subsequence/Solution.kt",
+        "cpp": "solutions/grouped-longest-nondecreasing-subsequence/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 516,
+  "slug": "longest-palindromic-subsequence",
+  "title": "最长回文子序列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-007",
+  "studyTags": [
+    "动态规划",
+    "字符串",
+    "区间"
+  ],
+  "summary": "返回字符串中最长回文子序列的长度，子序列不要求连续。",
+  "insight": "区间两端字符相等时可同时加入最优子序列，否则舍弃左端或右端取较大值；一维数组可滚动压缩。",
+  "pitfalls": [
+    "子序列不要求连续",
+    "更新 dp[j] 前需保存旧 dp[j] 作为下一格对角值",
+    "i 从右向左遍历"
+  ],
+  "solutions": [
+    {
+      "id": "one-dimensional-interval-dp",
+      "title": "一维区间动态规划",
+      "kind": "最优",
+      "idea": "dp[j] 在处理 i 时表示区间 s[i..j] 的最长回文子序列。",
+      "steps": [
+        "i 从 n-1 降到零且 dp[i]=1",
+        "prev 保存旧 dp[j-1] 对角状态",
+        "若字符相等 dp[j]=prev+2，否则 dp[j]=max(dp[j],dp[j-1])"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/one-dimensional-interval-dp/Solution.java",
+        "kotlin": "solutions/one-dimensional-interval-dp/Solution.kt",
+        "cpp": "solutions/one-dimensional-interval-dp/solution.cpp"
+      }
+    }
+  ]
+}

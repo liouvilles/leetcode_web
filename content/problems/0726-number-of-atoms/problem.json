@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 726,
+  "slug": "number-of-atoms",
+  "title": "原子的数量",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-009",
+  "studyTags": [
+    "哈希表",
+    "字符串",
+    "栈",
+    "解析"
+  ],
+  "summary": "解析化学式，统计每种原子数量，并按原子名称字典序输出；数量为一时省略数字。",
+  "insight": "用栈保存每层括号内的原子计数；遇右括号时弹出当前层并乘随后倍率，再合并到上一层。",
+  "pitfalls": [
+    "原子名以大写字母开头并可跟小写字母",
+    "原子或右括号后的数字可能是多位数，缺省为一",
+    "输出按原子名字典序而非出现顺序"
+  ],
+  "solutions": [
+    {
+      "id": "stack-of-count-maps",
+      "title": "计数映射栈解析括号",
+      "kind": "最优",
+      "idea": "逐 token 解析并在括号闭合时进行倍率合并。",
+      "steps": [
+        "栈压入根层空映射",
+        "遇 ( 压新映射；遇 ) 弹层、解析倍率并合并到新栈顶",
+        "遇大写字母解析完整原子名与随后数量，累加到栈顶；最终排序根映射并格式化"
+      ],
+      "complexity": {
+        "time": "O(n log a)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/stack-of-count-maps/Solution.java",
+        "kotlin": "solutions/stack-of-count-maps/Solution.kt",
+        "cpp": "solutions/stack-of-count-maps/solution.cpp"
+      }
+    }
+  ]
+}

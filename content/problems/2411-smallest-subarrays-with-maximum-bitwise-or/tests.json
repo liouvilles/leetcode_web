@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "smallestSubarrays",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "经典数组最短长度序列",
+      "args": [
+        [
+          1,
+          0,
+          2,
+          1,
+          3
+        ]
+      ],
+      "expected": [
+        3,
+        3,
+        2,
+        2,
+        1
+      ]
+    },
+    {
+      "name": "一二需要覆盖到末尾",
+      "args": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": [
+        2,
+        1
+      ]
+    },
+    {
+      "name": "全零每个起点长度一",
+      "args": [
+        [
+          0,
+          0
+        ]
+      ],
+      "expected": [
+        1,
+        1
+      ]
+    }
+  ]
+}

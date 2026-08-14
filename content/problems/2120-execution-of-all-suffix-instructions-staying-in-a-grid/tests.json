@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "executeInstructions",
+  "parameterTypes": [
+    "int",
+    "intArray",
+    "string"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "三阶网格经典后缀结果",
+      "args": [
+        3,
+        [
+          0,
+          1
+        ],
+        "RRDDLU"
+      ],
+      "expected": [
+        1,
+        5,
+        4,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "二阶网格多个后缀立即越界",
+      "args": [
+        2,
+        [
+          1,
+          1
+        ],
+        "LURD"
+      ],
+      "expected": [
+        4,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "单格网格无法移动",
+      "args": [
+        1,
+        [
+          0,
+          0
+        ],
+        "D"
+      ],
+      "expected": [
+        0
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { fun maximumProduct(nums:IntArray,kValue:Int):Int{val heap=java.util.PriorityQueue<Long>();for(value in nums)heap.add(value.toLong());var k=kValue;while(k-->0)heap.add(heap.remove()+1);var answer=1L;while(heap.isNotEmpty())answer=answer*(heap.remove()%1_000_000_007)%1_000_000_007;return answer.toInt()} }

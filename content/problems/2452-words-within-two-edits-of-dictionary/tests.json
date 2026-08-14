@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "twoEditWords",
+  "parameterTypes": [
+    "stringArray",
+    "stringArray"
+  ],
+  "returnType": "stringList",
+  "cases": [
+    {
+      "name": "三个查询均在两次编辑内",
+      "args": [
+        [
+          "word",
+          "note",
+          "ants",
+          "wood"
+        ],
+        [
+          "wood",
+          "joke",
+          "moat"
+        ]
+      ],
+      "expected": [
+        "word",
+        "note",
+        "wood"
+      ]
+    },
+    {
+      "name": "两个查询均符合",
+      "args": [
+        [
+          "yes"
+        ],
+        [
+          "not"
+        ]
+      ],
+      "expected": []
+    },
+    {
+      "name": "完全相同查询直接保留",
+      "args": [
+        [
+          "abc"
+        ],
+        [
+          "abc"
+        ]
+      ],
+      "expected": [
+        "abc"
+      ]
+    }
+  ]
+}

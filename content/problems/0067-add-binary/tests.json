@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "addBinary",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "产生最高位进位",
+      "args": [
+        "11",
+        "1"
+      ],
+      "expected": "100"
+    },
+    {
+      "name": "不同长度相加",
+      "args": [
+        "1010",
+        "1011"
+      ],
+      "expected": "10101"
+    },
+    {
+      "name": "两个零",
+      "args": [
+        "0",
+        "0"
+      ],
+      "expected": "0"
+    }
+  ]
+}

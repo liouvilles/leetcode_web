@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 48,
+  "slug": "rotate-image",
+  "title": "旋转图像",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-002",
+  "studyTags": [
+    "矩阵原地变换",
+    "转置",
+    "行反转"
+  ],
+  "summary": "把 n×n 矩阵原地顺时针旋转九十度，不能另外创建同规模矩阵。",
+  "insight": "顺时针旋转等价于先沿主对角线转置，再把每一行左右反转。",
+  "pitfalls": [
+    "矩阵必须原地修改",
+    "转置时只交换对角线一侧",
+    "行反转只遍历到中点"
+  ],
+  "solutions": [
+    {
+      "id": "transpose-reverse",
+      "title": "转置后反转行",
+      "kind": "最优",
+      "idea": "用两次简单的对称操作完成坐标映射。",
+      "steps": [
+        "交换 matrix[row][column] 与 matrix[column][row]",
+        "遍历每一行",
+        "对每行执行左右双指针反转"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/transpose-reverse/Solution.java",
+        "kotlin": "solutions/transpose-reverse/Solution.kt",
+        "cpp": "solutions/transpose-reverse/solution.cpp"
+      }
+    }
+  ]
+}

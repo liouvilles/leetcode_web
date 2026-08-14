@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1106,
+  "slug": "parsing-a-boolean-expression",
+  "title": "解析布尔表达式",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-016",
+  "studyTags": [
+    "字符串",
+    "栈",
+    "递归"
+  ],
+  "summary": "表达式由 t、f、非运算 !、与运算 &、或运算 | 和括号逗号组成，求其布尔值。",
+  "insight": "递归下降在当前位置解析一个完整值；运算符后进入括号，逐个解析逗号分隔的子表达式并按运算符合并，遇右括号返回。",
+  "pitfalls": [
+    "! 恰有一个操作数",
+    "& 和 | 可有多个操作数",
+    "共享索引要跳过逗号和右括号"
+  ],
+  "solutions": [
+    {
+      "id": "recursive-expression-parser",
+      "title": "递归表达式解析器",
+      "kind": "最优",
+      "idea": "按运算符结构消费字符串并计算值。",
+      "steps": [
+        "index=0，parse 遇 t/f 直接消费返回",
+        "否则保存 operator，跳过 operator 与左括号",
+        "! 解析一个值并跳过右括号取反；&/| 初始化 identity，循环解析子式并合并，跳过逗号，遇右括号消费并返回"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/recursive-expression-parser/Solution.java",
+        "kotlin": "solutions/recursive-expression-parser/Solution.kt",
+        "cpp": "solutions/recursive-expression-parser/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "bestHand",
+  "parameterTypes": [
+    "intArray",
+    "charArray"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "五张同花",
+      "args": [
+        [
+          13,
+          2,
+          3,
+          1,
+          9
+        ],
+        [
+          "a",
+          "a",
+          "a",
+          "a",
+          "a"
+        ]
+      ],
+      "expected": "Flush"
+    },
+    {
+      "name": "四张相同点数归为三条",
+      "args": [
+        [
+          4,
+          4,
+          2,
+          4,
+          4
+        ],
+        [
+          "d",
+          "a",
+          "a",
+          "b",
+          "c"
+        ]
+      ],
+      "expected": "Three of a Kind"
+    },
+    {
+      "name": "两个十组成对子",
+      "args": [
+        [
+          10,
+          10,
+          2,
+          12,
+          9
+        ],
+        [
+          "a",
+          "b",
+          "c",
+          "a",
+          "d"
+        ]
+      ],
+      "expected": "Pair"
+    }
+  ]
+}

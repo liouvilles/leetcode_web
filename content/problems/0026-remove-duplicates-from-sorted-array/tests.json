@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "removeDuplicates",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一个重复值",
+      "args": [
+        [
+          1,
+          1,
+          2
+        ]
+      ],
+      "expected": 2,
+      "expectedArgs": [
+        {
+          "index": 0,
+          "type": "intArray",
+          "expected": [
+            1,
+            2,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "name": "多组重复值",
+      "args": [
+        [
+          0,
+          0,
+          1,
+          1,
+          1,
+          2,
+          2,
+          3,
+          3,
+          4
+        ]
+      ],
+      "expected": 5,
+      "expectedArgs": [
+        {
+          "index": 0,
+          "type": "intArray",
+          "expected": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            2,
+            2,
+            3,
+            3,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "name": "空数组",
+      "args": [
+        []
+      ],
+      "expected": 0,
+      "expectedArgs": [
+        {
+          "index": 0,
+          "type": "intArray",
+          "expected": []
+        }
+      ]
+    }
+  ]
+}

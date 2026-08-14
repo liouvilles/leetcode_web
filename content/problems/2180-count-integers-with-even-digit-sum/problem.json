@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2180,
+  "slug": "count-integers-with-even-digit-sum",
+  "title": "统计各位数字之和为偶数的整数个数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-032",
+  "studyTags": [
+    "数学",
+    "模拟"
+  ],
+  "summary": "统计一到 num 中十进制数位和为偶数的正整数数量。",
+  "insight": "约束很小，逐数取模求数位和并检查奇偶即可。",
+  "pitfalls": [
+    "区间从一开始",
+    "判断数位和而非数字本身奇偶",
+    "包含 num"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-digit-sums",
+      "title": "枚举并求数位和",
+      "kind": "最优",
+      "idea": "对每个候选独立拆位。",
+      "steps": [
+        "answer=0",
+        "value 从一到 num，循环取 value%10 累加",
+        "digitSum 为偶数则 answer++"
+      ],
+      "complexity": {
+        "time": "O(num log num)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/enumerate-digit-sums/Solution.java",
+        "kotlin": "solutions/enumerate-digit-sums/Solution.kt",
+        "cpp": "solutions/enumerate-digit-sums/solution.cpp"
+      }
+    }
+  ]
+}

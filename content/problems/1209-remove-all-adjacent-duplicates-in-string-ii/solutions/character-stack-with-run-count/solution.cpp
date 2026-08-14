@@ -1,0 +1,1 @@
+class Solution { public: string removeDuplicates(string s,int k){vector<pair<char,int>> stack;for(char ch:s){int count=!stack.empty()&&stack.back().first==ch?stack.back().second+1:1;stack.push_back({ch,count});if(count==k)for(int i=0;i<k;++i)stack.pop_back();}string answer;for(auto [ch,count]:stack)answer+=ch;return answer;} };

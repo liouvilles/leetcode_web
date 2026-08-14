@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 744,
+  "slug": "find-smallest-letter-greater-than-target",
+  "title": "寻找比目标字母大的最小字母",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-010",
+  "studyTags": [
+    "数组",
+    "二分查找",
+    "环形查找"
+  ],
+  "summary": "有序字符数组中找严格大于 target 的最小字符；不存在时返回数组首字符。",
+  "insight": "二分寻找第一个大于 target 的位置，若落在数组末尾之后则利用模运算环回首位。",
+  "pitfalls": [
+    "比较条件是严格大于",
+    "字符数组包含至少两个不同字符",
+    "target 可能小于首字符或不小于末字符"
+  ],
+  "solutions": [
+    {
+      "id": "upper-bound-binary-search",
+      "title": "字符上界二分",
+      "kind": "最优",
+      "idea": "定位第一个严格大于目标的字符并处理环回。",
+      "steps": [
+        "left=0、right=length",
+        "middle 字符<=target 时 left=middle+1，否则 right=middle",
+        "返回 letters[left%length]"
+      ],
+      "complexity": {
+        "time": "O(log n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/upper-bound-binary-search/Solution.java",
+        "kotlin": "solutions/upper-bound-binary-search/Solution.kt",
+        "cpp": "solutions/upper-bound-binary-search/solution.cpp"
+      }
+    }
+  ]
+}

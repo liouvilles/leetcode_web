@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isMonotonic",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "单调递增含相等",
+      "args": [
+        [
+          1,
+          2,
+          2,
+          3
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "单调递减",
+      "args": [
+        [
+          6,
+          5,
+          4,
+          4
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "先降后升",
+      "args": [
+        [
+          1,
+          3,
+          2
+        ]
+      ],
+      "expected": false
+    }
+  ]
+}

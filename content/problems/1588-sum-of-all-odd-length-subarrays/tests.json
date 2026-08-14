@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sumOddLengthSubarrays",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "五元素奇长子数组和五十八",
+      "args": [
+        [
+          1,
+          4,
+          2,
+          5,
+          3
+        ]
+      ],
+      "expected": 58
+    },
+    {
+      "name": "两个元素只有单项子数组",
+      "args": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "十至十二总和六十六",
+      "args": [
+        [
+          10,
+          11,
+          12
+        ]
+      ],
+      "expected": 66
+    }
+  ]
+}

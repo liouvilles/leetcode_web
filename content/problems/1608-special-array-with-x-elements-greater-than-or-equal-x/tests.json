@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "specialArray",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两个元素都至少为二",
+      "args": [
+        [
+          3,
+          5
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "零与零没有特征值",
+      "args": [
+        [
+          0,
+          0
+        ]
+      ],
+      "expected": -1
+    },
+    {
+      "name": "三个元素至少为三",
+      "args": [
+        [
+          0,
+          4,
+          3,
+          0,
+          4
+        ]
+      ],
+      "expected": 3
+    }
+  ]
+}

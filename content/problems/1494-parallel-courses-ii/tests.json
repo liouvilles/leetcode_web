@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minNumberOfSemesters",
+  "parameterTypes": [
+    "int",
+    "intMatrix",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四课依赖需三学期",
+      "args": [
+        4,
+        [
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            1,
+            4
+          ]
+        ],
+        2
+      ],
+      "expected": 3
+    },
+    {
+      "name": "汇聚依赖链需四学期",
+      "args": [
+        5,
+        [
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            1,
+            5
+          ]
+        ],
+        2
+      ],
+      "expected": 4
+    },
+    {
+      "name": "无依赖四课两学期",
+      "args": [
+        4,
+        [],
+        2
+      ],
+      "expected": 2
+    }
+  ]
+}

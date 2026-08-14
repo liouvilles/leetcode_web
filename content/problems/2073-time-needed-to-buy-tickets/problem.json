@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2073,
+  "slug": "time-needed-to-buy-tickets",
+  "title": "买票需要的时间",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "队列",
+    "数组",
+    "模拟"
+  ],
+  "summary": "队列中每秒队首买一张票，未买够则回队尾；求下标 k 的人买完票所需秒数。",
+  "insight": "在 k 完成前，下标不大于 k 的人最多各买 tickets[k] 张，k 之后的人最多各买 tickets[k]-1 张；累加每人的实际票数与此上限的较小值。",
+  "pitfalls": [
+    "k 自己完整买 tickets[k] 张",
+    "k 后方的人少参与最后一轮",
+    "无需逐秒模拟"
+  ],
+  "solutions": [
+    {
+      "id": "per-person-cycle-contribution",
+      "title": "每人轮次贡献",
+      "kind": "最优",
+      "idea": "按相对 k 的位置计算其在截止时刻前的购票次数。",
+      "steps": [
+        "target=tickets[k]",
+        "遍历 i",
+        "answer+=min(tickets[i],target-(i>k?1:0))，返回"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/per-person-cycle-contribution/Solution.java",
+        "kotlin": "solutions/per-person-cycle-contribution/Solution.kt",
+        "cpp": "solutions/per-person-cycle-contribution/solution.cpp"
+      }
+    }
+  ]
+}

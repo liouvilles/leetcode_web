@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 507,
+  "slug": "perfect-number",
+  "title": "完美数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-007",
+  "studyTags": [
+    "数学",
+    "因数枚举",
+    "平方根"
+  ],
+  "summary": "判断正整数是否等于除自身外所有正因数之和。",
+  "insight": "因数成对出现在 divisor 与 num/divisor，只需枚举到平方根并避免平方根重复加入。",
+  "pitfalls": [
+    "一不是完美数",
+    "不能把 num 自身计入因数和",
+    "完全平方数的平方根只能加一次"
+  ],
+  "solutions": [
+    {
+      "id": "paired-divisors",
+      "title": "成对枚举因数",
+      "kind": "最优",
+      "idea": "从二到平方根收集因数对，并以一作为初始真因数。",
+      "steps": [
+        "num<=1 返回假",
+        "sum=1，枚举 divisor²<=num",
+        "整除时加入 divisor 与对应商（不同才加入），比较 sum==num"
+      ],
+      "complexity": {
+        "time": "O(sqrt n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/paired-divisors/Solution.java",
+        "kotlin": "solutions/paired-divisors/Solution.kt",
+        "cpp": "solutions/paired-divisors/solution.cpp"
+      }
+    }
+  ]
+}

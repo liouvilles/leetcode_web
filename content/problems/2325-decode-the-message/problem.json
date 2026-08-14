@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2325,
+  "slug": "decode-the-message",
+  "title": "解密消息",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "哈希表",
+    "字符串"
+  ],
+  "summary": "密钥中除空格外首次出现的不同字母依次对应普通字母表 a 到 z，据此替换消息中的字母并保留空格。",
+  "insight": "扫描 key 时只为尚未映射的字符分配下一个字母，随后线性转换 message。",
+  "pitfalls": [
+    "重复密钥字符不能推进字母表",
+    "空格保持不变且不参与映射",
+    "密钥保证包含全部字母"
+  ],
+  "solutions": [
+    {
+      "id": "first-occurrence-substitution-table",
+      "title": "首次出现替换表",
+      "kind": "最优",
+      "idea": "构造 26 字母映射后逐字符解码。",
+      "steps": [
+        "mapping[26] 初始化空，next=a",
+        "扫描 key：非空格且未映射时赋 next++",
+        "扫描 message：空格原样，否则替换为 mapping",
+        "返回结果"
+      ],
+      "complexity": {
+        "time": "O(|key|+|message|)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/first-occurrence-substitution-table/Solution.java",
+        "kotlin": "solutions/first-occurrence-substitution-table/Solution.kt",
+        "cpp": "solutions/first-occurrence-substitution-table/solution.cpp"
+      }
+    }
+  ]
+}

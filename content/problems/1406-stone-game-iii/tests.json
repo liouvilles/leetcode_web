@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "stoneGameIII",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "七使后手获胜",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          7
+        ]
+      ],
+      "expected": "Bob"
+    },
+    {
+      "name": "负九使先手获胜",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          -9
+        ]
+      ],
+      "expected": "Alice"
+    },
+    {
+      "name": "双方最终平局",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          6
+        ]
+      ],
+      "expected": "Tie"
+    }
+  ]
+}

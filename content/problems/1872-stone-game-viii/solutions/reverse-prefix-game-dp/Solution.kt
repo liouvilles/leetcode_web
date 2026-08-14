@@ -1,0 +1,1 @@
+class Solution { fun stoneGameVIII(stones:IntArray):Int{val prefix=IntArray(stones.size);prefix[0]=stones[0];for(i in 1 until stones.size)prefix[i]=prefix[i-1]+stones[i];var best=prefix.last();for(i in stones.size-2 downTo 1)best=maxOf(best,prefix[i]-best);return best} }

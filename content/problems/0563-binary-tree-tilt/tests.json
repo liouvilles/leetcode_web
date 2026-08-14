@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findTilt",
+  "parameterTypes": [
+    "treeNode"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三个节点",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "多层树",
+      "args": [
+        [
+          4,
+          2,
+          9,
+          3,
+          5,
+          null,
+          7
+        ]
+      ],
+      "expected": 15
+    },
+    {
+      "name": "左右子树结构不同",
+      "args": [
+        [
+          21,
+          7,
+          14,
+          1,
+          1,
+          2,
+          2,
+          3,
+          3
+        ]
+      ],
+      "expected": 9
+    }
+  ]
+}

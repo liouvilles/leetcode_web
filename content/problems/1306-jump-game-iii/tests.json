@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "canReach",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "从五可达零",
+      "args": [
+        [
+          4,
+          2,
+          3,
+          0,
+          3,
+          1,
+          2
+        ],
+        5
+      ],
+      "expected": true
+    },
+    {
+      "name": "从零也可达零",
+      "args": [
+        [
+          4,
+          2,
+          3,
+          0,
+          3,
+          1,
+          2
+        ],
+        0
+      ],
+      "expected": true
+    },
+    {
+      "name": "循环但不可达零",
+      "args": [
+        [
+          3,
+          0,
+          2,
+          1,
+          2
+        ],
+        2
+      ],
+      "expected": false
+    }
+  ]
+}

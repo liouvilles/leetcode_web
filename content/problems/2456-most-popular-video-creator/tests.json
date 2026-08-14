@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "mostPopularCreator",
+  "parameterTypes": [
+    "stringArray",
+    "stringArray",
+    "intArray"
+  ],
+  "returnType": "stringListMatrix",
+  "cases": [
+    {
+      "name": "alice 总播放量最高且视频 one 最佳",
+      "args": [
+        [
+          "alice",
+          "alice",
+          "bob"
+        ],
+        [
+          "one",
+          "two",
+          "three"
+        ],
+        [
+          10,
+          5,
+          12
+        ]
+      ],
+      "expected": [
+        [
+          "alice",
+          "one"
+        ]
+      ]
+    },
+    {
+      "name": "同创作者同播放量取字典序小编号",
+      "args": [
+        [
+          "x",
+          "x"
+        ],
+        [
+          "b",
+          "a"
+        ],
+        [
+          5,
+          5
+        ]
+      ],
+      "expected": [
+        [
+          "x",
+          "a"
+        ]
+      ]
+    },
+    {
+      "name": "单视频创作者直接返回",
+      "args": [
+        [
+          "solo"
+        ],
+        [
+          "id"
+        ],
+        [
+          1
+        ]
+      ],
+      "expected": [
+        [
+          "solo",
+          "id"
+        ]
+      ]
+    }
+  ]
+}

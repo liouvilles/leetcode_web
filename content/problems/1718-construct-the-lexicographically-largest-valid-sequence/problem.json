@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1718,
+  "slug": "construct-the-lexicographically-largest-valid-sequence",
+  "title": "构建字典序最大的可行序列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-025",
+  "studyTags": [
+    "数组",
+    "回溯"
+  ],
+  "summary": "构造长度 2n-1 的序列：一出现一次，2..n 各出现两次且两个 i 的下标距离为 i，求字典序最大解。",
+  "insight": "从左到右填第一个空位，并按数字 n 到 1 尝试；第一个完整解必是字典序最大。数字大于一时同时检查并占用距离恰为其值的第二位置。",
+  "pitfalls": [
+    "数字一只放一次",
+    "大于一的第二位置必须未越界且为空",
+    "成功找到完整解后立即停止搜索"
+  ],
+  "solutions": [
+    {
+      "id": "descending-backtracking",
+      "title": "降序回溯",
+      "kind": "最优",
+      "idea": "用尝试顺序直接保证首个解的字典序最大。",
+      "steps": [
+        "sequence 全零、used[n+1]",
+        "dfs 找最左空位；若无空位返回 true",
+        "value 从 n 降到一，未用且目标位置合法时放置，递归失败则恢复"
+      ],
+      "complexity": {
+        "time": "O(n!)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/descending-backtracking/Solution.java",
+        "kotlin": "solutions/descending-backtracking/Solution.kt",
+        "cpp": "solutions/descending-backtracking/solution.cpp"
+      }
+    }
+  ]
+}

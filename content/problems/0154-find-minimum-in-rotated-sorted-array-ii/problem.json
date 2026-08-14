@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 154,
+  "slug": "find-minimum-in-rotated-sorted-array-ii",
+  "title": "寻找旋转排序数组中的最小值 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-004",
+  "studyTags": [
+    "二分查找",
+    "旋转数组",
+    "重复元素"
+  ],
+  "summary": "在可能含重复元素的旋转非递减数组中找出最小元素。",
+  "insight": "比较中点与右端点：中点较大时最小值在右侧，较小时中点仍可能是答案；相等时只能安全丢弃一个右端点。",
+  "pitfalls": [
+    "重复值会使复杂度最坏退化为线性",
+    "middle 小于 right 时不能排除 middle",
+    "相等时不能直接跳过半个区间"
+  ],
+  "solutions": [
+    {
+      "id": "right-boundary-binary-search",
+      "title": "与右端点比较的二分",
+      "kind": "最优",
+      "idea": "维持最小值位于闭区间内，并根据 middle 与 right 的关系收缩。",
+      "steps": [
+        "初始化 left=0,right=n-1",
+        "middle>rightValue 时 left=middle+1",
+        "middle<rightValue 时 right=middle，否则 right--"
+      ],
+      "complexity": {
+        "time": "O(n) worst, O(log n) average",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/right-boundary-binary-search/Solution.java",
+        "kotlin": "solutions/right-boundary-binary-search/Solution.kt",
+        "cpp": "solutions/right-boundary-binary-search/solution.cpp"
+      }
+    }
+  ]
+}

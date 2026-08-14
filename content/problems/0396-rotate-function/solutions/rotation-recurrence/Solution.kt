@@ -1,0 +1,1 @@
+class Solution { fun maxRotateFunction(nums:IntArray):Int{var sum=0L;var current=0L;for(i in nums.indices){sum+=nums[i];current+=i.toLong()*nums[i]};var best=current;for(k in 1 until nums.size){current+=sum-nums.size.toLong()*nums[nums.size-k];best=maxOf(best,current)};return best.toInt()} }

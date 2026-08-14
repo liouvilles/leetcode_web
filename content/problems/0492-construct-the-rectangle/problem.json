@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 492,
+  "slug": "construct-the-rectangle",
+  "title": "构造矩形",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-007",
+  "studyTags": [
+    "数学",
+    "因数",
+    "平方根"
+  ],
+  "summary": "给定面积，返回整数长宽，使长不小于宽、乘积等于面积且长宽差最小。",
+  "insight": "最接近的因数对一定在平方根附近，从平方根向下寻找第一个能整除面积的宽即可。",
+  "pitfalls": [
+    "返回顺序为长度在前宽度在后",
+    "质数面积得到 area×1",
+    "只需向下检查到一"
+  ],
+  "solutions": [
+    {
+      "id": "sqrt-factor-search",
+      "title": "从平方根向下找因数",
+      "kind": "最优",
+      "idea": "第一个整除面积的宽对应差值最小的因数对。",
+      "steps": [
+        "width=floor(sqrt(area))",
+        "while area%width!=0 时 width--",
+        "length=area/width 并返回 [length,width]"
+      ],
+      "complexity": {
+        "time": "O(sqrt area)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/sqrt-factor-search/Solution.java",
+        "kotlin": "solutions/sqrt-factor-search/Solution.kt",
+        "cpp": "solutions/sqrt-factor-search/solution.cpp"
+      }
+    }
+  ]
+}

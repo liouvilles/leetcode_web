@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "arrayPairSum",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "基础配对",
+      "args": [
+        [
+          1,
+          4,
+          3,
+          2
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "包含重复值",
+      "args": [
+        [
+          6,
+          2,
+          6,
+          5,
+          1,
+          2
+        ]
+      ],
+      "expected": 9
+    },
+    {
+      "name": "包含负数",
+      "args": [
+        [
+          -1,
+          -2,
+          3,
+          4
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

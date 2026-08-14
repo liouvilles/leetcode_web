@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "strWithout3a3b",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "一个 a 两个 b",
+      "args": [
+        1,
+        2
+      ],
+      "expected": "bba"
+    },
+    {
+      "name": "四个 a 一个 b",
+      "args": [
+        4,
+        1
+      ],
+      "expected": "aabaa"
+    },
+    {
+      "name": "数量相同交替",
+      "args": [
+        2,
+        2
+      ],
+      "expected": "baba"
+    }
+  ]
+}

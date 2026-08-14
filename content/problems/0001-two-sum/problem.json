@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "id": 1,
+  "slug": "two-sum",
+  "title": "两数之和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "legacy-001",
+  "studyTags": [
+    "查找互补值",
+    "空间换时间",
+    "入门必做"
+  ],
+  "summary": "在整数数组中找到两个不同位置，使它们的元素之和等于目标值，并返回这两个位置。",
+  "insight": "枚举当前数字时，真正需要查找的不是另一个数字本身，而是 target - nums[i]。",
+  "pitfalls": [
+    "不能重复使用同一位置",
+    "先查询再写入哈希表可自然规避重复使用",
+    "排序法必须保留原下标"
+  ],
+  "solutions": [
+    {
+      "id": "brute-force",
+      "title": "双重枚举",
+      "kind": "基础",
+      "idea": "枚举所有下标对，直接检查它们的和。这是最容易验证的基线解法。",
+      "steps": [
+        "固定第一个下标 i",
+        "从 i + 1 开始枚举 j",
+        "命中目标和后立即返回"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/brute-force/Solution.java",
+        "kotlin": "solutions/brute-force/Solution.kt",
+        "cpp": "solutions/brute-force/solution.cpp"
+      }
+    },
+    {
+      "id": "one-pass-hash",
+      "title": "一次遍历哈希表",
+      "kind": "最优",
+      "idea": "哈希表记录已经见过的数字及其下标；处理当前元素时只需寻找互补值。",
+      "steps": [
+        "计算 complement = target - nums[i]",
+        "在表中查询 complement",
+        "未命中则记录 nums[i] 与 i"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/one-pass-hash/Solution.java",
+        "kotlin": "solutions/one-pass-hash/Solution.kt",
+        "cpp": "solutions/one-pass-hash/solution.cpp"
+      }
+    },
+    {
+      "id": "sort-two-pointers",
+      "title": "排序 + 双指针",
+      "kind": "进阶",
+      "idea": "把值与原下标绑定后排序，再根据当前和的大小移动左右指针。",
+      "steps": [
+        "建立 (值, 原下标) 数组并排序",
+        "左右端点求和",
+        "和偏小移动左端，偏大移动右端"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/sort-two-pointers/Solution.java",
+        "kotlin": "solutions/sort-two-pointers/Solution.kt",
+        "cpp": "solutions/sort-two-pointers/solution.cpp"
+      }
+    }
+  ]
+}

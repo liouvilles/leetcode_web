@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 600,
+  "slug": "non-negative-integers-without-consecutive-ones",
+  "title": "不含连续 1 的非负整数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-008",
+  "studyTags": [
+    "动态规划",
+    "数位 DP",
+    "位运算"
+  ],
+  "summary": "给定非负整数 n，统计区间 [0,n] 中二进制表示不含连续两个 1 的整数数量。",
+  "insight": "长度为 k 的合法二进制后缀数量满足斐波那契递推；从高位扫描 n，遇到 1 时累计把该位改成 0 的所有合法数。",
+  "pitfalls": [
+    "需要把零计入答案",
+    "连续遇到两个 1 时后续无需再扫描",
+    "最终 n 本身合法时要额外加一"
+  ],
+  "solutions": [
+    {
+      "id": "fibonacci-bit-dp",
+      "title": "斐波那契位计数",
+      "kind": "最优",
+      "idea": "预计算合法后缀数量并沿 n 的二进制前缀累加。",
+      "steps": [
+        "fib[0]=1、fib[1]=2 并递推",
+        "从高位到低位，遇 1 加 fib[bit]",
+        "若前一位也是 1 则立即返回，否则扫描结束返回 answer+1"
+      ],
+      "complexity": {
+        "time": "O(log n)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/fibonacci-bit-dp/Solution.java",
+        "kotlin": "solutions/fibonacci-bit-dp/Solution.kt",
+        "cpp": "solutions/fibonacci-bit-dp/solution.cpp"
+      }
+    }
+  ]
+}

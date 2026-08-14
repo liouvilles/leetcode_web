@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2401,
+  "slug": "longest-nice-subarray",
+  "title": "最长优雅子数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-035",
+  "studyTags": [
+    "数组",
+    "位运算",
+    "滑动窗口"
+  ],
+  "summary": "求最长连续子数组，使其中任意两个不同元素按位与均为零。",
+  "insight": "窗口中各元素的一位互不重叠时，其按位或 mask 可代表所有已占用位。加入 value 冲突就从左移除元素（用异或清位），直到不冲突。",
+  "pitfalls": [
+    "要求连续子数组",
+    "合法窗口内异或可安全移除元素位",
+    "零与任何元素都不冲突"
+  ],
+  "solutions": [
+    {
+      "id": "disjoint-bit-sliding-window",
+      "title": "互斥位滑动窗口",
+      "kind": "最优",
+      "idea": "维护窗口所有已占用二进制位。",
+      "steps": [
+        "mask=0、left=0",
+        "对 right：while (mask&nums[right])!=0，mask^=nums[left++]",
+        "mask|=nums[right]",
+        "更新 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/disjoint-bit-sliding-window/Solution.java",
+        "kotlin": "solutions/disjoint-bit-sliding-window/Solution.kt",
+        "cpp": "solutions/disjoint-bit-sliding-window/solution.cpp"
+      }
+    }
+  ]
+}

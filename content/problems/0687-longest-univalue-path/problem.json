@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 687,
+  "slug": "longest-univalue-path",
+  "title": "最长同值路径",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-009",
+  "studyTags": [
+    "二叉树",
+    "深度优先搜索",
+    "树形 DP"
+  ],
+  "summary": "求二叉树中节点值相同的最长路径长度，以边数计，路径可经过或不经过根节点。",
+  "insight": "后序 DFS 返回从节点向下的最长同值单链；左右孩子若与节点同值可各延长一边，两链之和更新全局答案。",
+  "pitfalls": [
+    "答案按边数而不是节点数",
+    "左右链只有对应孩子同值时才能延长",
+    "返回父节点时只能选左右一条链"
+  ],
+  "solutions": [
+    {
+      "id": "postorder-equal-arms",
+      "title": "后序同值双臂合并",
+      "kind": "最优",
+      "idea": "每个节点计算可向父节点贡献的最长同值臂。",
+      "steps": [
+        "空节点返回零",
+        "递归得到左右向下链",
+        "若孩子值等于当前值则 arm=childChain+1，否则零；用 leftArm+rightArm 更新答案，返回较大 arm"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(h)"
+      },
+      "files": {
+        "java": "solutions/postorder-equal-arms/Solution.java",
+        "kotlin": "solutions/postorder-equal-arms/Solution.kt",
+        "cpp": "solutions/postorder-equal-arms/solution.cpp"
+      }
+    }
+  ]
+}

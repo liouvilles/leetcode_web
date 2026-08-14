@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 500,
+  "slug": "keyboard-row",
+  "title": "键盘行",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-007",
+  "studyTags": [
+    "字符串",
+    "集合",
+    "字符映射"
+  ],
+  "summary": "返回可以只用美式键盘同一行字母输入的所有单词，保持原输入顺序。",
+  "insight": "为每个字母预先映射键盘行编号，一个单词所有字符映射相同才满足。",
+  "pitfalls": [
+    "比较时忽略大小写",
+    "保持单词原始大小写与顺序",
+    "单字符单词总满足"
+  ],
+  "solutions": [
+    {
+      "id": "row-mapping",
+      "title": "字母到键盘行映射",
+      "kind": "最优",
+      "idea": "用字符串查找或数组映射验证每个单词字符所属行。",
+      "steps": [
+        "建立 26 字母行号",
+        "对单词首字符确定目标行",
+        "其余字符若行号不同则拒绝，否则加入答案"
+      ],
+      "complexity": {
+        "time": "O(total characters)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/row-mapping/Solution.java",
+        "kotlin": "solutions/row-mapping/Solution.kt",
+        "cpp": "solutions/row-mapping/solution.cpp"
+      }
+    }
+  ]
+}

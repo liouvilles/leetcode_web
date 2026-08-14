@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1591,
+  "slug": "strange-printer-ii",
+  "title": "奇怪的打印机 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-023",
+  "studyTags": [
+    "数组",
+    "图论",
+    "拓扑排序",
+    "矩阵"
+  ],
+  "summary": "打印机每次用一种颜色填充任意矩形且每种颜色最多使用一次，判断能否得到 targetGrid。",
+  "insight": "每种颜色必须打印覆盖其所有最终格子的最小包围矩形。若矩形内出现另一颜色，前者必须先于后者打印，形成有向依赖；可打印当且仅当依赖图无环。",
+  "pitfalls": [
+    "颜色包围矩形可能覆盖最终其他颜色",
+    "依赖边方向是当前矩形颜色指向覆盖它的最终颜色",
+    "重复依赖边只计一次入度"
+  ],
+  "solutions": [
+    {
+      "id": "color-rectangle-topological-sort",
+      "title": "颜色矩形依赖拓扑排序",
+      "kind": "最优",
+      "idea": "从最终网格推导颜色打印先后关系并检测环。",
+      "steps": [
+        "统计每色 minRow,maxRow,minCol,maxCol",
+        "遍历颜色矩形，遇 other!=color 建 edge color->other",
+        "Kahn 拓扑处理出现的颜色，处理数等于颜色数则 true"
+      ],
+      "complexity": {
+        "time": "O(Cmn)",
+        "space": "O(C²)"
+      },
+      "files": {
+        "java": "solutions/color-rectangle-topological-sort/Solution.java",
+        "kotlin": "solutions/color-rectangle-topological-sort/Solution.kt",
+        "cpp": "solutions/color-rectangle-topological-sort/solution.cpp"
+      }
+    }
+  ]
+}

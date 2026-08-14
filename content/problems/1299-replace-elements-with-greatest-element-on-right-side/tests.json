@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "replaceElements",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "经典后缀最大值",
+      "args": [
+        [
+          17,
+          18,
+          5,
+          4,
+          6,
+          1
+        ]
+      ],
+      "expected": [
+        18,
+        6,
+        6,
+        6,
+        1,
+        -1
+      ]
+    },
+    {
+      "name": "单元素变负一",
+      "args": [
+        [
+          400
+        ]
+      ],
+      "expected": [
+        -1
+      ]
+    },
+    {
+      "name": "严格递减数组",
+      "args": [
+        [
+          5,
+          4,
+          3
+        ]
+      ],
+      "expected": [
+        4,
+        3,
+        -1
+      ]
+    }
+  ]
+}

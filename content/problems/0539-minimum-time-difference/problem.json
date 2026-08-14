@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 539,
+  "slug": "minimum-time-difference",
+  "title": "最小时间差",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-007",
+  "studyTags": [
+    "排序",
+    "分钟转换",
+    "环形时间"
+  ],
+  "summary": "给定若干二十四小时制时间，返回任意两时间之间的最小分钟差。",
+  "insight": "转成零到 1439 的分钟数并排序，最小差只可能出现在相邻时间或首尾跨午夜的一对。",
+  "pitfalls": [
+    "必须检查跨午夜差值",
+    "重复时间答案为零",
+    "输入至少有两个时间点"
+  ],
+  "solutions": [
+    {
+      "id": "sort-minutes",
+      "title": "转换分钟后排序",
+      "kind": "最优",
+      "idea": "线性比较有序相邻差并补上环形首尾差。",
+      "steps": [
+        "解析 HH:MM 为 minutes",
+        "分钟数组排序",
+        "比较相邻差及 first+1440-last，取最小"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/sort-minutes/Solution.java",
+        "kotlin": "solutions/sort-minutes/Solution.kt",
+        "cpp": "solutions/sort-minutes/solution.cpp"
+      }
+    }
+  ]
+}

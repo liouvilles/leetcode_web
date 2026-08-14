@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "arrayRankTransform",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "四个不同值转换",
+      "args": [
+        [
+          40,
+          10,
+          20,
+          30
+        ]
+      ],
+      "expected": [
+        4,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "name": "全部相同均为一",
+      "args": [
+        [
+          100,
+          100,
+          100
+        ]
+      ],
+      "expected": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "含重复与负数",
+      "args": [
+        [
+          -5,
+          0,
+          -5,
+          10
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        1,
+        3
+      ]
+    }
+  ]
+}

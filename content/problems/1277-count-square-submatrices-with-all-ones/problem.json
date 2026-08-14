@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1277,
+  "slug": "count-square-submatrices-with-all-ones",
+  "title": "统计全为 1 的正方形子矩阵",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "矩阵"
+  ],
+  "summary": "统计零一矩阵中所有元素均为一的正方形子矩阵数量。",
+  "insight": "dp[r][c] 表示以该格为右下角的最大全一正方形边长；当前为一时等于左、上、左上三者最小值加一。这个边长也恰是以该格结尾的正方形数量。",
+  "pitfalls": [
+    "每个大正方形也包含不同右下角的小正方形",
+    "零格状态为零",
+    "答案累加边长而非只统计最大边长"
+  ],
+  "solutions": [
+    {
+      "id": "bottom-right-square-dp",
+      "title": "右下角正方形动态规划",
+      "kind": "最优",
+      "idea": "累加每格可形成的所有边长。",
+      "steps": [
+        "创建 rows+1、cols+1 的 dp 避免边界分支",
+        "若 matrix[r-1][c-1]==1，dp[r][c]=1+min(上、左、左上)",
+        "把 dp[r][c] 累加到 answer，遍历完返回"
+      ],
+      "complexity": {
+        "time": "O(rows·cols)",
+        "space": "O(rows·cols)"
+      },
+      "files": {
+        "java": "solutions/bottom-right-square-dp/Solution.java",
+        "kotlin": "solutions/bottom-right-square-dp/Solution.kt",
+        "cpp": "solutions/bottom-right-square-dp/solution.cpp"
+      }
+    }
+  ]
+}

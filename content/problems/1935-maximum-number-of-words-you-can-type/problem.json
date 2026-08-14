@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1935,
+  "slug": "maximum-number-of-words-you-can-type",
+  "title": "可以输入的最大单词数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-028",
+  "studyTags": [
+    "哈希表",
+    "字符串"
+  ],
+  "summary": "键盘若干字母键损坏，统计文本中完全不含损坏字母、可以输入的单词数。",
+  "insight": "把损坏字符放入布尔表，按空格拆词；某词任一字符损坏就不可输入，否则计数。",
+  "pitfalls": [
+    "文本单词由单空格分隔",
+    "损坏字母互不相同",
+    "必须能输入单词全部字符"
+  ],
+  "solutions": [
+    {
+      "id": "broken-letter-membership",
+      "title": "损坏字符集合检查",
+      "kind": "最优",
+      "idea": "逐词判断是否与损坏字符集合相交。",
+      "steps": [
+        "标记 brokenLetters",
+        "split text",
+        "每词扫描字符，若均未损坏则 answer++"
+      ],
+      "complexity": {
+        "time": "O(text length)",
+        "space": "O(26)"
+      },
+      "files": {
+        "java": "solutions/broken-letter-membership/Solution.java",
+        "kotlin": "solutions/broken-letter-membership/Solution.kt",
+        "cpp": "solutions/broken-letter-membership/solution.cpp"
+      }
+    }
+  ]
+}

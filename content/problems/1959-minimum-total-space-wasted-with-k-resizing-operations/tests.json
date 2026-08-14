@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minSpaceWastedKResizing",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "不调整容量浪费十",
+      "args": [
+        [
+          10,
+          20
+        ],
+        0
+      ],
+      "expected": 10
+    },
+    {
+      "name": "调整一次把浪费降到十",
+      "args": [
+        [
+          10,
+          20,
+          30
+        ],
+        1
+      ],
+      "expected": 10
+    },
+    {
+      "name": "调整两次最小浪费十五",
+      "args": [
+        [
+          10,
+          20,
+          15,
+          30,
+          20
+        ],
+        2
+      ],
+      "expected": 15
+    }
+  ]
+}

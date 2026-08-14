@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 752,
+  "slug": "open-the-lock",
+  "title": "打开转盘锁",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-010",
+  "studyTags": [
+    "字符串",
+    "广度优先搜索",
+    "最短路"
+  ],
+  "summary": "四位转盘锁从 0000 开始，每次转动一个数字一格且 0/9 环绕，避开死亡组合，求到目标的最少转动次数。",
+  "insight": "每个合法组合是无权图节点，八种单轮转动是邻边；BFS 首次到达目标即为最短步数。",
+  "pitfalls": [
+    "起点若在死亡列表中立即不可达",
+    "数字 0 向下转成 9，9 向上转成 0",
+    "访问过的组合不能重复入队"
+  ],
+  "solutions": [
+    {
+      "id": "state-space-bfs",
+      "title": "四位组合状态 BFS",
+      "kind": "最优",
+      "idea": "逐层生成八个相邻锁状态。",
+      "steps": [
+        "dead 为集合，若含 0000 返回 -1",
+        "队列加入 0000 并标记；每层检查目标",
+        "对四个位置分别生成加一与减一状态，合法未访问则入队；队列空返回 -1"
+      ],
+      "complexity": {
+        "time": "O(10⁴)",
+        "space": "O(10⁴)"
+      },
+      "files": {
+        "java": "solutions/state-space-bfs/Solution.java",
+        "kotlin": "solutions/state-space-bfs/Solution.kt",
+        "cpp": "solutions/state-space-bfs/solution.cpp"
+      }
+    }
+  ]
+}

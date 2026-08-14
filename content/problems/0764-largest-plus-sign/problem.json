@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 764,
+  "slug": "largest-plus-sign",
+  "title": "最大加号标志",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-010",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "矩阵"
+  ],
+  "summary": "n×n 网格除 mines 指定位置为零外均为一，求由连续一构成的最大轴对齐加号阶数。",
+  "insight": "每个中心的阶数是向左、右、上、下连续一长度的最小值；四次方向扫描即可在线更新该最小值。",
+  "pitfalls": [
+    "阶数一只需中心格为一",
+    "矿点四方向长度都应为零",
+    "扫描换行时连续长度必须重置"
+  ],
+  "solutions": [
+    {
+      "id": "four-direction-minimum-dp",
+      "title": "四方向连续长度取最小",
+      "kind": "最优",
+      "idea": "用一个矩阵累计四次扫描的最小臂长。",
+      "steps": [
+        "用 blocked 标记 mines，dp 初始大值",
+        "逐行左右扫描、逐列上下扫描，每次遇矿置 count=0，否则 count++，dp=min(dp,count)",
+        "遍历 dp 最大值返回"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/four-direction-minimum-dp/Solution.java",
+        "kotlin": "solutions/four-direction-minimum-dp/Solution.kt",
+        "cpp": "solutions/four-direction-minimum-dp/solution.cpp"
+      }
+    }
+  ]
+}

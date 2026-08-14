@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minMovesToMakePalindrome",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "aabb 两次交换成为回文",
+      "args": [
+        "aabb"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "letelt 两次交换",
+      "args": [
+        "letelt"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "ntiin 一次交换",
+      "args": [
+        "ntiin"
+      ],
+      "expected": 1
+    }
+  ]
+}

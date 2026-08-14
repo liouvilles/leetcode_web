@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "discountPrices",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "三个价格打五折",
+      "args": [
+        "$1 $2 $3",
+        50
+      ],
+      "expected": "$0.50 $1.00 $1.50"
+    },
+    {
+      "name": "只替换独立合法价格词",
+      "args": [
+        "there are $1 $2 and 5$ candies",
+        50
+      ],
+      "expected": "there are $0.50 $1.00 and 5$ candies"
+    },
+    {
+      "name": "零折扣仍格式化两位小数",
+      "args": [
+        "cost $10",
+        0
+      ],
+      "expected": "cost $10.00"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxPathSum",
+  "parameterTypes": [
+    "treeNode"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "路径穿过根连接两个孩子",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "忽略负根侧的部分贡献",
+      "args": [
+        [
+          -10,
+          9,
+          20,
+          null,
+          null,
+          15,
+          7
+        ]
+      ],
+      "expected": 42
+    },
+    {
+      "name": "单个负节点",
+      "args": [
+        [
+          -3
+        ]
+      ],
+      "expected": -3
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "makeFancyString",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "删除一位 l 得 leeetcode",
+      "args": [
+        "leeetcode"
+      ],
+      "expected": "leetcode"
+    },
+    {
+      "name": "多段连续字符分别压到两位",
+      "args": [
+        "aaabaaaa"
+      ],
+      "expected": "aabaa"
+    },
+    {
+      "name": "无三连字符保持原样",
+      "args": [
+        "aab"
+      ],
+      "expected": "aab"
+    }
+  ]
+}

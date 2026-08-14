@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1675,
+  "slug": "minimize-deviation-in-array",
+  "title": "数组的最小偏移量",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-024",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "堆（优先队列）",
+    "有序集合"
+  ],
+  "summary": "偶数可反复除二，奇数可乘二一次；经过任意操作后最小化数组最大值与最小值之差。",
+  "insight": "先把所有奇数乘二，使每个数处于可达最大值。之后唯一有利方向是不断把当前最大偶数减半；用大根堆维护最大值并跟踪全局最小值。",
+  "pitfalls": [
+    "奇数先乘二统一了后续操作方向",
+    "当前最大值为奇数时无法再降低，可结束",
+    "每次减半后要更新最小值"
+  ],
+  "solutions": [
+    {
+      "id": "normalized-max-heap",
+      "title": "奇数归一化与大根堆",
+      "kind": "最优",
+      "idea": "从所有元素的最大可达状态单调降低最大值。",
+      "steps": [
+        "奇数乘二后全部入大根堆，记录 minimum",
+        "循环弹出 maximum 并更新 deviation",
+        "maximum 为奇数则结束，否则减半、更新 minimum 并重新入堆"
+      ],
+      "complexity": {
+        "time": "O(n log V log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/normalized-max-heap/Solution.java",
+        "kotlin": "solutions/normalized-max-heap/Solution.kt",
+        "cpp": "solutions/normalized-max-heap/solution.cpp"
+      }
+    }
+  ]
+}

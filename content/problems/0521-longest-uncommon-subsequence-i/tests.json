@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findLUSlength",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "不同等长字符串",
+      "args": [
+        "aba",
+        "cdc"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "完全相同",
+      "args": [
+        "aaa",
+        "aaa"
+      ],
+      "expected": -1
+    },
+    {
+      "name": "不同长度",
+      "args": [
+        "a",
+        "abcd"
+      ],
+      "expected": 4
+    }
+  ]
+}

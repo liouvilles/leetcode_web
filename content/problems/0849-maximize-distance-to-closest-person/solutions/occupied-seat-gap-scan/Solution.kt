@@ -1,0 +1,1 @@
+class Solution { fun maxDistToClosest(seats:IntArray):Int{var answer=0;var previous=-1;for(i in seats.indices)if(seats[i]==1){answer=if(previous<0)i else maxOf(answer,(i-previous)/2);previous=i};return maxOf(answer,seats.lastIndex-previous)} }

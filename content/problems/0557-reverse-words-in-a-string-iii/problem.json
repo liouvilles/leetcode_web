@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 557,
+  "slug": "reverse-words-in-a-string-iii",
+  "title": "反转字符串中的单词 III",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-007",
+  "studyTags": [
+    "字符串",
+    "双指针",
+    "原地反转"
+  ],
+  "summary": "保持单词顺序和空格位置不变，分别反转字符串中每个单词的字符。",
+  "insight": "把字符串转成字符数组，以空格为边界逐段做双指针反转即可。",
+  "pitfalls": [
+    "只反转单词内部字符",
+    "最后一个单词后没有空格也要处理",
+    "标点属于单词字符并随之反转"
+  ],
+  "solutions": [
+    {
+      "id": "segment-reversal",
+      "title": "逐个单词原地反转",
+      "kind": "最优",
+      "idea": "扫描每个非空格区间并反转其字符。",
+      "steps": [
+        "字符数组化并令 start=0",
+        "扫描到空格或末尾后一位时反转 [start,end)",
+        "令 start=end+1，最终构造字符串"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/segment-reversal/Solution.java",
+        "kotlin": "solutions/segment-reversal/Solution.kt",
+        "cpp": "solutions/segment-reversal/solution.cpp"
+      }
+    }
+  ]
+}

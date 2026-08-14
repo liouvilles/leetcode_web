@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 35,
+  "slug": "search-insert-position",
+  "title": "搜索插入位置",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-002",
+  "studyTags": [
+    "二分查找",
+    "插入边界",
+    "lower bound"
+  ],
+  "summary": "在严格递增数组中查找目标值；若不存在，返回它按顺序插入后应处于的下标。",
+  "insight": "答案就是第一个大于或等于目标值的位置，也可能等于数组长度。",
+  "pitfalls": [
+    "右边界设为数组长度才能表示尾部插入",
+    "目标存在时仍返回其原下标",
+    "循环维持左闭右开区间"
+  ],
+  "solutions": [
+    {
+      "id": "lower-bound",
+      "title": "左闭右开二分",
+      "kind": "最优",
+      "idea": "查找第一个不小于目标值的位置。",
+      "steps": [
+        "初始化 [0,n) 区间",
+        "中间值小于目标时舍弃左半部分",
+        "否则保留中点并收缩右边界"
+      ],
+      "complexity": {
+        "time": "O(log n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/lower-bound/Solution.java",
+        "kotlin": "solutions/lower-bound/Solution.kt",
+        "cpp": "solutions/lower-bound/solution.cpp"
+      }
+    }
+  ]
+}

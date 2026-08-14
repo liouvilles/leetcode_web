@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minSubsequence",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intList",
+  "cases": [
+    {
+      "name": "十和九已超过其余",
+      "args": [
+        [
+          4,
+          3,
+          10,
+          9,
+          8
+        ]
+      ],
+      "expected": [
+        10,
+        9
+      ]
+    },
+    {
+      "name": "需要三个最大元素",
+      "args": [
+        [
+          4,
+          4,
+          7,
+          6,
+          7
+        ]
+      ],
+      "expected": [
+        7,
+        7,
+        6
+      ]
+    },
+    {
+      "name": "单元素必须选择",
+      "args": [
+        [
+          6
+        ]
+      ],
+      "expected": [
+        6
+      ]
+    }
+  ]
+}

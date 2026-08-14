@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 721,
+  "slug": "accounts-merge",
+  "title": "账户合并",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-009",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "字符串",
+    "并查集"
+  ],
+  "summary": "账户第一项是姓名，其余是邮箱；任意共享邮箱的账户属于同一人，合并每人所有邮箱并排序。",
+  "insight": "把账户作为并查集节点，邮箱首次出现时记录所属账户，后续出现同邮箱就合并两个账户；最后按根聚合邮箱。",
+  "pitfalls": [
+    "相同姓名不代表同一人，必须共享邮箱",
+    "共享关系可以传递",
+    "每组邮箱需按字典序排序"
+  ],
+  "solutions": [
+    {
+      "id": "email-owner-union-find",
+      "title": "邮箱所有者并查集",
+      "kind": "最优",
+      "idea": "用共享邮箱边把账户连通分量合并。",
+      "steps": [
+        "parent 初始化；扫描每个邮箱，首次记录 owner，重复则 union 当前账户与 owner",
+        "遍历 email→owner，用 find(owner) 作为分组键聚合邮箱",
+        "每组邮箱排序，前置对应姓名；各行再按首邮箱排序保持稳定"
+      ],
+      "complexity": {
+        "time": "O(E α(A)+E log E)",
+        "space": "O(E+A)"
+      },
+      "files": {
+        "java": "solutions/email-owner-union-find/Solution.java",
+        "kotlin": "solutions/email-owner-union-find/Solution.kt",
+        "cpp": "solutions/email-owner-union-find/solution.cpp"
+      }
+    }
+  ]
+}

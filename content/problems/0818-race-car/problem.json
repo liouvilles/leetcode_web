@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 818,
+  "slug": "race-car",
+  "title": "赛车",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-011",
+  "studyTags": [
+    "动态规划",
+    "记忆化搜索",
+    "位运算"
+  ],
+  "summary": "赛车从位置零、速度一开始，A 指令按当前速度前进并把速度翻倍，R 指令原地反向并把速度重置为正负一，求到达 target 的最少指令数。",
+  "insight": "连续 n 次 A 到达 2^n-1；对目标可选择冲过后掉头，或先走 n-1 次再后退 m 次并继续解决剩余距离，记忆化比较所有方案。",
+  "pitfalls": [
+    "目标恰为 2^n-1 时直接用 n 次 A",
+    "欠冲方案的后退次数 m 从零到 n-2",
+    "每次 R 都计一条指令"
+  ],
+  "solutions": [
+    {
+      "id": "binary-distance-memo-dp",
+      "title": "二进制距离记忆化 DP",
+      "kind": "最优",
+      "idea": "围绕最近的全加速位置枚举掉头策略。",
+      "steps": [
+        "令 n 为最小满足 2^n-1>=target 的位数；若相等返回 n",
+        "超冲方案为 n+1+dp((2^n-1)-target)",
+        "欠冲到 2^(n-1)-1，掉头后后退 2^m-1，再掉头；枚举 m=0..n-2，代价 n+m+1+dp(target-(2^(n-1)-1)+(2^m-1))"
+      ],
+      "complexity": {
+        "time": "O(target log target)",
+        "space": "O(target)"
+      },
+      "files": {
+        "java": "solutions/binary-distance-memo-dp/Solution.java",
+        "kotlin": "solutions/binary-distance-memo-dp/Solution.kt",
+        "cpp": "solutions/binary-distance-memo-dp/solution.cpp"
+      }
+    }
+  ]
+}

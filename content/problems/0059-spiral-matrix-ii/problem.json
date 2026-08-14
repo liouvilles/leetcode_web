@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 59,
+  "slug": "spiral-matrix-ii",
+  "title": "螺旋矩阵 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-004",
+  "studyTags": [
+    "矩阵模拟",
+    "边界收缩",
+    "螺旋遍历"
+  ],
+  "summary": "生成一个 n×n 矩阵，把 1 到 n² 按顺时针螺旋顺序填入。",
+  "insight": "维护上下左右四条未填边界，每完成一条边就向内收缩，并在交错前检查边界。",
+  "pitfalls": [
+    "下边和左边需要避免重复填写",
+    "每轮最多收缩四条边",
+    "单行或单列中心仍要正确处理"
+  ],
+  "solutions": [
+    {
+      "id": "shrinking-boundaries",
+      "title": "四边界螺旋填充",
+      "kind": "最优",
+      "idea": "按上、右、下、左顺序填充当前外圈并逐层内缩。",
+      "steps": [
+        "维护 top/bottom/left/right",
+        "依次填四条边并收缩",
+        "边界相交后停止"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(1) excluding output"
+      },
+      "files": {
+        "java": "solutions/shrinking-boundaries/Solution.java",
+        "kotlin": "solutions/shrinking-boundaries/Solution.kt",
+        "cpp": "solutions/shrinking-boundaries/solution.cpp"
+      }
+    }
+  ]
+}

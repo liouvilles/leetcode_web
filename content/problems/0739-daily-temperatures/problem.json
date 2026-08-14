@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 739,
+  "slug": "daily-temperatures",
+  "title": "每日温度",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-003",
+  "studyTags": [
+    "单调栈",
+    "下一个更大元素",
+    "下标差"
+  ],
+  "summary": "对每天的温度，计算还需等待多少天才会出现更高温度；若之后没有更高温度则为零。",
+  "insight": "栈保存尚未找到更高温度的日期，并保持温度非递增；新温度更高时可连续解决栈顶日期。",
+  "pitfalls": [
+    "需要严格更高，相等温度不能出栈",
+    "栈中保存下标用于计算天数",
+    "未出栈位置答案保持初始零"
+  ],
+  "solutions": [
+    {
+      "id": "monotonic-stack",
+      "title": "递减温度栈",
+      "kind": "最优",
+      "idea": "扫描新温度时弹出所有更低日期，并填写下标差。",
+      "steps": [
+        "栈保存未解决日期",
+        "当前温度更高时反复弹栈",
+        "answer[old]=current-old 后压入当前下标"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/monotonic-stack/Solution.java",
+        "kotlin": "solutions/monotonic-stack/Solution.kt",
+        "cpp": "solutions/monotonic-stack/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countOperations",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "二和三经过三次得到零",
+      "args": [
+        2,
+        3
+      ],
+      "expected": 3
+    },
+    {
+      "name": "相等数字一次得到零",
+      "args": [
+        10,
+        10
+      ],
+      "expected": 1
+    },
+    {
+      "name": "初始已有零无需操作",
+      "args": [
+        0,
+        5
+      ],
+      "expected": 0
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 855,
+  "slug": "exam-room",
+  "title": "考场就座",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "设计",
+    "有序集合",
+    "贪心",
+    "模拟"
+  ],
+  "summary": "考场有 n 个座位，每次学生选择到最近他人距离最大且编号最小的空位，并支持指定学生离开。",
+  "insight": "维护已占座位有序集合；选座时比较首段、相邻已占座位中点和尾段的最大最近距离，并用严格大于更新保证并列取较小编号。",
+  "pitfalls": [
+    "空考场首位坐零",
+    "中间间隔的最近距离是 gap/2",
+    "尾段并列时较大编号不能覆盖已有候选"
+  ],
+  "solutions": [
+    {
+      "id": "ordered-occupied-gap-scan",
+      "title": "有序占座集合间隔扫描",
+      "kind": "最优",
+      "idea": "每次扫描所有占座位置选出最优空位。",
+      "steps": [
+        "occupied 为空时选择零",
+        "candidate=0，bestDistance=firstSeat；扫描相邻座位，若 gap/2 严格更大则 candidate=previous+gap/2",
+        "若 n-1-lastSeat 严格更大则选 n-1；加入 occupied 并返回，leave 时删除"
+      ],
+      "complexity": {
+        "time": "O(s) per seat, O(log s) leave",
+        "space": "O(s)"
+      },
+      "files": {
+        "java": "solutions/ordered-occupied-gap-scan/Solution.java",
+        "kotlin": "solutions/ordered-occupied-gap-scan/Solution.kt",
+        "cpp": "solutions/ordered-occupied-gap-scan/solution.cpp"
+      }
+    }
+  ]
+}

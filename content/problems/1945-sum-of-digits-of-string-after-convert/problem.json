@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1945,
+  "slug": "sum-of-digits-of-string-after-convert",
+  "title": "字符串转化后的各位数字之和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-028",
+  "studyTags": [
+    "字符串",
+    "模拟"
+  ],
+  "summary": "把字母映射为一到二十六并连接，再执行 k 次各位数字求和，返回最终整数。",
+  "insight": "第一次求和无需真的构造长数字串，可直接累加每个字母编号的十进制各位；随后再做 k-1 次整数数位和。",
+  "pitfalls": [
+    "字母编号可能是两位数",
+    "第一次转换也算一次求和操作",
+    "k 至少一"
+  ],
+  "solutions": [
+    {
+      "id": "direct-first-digit-sum",
+      "title": "直接首轮数位和",
+      "kind": "最优",
+      "idea": "边转换边完成第一次数位求和，再迭代整数。",
+      "steps": [
+        "对 letter value=letter-a+1，加入 value/10+value%10",
+        "重复 k-1 次：循环取个位求和",
+        "返回 value"
+      ],
+      "complexity": {
+        "time": "O(n+k log value)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/direct-first-digit-sum/Solution.java",
+        "kotlin": "solutions/direct-first-digit-sum/Solution.kt",
+        "cpp": "solutions/direct-first-digit-sum/solution.cpp"
+      }
+    }
+  ]
+}

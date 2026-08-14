@@ -1,0 +1,1 @@
+class Solution { fun checkXMatrix(grid:Array<IntArray>):Boolean{val n=grid.size;for(r in 0 until n)for(c in 0 until n){val diagonal=r==c||r+c==n-1;if(diagonal==(grid[r][c]==0))return false};return true} }

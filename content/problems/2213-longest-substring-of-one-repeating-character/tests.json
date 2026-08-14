@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "longestRepeating",
+  "parameterTypes": [
+    "string",
+    "string",
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "经典三次更新连续段三三四",
+      "args": [
+        "babacc",
+        "bcb",
+        [
+          1,
+          3,
+          3
+        ]
+      ],
+      "expected": [
+        3,
+        3,
+        4
+      ]
+    },
+    {
+      "name": "两次更新逐步扩大连续段",
+      "args": [
+        "abyzz",
+        "aa",
+        [
+          2,
+          1
+        ]
+      ],
+      "expected": [
+        2,
+        3
+      ]
+    },
+    {
+      "name": "单字符更新长度仍为一",
+      "args": [
+        "a",
+        "b",
+        [
+          0
+        ]
+      ],
+      "expected": [
+        1
+      ]
+    }
+  ]
+}

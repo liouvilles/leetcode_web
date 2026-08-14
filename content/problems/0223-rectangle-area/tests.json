@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "computeArea",
+  "parameterTypes": [
+    "int",
+    "int",
+    "int",
+    "int",
+    "int",
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "部分重叠",
+      "args": [
+        -3,
+        0,
+        3,
+        4,
+        0,
+        -1,
+        9,
+        2
+      ],
+      "expected": 45
+    },
+    {
+      "name": "完全重合",
+      "args": [
+        -2,
+        -2,
+        2,
+        2,
+        -2,
+        -2,
+        2,
+        2
+      ],
+      "expected": 16
+    },
+    {
+      "name": "没有重叠",
+      "args": [
+        0,
+        0,
+        1,
+        1,
+        2,
+        2,
+        3,
+        3
+      ],
+      "expected": 2
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "divideArray",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "六元素可分三对",
+      "args": [
+        [
+          3,
+          2,
+          3,
+          2,
+          2,
+          2
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "四元素有奇数频次",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "两个相同元素可配对",
+      "args": [
+        [
+          7,
+          7
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

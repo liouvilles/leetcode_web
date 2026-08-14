@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 841,
+  "slug": "keys-and-rooms",
+  "title": "钥匙和房间",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-011",
+  "studyTags": [
+    "图论",
+    "深度优先搜索",
+    "广度优先搜索"
+  ],
+  "summary": "从房间零开始，每个房间包含可打开其他房间的钥匙，判断能否访问全部房间。",
+  "insight": "把房间视作图节点、钥匙视作有向边，从零做一次图遍历，访问数量等于房间总数即成功。",
+  "pitfalls": [
+    "房间零初始已打开",
+    "钥匙可能重复或指向已访问房间",
+    "无需按钥匙顺序开门"
+  ],
+  "solutions": [
+    {
+      "id": "graph-reachability-dfs",
+      "title": "图可达性搜索",
+      "kind": "最优",
+      "idea": "从零遍历所有钥匙边并计数。",
+      "steps": [
+        "seen[0]=true，栈压入零",
+        "弹出房间，遍历钥匙；未访问房间标记并入栈",
+        "结束后检查 visited==rooms.size"
+      ],
+      "complexity": {
+        "time": "O(v+e)",
+        "space": "O(v)"
+      },
+      "files": {
+        "java": "solutions/graph-reachability-dfs/Solution.java",
+        "kotlin": "solutions/graph-reachability-dfs/Solution.kt",
+        "cpp": "solutions/graph-reachability-dfs/solution.cpp"
+      }
+    }
+  ]
+}

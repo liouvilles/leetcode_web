@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countBadPairs",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "经典数组有五个坏数对",
+      "args": [
+        [
+          4,
+          1,
+          3,
+          3
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "连续递增数组全是好数对",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "两个相同元素构成坏数对",
+      "args": [
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

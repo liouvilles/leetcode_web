@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "checkPossibility",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "降低四即可",
+      "args": [
+        [
+          4,
+          2,
+          3
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "存在两处逆序",
+      "args": [
+        [
+          4,
+          2,
+          1
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "需要抬高当前值",
+      "args": [
+        [
+          3,
+          4,
+          2,
+          3
+        ]
+      ],
+      "expected": false
+    }
+  ]
+}

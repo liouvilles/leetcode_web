@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1219,
+  "slug": "path-with-maximum-gold",
+  "title": "黄金矿工",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-017",
+  "studyTags": [
+    "数组",
+    "回溯",
+    "深度优先搜索",
+    "矩阵"
+  ],
+  "summary": "可从任意含金格出发，四方向移动且每格最多访问一次，不能走零格，求一条路径能收集的最多黄金。",
+  "insight": "网格规模小且非零格有限，可从每个金格开始 DFS；进入格子时暂置零标记访问，递归四邻后恢复，枚举所有简单路径。",
+  "pitfalls": [
+    "起点可以是任意非零格",
+    "路径不能重复访问格子",
+    "回溯后必须恢复原黄金数"
+  ],
+  "solutions": [
+    {
+      "id": "every-start-backtracking",
+      "title": "逐起点回溯搜索",
+      "kind": "最优",
+      "idea": "以原地置零实现访问标记并枚举所有路径。",
+      "steps": [
+        "遍历每个非零格调用 dfs，取最大值",
+        "dfs 越界或当前为零返回零；保存 gold 并把当前格置零",
+        "递归四邻取最大后续收益，恢复当前格，返回 gold+bestNext"
+      ],
+      "complexity": {
+        "time": "O(g·4^g) 上界",
+        "space": "O(g) 递归栈"
+      },
+      "files": {
+        "java": "solutions/every-start-backtracking/Solution.java",
+        "kotlin": "solutions/every-start-backtracking/Solution.kt",
+        "cpp": "solutions/every-start-backtracking/solution.cpp"
+      }
+    }
+  ]
+}

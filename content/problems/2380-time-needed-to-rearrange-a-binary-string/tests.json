@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "secondsToRemoveOccurrences",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典字符串需要四秒",
+      "args": [
+        "0110101"
+      ],
+      "expected": 4
+    },
+    {
+      "name": "已经无零一模式",
+      "args": [
+        "11100"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "两个零跨过三个一需四秒",
+      "args": [
+        "00111"
+      ],
+      "expected": 4
+    }
+  ]
+}

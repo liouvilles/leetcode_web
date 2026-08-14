@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1200,
+  "slug": "minimum-absolute-difference",
+  "title": "最小绝对差",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-017",
+  "studyTags": [
+    "数组",
+    "排序",
+    "扫描"
+  ],
+  "summary": "返回数组中绝对差最小的所有数对，每对较小值在前，整体按升序排列。",
+  "insight": "排序后，全局最小差一定出现在相邻元素之间；先扫描得到最小差，再按排序顺序收集所有达到该差的相邻对。",
+  "pitfalls": [
+    "答案可能包含多个数对",
+    "数组元素互异",
+    "排序后的收集顺序已经满足题目要求"
+  ],
+  "solutions": [
+    {
+      "id": "sort-and-adjacent-gaps",
+      "title": "排序与相邻差",
+      "kind": "最优",
+      "idea": "只检查排序数组的相邻元素。",
+      "steps": [
+        "升序排序 arr",
+        "扫描相邻项求 minimumDifference",
+        "再次扫描，相邻差等于最小值时加入 [arr[i-1],arr[i]]，返回列表"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(排序栈空间)"
+      },
+      "files": {
+        "java": "solutions/sort-and-adjacent-gaps/Solution.java",
+        "kotlin": "solutions/sort-and-adjacent-gaps/Solution.kt",
+        "cpp": "solutions/sort-and-adjacent-gaps/solution.cpp"
+      }
+    }
+  ]
+}

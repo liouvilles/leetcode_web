@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "decrypt",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "向后累加三个数",
+      "args": [
+        [
+          5,
+          7,
+          1,
+          4
+        ],
+        3
+      ],
+      "expected": [
+        12,
+        10,
+        16,
+        13
+      ]
+    },
+    {
+      "name": "零密钥全部替换为零",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        0
+      ],
+      "expected": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "向前累加两个数",
+      "args": [
+        [
+          2,
+          4,
+          9,
+          3
+        ],
+        -2
+      ],
+      "expected": [
+        12,
+        5,
+        6,
+        13
+      ]
+    }
+  ]
+}

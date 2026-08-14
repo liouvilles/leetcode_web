@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1357,
+  "slug": "apply-discount-every-n-orders",
+  "title": "每隔 n 个顾客打折",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-019",
+  "studyTags": [
+    "设计",
+    "哈希表",
+    "模拟"
+  ],
+  "summary": "设计收银系统，按商品单价计算账单，并对每第 n 位顾客应用固定百分比折扣。",
+  "insight": "用哈希表保存商品价格、计数器记录已结账次数；只有计数能被 n 整除时乘折扣系数。",
+  "pitfalls": [
+    "折扣作用于整张账单",
+    "顾客计数在每次 getBill 时增加",
+    "金额使用 double"
+  ],
+  "solutions": [
+    {
+      "id": "price-map-counter",
+      "title": "价格表与订单计数",
+      "kind": "最优",
+      "idea": "查询商品价格求和后按订单序号决定是否折扣。",
+      "steps": [
+        "构造时建立 product 到 price 的映射",
+        "getBill 中累加 price[product[i]]*amount[i] 并增加 counter",
+        "若 counter%n==0，乘 (100-discount)/100，返回"
+      ],
+      "complexity": {
+        "time": "O(p)",
+        "space": "O(m)"
+      },
+      "files": {
+        "java": "solutions/price-map-counter/Solution.java",
+        "kotlin": "solutions/price-map-counter/Solution.kt",
+        "cpp": "solutions/price-map-counter/solution.cpp"
+      }
+    }
+  ]
+}

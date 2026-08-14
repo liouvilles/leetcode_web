@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 377,
+  "slug": "combination-sum-iv",
+  "title": "组合总和 IV",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-006",
+  "studyTags": [
+    "动态规划",
+    "完全背包",
+    "有序组合"
+  ],
+  "summary": "给定互不相同的正整数，统计元素可重复使用且顺序不同视为不同方案时凑成目标值的组合数。",
+  "insight": "dp[sum] 的最后一个数可以是任意不超过 sum 的候选，因此按 sum 外层递增就会计入不同顺序。",
+  "pitfalls": [
+    "顺序不同算不同方案",
+    "dp[0]=1 表示空前缀",
+    "候选数可以重复使用"
+  ],
+  "solutions": [
+    {
+      "id": "ordered-sum-dp",
+      "title": "按目标和递推有序方案",
+      "kind": "最优",
+      "idea": "枚举当前总和，再枚举作为最后一项的数字。",
+      "steps": [
+        "dp[0]=1",
+        "sum 从一到 target",
+        "对 value<=sum 累加 dp[sum-value]"
+      ],
+      "complexity": {
+        "time": "O(target·n)",
+        "space": "O(target)"
+      },
+      "files": {
+        "java": "solutions/ordered-sum-dp/Solution.java",
+        "kotlin": "solutions/ordered-sum-dp/Solution.kt",
+        "cpp": "solutions/ordered-sum-dp/solution.cpp"
+      }
+    }
+  ]
+}

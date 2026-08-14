@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2457,
+  "slug": "minimum-addition-to-make-integer-beautiful",
+  "title": "使整数变美丽的最小增量",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-036",
+  "studyTags": [
+    "数学",
+    "贪心"
+  ],
+  "summary": "给定 n 和 target，求最小非负 x，使 n+x 的十进制数位和不超过 target。",
+  "insight": "若数位和过大，从个位起把当前低位整体进位到下一个十的倍数；这是修改当前最低尚未归零位的最小增量，重复直到数位和合格。",
+  "pitfalls": [
+    "n 与答案使用 long",
+    "进位可能连续传播",
+    "返回的是增量而非最终数"
+  ],
+  "solutions": [
+    {
+      "id": "round-up-by-decimal-place",
+      "title": "逐十进制位向上取整",
+      "kind": "最优",
+      "idea": "逐步把低位归零以降低数位和。",
+      "steps": [
+        "original=n、place=10",
+        "while digitSum(n)>target：remainder=n%place，若非零 n+=place-remainder",
+        "place*=10",
+        "返回 n-original"
+      ],
+      "complexity": {
+        "time": "O(number of digits²)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/round-up-by-decimal-place/Solution.java",
+        "kotlin": "solutions/round-up-by-decimal-place/Solution.kt",
+        "cpp": "solutions/round-up-by-decimal-place/solution.cpp"
+      }
+    }
+  ]
+}

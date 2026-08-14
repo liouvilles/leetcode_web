@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "shortestToChar",
+  "parameterTypes": [
+    "string",
+    "char"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "多个 e 的距离",
+      "args": [
+        "loveleetcode",
+        "e"
+      ],
+      "expected": [
+        3,
+        2,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "目标在开头",
+      "args": [
+        "aaab",
+        "b"
+      ],
+      "expected": [
+        3,
+        2,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "单字符",
+      "args": [
+        "a",
+        "a"
+      ],
+      "expected": [
+        0
+      ]
+    }
+  ]
+}

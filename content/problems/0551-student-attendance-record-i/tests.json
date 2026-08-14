@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "checkRecord",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "合格记录",
+      "args": [
+        "PPALLP"
+      ],
+      "expected": true
+    },
+    {
+      "name": "两次缺勤",
+      "args": [
+        "PPALLLAA"
+      ],
+      "expected": false
+    },
+    {
+      "name": "连续三次迟到",
+      "args": [
+        "PPALLL"
+      ],
+      "expected": false
+    }
+  ]
+}

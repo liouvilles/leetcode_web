@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "MyHashSet",
+  "constructorTypes": [],
+  "cases": [
+    {
+      "name": "添加查询删除",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "add",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ]
+        },
+        {
+          "method": "add",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ]
+        },
+        {
+          "method": "contains",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "contains",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            3
+          ],
+          "returnType": "boolean",
+          "expected": false
+        },
+        {
+          "method": "add",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ]
+        },
+        {
+          "method": "contains",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "remove",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ]
+        },
+        {
+          "method": "contains",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ],
+          "returnType": "boolean",
+          "expected": false
+        }
+      ]
+    },
+    {
+      "name": "键零",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "add",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            0
+          ]
+        },
+        {
+          "method": "contains",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            0
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "remove",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            0
+          ]
+        },
+        {
+          "method": "contains",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            0
+          ],
+          "returnType": "boolean",
+          "expected": false
+        }
+      ]
+    },
+    {
+      "name": "最大键值",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "add",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1000000
+          ]
+        },
+        {
+          "method": "contains",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1000000
+          ],
+          "returnType": "boolean",
+          "expected": true
+        }
+      ]
+    }
+  ]
+}

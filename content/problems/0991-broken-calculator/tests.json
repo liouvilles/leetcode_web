@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "brokenCalc",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "二到三",
+      "args": [
+        2,
+        3
+      ],
+      "expected": 2
+    },
+    {
+      "name": "五到八",
+      "args": [
+        5,
+        8
+      ],
+      "expected": 2
+    },
+    {
+      "name": "三到十",
+      "args": [
+        3,
+        10
+      ],
+      "expected": 3
+    }
+  ]
+}

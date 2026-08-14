@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "SnapshotArray",
+  "constructorTypes": [
+    "int"
+  ],
+  "cases": [
+    {
+      "name": "快照隔离后续修改",
+      "constructorArgs": [
+        3
+      ],
+      "calls": [
+        {
+          "method": "set",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            0,
+            5
+          ]
+        },
+        {
+          "method": "snap",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 0
+        },
+        {
+          "method": "set",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            0,
+            6
+          ]
+        },
+        {
+          "method": "get",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            0,
+            0
+          ],
+          "returnType": "int",
+          "expected": 5
+        }
+      ]
+    },
+    {
+      "name": "同一版本覆盖",
+      "constructorArgs": [
+        1
+      ],
+      "calls": [
+        {
+          "method": "set",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            0,
+            4
+          ]
+        },
+        {
+          "method": "set",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            0,
+            7
+          ]
+        },
+        {
+          "method": "snap",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 0
+        },
+        {
+          "method": "get",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            0,
+            0
+          ],
+          "returnType": "int",
+          "expected": 7
+        }
+      ]
+    },
+    {
+      "name": "默认零跨快照",
+      "constructorArgs": [
+        2
+      ],
+      "calls": [
+        {
+          "method": "snap",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 0
+        },
+        {
+          "method": "snap",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "get",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            1,
+            1
+          ],
+          "returnType": "int",
+          "expected": 0
+        }
+      ]
+    }
+  ]
+}

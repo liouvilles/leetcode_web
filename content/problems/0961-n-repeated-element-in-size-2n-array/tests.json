@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "repeatedNTimes",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "二重复两次",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          3
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "三重复三次",
+      "args": [
+        [
+          2,
+          1,
+          2,
+          5,
+          3,
+          2
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "五重复四次",
+      "args": [
+        [
+          5,
+          1,
+          5,
+          2,
+          5,
+          3,
+          5,
+          4
+        ]
+      ],
+      "expected": 5
+    }
+  ]
+}

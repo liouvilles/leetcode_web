@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "longestPalindrome",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两词可构造长度五回文",
+      "args": [
+        "cacb",
+        "cbba"
+      ],
+      "expected": 5
+    },
+    {
+      "name": "两个 ab 可构造长度三",
+      "args": [
+        "ab",
+        "ab"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "两词无共同字符答案零",
+      "args": [
+        "aa",
+        "bb"
+      ],
+      "expected": 0
+    }
+  ]
+}

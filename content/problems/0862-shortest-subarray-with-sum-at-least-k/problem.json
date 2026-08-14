@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 862,
+  "slug": "shortest-subarray-with-sum-at-least-k",
+  "title": "和至少为 K 的最短子数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "数组",
+    "前缀和",
+    "单调队列"
+  ],
+  "summary": "整数数组可含负数，求和至少为 k 的最短非空连续子数组长度，不存在返回负一。",
+  "insight": "前缀和 prefix[j]-prefix[i]>=k；按 j 扫描，用递增前缀和下标双端队列，队首满足条件时尽量弹出缩短长度，队尾不小于当前前缀时永远不会更优。",
+  "pitfalls": [
+    "前缀和需长整型",
+    "负数使普通滑动窗口失效",
+    "先检查队首可行区间，再维护队尾单调性"
+  ],
+  "solutions": [
+    {
+      "id": "monotonic-prefix-deque",
+      "title": "单调前缀和双端队列",
+      "kind": "最优",
+      "idea": "维护有希望作为左端点的递增前缀和。",
+      "steps": [
+        "计算 prefix[0..n]",
+        "遍历 right：当 prefix[right]-prefix[deque.first]>=k，更新长度并弹首",
+        "当 prefix[deque.last]>=prefix[right] 时弹尾，再把 right 入队；最终无解返回 -1"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/monotonic-prefix-deque/Solution.java",
+        "kotlin": "solutions/monotonic-prefix-deque/Solution.kt",
+        "cpp": "solutions/monotonic-prefix-deque/solution.cpp"
+      }
+    }
+  ]
+}

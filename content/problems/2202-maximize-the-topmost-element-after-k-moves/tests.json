@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumTop",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四次操作后最大顶端为五",
+      "args": [
+        [
+          5,
+          2,
+          2,
+          4,
+          0,
+          6
+        ],
+        4
+      ],
+      "expected": 5
+    },
+    {
+      "name": "单元素一次操作后为空",
+      "args": [
+        [
+          2
+        ],
+        1
+      ],
+      "expected": -1
+    },
+    {
+      "name": "两次操作可露出第三元素",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        2
+      ],
+      "expected": 3
+    }
+  ]
+}

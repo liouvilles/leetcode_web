@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minTimeToType",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "abc 依次移动共五秒",
+      "args": [
+        "abc"
+      ],
+      "expected": 5
+    },
+    {
+      "name": "bza 利用圆环捷径七秒",
+      "args": [
+        "bza"
+      ],
+      "expected": 7
+    },
+    {
+      "name": "连续输入 a 只需键入",
+      "args": [
+        "aaa"
+      ],
+      "expected": 3
+    }
+  ]
+}

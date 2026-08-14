@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 1617,
+  "slug": "count-subtrees-with-max-distance-between-cities",
+  "title": "统计子树中城市之间最大距离",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-023",
+  "studyTags": [
+    "动态规划",
+    "位运算",
+    "树",
+    "枚举",
+    "状态压缩"
+  ],
+  "summary": "从一棵 n 个城市的树中选择连通且至少含两个城市的子树，按其直径统计每种最大距离的子树数量。",
+  "insight": "n 很小，可枚举所有城市子集。对子集内做一次 BFS 判断连通并找到最远点，再从该点 BFS 得到树子图直径。",
+  "pitfalls": [
+    "只统计连通子集且至少两个节点",
+    "边的城市编号从一开始",
+    "答案下标 diameter-1"
+  ],
+  "solutions": [
+    {
+      "id": "subset-enumeration-double-bfs",
+      "title": "子集枚举与两次 BFS",
+      "kind": "最优",
+      "idea": "枚举子集后利用树上两次 BFS 求直径。",
+      "steps": [
+        "建无向邻接表并枚举 bitcount>=2 的 mask",
+        "从子集任一点 BFS；访问数不足 bitcount 则跳过",
+        "从第一次最远点再次 BFS，按最大距离累加答案"
+      ],
+      "complexity": {
+        "time": "O(2^n n²)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/subset-enumeration-double-bfs/Solution.java",
+        "kotlin": "solutions/subset-enumeration-double-bfs/Solution.kt",
+        "cpp": "solutions/subset-enumeration-double-bfs/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { public: bool isPerfectSquare(int num){long long left=1,right=num;while(left<=right){long long middle=left+(right-left)/2,square=middle*middle;if(square==num)return true;if(square<num)left=middle+1;else right=middle-1;}return false;} };

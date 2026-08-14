@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "digitSum",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "经典字符串两轮得到一三五",
+      "args": [
+        "11111222223",
+        3
+      ],
+      "expected": "135"
+    },
+    {
+      "name": "二二分组最终得到八",
+      "args": [
+        "00000000",
+        3
+      ],
+      "expected": "000"
+    },
+    {
+      "name": "长度不超过 k 保持不变",
+      "args": [
+        "123",
+        3
+      ],
+      "expected": "123"
+    }
+  ]
+}

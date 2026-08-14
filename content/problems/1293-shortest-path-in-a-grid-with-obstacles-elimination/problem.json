@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1293,
+  "slug": "shortest-path-in-a-grid-with-obstacles-elimination",
+  "title": "网格中的最短路径",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "数组",
+    "广度优先搜索",
+    "状态图",
+    "矩阵"
+  ],
+  "summary": "从网格左上到右下按四方向移动，可消除最多 k 个障碍，求最短步数，不可达返回负一。",
+  "insight": "BFS 状态包含位置和剩余消除次数。同一格若此前以更多或相同剩余额度到达，新状态被支配；只记录每格见过的最大剩余额度可大幅剪枝。",
+  "pitfalls": [
+    "起点和终点为空格",
+    "跨入障碍格时额度减一",
+    "距离按边数，单格网格答案为零"
+  ],
+  "solutions": [
+    {
+      "id": "bfs-with-best-remaining-budget",
+      "title": "最大剩余额度剪枝 BFS",
+      "kind": "最优",
+      "idea": "按距离分层扩展位置与消除额度状态。",
+      "steps": [
+        "best[r][c] 初始化 -1，起点 best=k 并入队 [0,0,k,0]",
+        "弹出后枚举四邻，remaining=当前-grid[nr][nc]",
+        "remaining>=0 且大于 best[nr][nc] 才更新入队；首次到终点返回 distance+1，耗尽返回 -1"
+      ],
+      "complexity": {
+        "time": "O(rows·cols·k)",
+        "space": "O(rows·cols)"
+      },
+      "files": {
+        "java": "solutions/bfs-with-best-remaining-budget/Solution.java",
+        "kotlin": "solutions/bfs-with-best-remaining-budget/Solution.kt",
+        "cpp": "solutions/bfs-with-best-remaining-budget/solution.cpp"
+      }
+    }
+  ]
+}

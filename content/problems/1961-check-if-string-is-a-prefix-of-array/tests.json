@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isPrefixString",
+  "parameterTypes": [
+    "string",
+    "stringArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "使用前三个单词组成前缀",
+      "args": [
+        "iloveleetcode",
+        [
+          "i",
+          "love",
+          "leetcode",
+          "apples"
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "只能在单词中间匹配不成立",
+      "args": [
+        "iloveleet",
+        [
+          "i",
+          "love",
+          "leetcode",
+          "apples"
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "首单词即等于目标",
+      "args": [
+        "a",
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

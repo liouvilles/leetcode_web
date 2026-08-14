@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 560,
+  "slug": "subarray-sum-equals-k",
+  "title": "和为 K 的子数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-003",
+  "studyTags": [
+    "前缀和",
+    "哈希计数",
+    "连续子数组"
+  ],
+  "summary": "统计整数数组中元素和恰好等于 k 的非空连续子数组数量。",
+  "insight": "当前前缀和为 prefix 时，每个此前出现的 prefix-k 都对应一个以当前位置结尾的合法子数组。",
+  "pitfalls": [
+    "数组包含负数，不能使用普通滑动窗口",
+    "前缀和零需要预先出现一次",
+    "哈希表保存出现次数而不是只保存是否存在"
+  ],
+  "solutions": [
+    {
+      "id": "prefix-frequency",
+      "title": "前缀和频次表",
+      "kind": "最优",
+      "idea": "边扫描边查询所需旧前缀，再登记当前前缀。",
+      "steps": [
+        "counts[0]=1",
+        "累加当前元素到 prefix",
+        "答案增加 counts[prefix-k]，再增加 prefix 频次"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/prefix-frequency/Solution.java",
+        "kotlin": "solutions/prefix-frequency/Solution.kt",
+        "cpp": "solutions/prefix-frequency/solution.cpp"
+      }
+    }
+  ]
+}

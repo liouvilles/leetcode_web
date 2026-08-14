@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "canMakeArithmeticProgression",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "三一五可排为等差",
+      "args": [
+        [
+          3,
+          5,
+          1
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "一二四差值不同",
+      "args": [
+        [
+          1,
+          2,
+          4
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "全部相等差为零",
+      "args": [
+        [
+          7,
+          7,
+          7
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

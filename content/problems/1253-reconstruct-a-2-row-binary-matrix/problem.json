@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1253,
+  "slug": "reconstruct-a-2-row-binary-matrix",
+  "title": "重构 2 行二进制矩阵",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-017",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "矩阵"
+  ],
+  "summary": "构造两行零一矩阵，使第一行和为 upper、第二行和为 lower，且每列和等于 colsum；不存在返回空。",
+  "insight": "列和为二的列被迫上下都放一，先处理并扣减额度；列和为一时优先放到仍有额度的上行，其余放下行，最终额度都归零才可行。",
+  "pitfalls": [
+    "colsum 只能为零一二",
+    "强制列可能让任一行额度变负",
+    "处理完列和一后必须同时验证两行剩余额度"
+  ],
+  "solutions": [
+    {
+      "id": "forced-twos-then-single-greedy",
+      "title": "先放双一再分配单一",
+      "kind": "最优",
+      "idea": "优先满足没有选择空间的列，再分配可选列。",
+      "steps": [
+        "创建 top、bottom；遍历 colsum==2 的列上下置一并 upper--、lower--，若负返回空",
+        "遍历 colsum==1 的列，若 upper>0 放 top 并 upper--，否则放 bottom 并 lower--",
+        "若 upper 或 lower 非零返回空，否则返回 [top,bottom]"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/forced-twos-then-single-greedy/Solution.java",
+        "kotlin": "solutions/forced-twos-then-single-greedy/Solution.kt",
+        "cpp": "solutions/forced-twos-then-single-greedy/solution.cpp"
+      }
+    }
+  ]
+}

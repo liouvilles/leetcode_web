@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "longestSubsequenceRepeatedK",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "letsleetcode 重复两次最长 let",
+      "args": [
+        "letsleetcode",
+        2
+      ],
+      "expected": "let"
+    },
+    {
+      "name": "两个 b 重复两次答案 b",
+      "args": [
+        "bb",
+        2
+      ],
+      "expected": "b"
+    },
+    {
+      "name": "ab 无字符可重复两次",
+      "args": [
+        "ab",
+        2
+      ],
+      "expected": ""
+    }
+  ]
+}

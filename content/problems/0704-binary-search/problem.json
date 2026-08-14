@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "id": 704,
+  "slug": "binary-search",
+  "title": "二分查找",
+  "status": "published",
+  "qualityGate": "compile",
+  "batch": "legacy-001",
+  "studyTags": [
+    "有序数组",
+    "闭区间模板",
+    "边界控制"
+  ],
+  "summary": "在升序整数数组中查找目标值；存在则返回下标，否则返回 -1。",
+  "insight": "每次比较都能排除一半候选区间，关键是区间定义与循环条件保持一致。",
+  "pitfalls": [
+    "闭区间模板使用 left <= right",
+    "计算中点时避免 left + right 溢出",
+    "更新边界必须排除 mid"
+  ],
+  "solutions": [
+    {
+      "id": "iterative",
+      "title": "迭代二分",
+      "kind": "最优",
+      "idea": "维护包含目标候选位置的闭区间 [left, right]，直到区间为空。",
+      "steps": [
+        "计算安全中点",
+        "命中则返回",
+        "根据大小关系排除左半或右半"
+      ],
+      "complexity": {
+        "time": "O(log n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/iterative/Solution.java",
+        "kotlin": "solutions/iterative/Solution.kt",
+        "cpp": "solutions/iterative/solution.cpp"
+      }
+    },
+    {
+      "id": "recursive",
+      "title": "递归二分",
+      "kind": "进阶",
+      "idea": "把每次缩小后的区间交给下一层递归处理，结构接近数学定义。",
+      "steps": [
+        "区间为空时返回 -1",
+        "比较中点",
+        "递归进入仍可能包含目标的一半"
+      ],
+      "complexity": {
+        "time": "O(log n)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/recursive/Solution.java",
+        "kotlin": "solutions/recursive/Solution.kt",
+        "cpp": "solutions/recursive/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2215,
+  "slug": "find-the-difference-of-two-arrays",
+  "title": "找出两数组的不同",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-032",
+  "studyTags": [
+    "数组",
+    "哈希表"
+  ],
+  "summary": "返回两个列表：只在 nums1 出现的不同整数，以及只在 nums2 出现的不同整数；每个值只出现一次。",
+  "insight": "分别构建集合并做集合差。为获得确定性输出，使用有序集合按升序返回。",
+  "pitfalls": [
+    "结果内不能重复",
+    "两个方向的差集要分别计算",
+    "题目允许任意顺序但测试固定升序"
+  ],
+  "solutions": [
+    {
+      "id": "two-set-differences",
+      "title": "双集合差集",
+      "kind": "最优",
+      "idea": "集合去重后分别排除交集。",
+      "steps": [
+        "TreeSet first、second 从两数组构建",
+        "onlyFirst=first 中不在 second 的值",
+        "onlySecond=second 中不在 first 的值；返回两列表"
+      ],
+      "complexity": {
+        "time": "O((n+m) log(n+m))",
+        "space": "O(n+m)"
+      },
+      "files": {
+        "java": "solutions/two-set-differences/Solution.java",
+        "kotlin": "solutions/two-set-differences/Solution.kt",
+        "cpp": "solutions/two-set-differences/solution.cpp"
+      }
+    }
+  ]
+}

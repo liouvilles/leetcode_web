@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "slidingPuzzle",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一步复原",
+      "args": [
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            4,
+            0,
+            5
+          ]
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "奇偶性导致不可达",
+      "args": [
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            5,
+            4,
+            0
+          ]
+        ]
+      ],
+      "expected": -1
+    },
+    {
+      "name": "五步复原",
+      "args": [
+        [
+          [
+            4,
+            1,
+            2
+          ],
+          [
+            5,
+            0,
+            3
+          ]
+        ]
+      ],
+      "expected": 5
+    }
+  ]
+}

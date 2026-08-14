@@ -1,0 +1,1 @@
+class Solution { fun findClosestElements(arr:IntArray,k:Int,x:Int):List<Int>{var left=0;var right=arr.size-k;while(left<right){val middle=left+(right-left)/2;if(x-arr[middle]>arr[middle+k]-x)left=middle+1 else right=middle};return (left until left+k).map{arr[it]}} }

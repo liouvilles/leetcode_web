@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 807,
+  "slug": "max-increase-to-keep-city-skyline",
+  "title": "保持城市天际线",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-011",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "矩阵"
+  ],
+  "summary": "可增加网格建筑高度，但从四个方向看到的行列最大高度不能改变，求总共最多可增加多少。",
+  "insight": "每格的新高度最多是所在行最大值与所在列最大值的较小者；各格独立提升到该上限即可达到总和最优。",
+  "pitfalls": [
+    "不能降低原高度",
+    "行最大值决定左右天际线，列最大值决定上下天际线",
+    "每格贡献为 min(rowMax,colMax)-grid"
+  ],
+  "solutions": [
+    {
+      "id": "row-column-maximum-cap",
+      "title": "行列最大值共同上限",
+      "kind": "最优",
+      "idea": "预处理天际线并独立计算每格可增量。",
+      "steps": [
+        "扫描矩阵得到每行 rowMax 和每列 columnMax",
+        "遍历每个格子计算 limit=min(rowMax[row],columnMax[column])",
+        "累加 limit-grid[row][column]"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(m+n)"
+      },
+      "files": {
+        "java": "solutions/row-column-maximum-cap/Solution.java",
+        "kotlin": "solutions/row-column-maximum-cap/Solution.kt",
+        "cpp": "solutions/row-column-maximum-cap/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findLexSmallestString",
+  "parameterTypes": [
+    "string",
+    "int",
+    "int"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "经典字符串最小化为二零五零",
+      "args": [
+        "5525",
+        9,
+        2
+      ],
+      "expected": "2050"
+    },
+    {
+      "name": "两位字符串可得到二四",
+      "args": [
+        "74",
+        5,
+        1
+      ],
+      "expected": "24"
+    },
+    {
+      "name": "原串已经字典序最小",
+      "args": [
+        "0011",
+        4,
+        2
+      ],
+      "expected": "0011"
+    }
+  ]
+}

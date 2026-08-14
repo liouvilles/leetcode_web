@@ -1,0 +1,1 @@
+class Solution { fun checkAlmostEquivalent(word1:String,word2:String):Boolean{val difference=IntArray(26);for(value in word1)difference[value-'a']++;for(value in word2)difference[value-'a']--;return difference.all{kotlin.math.abs(it)<=3}} }

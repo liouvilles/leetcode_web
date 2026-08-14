@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 922,
+  "slug": "sort-array-by-parity-ii",
+  "title": "按奇偶排序数组 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-013",
+  "studyTags": [
+    "数组",
+    "双指针"
+  ],
+  "summary": "数组中奇偶元素数量相同，重排后让每个下标的奇偶性与其元素一致。",
+  "insight": "分别维护下一个偶数下标和奇数下标，扫描元素并写入对应位置即可。",
+  "pitfalls": [
+    "下标从零开始，偶数位填偶数",
+    "两个写指针每次跨两格",
+    "题目保证奇偶元素数量匹配"
+  ],
+  "solutions": [
+    {
+      "id": "dual-write-indices",
+      "title": "奇偶双写指针",
+      "kind": "最优",
+      "idea": "按元素奇偶写入对应下标序列。",
+      "steps": [
+        "创建同长度 answer，even=0、odd=1",
+        "扫描 nums；偶数写 answer[even] 并 even+=2",
+        "奇数写 answer[odd] 并 odd+=2，返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/dual-write-indices/Solution.java",
+        "kotlin": "solutions/dual-write-indices/Solution.kt",
+        "cpp": "solutions/dual-write-indices/solution.cpp"
+      }
+    }
+  ]
+}

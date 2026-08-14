@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findWords",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "stringArray",
+  "cases": [
+    {
+      "name": "筛选同一键盘行",
+      "args": [
+        [
+          "Hello",
+          "Alaska",
+          "Dad",
+          "Peace"
+        ]
+      ],
+      "expected": [
+        "Alaska",
+        "Dad"
+      ]
+    },
+    {
+      "name": "单字符单词",
+      "args": [
+        [
+          "omk"
+        ]
+      ],
+      "expected": []
+    },
+    {
+      "name": "大小写混合",
+      "args": [
+        [
+          "adsdf",
+          "sfd"
+        ]
+      ],
+      "expected": [
+        "adsdf",
+        "sfd"
+      ]
+    }
+  ]
+}

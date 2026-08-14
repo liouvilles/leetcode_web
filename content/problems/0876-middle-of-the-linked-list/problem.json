@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "id": 876,
+  "slug": "middle-of-the-linked-list",
+  "title": "链表的中间结点",
+  "status": "published",
+  "qualityGate": "compile",
+  "batch": "legacy-001",
+  "studyTags": [
+    "快慢指针",
+    "二次遍历",
+    "偶数中点"
+  ],
+  "summary": "返回链表的中间结点；若结点数为偶数，返回两个中间结点中的后一个。",
+  "insight": "快指针走过两个结点的时间里慢指针走一个，快指针到终点时慢指针恰好在中间。",
+  "pitfalls": [
+    "偶数长度要求返回后一个中点",
+    "链表非空但仍应保持空值安全",
+    "快指针循环条件决定中点口径"
+  ],
+  "solutions": [
+    {
+      "id": "count-then-walk",
+      "title": "计数后二次遍历",
+      "kind": "基础",
+      "idea": "先统计结点总数 n，再从头结点移动 floor(n/2) 步。",
+      "steps": [
+        "第一次遍历计算长度",
+        "重置指针到头部",
+        "移动 length / 2 次"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/count-then-walk/Solution.java",
+        "kotlin": "solutions/count-then-walk/Solution.kt",
+        "cpp": "solutions/count-then-walk/solution.cpp"
+      }
+    },
+    {
+      "id": "fast-slow",
+      "title": "快慢指针",
+      "kind": "最优",
+      "idea": "单次遍历中让快指针速度为慢指针的两倍。",
+      "steps": [
+        "两个指针从头部出发",
+        "fast 可走两步时同时推进",
+        "循环结束返回 slow"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/fast-slow/Solution.java",
+        "kotlin": "solutions/fast-slow/Solution.kt",
+        "cpp": "solutions/fast-slow/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "validPalindrome",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "本身是回文",
+      "args": [
+        "aba"
+      ],
+      "expected": true
+    },
+    {
+      "name": "删除 c 后回文",
+      "args": [
+        "abca"
+      ],
+      "expected": true
+    },
+    {
+      "name": "一次删除仍不行",
+      "args": [
+        "abc"
+      ],
+      "expected": false
+    }
+  ]
+}

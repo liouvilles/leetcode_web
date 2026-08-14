@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findClosestNumber",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一最接近零",
+      "args": [
+        [
+          -4,
+          -2,
+          1,
+          4,
+          8
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "正负一平局选择正一",
+      "args": [
+        [
+          2,
+          -1,
+          1
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "正负二平局选择正二",
+      "args": [
+        [
+          -2,
+          2
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { private fun gap(length:Int,cuts:IntArray):Int{cuts.sort();var previous=0;var maximum=0;for(cut in cuts){maximum=maxOf(maximum,cut-previous);previous=cut};return maxOf(maximum,length-previous)};fun maxArea(h:Int,w:Int,horizontalCuts:IntArray,verticalCuts:IntArray):Int=(gap(h,horizontalCuts).toLong()*gap(w,verticalCuts)%1_000_000_007L).toInt() }

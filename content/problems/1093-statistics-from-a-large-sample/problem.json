@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1093,
+  "slug": "statistics-from-a-large-sample",
+  "title": "大样本统计",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-016",
+  "studyTags": [
+    "数组",
+    "数学",
+    "计数"
+  ],
+  "summary": "count[i] 给出样本值 i 的出现次数，返回最小值、最大值、平均数、中位数和众数。",
+  "insight": "值域仅零到二百五十五；一次扫描得到端点、总数、加权和与众数，再用累计频次定位中间两个秩。",
+  "pitfalls": [
+    "平均数用双精度除法",
+    "偶数样本中位数是第 total/2 与 total/2+1 项均值",
+    "众数保证唯一，但实现按严格更大更新即可"
+  ],
+  "solutions": [
+    {
+      "id": "frequency-statistics-scan",
+      "title": "频次数组统计扫描",
+      "kind": "最优",
+      "idea": "用加权计数和秩查询得到五项统计量。",
+      "steps": [
+        "扫描 count 得 minimum、maximum、total、sum、mode",
+        "定义 kth(rank)，累计频次首次达到 rank 时返回该值",
+        "leftRank=(total+1)/2，rightRank=(total+2)/2，中位数为两 kth 均值，返回五项数组"
+      ],
+      "complexity": {
+        "time": "O(256)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/frequency-statistics-scan/Solution.java",
+        "kotlin": "solutions/frequency-statistics-scan/Solution.kt",
+        "cpp": "solutions/frequency-statistics-scan/solution.cpp"
+      }
+    }
+  ]
+}

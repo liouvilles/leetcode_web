@@ -1,0 +1,1 @@
+class Solution { public:int maxConsecutive(int bottom,int top,vector<int>& special){sort(special.begin(),special.end());int answer=special[0]-bottom;for(int i=1;i<(int)special.size();++i)answer=max(answer,special[i]-special[i-1]-1);return max(answer,top-special.back());} };

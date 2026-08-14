@@ -1,0 +1,1 @@
+class Solution { fun checkArithmeticSubarrays(nums:IntArray,l:IntArray,r:IntArray):List<Boolean>{return l.indices.map{query->val values=nums.sliceArray(l[query]..r[query]).sorted();val difference=values[1]-values[0];(2 until values.size).all{values[it]-values[it-1]==difference}}} }

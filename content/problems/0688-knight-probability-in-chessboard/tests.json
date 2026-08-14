@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "knightProbability",
+  "parameterTypes": [
+    "int",
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "double",
+  "cases": [
+    {
+      "name": "三乘三走两步",
+      "args": [
+        3,
+        2,
+        0,
+        0
+      ],
+      "expected": 0.0625
+    },
+    {
+      "name": "一步不走",
+      "args": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "expected": 1
+    },
+    {
+      "name": "单格走一步必出界",
+      "args": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "expected": 0
+    }
+  ]
+}

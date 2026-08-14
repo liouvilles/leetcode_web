@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1662,
+  "slug": "check-if-two-string-arrays-are-equivalent",
+  "title": "检查两个字符串数组是否相等",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-024",
+  "studyTags": [
+    "数组",
+    "字符串"
+  ],
+  "summary": "分别按顺序连接两个字符串数组，判断所得完整字符串是否相同。",
+  "insight": "数组分块不影响连接结果，直接连接每侧全部片段后比较即可。",
+  "pitfalls": [
+    "片段边界不参与比较",
+    "保持数组和片段原顺序",
+    "空片段也不影响结果"
+  ],
+  "solutions": [
+    {
+      "id": "join-and-compare",
+      "title": "连接后比较",
+      "kind": "最优",
+      "idea": "把两侧规范化为完整字符串。",
+      "steps": [
+        "分别创建 StringBuilder",
+        "顺序追加每个片段",
+        "比较两个完整字符串"
+      ],
+      "complexity": {
+        "time": "O(total length)",
+        "space": "O(total length)"
+      },
+      "files": {
+        "java": "solutions/join-and-compare/Solution.java",
+        "kotlin": "solutions/join-and-compare/Solution.kt",
+        "cpp": "solutions/join-and-compare/solution.cpp"
+      }
+    }
+  ]
+}

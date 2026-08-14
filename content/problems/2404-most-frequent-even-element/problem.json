@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2404,
+  "slug": "most-frequent-even-element",
+  "title": "出现最频繁的偶数元素",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-035",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "计数"
+  ],
+  "summary": "返回数组中出现次数最多的偶数，并列取最小值；没有偶数返回负一。",
+  "insight": "哈希统计偶数频次，每次更新后按频次更大或同频值更小更新答案。",
+  "pitfalls": [
+    "奇数完全忽略",
+    "并列取数值较小者",
+    "没有偶数返回负一"
+  ],
+  "solutions": [
+    {
+      "id": "even-frequency-map",
+      "title": "偶数频次表",
+      "kind": "最优",
+      "idea": "单遍统计并维护最优值。",
+      "steps": [
+        "answer=-1、best=0",
+        "对偶数 frequency[value]++",
+        "若频次更高或同频且 value<answer，更新",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(distinct even values)"
+      },
+      "files": {
+        "java": "solutions/even-frequency-map/Solution.java",
+        "kotlin": "solutions/even-frequency-map/Solution.kt",
+        "cpp": "solutions/even-frequency-map/solution.cpp"
+      }
+    }
+  ]
+}

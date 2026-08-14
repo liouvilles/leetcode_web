@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isStrictlyPalindromic",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "四不是严格回文数",
+      "args": [
+        4
+      ],
+      "expected": false
+    },
+    {
+      "name": "九不是严格回文数",
+      "args": [
+        9
+      ],
+      "expected": false
+    },
+    {
+      "name": "一百也不是严格回文数",
+      "args": [
+        100
+      ],
+      "expected": false
+    }
+  ]
+}

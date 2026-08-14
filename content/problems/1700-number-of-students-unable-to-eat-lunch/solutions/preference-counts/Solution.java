@@ -1,0 +1,1 @@
+class Solution { public int countStudents(int[] students,int[] sandwiches){int[] count=new int[2];for(int student:students)count[student]++;for(int i=0;i<sandwiches.length;i++){int type=sandwiches[i];if(count[type]==0)return sandwiches.length-i;count[type]--;}return 0;} }

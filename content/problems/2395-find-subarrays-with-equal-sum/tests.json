@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findSubarrays",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "两个重叠窗口和均为六",
+      "args": [
+        [
+          4,
+          2,
+          4
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "相邻对和互不相同",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "三个零存在相等窗口",
+      "args": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

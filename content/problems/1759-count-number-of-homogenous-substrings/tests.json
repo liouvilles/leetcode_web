@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countHomogenous",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "多个连续段共有十三个",
+      "args": [
+        "abbcccaa"
+      ],
+      "expected": 13
+    },
+    {
+      "name": "两个不同字符各贡献一",
+      "args": [
+        "xy"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "五个相同字符贡献十五",
+      "args": [
+        "zzzzz"
+      ],
+      "expected": 15
+    }
+  ]
+}

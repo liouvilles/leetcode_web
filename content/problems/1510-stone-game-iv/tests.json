@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "winnerSquareGame",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "一颗石子先手获胜",
+      "args": [
+        1
+      ],
+      "expected": true
+    },
+    {
+      "name": "两颗石子先手失败",
+      "args": [
+        2
+      ],
+      "expected": false
+    },
+    {
+      "name": "四颗可一次拿完",
+      "args": [
+        4
+      ],
+      "expected": true
+    },
+    {
+      "name": "七颗为输态",
+      "args": [
+        7
+      ],
+      "expected": false
+    }
+  ]
+}

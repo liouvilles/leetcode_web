@@ -1,0 +1,1 @@
+class Solution { private val memo=mutableMapOf(1 to 0);private fun power(value:Int):Int=memo.getOrPut(value){1+power(if(value%2==0)value/2 else 3*value+1)};fun getKth(lo:Int,hi:Int,k:Int):Int=(lo..hi).sortedWith(compareBy<Int>{power(it)}.thenBy{it})[k-1] }

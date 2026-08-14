@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "merge",
+  "parameterTypes": [
+    "intArray",
+    "int",
+    "intArray",
+    "int"
+  ],
+  "returnType": "void",
+  "cases": [
+    {
+      "name": "两个数组交错合并",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          0,
+          0,
+          0
+        ],
+        3,
+        [
+          2,
+          5,
+          6
+        ],
+        3
+      ],
+      "expectedArgs": [
+        {
+          "index": 0,
+          "type": "intArray",
+          "expected": [
+            1,
+            2,
+            2,
+            3,
+            5,
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "name": "第二数组为空",
+      "args": [
+        [
+          1
+        ],
+        1,
+        [],
+        0
+      ],
+      "expectedArgs": [
+        {
+          "index": 0,
+          "type": "intArray",
+          "expected": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "name": "第一数组没有有效元素",
+      "args": [
+        [
+          0
+        ],
+        0,
+        [
+          1
+        ],
+        1
+      ],
+      "expectedArgs": [
+        {
+          "index": 0,
+          "type": "intArray",
+          "expected": [
+            1
+          ]
+        }
+      ]
+    }
+  ]
+}

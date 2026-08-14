@@ -1,0 +1,1 @@
+class Solution { public List<Integer> findDuplicates(int[] nums){List<Integer> answer=new ArrayList<>();for(int item:nums){int value=Math.abs(item),index=value-1;if(nums[index]<0)answer.add(value);else nums[index]=-nums[index];}Collections.sort(answer);return answer;} }

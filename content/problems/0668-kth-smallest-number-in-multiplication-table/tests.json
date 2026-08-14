@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findKthNumber",
+  "parameterTypes": [
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三乘三第五小",
+      "args": [
+        3,
+        3,
+        5
+      ],
+      "expected": 3
+    },
+    {
+      "name": "二乘三最大项",
+      "args": [
+        2,
+        3,
+        6
+      ],
+      "expected": 6
+    },
+    {
+      "name": "单行乘法表",
+      "args": [
+        1,
+        10,
+        7
+      ],
+      "expected": 7
+    }
+  ]
+}

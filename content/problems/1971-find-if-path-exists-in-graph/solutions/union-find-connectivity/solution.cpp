@@ -1,0 +1,1 @@
+class Solution { vector<int> parent;int find(int value){return value==parent[value]?value:parent[value]=find(parent[value]);}public: bool validPath(int n,vector<vector<int>>& edges,int source,int destination){parent.resize(n);iota(parent.begin(),parent.end(),0);for(auto& edge:edges)parent[find(edge[0])]=find(edge[1]);return find(source)==find(destination);} };

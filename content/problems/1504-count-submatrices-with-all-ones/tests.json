@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numSubmat",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三乘三矩阵十三个全一子矩形",
+      "args": [
+        [
+          [
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            0
+          ]
+        ]
+      ],
+      "expected": 13
+    },
+    {
+      "name": "不规则全一区域共二十四个",
+      "args": [
+        [
+          [
+            0,
+            1,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            1,
+            0
+          ]
+        ]
+      ],
+      "expected": 24
+    },
+    {
+      "name": "二乘二全一矩阵",
+      "args": [
+        [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": 9
+    }
+  ]
+}

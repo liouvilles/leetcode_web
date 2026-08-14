@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2370,
+  "slug": "longest-ideal-subsequence",
+  "title": "最长理想子序列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-035",
+  "studyTags": [
+    "哈希表",
+    "字符串",
+    "动态规划"
+  ],
+  "summary": "求字符串最长子序列，使相邻字符字母表位置差绝对值不超过 k。",
+  "insight": "dp[c] 保存以字符 c 结尾的最长理想子序列。处理当前字符时，在 c-k 到 c+k 的所有末字符状态取最大值再加一。",
+  "pitfalls": [
+    "子序列不要求连续",
+    "更新前需先读取范围旧状态",
+    "k 为零时只能连接相同字符"
+  ],
+  "solutions": [
+    {
+      "id": "best-length-by-ending-character",
+      "title": "按末字符的最优长度",
+      "kind": "最优",
+      "idea": "26 个状态压缩所有历史子序列。",
+      "steps": [
+        "dp[26]=0、answer=0",
+        "对字符 c，best=max(dp[max(0,c-k)..min(25,c+k)])",
+        "dp[c]=max(dp[c],best+1)",
+        "更新并返回 answer"
+      ],
+      "complexity": {
+        "time": "O(26n)",
+        "space": "O(26)"
+      },
+      "files": {
+        "java": "solutions/best-length-by-ending-character/Solution.java",
+        "kotlin": "solutions/best-length-by-ending-character/Solution.kt",
+        "cpp": "solutions/best-length-by-ending-character/solution.cpp"
+      }
+    }
+  ]
+}

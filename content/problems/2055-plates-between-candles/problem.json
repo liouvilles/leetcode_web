@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2055,
+  "slug": "plates-between-candles",
+  "title": "蜡烛之间的盘子",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "前缀和"
+  ],
+  "summary": "字符串中星号是盘子、竖线是蜡烛；对每个区间查询两支蜡烛之间的盘子数量。",
+  "insight": "预处理盘子前缀和、每个位置右侧最近蜡烛和左侧最近蜡烛。查询取左端右侧蜡烛与右端左侧蜡烛，若顺序有效，用前缀和相减。",
+  "pitfalls": [
+    "区间端点包含",
+    "只统计最外层可用蜡烛之间盘子",
+    "蜡烛不足两支答案零"
+  ],
+  "solutions": [
+    {
+      "id": "nearest-candles-and-prefix-plates",
+      "title": "最近蜡烛与盘子前缀",
+      "kind": "最优",
+      "idea": "O(1) 定位查询内两侧蜡烛并求其间星号数。",
+      "steps": [
+        "prefix[i+1] 累计星号；leftCandle 从左扫，rightCandle 从右扫",
+        "query [l,r]：start=rightCandle[l]、end=leftCandle[r]",
+        "若 start<end，answer=prefix[end]-prefix[start]，否则零"
+      ],
+      "complexity": {
+        "time": "O(n+q)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/nearest-candles-and-prefix-plates/Solution.java",
+        "kotlin": "solutions/nearest-candles-and-prefix-plates/Solution.kt",
+        "cpp": "solutions/nearest-candles-and-prefix-plates/solution.cpp"
+      }
+    }
+  ]
+}

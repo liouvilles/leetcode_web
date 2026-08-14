@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2296,
+  "slug": "design-a-text-editor",
+  "title": "设计一个文本编辑器",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-033",
+  "studyTags": [
+    "设计",
+    "链表",
+    "字符串",
+    "双向链表",
+    "模拟",
+    "栈"
+  ],
+  "summary": "设计文本编辑器，支持在光标处添加文本、删除左侧字符、左右移动光标，并返回光标左侧至多十个字符。",
+  "insight": "维护 left 与 right 两个字符栈：left 尾部紧邻光标左侧，right 尾部紧邻光标右侧。左右移动就是在两个栈尾部搬运字符，添加和删除只操作 left 尾部。",
+  "pitfalls": [
+    "deleteText 返回实际删除数",
+    "移动不能越过文本两端",
+    "cursorLeft 与 cursorRight 返回移动后左侧至多十字符"
+  ],
+  "solutions": [
+    {
+      "id": "two-cursor-side-stacks",
+      "title": "光标两侧双栈",
+      "kind": "最优",
+      "idea": "将光标附近的编辑全部化为字符串尾部操作。",
+      "steps": [
+        "addText 追加到 left",
+        "deleteText 截断 left 尾部 min(k,left.length) 个字符",
+        "cursorLeft 从 left 尾部逐字符移到 right 尾部；cursorRight 反向搬运",
+        "每次移动后截取 left 最后 min(10,length) 个字符"
+      ],
+      "complexity": {
+        "time": "O(text length moved or added)",
+        "space": "O(total text length)"
+      },
+      "files": {
+        "java": "solutions/two-cursor-side-stacks/Solution.java",
+        "kotlin": "solutions/two-cursor-side-stacks/Solution.kt",
+        "cpp": "solutions/two-cursor-side-stacks/solution.cpp"
+      }
+    }
+  ]
+}

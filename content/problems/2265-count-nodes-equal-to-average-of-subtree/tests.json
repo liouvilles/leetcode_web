@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "averageOfSubtree",
+  "parameterTypes": [
+    "treeNode"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典二叉树有五个匹配节点",
+      "args": [
+        [
+          4,
+          8,
+          5,
+          0,
+          1,
+          null,
+          6
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "单节点必等于自身平均",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "根与叶节点均可匹配",
+      "args": [
+        [
+          2,
+          1,
+          3
+        ]
+      ],
+      "expected": 3
+    }
+  ]
+}

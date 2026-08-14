@@ -1,0 +1,1 @@
+class Solution { fun winnerSquareGame(n:Int):Boolean{val dp=BooleanArray(n+1);for(stones in 1..n)for(root in 1..kotlin.math.sqrt(stones.toDouble()).toInt())if(!dp[stones-root*root]){dp[stones]=true;break};return dp[n]} }

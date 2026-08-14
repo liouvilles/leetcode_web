@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 1632,
+  "slug": "rank-transform-of-a-matrix",
+  "title": "矩阵转换后的秩",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-023",
+  "studyTags": [
+    "数组",
+    "并查集",
+    "图论",
+    "排序",
+    "矩阵"
+  ],
+  "summary": "为矩阵每个元素赋正整数秩，同行或同列中较小值秩更小、相等值秩相同，并使所有秩尽可能小。",
+  "insight": "按值升序分组。组内同行或同列的相等元素用并查集连成分量；每个分量的新秩是所涉及行列当前最大秩加一，整组赋值后再统一更新行列秩。",
+  "pitfalls": [
+    "相等值可能经行列关系传递相连",
+    "同值组计算期间不能提前更新行列秩",
+    "不同连通分量可获得不同秩"
+  ],
+  "solutions": [
+    {
+      "id": "value-groups-dsu",
+      "title": "按值分组并查集",
+      "kind": "最优",
+      "idea": "逐值建立相等元素约束并从较小值秩转移。",
+      "steps": [
+        "所有单元格按值排序，维护 rowRank、colRank",
+        "对同值组用临时 DSU 合并每个单元格的 row 与 rows+col",
+        "每个根取涉及行列旧秩最大值加一；写入答案后统一更新行列秩"
+      ],
+      "complexity": {
+        "time": "O(mn log(mn))",
+        "space": "O(mn)"
+      },
+      "files": {
+        "java": "solutions/value-groups-dsu/Solution.java",
+        "kotlin": "solutions/value-groups-dsu/Solution.kt",
+        "cpp": "solutions/value-groups-dsu/solution.cpp"
+      }
+    }
+  ]
+}

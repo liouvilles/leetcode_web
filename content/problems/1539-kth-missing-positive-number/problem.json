@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1539,
+  "slug": "kth-missing-positive-number",
+  "title": "第 K 个缺失的正整数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-022",
+  "studyTags": [
+    "数组",
+    "二分查找"
+  ],
+  "summary": "严格递增正整数数组中，返回未出现的第 k 个正整数。",
+  "insight": "到下标 i 为止缺失数为 arr[i]-i-1。二分首个缺失数不少于 k 的位置 left，答案统一为 left+k。",
+  "pitfalls": [
+    "缺失序列从正整数一开始",
+    "答案可能在数组末尾之后",
+    "二分位置可等于数组长度"
+  ],
+  "solutions": [
+    {
+      "id": "missing-count-binary-search",
+      "title": "缺失计数二分",
+      "kind": "最优",
+      "idea": "按每个数组位置之前累计缺失数量寻找边界。",
+      "steps": [
+        "left=0,right=n",
+        "middle 缺失数 arr[middle]-middle-1<k 时 left=middle+1，否则 right=middle",
+        "返回 left+k"
+      ],
+      "complexity": {
+        "time": "O(log n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/missing-count-binary-search/Solution.java",
+        "kotlin": "solutions/missing-count-binary-search/Solution.kt",
+        "cpp": "solutions/missing-count-binary-search/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { private fun match(head:ListNode?,node:TreeNode?):Boolean{if(head==null)return true;if(node==null||head.`val`!=node.`val`)return false;return match(head.next,node.left)||match(head.next,node.right)};fun isSubPath(head:ListNode?,root:TreeNode?):Boolean=root!=null&&(match(head,root)||isSubPath(head,root.left)||isSubPath(head,root.right)) }

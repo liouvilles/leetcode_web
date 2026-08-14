@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 319,
+  "slug": "bulb-switcher",
+  "title": "灯泡开关",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-005",
+  "studyTags": [
+    "数学",
+    "完全平方数",
+    "因数"
+  ],
+  "summary": "n 个灯泡初始关闭，第 round 轮切换所有编号为 round 倍数的灯，求 n 轮后亮灯数量。",
+  "insight": "编号的切换次数等于其因数个数，只有完全平方数因数个数为奇数，因此亮灯数是 floor(sqrt(n))。",
+  "pitfalls": [
+    "灯泡编号从一开始",
+    "成对因数只在平方根处重合",
+    "直接求整数平方根即可"
+  ],
+  "solutions": [
+    {
+      "id": "count-perfect-squares",
+      "title": "统计完全平方数",
+      "kind": "最优",
+      "idea": "一到 n 中完全平方数的个数等于 n 的平方根下取整。",
+      "steps": [
+        "求 sqrt(n)",
+        "向下取整转换为整数",
+        "返回结果"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/count-perfect-squares/Solution.java",
+        "kotlin": "solutions/count-perfect-squares/Solution.kt",
+        "cpp": "solutions/count-perfect-squares/solution.cpp"
+      }
+    }
+  ]
+}

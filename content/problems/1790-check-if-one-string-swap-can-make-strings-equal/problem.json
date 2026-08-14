@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1790,
+  "slug": "check-if-one-string-swap-can-make-strings-equal",
+  "title": "仅执行一次字符串交换能否使两个字符串相等",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-026",
+  "studyTags": [
+    "哈希表",
+    "字符串",
+    "计数"
+  ],
+  "summary": "可在一个字符串中选择两个下标交换一次（可相同），判断能否使两字符串相等。",
+  "insight": "相等时交换同一下标即可。否则必须恰好有两个不匹配位置，且两处字符交叉相等。",
+  "pitfalls": [
+    "一个不匹配位置无法修复",
+    "超过两个不匹配直接失败",
+    "两个不匹配需双向对应"
+  ],
+  "solutions": [
+    {
+      "id": "two-mismatch-cross-check",
+      "title": "两处失配交叉验证",
+      "kind": "最优",
+      "idea": "收集唯一可能被交换的两个位置。",
+      "steps": [
+        "扫描两串收集 mismatch 下标，超过二返回 false",
+        "无 mismatch 返回 true",
+        "恰好二个时检查 s[first]==goal[second] 且 s[second]==goal[first]"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/two-mismatch-cross-check/Solution.java",
+        "kotlin": "solutions/two-mismatch-cross-check/Solution.kt",
+        "cpp": "solutions/two-mismatch-cross-check/solution.cpp"
+      }
+    }
+  ]
+}

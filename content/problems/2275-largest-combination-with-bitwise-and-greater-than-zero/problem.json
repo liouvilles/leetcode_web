@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2275,
+  "slug": "largest-combination-with-bitwise-and-greater-than-zero",
+  "title": "按位与结果大于零的最长组合",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-033",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "位运算",
+    "计数"
+  ],
+  "summary": "从候选正整数选最多元素，使全部按位与结果大于零，求最大元素数。",
+  "insight": "按位与大于零等价于存在某一位在所有选中数中都是一。对每个二进制位统计包含它的候选数量，最大统计值即答案。",
+  "pitfalls": [
+    "组合可选任意子集",
+    "只需共同拥有至少一位",
+    "候选值为正数"
+  ],
+  "solutions": [
+    {
+      "id": "count-set-bits-by-position",
+      "title": "逐位统计置位数量",
+      "kind": "最优",
+      "idea": "选择共享某一位的全部候选即可达到该位统计数。",
+      "steps": [
+        "answer=0",
+        "bit 从零到三十",
+        "count candidates 中 value&(1<<bit)!=0，更新最大值"
+      ],
+      "complexity": {
+        "time": "O(31n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/count-set-bits-by-position/Solution.java",
+        "kotlin": "solutions/count-set-bits-by-position/Solution.kt",
+        "cpp": "solutions/count-set-bits-by-position/solution.cpp"
+      }
+    }
+  ]
+}

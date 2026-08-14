@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2007,
+  "slug": "find-original-array-from-doubled-array",
+  "title": "从双倍数组中还原原数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-029",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "贪心",
+    "排序"
+  ],
+  "summary": "changed 由原数组与每个元素的两倍混合而成，返回任一原数组，不可能则返回空数组。",
+  "insight": "元素非负，升序处理能确保先匹配较小原数与其两倍。频次中当前值仍有剩余时必须消耗一个当前值和一个 2*value。",
+  "pitfalls": [
+    "零必须成对出现",
+    "数组长度必须为偶数",
+    "按升序避免把双倍值误作原值"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-frequency-pairing",
+      "title": "升序频次配对",
+      "kind": "最优",
+      "idea": "依次把最小未使用元素认作原数并消耗双倍值。",
+      "steps": [
+        "奇数长度返回空；排序 changed 并统计频次",
+        "遍历 value，频次零跳过；若 frequency[2value]==0 返回空",
+        "两频次各减一，value 加入答案；完成返回"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/sorted-frequency-pairing/Solution.java",
+        "kotlin": "solutions/sorted-frequency-pairing/Solution.kt",
+        "cpp": "solutions/sorted-frequency-pairing/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "knightDialer",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "长度一",
+      "args": [
+        1
+      ],
+      "expected": 10
+    },
+    {
+      "name": "长度二",
+      "args": [
+        2
+      ],
+      "expected": 20
+    },
+    {
+      "name": "较大长度取模",
+      "args": [
+        3131
+      ],
+      "expected": 136006598
+    }
+  ]
+}

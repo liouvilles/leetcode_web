@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximum69Number",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "改最高位得到九九六九",
+      "args": [
+        9669
+      ],
+      "expected": 9969
+    },
+    {
+      "name": "首位六改九",
+      "args": [
+        6666
+      ],
+      "expected": 9666
+    },
+    {
+      "name": "全九保持不变",
+      "args": [
+        9999
+      ],
+      "expected": 9999
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1896,
+  "slug": "minimum-cost-to-change-the-final-value-of-expression",
+  "title": "反转表达式值的最少操作次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-027",
+  "studyTags": [
+    "栈",
+    "数学",
+    "字符串",
+    "动态规划"
+  ],
+  "summary": "布尔表达式含零、一、与、或和括号，每次可翻转一个数字或运算符，求让最终值反转的最少操作次数。",
+  "insight": "每个子表达式维护变成 0 和 1 的最小代价。合并左右状态时枚举左右目标值和当前/翻转后的运算符；递归下降处理括号，并按题目规则从左到右合并同层运算。",
+  "pitfalls": [
+    "与和或在本题同优先级并从左向右",
+    "翻转运算符也计一次",
+    "括号结构不能改变"
+  ],
+  "solutions": [
+    {
+      "id": "recursive-two-value-cost-dp",
+      "title": "递归解析二值代价 DP",
+      "kind": "最优",
+      "idea": "解析时为每个子式计算两个目标布尔值的最低修改代价。",
+      "steps": [
+        "叶子 0 的状态 [0,1]，叶子 1 为 [1,0]",
+        "combine 枚举左右值与 &/|，加上运算符是否翻转的代价",
+        "递归解析括号并同层左结合；返回原值相反下标的代价"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/recursive-two-value-cost-dp/Solution.java",
+        "kotlin": "solutions/recursive-two-value-cost-dp/Solution.kt",
+        "cpp": "solutions/recursive-two-value-cost-dp/solution.cpp"
+      }
+    }
+  ]
+}

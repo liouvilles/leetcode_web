@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumNumber",
+  "parameterTypes": [
+    "string",
+    "intArray"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "首位一映射八得到八三二",
+      "args": [
+        "132",
+        [
+          9,
+          8,
+          5,
+          0,
+          3,
+          6,
+          4,
+          2,
+          6,
+          8
+        ]
+      ],
+      "expected": "832"
+    },
+    {
+      "name": "连续三位均可获益",
+      "args": [
+        "021",
+        [
+          9,
+          4,
+          3,
+          5,
+          7,
+          2,
+          1,
+          9,
+          0,
+          6
+        ]
+      ],
+      "expected": "934"
+    },
+    {
+      "name": "恒等映射保持原数",
+      "args": [
+        "5",
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "expected": "5"
+    }
+  ]
+}

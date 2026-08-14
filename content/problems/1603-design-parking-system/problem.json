@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1603,
+  "slug": "design-parking-system",
+  "title": "设计停车系统",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-023",
+  "studyTags": [
+    "设计",
+    "模拟",
+    "计数"
+  ],
+  "summary": "停车场分别有大、中、小车位，车辆到达时判断对应类型是否还有空位并占用。",
+  "insight": "用长度四数组保存三种类型剩余容量；addCar 若容量正则减一并返回真，否则返回假。",
+  "pitfalls": [
+    "车辆类型一二三分别对应大中小",
+    "失败时不能改变容量",
+    "每次成功停车永久占用一个车位"
+  ],
+  "solutions": [
+    {
+      "id": "remaining-capacity-array",
+      "title": "剩余容量数组",
+      "kind": "最优",
+      "idea": "按车型索引直接检查并递减容量。",
+      "steps": [
+        "构造 remaining[1]=big,[2]=medium,[3]=small",
+        "addCar(type) 若 remaining[type]==0 返回 false",
+        "否则 remaining[type]-- 并返回 true"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/remaining-capacity-array/Solution.java",
+        "kotlin": "solutions/remaining-capacity-array/Solution.kt",
+        "cpp": "solutions/remaining-capacity-array/solution.cpp"
+      }
+    }
+  ]
+}

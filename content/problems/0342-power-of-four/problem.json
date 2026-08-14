@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 342,
+  "slug": "power-of-four",
+  "title": "4 的幂",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-005",
+  "studyTags": [
+    "位运算",
+    "掩码",
+    "数学"
+  ],
+  "summary": "判断整数是否恰好是四的非负整数次幂。",
+  "insight": "四次幂首先只有一个二进制一，并且这个一只能位于从最低位开始的偶数位，可用交替位掩码验证。",
+  "pitfalls": [
+    "非正数返回假",
+    "一是四的零次幂",
+    "只判断二的幂还不够，例如八"
+  ],
+  "solutions": [
+    {
+      "id": "single-bit-even-position",
+      "title": "单比特 + 偶数位掩码",
+      "kind": "最优",
+      "idea": "结合 n&(n-1) 与 0x55555555 检查唯一一所在位置。",
+      "steps": [
+        "检查 n>0",
+        "确认只有一个置位比特",
+        "确认该比特落在交替偶数位掩码中"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/single-bit-even-position/Solution.java",
+        "kotlin": "solutions/single-bit-even-position/Solution.kt",
+        "cpp": "solutions/single-bit-even-position/solution.cpp"
+      }
+    }
+  ]
+}

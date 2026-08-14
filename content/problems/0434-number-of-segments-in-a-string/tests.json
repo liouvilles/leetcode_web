@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countSegments",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "五个单词",
+      "args": [
+        "Hello, my name is John"
+      ],
+      "expected": 5
+    },
+    {
+      "name": "只有空格",
+      "args": [
+        "   "
+      ],
+      "expected": 0
+    },
+    {
+      "name": "多重空格",
+      "args": [
+        "a  b   c"
+      ],
+      "expected": 3
+    }
+  ]
+}

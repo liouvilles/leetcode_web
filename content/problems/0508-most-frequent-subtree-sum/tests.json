@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findFrequentTreeSum",
+  "parameterTypes": [
+    "treeNode"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "三个和并列",
+      "args": [
+        [
+          5,
+          2,
+          -3
+        ]
+      ],
+      "expected": [
+        -3,
+        2,
+        4
+      ]
+    },
+    {
+      "name": "子树和二出现两次",
+      "args": [
+        [
+          5,
+          2,
+          -5
+        ]
+      ],
+      "expected": [
+        2
+      ]
+    },
+    {
+      "name": "单节点",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": [
+        1
+      ]
+    }
+  ]
+}

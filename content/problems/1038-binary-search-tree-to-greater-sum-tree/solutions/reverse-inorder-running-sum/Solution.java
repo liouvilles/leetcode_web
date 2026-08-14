@@ -1,0 +1,1 @@
+class Solution { private int running;public TreeNode bstToGst(TreeNode root){running=0;traverse(root);return root;}private void traverse(TreeNode node){if(node==null)return;traverse(node.right);running+=node.val;node.val=running;traverse(node.left);} }

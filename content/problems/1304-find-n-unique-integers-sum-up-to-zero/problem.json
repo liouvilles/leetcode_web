@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1304,
+  "slug": "find-n-unique-integers-sum-up-to-zero",
+  "title": "和为零的 N 个唯一整数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "数组",
+    "数学",
+    "构造"
+  ],
+  "summary": "构造 n 个互不相同的整数，使它们之和为零。",
+  "insight": "成对加入 x 与 -x 会保持总和为零且彼此不同；n 为奇数时再加入零即可。",
+  "pitfalls": [
+    "只需返回任一合法数组",
+    "正负对不能包含零",
+    "n 为一时答案就是零"
+  ],
+  "solutions": [
+    {
+      "id": "positive-negative-pairs",
+      "title": "正负成对构造",
+      "kind": "最优",
+      "idea": "用对称整数对抵消总和。",
+      "steps": [
+        "创建长度 n 的 answer，write=0",
+        "对 value=1..n/2 依次写 value、-value",
+        "若 n 为奇数最后写零，返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1) 除结果"
+      },
+      "files": {
+        "java": "solutions/positive-negative-pairs/Solution.java",
+        "kotlin": "solutions/positive-negative-pairs/Solution.kt",
+        "cpp": "solutions/positive-negative-pairs/solution.cpp"
+      }
+    }
+  ]
+}

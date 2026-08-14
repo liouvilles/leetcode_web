@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "kConcatenationMaxSum",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "全正三份",
+      "args": [
+        [
+          1,
+          2
+        ],
+        3
+      ],
+      "expected": 9
+    },
+    {
+      "name": "总和为零只跨边界",
+      "args": [
+        [
+          1,
+          -2,
+          1
+        ],
+        5
+      ],
+      "expected": 2
+    },
+    {
+      "name": "全负按规则返回零",
+      "args": [
+        [
+          -1,
+          -2
+        ],
+        7
+      ],
+      "expected": 0
+    }
+  ]
+}

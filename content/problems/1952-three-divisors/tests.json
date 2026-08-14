@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isThree",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "四的除数为一二四",
+      "args": [
+        4
+      ],
+      "expected": true
+    },
+    {
+      "name": "二只有两个除数",
+      "args": [
+        2
+      ],
+      "expected": false
+    },
+    {
+      "name": "十六平方根不是质数",
+      "args": [
+        16
+      ],
+      "expected": false
+    }
+  ]
+}

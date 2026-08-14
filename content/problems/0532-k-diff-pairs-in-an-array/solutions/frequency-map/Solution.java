@@ -1,0 +1,1 @@
+class Solution { public int findPairs(int[] nums,int k){if(k<0)return 0;Map<Integer,Integer> counts=new HashMap<>();for(int value:nums)counts.put(value,counts.getOrDefault(value,0)+1);int answer=0;for(Map.Entry<Integer,Integer> entry:counts.entrySet())if(k==0?entry.getValue()>1:counts.containsKey(entry.getKey()+k))answer++;return answer;} }

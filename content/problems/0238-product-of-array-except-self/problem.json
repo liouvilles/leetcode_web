@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 238,
+  "slug": "product-of-array-except-self",
+  "title": "除自身以外数组的乘积",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-003",
+  "studyTags": [
+    "前缀乘积",
+    "后缀乘积",
+    "无除法"
+  ],
+  "summary": "对数组每个位置，计算除该位置元素外其余所有元素的乘积，不能使用除法。",
+  "insight": "答案由左侧所有元素乘积与右侧所有元素乘积相乘得到；前缀写进答案，后缀用一个滚动变量补上。",
+  "pitfalls": [
+    "前缀和后缀的空乘积为一",
+    "零元素由乘积流程自然处理",
+    "后缀变量应在写答案之后更新"
+  ],
+  "solutions": [
+    {
+      "id": "prefix-suffix",
+      "title": "前缀数组 + 滚动后缀",
+      "kind": "最优",
+      "idea": "先把每个位置左侧乘积写入结果，再反向乘上右侧乘积。",
+      "steps": [
+        "answer[0] 初始化为一",
+        "正向累计左侧乘积",
+        "反向维护 suffix 并乘入答案"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1) extra"
+      },
+      "files": {
+        "java": "solutions/prefix-suffix/Solution.java",
+        "kotlin": "solutions/prefix-suffix/Solution.kt",
+        "cpp": "solutions/prefix-suffix/solution.cpp"
+      }
+    }
+  ]
+}

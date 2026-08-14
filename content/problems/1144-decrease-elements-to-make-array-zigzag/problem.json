@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1144,
+  "slug": "decrease-elements-to-make-array-zigzag",
+  "title": "递减元素使数组呈锯齿状",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-016",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "枚举"
+  ],
+  "summary": "每次可把一个元素减一，求使所有偶数位均为谷底或所有奇数位均为谷底的最少操作数。",
+  "insight": "固定哪一种下标作为谷底后，各谷底只需独立降低到两邻居较小值减一；谷底互不相邻，降低它不会增加其他谷底的成本。",
+  "pitfalls": [
+    "只能减少不能增加",
+    "需要比较偶数谷底和奇数谷底两种模式",
+    "边界只与唯一邻居比较"
+  ],
+  "solutions": [
+    {
+      "id": "two-parity-valley-cost",
+      "title": "两种奇偶谷底代价",
+      "kind": "最优",
+      "idea": "分别累计两种锯齿方向所需的最少下降量。",
+      "steps": [
+        "定义 cost(parity)，仅处理下标奇偶等于 parity 的元素",
+        "取左右邻居，不存在的邻居视为足够大；目标上限为 min(left,right)-1",
+        "累加 max(0,nums[i]-目标上限)，返回两种 parity 代价较小值"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/two-parity-valley-cost/Solution.java",
+        "kotlin": "solutions/two-parity-valley-cost/Solution.kt",
+        "cpp": "solutions/two-parity-valley-cost/solution.cpp"
+      }
+    }
+  ]
+}

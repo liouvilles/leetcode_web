@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "partitionDisjoint",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "左段长度三",
+      "args": [
+        [
+          5,
+          0,
+          3,
+          8,
+          6
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "左段长度四",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          0,
+          6,
+          12
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "两元素已分开",
+      "args": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

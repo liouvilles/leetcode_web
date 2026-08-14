@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1782,
+  "slug": "count-pairs-of-nodes",
+  "title": "统计点对的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-025",
+  "studyTags": [
+    "双指针",
+    "图论",
+    "排序",
+    "计数"
+  ],
+  "summary": "无向图允许重边；对每个查询 q，统计节点对 (a,b)，使与 a 或 b 相连的不同边总数严格大于 q。",
+  "insight": "先按 degree[a]+degree[b] 用排序双指针计数。两节点间的重边在度数和中被计算两次，但并集只应计一次，因此对每个实际相连点对按重边数修正误计。",
+  "pitfalls": [
+    "边可重复且每条都计数",
+    "查询条件严格大于 q",
+    "修正条件是度数和大于 q 而减重边后不大于 q"
+  ],
+  "solutions": [
+    {
+      "id": "degree-two-pointers-edge-correction",
+      "title": "度数双指针与重边修正",
+      "kind": "最优",
+      "idea": "先忽略重复计数快速统计，再只检查有边点对纠偏。",
+      "steps": [
+        "统计 degree 与每个无序点对 multiplicity，排序 degree 副本",
+        "每个 query 用双指针统计 degree[left]+degree[right]>query 的点对",
+        "遍历 multiplicity：若原度数和>query 且减 multiplicity<=query，answer--"
+      ],
+      "complexity": {
+        "time": "O(n log n+q(n+E))",
+        "space": "O(n+E)"
+      },
+      "files": {
+        "java": "solutions/degree-two-pointers-edge-correction/Solution.java",
+        "kotlin": "solutions/degree-two-pointers-edge-correction/Solution.kt",
+        "cpp": "solutions/degree-two-pointers-edge-correction/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getMaxGridHappiness",
+  "parameterTypes": [
+    "int",
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "二乘三网格一内向两外向",
+      "args": [
+        2,
+        3,
+        1,
+        2
+      ],
+      "expected": 240
+    },
+    {
+      "name": "三乘一网格两内向一外向",
+      "args": [
+        3,
+        1,
+        2,
+        1
+      ],
+      "expected": 260
+    },
+    {
+      "name": "二乘二全放内向者",
+      "args": [
+        2,
+        2,
+        4,
+        0
+      ],
+      "expected": 240
+    }
+  ]
+}

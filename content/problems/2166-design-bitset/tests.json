@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "Bitset",
+  "constructorTypes": [
+    "int"
+  ],
+  "cases": [
+    {
+      "name": "经典置位翻转与查询序列",
+      "constructorArgs": [
+        5
+      ],
+      "calls": [
+        {
+          "method": "fix",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            3
+          ]
+        },
+        {
+          "method": "fix",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ]
+        },
+        {
+          "method": "flip",
+          "parameterTypes": [],
+          "args": []
+        },
+        {
+          "method": "all",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "boolean",
+          "expected": false
+        },
+        {
+          "method": "unfix",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            0
+          ]
+        },
+        {
+          "method": "flip",
+          "parameterTypes": [],
+          "args": []
+        },
+        {
+          "method": "one",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "count",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 3
+        },
+        {
+          "method": "toString",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "string",
+          "expected": "11010"
+        }
+      ]
+    },
+    {
+      "name": "单个位可达到全一",
+      "constructorArgs": [
+        1
+      ],
+      "calls": [
+        {
+          "method": "fix",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            0
+          ]
+        },
+        {
+          "method": "all",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "count",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 1
+        }
+      ]
+    },
+    {
+      "name": "翻转全零得到全一",
+      "constructorArgs": [
+        3
+      ],
+      "calls": [
+        {
+          "method": "flip",
+          "parameterTypes": [],
+          "args": []
+        },
+        {
+          "method": "all",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "toString",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "string",
+          "expected": "111"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 781,
+  "slug": "rabbits-in-forest",
+  "title": "森林中的兔子",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-010",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "贪心",
+    "计数"
+  ],
+  "summary": "每只受访兔子回答与自己同色的其他兔子数量，求森林中兔子的最少可能总数。",
+  "insight": "回答 x 的兔子属于大小 x+1 的同色组；相同回答每凑够 x+1 只可共享一组，不足一组也必须向上补齐。",
+  "pitfalls": [
+    "回答零表示该兔子独占一种颜色",
+    "同一回答可能需要分成多个颜色组",
+    "使用向上取整而非简单加 x+1 一次"
+  ],
+  "solutions": [
+    {
+      "id": "frequency-rounded-groups",
+      "title": "频次向上补齐分组",
+      "kind": "最优",
+      "idea": "按回答统计频次并计算所需完整颜色组。",
+      "steps": [
+        "统计每个回答 x 的出现次数 count",
+        "groupSize=x+1",
+        "贡献为 ceil(count/groupSize)*groupSize，累加后返回"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/frequency-rounded-groups/Solution.java",
+        "kotlin": "solutions/frequency-rounded-groups/Solution.kt",
+        "cpp": "solutions/frequency-rounded-groups/solution.cpp"
+      }
+    }
+  ]
+}

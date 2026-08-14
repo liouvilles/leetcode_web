@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 113,
+  "slug": "path-sum-ii",
+  "title": "路径总和 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-004",
+  "studyTags": [
+    "二叉树",
+    "深度优先搜索",
+    "回溯"
+  ],
+  "summary": "返回二叉树中所有从根到叶子且节点值总和等于目标值的路径。",
+  "insight": "深度优先维护当前路径和剩余目标；只有到达叶子且剩余值恰好等于叶子值时才记录。",
+  "pitfalls": [
+    "路径必须结束于叶子",
+    "节点值可能为负",
+    "回到父节点前要撤销当前节点"
+  ],
+  "solutions": [
+    {
+      "id": "dfs-backtracking",
+      "title": "根到叶回溯",
+      "kind": "最优",
+      "idea": "沿每条根到叶路径递减目标值，命中时复制路径。",
+      "steps": [
+        "当前节点加入路径",
+        "叶子且值等于 remaining 时记录",
+        "递归左右子树后移除当前节点"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(h)"
+      },
+      "files": {
+        "java": "solutions/dfs-backtracking/Solution.java",
+        "kotlin": "solutions/dfs-backtracking/Solution.kt",
+        "cpp": "solutions/dfs-backtracking/solution.cpp"
+      }
+    }
+  ]
+}

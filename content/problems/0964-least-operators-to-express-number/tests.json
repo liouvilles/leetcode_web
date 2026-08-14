@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "leastOpsExpressTarget",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三表示十九",
+      "args": [
+        3,
+        19
+      ],
+      "expected": 5
+    },
+    {
+      "name": "五表示五百零一",
+      "args": [
+        5,
+        501
+      ],
+      "expected": 8
+    },
+    {
+      "name": "一百的四次方",
+      "args": [
+        100,
+        100000000
+      ],
+      "expected": 3
+    }
+  ]
+}

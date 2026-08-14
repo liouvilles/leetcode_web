@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1512,
+  "slug": "number-of-good-pairs",
+  "title": "好数对的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-021",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "计数"
+  ],
+  "summary": "统计 i<j 且 nums[i]==nums[j] 的下标对数量。",
+  "insight": "从左到右扫描，当前值与此前每个相同值形成一个新好数对；累加已见频次后再把频次加一。",
+  "pitfalls": [
+    "下标必须满足 i<j",
+    "先累加频次再增加当前出现",
+    "重复值贡献组合数"
+  ],
+  "solutions": [
+    {
+      "id": "seen-frequency-accumulation",
+      "title": "已见频次累加",
+      "kind": "最优",
+      "idea": "每个新元素一次性统计以它为右端的所有好数对。",
+      "steps": [
+        "count 映射为空，answer=0",
+        "扫描 value，answer+=count[value]",
+        "count[value]++，返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/seen-frequency-accumulation/Solution.java",
+        "kotlin": "solutions/seen-frequency-accumulation/Solution.kt",
+        "cpp": "solutions/seen-frequency-accumulation/solution.cpp"
+      }
+    }
+  ]
+}

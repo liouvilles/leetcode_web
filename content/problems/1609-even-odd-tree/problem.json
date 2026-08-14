@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1609,
+  "slug": "even-odd-tree",
+  "title": "奇偶树",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-023",
+  "studyTags": [
+    "树",
+    "广度优先搜索"
+  ],
+  "summary": "验证二叉树：偶数层节点值均为奇数且严格递增，奇数层值均为偶数且严格递减。",
+  "insight": "层序 BFS 按每层从左到右扫描，依据层号设置期望奇偶与前一值初始边界，逐节点验证。",
+  "pitfalls": [
+    "根为第零层",
+    "偶数层奇值递增，奇数层偶值递减",
+    "严格顺序不允许相等"
+  ],
+  "solutions": [
+    {
+      "id": "level-order-parity-monotonicity",
+      "title": "层序奇偶单调检查",
+      "kind": "最优",
+      "idea": "逐层同时检查值奇偶和横向严格次序。",
+      "steps": [
+        "队列放 root，level=0",
+        "每层 previous=偶层负无穷/奇层正无穷",
+        "节点奇偶不符或偶层 value<=previous/奇层 value>=previous 则 false；入队孩子，层号加一，结束 true"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(w)"
+      },
+      "files": {
+        "java": "solutions/level-order-parity-monotonicity/Solution.java",
+        "kotlin": "solutions/level-order-parity-monotonicity/Solution.kt",
+        "cpp": "solutions/level-order-parity-monotonicity/solution.cpp"
+      }
+    }
+  ]
+}

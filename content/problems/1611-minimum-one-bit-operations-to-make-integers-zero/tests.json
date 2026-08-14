@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumOneBitOperations",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三需要两次操作",
+      "args": [
+        3
+      ],
+      "expected": 2
+    },
+    {
+      "name": "六需要四次操作",
+      "args": [
+        6
+      ],
+      "expected": 4
+    },
+    {
+      "name": "零无需操作",
+      "args": [
+        0
+      ],
+      "expected": 0
+    }
+  ]
+}

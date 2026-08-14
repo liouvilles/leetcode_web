@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1311,
+  "slug": "get-watched-videos-by-your-friends",
+  "title": "获取你好友已观看的视频",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "广度优先搜索",
+    "排序"
+  ],
+  "summary": "好友图中求与 id 距离恰为 level 的人看过的视频，按出现频次升序、频次相同按名称字典序返回。",
+  "insight": "先 BFS 恰好 level 层得到目标好友集合，再统计这些人的视频频次；对不同视频按 (frequency,name) 排序。",
+  "pitfalls": [
+    "只统计距离恰好为 level 的好友",
+    "同一好友列表内重复视频也按出现次数计",
+    "BFS 访问标记避免更长路径重复进入"
+  ],
+  "solutions": [
+    {
+      "id": "level-bfs-video-frequency-sort",
+      "title": "层序好友与视频频次排序",
+      "kind": "最优",
+      "idea": "分离图距离筛选和频次排序。",
+      "steps": [
+        "队列从 id 开始，seen[id]=true，逐层扩展 level 次",
+        "队列中剩余节点即目标好友，统计其 watchedVideos",
+        "把视频名集合按 frequency 升序再按字符串升序排序并返回"
+      ],
+      "complexity": {
+        "time": "O(V+E+视频数 log 视频种类)",
+        "space": "O(V+视频种类)"
+      },
+      "files": {
+        "java": "solutions/level-bfs-video-frequency-sort/Solution.java",
+        "kotlin": "solutions/level-bfs-video-frequency-sort/Solution.kt",
+        "cpp": "solutions/level-bfs-video-frequency-sort/solution.cpp"
+      }
+    }
+  ]
+}

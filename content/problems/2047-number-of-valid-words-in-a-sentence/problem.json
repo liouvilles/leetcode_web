@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": 2047,
+  "slug": "number-of-valid-words-in-a-sentence",
+  "title": "句子中的有效单词数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-029",
+  "studyTags": [
+    "字符串"
+  ],
+  "summary": "统计句子中有效词元：不含数字，至多一个连接两个小写字母的连字符，至多一个且仅在末尾的标点。",
+  "insight": "按一个或多个空格拆词并逐字符验证。数字立即失败；连字符检查数量、位置和两侧字母；标点只能出现一次且必须是最后字符。",
+  "pitfalls": [
+    "词元之间可能有多个空格",
+    "连字符不能在首尾",
+    "允许的标点只有感叹号、点和逗号"
+  ],
+  "solutions": [
+    {
+      "id": "token-character-validation",
+      "title": "词元逐字符规则校验",
+      "kind": "最优",
+      "idea": "把语法规则直接编码为一次扫描。",
+      "steps": [
+        "trim 后按连续空白拆词",
+        "validate：digits false；hyphen 计数且两邻为小写；punctuation 计数且 index==last",
+        "其他字符必须小写；统计通过词元"
+      ],
+      "complexity": {
+        "time": "O(sentence length)",
+        "space": "O(number of tokens)"
+      },
+      "files": {
+        "java": "solutions/token-character-validation/Solution.java",
+        "kotlin": "solutions/token-character-validation/Solution.kt",
+        "cpp": "solutions/token-character-validation/solution.cpp"
+      }
+    }
+  ]
+}

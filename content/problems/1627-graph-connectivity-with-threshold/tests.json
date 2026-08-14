@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "areConnected",
+  "parameterTypes": [
+    "int",
+    "int",
+    "intMatrix"
+  ],
+  "returnType": "booleanList",
+  "cases": [
+    {
+      "name": "阈值二时只有三和六连通",
+      "args": [
+        6,
+        2,
+        [
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            3,
+            6
+          ]
+        ]
+      ],
+      "expected": [
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "name": "阈值零时所有城市连通",
+      "args": [
+        6,
+        0,
+        [
+          [
+            1,
+            6
+          ],
+          [
+            2,
+            3
+          ]
+        ]
+      ],
+      "expected": [
+        true,
+        true
+      ]
+    },
+    {
+      "name": "阈值等于城市数仅自身连通",
+      "args": [
+        5,
+        5,
+        [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ]
+      ],
+      "expected": [
+        true,
+        false
+      ]
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "memLeak",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "二二在第三秒泄露",
+      "args": [
+        2,
+        2
+      ],
+      "expected": [
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "八十一一在第六秒泄露",
+      "args": [
+        8,
+        11
+      ],
+      "expected": [
+        6,
+        0,
+        4
+      ]
+    },
+    {
+      "name": "零内存第一秒即失败",
+      "args": [
+        0,
+        0
+      ],
+      "expected": [
+        1,
+        0,
+        0
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 520,
+  "slug": "detect-capital",
+  "title": "检测大写字母",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-007",
+  "studyTags": [
+    "字符串",
+    "字符分类",
+    "规则判断"
+  ],
+  "summary": "判断单词的大写使用是否符合三种规则：全大写、全小写，或只有首字母大写。",
+  "insight": "统计大写字母数量后，合法情况只可能是零、等于单词长度，或数量为一且首字母大写。",
+  "pitfalls": [
+    "单字符大写同时满足全大写",
+    "大小写判断只针对英文字母",
+    "首字母大写时后续必须全小写"
+  ],
+  "solutions": [
+    {
+      "id": "uppercase-count",
+      "title": "统计大写数量",
+      "kind": "最优",
+      "idea": "用一个计数统一判断三类合法模式。",
+      "steps": [
+        "遍历统计 uppercase",
+        "检查 uppercase==0 或 uppercase==length",
+        "或 uppercase==1 且首字符大写"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/uppercase-count/Solution.java",
+        "kotlin": "solutions/uppercase-count/Solution.kt",
+        "cpp": "solutions/uppercase-count/solution.cpp"
+      }
+    }
+  ]
+}

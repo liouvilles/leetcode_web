@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2280,
+  "slug": "minimum-lines-to-represent-a-line-chart",
+  "title": "表示一个折线图的最少线段数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-033",
+  "studyTags": [
+    "数组",
+    "数学",
+    "几何",
+    "排序"
+  ],
+  "summary": "按日期连接股票价格点，相邻斜率相同的连续点可用同一线段，求最少线段数。",
+  "insight": "按 x 排序。用交叉乘法比较连续两段斜率是否相等，避免浮点误差；每次斜率变化增加一条线段。",
+  "pitfalls": [
+    "单点需要零条线",
+    "坐标差乘积使用 long",
+    "只比较连续斜率"
+  ],
+  "solutions": [
+    {
+      "id": "sort-and-cross-multiply-slopes",
+      "title": "排序与斜率交叉乘",
+      "kind": "最优",
+      "idea": "统计有序点列中的斜率段数量。",
+      "steps": [
+        "按 day 排序，n==1 返回零",
+        "answer=1",
+        "i 从二到 n-1，若 (y_i-y_{i-1})*(x_{i-1}-x_{i-2}) != (y_{i-1}-y_{i-2})*(x_i-x_{i-1})，answer++"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(1) 或排序空间"
+      },
+      "files": {
+        "java": "solutions/sort-and-cross-multiply-slopes/Solution.java",
+        "kotlin": "solutions/sort-and-cross-multiply-slopes/Solution.kt",
+        "cpp": "solutions/sort-and-cross-multiply-slopes/solution.cpp"
+      }
+    }
+  ]
+}

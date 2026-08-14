@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxProfit",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两笔交易最优",
+      "args": [
+        [
+          3,
+          3,
+          5,
+          0,
+          0,
+          3,
+          1,
+          4
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "一段持续上涨",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "无盈利机会",
+      "args": [
+        [
+          7,
+          6,
+          4,
+          3,
+          1
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

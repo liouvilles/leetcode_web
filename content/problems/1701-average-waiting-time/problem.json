@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1701,
+  "slug": "average-waiting-time",
+  "title": "平均等待时间",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-024",
+  "studyTags": [
+    "数组",
+    "模拟"
+  ],
+  "summary": "顾客按到达时间排好序，单厨师依次服务；返回从每位顾客到达到完成的平均等待时间。",
+  "insight": "厨师开始服务时刻是当前空闲时刻与顾客到达时刻的较大值，完成时刻再加烹饪时间；完成减到达即等待时长。",
+  "pitfalls": [
+    "等待时间包含烹饪时间",
+    "厨师空闲时需直接跳到下一到达时刻",
+    "总等待时长使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "finish-time-simulation",
+      "title": "完成时刻模拟",
+      "kind": "最优",
+      "idea": "逐客维护厨师完成上一单的时刻。",
+      "steps": [
+        "finish=totalWait=0",
+        "对 customer：finish=max(finish,arrival)+duration",
+        "totalWait+=finish-arrival，最后除以顾客数"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/finish-time-simulation/Solution.java",
+        "kotlin": "solutions/finish-time-simulation/Solution.kt",
+        "cpp": "solutions/finish-time-simulation/solution.cpp"
+      }
+    }
+  ]
+}

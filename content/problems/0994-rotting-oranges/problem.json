@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 994,
+  "slug": "rotting-oranges",
+  "title": "腐烂的橘子",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-003",
+  "studyTags": [
+    "多源 BFS",
+    "按层计时",
+    "网格传播"
+  ],
+  "summary": "网格中腐烂橘子每分钟使上下左右相邻的新鲜橘子腐烂，求所有新鲜橘子腐烂的最短时间；无法完成则返回 -1。",
+  "insight": "所有初始腐烂橘子同时作为 BFS 源点，每扩展一层就代表经过一分钟。",
+  "pitfalls": [
+    "初始没有新鲜橘子时答案为零",
+    "同一新鲜橘子入队时就应标记腐烂",
+    "BFS 后仍有新鲜橘子则失败"
+  ],
+  "solutions": [
+    {
+      "id": "multi-source-bfs",
+      "title": "多源分层 BFS",
+      "kind": "最优",
+      "idea": "初始腐烂位置全部入队，按层感染相邻新鲜位置。",
+      "steps": [
+        "统计新鲜橘子并收集所有源点",
+        "每层处理当前队列长度并感染邻居",
+        "新鲜数归零时返回分钟数，否则返回 -1"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(mn)"
+      },
+      "files": {
+        "java": "solutions/multi-source-bfs/Solution.java",
+        "kotlin": "solutions/multi-source-bfs/Solution.kt",
+        "cpp": "solutions/multi-source-bfs/solution.cpp"
+      }
+    }
+  ]
+}

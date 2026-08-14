@@ -1,0 +1,242 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "SubrectangleQueries",
+  "constructorTypes": [
+    "intMatrix"
+  ],
+  "cases": [
+    {
+      "name": "两次区域更新与查询",
+      "constructorArgs": [
+        [
+          [
+            1,
+            2,
+            1
+          ],
+          [
+            4,
+            3,
+            4
+          ],
+          [
+            3,
+            2,
+            1
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ]
+      ],
+      "calls": [
+        {
+          "method": "getValue",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            0,
+            2
+          ],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "updateSubrectangle",
+          "parameterTypes": [
+            "int",
+            "int",
+            "int",
+            "int",
+            "int"
+          ],
+          "args": [
+            0,
+            0,
+            3,
+            2,
+            5
+          ]
+        },
+        {
+          "method": "getValue",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            0,
+            2
+          ],
+          "returnType": "int",
+          "expected": 5
+        },
+        {
+          "method": "getValue",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            3,
+            1
+          ],
+          "returnType": "int",
+          "expected": 5
+        },
+        {
+          "method": "updateSubrectangle",
+          "parameterTypes": [
+            "int",
+            "int",
+            "int",
+            "int",
+            "int"
+          ],
+          "args": [
+            3,
+            0,
+            3,
+            2,
+            10
+          ]
+        },
+        {
+          "method": "getValue",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            3,
+            1
+          ],
+          "returnType": "int",
+          "expected": 10
+        },
+        {
+          "method": "getValue",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            0,
+            2
+          ],
+          "returnType": "int",
+          "expected": 5
+        }
+      ]
+    },
+    {
+      "name": "单格更新",
+      "constructorArgs": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      ],
+      "calls": [
+        {
+          "method": "updateSubrectangle",
+          "parameterTypes": [
+            "int",
+            "int",
+            "int",
+            "int",
+            "int"
+          ],
+          "args": [
+            1,
+            1,
+            1,
+            1,
+            9
+          ]
+        },
+        {
+          "method": "getValue",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            1,
+            1
+          ],
+          "returnType": "int",
+          "expected": 9
+        },
+        {
+          "method": "getValue",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            0,
+            0
+          ],
+          "returnType": "int",
+          "expected": 1
+        }
+      ]
+    },
+    {
+      "name": "整行更新",
+      "constructorArgs": [
+        [
+          [
+            1,
+            2,
+            3
+          ]
+        ]
+      ],
+      "calls": [
+        {
+          "method": "updateSubrectangle",
+          "parameterTypes": [
+            "int",
+            "int",
+            "int",
+            "int",
+            "int"
+          ],
+          "args": [
+            0,
+            0,
+            0,
+            2,
+            7
+          ]
+        },
+        {
+          "method": "getValue",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            0,
+            1
+          ],
+          "returnType": "int",
+          "expected": 7
+        }
+      ]
+    }
+  ]
+}

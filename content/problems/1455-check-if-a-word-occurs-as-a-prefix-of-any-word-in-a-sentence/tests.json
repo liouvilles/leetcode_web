@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isPrefixOfWord",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "burg 是第四个单词前缀",
+      "args": [
+        "i love eating burger",
+        "burg"
+      ],
+      "expected": 4
+    },
+    {
+      "name": "pro 首次出现在第二个单词",
+      "args": [
+        "this problem is an easy problem",
+        "pro"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "不存在前缀",
+      "args": [
+        "i am tired",
+        "you"
+      ],
+      "expected": -1
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1839,
+  "slug": "longest-substring-of-all-vowels-in-order",
+  "title": "所有元音按顺序排布的最长子字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-026",
+  "studyTags": [
+    "字符串",
+    "滑动窗口"
+  ],
+  "summary": "寻找最长连续子串，使其只含元音且按 a、e、i、o、u 非递减排列，并且五种元音都至少出现一次。",
+  "insight": "扫描当前非递减元音段；字符下降时从当前位置重启。字符严格变化时增加不同元音数，达到五种后用当前段长度更新答案。",
+  "pitfalls": [
+    "输入本身只含元音",
+    "五种都要出现",
+    "相同元音可连续重复"
+  ],
+  "solutions": [
+    {
+      "id": "ordered-vowel-run-scan",
+      "title": "有序元音段扫描",
+      "kind": "最优",
+      "idea": "在线维护当前非递减段起点与不同字符数。",
+      "steps": [
+        "start=0,distinct=1,answer=0",
+        "i 从一：若 word[i]<word[i-1]，start=i、distinct=1；否则若字符变化 distinct++",
+        "distinct==5 时更新 i-start+1"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/ordered-vowel-run-scan/Solution.java",
+        "kotlin": "solutions/ordered-vowel-run-scan/Solution.kt",
+        "cpp": "solutions/ordered-vowel-run-scan/solution.cpp"
+      }
+    }
+  ]
+}

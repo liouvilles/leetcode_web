@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxDepth",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "算式最大嵌套深度三",
+      "args": [
+        "(1+(2*3)+((8)/4))+1"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "两个平行括号段最大三",
+      "args": [
+        "(1)+((2))+(((3)))"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "无括号深度零",
+      "args": [
+        "1+2"
+      ],
+      "expected": 0
+    }
+  ]
+}

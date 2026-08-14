@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "averageValue",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "六十二二十八三者平均十四",
+      "args": [
+        [
+          1,
+          3,
+          6,
+          10,
+          12,
+          15
+        ]
+      ],
+      "expected": 9
+    },
+    {
+      "name": "没有六的倍数返回零",
+      "args": [
+        [
+          1,
+          2,
+          4,
+          5
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "单个十八平均十八",
+      "args": [
+        [
+          18
+        ]
+      ],
+      "expected": 18
+    }
+  ]
+}

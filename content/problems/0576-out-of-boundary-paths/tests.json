@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findPaths",
+  "parameterTypes": [
+    "int",
+    "int",
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "二乘二两步",
+      "args": [
+        2,
+        2,
+        2,
+        0,
+        0
+      ],
+      "expected": 6
+    },
+    {
+      "name": "一乘三三步",
+      "args": [
+        1,
+        3,
+        3,
+        0,
+        1
+      ],
+      "expected": 12
+    },
+    {
+      "name": "不允许移动",
+      "args": [
+        2,
+        2,
+        0,
+        0,
+        0
+      ],
+      "expected": 0
+    }
+  ]
+}

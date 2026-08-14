@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxAscendingSum",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "十到五十升序段和六十五",
+      "args": [
+        [
+          10,
+          20,
+          30,
+          5,
+          10,
+          50
+        ]
+      ],
+      "expected": 65
+    },
+    {
+      "name": "全数组升序和一百五十",
+      "args": [
+        [
+          10,
+          20,
+          30,
+          40,
+          50
+        ]
+      ],
+      "expected": 150
+    },
+    {
+      "name": "全降序取最大单值一百",
+      "args": [
+        [
+          100,
+          10,
+          1
+        ]
+      ],
+      "expected": 100
+    }
+  ]
+}

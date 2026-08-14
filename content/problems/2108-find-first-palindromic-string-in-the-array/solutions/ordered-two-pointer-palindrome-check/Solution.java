@@ -1,0 +1,1 @@
+class Solution { private boolean palindrome(String word){for(int left=0,right=word.length()-1;left<right;left++,right--)if(word.charAt(left)!=word.charAt(right))return false;return true;}public String firstPalindrome(String[] words){for(String word:words)if(palindrome(word))return word;return "";} }

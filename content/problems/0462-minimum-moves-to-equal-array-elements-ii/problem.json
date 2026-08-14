@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 462,
+  "slug": "minimum-moves-to-equal-array-elements-ii",
+  "title": "最小操作次数使数组元素相等 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-006",
+  "studyTags": [
+    "中位数",
+    "排序",
+    "绝对距离"
+  ],
+  "summary": "每次可把一个数组元素加一或减一，求使所有元素相等的最少操作次数。",
+  "insight": "绝对距离和在任一中位数处取得最小值，因此排序后选择中间元素并累加距离。",
+  "pitfalls": [
+    "目标不一定是平均数",
+    "偶数长度时两个中位数之间任一点都最优",
+    "距离累加使用长整型更稳健"
+  ],
+  "solutions": [
+    {
+      "id": "median-distance",
+      "title": "到中位数的距离和",
+      "kind": "最优",
+      "idea": "排序定位中位数后计算所有绝对差。",
+      "steps": [
+        "数组排序",
+        "median=nums[n/2]",
+        "answer 累加 abs(value-median)"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/median-distance/Solution.java",
+        "kotlin": "solutions/median-distance/Solution.kt",
+        "cpp": "solutions/median-distance/solution.cpp"
+      }
+    }
+  ]
+}

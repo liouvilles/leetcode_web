@@ -1,0 +1,1 @@
+class Solution { public: int calculateMinimumHP(vector<vector<int>>& dungeon){ int n=dungeon[0].size(); vector<int> dp(n+1,INT_MAX); dp[n-1]=1; for(int r=dungeon.size()-1;r>=0;--r) for(int c=n-1;c>=0;--c){ int next=min(dp[c],dp[c+1]); dp[c]=max(1,next-dungeon[r][c]); } return dp[0]; } };

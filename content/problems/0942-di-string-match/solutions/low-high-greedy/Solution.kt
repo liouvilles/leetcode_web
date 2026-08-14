@@ -1,0 +1,1 @@
+class Solution { fun diStringMatch(s:String):IntArray{val answer=IntArray(s.length+1);var low=0;var high=s.length;for(i in s.indices)answer[i]=if(s[i]=='I')low++ else high--;answer[s.length]=low;return answer} }

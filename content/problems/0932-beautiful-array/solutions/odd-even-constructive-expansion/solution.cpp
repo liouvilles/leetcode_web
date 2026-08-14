@@ -1,0 +1,1 @@
+class Solution { public: vector<int> beautifulArray(int n){vector<int> values{1};while((int)values.size()<n){vector<int> next;for(int x:values)if(2*x-1<=n)next.push_back(2*x-1);for(int x:values)if(2*x<=n)next.push_back(2*x);values.swap(next);}return values;} };

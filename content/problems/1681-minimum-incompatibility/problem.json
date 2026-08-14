@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1681,
+  "slug": "minimum-incompatibility",
+  "title": "最小不兼容性",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-024",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "状态压缩"
+  ],
+  "summary": "把 nums 分成 k 个等长子集，每组不能有重复值；一组不兼容性为最大值减最小值，求总和最小值，不可分返回负一。",
+  "insight": "预计算每个大小为 n/k 且元素唯一的下标子集代价。状态压缩 DP 记录已选下标，下一组强制包含首个未选下标以避免组顺序的重复枚举。",
+  "pitfalls": [
+    "约束重复的是每组数值而非下标",
+    "每组大小必须完全相同",
+    "强制首个未选位只去除等价的组排列，不漏解"
+  ],
+  "solutions": [
+    {
+      "id": "valid-subset-mask-dp",
+      "title": "合法子集状态压缩 DP",
+      "kind": "最优",
+      "idea": "枚举合法分组并做集合划分最短路。",
+      "steps": [
+        "预计算 cost[submask]：位数等于 groupSize 且数值无重复时为 max-min，否则 -1",
+        "dp[mask] 表示已分配 mask 的最小代价，dp[0]=0",
+        "枚举 remaining 的子集，要求包含首个未选位且 cost 合法，转移 dp[mask|subset]"
+      ],
+      "complexity": {
+        "time": "O(3^n)",
+        "space": "O(2^n)"
+      },
+      "files": {
+        "java": "solutions/valid-subset-mask-dp/Solution.java",
+        "kotlin": "solutions/valid-subset-mask-dp/Solution.kt",
+        "cpp": "solutions/valid-subset-mask-dp/solution.cpp"
+      }
+    }
+  ]
+}

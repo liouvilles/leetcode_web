@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "uniqueLetterString",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三个不同字符",
+      "args": [
+        "ABC"
+      ],
+      "expected": 10
+    },
+    {
+      "name": "首尾重复",
+      "args": [
+        "ABA"
+      ],
+      "expected": 8
+    },
+    {
+      "name": "LEETCODE",
+      "args": [
+        "LEETCODE"
+      ],
+      "expected": 92
+    }
+  ]
+}

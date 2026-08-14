@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2385,
+  "slug": "amount-of-time-for-binary-tree-to-be-infected",
+  "title": "感染二叉树需要的总时间",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-035",
+  "studyTags": [
+    "哈希表",
+    "树",
+    "广度优先搜索",
+    "二叉树"
+  ],
+  "summary": "二叉树从值为 start 的节点开始，每分钟感染所有相邻父子节点，求感染整棵树所需时间。",
+  "insight": "先把树转换成无向邻接表，再从 start 做分层 BFS；最远节点距离就是总分钟数。",
+  "pitfalls": [
+    "感染可向父节点传播",
+    "节点值唯一",
+    "单节点树需要零分钟"
+  ],
+  "solutions": [
+    {
+      "id": "tree-to-undirected-graph-bfs",
+      "title": "树转无向图后 BFS",
+      "kind": "最优",
+      "idea": "显式补充父边并求起点最远距离。",
+      "steps": [
+        "DFS 建 value 间双向边",
+        "队列从 start，seen 标记",
+        "逐层 BFS，每扩展一层 minutes++",
+        "返回最后层距离"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/tree-to-undirected-graph-bfs/Solution.java",
+        "kotlin": "solutions/tree-to-undirected-graph-bfs/Solution.kt",
+        "cpp": "solutions/tree-to-undirected-graph-bfs/solution.cpp"
+      }
+    }
+  ]
+}

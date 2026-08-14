@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numSpecialEquivGroups",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "六词分三组",
+      "args": [
+        [
+          "abcd",
+          "cdab",
+          "cbad",
+          "xyzz",
+          "zzxy",
+          "zzyx"
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "重复单字符",
+      "args": [
+        [
+          "a",
+          "a"
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "反转三字符仍等价",
+      "args": [
+        [
+          "abc",
+          "cba"
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

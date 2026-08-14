@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 199,
+  "slug": "binary-tree-right-side-view",
+  "title": "二叉树的右视图",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-003",
+  "studyTags": [
+    "层序遍历",
+    "每层末尾",
+    "广度优先搜索"
+  ],
+  "summary": "从二叉树右侧观察，返回从上到下每一层能够看到的节点值。",
+  "insight": "层序遍历时，每层队列中最后被处理的节点就是该层最右侧可见节点。",
+  "pitfalls": [
+    "可见节点不一定沿着右孩子链",
+    "每层开始时必须固定当前队列长度",
+    "空树返回空列表"
+  ],
+  "solutions": [
+    {
+      "id": "level-order-last",
+      "title": "层序记录末节点",
+      "kind": "最优",
+      "idea": "按层消费队列，并在每层最后一个下标保存节点值。",
+      "steps": [
+        "根节点入队",
+        "固定当前层大小并逐个弹出",
+        "处理到层末时把值加入答案"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(w)"
+      },
+      "files": {
+        "java": "solutions/level-order-last/Solution.java",
+        "kotlin": "solutions/level-order-last/Solution.kt",
+        "cpp": "solutions/level-order-last/solution.cpp"
+      }
+    }
+  ]
+}

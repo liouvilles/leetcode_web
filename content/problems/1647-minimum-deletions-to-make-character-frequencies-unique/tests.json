@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minDeletions",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "频次二和一已经唯一",
+      "args": [
+        "aab"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "两个频次三需删成不同",
+      "args": [
+        "aaabbbcc"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "多字符频次冲突最少删二",
+      "args": [
+        "ceabaacb"
+      ],
+      "expected": 2
+    }
+  ]
+}

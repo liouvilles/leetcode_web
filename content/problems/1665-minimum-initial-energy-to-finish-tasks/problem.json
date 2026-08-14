@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1665,
+  "slug": "minimum-initial-energy-to-finish-tasks",
+  "title": "完成所有任务的最少初始能量",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-024",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "排序"
+  ],
+  "summary": "每项任务需要开始前能量至少为 minimum，完成后消耗 actual，任务可任意排序，求完成全部任务的最少初始能量。",
+  "insight": "优先做 minimum-actual 裕量大的任务，能避免后期为高门槛额外补能。排序后在线计算到当前任务所需的最小初始能量。",
+  "pitfalls": [
+    "minimum 不等于实际消耗",
+    "能量只消耗不会恢复",
+    "比较器按 minimum-actual 降序"
+  ],
+  "solutions": [
+    {
+      "id": "descending-energy-slack",
+      "title": "能量裕量降序贪心",
+      "kind": "最优",
+      "idea": "让高启动门槛相对消耗的任务先执行。",
+      "steps": [
+        "按 (minimum-actual) 降序排列 tasks",
+        "required=0",
+        "依次 required=max(required+actual,minimum)，返回 required"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/descending-energy-slack/Solution.java",
+        "kotlin": "solutions/descending-energy-slack/Solution.kt",
+        "cpp": "solutions/descending-energy-slack/solution.cpp"
+      }
+    }
+  ]
+}

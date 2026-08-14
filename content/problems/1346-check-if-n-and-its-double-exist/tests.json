@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "checkIfExist",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "十与五满足倍数",
+      "args": [
+        [
+          10,
+          2,
+          5,
+          3
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "三与六满足倍数",
+      "args": [
+        [
+          3,
+          1,
+          7,
+          11,
+          6
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "没有倍数对",
+      "args": [
+        [
+          7,
+          1,
+          11
+        ]
+      ],
+      "expected": false
+    }
+  ]
+}

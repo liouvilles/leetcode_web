@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findArray",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "经典前缀异或恢复五元素",
+      "args": [
+        [
+          5,
+          2,
+          0,
+          3,
+          1
+        ]
+      ],
+      "expected": [
+        5,
+        7,
+        2,
+        3,
+        2
+      ]
+    },
+    {
+      "name": "双元素恢复",
+      "args": [
+        [
+          13
+        ]
+      ],
+      "expected": [
+        13
+      ]
+    },
+    {
+      "name": "全零保持全零",
+      "args": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected": [
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}

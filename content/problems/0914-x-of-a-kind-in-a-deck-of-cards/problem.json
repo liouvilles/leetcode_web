@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 914,
+  "slug": "x-of-a-kind-in-a-deck-of-cards",
+  "title": "卡牌分组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-013",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "数学",
+    "最大公约数"
+  ],
+  "summary": "判断能否把牌分成若干组，每组大小相同且至少二，并且组内牌面值相同。",
+  "insight": "每种牌的频次都必须能被共同组大小整除；所有频次的最大公约数就是最大可用组大小，只需判断它是否至少二。",
+  "pitfalls": [
+    "组大小对所有牌值相同",
+    "每种牌可拆成多个组",
+    "只出现一次的牌会使最大公约数为一"
+  ],
+  "solutions": [
+    {
+      "id": "gcd-of-frequencies",
+      "title": "所有频次最大公约数",
+      "kind": "最优",
+      "idea": "统计牌面频次并逐个求公约数。",
+      "steps": [
+        "建立 frequency 映射",
+        "divisor=0，遍历 count 令 divisor=gcd(divisor,count)",
+        "返回 divisor>=2"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(distinct values)"
+      },
+      "files": {
+        "java": "solutions/gcd-of-frequencies/Solution.java",
+        "kotlin": "solutions/gcd-of-frequencies/Solution.kt",
+        "cpp": "solutions/gcd-of-frequencies/solution.cpp"
+      }
+    }
+  ]
+}

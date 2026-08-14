@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "relativeSortArray",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "经典相对顺序",
+      "args": [
+        [
+          2,
+          3,
+          1,
+          3,
+          2,
+          4,
+          6,
+          7,
+          9,
+          2,
+          19
+        ],
+        [
+          2,
+          1,
+          4,
+          3,
+          9,
+          6
+        ]
+      ],
+      "expected": [
+        2,
+        2,
+        2,
+        1,
+        4,
+        3,
+        3,
+        9,
+        6,
+        7,
+        19
+      ]
+    },
+    {
+      "name": "剩余项升序",
+      "args": [
+        [
+          28,
+          6,
+          22,
+          8,
+          44,
+          17
+        ],
+        [
+          22,
+          28,
+          8,
+          6
+        ]
+      ],
+      "expected": [
+        22,
+        28,
+        8,
+        6,
+        17,
+        44
+      ]
+    },
+    {
+      "name": "全部由 arr2 覆盖",
+      "args": [
+        [
+          1,
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "expected": [
+        2,
+        1,
+        1
+      ]
+    }
+  ]
+}

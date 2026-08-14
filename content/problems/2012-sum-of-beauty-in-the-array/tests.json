@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sumOfBeauties",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一二三中间美丽值二",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "二四六四只有局部美丽值一",
+      "args": [
+        [
+          2,
+          4,
+          6,
+          4
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "严格递减没有美丽值",
+      "args": [
+        [
+          3,
+          2,
+          1
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

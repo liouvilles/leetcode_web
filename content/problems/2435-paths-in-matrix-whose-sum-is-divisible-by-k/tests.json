@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numberOfPaths",
+  "parameterTypes": [
+    "intMatrix",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典矩阵有两条整除路径",
+      "args": [
+        [
+          [
+            5,
+            2,
+            4
+          ],
+          [
+            3,
+            0,
+            5
+          ],
+          [
+            0,
+            7,
+            2
+          ]
+        ],
+        3
+      ],
+      "expected": 2
+    },
+    {
+      "name": "全零单行只有一条路径",
+      "args": [
+        [
+          [
+            0,
+            0
+          ]
+        ],
+        5
+      ],
+      "expected": 1
+    },
+    {
+      "name": "单行和六能被三整除",
+      "args": [
+        [
+          [
+            1,
+            2,
+            3
+          ]
+        ],
+        3
+      ],
+      "expected": 1
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1224,
+  "slug": "maximum-equal-frequency",
+  "title": "最大相等频率",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-017",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "频次计数"
+  ],
+  "summary": "求最长前缀，使从中删除恰好一个元素后，剩余每个不同数值的出现次数都相同。",
+  "insight": "维护每个值的频次以及“频次的频次”和当前最大频次。一个前缀合法只有三种形态：所有值只出现一次；恰有一个只出现一次；或恰有一个值比其余值多出现一次。",
+  "pitfalls": [
+    "删除后可以只剩一种数值",
+    "每次更新值频次时先减少旧频次桶",
+    "答案取所有合法前缀中的最长"
+  ],
+  "solutions": [
+    {
+      "id": "value-and-frequency-counts",
+      "title": "数值频次与频次桶",
+      "kind": "最优",
+      "idea": "用三个等式常数时间判断当前前缀形态。",
+      "steps": [
+        "valueCount 记录值频次，frequencyCount 记录有多少值具有某频次，maximum 为最大频次",
+        "加入 value 时从旧频次桶减一，新频次桶加一并更新 maximum",
+        "长度 len 合法若 maximum==1，或 maximum*frequencyCount[maximum]+1==len，或 (maximum-1)*(frequencyCount[maximum-1]+1)+1==len；合法则记录 len"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/value-and-frequency-counts/Solution.java",
+        "kotlin": "solutions/value-and-frequency-counts/Solution.kt",
+        "cpp": "solutions/value-and-frequency-counts/solution.cpp"
+      }
+    }
+  ]
+}

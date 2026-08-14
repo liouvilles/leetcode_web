@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2179,
+  "slug": "count-good-triplets-in-an-array",
+  "title": "统计数组中好三元组数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-032",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "树状数组",
+    "分治"
+  ],
+  "summary": "两个数组都是零到 n-1 的排列，统计三个不同值在两排列中的相对顺序都相同的三元组。",
+  "insight": "把 nums1 映射成各值在 nums2 中的位置序列，问题变为统计递增三元组。对每个中点，左侧较小数与右侧较大数的数量乘积就是其贡献，分别用树状数组两遍求得。",
+  "pitfalls": [
+    "答案可能超过 int",
+    "比较的是值在两个排列中的相对顺序",
+    "树状数组下标需加一"
+  ],
+  "solutions": [
+    {
+      "id": "two-fenwick-passes",
+      "title": "树状数组两遍计数",
+      "kind": "最优",
+      "idea": "把共同相对顺序转为排列上的递增三元组。",
+      "steps": [
+        "建立 position[value]=nums2 下标，并转换 nums1",
+        "左到右：left[i]=已见位置小于 current 的数量，随后加入 current",
+        "清空树状数组，右到左：rightGreater=已见总数-不大于 current 的数量；累加 left[i]*rightGreater"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/two-fenwick-passes/Solution.java",
+        "kotlin": "solutions/two-fenwick-passes/Solution.kt",
+        "cpp": "solutions/two-fenwick-passes/solution.cpp"
+      }
+    }
+  ]
+}

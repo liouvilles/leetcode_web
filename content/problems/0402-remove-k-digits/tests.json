@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "removeKdigits",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "删除高位四三二",
+      "args": [
+        "1432219",
+        3
+      ],
+      "expected": "1219"
+    },
+    {
+      "name": "去除前导零",
+      "args": [
+        "10200",
+        1
+      ],
+      "expected": "200"
+    },
+    {
+      "name": "全部删除",
+      "args": [
+        "10",
+        2
+      ],
+      "expected": "0"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "tallestBillboard",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一二三对六",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          6
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "六根组成十",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "expected": 10
+    },
+    {
+      "name": "无法平衡",
+      "args": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

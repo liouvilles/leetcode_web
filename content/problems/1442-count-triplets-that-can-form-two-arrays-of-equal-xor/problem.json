@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1442,
+  "slug": "count-triplets-that-can-form-two-arrays-of-equal-xor",
+  "title": "形成两个异或相等数组的三元组数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-020",
+  "studyTags": [
+    "数组",
+    "位运算",
+    "前缀和"
+  ],
+  "summary": "统计 i<j<=k，使 arr[i..j-1] 的异或等于 arr[j..k]。",
+  "insight": "两段异或相等等价于整个 arr[i..k] 异或为零，即 prefix[i]==prefix[k+1]；固定 i、k 后中间 j 有 k-i 种。",
+  "pitfalls": [
+    "j 可以等于 k",
+    "前缀异或长度为 n+1",
+    "每个满足的区间贡献多个 j"
+  ],
+  "solutions": [
+    {
+      "id": "prefix-xor-pair-counting",
+      "title": "前缀异或区间计数",
+      "kind": "最优",
+      "idea": "枚举异或为零的区间端点并按中点数量加权。",
+      "steps": [
+        "构造 prefix，prefix[t] 为前 t 项异或",
+        "枚举 i 与 k>=i+1",
+        "若 prefix[i]==prefix[k+1]，answer+=k-i"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/prefix-xor-pair-counting/Solution.java",
+        "kotlin": "solutions/prefix-xor-pair-counting/Solution.kt",
+        "cpp": "solutions/prefix-xor-pair-counting/solution.cpp"
+      }
+    }
+  ]
+}

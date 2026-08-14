@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "lastStoneWeight",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典剩一",
+      "args": [
+        [
+          2,
+          7,
+          4,
+          1,
+          8,
+          1
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "单块石头",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "两块相等消失",
+      "args": [
+        [
+          2,
+          2
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

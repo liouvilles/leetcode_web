@@ -1,0 +1,1 @@
+class Solution { public String kthDistinct(String[] arr,int k){Map<String,Integer> frequency=new HashMap<>();for(String value:arr)frequency.merge(value,1,Integer::sum);for(String value:arr)if(frequency.get(value)==1&&--k==0)return value;return "";} }

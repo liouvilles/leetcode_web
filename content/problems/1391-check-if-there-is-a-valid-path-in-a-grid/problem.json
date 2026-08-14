@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1391,
+  "slug": "check-if-there-is-a-valid-path-in-a-grid",
+  "title": "检查网格中是否存在有效路径",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-020",
+  "studyTags": [
+    "数组",
+    "广度优先搜索",
+    "矩阵"
+  ],
+  "summary": "街道网格每种类型连接两个方向，判断能否沿相互接通的街道从左上走到右下。",
+  "insight": "从当前格沿其允许方向移动时，邻格必须包含反方向接口；把满足双向兼容的相邻格视为图边后 BFS。",
+  "pitfalls": [
+    "只看当前格方向不够，邻格必须能接回",
+    "方向编码需与六种街道类型一致",
+    "入队时标记避免重复"
+  ],
+  "solutions": [
+    {
+      "id": "compatible-street-bfs",
+      "title": "街道兼容广搜",
+      "kind": "最优",
+      "idea": "仅沿两端接口相互匹配的边扩展。",
+      "steps": [
+        "为六种类型保存可走方向集合",
+        "从起点 BFS，枚举当前类型方向并检查边界",
+        "邻格方向中含反向且未访问才入队，终点可达则成功"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(mn)"
+      },
+      "files": {
+        "java": "solutions/compatible-street-bfs/Solution.java",
+        "kotlin": "solutions/compatible-street-bfs/Solution.kt",
+        "cpp": "solutions/compatible-street-bfs/solution.cpp"
+      }
+    }
+  ]
+}

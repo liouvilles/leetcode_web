@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 868,
+  "slug": "binary-gap",
+  "title": "二进制间距",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "数学",
+    "位运算"
+  ],
+  "summary": "正整数二进制表示中，求任意两个相邻一之间的最大下标距离；不足两个一返回零。",
+  "insight": "从低位到高位扫描，记录上一个一的位下标，遇到新一时用当前下标减去前一个下标更新答案。",
+  "pitfalls": [
+    "相邻指二进制表示中间没有其他一",
+    "距离是位下标差",
+    "移位使用无符号或正数右移"
+  ],
+  "solutions": [
+    {
+      "id": "scan-set-bit-positions",
+      "title": "扫描一位位置",
+      "kind": "最优",
+      "idea": "滚动维护最近一位下标和最大距离。",
+      "steps": [
+        "previous=-1,position=0",
+        "while n>0，若最低位是一且 previous>=0 更新 position-previous，再令 previous=position",
+        "n 右移、position++，返回最大值"
+      ],
+      "complexity": {
+        "time": "O(log n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/scan-set-bit-positions/Solution.java",
+        "kotlin": "solutions/scan-set-bit-positions/Solution.kt",
+        "cpp": "solutions/scan-set-bit-positions/solution.cpp"
+      }
+    }
+  ]
+}

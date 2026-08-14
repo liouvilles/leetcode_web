@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "rectangleArea",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三个矩形覆盖面积六",
+      "args": [
+        [
+          [
+            0,
+            0,
+            2,
+            2
+          ],
+          [
+            1,
+            0,
+            2,
+            3
+          ],
+          [
+            1,
+            0,
+            3,
+            1
+          ]
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "十亿边长取模",
+      "args": [
+        [
+          [
+            0,
+            0,
+            1000000000,
+            1000000000
+          ]
+        ]
+      ],
+      "expected": 49
+    },
+    {
+      "name": "单位矩形",
+      "args": [
+        [
+          [
+            0,
+            0,
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

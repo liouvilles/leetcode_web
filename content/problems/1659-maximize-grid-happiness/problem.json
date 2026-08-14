@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1659,
+  "slug": "maximize-grid-happiness",
+  "title": "最大化网格幸福感",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-024",
+  "studyTags": [
+    "动态规划",
+    "状态压缩"
+  ],
+  "summary": "在 m×n 网格放置有限数量内向与外向的人；每人有基础幸福值，并受上下左右邻居类型影响，求最大总幸福值。",
+  "insight": "按行展开格子，用三进制滚动状态保存前 n 个格子的类型。放置新人时只需结算与上方、左方已放置邻居的双向影响，再记忆化搜索剩余格子和人数。",
+  "pitfalls": [
+    "每对相邻人的影响只结算一次但包含双方变化",
+    "空格也是一种可选状态",
+    "滚动三进制状态需正确移出最老格子"
+  ],
+  "solutions": [
+    {
+      "id": "ternary-profile-dp",
+      "title": "三进制轮廓记忆化 DP",
+      "kind": "最优",
+      "idea": "用前一行轮廓压缩尚会影响未来的放置状态。",
+      "steps": [
+        "mask 保存最近 n 格类型：0 空、1 内向、2 外向",
+        "dfs(position,mask,intro,extro) 尝试空、内向、外向；up=mask/3^(n-1)，left=列首?0:mask%3",
+        "放人时加基础分及与 up、left 的配对分，滚动 mask 并记忆最大值"
+      ],
+      "complexity": {
+        "time": "O(mn·3^n·I·E)",
+        "space": "O(mn·3^n·I·E)"
+      },
+      "files": {
+        "java": "solutions/ternary-profile-dp/Solution.java",
+        "kotlin": "solutions/ternary-profile-dp/Solution.kt",
+        "cpp": "solutions/ternary-profile-dp/solution.cpp"
+      }
+    }
+  ]
+}

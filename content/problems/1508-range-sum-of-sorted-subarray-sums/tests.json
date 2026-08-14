@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "rangeSum",
+  "parameterTypes": [
+    "intArray",
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "前五个子数组和之和十三",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        4,
+        1,
+        5
+      ],
+      "expected": 13
+    },
+    {
+      "name": "第三到第四项之和六",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        4,
+        3,
+        4
+      ],
+      "expected": 6
+    },
+    {
+      "name": "全部十项之和五十",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        4,
+        1,
+        10
+      ],
+      "expected": 50
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 740,
+  "slug": "delete-and-earn",
+  "title": "删除并获得点数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-010",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "打家劫舍"
+  ],
+  "summary": "选择一个值可获得该值点数，同时必须删除所有比它小一和大一的元素，求最多点数。",
+  "insight": "把相同值聚合成 value×frequency 后，选择相邻数值互斥，正好转化为按数值轴排列的打家劫舍。",
+  "pitfalls": [
+    "选择某值会一次性获得它所有出现项的点数",
+    "不存在的数值贡献零，不影响状态滚动",
+    "相同元素不互斥，应整体选择"
+  ],
+  "solutions": [
+    {
+      "id": "value-axis-house-robber",
+      "title": "数值轴上的打家劫舍",
+      "kind": "最优",
+      "idea": "先累计每个值总收益，再滚动决定取或不取。",
+      "steps": [
+        "建立 points[value]+=value",
+        "take、skip 初始化零，按 value 升序扫描",
+        "newTake=skip+points[value]，newSkip=max(skip,take)，滚动后返回 max"
+      ],
+      "complexity": {
+        "time": "O(n+U)",
+        "space": "O(U)"
+      },
+      "files": {
+        "java": "solutions/value-axis-house-robber/Solution.java",
+        "kotlin": "solutions/value-axis-house-robber/Solution.kt",
+        "cpp": "solutions/value-axis-house-robber/solution.cpp"
+      }
+    }
+  ]
+}

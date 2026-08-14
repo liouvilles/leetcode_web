@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1898,
+  "slug": "maximum-number-of-removable-characters",
+  "title": "可移除字符的最大数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-027",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "二分查找"
+  ],
+  "summary": "按给定下标顺序移除原字符串字符，求最多移除多少个仍使 p 是剩余字符串的子序列。",
+  "insight": "若移除前 k 个后仍可匹配 p，则移除更少也一定可行，形成单调性。二分 k，每次标记前 k 个下标并双指针检查子序列。",
+  "pitfalls": [
+    "移除后原字符相对顺序不变",
+    "二分的是操作前缀长度",
+    "被移除的位置在匹配时跳过"
+  ],
+  "solutions": [
+    {
+      "id": "binary-search-removal-prefix",
+      "title": "二分移除前缀",
+      "kind": "最优",
+      "idea": "利用子序列可行性随移除数量单调下降。",
+      "steps": [
+        "check(k)：标记 removable[0..k)，扫描 s 匹配 p",
+        "二分 [0,removable.length]，取上中位",
+        "check 成功令 left=middle，否则 right=middle-1，返回 left"
+      ],
+      "complexity": {
+        "time": "O((n+m) log m)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/binary-search-removal-prefix/Solution.java",
+        "kotlin": "solutions/binary-search-removal-prefix/Solution.kt",
+        "cpp": "solutions/binary-search-removal-prefix/solution.cpp"
+      }
+    }
+  ]
+}

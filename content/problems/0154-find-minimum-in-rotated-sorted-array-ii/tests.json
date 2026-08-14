@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findMin",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "重复值后发生旋转",
+      "args": [
+        [
+          2,
+          2,
+          2,
+          0,
+          1
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "未旋转数组",
+      "args": [
+        [
+          1,
+          3,
+          5
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "重复端点遮蔽最小值",
+      "args": [
+        [
+          10,
+          1,
+          10,
+          10,
+          10
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

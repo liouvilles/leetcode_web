@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2246,
+  "slug": "longest-path-with-different-adjacent-characters",
+  "title": "相邻字符不同的最长路径",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-033",
+  "studyTags": [
+    "树",
+    "深度优先搜索",
+    "动态规划"
+  ],
+  "summary": "根树每点有字符，求任意两点间相邻节点字符均不同的最长路径节点数。",
+  "insight": "后序处理每点，down[node] 是从该点向下的最长合法链。只接字符不同的孩子，取最长两条子链组成穿过当前点的路径；用显式遍历避免深树递归溢出。",
+  "pitfalls": [
+    "路径不必经过根",
+    "同字符父子边不能使用",
+    "答案按节点数而非边数"
+  ],
+  "solutions": [
+    {
+      "id": "iterative-postorder-two-best-chains",
+      "title": "迭代后序取两条最长链",
+      "kind": "最优",
+      "idea": "每个节点组合字符不同孩子的前两大 down 值。",
+      "steps": [
+        "建 children，并用栈生成根先序 order",
+        "逆序 order 处理 node，扫描合法 child 的 down，维护 first、second",
+        "down[node]=1+first，answer=max(answer,1+first+second)"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/iterative-postorder-two-best-chains/Solution.java",
+        "kotlin": "solutions/iterative-postorder-two-best-chains/Solution.kt",
+        "cpp": "solutions/iterative-postorder-two-best-chains/solution.cpp"
+      }
+    }
+  ]
+}

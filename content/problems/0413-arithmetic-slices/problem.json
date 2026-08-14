@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 413,
+  "slug": "arithmetic-slices",
+  "title": "等差数列划分",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-006",
+  "studyTags": [
+    "动态规划",
+    "数组",
+    "连续子数组"
+  ],
+  "summary": "统计长度至少为三且相邻差相同的连续子数组数量。",
+  "insight": "若当前三项保持相同差值，以当前位置结尾的新等差片段数等于上一位置的数量加一。",
+  "pitfalls": [
+    "要求连续子数组而非子序列",
+    "长度不足三答案为零",
+    "较长等差段包含多个不同长度片段"
+  ],
+  "solutions": [
+    {
+      "id": "ending-slice-dp",
+      "title": "以当前位置结尾计数",
+      "kind": "最优",
+      "idea": "用 current 保存以 i 结尾的等差片段数并累加到总数。",
+      "steps": [
+        "从 i=2 开始比较两个相邻差",
+        "相等时 current++ 并 answer+=current",
+        "不相等时 current 清零"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/ending-slice-dp/Solution.java",
+        "kotlin": "solutions/ending-slice-dp/Solution.kt",
+        "cpp": "solutions/ending-slice-dp/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxSizeSlices",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "递增六块取十",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "expected": 10
+    },
+    {
+      "name": "两个八可同时选择",
+      "args": [
+        [
+          8,
+          9,
+          8,
+          6,
+          1,
+          1
+        ]
+      ],
+      "expected": 16
+    },
+    {
+      "name": "九块经典示例",
+      "args": [
+        [
+          4,
+          1,
+          2,
+          5,
+          8,
+          3,
+          1,
+          9,
+          7
+        ]
+      ],
+      "expected": 21
+    }
+  ]
+}

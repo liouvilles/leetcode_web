@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "deleteDuplicates",
+  "parameterTypes": [
+    "listNode"
+  ],
+  "returnType": "listNode",
+  "cases": [
+    {
+      "name": "删除中间两段重复值",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          3,
+          4,
+          4,
+          5
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        5
+      ]
+    },
+    {
+      "name": "删除头部重复值",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        2,
+        3
+      ]
+    },
+    {
+      "name": "空链表",
+      "args": [
+        []
+      ],
+      "expected": []
+    }
+  ]
+}

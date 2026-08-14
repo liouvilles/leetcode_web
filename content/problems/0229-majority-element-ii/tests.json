@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "majorityElement",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intList",
+  "cases": [
+    {
+      "name": "一个多数元素",
+      "args": [
+        [
+          3,
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        3
+      ]
+    },
+    {
+      "name": "单元素",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": [
+        1
+      ]
+    },
+    {
+      "name": "两个多数元素",
+      "args": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": [
+        1,
+        2
+      ]
+    }
+  ]
+}

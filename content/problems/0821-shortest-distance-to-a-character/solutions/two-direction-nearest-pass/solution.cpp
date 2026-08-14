@@ -1,0 +1,1 @@
+class Solution { public: vector<int> shortestToChar(string s,char c){int n=s.size(),previous=-n;vector<int> answer(n);for(int i=0;i<n;++i){if(s[i]==c)previous=i;answer[i]=i-previous;}int next=2*n;for(int i=n-1;i>=0;--i){if(s[i]==c)next=i;answer[i]=min(answer[i],next-i);}return answer;} };

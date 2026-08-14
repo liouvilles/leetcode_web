@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1011,
+  "slug": "capacity-to-ship-packages-within-d-days",
+  "title": "在 D 天内送达包裹的能力",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-015",
+  "studyTags": [
+    "数组",
+    "二分查找"
+  ],
+  "summary": "包裹按给定顺序装船，每天装连续前缀且总重不超过船容量，求在 days 天内运完所需最小容量。",
+  "insight": "容量越大所需天数单调不增；可行容量下界是最重包裹，上界是总重，在此区间二分第一个可行值。",
+  "pitfalls": [
+    "不能改变包裹顺序",
+    "单个包裹不能拆分，容量至少为最大重量",
+    "计算所需天数时超容量才另开一天"
+  ],
+  "solutions": [
+    {
+      "id": "capacity-binary-search",
+      "title": "容量二分查找",
+      "kind": "最优",
+      "idea": "用顺序装载模拟作为单调可行性判定。",
+      "steps": [
+        "left=max(weights)，right=sum(weights)",
+        "取 middle，顺序累计当天重量，放不下时 neededDays++ 并从当前包裹重启",
+        "neededDays<=days 则 right=middle，否则 left=middle+1；返回 left"
+      ],
+      "complexity": {
+        "time": "O(n log sum)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/capacity-binary-search/Solution.java",
+        "kotlin": "solutions/capacity-binary-search/Solution.kt",
+        "cpp": "solutions/capacity-binary-search/solution.cpp"
+      }
+    }
+  ]
+}

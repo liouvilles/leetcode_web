@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "generateTheString",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "偶数四使用三加一",
+      "args": [
+        4
+      ],
+      "expected": "aaab"
+    },
+    {
+      "name": "偶数二各一个",
+      "args": [
+        2
+      ],
+      "expected": "ab"
+    },
+    {
+      "name": "奇数七全部相同",
+      "args": [
+        7
+      ],
+      "expected": "aaaaaaa"
+    }
+  ]
+}

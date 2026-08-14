@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2352,
+  "slug": "equal-row-and-column-pairs",
+  "title": "相等行列对",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "矩阵",
+    "模拟"
+  ],
+  "summary": "统计方阵中内容完全相同的行与列配对数量。",
+  "insight": "把每行序列作为哈希键统计频次，再构造每列同样的序列键；每列贡献对应行键的频次。",
+  "pitfalls": [
+    "元素顺序必须逐项相同",
+    "重复相同行会对同一列贡献多次",
+    "需使用无歧义的序列键"
+  ],
+  "solutions": [
+    {
+      "id": "row-sequence-frequency-map",
+      "title": "行序列频次表",
+      "kind": "最优",
+      "idea": "列向量逐个查询相同行的数量。",
+      "steps": [
+        "把每行编码并计入 frequency",
+        "对每列按行顺序构造编码",
+        "answer+=frequency[columnKey]",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/row-sequence-frequency-map/Solution.java",
+        "kotlin": "solutions/row-sequence-frequency-map/Solution.kt",
+        "cpp": "solutions/row-sequence-frequency-map/solution.cpp"
+      }
+    }
+  ]
+}

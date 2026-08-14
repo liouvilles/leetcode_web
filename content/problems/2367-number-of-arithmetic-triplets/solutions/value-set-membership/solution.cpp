@@ -1,0 +1,1 @@
+class Solution { public:int arithmeticTriplets(vector<int>& nums,int diff){unordered_set<int> values(nums.begin(),nums.end());int answer=0;for(int value:nums)if(values.count(value+diff)&&values.count(value+2*diff))++answer;return answer;} };

@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": 1491,
+  "slug": "average-salary-excluding-the-minimum-and-maximum-salary",
+  "title": "去掉最低和最高工资后的平均值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-021",
+  "studyTags": [
+    "数组"
+  ],
+  "summary": "工资数组各不相同，去掉一个最小值和一个最大值后返回剩余工资平均值。",
+  "insight": "单遍计算总和、最小值、最大值，结果为 (sum-min-max)/(n-2)。",
+  "pitfalls": [
+    "除法必须使用浮点数",
+    "数组至少三个元素",
+    "只去掉各一个极值"
+  ],
+  "solutions": [
+    {
+      "id": "sum-and-extremes",
+      "title": "总和与极值",
+      "kind": "最优",
+      "idea": "无需排序即可排除最低和最高工资。",
+      "steps": [
+        "sum=0,minimum=+INF,maximum=-INF",
+        "扫描 salary 更新三者",
+        "返回 (sum-minimum-maximum)/(n-2.0)"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/sum-and-extremes/Solution.java",
+        "kotlin": "solutions/sum-and-extremes/Solution.kt",
+        "cpp": "solutions/sum-and-extremes/solution.cpp"
+      }
+    }
+  ]
+}

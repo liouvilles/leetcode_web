@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1856,
+  "slug": "maximum-subarray-min-product",
+  "title": "子数组最小乘积的最大值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-027",
+  "studyTags": [
+    "数组",
+    "栈",
+    "单调栈",
+    "前缀和"
+  ],
+  "summary": "子数组最小乘积是其元素和乘最小值，求所有非空子数组的最大最小乘积并取模。",
+  "insight": "对每个元素作为最小值，用单调栈找左右第一个严格更小元素，之间最大区间都以它为最小值；前缀和 O(1) 求区间和。",
+  "pitfalls": [
+    "元素相等的边界需一侧用大于等于弹栈避免遗漏",
+    "乘积使用 long",
+    "先求最大原值再取模"
+  ],
+  "solutions": [
+    {
+      "id": "monotonic-boundaries-prefix-sum",
+      "title": "单调边界与前缀和",
+      "kind": "最优",
+      "idea": "为每个最小值扩张到其合法最大区间。",
+      "steps": [
+        "prefix long；left 用单调栈找前一严格小值",
+        "清栈后从右找后一严格小值",
+        "product=nums[i]*(prefix[right[i]]-prefix[left[i]+1])，取最大后模 MOD"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/monotonic-boundaries-prefix-sum/Solution.java",
+        "kotlin": "solutions/monotonic-boundaries-prefix-sum/Solution.kt",
+        "cpp": "solutions/monotonic-boundaries-prefix-sum/solution.cpp"
+      }
+    }
+  ]
+}

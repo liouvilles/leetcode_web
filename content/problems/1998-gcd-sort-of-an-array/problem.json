@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 1998,
+  "slug": "gcd-sort-of-an-array",
+  "title": "数组的最大公因数排序",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-029",
+  "studyTags": [
+    "并查集",
+    "数组",
+    "数学",
+    "数论",
+    "排序"
+  ],
+  "summary": "可交换最大公因数大于一的任意两个元素，判断能否把数组升序排列。",
+  "insight": "把每个数与其所有质因子在并查集中连接。若原位置值和排序后目标值属于同一连通分量，就能通过允许交换在分量内重新排列。",
+  "pitfalls": [
+    "数字一与其他数不连通",
+    "质因子需去重但重复合并无害",
+    "比较的是每个位置原值和目标值的连通性"
+  ],
+  "solutions": [
+    {
+      "id": "prime-factor-union-find",
+      "title": "质因子并查集",
+      "kind": "最优",
+      "idea": "以质因子为中介建立可交换数值分量。",
+      "steps": [
+        "DSU 大小 maxValue+1",
+        "逐数试除质因子并 union(value,factor)，剩余大于一也合并",
+        "复制排序；每个 i 若 find(nums[i])!=find(sorted[i]) 返回 false，否则 true"
+      ],
+      "complexity": {
+        "time": "O(n sqrt V+n log n)",
+        "space": "O(V+n)"
+      },
+      "files": {
+        "java": "solutions/prime-factor-union-find/Solution.java",
+        "kotlin": "solutions/prime-factor-union-find/Solution.kt",
+        "cpp": "solutions/prime-factor-union-find/solution.cpp"
+      }
+    }
+  ]
+}

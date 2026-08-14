@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1072,
+  "slug": "flip-columns-for-maximum-number-of-equal-rows",
+  "title": "按列翻转得到最大值等行数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-015",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "矩阵"
+  ],
+  "summary": "可选择若干列把该列所有零一翻转，求操作后能变为全零或全一的最大行数。",
+  "insight": "一行可通过同一组列翻转变成常量行，其模式与首位归一后的相对异同决定；某行和其按位反转行具有相同归一键，应计为一组。",
+  "pitfalls": [
+    "目标是每行内部所有值相等，不要求不同行取同一常量",
+    "按首位异或可消除整行反转差异",
+    "统计相同归一键最大频次"
+  ],
+  "solutions": [
+    {
+      "id": "first-bit-normalized-row-count",
+      "title": "首位归一行模式计数",
+      "kind": "最优",
+      "idea": "把互为反码的行映射到同一键。",
+      "steps": [
+        "对每行构造 key",
+        "每个 bit 写入 bit xor row[0]，使首位统一为零",
+        "frequency[key]++ 并更新最大值，返回最大频次"
+      ],
+      "complexity": {
+        "time": "O(rows·cols)",
+        "space": "O(rows·cols)"
+      },
+      "files": {
+        "java": "solutions/first-bit-normalized-row-count/Solution.java",
+        "kotlin": "solutions/first-bit-normalized-row-count/Solution.kt",
+        "cpp": "solutions/first-bit-normalized-row-count/solution.cpp"
+      }
+    }
+  ]
+}

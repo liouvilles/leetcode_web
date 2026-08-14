@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 795,
+  "slug": "number-of-subarrays-with-bounded-maximum",
+  "title": "区间子数组个数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-010",
+  "studyTags": [
+    "数组",
+    "双指针",
+    "计数"
+  ],
+  "summary": "统计非空连续子数组中最大元素位于闭区间 [left,right] 的数量。",
+  "insight": "最大值在区间内等价于“最大值不超过 right”减去“最大值小于 left”；两种上界计数都能用连续合法后缀长度线性完成。",
+  "pitfalls": [
+    "第二项上界是 left-1",
+    "遇到超过 bound 的元素时连续长度归零",
+    "每个位置贡献以它结尾的合法子数组数"
+  ],
+  "solutions": [
+    {
+      "id": "difference-of-at-most-counts",
+      "title": "两个最大值上界计数之差",
+      "kind": "最优",
+      "idea": "把区间条件拆成两个易计数的前缀条件。",
+      "steps": [
+        "实现 atMost(bound)：扫描 nums，value<=bound 时 length++，否则 length=0，把 length 累加到总数",
+        "计算 atMost(right)",
+        "减去 atMost(left-1) 返回"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/difference-of-at-most-counts/Solution.java",
+        "kotlin": "solutions/difference-of-at-most-counts/Solution.kt",
+        "cpp": "solutions/difference-of-at-most-counts/solution.cpp"
+      }
+    }
+  ]
+}

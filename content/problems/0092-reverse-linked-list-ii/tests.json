@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "reverseBetween",
+  "parameterTypes": [
+    "listNode",
+    "int",
+    "int"
+  ],
+  "returnType": "listNode",
+  "cases": [
+    {
+      "name": "反转中间区间",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        2,
+        4
+      ],
+      "expected": [
+        1,
+        4,
+        3,
+        2,
+        5
+      ]
+    },
+    {
+      "name": "单节点区间",
+      "args": [
+        [
+          5
+        ],
+        1,
+        1
+      ],
+      "expected": [
+        5
+      ]
+    },
+    {
+      "name": "反转整个链表",
+      "args": [
+        [
+          3,
+          5
+        ],
+        1,
+        2
+      ],
+      "expected": [
+        5,
+        3
+      ]
+    }
+  ]
+}

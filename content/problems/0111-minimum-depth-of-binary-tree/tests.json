@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minDepth",
+  "parameterTypes": [
+    "treeNode"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "最近叶子在第二层",
+      "args": [
+        [
+          3,
+          9,
+          20,
+          null,
+          null,
+          15,
+          7
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "右侧单链",
+      "args": [
+        [
+          2,
+          null,
+          3,
+          null,
+          4,
+          null,
+          5,
+          null,
+          6
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "空树",
+      "args": [
+        []
+      ],
+      "expected": 0
+    }
+  ]
+}

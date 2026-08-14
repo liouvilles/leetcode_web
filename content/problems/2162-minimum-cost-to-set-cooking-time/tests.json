@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minCostSetTime",
+  "parameterTypes": [
+    "int",
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "十分钟输入一零零零成本六",
+      "args": [
+        1,
+        2,
+        1,
+        600
+      ],
+      "expected": 6
+    },
+    {
+      "name": "七十六秒用零分七十六秒更便宜",
+      "args": [
+        0,
+        1,
+        2,
+        76
+      ],
+      "expected": 6
+    },
+    {
+      "name": "一秒从五移动并按键",
+      "args": [
+        5,
+        10,
+        1,
+        1
+      ],
+      "expected": 11
+    }
+  ]
+}

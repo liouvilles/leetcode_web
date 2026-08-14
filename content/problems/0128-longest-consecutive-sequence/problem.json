@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 128,
+  "slug": "longest-consecutive-sequence",
+  "title": "最长连续序列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-001",
+  "studyTags": [
+    "哈希集合",
+    "序列起点",
+    "避免重复扫描"
+  ],
+  "summary": "在未排序整数数组中，求数值连续递增一的最长序列长度，要求整体线性时间。",
+  "insight": "只有当 x-1 不在集合中时，x 才是某条连续序列的起点；从起点向后扫描不会重复覆盖其他序列。",
+  "pitfalls": [
+    "连续序列按数值而不是原数组位置定义",
+    "重复元素不应增加长度",
+    "从每个元素都双向扩展会退化为平方时间"
+  ],
+  "solutions": [
+    {
+      "id": "hash-sequence-start",
+      "title": "哈希集合识别起点",
+      "kind": "最优",
+      "idea": "把所有值放入集合，只从没有前驱的值开始统计连续长度。",
+      "steps": [
+        "建立去重哈希集合",
+        "跳过存在 value - 1 的非起点",
+        "从起点递增查找并更新最长长度"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/hash-sequence-start/Solution.java",
+        "kotlin": "solutions/hash-sequence-start/Solution.kt",
+        "cpp": "solutions/hash-sequence-start/solution.cpp"
+      }
+    }
+  ]
+}

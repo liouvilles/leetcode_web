@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "removeZeroSumSublists",
+  "parameterTypes": [
+    "listNode"
+  ],
+  "returnType": "listNode",
+  "cases": [
+    {
+      "name": "删除前三项零和段",
+      "args": [
+        [
+          1,
+          2,
+          -3,
+          3,
+          1
+        ]
+      ],
+      "expected": [
+        3,
+        1
+      ]
+    },
+    {
+      "name": "删除中间三与负三",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          -3,
+          4
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        4
+      ]
+    },
+    {
+      "name": "级联删除尾段",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          -3,
+          -2
+        ]
+      ],
+      "expected": [
+        1
+      ]
+    }
+  ]
+}

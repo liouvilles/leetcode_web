@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1764,
+  "slug": "form-array-by-concatenating-subarrays-of-another-array",
+  "title": "通过连接另一个数组的子数组得到一个数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-025",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "字符串匹配"
+  ],
+  "summary": "按顺序在 nums 中寻找 groups 的各数组作为互不重叠连续子数组，判断能否全部找到。",
+  "insight": "对每个 group，从当前未使用位置开始寻找其最早匹配。选最早匹配给后续组留下最多空间，因此贪心最优。",
+  "pitfalls": [
+    "groups 内顺序固定",
+    "各匹配区间不能重叠",
+    "group 内元素必须连续"
+  ],
+  "solutions": [
+    {
+      "id": "earliest-sequential-match",
+      "title": "顺序最早匹配",
+      "kind": "最优",
+      "idea": "逐组扫描 nums 并在匹配后跳过整个区间。",
+      "steps": [
+        "position=0",
+        "对 group：while position+group.length<=nums.length 且不匹配，position++",
+        "找不到返回 false；找到后 position+=group.length，全部完成返回 true"
+      ],
+      "complexity": {
+        "time": "O(total groups·n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/earliest-sequential-match/Solution.java",
+        "kotlin": "solutions/earliest-sequential-match/Solution.kt",
+        "cpp": "solutions/earliest-sequential-match/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "id": 215,
+  "slug": "kth-largest-element-in-an-array",
+  "title": "数组中的第 K 个最大元素",
+  "status": "published",
+  "qualityGate": "compile",
+  "batch": "legacy-001",
+  "studyTags": [
+    "Top K",
+    "小顶堆",
+    "Quickselect"
+  ],
+  "summary": "在未排序数组中找到按大小排序后的第 k 个元素，重复值按出现次数计算。",
+  "insight": "只关心最大的 k 个数时无需完全排序；固定容量的小顶堆或快速选择都能缩小工作量。",
+  "pitfalls": [
+    "第 k 大对应升序下标 n-k",
+    "重复元素不能去重",
+    "快速选择的平均与最坏复杂度不同"
+  ],
+  "solutions": [
+    {
+      "id": "min-heap",
+      "title": "容量为 K 的小顶堆",
+      "kind": "进阶",
+      "idea": "堆中始终保留目前最大的 k 个元素，堆顶就是其中最小者。",
+      "steps": [
+        "把元素加入小顶堆",
+        "容量超过 k 时弹出堆顶",
+        "扫描结束后返回堆顶"
+      ],
+      "complexity": {
+        "time": "O(n log k)",
+        "space": "O(k)"
+      },
+      "files": {
+        "java": "solutions/min-heap/Solution.java",
+        "kotlin": "solutions/min-heap/Solution.kt",
+        "cpp": "solutions/min-heap/solution.cpp"
+      }
+    },
+    {
+      "id": "quickselect",
+      "title": "随机快速选择",
+      "kind": "最优",
+      "idea": "利用分区操作只进入目标下标所在的一侧，不必把两侧都排好序。",
+      "steps": [
+        "把第 k 大换算为升序目标下标 n-k",
+        "随机选择枢轴并分区",
+        "根据枢轴位置缩小搜索边界"
+      ],
+      "complexity": {
+        "time": "平均 O(n)，最坏 O(n²)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/quickselect/Solution.java",
+        "kotlin": "solutions/quickselect/Solution.kt",
+        "cpp": "solutions/quickselect/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1140,
+  "slug": "stone-game-ii",
+  "title": "石子游戏 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-016",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "博弈论",
+    "后缀和"
+  ],
+  "summary": "两名玩家从左到右取石子，每次可取一到 2M 堆并令 M=max(M,X)，双方最优时返回先手最多所得石子。",
+  "insight": "设 dfs(index,M) 为当前玩家从剩余后缀能得到的最大数量；选 X 堆后，对手取得 dfs(next,newM)，所以当前收益是后缀总和减去对手最优收益。",
+  "pitfalls": [
+    "M 初值为一",
+    "可一次取完剩余堆时直接返回后缀和",
+    "记忆状态同时包含起点和 M"
+  ],
+  "solutions": [
+    {
+      "id": "suffix-sum-minimax-memo",
+      "title": "后缀和极小化记忆搜索",
+      "kind": "最优",
+      "idea": "把当前最优收益写成总石子减去对手最优收益。",
+      "steps": [
+        "预计算 suffix[i] 为 i 到末尾石子和，memo[index][M] 缓存状态",
+        "若 2M 覆盖全部剩余堆，返回 suffix[index]",
+        "枚举 X=1..2M，最大化 suffix[index]-dfs(index+X,max(M,X))，存入并返回"
+      ],
+      "complexity": {
+        "time": "O(n³)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/suffix-sum-minimax-memo/Solution.java",
+        "kotlin": "solutions/suffix-sum-minimax-memo/Solution.kt",
+        "cpp": "solutions/suffix-sum-minimax-memo/solution.cpp"
+      }
+    }
+  ]
+}

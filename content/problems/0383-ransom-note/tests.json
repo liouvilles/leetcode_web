@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "canConstruct",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "字符不足",
+      "args": [
+        "a",
+        "b"
+      ],
+      "expected": false
+    },
+    {
+      "name": "重复字符不足",
+      "args": [
+        "aa",
+        "ab"
+      ],
+      "expected": false
+    },
+    {
+      "name": "库存充足",
+      "args": [
+        "aa",
+        "aab"
+      ],
+      "expected": true
+    }
+  ]
+}

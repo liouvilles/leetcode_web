@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isSubPath",
+  "parameterTypes": [
+    "listNode",
+    "treeNode"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "四二八向下路径存在",
+      "args": [
+        [
+          4,
+          2,
+          8
+        ],
+        [
+          1,
+          4,
+          3,
+          null,
+          2,
+          null,
+          null,
+          null,
+          8
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "末尾六不匹配",
+      "args": [
+        [
+          1,
+          4,
+          2,
+          6
+        ],
+        [
+          1,
+          4,
+          3,
+          null,
+          2,
+          null,
+          null,
+          null,
+          8
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "单节点匹配",
+      "args": [
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "MyCircularDeque",
+  "constructorTypes": [
+    "int"
+  ],
+  "cases": [
+    {
+      "name": "容量三经典流程",
+      "constructorArgs": [
+        3
+      ],
+      "calls": [
+        {
+          "method": "insertLast",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "insertLast",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "insertFront",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            3
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "insertFront",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            4
+          ],
+          "returnType": "boolean",
+          "expected": false
+        },
+        {
+          "method": "getRear",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 2
+        },
+        {
+          "method": "isFull",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "deleteLast",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "insertFront",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            4
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "getFront",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 4
+        }
+      ]
+    },
+    {
+      "name": "空队列操作",
+      "constructorArgs": [
+        2
+      ],
+      "calls": [
+        {
+          "method": "getFront",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": -1
+        },
+        {
+          "method": "getRear",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": -1
+        },
+        {
+          "method": "deleteFront",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "boolean",
+          "expected": false
+        },
+        {
+          "method": "deleteLast",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "boolean",
+          "expected": false
+        }
+      ]
+    },
+    {
+      "name": "两端插入再删除",
+      "constructorArgs": [
+        2
+      ],
+      "calls": [
+        {
+          "method": "insertFront",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "insertLast",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "deleteFront",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "getFront",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 2
+        }
+      ]
+    }
+  ]
+}

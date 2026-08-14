@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2197,
+  "slug": "replace-non-coprime-numbers-in-array",
+  "title": "替换数组中的非互质数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-032",
+  "studyTags": [
+    "数组",
+    "数学",
+    "栈",
+    "数论"
+  ],
+  "summary": "反复把任意相邻且非互质的两个数替换为最小公倍数，直到不存在为止，返回最终数组。",
+  "insight": "用栈维护已经稳定的前缀。新值入栈后，只要与栈顶 gcd>1 就弹出并合并为 lcm；合并后的值继续向左检查。最终结果与选择顺序无关。",
+  "pitfalls": [
+    "一次合并可能触发连续向左合并",
+    "计算 lcm 时先除 gcd 防溢出",
+    "最终数保证不超过十亿"
+  ],
+  "solutions": [
+    {
+      "id": "stack-cascading-lcm",
+      "title": "栈式连锁最小公倍数合并",
+      "kind": "最优",
+      "idea": "每次保持栈内相邻元素互质。",
+      "steps": [
+        "stack 空列表",
+        "对 value：while 栈非空且 gcd(top,value)>1，value=lcm(top,value) 并弹栈",
+        "加入最终 value；返回 stack"
+      ],
+      "complexity": {
+        "time": "O(n log V)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/stack-cascading-lcm/Solution.java",
+        "kotlin": "solutions/stack-cascading-lcm/Solution.kt",
+        "cpp": "solutions/stack-cascading-lcm/solution.cpp"
+      }
+    }
+  ]
+}

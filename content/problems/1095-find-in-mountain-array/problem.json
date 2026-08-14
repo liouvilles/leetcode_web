@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1095,
+  "slug": "find-in-mountain-array",
+  "title": "山脉数组中查找目标值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-016",
+  "studyTags": [
+    "数组",
+    "二分查找"
+  ],
+  "summary": "只能通过 MountainArray 接口访问严格上升后严格下降的数组，返回 target 最小下标，不存在返回负一。",
+  "insight": "先二分相邻值定位峰顶，再在上升段升序二分；若未找到才在下降段按反向比较二分，保证返回最小下标。",
+  "pitfalls": [
+    "接口调用次数有限，应保持对数级",
+    "先搜左半段以满足最小下标",
+    "下降段比较方向与普通二分相反"
+  ],
+  "solutions": [
+    {
+      "id": "peak-and-two-binary-searches",
+      "title": "峰顶与两段二分",
+      "kind": "最优",
+      "idea": "把山脉拆成两个单调区间查找。",
+      "steps": [
+        "二分 mountain[mid] 与 mountain[mid+1] 找峰顶 peak",
+        "在 [0,peak] 做升序二分 target，找到立即返回",
+        "在 [peak+1,n-1] 做降序二分，找到返回，否则 -1"
+      ],
+      "complexity": {
+        "time": "O(log n) calls",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/peak-and-two-binary-searches/Solution.java",
+        "kotlin": "solutions/peak-and-two-binary-searches/Solution.kt",
+        "cpp": "solutions/peak-and-two-binary-searches/solution.cpp"
+      }
+    }
+  ]
+}

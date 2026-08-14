@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 757,
+  "slug": "set-intersection-size-at-least-two",
+  "title": "设置交集大小至少为 2",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-010",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "排序"
+  ],
+  "summary": "选择最小整数集合，使每个闭区间中至少包含集合里的两个整数，求集合最小大小。",
+  "insight": "按右端升序、同右端按左端降序处理；始终把新点放在当前区间最右侧，维护已选的两个最大点即可最大化复用。",
+  "pitfalls": [
+    "每个区间需要两个不同整数",
+    "同右端区间应先处理左端更大的约束",
+    "当区间只包含一个已有点时只需补右端点"
+  ],
+  "solutions": [
+    {
+      "id": "right-end-greedy-two-points",
+      "title": "右端排序维护最后两点",
+      "kind": "最优",
+      "idea": "根据当前区间包含已选末尾点的数量补零、一或两个最右点。",
+      "steps": [
+        "排序：end 升序，end 相同 start 降序",
+        "维护最近两点 first<second 与 answer",
+        "若 start>second，加入 end-1、end；否则若 start>first，只加入 end 并更新 first=second、second=end"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/right-end-greedy-two-points/Solution.java",
+        "kotlin": "solutions/right-end-greedy-two-points/Solution.kt",
+        "cpp": "solutions/right-end-greedy-two-points/solution.cpp"
+      }
+    }
+  ]
+}

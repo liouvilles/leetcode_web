@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1600,
+  "slug": "throne-inheritance",
+  "title": "皇位继承顺序",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-023",
+  "studyTags": [
+    "哈希表",
+    "树",
+    "深度优先搜索",
+    "设计"
+  ],
+  "summary": "支持王室出生、死亡事件，并按长子优先的先序规则返回仍在世者继承顺序。",
+  "insight": "出生关系形成有序多叉树；死亡只做标记不删除节点，以免破坏其后代位置。查询时从国王先序 DFS，跳过死亡者但继续访问孩子。",
+  "pitfalls": [
+    "孩子按出生先后排序",
+    "死亡者子女仍保留继承资格",
+    "国王也可能死亡"
+  ],
+  "solutions": [
+    {
+      "id": "ordered-family-tree-preorder",
+      "title": "有序家族树先序遍历",
+      "kind": "最优",
+      "idea": "保存每人的孩子列表与死亡集合，查询时动态生成顺序。",
+      "steps": [
+        "children 映射，构造时记录 king",
+        "birth 在 parent 的列表末尾添加 child",
+        "death 加入 dead；getInheritanceOrder 先序 DFS，节点未死则加入，随后按列表顺序访问孩子"
+      ],
+      "complexity": {
+        "time": "O(1) events, O(n) query",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/ordered-family-tree-preorder/Solution.java",
+        "kotlin": "solutions/ordered-family-tree-preorder/Solution.kt",
+        "cpp": "solutions/ordered-family-tree-preorder/solution.cpp"
+      }
+    }
+  ]
+}

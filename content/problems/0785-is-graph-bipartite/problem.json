@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 785,
+  "slug": "is-graph-bipartite",
+  "title": "判断二分图",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-003",
+  "studyTags": [
+    "图染色",
+    "深度优先搜索",
+    "连通分量"
+  ],
+  "summary": "给定无向图邻接表，判断能否把节点分成两组，使每条边的两个端点属于不同组。",
+  "insight": "对每个连通分量执行二染色，相邻节点必须使用相反颜色；出现颜色冲突就不是二分图。",
+  "pitfalls": [
+    "图可能不连通",
+    "颜色零表示未访问",
+    "已经染色的邻居需要检查颜色而不是跳过所有逻辑"
+  ],
+  "solutions": [
+    {
+      "id": "dfs-coloring",
+      "title": "DFS 二染色",
+      "kind": "最优",
+      "idea": "从每个未染色节点开始递归，用正负一代表两种颜色。",
+      "steps": [
+        "遍历全部节点覆盖每个分量",
+        "未染色邻居赋相反颜色",
+        "已染色邻居同色时失败"
+      ],
+      "complexity": {
+        "time": "O(V+E)",
+        "space": "O(V)"
+      },
+      "files": {
+        "java": "solutions/dfs-coloring/Solution.java",
+        "kotlin": "solutions/dfs-coloring/Solution.kt",
+        "cpp": "solutions/dfs-coloring/solution.cpp"
+      }
+    }
+  ]
+}

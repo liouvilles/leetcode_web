@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "kLengthApart",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "每两个一之间至少两个零",
+      "args": [
+        [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1
+        ],
+        2
+      ],
+      "expected": true
+    },
+    {
+      "name": "末尾两个一距离不足",
+      "args": [
+        [
+          1,
+          0,
+          0,
+          1,
+          0,
+          1
+        ],
+        2
+      ],
+      "expected": false
+    },
+    {
+      "name": "单个一总是满足",
+      "args": [
+        [
+          1
+        ],
+        100
+      ],
+      "expected": true
+    }
+  ]
+}

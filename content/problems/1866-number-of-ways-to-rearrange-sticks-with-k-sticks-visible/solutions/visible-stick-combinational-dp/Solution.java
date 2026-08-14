@@ -1,0 +1,1 @@
+class Solution { public int rearrangeSticks(int n,int k){long[][] dp=new long[n+1][k+1];dp[0][0]=1;for(int length=1;length<=n;length++)for(int visible=1;visible<=Math.min(length,k);visible++)dp[length][visible]=(dp[length-1][visible-1]+(length-1)*dp[length-1][visible])%1_000_000_007;return (int)dp[n][k];} }

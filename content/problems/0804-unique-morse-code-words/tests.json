@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "uniqueMorseRepresentations",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四词两种编码",
+      "args": [
+        [
+          "gin",
+          "zen",
+          "gig",
+          "msg"
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "单词重复",
+      "args": [
+        [
+          "a",
+          "a"
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "两个不同编码",
+      "args": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

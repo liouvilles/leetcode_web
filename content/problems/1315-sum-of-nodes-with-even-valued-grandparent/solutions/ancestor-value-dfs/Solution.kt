@@ -1,0 +1,1 @@
+class Solution { fun sumEvenGrandparent(root:TreeNode?):Int=dfs(root,-1,-1);private fun dfs(node:TreeNode?,parent:Int,grandparent:Int):Int{node?:return 0;val sum=if(grandparent>=0&&grandparent%2==0)node.`val` else 0;return sum+dfs(node.left,node.`val`,parent)+dfs(node.right,node.`val`,parent)} }

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 1686,
+  "slug": "stone-game-vi",
+  "title": "石子游戏 VI",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-024",
+  "studyTags": [
+    "数组",
+    "数学",
+    "贪心",
+    "排序",
+    "博弈"
+  ],
+  "summary": "每堆石子对 Alice、Bob 有不同价值，两人交替拿一堆且都最优，判断最终 Alice 总分与 Bob 总分关系。",
+  "insight": "拿走一堆既获得自己的价值，也剥夺对手该堆价值，因此共同优先级是 aliceValue+bobValue。按此和降序，双方轮流选取即可。",
+  "pitfalls": [
+    "排序依据是双方价值之和",
+    "只把当前玩家自己的价值计入分数",
+    "返回一、零或负一表示胜平负"
+  ],
+  "solutions": [
+    {
+      "id": "descending-combined-value",
+      "title": "联合价值降序贪心",
+      "kind": "最优",
+      "idea": "优先选择对双方总影响最大的石堆。",
+      "steps": [
+        "按 alice[i]+bob[i] 降序排列下标",
+        "偶数轮累加 Alice 价值，奇数轮累加 Bob 价值",
+        "比较两人总分并返回符号"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/descending-combined-value/Solution.java",
+        "kotlin": "solutions/descending-combined-value/Solution.kt",
+        "cpp": "solutions/descending-combined-value/solution.cpp"
+      }
+    }
+  ]
+}

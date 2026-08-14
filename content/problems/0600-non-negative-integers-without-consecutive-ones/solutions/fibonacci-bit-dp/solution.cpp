@@ -1,0 +1,1 @@
+class Solution { public: int findIntegers(int n){int fib[31]={1,2};for(int i=2;i<31;++i)fib[i]=fib[i-1]+fib[i-2];int answer=0,previous=0;for(int bit=30;bit>=0;--bit){if(n&(1<<bit)){answer+=fib[bit];if(previous)return answer;previous=1;}else previous=0;}return answer+1;} };

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 853,
+  "slug": "car-fleet",
+  "title": "车队",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-011",
+  "studyTags": [
+    "数组",
+    "排序",
+    "单调栈"
+  ],
+  "summary": "汽车沿同一路径驶向 target，不能超车；追上时组成车队并按较慢速度行驶，求抵达目标的车队数。",
+  "insight": "按起始位置从靠近终点到远离终点扫描；计算各车独自到达时间，若不大于前方最近车队时间就会并入，否则形成新车队。",
+  "pitfalls": [
+    "位置越大越靠近终点，应降序处理",
+    "到达时间用浮点除法",
+    "恰在终点追上也算同一车队，所以只有严格更大时间才新建车队"
+  ],
+  "solutions": [
+    {
+      "id": "descending-position-arrival-times",
+      "title": "按位置降序比较到达时间",
+      "kind": "最优",
+      "idea": "维护前方最后一个车队的到达时间。",
+      "steps": [
+        "构造 [position,speed] 并按 position 降序排序",
+        "lastTime=-1,fleets=0",
+        "对每车计算 time=(target-position)/speed；若 time>lastTime，则 fleets++ 且 lastTime=time，否则并入前车队"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/descending-position-arrival-times/Solution.java",
+        "kotlin": "solutions/descending-position-arrival-times/Solution.kt",
+        "cpp": "solutions/descending-position-arrival-times/solution.cpp"
+      }
+    }
+  ]
+}

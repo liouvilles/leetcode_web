@@ -1,0 +1,1 @@
+class Solution { bool balanced(int value){int count[10]={};while(value){++count[value%10];value/=10;}for(int digit=0;digit<10;++digit)if(count[digit]&&count[digit]!=digit)return false;return true;}public: int nextBeautifulNumber(int n){for(int value=n+1;;++value)if(balanced(value))return value;} };

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2196,
+  "slug": "create-binary-tree-from-descriptions",
+  "title": "根据描述创建二叉树",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-032",
+  "studyTags": [
+    "树",
+    "哈希表",
+    "数组",
+    "二叉树"
+  ],
+  "summary": "每条描述给出父值、子值以及左右关系，节点值唯一，构造并返回整棵二叉树根节点。",
+  "insight": "用 Map 按值复用节点，按描述连接左右指针；所有出现为子节点的值加入集合，最后唯一未在子集合中的父节点就是根。",
+  "pitfalls": [
+    "描述顺序任意",
+    "同一父节点可分两条描述出现",
+    "根节点从未作为 child"
+  ],
+  "solutions": [
+    {
+      "id": "node-map-and-child-set",
+      "title": "节点映射与子节点集合",
+      "kind": "最优",
+      "idea": "一遍连接节点，再从所有节点中排除子节点。",
+      "steps": [
+        "Map<value,TreeNode>、children Set",
+        "每条 description 获取或创建 parent、child，按 isLeft 连接，并记录 childValue",
+        "遍历 map，返回 value 不在 children 的节点"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/node-map-and-child-set/Solution.java",
+        "kotlin": "solutions/node-map-and-child-set/Solution.kt",
+        "cpp": "solutions/node-map-and-child-set/solution.cpp"
+      }
+    }
+  ]
+}

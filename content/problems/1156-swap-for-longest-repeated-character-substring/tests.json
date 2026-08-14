@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxRepOpt1",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "交替字符合并到三",
+      "args": [
+        "ababa"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "单字符隔断合并",
+      "args": [
+        "aaabaaa"
+      ],
+      "expected": 6
+    },
+    {
+      "name": "两字符隔断只能扩一",
+      "args": [
+        "aaabbaaa"
+      ],
+      "expected": 4
+    }
+  ]
+}

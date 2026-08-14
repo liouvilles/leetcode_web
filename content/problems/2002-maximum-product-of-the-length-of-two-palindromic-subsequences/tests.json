@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxProduct",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "leetcodecom 最大乘积九",
+      "args": [
+        "leetcodecom"
+      ],
+      "expected": 9
+    },
+    {
+      "name": "accbcaxxcxx 最大二十五",
+      "args": [
+        "accbcaxxcxx"
+      ],
+      "expected": 25
+    },
+    {
+      "name": "两个字符各取一个乘积一",
+      "args": [
+        "ab"
+      ],
+      "expected": 1
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findMaxK",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三与负三同时存在",
+      "args": [
+        [
+          -1,
+          2,
+          -3,
+          3
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "七为最大对应正数",
+      "args": [
+        [
+          -1,
+          10,
+          6,
+          7,
+          -7,
+          1
+        ]
+      ],
+      "expected": 7
+    },
+    {
+      "name": "没有相反数对",
+      "args": [
+        [
+          -10,
+          8,
+          6,
+          7,
+          -2,
+          -3
+        ]
+      ],
+      "expected": -1
+    }
+  ]
+}

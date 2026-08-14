@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "repeatLimitedString",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "经典字符限制三",
+      "args": [
+        "cczazcc",
+        3
+      ],
+      "expected": "zzcccac"
+    },
+    {
+      "name": "限制二需要交替分隔",
+      "args": [
+        "aababab",
+        2
+      ],
+      "expected": "bbabaa"
+    },
+    {
+      "name": "只有一种字符截断",
+      "args": [
+        "aaaa",
+        2
+      ],
+      "expected": "aa"
+    }
+  ]
+}

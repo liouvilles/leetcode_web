@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "nextLargerNodes",
+  "parameterTypes": [
+    "listNode"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "两节点递增",
+      "args": [
+        [
+          2,
+          1,
+          5
+        ]
+      ],
+      "expected": [
+        5,
+        5,
+        0
+      ]
+    },
+    {
+      "name": "五节点混合",
+      "args": [
+        [
+          2,
+          7,
+          4,
+          3,
+          5
+        ]
+      ],
+      "expected": [
+        7,
+        0,
+        5,
+        5,
+        0
+      ]
+    },
+    {
+      "name": "递减链表",
+      "args": [
+        [
+          5,
+          4,
+          3
+        ]
+      ],
+      "expected": [
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}

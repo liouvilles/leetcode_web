@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 599,
+  "slug": "minimum-index-sum-of-two-lists",
+  "title": "两个列表的最小索引总和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-008",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "字符串"
+  ],
+  "summary": "两个无重复餐厅列表按喜好排序，找出在两列表中索引和最小的所有共同餐厅。",
+  "insight": "记录第一列表每个名称的索引，再扫描第二列表即可在线比较共同名称的索引和。",
+  "pitfalls": [
+    "可能有多个并列最优餐厅",
+    "只返回两个列表都出现的名称",
+    "结果顺序不影响原题判定"
+  ],
+  "solutions": [
+    {
+      "id": "index-map-scan",
+      "title": "索引哈希表与单次扫描",
+      "kind": "最优",
+      "idea": "用第一列表索引表快速计算第二列表中共同项的索引和。",
+      "steps": [
+        "建立 restaurant→index 映射",
+        "扫描 list2，遇共同项计算 indexSum",
+        "更小时清空结果，相等时追加，最终转数组"
+      ],
+      "complexity": {
+        "time": "O(m+n)",
+        "space": "O(m)"
+      },
+      "files": {
+        "java": "solutions/index-map-scan/Solution.java",
+        "kotlin": "solutions/index-map-scan/Solution.kt",
+        "cpp": "solutions/index-map-scan/solution.cpp"
+      }
+    }
+  ]
+}

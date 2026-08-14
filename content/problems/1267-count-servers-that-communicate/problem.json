@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1267,
+  "slug": "count-servers-that-communicate",
+  "title": "统计参与通信的服务器",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "数组",
+    "矩阵",
+    "计数"
+  ],
+  "summary": "网格中一表示服务器；同行或同列至少还有一台服务器时它可通信，统计所有可通信服务器。",
+  "insight": "先统计每行和每列服务器数；第二遍检查每个服务器，只要行计数或列计数大于一就计入。",
+  "pitfalls": [
+    "服务器自身同时计入行列计数",
+    "同行或同列满足一个即可",
+    "空白格不能计数"
+  ],
+  "solutions": [
+    {
+      "id": "row-column-server-counts",
+      "title": "行列服务器计数",
+      "kind": "最优",
+      "idea": "用行列频次直接判断每个服务器是否孤立。",
+      "steps": [
+        "扫描网格，遇一则 rowCount[r]++、columnCount[c]++",
+        "再次扫描所有一格",
+        "若 rowCount[r]>1 或 columnCount[c]>1，answer++，返回"
+      ],
+      "complexity": {
+        "time": "O(rows·cols)",
+        "space": "O(rows+cols)"
+      },
+      "files": {
+        "java": "solutions/row-column-server-counts/Solution.java",
+        "kotlin": "solutions/row-column-server-counts/Solution.kt",
+        "cpp": "solutions/row-column-server-counts/solution.cpp"
+      }
+    }
+  ]
+}

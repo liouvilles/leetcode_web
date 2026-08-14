@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "exclusiveTime",
+  "parameterTypes": [
+    "int",
+    "stringList"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "嵌套两个函数",
+      "args": [
+        2,
+        [
+          "0:start:0",
+          "1:start:2",
+          "1:end:5",
+          "0:end:6"
+        ]
+      ],
+      "expected": [
+        3,
+        4
+      ]
+    },
+    {
+      "name": "函数递归调用自身",
+      "args": [
+        1,
+        [
+          "0:start:0",
+          "0:start:2",
+          "0:end:5",
+          "0:end:6"
+        ]
+      ],
+      "expected": [
+        7
+      ]
+    },
+    {
+      "name": "两个顺序函数",
+      "args": [
+        2,
+        [
+          "0:start:0",
+          "0:end:0",
+          "1:start:1",
+          "1:end:1"
+        ]
+      ],
+      "expected": [
+        1,
+        1
+      ]
+    }
+  ]
+}

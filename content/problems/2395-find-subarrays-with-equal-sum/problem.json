@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2395,
+  "slug": "find-subarrays-with-equal-sum",
+  "title": "和相等的子数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-035",
+  "studyTags": [
+    "数组",
+    "哈希表"
+  ],
+  "summary": "判断是否存在两个不同的长度为二的连续子数组，其元素和相等。",
+  "insight": "依次计算每对相邻元素之和，用集合检测该和此前是否出现。",
+  "pitfalls": [
+    "子数组长度固定为二",
+    "两个子数组可重叠",
+    "只需判断存在性"
+  ],
+  "solutions": [
+    {
+      "id": "seen-adjacent-pair-sums",
+      "title": "已见相邻对和",
+      "kind": "最优",
+      "idea": "线性扫描所有长度二窗口。",
+      "steps": [
+        "seen 为空",
+        "i=1..n-1 计算 nums[i-1]+nums[i]",
+        "若 seen 已含返回 true，否则加入",
+        "结束返回 false"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/seen-adjacent-pair-sums/Solution.java",
+        "kotlin": "solutions/seen-adjacent-pair-sums/Solution.kt",
+        "cpp": "solutions/seen-adjacent-pair-sums/solution.cpp"
+      }
+    }
+  ]
+}

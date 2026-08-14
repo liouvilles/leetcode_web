@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findLongestWord",
+  "parameterTypes": [
+    "string",
+    "stringList"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "选择最长 apple",
+      "args": [
+        "abpcplea",
+        [
+          "ale",
+          "apple",
+          "monkey",
+          "plea"
+        ]
+      ],
+      "expected": "apple"
+    },
+    {
+      "name": "同长选择字典序最小",
+      "args": [
+        "abpcplea",
+        [
+          "a",
+          "b",
+          "c"
+        ]
+      ],
+      "expected": "a"
+    },
+    {
+      "name": "没有可匹配单词",
+      "args": [
+        "ab",
+        [
+          "xyz",
+          "c"
+        ]
+      ],
+      "expected": ""
+    }
+  ]
+}

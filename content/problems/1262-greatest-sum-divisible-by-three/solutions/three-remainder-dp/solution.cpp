@@ -1,0 +1,1 @@
+class Solution { public: int maxSumDivThree(vector<int>& nums){const int negative=INT_MIN/4;array<int,3> dp{0,negative,negative};for(int value:nums){auto next=dp;for(int remainder=0;remainder<3;++remainder)if(dp[remainder]>negative){int candidate=dp[remainder]+value;next[candidate%3]=max(next[candidate%3],candidate);}dp=next;}return dp[0];} };

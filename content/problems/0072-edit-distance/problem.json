@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 72,
+  "slug": "edit-distance",
+  "title": "编辑距离",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-002",
+  "studyTags": [
+    "二维动态规划",
+    "字符串转换",
+    "前缀状态"
+  ],
+  "summary": "通过插入、删除或替换单个字符，把一个字符串转换成另一个字符串，求最少操作次数。",
+  "insight": "比较两个前缀末字符；相同时继承左上状态，不同时从插入、删除、替换三种前驱中取最小值再加一。",
+  "pitfalls": [
+    "空字符串与另一前缀的距离等于前缀长度",
+    "替换来自左上状态",
+    "插入和删除来自同一行左侧与上一行同列"
+  ],
+  "solutions": [
+    {
+      "id": "prefix-dp",
+      "title": "前缀编辑动态规划",
+      "kind": "最优",
+      "idea": "二维表记录任意两个前缀之间的最短编辑距离。",
+      "steps": [
+        "初始化空前缀边界",
+        "末字符相同则复制左上值",
+        "否则取三个相邻状态最小值加一"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(mn)"
+      },
+      "files": {
+        "java": "solutions/prefix-dp/Solution.java",
+        "kotlin": "solutions/prefix-dp/Solution.kt",
+        "cpp": "solutions/prefix-dp/solution.cpp"
+      }
+    }
+  ]
+}

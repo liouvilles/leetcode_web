@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "longestSubsequence",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典字符串最长五位",
+      "args": [
+        "1001010",
+        5
+      ],
+      "expected": 5
+    },
+    {
+      "name": "k 为一保留全部零和最低位一",
+      "args": [
+        "00101001",
+        1
+      ],
+      "expected": 6
+    },
+    {
+      "name": "三个一恰为七",
+      "args": [
+        "111",
+        7
+      ],
+      "expected": 3
+    }
+  ]
+}

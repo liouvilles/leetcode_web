@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 217,
+  "slug": "contains-duplicate",
+  "title": "存在重复元素",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-005",
+  "studyTags": [
+    "哈希集合",
+    "数组",
+    "提前返回"
+  ],
+  "summary": "判断整数数组中是否有任意一个值出现至少两次。",
+  "insight": "逐元素插入集合，首次插入失败时就已证明存在重复值。",
+  "pitfalls": [
+    "只需判断是否存在而非统计次数",
+    "空数组返回假",
+    "发现重复后可立即停止"
+  ],
+  "solutions": [
+    {
+      "id": "hash-set",
+      "title": "哈希集合判重",
+      "kind": "最优",
+      "idea": "集合记录已经见过的值，重复插入即返回真。",
+      "steps": [
+        "创建空集合",
+        "扫描并尝试 add",
+        "add 失败返回真，结束后返回假"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/hash-set/Solution.java",
+        "kotlin": "solutions/hash-set/Solution.kt",
+        "cpp": "solutions/hash-set/solution.cpp"
+      }
+    }
+  ]
+}

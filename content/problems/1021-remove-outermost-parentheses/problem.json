@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1021,
+  "slug": "remove-outermost-parentheses",
+  "title": "删除最外层的括号",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-015",
+  "studyTags": [
+    "字符串",
+    "栈",
+    "深度"
+  ],
+  "summary": "有效括号串可分解为若干不可再分的原语，删除每个原语最外层一对括号后返回结果。",
+  "insight": "扫描维护处理字符前后的深度；左括号在增加深度前若深度大于零则保留，右括号先减深度后若仍大于零则保留。",
+  "pitfalls": [
+    "每个原语的第一个左括号不保留",
+    "每个原语的最后一个右括号不保留",
+    "无需显式分割原语"
+  ],
+  "solutions": [
+    {
+      "id": "parenthesis-depth-filter",
+      "title": "括号深度过滤",
+      "kind": "最优",
+      "idea": "只输出处于至少一层外壳内部的括号。",
+      "steps": [
+        "depth=0，answer 为空",
+        "遇左括号：若 depth>0 追加，再 depth++",
+        "遇右括号：先 depth--，若 depth>0 追加；返回字符串"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/parenthesis-depth-filter/Solution.java",
+        "kotlin": "solutions/parenthesis-depth-filter/Solution.kt",
+        "cpp": "solutions/parenthesis-depth-filter/solution.cpp"
+      }
+    }
+  ]
+}

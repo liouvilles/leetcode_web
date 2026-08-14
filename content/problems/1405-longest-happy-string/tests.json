@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "longestDiverseString",
+  "parameterTypes": [
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "七个 c 只能使用六个",
+      "args": [
+        1,
+        1,
+        7
+      ],
+      "expected": "ccaccbcc"
+    },
+    {
+      "name": "数量相近全部使用",
+      "args": [
+        2,
+        2,
+        1
+      ],
+      "expected": "ababc"
+    },
+    {
+      "name": "大量 a 受三连限制",
+      "args": [
+        7,
+        1,
+        0
+      ],
+      "expected": "aabaa"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1137,
+  "slug": "n-th-tribonacci-number",
+  "title": "第 N 个泰波那契数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-016",
+  "studyTags": [
+    "数学",
+    "动态规划",
+    "滚动变量"
+  ],
+  "summary": "泰波那契数以 0、1、1 开始，之后每项等于前三项之和，返回第 n 项。",
+  "insight": "状态只依赖最近三项，不必保存完整数组；依次滚动三个变量即可在线性时间、常量空间得到答案。",
+  "pitfalls": [
+    "n=0 单独返回零",
+    "n=1 和 n=2 都返回一",
+    "更新时要保留尚未被覆盖的前三项"
+  ],
+  "solutions": [
+    {
+      "id": "three-state-rolling-dp",
+      "title": "三状态滚动动态规划",
+      "kind": "最优",
+      "idea": "把长度为三的动态规划窗口随下标向前移动。",
+      "steps": [
+        "处理 n<3 的三个初值",
+        "令 first=0、second=1、third=1",
+        "从 3 到 n 计算 next=first+second+third，再整体左移，返回 third"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/three-state-rolling-dp/Solution.java",
+        "kotlin": "solutions/three-state-rolling-dp/Solution.kt",
+        "cpp": "solutions/three-state-rolling-dp/solution.cpp"
+      }
+    }
+  ]
+}

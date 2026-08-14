@@ -1,0 +1,1 @@
+class Solution { public: bool checkSubarraySum(vector<int>& nums,int k){unordered_map<long long,int> first{{0,-1}};long long sum=0;for(int i=0;i<(int)nums.size();++i){sum+=nums[i];long long key=k==0?sum:sum%k;auto it=first.find(key);if(it!=first.end()){if(i-it->second>=2)return true;}else first[key]=i;}return false;} };

@@ -1,0 +1,1 @@
+class StockSpanner { private val stack=java.util.ArrayDeque<IntArray>();fun next(price:Int):Int{var span=1;while(stack.isNotEmpty()&&stack.peek()[0]<=price)span+=stack.pop()[1];stack.push(intArrayOf(price,span));return span} }

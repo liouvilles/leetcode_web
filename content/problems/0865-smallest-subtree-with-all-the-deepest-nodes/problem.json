@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 865,
+  "slug": "smallest-subtree-with-all-the-deepest-nodes",
+  "title": "具有所有最深节点的最小子树",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "树",
+    "深度优先搜索",
+    "后序遍历"
+  ],
+  "summary": "返回包含二叉树全部最深节点的最小子树根节点。",
+  "insight": "后序递归同时返回子树最大深度和其最深节点的最小公共祖先；左右深度相等则当前节点是答案，否则答案继承更深一侧。",
+  "pitfalls": [
+    "空树深度为零",
+    "单个最深节点时返回该节点本身",
+    "左右同深时即使都为空也返回当前叶节点"
+  ],
+  "solutions": [
+    {
+      "id": "postorder-depth-and-answer",
+      "title": "后序返回深度与答案",
+      "kind": "最优",
+      "idea": "自底向上比较左右子树最深层。",
+      "steps": [
+        "dfs(null) 返回 depth=0,node=null",
+        "取得 left、right；若深度相等返回 depth+1,node=current",
+        "否则返回较深一侧 depth+1 及其 node；根调用的 node 即答案"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(h)"
+      },
+      "files": {
+        "java": "solutions/postorder-depth-and-answer/Solution.java",
+        "kotlin": "solutions/postorder-depth-and-answer/Solution.kt",
+        "cpp": "solutions/postorder-depth-and-answer/solution.cpp"
+      }
+    }
+  ]
+}

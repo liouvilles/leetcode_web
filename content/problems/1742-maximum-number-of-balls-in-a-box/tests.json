@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countBalls",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一到十最多两个球同盒",
+      "args": [
+        1,
+        10
+      ],
+      "expected": 2
+    },
+    {
+      "name": "五到十五最多两个",
+      "args": [
+        5,
+        15
+      ],
+      "expected": 2
+    },
+    {
+      "name": "十九到二十八最多两个",
+      "args": [
+        19,
+        28
+      ],
+      "expected": 2
+    }
+  ]
+}

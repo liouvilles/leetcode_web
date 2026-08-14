@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "areSentencesSimilar",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "中间插入很多单词后相似",
+      "args": [
+        "My name is Haley",
+        "My Haley"
+      ],
+      "expected": true
+    },
+    {
+      "name": "首词不同且无法单次插入",
+      "args": [
+        "of",
+        "A lot of words"
+      ],
+      "expected": false
+    },
+    {
+      "name": "在末尾插入单词后相似",
+      "args": [
+        "Eating right now",
+        "Eating"
+      ],
+      "expected": true
+    }
+  ]
+}

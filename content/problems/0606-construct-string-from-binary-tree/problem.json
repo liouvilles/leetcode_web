@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 606,
+  "slug": "construct-string-from-binary-tree",
+  "title": "根据二叉树创建字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-008",
+  "studyTags": [
+    "字符串",
+    "二叉树",
+    "深度优先搜索"
+  ],
+  "summary": "以前序遍历和括号构造二叉树字符串，在保持树与字符串一一对应的前提下省略不必要的空括号。",
+  "insight": "节点有任一孩子时必须输出左括号部分；右孩子存在而左孩子为空时，左侧空括号不能省略。",
+  "pitfalls": [
+    "叶节点不输出任何括号",
+    "只有右孩子时必须保留 ()",
+    "节点值可能为负数"
+  ],
+  "solutions": [
+    {
+      "id": "preorder-parentheses",
+      "title": "前序递归按需添加括号",
+      "kind": "最优",
+      "idea": "递归输出节点，并根据孩子存在情况决定左右括号。",
+      "steps": [
+        "输出当前节点值",
+        "若存在左或右孩子，输出 (left)",
+        "若存在右孩子，再输出 (right)"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(h)"
+      },
+      "files": {
+        "java": "solutions/preorder-parentheses/Solution.java",
+        "kotlin": "solutions/preorder-parentheses/Solution.kt",
+        "cpp": "solutions/preorder-parentheses/solution.cpp"
+      }
+    }
+  ]
+}

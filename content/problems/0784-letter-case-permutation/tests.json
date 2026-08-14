@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "letterCasePermutation",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "stringList",
+  "cases": [
+    {
+      "name": "两个字母",
+      "args": [
+        "a1b2"
+      ],
+      "expected": [
+        "a1b2",
+        "a1B2",
+        "A1b2",
+        "A1B2"
+      ]
+    },
+    {
+      "name": "一个字母",
+      "args": [
+        "3z4"
+      ],
+      "expected": [
+        "3z4",
+        "3Z4"
+      ]
+    },
+    {
+      "name": "全是数字",
+      "args": [
+        "12345"
+      ],
+      "expected": [
+        "12345"
+      ]
+    }
+  ]
+}

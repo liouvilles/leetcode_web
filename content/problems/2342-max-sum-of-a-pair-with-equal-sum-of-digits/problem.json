@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2342,
+  "slug": "max-sum-of-a-pair-with-equal-sum-of-digits",
+  "title": "数位和相等数对的最大和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "排序"
+  ],
+  "summary": "从数组中选两个不同元素，要求数位和相等，求两数和最大值；不存在返回负一。",
+  "insight": "对每个数位和只需保留此前最大元素。遇到同组新值时先用它与组内最大值更新答案，再更新最大值。",
+  "pitfalls": [
+    "需要两个不同下标但值可以相同",
+    "不存在合法数对返回负一",
+    "数位和按十进制计算"
+  ],
+  "solutions": [
+    {
+      "id": "maximum-by-digit-sum",
+      "title": "数位和分组最大值",
+      "kind": "最优",
+      "idea": "每组历史最大元素足以形成最优数对。",
+      "steps": [
+        "answer=-1、map digitSum→maximum",
+        "遍历 value，计算 sum",
+        "若该 sum 已有 maximum，answer=max(answer,value+maximum)",
+        "更新该组 maximum"
+      ],
+      "complexity": {
+        "time": "O(n log value)",
+        "space": "O(number of digit sums)"
+      },
+      "files": {
+        "java": "solutions/maximum-by-digit-sum/Solution.java",
+        "kotlin": "solutions/maximum-by-digit-sum/Solution.kt",
+        "cpp": "solutions/maximum-by-digit-sum/solution.cpp"
+      }
+    }
+  ]
+}

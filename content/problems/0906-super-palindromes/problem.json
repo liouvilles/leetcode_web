@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 906,
+  "slug": "super-palindromes",
+  "title": "超级回文数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-013",
+  "studyTags": [
+    "数学",
+    "枚举",
+    "回文"
+  ],
+  "summary": "若一个数及其平方根都是回文数，则它是超级回文数；统计闭区间 [left,right] 中的超级回文数。",
+  "insight": "平方根最多十亿，直接从较短前缀生成所有奇数位和偶数位回文根，平方后检查范围和回文性。",
+  "pitfalls": [
+    "区间边界用长整型解析",
+    "奇偶长度回文根分别生成",
+    "根是回文仍需检查平方也是回文"
+  ],
+  "solutions": [
+    {
+      "id": "generate-palindromic-roots",
+      "title": "生成回文平方根",
+      "kind": "最优",
+      "idea": "枚举十万以内前缀覆盖所有可能根。",
+      "steps": [
+        "解析 low、high",
+        "prefix=1..100000，生成 odd=prefix+reverse(prefix去尾) 与 even=prefix+reverse(prefix)",
+        "对每个 root 求 square；若落在区间且 square 字符串回文则计数，返回总数"
+      ],
+      "complexity": {
+        "time": "O(100000·digits)",
+        "space": "O(digits)"
+      },
+      "files": {
+        "java": "solutions/generate-palindromic-roots/Solution.java",
+        "kotlin": "solutions/generate-palindromic-roots/Solution.kt",
+        "cpp": "solutions/generate-palindromic-roots/solution.cpp"
+      }
+    }
+  ]
+}

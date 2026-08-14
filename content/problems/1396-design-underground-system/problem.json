@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1396,
+  "slug": "design-underground-system",
+  "title": "设计地铁系统",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-020",
+  "studyTags": [
+    "哈希表",
+    "字符串",
+    "设计"
+  ],
+  "summary": "记录乘客进出站，并查询任意起终站路线的平均乘车时间。",
+  "insight": "用乘客 id 映射当前进站信息；出站时按起点终点组成路线键，累计总时间和次数，平均值为二者相除。",
+  "pitfalls": [
+    "同一乘客完成行程后可移除进站记录",
+    "不同方向是不同路线",
+    "总时间使用 long 防止累加溢出"
+  ],
+  "solutions": [
+    {
+      "id": "active-trips-and-route-aggregates",
+      "title": "在途记录与路线聚合",
+      "kind": "最优",
+      "idea": "分别维护乘客当前行程及路线历史统计。",
+      "steps": [
+        "checkIn 保存 id -> (station,time)",
+        "checkOut 取出进站记录，以 start#end 为键累加耗时与次数",
+        "getAverageTime 返回 total/count"
+      ],
+      "complexity": {
+        "time": "O(1) average",
+        "space": "O(P+R)"
+      },
+      "files": {
+        "java": "solutions/active-trips-and-route-aggregates/Solution.java",
+        "kotlin": "solutions/active-trips-and-route-aggregates/Solution.kt",
+        "cpp": "solutions/active-trips-and-route-aggregates/solution.cpp"
+      }
+    }
+  ]
+}

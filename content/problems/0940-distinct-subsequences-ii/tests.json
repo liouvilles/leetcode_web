@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "distinctSubseqII",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三个不同字符",
+      "args": [
+        "abc"
+      ],
+      "expected": 7
+    },
+    {
+      "name": "首尾重复",
+      "args": [
+        "aba"
+      ],
+      "expected": 6
+    },
+    {
+      "name": "三个相同字符",
+      "args": [
+        "aaa"
+      ],
+      "expected": 3
+    }
+  ]
+}

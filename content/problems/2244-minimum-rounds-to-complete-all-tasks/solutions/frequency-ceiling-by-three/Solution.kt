@@ -1,0 +1,1 @@
+class Solution { fun minimumRounds(tasks:IntArray):Int{val count=tasks.toList().groupingBy{it}.eachCount();var answer=0;for(value in count.values){if(value==1)return -1;answer+=(value+2)/3};return answer} }

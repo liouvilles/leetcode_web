@@ -1,0 +1,1 @@
+class Solution { public int minKBitFlips(int[] nums,int k){int[] started=new int[nums.length];int parity=0,answer=0;for(int i=0;i<nums.length;i++){if(i>=k)parity^=started[i-k];if((nums[i]^parity)==0){if(i+k>nums.length)return -1;started[i]=1;parity^=1;answer++;}}return answer;} }

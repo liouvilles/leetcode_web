@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2349,
+  "slug": "design-a-number-container-system",
+  "title": "设计数字容器系统",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "哈希表",
+    "设计",
+    "堆（优先队列）",
+    "有序集合"
+  ],
+  "summary": "系统支持把指定下标的数字改为给定值，并查询当前包含某数字的最小下标；不存在返回负一。",
+  "insight": "用 indexToNumber 记录每个下标当前值，同时为每个数字维护有序下标集合。修改时从旧值集合删除，再加入新值集合；查询取集合首项。",
+  "pitfalls": [
+    "同一下标可被反复修改",
+    "旧值集合必须同步删除下标",
+    "空集合查询返回负一"
+  ],
+  "solutions": [
+    {
+      "id": "bidirectional-maps-with-ordered-indices",
+      "title": "双向映射与有序下标集",
+      "kind": "最优",
+      "idea": "同时维护下标当前值和数字对应的有序下标。",
+      "steps": [
+        "indexToNumber 与 numberToIndices 初始化为空",
+        "change：若有 old，从 old 的 TreeSet 删除 index；更新映射并加入新集合",
+        "find：取对应 TreeSet.first，否则 -1"
+      ],
+      "complexity": {
+        "time": "O(log n) 修改，O(log n) 查询或取首项",
+        "space": "O(number of changed indices)"
+      },
+      "files": {
+        "java": "solutions/bidirectional-maps-with-ordered-indices/Solution.java",
+        "kotlin": "solutions/bidirectional-maps-with-ordered-indices/Solution.kt",
+        "cpp": "solutions/bidirectional-maps-with-ordered-indices/solution.cpp"
+      }
+    }
+  ]
+}

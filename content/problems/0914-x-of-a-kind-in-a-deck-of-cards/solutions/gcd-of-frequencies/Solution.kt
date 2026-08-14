@@ -1,0 +1,1 @@
+class Solution { fun hasGroupsSizeX(deck:IntArray):Boolean{val frequency=deck.toList().groupingBy{it}.eachCount();var divisor=0;for(count in frequency.values)divisor=gcd(divisor,count);return divisor>=2};private fun gcd(aInput:Int,bInput:Int):Int{var a=aInput;var b=bInput;while(b!=0){val temporary=a%b;a=b;b=temporary};return a} }

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 219,
+  "slug": "contains-duplicate-ii",
+  "title": "存在重复元素 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-005",
+  "studyTags": [
+    "哈希表",
+    "下标距离",
+    "滑动窗口"
+  ],
+  "summary": "判断数组中是否存在值相等且下标距离不超过 k 的两个不同位置。",
+  "insight": "哈希表保存每个值最近一次出现的下标，最近位置都超过 k 时更早位置也不可能满足。",
+  "pitfalls": [
+    "距离条件包含等于 k",
+    "需要比较更新前的最近下标",
+    "k 为零时不可能有不同位置满足"
+  ],
+  "solutions": [
+    {
+      "id": "last-index-map",
+      "title": "记录最近下标",
+      "kind": "最优",
+      "idea": "扫描时查询同值最近位置，并在判断后更新为当前下标。",
+      "steps": [
+        "创建 value 到 index 的映射",
+        "若已有下标且当前距离<=k 则返回真",
+        "更新最近下标，结束返回假"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/last-index-map/Solution.java",
+        "kotlin": "solutions/last-index-map/Solution.kt",
+        "cpp": "solutions/last-index-map/solution.cpp"
+      }
+    }
+  ]
+}

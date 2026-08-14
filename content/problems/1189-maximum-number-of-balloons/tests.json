@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxNumberOfBalloons",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "可组成一个",
+      "args": [
+        "nlaebolko"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "可组成两个",
+      "args": [
+        "loonbalxballpoon"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "完全缺字母",
+      "args": [
+        "leetcode"
+      ],
+      "expected": 0
+    }
+  ]
+}

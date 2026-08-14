@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "smallestRepunitDivByK",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一整除一",
+      "args": [
+        1
+      ],
+      "expected": 1
+    },
+    {
+      "name": "二无解",
+      "args": [
+        2
+      ],
+      "expected": -1
+    },
+    {
+      "name": "三需要三位",
+      "args": [
+        3
+      ],
+      "expected": 3
+    }
+  ]
+}

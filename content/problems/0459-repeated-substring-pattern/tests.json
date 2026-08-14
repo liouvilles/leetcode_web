@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "repeatedSubstringPattern",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "两次重复",
+      "args": [
+        "abab"
+      ],
+      "expected": true
+    },
+    {
+      "name": "没有完整周期",
+      "args": [
+        "aba"
+      ],
+      "expected": false
+    },
+    {
+      "name": "三次重复",
+      "args": [
+        "abcabcabc"
+      ],
+      "expected": true
+    }
+  ]
+}

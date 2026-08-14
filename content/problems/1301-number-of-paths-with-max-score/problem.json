@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1301,
+  "slug": "number-of-paths-with-max-score",
+  "title": "最大得分的路径数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "矩阵",
+    "计数"
+  ],
+  "summary": "方形字符棋盘从左上 E 走到右下 S，每步向下、向右或右下且不能经过 X；返回最大数字得分与达到它的路径数，路径数取模。",
+  "insight": "从 S 逆序向 E 动态规划。每格查看下、右、右下三个后继，选择最高可达得分，并把所有并列最高后继的方案数相加，再加入当前数字。",
+  "pitfalls": [
+    "E 和 S 不贡献分数",
+    "不可达状态与得分零要区分",
+    "只有最大得分的并列后继才累加方案数"
+  ],
+  "solutions": [
+    {
+      "id": "reverse-max-score-count-dp",
+      "title": "逆序最大得分计数动态规划",
+      "kind": "最优",
+      "idea": "同时维护每格最优分与最优方案数。",
+      "steps": [
+        "score 初始化 -1、ways 初始化零，S 设 score=0、ways=1",
+        "r,c 从右下逆序；跳过 S 与 X，枚举下、右、右下可达后继，找 best 并累加其 ways",
+        "若可达，score=best+当前数字（E 加零）；最终 E 不可达返回 [0,0]，否则返回 [score,ways]"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/reverse-max-score-count-dp/Solution.java",
+        "kotlin": "solutions/reverse-max-score-count-dp/Solution.kt",
+        "cpp": "solutions/reverse-max-score-count-dp/solution.cpp"
+      }
+    }
+  ]
+}

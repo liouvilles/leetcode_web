@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 376,
+  "slug": "wiggle-subsequence",
+  "title": "摆动序列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-006",
+  "studyTags": [
+    "贪心",
+    "动态规划",
+    "子序列"
+  ],
+  "summary": "求最长子序列长度，使相邻元素差值的正负号严格交替。",
+  "insight": "up 和 down 分别保存以正差或负差结束的最长摆动长度，新差只需由另一状态转移。",
+  "pitfalls": [
+    "相等元素不产生摆动",
+    "子序列不要求连续",
+    "长度一数组答案为一"
+  ],
+  "solutions": [
+    {
+      "id": "two-state-greedy-dp",
+      "title": "升降双状态",
+      "kind": "最优",
+      "idea": "扫描相邻差并更新以升或降结束的最优长度。",
+      "steps": [
+        "up=down=1",
+        "当前值更大时 up=down+1",
+        "当前值更小时 down=up+1，返回 max"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/two-state-greedy-dp/Solution.java",
+        "kotlin": "solutions/two-state-greedy-dp/Solution.kt",
+        "cpp": "solutions/two-state-greedy-dp/solution.cpp"
+      }
+    }
+  ]
+}

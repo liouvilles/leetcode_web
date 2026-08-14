@@ -1,0 +1,1 @@
+class Solution { public:vector<long long> sumOfThree(long long num){if(num%3)return{};long long middle=num/3;return{middle-1,middle,middle+1};} };

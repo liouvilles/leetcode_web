@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "waysToSplitArray",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典数组有两种分割",
+      "args": [
+        [
+          10,
+          4,
+          -8,
+          7
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "三个二有一种分割",
+      "args": [
+        [
+          2,
+          3,
+          1,
+          0
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "两元素左小右大无合法分割",
+      "args": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

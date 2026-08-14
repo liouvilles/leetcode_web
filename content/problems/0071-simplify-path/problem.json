@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 71,
+  "slug": "simplify-path",
+  "title": "简化路径",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-004",
+  "studyTags": [
+    "栈",
+    "路径解析",
+    "字符串"
+  ],
+  "summary": "把 Unix 风格绝对路径规范化，消除重复斜杠、当前目录和可回退的父目录片段。",
+  "insight": "按斜杠分段，用栈保存有效目录名；普通名称入栈，两个点弹栈，一个点和空段忽略。",
+  "pitfalls": [
+    "根目录不能继续向上回退",
+    "多个连续斜杠等同一个",
+    "三个及以上点是普通目录名"
+  ],
+  "solutions": [
+    {
+      "id": "directory-stack",
+      "title": "目录栈归一化",
+      "kind": "最优",
+      "idea": "逐段解释路径语义，栈中始终保存规范路径的目录序列。",
+      "steps": [
+        "按 / 拆分片段",
+        "忽略空串和 .，对 .. 弹栈",
+        "普通片段入栈，最后用 / 连接"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/directory-stack/Solution.java",
+        "kotlin": "solutions/directory-stack/Solution.kt",
+        "cpp": "solutions/directory-stack/solution.cpp"
+      }
+    }
+  ]
+}

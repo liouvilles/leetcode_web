@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 931,
+  "slug": "minimum-falling-path-sum",
+  "title": "下降路径最小和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-013",
+  "studyTags": [
+    "数组",
+    "矩阵",
+    "动态规划"
+  ],
+  "summary": "在方阵中从首行出发，每步走到下一行同列或相邻列，求到末行的最小路径和。",
+  "insight": "逐行动态规划；到达当前格的最优值是自身加上一行三个可达位置的最小值，可用一维数组滚动。",
+  "pitfalls": [
+    "左右边界只有两个或一个前驱",
+    "矩阵值可能为负",
+    "不能原地更新同一行的一维状态"
+  ],
+  "solutions": [
+    {
+      "id": "row-rolling-dp",
+      "title": "逐行滚动动态规划",
+      "kind": "最优",
+      "idea": "每行从上一行状态生成全新状态。",
+      "steps": [
+        "dp 初始化为首行",
+        "对每个后续行和每列，取 dp[col]、dp[col-1]、dp[col+1] 中合法项最小值加 matrix[row][col]",
+        "用 next 替换 dp，最后返回 dp 最小值"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/row-rolling-dp/Solution.java",
+        "kotlin": "solutions/row-rolling-dp/Solution.kt",
+        "cpp": "solutions/row-rolling-dp/solution.cpp"
+      }
+    }
+  ]
+}

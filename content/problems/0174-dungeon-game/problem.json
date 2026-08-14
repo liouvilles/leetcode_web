@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 174,
+  "slug": "dungeon-game",
+  "title": "地下城游戏",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-005",
+  "studyTags": [
+    "动态规划",
+    "逆向推导",
+    "网格"
+  ],
+  "summary": "计算骑士从左上角走到右下角并始终保持至少一点生命所需的最小初始生命值。",
+  "insight": "从终点逆推进入每个格子前至少需要的生命值，后继取向右和向下需求的较小值。",
+  "pitfalls": [
+    "生命值任何时刻都不能降到零",
+    "应从终点向起点计算",
+    "每格需求至少为一"
+  ],
+  "solutions": [
+    {
+      "id": "reverse-dp",
+      "title": "逆向一维动态规划",
+      "kind": "最优",
+      "idea": "用 dp[column] 保存从当前格进入后走到终点所需的最小生命。",
+      "steps": [
+        "边界设为无穷并在终点外侧放一",
+        "从右下向左上更新",
+        "需求=max(1,min(右,下)-当前值)"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/reverse-dp/Solution.java",
+        "kotlin": "solutions/reverse-dp/Solution.kt",
+        "cpp": "solutions/reverse-dp/solution.cpp"
+      }
+    }
+  ]
+}

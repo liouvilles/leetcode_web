@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findSubsequences",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intListMatrix",
+  "cases": [
+    {
+      "name": "包含重复七",
+      "args": [
+        [
+          4,
+          6,
+          7,
+          7
+        ]
+      ],
+      "expected": [
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          6,
+          7
+        ],
+        [
+          4,
+          6,
+          7,
+          7
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          4,
+          7,
+          7
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          6,
+          7,
+          7
+        ],
+        [
+          7,
+          7
+        ]
+      ]
+    },
+    {
+      "name": "单元素无结果",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": []
+    },
+    {
+      "name": "三个相同值",
+      "args": [
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    }
+  ]
+}

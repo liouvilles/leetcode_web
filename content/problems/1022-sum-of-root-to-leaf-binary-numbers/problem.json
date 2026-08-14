@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1022,
+  "slug": "sum-of-root-to-leaf-binary-numbers",
+  "title": "从根到叶的二进制数之和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-015",
+  "studyTags": [
+    "树",
+    "深度优先搜索",
+    "位运算"
+  ],
+  "summary": "二叉树节点值为零或一，每条根到叶路径组成一个二进制数，求所有路径数值之和。",
+  "insight": "DFS 过程中把前缀左移一位并加入当前比特；到叶节点时该前缀就是完整数值，非叶返回左右子树和。",
+  "pitfalls": [
+    "路径最高位是根节点",
+    "叶节点定义为左右孩子都为空",
+    "题目保证结果在整数范围内"
+  ],
+  "solutions": [
+    {
+      "id": "dfs-binary-prefix",
+      "title": "DFS 二进制前缀",
+      "kind": "最优",
+      "idea": "沿路径滚动构造数值并在叶端累加。",
+      "steps": [
+        "dfs(node,prefix)，空节点返回零",
+        "current=(prefix<<1)|node.val",
+        "若叶节点返回 current，否则返回 dfs(left,current)+dfs(right,current)"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(height)"
+      },
+      "files": {
+        "java": "solutions/dfs-binary-prefix/Solution.java",
+        "kotlin": "solutions/dfs-binary-prefix/Solution.kt",
+        "cpp": "solutions/dfs-binary-prefix/solution.cpp"
+      }
+    }
+  ]
+}

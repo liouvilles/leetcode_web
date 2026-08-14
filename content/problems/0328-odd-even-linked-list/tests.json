@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "oddEvenList",
+  "parameterTypes": [
+    "listNode"
+  ],
+  "returnType": "listNode",
+  "cases": [
+    {
+      "name": "五节点奇偶重排",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": [
+        1,
+        3,
+        5,
+        2,
+        4
+      ]
+    },
+    {
+      "name": "六节点",
+      "args": [
+        [
+          2,
+          1,
+          3,
+          5,
+          6,
+          4,
+          7
+        ]
+      ],
+      "expected": [
+        2,
+        3,
+        6,
+        7,
+        1,
+        5,
+        4
+      ]
+    },
+    {
+      "name": "空链表",
+      "args": [
+        []
+      ],
+      "expected": []
+    }
+  ]
+}

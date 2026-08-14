@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1996,
+  "slug": "the-number-of-weak-characters-in-the-game",
+  "title": "游戏中弱角色的数量",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-029",
+  "studyTags": [
+    "栈",
+    "数组",
+    "贪心",
+    "排序"
+  ],
+  "summary": "角色有攻击与防御，若存在另一角色两项都严格更高则为弱角色，统计弱角色数量。",
+  "insight": "按攻击降序、防御升序排序。扫描时维护此前更高攻击角色的最大防御；同攻击组因防御升序，不会由组内较低防御产生错误支配。当前防御小于最大值即弱。",
+  "pitfalls": [
+    "攻击与防御都必须严格更高",
+    "相同攻击不能互相支配",
+    "排序的第二关键字要升序"
+  ],
+  "solutions": [
+    {
+      "id": "sort-attack-desc-defense-asc",
+      "title": "攻击降序防御升序扫描",
+      "kind": "最优",
+      "idea": "让所有可能支配者位于当前角色之前。",
+      "steps": [
+        "按 attack 降序、相同 attack 按 defense 升序",
+        "maximumDefense=0",
+        "若 defense<maximumDefense 则计数，再更新最大防御"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/sort-attack-desc-defense-asc/Solution.java",
+        "kotlin": "solutions/sort-attack-desc-defense-asc/Solution.kt",
+        "cpp": "solutions/sort-attack-desc-defense-asc/solution.cpp"
+      }
+    }
+  ]
+}

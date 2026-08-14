@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1053,
+  "slug": "previous-permutation-with-one-swap",
+  "title": "交换一次的先前排列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-015",
+  "studyTags": [
+    "数组",
+    "贪心"
+  ],
+  "summary": "最多交换数组中两个元素一次，求字典序严格小于原数组的最大排列；无更小排列则返回原数组。",
+  "insight": "从右找首个下降位置 i；要让变化尽可能靠右且损失最小，应交换 arr[i] 与右侧小于它的最大值，同值候选取最左者避免交换后更小。",
+  "pitfalls": [
+    "若数组非递减则无更小排列",
+    "右侧候选必须严格小于 arr[i]",
+    "重复候选值要选择最左下标"
+  ],
+  "solutions": [
+    {
+      "id": "rightmost-descent-best-smaller-swap",
+      "title": "最右下降位与最佳较小值交换",
+      "kind": "最优",
+      "idea": "在后缀中选最接近枢轴的较小值。",
+      "steps": [
+        "i 从 n-2 左移直到 arr[i]>arr[i+1]，找不到返回原数组",
+        "j 从末尾左移直到 arr[j]<arr[i]",
+        "继续左移跨过与 arr[j] 相同的值以取该值最左位置；交换 i,j 并返回"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/rightmost-descent-best-smaller-swap/Solution.java",
+        "kotlin": "solutions/rightmost-descent-best-smaller-swap/Solution.kt",
+        "cpp": "solutions/rightmost-descent-best-smaller-swap/solution.cpp"
+      }
+    }
+  ]
+}

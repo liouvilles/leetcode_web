@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findPeakGrid",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "右上角四为峰值",
+      "args": [
+        [
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            3
+          ]
+        ]
+      ],
+      "expected": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "单元素坐标零零",
+      "args": [
+        [
+          [
+            5
+          ]
+        ]
+      ],
+      "expected": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "左下角六为峰值",
+      "args": [
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            6,
+            5,
+            4
+          ]
+        ]
+      ],
+      "expected": [
+        1,
+        0
+      ]
+    }
+  ]
+}

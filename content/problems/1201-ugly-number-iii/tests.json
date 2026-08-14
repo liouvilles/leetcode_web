@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "nthUglyNumber",
+  "parameterTypes": [
+    "int",
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "二三五的第三个",
+      "args": [
+        3,
+        2,
+        3,
+        5
+      ],
+      "expected": 4
+    },
+    {
+      "name": "二三四的第四个",
+      "args": [
+        4,
+        2,
+        3,
+        4
+      ],
+      "expected": 6
+    },
+    {
+      "name": "二十一十三的第五个",
+      "args": [
+        5,
+        2,
+        11,
+        13
+      ],
+      "expected": 10
+    }
+  ]
+}

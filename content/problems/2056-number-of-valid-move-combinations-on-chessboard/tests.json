@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countCombinations",
+  "parameterTypes": [
+    "stringArray",
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "角落单车有十五种停留或移动",
+      "args": [
+        [
+          "rook"
+        ],
+        [
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": 15
+    },
+    {
+      "name": "角落单象有八种选择",
+      "args": [
+        [
+          "bishop"
+        ],
+        [
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": 8
+    },
+    {
+      "name": "角落单后有二十二种选择",
+      "args": [
+        [
+          "queen"
+        ],
+        [
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": 22
+    }
+  ]
+}

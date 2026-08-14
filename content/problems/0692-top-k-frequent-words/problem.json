@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 692,
+  "slug": "top-k-frequent-words",
+  "title": "前 K 个高频单词",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-009",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "字符串",
+    "排序"
+  ],
+  "summary": "返回出现频率最高的 k 个单词，按频率降序；频率相同时按字典序升序。",
+  "insight": "先用哈希表统计频次，再把不同单词按复合规则排序并取前 k 项。",
+  "pitfalls": [
+    "字典序规则只在频率相同时使用",
+    "返回不同单词而非重复出现项",
+    "k 不超过不同单词数量"
+  ],
+  "solutions": [
+    {
+      "id": "frequency-sort",
+      "title": "频次表复合排序",
+      "kind": "最优",
+      "idea": "对唯一单词按题目要求的比较器排序。",
+      "steps": [
+        "统计 word→count",
+        "把键集合放入列表",
+        "排序：count 不同时降序，否则单词升序；返回前 k 个"
+      ],
+      "complexity": {
+        "time": "O(n+u log u)",
+        "space": "O(u)"
+      },
+      "files": {
+        "java": "solutions/frequency-sort/Solution.java",
+        "kotlin": "solutions/frequency-sort/Solution.kt",
+        "cpp": "solutions/frequency-sort/solution.cpp"
+      }
+    }
+  ]
+}

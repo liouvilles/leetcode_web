@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1640,
+  "slug": "check-array-formation-through-concatenation",
+  "title": "能否连接形成数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-023",
+  "studyTags": [
+    "数组",
+    "哈希表"
+  ],
+  "summary": "pieces 中每个小数组内部顺序不可变，但小数组间可任意排序且各用一次，判断能否拼成 arr。",
+  "insight": "arr 中元素互不相同，因此可用每个 piece 的首元素定位该片段。沿 arr 扫描，取对应片段并逐项匹配即可。",
+  "pitfalls": [
+    "片段内部不能重排",
+    "所有片段都非空",
+    "找不到以当前位置值开头的片段立即失败"
+  ],
+  "solutions": [
+    {
+      "id": "piece-first-value-map",
+      "title": "片段首值映射",
+      "kind": "最优",
+      "idea": "从目标数组当前位置唯一确定下一片段。",
+      "steps": [
+        "建立 piece[0] 到 piece 的映射",
+        "index 从零沿 arr 前进，查找首值等于 arr[index] 的片段",
+        "逐元素与 arr 匹配并推进；全部匹配返回 true"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(p)"
+      },
+      "files": {
+        "java": "solutions/piece-first-value-map/Solution.java",
+        "kotlin": "solutions/piece-first-value-map/Solution.kt",
+        "cpp": "solutions/piece-first-value-map/solution.cpp"
+      }
+    }
+  ]
+}

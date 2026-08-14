@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 693,
+  "slug": "binary-number-with-alternating-bits",
+  "title": "交替位二进制数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-009",
+  "studyTags": [
+    "位运算",
+    "数学"
+  ],
+  "summary": "判断正整数的二进制表示中相邻两位是否总是不同。",
+  "insight": "令 shifted=n>>1，n xor shifted 会在原数交替时得到形如 111... 的全一数；全一数 x 满足 x&(x+1)=0。",
+  "pitfalls": [
+    "只检查有效二进制位",
+    "输入是正整数",
+    "位运算无需转成字符串"
+  ],
+  "solutions": [
+    {
+      "id": "xor-all-ones",
+      "title": "异或相邻位后验证全一",
+      "kind": "最优",
+      "idea": "把相邻位差异编码为全一掩码并检查其形状。",
+      "steps": [
+        "value=n xor (n>>1)",
+        "若 n 相邻位全不同则 value 的有效位全为一",
+        "返回 (value & (value+1))==0"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/xor-all-ones/Solution.java",
+        "kotlin": "solutions/xor-all-ones/Solution.kt",
+        "cpp": "solutions/xor-all-ones/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { public: int getMaximumGenerated(int n){if(!n)return 0;vector<int> nums(n+1);nums[1]=1;int answer=1;for(int i=2;i<=n;++i){nums[i]=i%2==0?nums[i/2]:nums[i/2]+nums[i/2+1];answer=max(answer,nums[i]);}return answer;} };

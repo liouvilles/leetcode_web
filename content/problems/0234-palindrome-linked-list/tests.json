@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isPalindrome",
+  "parameterTypes": [
+    "listNode"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "偶数长度回文链表",
+      "args": [
+        [
+          1,
+          2,
+          2,
+          1
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "两个节点不相同",
+      "args": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "奇数长度回文链表",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          2,
+          1
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

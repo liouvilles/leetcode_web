@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countQuadruplets",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一二三之和为六",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          6
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "没有满足等式的四元组",
+      "args": [
+        [
+          3,
+          3,
+          6,
+          4,
+          5
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "重复一产生四种下标组合",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          3,
+          5
+        ]
+      ],
+      "expected": 4
+    }
+  ]
+}

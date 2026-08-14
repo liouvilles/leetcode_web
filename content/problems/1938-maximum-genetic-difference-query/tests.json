@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxGeneticDifference",
+  "parameterTypes": [
+    "intArray",
+    "intMatrix"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "四节点树三个查询",
+      "args": [
+        [
+          -1,
+          0,
+          1,
+          1
+        ],
+        [
+          [
+            0,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            2,
+            5
+          ]
+        ]
+      ],
+      "expected": [
+        2,
+        3,
+        7
+      ]
+    },
+    {
+      "name": "不同根路径最大异或",
+      "args": [
+        [
+          -1,
+          0,
+          0,
+          2
+        ],
+        [
+          [
+            1,
+            6
+          ],
+          [
+            3,
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        7,
+        3
+      ]
+    },
+    {
+      "name": "单根节点查询",
+      "args": [
+        [
+          -1
+        ],
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            5
+          ]
+        ]
+      ],
+      "expected": [
+        0,
+        5
+      ]
+    }
+  ]
+}

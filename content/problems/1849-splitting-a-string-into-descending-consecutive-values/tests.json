@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "splitString",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "普通递增字符串无法递减拆分",
+      "args": [
+        "1234"
+      ],
+      "expected": false
+    },
+    {
+      "name": "前导零后可拆为五四三",
+      "args": [
+        "050043"
+      ],
+      "expected": true
+    },
+    {
+      "name": "可拆为一百九十九九十八",
+      "args": [
+        "10009998"
+      ],
+      "expected": true
+    }
+  ]
+}

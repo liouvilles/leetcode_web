@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1383,
+  "slug": "maximum-performance-of-a-team",
+  "title": "最大的团队表现值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-019",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "排序",
+    "堆（优先队列）"
+  ],
+  "summary": "从 n 位工程师中选择最多 k 人，团队表现为速度和乘最低效率，求最大表现值取模。",
+  "insight": "按效率降序处理时，当前工程师就是所选团队效率下界；维护此前速度最大的至多 k 人，用最小堆及时移除最小速度。",
+  "pitfalls": [
+    "最大值比较必须在取模前完成",
+    "速度和及乘积使用 long",
+    "先加入当前工程师再把人数缩到 k"
+  ],
+  "solutions": [
+    {
+      "id": "efficiency-sweep-min-heap",
+      "title": "效率降序与速度小根堆",
+      "kind": "最优",
+      "idea": "枚举最低效率并让同一阈值下速度和最大。",
+      "steps": [
+        "将工程师按 efficiency 降序排序",
+        "扫描时把 speed 加入最小堆和 sum，堆超过 k 就移除最小速度",
+        "用 sum*当前 efficiency 更新最大值，最后取模"
+      ],
+      "complexity": {
+        "time": "O(n log n+n log k)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/efficiency-sweep-min-heap/Solution.java",
+        "kotlin": "solutions/efficiency-sweep-min-heap/Solution.kt",
+        "cpp": "solutions/efficiency-sweep-min-heap/solution.cpp"
+      }
+    }
+  ]
+}

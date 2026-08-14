@@ -1,0 +1,1 @@
+class Solution { public int[] getMaximumXor(int[] nums,int maximumBit){int current=0;for(int value:nums)current^=value;int mask=(1<<maximumBit)-1;int[] answer=new int[nums.length];for(int query=0;query<nums.length;query++){answer[query]=current^mask;current^=nums[nums.length-1-query];}return answer;} }

@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "calculateTax",
+  "parameterTypes": [
+    "intMatrix",
+    "int"
+  ],
+  "returnType": "double",
+  "cases": [
+    {
+      "name": "跨越三个税档",
+      "args": [
+        [
+          [
+            3,
+            50
+          ],
+          [
+            7,
+            10
+          ],
+          [
+            12,
+            25
+          ]
+        ],
+        10
+      ],
+      "expected": 2.65
+    },
+    {
+      "name": "只进入第二档一单位",
+      "args": [
+        [
+          [
+            1,
+            0
+          ],
+          [
+            4,
+            25
+          ],
+          [
+            5,
+            50
+          ]
+        ],
+        2
+      ],
+      "expected": 0.25
+    },
+    {
+      "name": "零收入无需缴税",
+      "args": [
+        [
+          [
+            2,
+            50
+          ]
+        ],
+        0
+      ],
+      "expected": 0
+    }
+  ]
+}

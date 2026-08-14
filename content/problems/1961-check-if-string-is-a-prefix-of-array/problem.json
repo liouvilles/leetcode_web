@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1961,
+  "slug": "check-if-string-is-a-prefix-of-array",
+  "title": "检查字符串是否为数组前缀",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-028",
+  "studyTags": [
+    "数组",
+    "字符串"
+  ],
+  "summary": "判断字符串 s 是否恰等于 words 前若干个完整单词按顺序连接。",
+  "insight": "依次追加单词；连接长度达到或超过 s 时立即比较，只有恰好相等才成立，不能在单词中间截断。",
+  "pitfalls": [
+    "必须使用完整单词",
+    "至少使用一个单词",
+    "单词顺序固定"
+  ],
+  "solutions": [
+    {
+      "id": "incremental-word-concatenation",
+      "title": "逐词增量拼接",
+      "kind": "最优",
+      "idea": "在每个单词边界检查是否恰好得到 s。",
+      "steps": [
+        "builder 为空",
+        "依次 append word",
+        "长度>=s.length 时返回 builder.toString()==s；遍历完仍不足返回 false"
+      ],
+      "complexity": {
+        "time": "O(total prefix length)",
+        "space": "O(|s|)"
+      },
+      "files": {
+        "java": "solutions/incremental-word-concatenation/Solution.java",
+        "kotlin": "solutions/incremental-word-concatenation/Solution.kt",
+        "cpp": "solutions/incremental-word-concatenation/solution.cpp"
+      }
+    }
+  ]
+}

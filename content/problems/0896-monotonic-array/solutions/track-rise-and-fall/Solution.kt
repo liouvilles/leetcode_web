@@ -1,0 +1,1 @@
+class Solution { fun isMonotonic(nums:IntArray):Boolean{var increasing=false;var decreasing=false;for(i in 1 until nums.size){if(nums[i]>nums[i-1])increasing=true;if(nums[i]<nums[i-1])decreasing=true;if(increasing&&decreasing)return false};return true} }

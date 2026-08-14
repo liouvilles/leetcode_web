@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isRationalEqual",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "循环写法不同但相等",
+      "args": [
+        "0.(52)",
+        "0.5(25)"
+      ],
+      "expected": true
+    },
+    {
+      "name": "循环六位置不同",
+      "args": [
+        "0.1666(6)",
+        "0.166(66)"
+      ],
+      "expected": true
+    },
+    {
+      "name": "循环九等于一",
+      "args": [
+        "0.9(9)",
+        "1."
+      ],
+      "expected": true
+    }
+  ]
+}

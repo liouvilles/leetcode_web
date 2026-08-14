@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "escapeGhosts",
+  "parameterTypes": [
+    "intMatrix",
+    "intArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "玩家严格更近",
+      "args": [
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            3
+          ]
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "幽灵先到目标",
+      "args": [
+        [
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "同时到达也失败",
+      "args": [
+        [
+          [
+            2,
+            0
+          ]
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "expected": false
+    }
+  ]
+}

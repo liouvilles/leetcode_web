@@ -1,0 +1,1 @@
+class Solution { fun countVowelPermutation(n:Int):Int{val mod=1000000007L;var a=1L;var e=1L;var i=1L;var o=1L;var u=1L;for(length in 2..n){val nextA=(e+i+u)%mod;val nextE=(a+i)%mod;val nextI=(e+o)%mod;val nextO=i;val nextU=(i+o)%mod;a=nextA;e=nextE;i=nextI;o=nextO;u=nextU};return ((a+e+i+o+u)%mod).toInt()} }

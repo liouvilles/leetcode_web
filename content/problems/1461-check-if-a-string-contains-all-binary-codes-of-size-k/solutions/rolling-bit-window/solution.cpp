@@ -1,0 +1,1 @@
+class Solution { public: bool hasAllCodes(string text,int k){int needed=1<<k;if((int)text.size()-k+1<needed)return false;vector<bool> seen(needed);int mask=needed-1,value=0,count=0;for(int i=0;i<(int)text.size();++i){value=((value<<1)|(text[i]-'0'))&mask;if(i>=k-1&&!seen[value]){seen[value]=true;if(++count==needed)return true;}}return false;} };

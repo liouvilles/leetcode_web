@@ -1,0 +1,1 @@
+class MKAverage(private val m:Int,private val k:Int) { private val window=java.util.ArrayDeque<Int>();fun addElement(num:Int){window.addLast(num);if(window.size>m)window.removeFirst()};fun calculateMKAverage():Int{if(window.size<m)return -1;val values=window.sorted();return (values.subList(k,m-k).sumOf{it.toLong()}/(m-2*k)).toInt()} }

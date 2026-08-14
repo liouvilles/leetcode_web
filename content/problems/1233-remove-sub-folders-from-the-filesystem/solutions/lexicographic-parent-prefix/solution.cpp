@@ -1,0 +1,1 @@
+class Solution { public: vector<string> removeSubfolders(vector<string>& folder){sort(folder.begin(),folder.end());vector<string> answer;for(string& path:folder)if(answer.empty()||path.rfind(answer.back()+"/",0)!=0)answer.push_back(path);return answer;} };

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1334,
+  "slug": "find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance",
+  "title": "阈值距离内邻居最少的城市",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-019",
+  "studyTags": [
+    "图论",
+    "最短路",
+    "Floyd-Warshall"
+  ],
+  "summary": "无向加权图中，找最短距离不超过阈值的其他城市数量最少的城市；并列返回编号最大者。",
+  "insight": "节点数较小，用 Floyd-Warshall 求所有点对最短路；逐城市统计阈值内邻居，按从小到大扫描并在计数不大于当前最佳时更新，即自然保留更大编号。",
+  "pitfalls": [
+    "不统计城市自身",
+    "边为双向",
+    "并列时选择编号更大"
+  ],
+  "solutions": [
+    {
+      "id": "floyd-warshall-neighbor-count",
+      "title": "全源最短路邻居计数",
+      "kind": "最优",
+      "idea": "计算距离闭包后选择最少可达邻居。",
+      "steps": [
+        "distance 初始化无穷，对角零，写入无向边最小权重",
+        "三重循环 k,i,j 更新 distance[i][j]",
+        "city 从零扫描，统计 j!=city 且 distance<=threshold；若 count<=bestCount 更新答案，返回"
+      ],
+      "complexity": {
+        "time": "O(n³)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/floyd-warshall-neighbor-count/Solution.java",
+        "kotlin": "solutions/floyd-warshall-neighbor-count/Solution.kt",
+        "cpp": "solutions/floyd-warshall-neighbor-count/solution.cpp"
+      }
+    }
+  ]
+}

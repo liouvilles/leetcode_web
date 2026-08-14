@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countSubstrings",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "只有单字符回文",
+      "args": [
+        "abc"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "三个相同字符",
+      "args": [
+        "aaa"
+      ],
+      "expected": 6
+    },
+    {
+      "name": "偶数长度回文",
+      "args": [
+        "abba"
+      ],
+      "expected": 6
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1621,
+  "slug": "number-of-sets-of-k-non-overlapping-line-segments",
+  "title": "大小为 K 的不重叠线段的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-023",
+  "studyTags": [
+    "数学",
+    "动态规划",
+    "组合数学"
+  ],
+  "summary": "在 n 个有序点中选择 k 条不重叠线段，线段至少覆盖两个点且允许只在端点相交，求方案数。",
+  "insight": "把每条线段的两个端点依次排列，允许相邻线段共享端点等价于插入 k-1 个可重复间隔；方案数可化为组合数 C(n+k-1,2k)。",
+  "pitfalls": [
+    "线段可共享端点但内部不能重叠",
+    "组合数需要逐步取模",
+    "组合上界为 n+k-1"
+  ],
+  "solutions": [
+    {
+      "id": "pascal-combination",
+      "title": "帕斯卡组合数",
+      "kind": "最优",
+      "idea": "用组合公式直接计算线段集合数量。",
+      "steps": [
+        "limit=n+k-1，建立 Pascal 组合表",
+        "C[row][0]=1，按 C[row-1][col-1]+C[row-1][col] 转移",
+        "返回 C[limit][2k] 模 1e9+7"
+      ],
+      "complexity": {
+        "time": "O((n+k)k)",
+        "space": "O((n+k)k)"
+      },
+      "files": {
+        "java": "solutions/pascal-combination/Solution.java",
+        "kotlin": "solutions/pascal-combination/Solution.kt",
+        "cpp": "solutions/pascal-combination/solution.cpp"
+      }
+    }
+  ]
+}

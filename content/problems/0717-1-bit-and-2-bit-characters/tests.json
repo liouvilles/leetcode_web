@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isOneBitCharacter",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "末尾零独立",
+      "args": [
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "末尾零属于两比特字符",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          0
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "只有一个零",
+      "args": [
+        [
+          0
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

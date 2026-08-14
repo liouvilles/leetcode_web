@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "mergeNodes",
+  "parameterTypes": [
+    "listNode"
+  ],
+  "returnType": "listNode",
+  "cases": [
+    {
+      "name": "两段合并为四和十一",
+      "args": [
+        [
+          0,
+          3,
+          1,
+          0,
+          4,
+          5,
+          2,
+          0
+        ]
+      ],
+      "expected": [
+        4,
+        11
+      ]
+    },
+    {
+      "name": "三段合并",
+      "args": [
+        [
+          0,
+          1,
+          0,
+          3,
+          0,
+          2,
+          2,
+          0
+        ]
+      ],
+      "expected": [
+        1,
+        3,
+        4
+      ]
+    },
+    {
+      "name": "单段单节点",
+      "args": [
+        [
+          0,
+          5,
+          0
+        ]
+      ],
+      "expected": [
+        5
+      ]
+    }
+  ]
+}

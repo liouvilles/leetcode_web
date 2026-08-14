@@ -1,0 +1,206 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "LockingTree",
+  "constructorTypes": [
+    "intArray"
+  ],
+  "cases": [
+    {
+      "name": "经典锁定解锁升级流程",
+      "constructorArgs": [
+        [
+          -1,
+          0,
+          0,
+          1,
+          1,
+          2,
+          2
+        ]
+      ],
+      "calls": [
+        {
+          "method": "lock",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            2,
+            2
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "unlock",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            2,
+            3
+          ],
+          "returnType": "boolean",
+          "expected": false
+        },
+        {
+          "method": "unlock",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            2,
+            2
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "lock",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            4,
+            5
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "upgrade",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            0,
+            1
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "lock",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            0,
+            1
+          ],
+          "returnType": "boolean",
+          "expected": false
+        }
+      ]
+    },
+    {
+      "name": "没有锁定后代不能升级",
+      "constructorArgs": [
+        [
+          -1,
+          0,
+          0
+        ]
+      ],
+      "calls": [
+        {
+          "method": "upgrade",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            0,
+            1
+          ],
+          "returnType": "boolean",
+          "expected": false
+        },
+        {
+          "method": "lock",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            1,
+            2
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "upgrade",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            0,
+            3
+          ],
+          "returnType": "boolean",
+          "expected": true
+        }
+      ]
+    },
+    {
+      "name": "锁定祖先阻止升级",
+      "constructorArgs": [
+        [
+          -1,
+          0,
+          1
+        ]
+      ],
+      "calls": [
+        {
+          "method": "lock",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            0,
+            7
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "lock",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            2,
+            8
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "upgrade",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            1,
+            9
+          ],
+          "returnType": "boolean",
+          "expected": false
+        }
+      ]
+    }
+  ]
+}

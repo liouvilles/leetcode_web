@@ -1,0 +1,1 @@
+class Solution { fun minPathCost(grid:Array<IntArray>,moveCost:Array<IntArray>):Int{val columns=grid[0].size;var dp=grid[0].clone();for(row in 0 until grid.size-1){val next=IntArray(columns){Int.MAX_VALUE};for(column in 0 until columns)for(nc in 0 until columns)next[nc]=minOf(next[nc],dp[column]+moveCost[grid[row][column]][nc]+grid[row+1][nc]);dp=next};return dp.minOrNull()!!} }

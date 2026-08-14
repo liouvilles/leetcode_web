@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 797,
+  "slug": "all-paths-from-source-to-target",
+  "title": "所有可能的路径",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-010",
+  "studyTags": [
+    "图论",
+    "深度优先搜索",
+    "回溯",
+    "DAG"
+  ],
+  "summary": "给定有向无环图，返回从节点零到节点 n-1 的所有路径。",
+  "insight": "DAG 不会在当前路径形成环，沿邻接表 DFS；到达终点时复制路径，回退时移除刚加入的节点。",
+  "pitfalls": [
+    "答案中每条路径都包含起点和终点",
+    "加入答案时必须复制当前路径",
+    "按邻接表顺序搜索可保持稳定输出"
+  ],
+  "solutions": [
+    {
+      "id": "dag-dfs-backtracking",
+      "title": "DAG 深搜回溯",
+      "kind": "最优",
+      "idea": "枚举从源点出发的每条分支直到终点。",
+      "steps": [
+        "路径初始化为 [0]",
+        "对当前节点每个邻居：加入路径、递归、移除",
+        "当前节点为 n-1 时复制路径加入答案并返回"
+      ],
+      "complexity": {
+        "time": "O(total path length)",
+        "space": "O(n + output)"
+      },
+      "files": {
+        "java": "solutions/dag-dfs-backtracking/Solution.java",
+        "kotlin": "solutions/dag-dfs-backtracking/Solution.kt",
+        "cpp": "solutions/dag-dfs-backtracking/solution.cpp"
+      }
+    }
+  ]
+}

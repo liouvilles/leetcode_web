@@ -1,0 +1,1 @@
+class Solution { fun findLongestWord(s:String,dictionary:List<String>):String{fun subsequence(word:String):Boolean{var index=0;for(c in s)if(index<word.length&&word[index]==c)index++;return index==word.length};var best="";for(word in dictionary)if(subsequence(word)&&(word.length>best.length||word.length==best.length&&word<best))best=word;return best} }

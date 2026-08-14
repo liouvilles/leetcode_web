@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 766,
+  "slug": "toeplitz-matrix",
+  "title": "托普利茨矩阵",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-010",
+  "studyTags": [
+    "数组",
+    "矩阵",
+    "对角线"
+  ],
+  "summary": "判断矩阵中每条从左上到右下的对角线是否所有元素相同。",
+  "insight": "除第一行和第一列外，每个元素只需与左上邻居比较；全部相等即满足定义。",
+  "pitfalls": [
+    "单行或单列矩阵总是托普利茨",
+    "比较坐标是 row-1,column-1",
+    "无需分别枚举每条对角线"
+  ],
+  "solutions": [
+    {
+      "id": "compare-upper-left",
+      "title": "逐格比较左上邻居",
+      "kind": "最优",
+      "idea": "一次矩阵扫描验证所有对角线相邻关系。",
+      "steps": [
+        "row 从 1 开始",
+        "column 从 1 开始",
+        "若 matrix[row][column]!=matrix[row-1][column-1] 返回假，结束返回真"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/compare-upper-left/Solution.java",
+        "kotlin": "solutions/compare-upper-left/Solution.kt",
+        "cpp": "solutions/compare-upper-left/solution.cpp"
+      }
+    }
+  ]
+}

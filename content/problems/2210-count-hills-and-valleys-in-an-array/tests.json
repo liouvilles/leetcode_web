@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countHillValley",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "平台压缩后有三个峰谷",
+      "args": [
+        [
+          2,
+          4,
+          1,
+          1,
+          6,
+          5
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "单调下降没有峰谷",
+      "args": [
+        [
+          6,
+          6,
+          5,
+          5,
+          4,
+          1
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "一二一形成一个山峰",
+      "args": [
+        [
+          1,
+          2,
+          1
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

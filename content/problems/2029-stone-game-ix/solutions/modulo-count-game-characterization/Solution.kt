@@ -1,0 +1,1 @@
+class Solution { fun stoneGameIX(stones:IntArray):Boolean{val count=IntArray(3);for(stone in stones)count[stone%3]++;return if(count[0]%2==0)count[1]>0&&count[2]>0 else kotlin.math.abs(count[1]-count[2])>2} }

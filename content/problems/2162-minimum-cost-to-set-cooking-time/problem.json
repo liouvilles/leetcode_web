@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2162,
+  "slug": "minimum-cost-to-set-cooking-time",
+  "title": "设置时间的最少代价",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-031",
+  "studyTags": [
+    "数学",
+    "枚举",
+    "模拟"
+  ],
+  "summary": "微波炉最多输入四位 mmss，可省略前导零；移动手指和按键各有代价，求设置目标秒数的最小成本。",
+  "insight": "同一总秒数至多有两种合法表示：标准的 minutes、seconds，或向秒借一分钟得到 minutes-1、seconds+60。枚举两种，格式化四位并去前导零后模拟按键。",
+  "pitfalls": [
+    "分钟和秒都必须不超过九十九",
+    "前导零无需输入",
+    "连续按相同数字不产生移动成本"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-two-time-representations",
+      "title": "枚举两种时间表示",
+      "kind": "最优",
+      "idea": "对每个合法 mmss 数字串精确模拟手指成本。",
+      "steps": [
+        "由 target 得 minutes=target/60、seconds=target%60",
+        "尝试 (minutes,seconds) 与 (minutes-1,seconds+60)，过滤范围零到九十九",
+        "把 mmss 四位表示去前导零；从 startAt 逐位累加 moveCost（数字变化时）与 pushCost，取最小"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/enumerate-two-time-representations/Solution.java",
+        "kotlin": "solutions/enumerate-two-time-representations/Solution.kt",
+        "cpp": "solutions/enumerate-two-time-representations/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "subArrayRanges",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "一二三范围和四",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "一三三范围和四",
+      "args": [
+        [
+          1,
+          3,
+          3
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "单元素范围和零",
+      "args": [
+        [
+          5
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

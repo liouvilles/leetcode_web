@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "buildMatrix",
+  "parameterTypes": [
+    "int",
+    "intMatrix",
+    "intMatrix"
+  ],
+  "returnType": "intMatrix",
+  "cases": [
+    {
+      "name": "唯一行列顺序构造反对角矩阵",
+      "args": [
+        3,
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        [
+          [
+            3,
+            2
+          ],
+          [
+            2,
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          3,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "行条件有环返回空矩阵",
+      "args": [
+        2,
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        []
+      ],
+      "expected": []
+    },
+    {
+      "name": "无条件按编号放在主对角线",
+      "args": [
+        2,
+        [],
+        []
+      ],
+      "expected": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          2
+        ]
+      ]
+    }
+  ]
+}

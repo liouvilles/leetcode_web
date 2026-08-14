@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "subarraysDivByK",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典答案七",
+      "args": [
+        [
+          4,
+          5,
+          0,
+          -2,
+          -3,
+          1
+        ],
+        5
+      ],
+      "expected": 7
+    },
+    {
+      "name": "单元素不可整除",
+      "args": [
+        [
+          5
+        ],
+        9
+      ],
+      "expected": 0
+    },
+    {
+      "name": "两个零有三段",
+      "args": [
+        [
+          0,
+          0
+        ],
+        3
+      ],
+      "expected": 3
+    }
+  ]
+}

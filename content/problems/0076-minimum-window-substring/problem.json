@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 76,
+  "slug": "minimum-window-substring",
+  "title": "最小覆盖子串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-001",
+  "studyTags": [
+    "滑动窗口",
+    "字符欠账",
+    "最短合法区间"
+  ],
+  "summary": "在字符串 s 中寻找包含字符串 t 全部字符及其出现次数的最短连续子串，不存在时返回空字符串。",
+  "insight": "右端扩张用来偿还目标字符欠账；全部满足后持续移动左端，直到窗口即将失去合法性。",
+  "pitfalls": [
+    "重复字符需要满足对应次数",
+    "非目标字符可以进入窗口但不改变欠账",
+    "更新答案必须发生在窗口仍合法时"
+  ],
+  "solutions": [
+    {
+      "id": "sliding-window-debt",
+      "title": "欠账计数滑动窗口",
+      "kind": "最优",
+      "idea": "计数数组保存仍需要的字符数量，missing 表示尚未匹配的目标字符总数。",
+      "steps": [
+        "统计 t 中字符并初始化 missing",
+        "右端字符若仍被需要则减少 missing",
+        "missing 为零时收缩左端并更新最短区间"
+      ],
+      "complexity": {
+        "time": "O(|s| + |t|)",
+        "space": "O(|Σ|)"
+      },
+      "files": {
+        "java": "solutions/sliding-window-debt/Solution.java",
+        "kotlin": "solutions/sliding-window-debt/Solution.kt",
+        "cpp": "solutions/sliding-window-debt/solution.cpp"
+      }
+    }
+  ]
+}

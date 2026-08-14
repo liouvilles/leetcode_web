@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findUnsortedSubarray",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "中间区间无序",
+      "args": [
+        [
+          2,
+          6,
+          4,
+          8,
+          10,
+          9,
+          15
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "已经有序",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "单元素",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

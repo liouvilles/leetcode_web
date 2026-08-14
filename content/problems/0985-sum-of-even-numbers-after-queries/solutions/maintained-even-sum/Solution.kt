@@ -1,0 +1,1 @@
+class Solution { fun sumEvenAfterQueries(nums:IntArray,queries:Array<IntArray>):IntArray{var evenSum=nums.filter{it%2==0}.sum();return IntArray(queries.size){i->val index=queries[i][1];if(nums[index]%2==0)evenSum-=nums[index];nums[index]+=queries[i][0];if(nums[index]%2==0)evenSum+=nums[index];evenSum}} }

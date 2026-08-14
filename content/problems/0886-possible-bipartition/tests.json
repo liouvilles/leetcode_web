@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "possibleBipartition",
+  "parameterTypes": [
+    "int",
+    "intMatrix"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "四人可二分",
+      "args": [
+        4,
+        [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            4
+          ]
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "三角冲突",
+      "args": [
+        3,
+        [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ]
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "五人奇环",
+      "args": [
+        5,
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            1,
+            5
+          ]
+        ]
+      ],
+      "expected": false
+    }
+  ]
+}

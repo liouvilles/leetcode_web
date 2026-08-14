@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": 2236,
+  "slug": "root-equals-sum-of-children",
+  "title": "判断根结点是否等于子结点之和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-032",
+  "studyTags": [
+    "树",
+    "二叉树"
+  ],
+  "summary": "三节点二叉树中判断根节点值是否等于左右子节点值之和。",
+  "insight": "直接读取根、左、右三个值比较。",
+  "pitfalls": [
+    "题目保证两个子节点存在",
+    "比较数值而非节点引用",
+    "返回布尔值"
+  ],
+  "solutions": [
+    {
+      "id": "direct-child-sum-check",
+      "title": "直接检查子节点和",
+      "kind": "最优",
+      "idea": "按定义进行一次加法比较。",
+      "steps": [
+        "计算 root.left.val+root.right.val",
+        "与 root.val 比较并返回"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/direct-child-sum-check/Solution.java",
+        "kotlin": "solutions/direct-child-sum-check/Solution.kt",
+        "cpp": "solutions/direct-child-sum-check/solution.cpp"
+      }
+    }
+  ]
+}

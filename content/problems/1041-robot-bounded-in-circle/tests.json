@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isRobotBounded",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "回到原点",
+      "args": [
+        "GGLLGG"
+      ],
+      "expected": true
+    },
+    {
+      "name": "一直向北",
+      "args": [
+        "GG"
+      ],
+      "expected": false
+    },
+    {
+      "name": "转向后有界",
+      "args": [
+        "GL"
+      ],
+      "expected": true
+    }
+  ]
+}

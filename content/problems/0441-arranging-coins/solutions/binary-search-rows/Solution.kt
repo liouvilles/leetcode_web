@@ -1,0 +1,1 @@
+class Solution { fun arrangeCoins(n:Int):Int{var left=0L;var right=n.toLong();while(left<right){val middle=left+(right-left+1)/2;if(middle*(middle+1)/2<=n)left=middle else right=middle-1};return left.toInt()} }

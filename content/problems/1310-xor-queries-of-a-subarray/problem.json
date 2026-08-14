@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1310,
+  "slug": "xor-queries-of-a-subarray",
+  "title": "子数组异或查询",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "数组",
+    "位运算",
+    "前缀异或"
+  ],
+  "summary": "对每个闭区间查询返回数组该段所有元素的异或值。",
+  "insight": "前缀异或 prefix[i] 保存前 i 个元素异或；相同前缀部分异或两次抵消，区间结果为 prefix[right+1] xor prefix[left]。",
+  "pitfalls": [
+    "查询左右端点都包含",
+    "前缀数组长度比原数组多一",
+    "异或没有溢出问题"
+  ],
+  "solutions": [
+    {
+      "id": "prefix-xor-range-query",
+      "title": "前缀异或区间查询",
+      "kind": "最优",
+      "idea": "用两次前缀异或常数时间回答每个区间。",
+      "steps": [
+        "prefix[0]=0，prefix[i+1]=prefix[i] xor arr[i]",
+        "创建 answer 与 queries 等长",
+        "每个 [left,right] 写 prefix[right+1] xor prefix[left]，返回"
+      ],
+      "complexity": {
+        "time": "O(n+q)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/prefix-xor-range-query/Solution.java",
+        "kotlin": "solutions/prefix-xor-range-query/Solution.kt",
+        "cpp": "solutions/prefix-xor-range-query/solution.cpp"
+      }
+    }
+  ]
+}

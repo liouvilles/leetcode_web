@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1361,
+  "slug": "validate-binary-tree-nodes",
+  "title": "验证二叉树",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-019",
+  "studyTags": [
+    "树",
+    "图论",
+    "广度优先搜索"
+  ],
+  "summary": "给定每个节点的左右孩子下标，判断这些边是否恰好组成一棵二叉树。",
+  "insight": "树必须有唯一入度为零的根，其他节点入度为一；再从根遍历，既不能重复访问也必须覆盖全部 n 个节点。",
+  "pitfalls": [
+    "同一节点不能有两个父节点",
+    "有唯一根仍可能存在不连通环",
+    "遍历时遇到已访问节点说明有环或重复路径"
+  ],
+  "solutions": [
+    {
+      "id": "indegree-and-traversal",
+      "title": "入度检查与遍历",
+      "kind": "最优",
+      "idea": "先定位唯一根，再验证连通且无环。",
+      "steps": [
+        "统计所有非负孩子的入度，任一超过一立即失败",
+        "寻找唯一入度零节点作为 root",
+        "从 root BFS，禁止重复并计数；最终 count==n"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/indegree-and-traversal/Solution.java",
+        "kotlin": "solutions/indegree-and-traversal/Solution.kt",
+        "cpp": "solutions/indegree-and-traversal/solution.cpp"
+      }
+    }
+  ]
+}

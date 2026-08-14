@@ -1,0 +1,1 @@
+class Solution { pair<int,int> parse(const string& value){int plus=value.find('+');return{stoi(value.substr(0,plus)),stoi(value.substr(plus+1,value.size()-plus-2))};}public:string complexNumberMultiply(string num1,string num2){auto [a,b]=parse(num1);auto [c,d]=parse(num2);int real=a*c-b*d,imaginary=a*d+b*c;return to_string(real)+"+"+to_string(imaginary)+"i";} };

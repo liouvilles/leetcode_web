@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 927,
+  "slug": "three-equal-parts",
+  "title": "三等分",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-013",
+  "studyTags": [
+    "数组",
+    "数学",
+    "双指针"
+  ],
+  "summary": "把二进制数组切成三个非空部分，要求三部分表示的二进制值相等，返回两个切分下标；无解返回负一。",
+  "insight": "三段必须含相同数量的一；定位每段第一个一后，第三段到结尾决定共同有效后缀长度，再逐位比较三段。",
+  "pitfalls": [
+    "前导零不影响数值",
+    "全零数组可直接给出任意合法切分",
+    "共同后缀必须在前两段边界内完整容纳"
+  ],
+  "solutions": [
+    {
+      "id": "aligned-significant-suffixes",
+      "title": "对齐有效二进制后缀",
+      "kind": "最优",
+      "idea": "用每段首个一和第三段长度确定切点。",
+      "steps": [
+        "统计 ones；为零返回 [0,2]，不能被三整除返回 [-1,-1]",
+        "定位第 1、ones/3+1、2*ones/3+1 个一的下标 first、second、third",
+        "令 length=n-third，检查前两段空间并比较三段 length 个字符；成功返回 [first+length-1,second+length]"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/aligned-significant-suffixes/Solution.java",
+        "kotlin": "solutions/aligned-significant-suffixes/Solution.kt",
+        "cpp": "solutions/aligned-significant-suffixes/solution.cpp"
+      }
+    }
+  ]
+}

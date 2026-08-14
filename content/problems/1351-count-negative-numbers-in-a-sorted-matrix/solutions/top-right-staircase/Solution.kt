@@ -1,0 +1,1 @@
+class Solution { fun countNegatives(grid:Array<IntArray>):Int{val rows=grid.size;var row=0;var column=grid[0].lastIndex;var answer=0;while(row<rows&&column>=0)if(grid[row][column]<0){answer+=rows-row;column--}else row++;return answer} }

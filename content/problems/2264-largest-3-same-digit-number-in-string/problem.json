@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": 2264,
+  "slug": "largest-3-same-digit-number-in-string",
+  "title": "字符串中最大的三位相同数字",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-033",
+  "studyTags": [
+    "字符串"
+  ],
+  "summary": "在数字字符串中找三个连续相同数位组成的最大三位数子串，不存在则空串。",
+  "insight": "扫描长度三窗口，三字符相等时按字符大小更新最佳数位；最终重复该字符三次。",
+  "pitfalls": [
+    "必须连续",
+    "允许答案 000",
+    "比较字符即可对应数值大小"
+  ],
+  "solutions": [
+    {
+      "id": "scan-equal-triplets",
+      "title": "扫描相等三元窗口",
+      "kind": "最优",
+      "idea": "记录所有合法窗口中最大的数位。",
+      "steps": [
+        "best=无",
+        "i 从零到 n-3，检查 number[i]==number[i+1]==number[i+2]",
+        "合法且字符更大则更新；结束返回空或字符重复三次"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/scan-equal-triplets/Solution.java",
+        "kotlin": "solutions/scan-equal-triplets/Solution.kt",
+        "cpp": "solutions/scan-equal-triplets/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { public int mostFrequentEven(int[] nums){Map<Integer,Integer> frequency=new HashMap<>();int answer=-1,best=0;for(int value:nums)if(value%2==0){int count=frequency.merge(value,1,Integer::sum);if(count>best||count==best&&(answer<0||value<answer)){best=count;answer=value;}}return answer;} }

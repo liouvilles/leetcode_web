@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 796,
+  "slug": "rotate-string",
+  "title": "旋转字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-010",
+  "studyTags": [
+    "字符串",
+    "字符串匹配"
+  ],
+  "summary": "可以反复把字符串 s 的首字符移动到末尾，判断能否得到 goal。",
+  "insight": "s 的所有旋转都恰好是 s+s 中长度为 |s| 的子串；长度相同且 goal 出现在 s+s 中即为可达。",
+  "pitfalls": [
+    "先检查长度相同",
+    "旋转零次也允许",
+    "拼接后做子串查找即可，无需逐次构造旋转"
+  ],
+  "solutions": [
+    {
+      "id": "doubled-string-membership",
+      "title": "倍增字符串包含判定",
+      "kind": "最优",
+      "idea": "利用所有旋转在双倍字符串中的连续出现。",
+      "steps": [
+        "比较 s 与 goal 长度，不同返回假",
+        "构造 s+s",
+        "判断其中是否包含 goal"
+      ],
+      "complexity": {
+        "time": "O(n²) worst case",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/doubled-string-membership/Solution.java",
+        "kotlin": "solutions/doubled-string-membership/Solution.kt",
+        "cpp": "solutions/doubled-string-membership/solution.cpp"
+      }
+    }
+  ]
+}

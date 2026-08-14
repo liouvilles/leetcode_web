@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sumZero",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "五个数含两对与零",
+      "args": [
+        5
+      ],
+      "expected": [
+        1,
+        -1,
+        2,
+        -2,
+        0
+      ]
+    },
+    {
+      "name": "偶数只含两对",
+      "args": [
+        4
+      ],
+      "expected": [
+        1,
+        -1,
+        2,
+        -2
+      ]
+    },
+    {
+      "name": "一个数为零",
+      "args": [
+        1
+      ],
+      "expected": [
+        0
+      ]
+    }
+  ]
+}

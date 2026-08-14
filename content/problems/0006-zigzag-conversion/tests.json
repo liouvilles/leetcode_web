@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "convert",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "三行折返",
+      "args": [
+        "PAYPALISHIRING",
+        3
+      ],
+      "expected": "PAHNAPLSIIGYIR"
+    },
+    {
+      "name": "四行折返",
+      "args": [
+        "PAYPALISHIRING",
+        4
+      ],
+      "expected": "PINALSIGYAHRPI"
+    },
+    {
+      "name": "单行不变",
+      "args": [
+        "A",
+        1
+      ],
+      "expected": "A"
+    }
+  ]
+}

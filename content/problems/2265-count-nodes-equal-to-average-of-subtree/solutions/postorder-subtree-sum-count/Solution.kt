@@ -1,0 +1,1 @@
+class Solution { private var answer=0;private fun dfs(node:TreeNode?):IntArray{if(node==null)return intArrayOf(0,0);val left=dfs(node.left);val right=dfs(node.right);val sum=node.`val`+left[0]+right[0];val count=1+left[1]+right[1];if(node.`val`==sum/count)answer++;return intArrayOf(sum,count)};fun averageOfSubtree(root:TreeNode?):Int{dfs(root);return answer} }

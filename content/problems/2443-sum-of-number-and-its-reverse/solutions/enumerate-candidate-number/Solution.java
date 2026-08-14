@@ -1,0 +1,1 @@
+class Solution { private int reverse(int value){int result=0;while(value>0){result=result*10+value%10;value/=10;}return result;}public boolean sumOfNumberAndReverse(int num){for(int value=0;value<=num;value++)if(value+reverse(value)==num)return true;return false;} }

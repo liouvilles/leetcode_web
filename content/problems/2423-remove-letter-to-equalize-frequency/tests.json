@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "equalFrequency",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "abcc 删除一个 c 后频次相同",
+      "args": [
+        "abcc"
+      ],
+      "expected": true
+    },
+    {
+      "name": "aazz 无法一次删除平衡",
+      "args": [
+        "aazz"
+      ],
+      "expected": false
+    },
+    {
+      "name": "abc 删除任一字符均合法",
+      "args": [
+        "abc"
+      ],
+      "expected": true
+    }
+  ]
+}

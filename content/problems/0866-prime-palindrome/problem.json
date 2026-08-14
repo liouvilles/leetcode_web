@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 866,
+  "slug": "prime-palindrome",
+  "title": "回文素数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "数学",
+    "数论",
+    "枚举"
+  ],
+  "summary": "返回大于等于 n 的最小回文素数。",
+  "insight": "除 11 外偶数位回文数都能被 11 整除；因此直接按前半部分生成奇数位回文，再判断是否不小于 n 且为素数。",
+  "pitfalls": [
+    "八到十一之间要特判返回十一",
+    "一不是素数",
+    "试除只需到 divisor*divisor<=value"
+  ],
+  "solutions": [
+    {
+      "id": "generate-odd-palindromes",
+      "title": "生成奇数位回文并判素",
+      "kind": "最优",
+      "idea": "按递增前缀构造候选，跳过所有无用偶数位回文。",
+      "steps": [
+        "若 8<=n<=11 返回 11",
+        "prefix 从 1 枚举，把 prefix 去掉末位后反转追加，构造奇数位 palindrome",
+        "若 palindrome>=n 且 prime 则返回；prime 用试除到平方根"
+      ],
+      "complexity": {
+        "time": "O(P·sqrt answer)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/generate-odd-palindromes/Solution.java",
+        "kotlin": "solutions/generate-odd-palindromes/Solution.kt",
+        "cpp": "solutions/generate-odd-palindromes/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1638,
+  "slug": "count-substrings-that-differ-by-one-character",
+  "title": "统计只差一个字符的子串数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-023",
+  "studyTags": [
+    "字符串",
+    "动态规划",
+    "枚举"
+  ],
+  "summary": "统计 s 与 t 的非空子串配对数，使两个子串长度相同且恰好有一个位置字符不同。",
+  "insight": "枚举两个子串起点并同步向右扩展，维护不同字符数量。为一时当前长度贡献一个配对，超过一后继续扩展不可能恢复，立即停止。",
+  "pitfalls": [
+    "恰好一个不同而非至多一个",
+    "相同内容但下标不同的子串分别计数",
+    "出现第二处不同后可提前结束"
+  ],
+  "solutions": [
+    {
+      "id": "paired-start-expansion",
+      "title": "双起点同步扩展",
+      "kind": "最优",
+      "idea": "逐对起点统计其所有合法公共长度。",
+      "steps": [
+        "枚举 s 起点 first 与 t 起点 second",
+        "offset 同步递增并累计 mismatch",
+        "mismatch==1 时 answer++，mismatch>1 时 break"
+      ],
+      "complexity": {
+        "time": "O(mn·min(m,n))",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/paired-start-expansion/Solution.java",
+        "kotlin": "solutions/paired-start-expansion/Solution.kt",
+        "cpp": "solutions/paired-start-expansion/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 17,
+  "slug": "letter-combinations-of-a-phone-number",
+  "title": "电话号码的字母组合",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-002",
+  "studyTags": [
+    "回溯",
+    "字符映射",
+    "笛卡尔积"
+  ],
+  "summary": "根据数字键 2 到 9 对应的字母，返回给定数字串可以表示的所有字母组合。",
+  "insight": "每个数字提供一组选项，按位置深度优先选择一个字母即可枚举这些集合的笛卡尔积。",
+  "pitfalls": [
+    "空输入应返回空列表而不是包含空字符串",
+    "每深入一层只处理一个数字",
+    "回溯后要删除路径末尾字符"
+  ],
+  "solutions": [
+    {
+      "id": "backtracking",
+      "title": "逐位回溯",
+      "kind": "最优",
+      "idea": "用固定数组保存按键映射，递归构造与数字串等长的字母路径。",
+      "steps": [
+        "空输入直接返回空集合",
+        "读取当前位置数字对应的字母串",
+        "依次选择字母并递归到下一位"
+      ],
+      "complexity": {
+        "time": "O(4ⁿ · n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/backtracking/Solution.java",
+        "kotlin": "solutions/backtracking/Solution.kt",
+        "cpp": "solutions/backtracking/solution.cpp"
+      }
+    }
+  ]
+}

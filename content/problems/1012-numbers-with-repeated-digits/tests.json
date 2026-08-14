@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numDupDigitsAtMostN",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "二十以内只有十一",
+      "args": [
+        20
+      ],
+      "expected": 1
+    },
+    {
+      "name": "一百以内十个",
+      "args": [
+        100
+      ],
+      "expected": 10
+    },
+    {
+      "name": "一千以内二百六十二",
+      "args": [
+        1000
+      ],
+      "expected": 262
+    }
+  ]
+}

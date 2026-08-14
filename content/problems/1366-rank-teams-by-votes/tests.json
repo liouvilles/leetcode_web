@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "rankTeams",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "五张选票决定 ACB",
+      "args": [
+        [
+          "ABC",
+          "ACB",
+          "ABC",
+          "ACB",
+          "ACB"
+        ]
+      ],
+      "expected": "ACB"
+    },
+    {
+      "name": "两张轮换选票",
+      "args": [
+        [
+          "WXYZ",
+          "XYZW"
+        ]
+      ],
+      "expected": "XWYZ"
+    },
+    {
+      "name": "同级继续比较后续名次",
+      "args": [
+        [
+          "BCA",
+          "CAB",
+          "CBA"
+        ]
+      ],
+      "expected": "CBA"
+    }
+  ]
+}

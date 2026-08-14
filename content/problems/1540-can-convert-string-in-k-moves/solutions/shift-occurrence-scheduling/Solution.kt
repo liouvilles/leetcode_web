@@ -1,0 +1,1 @@
+class Solution { fun canConvertString(s:String,t:String,k:Int):Boolean{if(s.length!=t.length)return false;val count=IntArray(26);for(i in s.indices){val difference=(t[i]-s[i]+26)%26;if(difference==0)continue;val scheduled=difference+26*count[difference]++;if(scheduled>k)return false};return true} }

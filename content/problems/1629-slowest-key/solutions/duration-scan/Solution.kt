@@ -1,0 +1,1 @@
+class Solution { fun slowestKey(releaseTimes:IntArray,keysPressed:String):Char{var previous=0;var bestDuration=0;var answer='a';for(i in releaseTimes.indices){val duration=releaseTimes[i]-previous;val key=keysPressed[i];if(duration>bestDuration||duration==bestDuration&&key>answer){bestDuration=duration;answer=key};previous=releaseTimes[i]};return answer} }

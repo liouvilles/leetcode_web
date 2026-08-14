@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": 1615,
+  "slug": "maximal-network-rank",
+  "title": "最大网络秩",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-023",
+  "studyTags": [
+    "图论"
+  ],
+  "summary": "两城市网络秩是与其中任一城市直接相连的道路总数，二者间道路若存在只计一次，求最大值。",
+  "insight": "先统计每个城市度数与邻接矩阵；枚举城市对，秩为 degree[first]+degree[second]-connected。",
+  "pitfalls": [
+    "城市对必须不同",
+    "两城市之间的公共道路只减一",
+    "不相连时不减"
+  ],
+  "solutions": [
+    {
+      "id": "degree-pair-enumeration",
+      "title": "度数对枚举",
+      "kind": "最优",
+      "idea": "组合两个城市的度数并修正它们之间的道路重复。",
+      "steps": [
+        "degree[n] 与 connected[n][n]",
+        "扫描 roads 更新度数和邻接",
+        "枚举 first<second，更新 degree[first]+degree[second]-(connected?1:0)"
+      ],
+      "complexity": {
+        "time": "O(n²+r)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/degree-pair-enumeration/Solution.java",
+        "kotlin": "solutions/degree-pair-enumeration/Solution.kt",
+        "cpp": "solutions/degree-pair-enumeration/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumTime",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "二问号小时得到二十三",
+      "args": [
+        "2?:?0"
+      ],
+      "expected": "23:50"
+    },
+    {
+      "name": "问号小时十位根据个位选一",
+      "args": [
+        "0?:3?"
+      ],
+      "expected": "09:39"
+    },
+    {
+      "name": "全问号得到二十三点五十九",
+      "args": [
+        "??:??"
+      ],
+      "expected": "23:59"
+    }
+  ]
+}

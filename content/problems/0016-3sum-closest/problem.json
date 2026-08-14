@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 16,
+  "slug": "3sum-closest",
+  "title": "最接近的三数之和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-004",
+  "studyTags": [
+    "排序",
+    "双指针",
+    "距离更新"
+  ],
+  "summary": "从整数数组中选择三个不同位置，使三数之和与目标值最接近，并返回该和。",
+  "insight": "排序后固定一个数，用双指针按当前和与目标的大小单调移动，并持续更新绝对距离更小的和。",
+  "pitfalls": [
+    "返回的是三数之和而不是距离",
+    "恰好命中目标可立即返回",
+    "比较距离时用长整型更稳妥"
+  ],
+  "solutions": [
+    {
+      "id": "sort-two-pointers",
+      "title": "排序 + 双指针",
+      "kind": "最优",
+      "idea": "固定首元素后在线性区间内寻找最接近目标的两数和。",
+      "steps": [
+        "数组排序并初始化 best",
+        "枚举 first，左右指针求当前和",
+        "距离更小时更新；和偏小左移，偏大右移"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/sort-two-pointers/Solution.java",
+        "kotlin": "solutions/sort-two-pointers/Solution.kt",
+        "cpp": "solutions/sort-two-pointers/solution.cpp"
+      }
+    }
+  ]
+}

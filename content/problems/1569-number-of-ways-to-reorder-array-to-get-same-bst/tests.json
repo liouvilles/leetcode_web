@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numOfWays",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "二一三另有一种交错",
+      "args": [
+        [
+          2,
+          1,
+          3
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "五元素示例有五种其他顺序",
+      "args": [
+        [
+          3,
+          4,
+          5,
+          1,
+          2
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "递增链只有原顺序",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

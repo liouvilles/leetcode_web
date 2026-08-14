@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2415,
+  "slug": "reverse-odd-levels-of-binary-tree",
+  "title": "反转二叉树的奇数层",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-035",
+  "studyTags": [
+    "树",
+    "广度优先搜索",
+    "二叉树"
+  ],
+  "summary": "给定完美二叉树，把每个奇数层节点值按从左到右顺序反转，返回根。",
+  "insight": "分层 BFS 收集当前层节点；层号为奇数时对称交换节点值，树结构不变。",
+  "pitfalls": [
+    "根层编号为零",
+    "只交换值不交换节点",
+    "树保证完美"
+  ],
+  "solutions": [
+    {
+      "id": "level-order-symmetric-value-swaps",
+      "title": "层序对称交换值",
+      "kind": "最优",
+      "idea": "逐层拿到节点列表后反转奇数层值。",
+      "steps": [
+        "queue 从 root",
+        "level=0，每轮复制该层 nodes",
+        "奇数层双指针交换 nodes[left].val 与 nodes[right].val",
+        "把孩子入队，level++；返回 root"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(width)"
+      },
+      "files": {
+        "java": "solutions/level-order-symmetric-value-swaps/Solution.java",
+        "kotlin": "solutions/level-order-symmetric-value-swaps/Solution.kt",
+        "cpp": "solutions/level-order-symmetric-value-swaps/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 416,
+  "slug": "partition-equal-subset-sum",
+  "title": "分割等和子集",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-003",
+  "studyTags": [
+    "0-1 背包",
+    "可达性 DP",
+    "倒序枚举"
+  ],
+  "summary": "判断正整数数组能否划分为两个元素和相等的子集。",
+  "insight": "总和必须为偶数，问题等价于是否能从每个元素至多选一次凑出总和的一半。",
+  "pitfalls": [
+    "总和为奇数可直接失败",
+    "容量必须倒序更新以防重复使用当前元素",
+    "dp[0] 初始为真"
+  ],
+  "solutions": [
+    {
+      "id": "zero-one-knapsack",
+      "title": "一维 0-1 背包",
+      "kind": "最优",
+      "idea": "布尔数组记录使用已处理元素能否凑出每个容量。",
+      "steps": [
+        "计算总和并排除奇数",
+        "target=sum/2 且 possible[0]=true",
+        "对每个值从 target 倒序更新"
+      ],
+      "complexity": {
+        "time": "O(n·sum)",
+        "space": "O(sum)"
+      },
+      "files": {
+        "java": "solutions/zero-one-knapsack/Solution.java",
+        "kotlin": "solutions/zero-one-knapsack/Solution.kt",
+        "cpp": "solutions/zero-one-knapsack/solution.cpp"
+      }
+    }
+  ]
+}

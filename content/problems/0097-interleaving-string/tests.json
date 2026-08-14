@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isInterleave",
+  "parameterTypes": [
+    "string",
+    "string",
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "存在合法交错",
+      "args": [
+        "aabcc",
+        "dbbca",
+        "aadbbcbcac"
+      ],
+      "expected": true
+    },
+    {
+      "name": "顺序无法满足",
+      "args": [
+        "aabcc",
+        "dbbca",
+        "aadbbbaccc"
+      ],
+      "expected": false
+    },
+    {
+      "name": "三个空串",
+      "args": [
+        "",
+        "",
+        ""
+      ],
+      "expected": true
+    }
+  ]
+}

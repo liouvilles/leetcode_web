@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxDistance",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "首末颜色不同距离五",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          6,
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "首栋与末栋颜色不同",
+      "args": [
+        [
+          1,
+          8,
+          3,
+          8,
+          3
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "两栋异色距离一",
+      "args": [
+        [
+          0,
+          1
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

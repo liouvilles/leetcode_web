@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1889,
+  "slug": "minimum-space-wasted-from-packaging",
+  "title": "装包裹的最小浪费空间",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-027",
+  "studyTags": [
+    "数组",
+    "二分查找",
+    "排序",
+    "前缀和"
+  ],
+  "summary": "选择一家供应商，并给每个包裹分配其能装下的最小箱子，求总浪费空间最小值并取模；无法装下返回负一。",
+  "insight": "包裹与每家箱子都排序。某个箱子尺寸可一次覆盖所有尚未分配且不大于它的包裹，用二分找到右边界，再借助包裹前缀和计算这一段浪费。",
+  "pitfalls": [
+    "只能选择一家供应商",
+    "箱子可无限使用",
+    "比较原始总浪费后再取模"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-prefix-batching",
+      "title": "排序前缀和分段装箱",
+      "kind": "最优",
+      "idea": "按箱子尺寸批量处理其能覆盖的新包裹段。",
+      "steps": [
+        "排序 packages 并构造 long prefix",
+        "对每家排序 boxes；最大箱小于最大包裹则跳过",
+        "依次对 box 二分 upperBound，累加 box*count-区间包裹和；取最小并最终模"
+      ],
+      "complexity": {
+        "time": "O(n log n+Σm log m+Σm log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/sorted-prefix-batching/Solution.java",
+        "kotlin": "solutions/sorted-prefix-batching/Solution.kt",
+        "cpp": "solutions/sorted-prefix-batching/solution.cpp"
+      }
+    }
+  ]
+}

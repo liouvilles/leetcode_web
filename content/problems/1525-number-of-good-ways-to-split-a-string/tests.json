@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numSplits",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "aacaba 有两个好分割",
+      "args": [
+        "aacaba"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "abcd 只有中间分割",
+      "args": [
+        "abcd"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "全相同字符每处都可分",
+      "args": [
+        "aaaaa"
+      ],
+      "expected": 4
+    }
+  ]
+}

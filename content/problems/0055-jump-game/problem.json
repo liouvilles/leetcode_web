@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 55,
+  "slug": "jump-game",
+  "title": "跳跃游戏",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-001",
+  "studyTags": [
+    "贪心",
+    "最远覆盖",
+    "不可达检测"
+  ],
+  "summary": "数组元素表示从当前位置最多可以向前跳跃的距离，判断能否从第一个位置到达最后一个位置。",
+  "insight": "只需维护已经能够到达的最远下标；当前下标一旦超过该边界，后续位置都不可能被访问。",
+  "pitfalls": [
+    "数组值表示最大跳跃距离而不是必须跳的距离",
+    "遍历范围不能超过当前可达边界",
+    "长度为一的数组已经位于终点"
+  ],
+  "solutions": [
+    {
+      "id": "greedy-farthest",
+      "title": "最远覆盖贪心",
+      "kind": "最优",
+      "idea": "遍历所有可达位置，并持续扩大可以覆盖到的最远下标。",
+      "steps": [
+        "初始化最远位置为 0",
+        "若当前下标超过最远位置则立即失败",
+        "用当前位置加跳跃长度更新最远位置"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/greedy-farthest/Solution.java",
+        "kotlin": "solutions/greedy-farthest/Solution.kt",
+        "cpp": "solutions/greedy-farthest/solution.cpp"
+      }
+    }
+  ]
+}

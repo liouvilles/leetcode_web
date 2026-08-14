@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "removePalindromeSub",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "ababa 一次删除",
+      "args": [
+        "ababa"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "abb 两次删除",
+      "args": [
+        "abb"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "单字符一次",
+      "args": [
+        "a"
+      ],
+      "expected": 1
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1691,
+  "slug": "maximum-height-by-stacking-cuboids",
+  "title": "堆叠长方体的最大高度",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-024",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "排序"
+  ],
+  "summary": "每个长方体可旋转，堆叠时上方三个维度都不能超过下方对应维度，求最大总高度。",
+  "insight": "先把每个长方体三个维度排序，等价于固定最大维作高；再按三维字典序排序，对可逐维包含的长方体做加权最长递增子序列。",
+  "pitfalls": [
+    "每个长方体内部维度先排序以统一旋转",
+    "堆叠比较包含三个维度",
+    "相等维度允许堆叠"
+  ],
+  "solutions": [
+    {
+      "id": "normalized-cuboid-lis",
+      "title": "维度归一化与三维 DP",
+      "kind": "最优",
+      "idea": "把旋转选择吸收到每个长方体的排序表示中。",
+      "steps": [
+        "每个 cuboid 维度升序排序，再对所有 cuboid 字典序排序",
+        "dp[i]=cuboids[i][2]",
+        "若 cuboid[j] 三维都<=cuboid[i]，则 dp[i]=max(dp[i],dp[j]+height[i])，取全局最大"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/normalized-cuboid-lis/Solution.java",
+        "kotlin": "solutions/normalized-cuboid-lis/Solution.kt",
+        "cpp": "solutions/normalized-cuboid-lis/solution.cpp"
+      }
+    }
+  ]
+}

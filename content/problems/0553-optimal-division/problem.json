@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 553,
+  "slug": "optimal-division",
+  "title": "最优除法",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-007",
+  "studyTags": [
+    "数学",
+    "贪心",
+    "表达式"
+  ],
+  "summary": "在给定正整数除法表达式中添加括号，使表达式结果最大并返回对应字符串。",
+  "insight": "三个及以上数字时，要让第一个数除以尽可能小的后缀；把后续所有连续除法放进一个分母括号即可。",
+  "pitfalls": [
+    "不能改变数字顺序",
+    "一或两个数字不需要括号",
+    "三个以上只需一对包住完整后缀的括号"
+  ],
+  "solutions": [
+    {
+      "id": "single-denominator-group",
+      "title": "整个后缀作为分母",
+      "kind": "最优",
+      "idea": "利用除法结构直接构造最优表达式。",
+      "steps": [
+        "长度一返回数字",
+        "长度二返回 a/b",
+        "其余返回 a/(b/c/.../z)"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/single-denominator-group/Solution.java",
+        "kotlin": "solutions/single-denominator-group/Solution.kt",
+        "cpp": "solutions/single-denominator-group/solution.cpp"
+      }
+    }
+  ]
+}

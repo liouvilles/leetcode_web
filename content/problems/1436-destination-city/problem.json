@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1436,
+  "slug": "destination-city",
+  "title": "旅行终点站",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-020",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "字符串"
+  ],
+  "summary": "给定一条无环旅行路线的若干有向路径，返回没有任何出发路径的终点城市。",
+  "insight": "收集所有出发城市，再找第一个不在出发集合中的到达城市。",
+  "pitfalls": [
+    "路径输入顺序任意",
+    "保证唯一终点",
+    "城市名称需按完整字符串比较"
+  ],
+  "solutions": [
+    {
+      "id": "origin-set",
+      "title": "出发城市集合",
+      "kind": "最优",
+      "idea": "终点是所有目的地中唯一未作为起点出现者。",
+      "steps": [
+        "把每条 path[0] 加入 origins",
+        "再次扫描路径目的地 path[1]",
+        "返回不在 origins 的目的地"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/origin-set/Solution.java",
+        "kotlin": "solutions/origin-set/Solution.kt",
+        "cpp": "solutions/origin-set/solution.cpp"
+      }
+    }
+  ]
+}

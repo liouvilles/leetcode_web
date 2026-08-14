@@ -1,0 +1,1 @@
+class Solution { public int minimumDeletions(String text){int bCount=0,deletions=0;for(char letter:text.toCharArray())if(letter=='b')bCount++;else deletions=Math.min(deletions+1,bCount);return deletions;} }

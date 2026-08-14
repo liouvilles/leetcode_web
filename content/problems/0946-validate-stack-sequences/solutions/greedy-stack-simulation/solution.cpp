@@ -1,0 +1,1 @@
+class Solution { public: bool validateStackSequences(vector<int>& pushed,vector<int>& popped){vector<int> stack;int index=0;for(int value:pushed){stack.push_back(value);while(!stack.empty()&&index<(int)popped.size()&&stack.back()==popped[index]){stack.pop_back();++index;}}return index==(int)popped.size();} };

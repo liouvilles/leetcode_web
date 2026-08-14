@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2399,
+  "slug": "check-distances-between-same-letters",
+  "title": "检查相同字母间的距离",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-035",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "字符串"
+  ],
+  "summary": "每个出现的字母恰出现两次，判断两次出现之间字符数是否等于 distance 对应值。",
+  "insight": "记录每个字母第一次下标，第二次遇到时检查 current-first-1。",
+  "pitfalls": [
+    "距离不包含两个端点",
+    "未出现字母的 distance 无需检查",
+    "下标差需减一"
+  ],
+  "solutions": [
+    {
+      "id": "first-position-check",
+      "title": "首次位置记录",
+      "kind": "最优",
+      "idea": "第二次出现时立即核对间隔。",
+      "steps": [
+        "first[26] 初始化 -1",
+        "扫描 i,ch",
+        "若 first 未设则记录 i，否则比较 i-first-1 与 distance",
+        "任一不等返回 false，否则 true"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(26)"
+      },
+      "files": {
+        "java": "solutions/first-position-check/Solution.java",
+        "kotlin": "solutions/first-position-check/Solution.kt",
+        "cpp": "solutions/first-position-check/solution.cpp"
+      }
+    }
+  ]
+}

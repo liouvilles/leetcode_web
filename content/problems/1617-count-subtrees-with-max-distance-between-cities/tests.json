@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countSubgraphsForEachDiameter",
+  "parameterTypes": [
+    "int",
+    "intMatrix"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "四城市分叉树的直径分布",
+      "args": [
+        4,
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ]
+        ]
+      ],
+      "expected": [
+        3,
+        4,
+        0
+      ]
+    },
+    {
+      "name": "两城市只有一棵子树",
+      "args": [
+        2,
+        [
+          [
+            1,
+            2
+          ]
+        ]
+      ],
+      "expected": [
+        1
+      ]
+    },
+    {
+      "name": "三城市链的直径分布",
+      "args": [
+        3,
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ]
+      ],
+      "expected": [
+        2,
+        1
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "divisorGame",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "二先手胜",
+      "args": [
+        2
+      ],
+      "expected": true
+    },
+    {
+      "name": "三先手败",
+      "args": [
+        3
+      ],
+      "expected": false
+    },
+    {
+      "name": "十先手胜",
+      "args": [
+        10
+      ],
+      "expected": true
+    }
+  ]
+}

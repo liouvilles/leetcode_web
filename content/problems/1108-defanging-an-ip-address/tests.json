@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "defangIPaddr",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "常见地址",
+      "args": [
+        "1.1.1.1"
+      ],
+      "expected": "1[.]1[.]1[.]1"
+    },
+    {
+      "name": "含零地址",
+      "args": [
+        "255.100.50.0"
+      ],
+      "expected": "255[.]100[.]50[.]0"
+    },
+    {
+      "name": "全零地址",
+      "args": [
+        "0.0.0.0"
+      ],
+      "expected": "0[.]0[.]0[.]0"
+    }
+  ]
+}

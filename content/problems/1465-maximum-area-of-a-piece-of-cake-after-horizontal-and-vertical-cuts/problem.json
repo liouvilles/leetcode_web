@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1465,
+  "slug": "maximum-area-of-a-piece-of-cake-after-horizontal-and-vertical-cuts",
+  "title": "切割后蛋糕的最大面积",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-021",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "排序"
+  ],
+  "summary": "在高 h、宽 w 的矩形蛋糕上按给定坐标横切和竖切，返回最大块面积取模。",
+  "insight": "最大矩形块由最大水平间距与最大垂直间距组合；分别排序切线并把两端边界纳入间距计算。",
+  "pitfalls": [
+    "要计算边界到首尾切线的距离",
+    "面积乘法使用 long",
+    "最后再取模"
+  ],
+  "solutions": [
+    {
+      "id": "maximum-gaps-product",
+      "title": "最大间距乘积",
+      "kind": "最优",
+      "idea": "独立求两个方向切割坐标的最大相邻差。",
+      "steps": [
+        "排序 horizontalCuts 与 verticalCuts",
+        "gap(length,cuts) 比较 0、所有切线及 length 之间相邻差",
+        "返回 maxHorizontal*maxVertical%MOD"
+      ],
+      "complexity": {
+        "time": "O(h log h+v log v)",
+        "space": "O(log h+log v)"
+      },
+      "files": {
+        "java": "solutions/maximum-gaps-product/Solution.java",
+        "kotlin": "solutions/maximum-gaps-product/Solution.kt",
+        "cpp": "solutions/maximum-gaps-product/solution.cpp"
+      }
+    }
+  ]
+}

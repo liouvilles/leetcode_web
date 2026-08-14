@@ -1,0 +1,1 @@
+class Solution { public: bool winnerOfGame(string colors){int alice=0,bob=0;for(int start=0;start<(int)colors.size();){int end=start;while(end<(int)colors.size()&&colors[end]==colors[start])++end;int moves=max(0,end-start-2);(colors[start]=='A'?alice:bob)+=moves;start=end;}return alice>bob;} };

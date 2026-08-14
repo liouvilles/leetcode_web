@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1339,
+  "slug": "maximum-product-of-splitted-binary-tree",
+  "title": "分裂二叉树的最大乘积",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-019",
+  "studyTags": [
+    "树",
+    "深度优先搜索",
+    "子树和"
+  ],
+  "summary": "删除二叉树一条边得到两棵子树，求两部分节点和乘积最大值并对 10^9+7 取模。",
+  "insight": "先求整树总和；第二次后序遍历得到每个子树和 sub，删除其父边后的乘积就是 sub·(total-sub)，对所有非根子树取最大即可。",
+  "pitfalls": [
+    "比较最大值前不能先取模",
+    "子树和与乘积用长整型",
+    "根对应整树乘积为零，不影响最大值"
+  ],
+  "solutions": [
+    {
+      "id": "total-and-subtree-sums",
+      "title": "总和与子树和双遍历",
+      "kind": "最优",
+      "idea": "枚举每条父子边对应的子树分割。",
+      "steps": [
+        "第一次 sum(root) 得 total",
+        "第二次 dfs 后序计算 sub=val+left+right，并用 sub*(total-sub) 更新 maximum",
+        "返回 maximum mod 1e9+7"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(height)"
+      },
+      "files": {
+        "java": "solutions/total-and-subtree-sums/Solution.java",
+        "kotlin": "solutions/total-and-subtree-sums/Solution.kt",
+        "cpp": "solutions/total-and-subtree-sums/solution.cpp"
+      }
+    }
+  ]
+}

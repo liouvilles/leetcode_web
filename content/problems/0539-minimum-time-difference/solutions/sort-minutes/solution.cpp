@@ -1,0 +1,1 @@
+class Solution { public: int findMinDifference(vector<string>& timePoints){vector<int> minutes;for(string value:timePoints)minutes.push_back(stoi(value.substr(0,2))*60+stoi(value.substr(3)));sort(minutes.begin(),minutes.end());int best=minutes[0]+1440-minutes.back();for(int i=1;i<(int)minutes.size();++i)best=min(best,minutes[i]-minutes[i-1]);return best;} };

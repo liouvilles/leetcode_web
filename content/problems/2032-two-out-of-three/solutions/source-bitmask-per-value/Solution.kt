@@ -1,0 +1,1 @@
+class Solution { fun twoOutOfThree(nums1:IntArray,nums2:IntArray,nums3:IntArray):List<Int>{val mask=IntArray(101);for((index,values) in arrayOf(nums1,nums2,nums3).withIndex())for(value in values)mask[value]=mask[value] or (1 shl index);return (1..100).filter{Integer.bitCount(mask[it])>=2}} }

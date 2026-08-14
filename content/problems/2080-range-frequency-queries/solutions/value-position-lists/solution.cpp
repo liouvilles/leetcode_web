@@ -1,0 +1,1 @@
+class RangeFreqQuery { unordered_map<int,vector<int>> positions;public: RangeFreqQuery(vector<int>& arr){for(int i=0;i<(int)arr.size();++i)positions[arr[i]].push_back(i);}int query(int left,int right,int value){auto& values=positions[value];return upper_bound(values.begin(),values.end(),right)-lower_bound(values.begin(),values.end(),left);} };

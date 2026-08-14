@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minAreaFreeRect",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "double",
+  "cases": [
+    {
+      "name": "菱形面积二",
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "单位正方形",
+      "args": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "三点无矩形",
+      "args": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            0
+          ]
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

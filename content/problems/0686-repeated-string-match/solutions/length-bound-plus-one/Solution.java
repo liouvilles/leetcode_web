@@ -1,0 +1,1 @@
+class Solution { public int repeatedStringMatch(String a,String b){StringBuilder builder=new StringBuilder();int repeats=0;while(builder.length()<b.length()){builder.append(a);repeats++;}if(builder.indexOf(b)>=0)return repeats;builder.append(a);return builder.indexOf(b)>=0?repeats+1:-1;} }

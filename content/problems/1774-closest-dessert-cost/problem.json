@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1774,
+  "slug": "closest-dessert-cost",
+  "title": "最接近目标价格的甜点成本",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-025",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "回溯"
+  ],
+  "summary": "必须选一种冰淇淋基料，每种配料可选零、一或两份，使总成本最接近 target；差值相同取较小成本。",
+  "insight": "配料最多十种，递归枚举每种的零、一、两份。对每个基料独立开始，并用统一比较规则更新全局最佳成本。",
+  "pitfalls": [
+    "基料必须且只能选一种",
+    "每种配料最多两份",
+    "平局选择总成本更低者"
+  ],
+  "solutions": [
+    {
+      "id": "ternary-topping-enumeration",
+      "title": "配料三态回溯",
+      "kind": "最优",
+      "idea": "完整枚举有限的 3^t 种配料组合。",
+      "steps": [
+        "best 初始化任一 base",
+        "update(cost)：绝对差更小或差相等且 cost 更小时更新",
+        "对每个 base 调用 dfs(index,cost)，当前配料分别加零、一、两份后递归"
+      ],
+      "complexity": {
+        "time": "O(b·3^t)",
+        "space": "O(t)"
+      },
+      "files": {
+        "java": "solutions/ternary-topping-enumeration/Solution.java",
+        "kotlin": "solutions/ternary-topping-enumeration/Solution.kt",
+        "cpp": "solutions/ternary-topping-enumeration/solution.cpp"
+      }
+    }
+  ]
+}

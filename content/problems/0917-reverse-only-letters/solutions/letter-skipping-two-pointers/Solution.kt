@@ -1,0 +1,1 @@
+class Solution { fun reverseOnlyLetters(s:String):String{val chars=s.toCharArray();var left=0;var right=chars.lastIndex;while(left<right){if(!chars[left].isLetter())left++ else if(!chars[right].isLetter())right-- else{val temporary=chars[left];chars[left++]=chars[right];chars[right--]=temporary}};return String(chars)} }

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 630,
+  "slug": "course-schedule-iii",
+  "title": "课程表 III",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-008",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "排序",
+    "堆"
+  ],
+  "summary": "每门课程有持续时间和截止日，从第一天开始连续学习且不能并行，求最多能修完多少门课程。",
+  "insight": "按截止日处理课程并暂时选入；若总耗时超过当前截止日，就撤销已选课程中耗时最长的一门，给后续留下最大空间。",
+  "pitfalls": [
+    "按截止日而非持续时间排序",
+    "超时后最多需弹出一门，因为加入前集合已可行",
+    "堆中只需保存已选课程持续时间"
+  ],
+  "solutions": [
+    {
+      "id": "deadline-sort-max-heap",
+      "title": "截止日排序与最长课程替换",
+      "kind": "最优",
+      "idea": "维护当前截止日前可选数量最大且总耗时尽量小的课程集合。",
+      "steps": [
+        "课程按 lastDay 升序排序",
+        "逐门加入持续时间和最大堆",
+        "若 totalTime>lastDay，弹出最长持续时间并扣除；返回堆大小"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/deadline-sort-max-heap/Solution.java",
+        "kotlin": "solutions/deadline-sort-max-heap/Solution.kt",
+        "cpp": "solutions/deadline-sort-max-heap/solution.cpp"
+      }
+    }
+  ]
+}

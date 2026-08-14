@@ -1,0 +1,1 @@
+class Solution { public boolean validateStackSequences(int[] pushed,int[] popped){Deque<Integer> stack=new ArrayDeque<>();int index=0;for(int value:pushed){stack.push(value);while(!stack.isEmpty()&&index<popped.length&&stack.peek()==popped[index]){stack.pop();index++;}}return index==popped.length;} }

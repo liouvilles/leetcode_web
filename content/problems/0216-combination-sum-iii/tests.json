@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "combinationSum3",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "intListMatrix",
+  "cases": [
+    {
+      "name": "三数和七",
+      "args": [
+        3,
+        7
+      ],
+      "expected": [
+        [
+          1,
+          2,
+          4
+        ]
+      ]
+    },
+    {
+      "name": "三数组合多解",
+      "args": [
+        3,
+        9
+      ],
+      "expected": [
+        [
+          1,
+          2,
+          6
+        ],
+        [
+          1,
+          3,
+          5
+        ],
+        [
+          2,
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "name": "没有组合",
+      "args": [
+        4,
+        1
+      ],
+      "expected": []
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 541,
+  "slug": "reverse-string-ii",
+  "title": "反转字符串 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-007",
+  "studyTags": [
+    "字符串",
+    "分块模拟",
+    "双指针"
+  ],
+  "summary": "从字符串开头每计数 2k 个字符，就反转其中前 k 个；末尾不足部分按规则处理。",
+  "insight": "每个长度 2k 的分块只需反转区间 [start,min(start+k,n))，统一覆盖所有末尾情况。",
+  "pitfalls": [
+    "不足 k 个时全部反转",
+    "介于 k 和 2k 时只反转前 k 个",
+    "块起点每次增加 2k"
+  ],
+  "solutions": [
+    {
+      "id": "block-reversal",
+      "title": "按 2k 分块反转前半",
+      "kind": "最优",
+      "idea": "在字符数组上对每块前 k 个位置做原地双指针反转。",
+      "steps": [
+        "字符数组化",
+        "start 从零每次加 2k",
+        "left=start,right=min(start+k-1,n-1)，交换至相遇"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/block-reversal/Solution.java",
+        "kotlin": "solutions/block-reversal/Solution.kt",
+        "cpp": "solutions/block-reversal/solution.cpp"
+      }
+    }
+  ]
+}

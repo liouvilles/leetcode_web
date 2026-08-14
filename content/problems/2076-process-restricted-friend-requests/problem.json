@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2076,
+  "slug": "process-restricted-friend-requests",
+  "title": "处理含限制条件的好友请求",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "并查集",
+    "图论",
+    "数组"
+  ],
+  "summary": "顺序处理好友请求，若合并两人的朋友圈会让任一限制对处于同一朋友圈则拒绝，否则接受并永久合并。",
+  "insight": "并查集维护当前朋友圈。对请求两根 a、b，检查每条限制的两个当前根是否分别等于 a、b；若有则拒绝，否则合并。约束允许逐限制扫描。",
+  "pitfalls": [
+    "请求必须按顺序处理",
+    "限制作用于整个朋友圈而非只检查请求两人",
+    "已在同一组的请求可直接接受"
+  ],
+  "solutions": [
+    {
+      "id": "union-find-scan-restrictions",
+      "title": "并查集逐限制验证",
+      "kind": "最优",
+      "idea": "在每次潜在合并前检查是否会连接任一禁止分量对。",
+      "steps": [
+        "DSU 初始化",
+        "对 request 求 roots；相同直接接受",
+        "扫描 restrictions 当前 roots，若与请求两根交叉匹配则拒绝；否则 union 并接受"
+      ],
+      "complexity": {
+        "time": "O(requests·restrictions·α(n))",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/union-find-scan-restrictions/Solution.java",
+        "kotlin": "solutions/union-find-scan-restrictions/Solution.kt",
+        "cpp": "solutions/union-find-scan-restrictions/solution.cpp"
+      }
+    }
+  ]
+}

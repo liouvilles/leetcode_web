@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "constructMaximumBinaryTree",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "treeNode",
+  "cases": [
+    {
+      "name": "经典最大二叉树",
+      "args": [
+        [
+          3,
+          2,
+          1,
+          6,
+          0,
+          5
+        ]
+      ],
+      "expected": [
+        6,
+        3,
+        5,
+        null,
+        2,
+        0,
+        null,
+        null,
+        1
+      ]
+    },
+    {
+      "name": "严格递减数组",
+      "args": [
+        [
+          3,
+          2,
+          1
+        ]
+      ],
+      "expected": [
+        3,
+        null,
+        2,
+        null,
+        1
+      ]
+    },
+    {
+      "name": "严格递增数组",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        3,
+        2,
+        null,
+        1
+      ]
+    }
+  ]
+}

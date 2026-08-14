@@ -1,0 +1,1 @@
+class Solution { fun maximumBinaryString(binary:String):String{val first=binary.indexOf('0');if(first<0)return binary;val zeros=binary.count{it=='0'};val answer=CharArray(binary.length){'1'};answer[first+zeros-1]='0';return String(answer)} }

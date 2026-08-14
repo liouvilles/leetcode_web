@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2438,
+  "slug": "range-product-queries-of-powers",
+  "title": "二的幂数组中查询范围内的乘积",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-036",
+  "studyTags": [
+    "数组",
+    "位运算",
+    "前缀和"
+  ],
+  "summary": "把 n 表示成最少个互不相同二的幂并升序排列，对多个闭区间查询其中乘积并取模。",
+  "insight": "powers 就是 n 所有置位对应的二次幂，数量至多三十；逐查询直接相乘即可。",
+  "pitfalls": [
+    "幂按升序排列",
+    "查询端点包含",
+    "乘积使用 long 并取模"
+  ],
+  "solutions": [
+    {
+      "id": "extract-set-bits-and-multiply-ranges",
+      "title": "提取置位并区间相乘",
+      "kind": "最优",
+      "idea": "小规模 powers 直接回答每个查询。",
+      "steps": [
+        "bit 从0到30，n 该位置一则加入 1<<bit",
+        "每个 [l,r] 从 l 到 r 累乘取模",
+        "写入答案"
+      ],
+      "complexity": {
+        "time": "O(wordBits+q·wordBits)",
+        "space": "O(wordBits)"
+      },
+      "files": {
+        "java": "solutions/extract-set-bits-and-multiply-ranges/Solution.java",
+        "kotlin": "solutions/extract-set-bits-and-multiply-ranges/Solution.kt",
+        "cpp": "solutions/extract-set-bits-and-multiply-ranges/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 347,
+  "slug": "top-k-frequent-elements",
+  "title": "前 K 个高频元素",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-003",
+  "studyTags": [
+    "桶排序",
+    "频次统计",
+    "线性选择"
+  ],
+  "summary": "返回整数数组中出现频率最高的 k 个不同元素，答案顺序不限。",
+  "insight": "元素频率最大不超过数组长度，可以把频率作为桶下标，再从高频桶向低频桶收集。",
+  "pitfalls": [
+    "k 指不同元素数量",
+    "同频元素的输出顺序不影响正确性",
+    "收集到 k 个后应立即结束"
+  ],
+  "solutions": [
+    {
+      "id": "frequency-buckets",
+      "title": "频率桶",
+      "kind": "最优",
+      "idea": "先按首次出现顺序计数，再把元素放进对应频率的桶中。",
+      "steps": [
+        "统计每个元素频率",
+        "将元素加入 buckets[frequency]",
+        "从最高频桶向下收集 k 个元素"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/frequency-buckets/Solution.java",
+        "kotlin": "solutions/frequency-buckets/Solution.kt",
+        "cpp": "solutions/frequency-buckets/solution.cpp"
+      }
+    }
+  ]
+}

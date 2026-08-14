@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumUnits",
+  "parameterTypes": [
+    "intMatrix",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "优先高单元箱得到八",
+      "args": [
+        [
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        4
+      ],
+      "expected": 8
+    },
+    {
+      "name": "多类型箱子最大单元九十一",
+      "args": [
+        [
+          [
+            5,
+            10
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            4,
+            7
+          ],
+          [
+            3,
+            9
+          ]
+        ],
+        10
+      ],
+      "expected": 91
+    },
+    {
+      "name": "容量大于箱数装下全部",
+      "args": [
+        [
+          [
+            2,
+            4
+          ]
+        ],
+        5
+      ],
+      "expected": 8
+    }
+  ]
+}

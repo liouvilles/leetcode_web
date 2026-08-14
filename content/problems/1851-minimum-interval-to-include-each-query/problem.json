@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 1851,
+  "slug": "minimum-interval-to-include-each-query",
+  "title": "包含每个查询的最小区间",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-027",
+  "studyTags": [
+    "数组",
+    "二分查找",
+    "排序",
+    "堆（优先队列）",
+    "离线查询"
+  ],
+  "summary": "对每个查询点，返回包含它的最短闭区间长度，无区间包含则负一。",
+  "insight": "区间按左端点、查询按值排序。处理查询时加入所有 left<=query 的区间到按长度排序的堆，再移除 right<query 的过期区间，堆顶即最短。",
+  "pitfalls": [
+    "闭区间长度为 right-left+1",
+    "答案需写回查询原顺序",
+    "堆中区间可能因右端过期失效"
+  ],
+  "solutions": [
+    {
+      "id": "offline-query-interval-heap",
+      "title": "离线查询与区间小根堆",
+      "kind": "最优",
+      "idea": "沿查询坐标单调扫描并维护当前包含候选。",
+      "steps": [
+        "intervals 按 left 排序，query 下标按值排序",
+        "加入 left<=value 的 [length,right]",
+        "弹出 right<value，非空时 answer[index]=heap.top.length"
+      ],
+      "complexity": {
+        "time": "O((n+q) log n)",
+        "space": "O(n+q)"
+      },
+      "files": {
+        "java": "solutions/offline-query-interval-heap/Solution.java",
+        "kotlin": "solutions/offline-query-interval-heap/Solution.kt",
+        "cpp": "solutions/offline-query-interval-heap/solution.cpp"
+      }
+    }
+  ]
+}

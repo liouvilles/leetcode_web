@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2012,
+  "slug": "sum-of-beauty-in-the-array",
+  "title": "数组美丽值求和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-029",
+  "studyTags": [
+    "数组",
+    "前缀和"
+  ],
+  "summary": "中间元素若大于左侧所有数且小于右侧所有数美丽值二，否则若大于左邻小于右邻值一，求总和。",
+  "insight": "预处理每个位置左侧最大值和右侧最小值，就能 O(1) 判断值二条件；失败后再判断相邻条件。",
+  "pitfalls": [
+    "值二条件优先，不与值一叠加",
+    "只考察下标一到 n-2",
+    "不等式均严格"
+  ],
+  "solutions": [
+    {
+      "id": "prefix-max-suffix-min",
+      "title": "前缀最大与后缀最小",
+      "kind": "最优",
+      "idea": "为每个中间位置预先汇总两侧极值。",
+      "steps": [
+        "leftMaximum[i] 为 0..i 最大，rightMinimum[i] 为 i..n-1 最小",
+        "i 从 1 到 n-2：若 nums[i]>leftMaximum[i-1] 且 <rightMinimum[i+1] 加二",
+        "否则若左右邻严格递增加一，返回"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/prefix-max-suffix-min/Solution.java",
+        "kotlin": "solutions/prefix-max-suffix-min/Solution.kt",
+        "cpp": "solutions/prefix-max-suffix-min/solution.cpp"
+      }
+    }
+  ]
+}

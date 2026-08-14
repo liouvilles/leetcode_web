@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "checkInclusion",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "中间窗口为一个排列",
+      "args": [
+        "ab",
+        "eidbaooo"
+      ],
+      "expected": true
+    },
+    {
+      "name": "没有频次相同窗口",
+      "args": [
+        "ab",
+        "eidboaoo"
+      ],
+      "expected": false
+    },
+    {
+      "name": "模式比文本长",
+      "args": [
+        "abcd",
+        "abc"
+      ],
+      "expected": false
+    }
+  ]
+}

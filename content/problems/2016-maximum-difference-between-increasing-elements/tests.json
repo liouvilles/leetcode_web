@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumDifference",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一到五最大差四",
+      "args": [
+        [
+          7,
+          1,
+          5,
+          4
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "严格递减没有合法对",
+      "args": [
+        [
+          9,
+          4,
+          3,
+          2
+        ]
+      ],
+      "expected": -1
+    },
+    {
+      "name": "二到十最大差八",
+      "args": [
+        [
+          1,
+          5,
+          2,
+          10
+        ]
+      ],
+      "expected": 9
+    }
+  ]
+}

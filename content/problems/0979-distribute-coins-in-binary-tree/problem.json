@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 979,
+  "slug": "distribute-coins-in-binary-tree",
+  "title": "在二叉树中分配硬币",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-014",
+  "studyTags": [
+    "树",
+    "深度优先搜索",
+    "后序遍历"
+  ],
+  "summary": "二叉树有 n 个节点和总计 n 枚硬币，每步可沿一条边移动一枚硬币，求每节点恰一枚所需最少步数。",
+  "insight": "后序返回子树相对其节点数的硬币盈亏 balance；该盈亏必须全部穿过父边，左右子树贡献的移动次数就是各自 balance 绝对值。",
+  "pitfalls": [
+    "缺硬币产生负 balance 也按绝对值计移动",
+    "当前节点保留一枚，所以返回 node.val+left+right-1",
+    "根的最终 balance 必为零"
+  ],
+  "solutions": [
+    {
+      "id": "postorder-coin-balance",
+      "title": "后序硬币盈亏",
+      "kind": "最优",
+      "idea": "按每条父子边必须运输的净硬币数累计。",
+      "steps": [
+        "moves=0",
+        "DFS 空节点返回零；递归取得 leftBalance、rightBalance",
+        "moves+=|left|+|right|，返回 node.val+left+right-1；根 DFS 后返回 moves"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(height)"
+      },
+      "files": {
+        "java": "solutions/postorder-coin-balance/Solution.java",
+        "kotlin": "solutions/postorder-coin-balance/Solution.kt",
+        "cpp": "solutions/postorder-coin-balance/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "flipgame",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典最小值二",
+      "args": [
+        [
+          1,
+          2,
+          4,
+          4,
+          7
+        ],
+        [
+          1,
+          3,
+          4,
+          1,
+          3
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "唯一值被禁用",
+      "args": [
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "互换两张卡",
+      "args": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 412,
+  "slug": "fizz-buzz",
+  "title": "Fizz Buzz",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-006",
+  "studyTags": [
+    "模拟",
+    "字符串",
+    "整除"
+  ],
+  "summary": "返回一到 n 的字符串序列，三的倍数写 Fizz、五的倍数写 Buzz、同时整除时写 FizzBuzz，其余写数字。",
+  "insight": "先判断十五的倍数可避免重叠分支，也可分别拼接两个词。",
+  "pitfalls": [
+    "序列从一而非零开始",
+    "十五的倍数必须输出组合词",
+    "结果长度恰好为 n"
+  ],
+  "solutions": [
+    {
+      "id": "divisibility-cases",
+      "title": "整除分类模拟",
+      "kind": "最优",
+      "idea": "按十五、三、五、普通数字的优先级生成每一项。",
+      "steps": [
+        "遍历 value=1..n",
+        "依次判断 value%15、%3、%5",
+        "加入对应字符串或十进制数字"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1) excluding output"
+      },
+      "files": {
+        "java": "solutions/divisibility-cases/Solution.java",
+        "kotlin": "solutions/divisibility-cases/Solution.kt",
+        "cpp": "solutions/divisibility-cases/solution.cpp"
+      }
+    }
+  ]
+}

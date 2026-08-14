@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 125,
+  "slug": "valid-palindrome",
+  "title": "验证回文串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-002",
+  "studyTags": [
+    "双指针",
+    "字符过滤",
+    "忽略大小写"
+  ],
+  "summary": "忽略非字母数字字符和字母大小写后，判断字符串是否为回文。",
+  "insight": "左右指针跳过无关字符，仅比较下一对有效字符的小写形式即可，无需构造新字符串。",
+  "pitfalls": [
+    "数字也属于有效字符",
+    "比较前需要统一大小写",
+    "全由标点组成的字符串视为空回文串"
+  ],
+  "solutions": [
+    {
+      "id": "filtered-two-pointers",
+      "title": "过滤式双指针",
+      "kind": "最优",
+      "idea": "从两端向中间移动，按需跳过非字母数字字符。",
+      "steps": [
+        "左指针跳到下一个有效字符",
+        "右指针跳到上一个有效字符",
+        "比较忽略大小写后的字符并继续收缩"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/filtered-two-pointers/Solution.java",
+        "kotlin": "solutions/filtered-two-pointers/Solution.kt",
+        "cpp": "solutions/filtered-two-pointers/solution.cpp"
+      }
+    }
+  ]
+}

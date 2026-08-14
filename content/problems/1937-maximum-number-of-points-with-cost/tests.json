@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxPoints",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "三行示例最大九分",
+      "args": [
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            1,
+            5,
+            1
+          ],
+          [
+            3,
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": 9
+    },
+    {
+      "name": "两行示例最大十一分",
+      "args": [
+        [
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            2
+          ]
+        ]
+      ],
+      "expected": 11
+    },
+    {
+      "name": "单格直接取其分数",
+      "args": [
+        [
+          [
+            7
+          ]
+        ]
+      ],
+      "expected": 7
+    }
+  ]
+}

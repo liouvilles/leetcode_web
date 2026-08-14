@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxProbability",
+  "parameterTypes": [
+    "int",
+    "intMatrix",
+    "doubleArray",
+    "int",
+    "int"
+  ],
+  "returnType": "double",
+  "cases": [
+    {
+      "name": "间接路径概率零点二五",
+      "args": [
+        3,
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        [
+          0.5,
+          0.5,
+          0.2
+        ],
+        0,
+        2
+      ],
+      "expected": 0.25
+    },
+    {
+      "name": "直接路径概率更高",
+      "args": [
+        3,
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        [
+          0.5,
+          0.5,
+          0.3
+        ],
+        0,
+        2
+      ],
+      "expected": 0.3
+    },
+    {
+      "name": "终点不可达",
+      "args": [
+        3,
+        [
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          0.5
+        ],
+        0,
+        2
+      ],
+      "expected": 0
+    }
+  ]
+}

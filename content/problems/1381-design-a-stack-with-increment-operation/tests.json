@@ -1,0 +1,179 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "CustomStack",
+  "constructorTypes": [
+    "int"
+  ],
+  "cases": [
+    {
+      "name": "经典推入弹出与增量流程",
+      "constructorArgs": [
+        3
+      ],
+      "calls": [
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ]
+        },
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ]
+        },
+        {
+          "method": "pop",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 2
+        },
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ]
+        },
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            3
+          ]
+        },
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            4
+          ]
+        },
+        {
+          "method": "increment",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            5,
+            100
+          ]
+        },
+        {
+          "method": "increment",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            2,
+            100
+          ]
+        },
+        {
+          "method": "pop",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 103
+        },
+        {
+          "method": "pop",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 202
+        },
+        {
+          "method": "pop",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 201
+        },
+        {
+          "method": "pop",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": -1
+        }
+      ]
+    },
+    {
+      "name": "容量一忽略额外推入",
+      "constructorArgs": [
+        1
+      ],
+      "calls": [
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            5
+          ]
+        },
+        {
+          "method": "push",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            9
+          ]
+        },
+        {
+          "method": "pop",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 5
+        }
+      ]
+    },
+    {
+      "name": "空栈增量无影响",
+      "constructorArgs": [
+        2
+      ],
+      "calls": [
+        {
+          "method": "increment",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            2,
+            10
+          ]
+        },
+        {
+          "method": "pop",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": -1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,236 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "SQL",
+  "constructorTypes": [
+    "stringArray",
+    "intArray"
+  ],
+  "cases": [
+    {
+      "name": "同表插入查询删除并保持行号",
+      "constructorArgs": [
+        [
+          "one",
+          "two",
+          "three"
+        ],
+        [
+          2,
+          3,
+          1
+        ]
+      ],
+      "calls": [
+        {
+          "method": "insertRow",
+          "parameterTypes": [
+            "string",
+            "stringArray"
+          ],
+          "args": [
+            "two",
+            [
+              "first",
+              "second",
+              "third"
+            ]
+          ]
+        },
+        {
+          "method": "selectCell",
+          "parameterTypes": [
+            "string",
+            "int",
+            "int"
+          ],
+          "args": [
+            "two",
+            1,
+            3
+          ],
+          "returnType": "string",
+          "expected": "third"
+        },
+        {
+          "method": "insertRow",
+          "parameterTypes": [
+            "string",
+            "stringArray"
+          ],
+          "args": [
+            "two",
+            [
+              "a",
+              "b",
+              "c"
+            ]
+          ]
+        },
+        {
+          "method": "deleteRow",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "two",
+            1
+          ]
+        },
+        {
+          "method": "selectCell",
+          "parameterTypes": [
+            "string",
+            "int",
+            "int"
+          ],
+          "args": [
+            "two",
+            2,
+            2
+          ],
+          "returnType": "string",
+          "expected": "b"
+        }
+      ]
+    },
+    {
+      "name": "不同表行号独立",
+      "constructorArgs": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "calls": [
+        {
+          "method": "insertRow",
+          "parameterTypes": [
+            "string",
+            "stringArray"
+          ],
+          "args": [
+            "a",
+            [
+              "x"
+            ]
+          ]
+        },
+        {
+          "method": "insertRow",
+          "parameterTypes": [
+            "string",
+            "stringArray"
+          ],
+          "args": [
+            "b",
+            [
+              "y",
+              "z"
+            ]
+          ]
+        },
+        {
+          "method": "selectCell",
+          "parameterTypes": [
+            "string",
+            "int",
+            "int"
+          ],
+          "args": [
+            "a",
+            1,
+            1
+          ],
+          "returnType": "string",
+          "expected": "x"
+        },
+        {
+          "method": "selectCell",
+          "parameterTypes": [
+            "string",
+            "int",
+            "int"
+          ],
+          "args": [
+            "b",
+            1,
+            2
+          ],
+          "returnType": "string",
+          "expected": "z"
+        }
+      ]
+    },
+    {
+      "name": "删除后新行号继续递增",
+      "constructorArgs": [
+        [
+          "t"
+        ],
+        [
+          1
+        ]
+      ],
+      "calls": [
+        {
+          "method": "insertRow",
+          "parameterTypes": [
+            "string",
+            "stringArray"
+          ],
+          "args": [
+            "t",
+            [
+              "old"
+            ]
+          ]
+        },
+        {
+          "method": "deleteRow",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "t",
+            1
+          ]
+        },
+        {
+          "method": "insertRow",
+          "parameterTypes": [
+            "string",
+            "stringArray"
+          ],
+          "args": [
+            "t",
+            [
+              "new"
+            ]
+          ]
+        },
+        {
+          "method": "selectCell",
+          "parameterTypes": [
+            "string",
+            "int",
+            "int"
+          ],
+          "args": [
+            "t",
+            2,
+            1
+          ],
+          "returnType": "string",
+          "expected": "new"
+        }
+      ]
+    }
+  ]
+}

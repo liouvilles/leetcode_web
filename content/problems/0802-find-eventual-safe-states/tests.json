@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "eventualSafeNodes",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "intList",
+  "cases": [
+    {
+      "name": "经典含环图",
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            5
+          ],
+          [
+            0
+          ],
+          [
+            5
+          ],
+          [],
+          []
+        ]
+      ],
+      "expected": [
+        2,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "name": "完整有向无环图",
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3
+          ],
+          []
+        ]
+      ],
+      "expected": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "name": "自环不安全",
+      "args": [
+        [
+          [
+            0
+          ]
+        ]
+      ],
+      "expected": []
+    }
+  ]
+}

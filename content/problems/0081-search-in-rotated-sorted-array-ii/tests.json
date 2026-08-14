@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "search",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "旋转后命中",
+      "args": [
+        [
+          2,
+          5,
+          6,
+          0,
+          0,
+          1,
+          2
+        ],
+        0
+      ],
+      "expected": true
+    },
+    {
+      "name": "目标不存在",
+      "args": [
+        [
+          2,
+          5,
+          6,
+          0,
+          0,
+          1,
+          2
+        ],
+        3
+      ],
+      "expected": false
+    },
+    {
+      "name": "重复值遮蔽有序侧",
+      "args": [
+        [
+          1,
+          0,
+          1,
+          1,
+          1
+        ],
+        0
+      ],
+      "expected": true
+    }
+  ]
+}

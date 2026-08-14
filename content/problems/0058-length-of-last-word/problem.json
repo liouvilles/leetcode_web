@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 58,
+  "slug": "length-of-last-word",
+  "title": "最后一个单词的长度",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-004",
+  "studyTags": [
+    "反向扫描",
+    "字符串",
+    "空格跳过"
+  ],
+  "summary": "给定由单词和空格组成的字符串，返回最后一个单词包含的字符数量。",
+  "insight": "从末尾先跳过尾随空格，再连续统计非空格字符，避免拆分整个字符串。",
+  "pitfalls": [
+    "字符串末尾可能有多个空格",
+    "单词之间也可能有多个空格",
+    "只统计最后一段非空格字符"
+  ],
+  "solutions": [
+    {
+      "id": "reverse-scan",
+      "title": "从尾部线性扫描",
+      "kind": "最优",
+      "idea": "定位最后一个单词末尾后向前计数直到空格或开头。",
+      "steps": [
+        "index 从末尾开始跳过空格",
+        "持续向前统计非空格字符",
+        "返回计数"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/reverse-scan/Solution.java",
+        "kotlin": "solutions/reverse-scan/Solution.kt",
+        "cpp": "solutions/reverse-scan/solution.cpp"
+      }
+    }
+  ]
+}

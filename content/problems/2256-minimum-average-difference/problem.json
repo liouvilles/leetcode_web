@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2256,
+  "slug": "minimum-average-difference",
+  "title": "最小平均差",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-033",
+  "studyTags": [
+    "数组",
+    "前缀和"
+  ],
+  "summary": "每个下标的平均差是左前缀整数平均与右后缀整数平均之差的绝对值，末尾右平均为零，返回最小差的最小下标。",
+  "insight": "总和配合滚动前缀可 O(1) 算每个切分两侧平均。严格更小时更新答案，自然保留最小下标。",
+  "pitfalls": [
+    "整数除法向下取整",
+    "最后位置右侧平均为零",
+    "累计和使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "rolling-prefix-total-sum",
+      "title": "滚动前缀与总和",
+      "kind": "最优",
+      "idea": "在线计算每个下标两侧整数平均。",
+      "steps": [
+        "total=sum(nums)，prefix=0、best=Long.MAX",
+        "i 从零到 n-1：prefix+=nums[i]，left=prefix/(i+1)，right=i==n-1?0:(total-prefix)/(n-i-1)",
+        "difference=abs(left-right)，严格小于 best 时更新 index"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/rolling-prefix-total-sum/Solution.java",
+        "kotlin": "solutions/rolling-prefix-total-sum/Solution.kt",
+        "cpp": "solutions/rolling-prefix-total-sum/solution.cpp"
+      }
+    }
+  ]
+}

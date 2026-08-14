@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1227,
+  "slug": "airplane-seat-assignment-probability",
+  "title": "飞机座位分配概率",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-017",
+  "studyTags": [
+    "数学",
+    "概率",
+    "脑筋急转弯"
+  ],
+  "summary": "第一位乘客随机选座，之后每人若自己的座位空闲就入座，否则随机选空座，求第 n 位乘客坐到自己座位的概率。",
+  "insight": "除 n=1 外，过程最终只取决于一号座位和 n 号座位哪一个先被随机选中；两者在对称过程中机会相同，因此概率恒为二分之一。",
+  "pitfalls": [
+    "n=1 时第一位也是最后一位且必坐自己的座位",
+    "n>=2 的结果与 n 大小无关",
+    "返回浮点数"
+  ],
+  "solutions": [
+    {
+      "id": "symmetry-closed-form",
+      "title": "对称性闭式结果",
+      "kind": "最优",
+      "idea": "识别两个吸收座位的等概率竞争。",
+      "steps": [
+        "若 n==1 返回 1.0",
+        "否则一号座位与 n 号座位在每次随机冲突选择中对称",
+        "返回 0.5"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/symmetry-closed-form/Solution.java",
+        "kotlin": "solutions/symmetry-closed-form/Solution.kt",
+        "cpp": "solutions/symmetry-closed-form/solution.cpp"
+      }
+    }
+  ]
+}

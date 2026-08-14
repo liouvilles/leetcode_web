@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "RangeModule",
+  "constructorTypes": [],
+  "cases": [
+    {
+      "name": "经典删除中段",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "addRange",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            10,
+            20
+          ]
+        },
+        {
+          "method": "removeRange",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            14,
+            16
+          ]
+        },
+        {
+          "method": "queryRange",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            10,
+            14
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "queryRange",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            13,
+            15
+          ],
+          "returnType": "boolean",
+          "expected": false
+        },
+        {
+          "method": "queryRange",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            16,
+            17
+          ],
+          "returnType": "boolean",
+          "expected": true
+        }
+      ]
+    },
+    {
+      "name": "合并相邻区间",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "addRange",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            5,
+            10
+          ]
+        },
+        {
+          "method": "addRange",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            10,
+            15
+          ]
+        },
+        {
+          "method": "queryRange",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            5,
+            15
+          ],
+          "returnType": "boolean",
+          "expected": true
+        }
+      ]
+    },
+    {
+      "name": "删除后保留两侧",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "addRange",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            1,
+            10
+          ]
+        },
+        {
+          "method": "removeRange",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            3,
+            7
+          ]
+        },
+        {
+          "method": "queryRange",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            1,
+            3
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "queryRange",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            3,
+            7
+          ],
+          "returnType": "boolean",
+          "expected": false
+        },
+        {
+          "method": "queryRange",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            7,
+            10
+          ],
+          "returnType": "boolean",
+          "expected": true
+        }
+      ]
+    }
+  ]
+}

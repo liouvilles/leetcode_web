@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "id": 283,
+  "slug": "move-zeroes",
+  "title": "移动零",
+  "status": "published",
+  "qualityGate": "compile",
+  "batch": "legacy-001",
+  "studyTags": [
+    "原地修改",
+    "稳定移动",
+    "快慢指针"
+  ],
+  "summary": "原地把数组中的零移动到末尾，同时保持所有非零元素的相对顺序。",
+  "insight": "慢指针表示下一个非零元素应该写入的位置，快指针负责发现非零元素。",
+  "pitfalls": [
+    "必须保持非零元素顺序",
+    "要求原地修改",
+    "覆盖写法结束后要补零"
+  ],
+  "solutions": [
+    {
+      "id": "compact-fill",
+      "title": "压缩后补零",
+      "kind": "基础",
+      "idea": "先把非零元素依次写到数组前部，再把剩余位置统一写成零。",
+      "steps": [
+        "write 指向下一个写入位置",
+        "顺序复制所有非零元素",
+        "将 write 之后的位置补零"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/compact-fill/Solution.java",
+        "kotlin": "solutions/compact-fill/Solution.kt",
+        "cpp": "solutions/compact-fill/solution.cpp"
+      }
+    },
+    {
+      "id": "swap-two-pointers",
+      "title": "交换式快慢指针",
+      "kind": "最优",
+      "idea": "每发现一个非零元素，就与慢指针位置交换；每个位置最多处理一次。",
+      "steps": [
+        "slow 指向首个未安置位置",
+        "fast 找到非零元素后交换",
+        "slow 向前推进"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/swap-two-pointers/Solution.java",
+        "kotlin": "solutions/swap-two-pointers/Solution.kt",
+        "cpp": "solutions/swap-two-pointers/solution.cpp"
+      }
+    }
+  ]
+}

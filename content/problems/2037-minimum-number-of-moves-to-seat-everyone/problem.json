@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2037,
+  "slug": "minimum-number-of-moves-to-seat-everyone",
+  "title": "使每位学生都有座位的最少移动次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-029",
+  "studyTags": [
+    "数组",
+    "排序"
+  ],
+  "summary": "每次把学生位置加一或减一，允许多人和座位初始重合，求让每人占不同给定座位的最少移动次数。",
+  "insight": "一维绝对距离匹配中，排序后按相同排名配对最优；交叉配对交换为非交叉配对不会增加总距离。",
+  "pitfalls": [
+    "座位与学生数量相同",
+    "最终每个座位恰一人",
+    "重复位置正常参与排序"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-rank-matching",
+      "title": "排序同排名匹配",
+      "kind": "最优",
+      "idea": "分别排序并累加对应位置绝对差。",
+      "steps": [
+        "排序 seats 与 students",
+        "answer=0",
+        "i 遍历累加 abs(seats[i]-students[i])，返回"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/sorted-rank-matching/Solution.java",
+        "kotlin": "solutions/sorted-rank-matching/Solution.kt",
+        "cpp": "solutions/sorted-rank-matching/solution.cpp"
+      }
+    }
+  ]
+}

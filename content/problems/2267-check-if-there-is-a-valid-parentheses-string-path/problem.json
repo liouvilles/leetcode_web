@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2267,
+  "slug": "check-if-there-is-a-valid-parentheses-string-path",
+  "title": "检查是否有合法括号字符串路径",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-033",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "矩阵"
+  ],
+  "summary": "从网格左上仅向右或向下走到右下，沿途括号能否组成合法括号串。",
+  "insight": "路径长度固定。用三维布尔 DP 记录到每格可达的括号余额；进入左括号加一、右括号减一，任何负余额舍弃，终点检查余额零。",
+  "pitfalls": [
+    "路径字符数必须为偶数",
+    "首字符必须左括号且末字符必须右括号",
+    "余额可以在终点前回到零但不能为负"
+  ],
+  "solutions": [
+    {
+      "id": "grid-balance-state-dp",
+      "title": "网格括号余额 DP",
+      "kind": "最优",
+      "idea": "把每条路径压缩成其当前未匹配左括号数量。",
+      "steps": [
+        "长度奇数或首尾错误直接 false",
+        "reachable[0][0][1]=true",
+        "逐格逐 balance 向右下邻格转移 newBalance=balance±1，保留 0..pathLength",
+        "返回终点 balance0 状态"
+      ],
+      "complexity": {
+        "time": "O(mn(m+n))",
+        "space": "O(mn(m+n))"
+      },
+      "files": {
+        "java": "solutions/grid-balance-state-dp/Solution.java",
+        "kotlin": "solutions/grid-balance-state-dp/Solution.kt",
+        "cpp": "solutions/grid-balance-state-dp/solution.cpp"
+      }
+    }
+  ]
+}

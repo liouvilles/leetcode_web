@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1252,
+  "slug": "cells-with-odd-values-in-a-matrix",
+  "title": "奇数值单元格的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-017",
+  "studyTags": [
+    "数组",
+    "数学",
+    "模拟",
+    "奇偶性"
+  ],
+  "summary": "零矩阵每次把指定行和列所有元素加一，返回操作后值为奇数的单元格数量。",
+  "insight": "只需记录每行、每列被操作次数的奇偶性；单元格最终奇偶等于行奇偶与列奇偶的异或，无需真的更新矩阵。",
+  "pitfalls": [
+    "同一行或列操作两次会抵消奇偶性",
+    "indices 中每项同时切换一行和一列",
+    "矩阵行列参数分别为 m、n"
+  ],
+  "solutions": [
+    {
+      "id": "row-column-parity-xor",
+      "title": "行列奇偶异或",
+      "kind": "最优",
+      "idea": "把增量次数压缩为布尔翻转。",
+      "steps": [
+        "rowOdd[m]、columnOdd[n] 初始假",
+        "每个 [r,c] 翻转 rowOdd[r] 与 columnOdd[c]",
+        "枚举所有格，若 rowOdd[r] xor columnOdd[c] 则计数，返回总数"
+      ],
+      "complexity": {
+        "time": "O(indices+m·n)",
+        "space": "O(m+n)"
+      },
+      "files": {
+        "java": "solutions/row-column-parity-xor/Solution.java",
+        "kotlin": "solutions/row-column-parity-xor/Solution.kt",
+        "cpp": "solutions/row-column-parity-xor/solution.cpp"
+      }
+    }
+  ]
+}

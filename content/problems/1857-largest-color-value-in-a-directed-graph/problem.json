@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1857,
+  "slug": "largest-color-value-in-a-directed-graph",
+  "title": "有向图中最大颜色值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-027",
+  "studyTags": [
+    "图论",
+    "拓扑排序",
+    "动态规划"
+  ],
+  "summary": "路径颜色值是路径中出现次数最多的颜色次数，求有向图任一路径最大颜色值；存在环返回负一。",
+  "insight": "拓扑排序中维护 dp[node][color] 为到达 node 的路径上各颜色最大计数。处理 node 时把状态传播给后继，并在后继自身颜色维度加一。处理节点数不足 n 即有环。",
+  "pitfalls": [
+    "路径可从任意节点开始",
+    "环一律返回负一",
+    "同一后继可从多个前驱取逐颜色最大值"
+  ],
+  "solutions": [
+    {
+      "id": "topological-color-dp",
+      "title": "拓扑颜色计数 DP",
+      "kind": "最优",
+      "idea": "在 DAG 的拓扑序上合并所有前驱路径状态。",
+      "steps": [
+        "计算 indegree，入度零节点 dp[ownColor]=1 入队",
+        "弹出 node，更新全局最大；对 next 每个 color 转移 max(dp[next][c],dp[node][c]+(nextColor==c))",
+        "入度归零入队；processed<n 返回 -1，否则最大值"
+      ],
+      "complexity": {
+        "time": "O((V+E)·26)",
+        "space": "O(V·26+E)"
+      },
+      "files": {
+        "java": "solutions/topological-color-dp/Solution.java",
+        "kotlin": "solutions/topological-color-dp/Solution.kt",
+        "cpp": "solutions/topological-color-dp/solution.cpp"
+      }
+    }
+  ]
+}

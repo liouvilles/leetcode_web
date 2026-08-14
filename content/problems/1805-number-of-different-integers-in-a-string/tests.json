@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numDifferentIntegers",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三个数字段数值均不同",
+      "args": [
+        "a123bc34d8ef34"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "数字顺序不同形成两个整数",
+      "args": [
+        "leet1234code234"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "前导零规范化后只有一个零",
+      "args": [
+        "a1b01c001"
+      ],
+      "expected": 1
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 974,
+  "slug": "subarray-sums-divisible-by-k",
+  "title": "和可被 K 整除的子数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-014",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "前缀和"
+  ],
+  "summary": "统计非空连续子数组中元素和能被 k 整除的数量。",
+  "insight": "子数组和可整除当且仅当两端前缀和模 k 相同；扫描时累加此前同余数出现次数，再记录当前余数。",
+  "pitfalls": [
+    "初始前缀余数零出现一次",
+    "负前缀和余数要规范到 0..k-1",
+    "计数结果在题目范围内用整数即可"
+  ],
+  "solutions": [
+    {
+      "id": "prefix-remainder-frequency",
+      "title": "前缀余数频次",
+      "kind": "最优",
+      "idea": "把可整除子数组转化为同余前缀对。",
+      "steps": [
+        "frequency[0]=1，remainder=0，answer=0",
+        "逐元素令 remainder=((remainder+value)%k+k)%k",
+        "answer+=frequency[remainder]，再 frequency[remainder]++；返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(k)"
+      },
+      "files": {
+        "java": "solutions/prefix-remainder-frequency/Solution.java",
+        "kotlin": "solutions/prefix-remainder-frequency/Solution.kt",
+        "cpp": "solutions/prefix-remainder-frequency/solution.cpp"
+      }
+    }
+  ]
+}

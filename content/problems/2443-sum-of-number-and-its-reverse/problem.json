@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2443,
+  "slug": "sum-of-number-and-its-reverse",
+  "title": "反转之后的数字和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-036",
+  "studyTags": [
+    "数学",
+    "枚举"
+  ],
+  "summary": "判断是否存在非负整数 x，使 x 加其十进制反转值等于 num。",
+  "insight": "num 不大，枚举 x 从零到 num 并计算反转，检查等式即可。",
+  "pitfalls": [
+    "x 可以为零",
+    "反转丢弃前导零",
+    "只需判断存在性"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-candidate-number",
+      "title": "枚举候选整数",
+      "kind": "最优",
+      "idea": "线性尝试所有可能 x。",
+      "steps": [
+        "x=0..num",
+        "计算 reversed",
+        "若 x+reversed==num 返回 true",
+        "结束返回 false"
+      ],
+      "complexity": {
+        "time": "O(num·digits)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/enumerate-candidate-number/Solution.java",
+        "kotlin": "solutions/enumerate-candidate-number/Solution.kt",
+        "cpp": "solutions/enumerate-candidate-number/solution.cpp"
+      }
+    }
+  ]
+}

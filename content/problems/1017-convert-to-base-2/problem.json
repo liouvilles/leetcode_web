@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1017,
+  "slug": "convert-to-base-2",
+  "title": "负二进制转换",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-015",
+  "studyTags": [
+    "数学",
+    "位运算"
+  ],
+  "summary": "把非负整数转换为以 -2 为基数的无前导零字符串。",
+  "insight": "每位仍可取 n 的最低二进制位 n&1；减去该位后除以 -2 得到下一轮商，保证余数始终为零或一。",
+  "pitfalls": [
+    "n=0 返回字符串零",
+    "生成顺序从低位到高位，最后要反转",
+    "普通语言除法对负数截断，但 n-bit 可被 -2 整除"
+  ],
+  "solutions": [
+    {
+      "id": "negative-base-repeated-division",
+      "title": "负基数重复除法",
+      "kind": "最优",
+      "idea": "逐步提取零一余数并更新负二进制商。",
+      "steps": [
+        "n==0 返回 0，builder 为空",
+        "while n!=0：bit=n&1，追加 bit，n=(n-bit)/-2",
+        "反转 builder 返回"
+      ],
+      "complexity": {
+        "time": "O(log n)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/negative-base-repeated-division/Solution.java",
+        "kotlin": "solutions/negative-base-repeated-division/Solution.kt",
+        "cpp": "solutions/negative-base-repeated-division/solution.cpp"
+      }
+    }
+  ]
+}

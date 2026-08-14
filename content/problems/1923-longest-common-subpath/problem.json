@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1923,
+  "slug": "longest-common-subpath",
+  "title": "最长公共子路径",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-028",
+  "studyTags": [
+    "数组",
+    "二分查找",
+    "滚动哈希",
+    "后缀数组"
+  ],
+  "summary": "多条城市路径中求所有路径共同包含的最长连续子路径长度。",
+  "insight": "共同长度具有单调性，二分长度。对每条路径计算所有该长度子数组的双模滚动哈希，并逐路求集合交集；交集非空即存在公共子路径。",
+  "pitfalls": [
+    "公共子路径方向与顺序必须相同",
+    "单哈希有碰撞风险，使用双模",
+    "长度零始终可行"
+  ],
+  "solutions": [
+    {
+      "id": "binary-search-double-rolling-hash",
+      "title": "二分长度与双滚动哈希交集",
+      "kind": "最优",
+      "idea": "用双模哈希把子路径比较降为集合交集。",
+      "steps": [
+        "预计算 base 在两模下的幂",
+        "check(length)：每条路径生成全部窗口双哈希并与候选集合求交",
+        "二分最大可行 length，返回左边界"
+      ],
+      "complexity": {
+        "time": "O(totalLength·log minLength)",
+        "space": "O(totalLength)"
+      },
+      "files": {
+        "java": "solutions/binary-search-double-rolling-hash/Solution.java",
+        "kotlin": "solutions/binary-search-double-rolling-hash/Solution.kt",
+        "cpp": "solutions/binary-search-double-rolling-hash/solution.cpp"
+      }
+    }
+  ]
+}

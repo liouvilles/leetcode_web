@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2080,
+  "slug": "range-frequency-queries",
+  "title": "区间内查询数字的频率",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "设计",
+    "数组",
+    "哈希表",
+    "二分查找"
+  ],
+  "summary": "静态数组上多次查询闭区间 left 到 right 中指定 value 的出现次数。",
+  "insight": "构造时为每个值保存递增下标列表。查询在该列表中二分第一个不小于 left 与第一个大于 right 的位置，两下标差即频次。",
+  "pitfalls": [
+    "查询区间闭合",
+    "不存在值返回零",
+    "下标列表天然按加入顺序有序"
+  ],
+  "solutions": [
+    {
+      "id": "value-position-lists",
+      "title": "数值到有序位置列表",
+      "kind": "最优",
+      "idea": "把区间计数转为同值位置数组的两次二分。",
+      "steps": [
+        "构造 Map<value,List<index>>",
+        "lowerBound(left)、upperBound(right)",
+        "返回 upper-lower"
+      ],
+      "complexity": {
+        "time": "O(n) 构造，O(log n) 查询",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/value-position-lists/Solution.java",
+        "kotlin": "solutions/value-position-lists/Solution.kt",
+        "cpp": "solutions/value-position-lists/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 306,
+  "slug": "additive-number",
+  "title": "累加数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-005",
+  "studyTags": [
+    "字符串",
+    "枚举",
+    "大整数加法"
+  ],
+  "summary": "判断数字字符串能否拆成至少三个数，使从第三个数起每个数都是前两个数之和。",
+  "insight": "枚举前两个数的切分位置后，后续序列被唯一确定；用字符串加法避免大整数溢出。",
+  "pitfalls": [
+    "多位数字不能以零开头",
+    "必须使用完整字符串",
+    "数字长度可能超过内置整数范围"
+  ],
+  "solutions": [
+    {
+      "id": "split-and-string-add",
+      "title": "枚举前两项 + 字符串加法",
+      "kind": "最优",
+      "idea": "对每组合法首项与次项，持续生成和并匹配后续前缀。",
+      "steps": [
+        "枚举 firstEnd 与 secondEnd 并检查前导零",
+        "用逐位加法得到 sum",
+        "若后缀以 sum 开头则滚动两项，否则失败"
+      ],
+      "complexity": {
+        "time": "O(n³)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/split-and-string-add/Solution.java",
+        "kotlin": "solutions/split-and-string-add/Solution.kt",
+        "cpp": "solutions/split-and-string-add/solution.cpp"
+      }
+    }
+  ]
+}

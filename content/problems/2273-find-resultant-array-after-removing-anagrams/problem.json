@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2273,
+  "slug": "find-resultant-array-after-removing-anagrams",
+  "title": "移除字母异位词后的结果数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-033",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "排序"
+  ],
+  "summary": "反复删除与前一个单词互为字母异位词的单词，返回最终数组。",
+  "insight": "删除只会让当前词与最近保留词相邻；顺序扫描，比较排序字符签名，签名相同则跳过，否则保留并更新签名。",
+  "pitfalls": [
+    "只与删除过程后的前一个保留词比较",
+    "单词本身顺序需原样返回",
+    "连续多个同签名只保留第一个"
+  ],
+  "solutions": [
+    {
+      "id": "previous-kept-signature-scan",
+      "title": "最近保留词签名扫描",
+      "kind": "最优",
+      "idea": "在线模拟删除后的相邻关系。",
+      "steps": [
+        "answer 空、previousSignature 空",
+        "对 word 求排序字符 signature",
+        "signature!=previous 时保留 word 并更新 previous；否则跳过"
+      ],
+      "complexity": {
+        "time": "O(total characters log wordLength)",
+        "space": "O(answer)"
+      },
+      "files": {
+        "java": "solutions/previous-kept-signature-scan/Solution.java",
+        "kotlin": "solutions/previous-kept-signature-scan/Solution.kt",
+        "cpp": "solutions/previous-kept-signature-scan/solution.cpp"
+      }
+    }
+  ]
+}

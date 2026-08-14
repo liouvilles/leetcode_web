@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 879,
+  "slug": "profitable-schemes",
+  "title": "盈利计划",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "背包"
+  ],
+  "summary": "每项工作需要 group[i] 名成员并产生 profit[i] 利润，成员总数不超过 n，统计利润至少 minProfit 的工作子集数量。",
+  "insight": "零一背包状态按已用成员和利润记录；利润维度超过阈值后都等价，截断为 minProfit，倒序更新避免重复选择工作。",
+  "pitfalls": [
+    "空计划在 minProfit=0 时也算一种",
+    "成员维度必须倒序",
+    "计数每次对 1e9+7 取模"
+  ],
+  "solutions": [
+    {
+      "id": "member-profit-capped-knapsack",
+      "title": "成员与截断利润零一背包",
+      "kind": "最优",
+      "idea": "把所有达到阈值的利润合并到同一状态。",
+      "steps": [
+        "dp[0][0]=1",
+        "对每项工作 people,earn，members 从 n-people 倒序到零，profit 从 minProfit 倒序到零",
+        "nextProfit=min(minProfit,profit+earn)，dp[members+people][nextProfit]+=dp[members][profit]；最后累加 dp[members][minProfit]"
+      ],
+      "complexity": {
+        "time": "O(jobs·n·minProfit)",
+        "space": "O(n·minProfit)"
+      },
+      "files": {
+        "java": "solutions/member-profit-capped-knapsack/Solution.java",
+        "kotlin": "solutions/member-profit-capped-knapsack/Solution.kt",
+        "cpp": "solutions/member-profit-capped-knapsack/solution.cpp"
+      }
+    }
+  ]
+}

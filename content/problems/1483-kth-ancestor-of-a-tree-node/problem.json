@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 1483,
+  "slug": "kth-ancestor-of-a-tree-node",
+  "title": "树节点的第 K 个祖先",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-021",
+  "studyTags": [
+    "动态规划",
+    "位运算",
+    "树",
+    "设计",
+    "倍增"
+  ],
+  "summary": "设计数据结构，多次查询某节点沿父指针向上 k 步后的祖先，不存在返回负一。",
+  "insight": "预处理 up[bit][node] 为节点的 2^bit 级祖先；把 k 按二进制拆分，每个置位跳一次对应幂次。",
+  "pitfalls": [
+    "根父节点为负一",
+    "构建高层表时低层祖先可能不存在",
+    "查询过程中一旦为负一即可停止"
+  ],
+  "solutions": [
+    {
+      "id": "binary-lifting",
+      "title": "二进制提升",
+      "kind": "最优",
+      "idea": "用倍增表把线性向上跳转压缩为对数次。",
+      "steps": [
+        "log 取覆盖 n 的二进制位数，up[0]=parent",
+        "up[bit][node]=up[bit-1][up[bit-1][node]]",
+        "getKthAncestor 按 k 各置位更新 node=up[bit][node]"
+      ],
+      "complexity": {
+        "time": "O(n log n) build, O(log n) query",
+        "space": "O(n log n)"
+      },
+      "files": {
+        "java": "solutions/binary-lifting/Solution.java",
+        "kotlin": "solutions/binary-lifting/Solution.kt",
+        "cpp": "solutions/binary-lifting/solution.cpp"
+      }
+    }
+  ]
+}

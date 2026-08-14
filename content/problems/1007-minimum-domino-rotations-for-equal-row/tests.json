@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minDominoRotations",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "统一为二需两次",
+      "args": [
+        [
+          2,
+          1,
+          2,
+          4,
+          2,
+          2
+        ],
+        [
+          5,
+          2,
+          6,
+          2,
+          3,
+          2
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "无法统一",
+      "args": [
+        [
+          3,
+          5,
+          1,
+          2,
+          3
+        ],
+        [
+          3,
+          6,
+          3,
+          3,
+          4
+        ]
+      ],
+      "expected": -1
+    },
+    {
+      "name": "已经统一",
+      "args": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

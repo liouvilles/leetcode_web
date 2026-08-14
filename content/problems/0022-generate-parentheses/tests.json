@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "generateParenthesis",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "stringList",
+  "cases": [
+    {
+      "name": "一对括号",
+      "args": [
+        1
+      ],
+      "expected": [
+        "()"
+      ]
+    },
+    {
+      "name": "两对括号",
+      "args": [
+        2
+      ],
+      "expected": [
+        "(())",
+        "()()"
+      ]
+    },
+    {
+      "name": "三对括号",
+      "args": [
+        3
+      ],
+      "expected": [
+        "((()))",
+        "(()())",
+        "(())()",
+        "()(())",
+        "()()()"
+      ]
+    }
+  ]
+}

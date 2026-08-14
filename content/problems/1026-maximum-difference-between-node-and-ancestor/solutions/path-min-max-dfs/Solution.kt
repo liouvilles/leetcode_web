@@ -1,0 +1,1 @@
+class Solution { fun maxAncestorDiff(root:TreeNode):Int=dfs(root,root.`val`,root.`val`);private fun dfs(node:TreeNode?,minimumInput:Int,maximumInput:Int):Int{node?:return maximumInput-minimumInput;val minimum=minOf(minimumInput,node.`val`);val maximum=maxOf(maximumInput,node.`val`);return maxOf(dfs(node.left,minimum,maximum),dfs(node.right,minimum,maximum))} }

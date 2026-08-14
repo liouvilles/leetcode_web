@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 972,
+  "slug": "equal-rational-numbers",
+  "title": "相等的有理数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-014",
+  "studyTags": [
+    "字符串",
+    "数学"
+  ],
+  "summary": "判断两个含整数、小数及可选循环小数部分的非负有理数字符串是否表示同一数值。",
+  "insight": "非循环小数 A 有 m 位、循环块 B 有 r 位时，小数贡献为 A/10^m+B/[10^m(10^r-1)]；按公式解析后比较即可。",
+  "pitfalls": [
+    "循环块可使 0.9(9) 等于一",
+    "小数点后非循环部分可以为空",
+    "比较浮点解析结果使用足够小的容差"
+  ],
+  "solutions": [
+    {
+      "id": "rational-part-formula",
+      "title": "小数部分公式解析",
+      "kind": "最优",
+      "idea": "分别计算整数、非循环和循环三段贡献。",
+      "steps": [
+        "按小数点分整数部分与 fraction",
+        "若有左括号，分出 nonRepeat 与 repeat，否则全部为 nonRepeat",
+        "value=integer+nonRepeat/10^m；循环非空时再加 repeat/[10^m(10^r-1)]，比较两值差小于 1e-10"
+      ],
+      "complexity": {
+        "time": "O(|s|+|t|)",
+        "space": "O(|s|+|t|)"
+      },
+      "files": {
+        "java": "solutions/rational-part-formula/Solution.java",
+        "kotlin": "solutions/rational-part-formula/Solution.kt",
+        "cpp": "solutions/rational-part-formula/solution.cpp"
+      }
+    }
+  ]
+}

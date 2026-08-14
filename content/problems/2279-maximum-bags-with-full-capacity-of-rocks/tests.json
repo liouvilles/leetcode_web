@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumBags",
+  "parameterTypes": [
+    "intArray",
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典四包可装满三包",
+      "args": [
+        [
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          1,
+          2,
+          4,
+          4
+        ],
+        2
+      ],
+      "expected": 3
+    },
+    {
+      "name": "五包额外一颗装满三包",
+      "args": [
+        [
+          10,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          0
+        ],
+        100
+      ],
+      "expected": 3
+    },
+    {
+      "name": "无额外石头只计已满包",
+      "args": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          1
+        ],
+        0
+      ],
+      "expected": 1
+    }
+  ]
+}

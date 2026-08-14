@@ -1,0 +1,1 @@
+class Solution { public: int scheduleCourse(vector<vector<int>>& courses){sort(courses.begin(),courses.end(),[](auto& a,auto& b){return a[1]<b[1];});priority_queue<int> durations;int total=0;for(auto& course:courses){total+=course[0];durations.push(course[0]);if(total>course[1]){total-=durations.top();durations.pop();}}return durations.size();} };

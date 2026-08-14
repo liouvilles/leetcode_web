@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "lastRemaining",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "九个数字",
+      "args": [
+        9
+      ],
+      "expected": 6
+    },
+    {
+      "name": "单个数字",
+      "args": [
+        1
+      ],
+      "expected": 1
+    },
+    {
+      "name": "六个数字",
+      "args": [
+        6
+      ],
+      "expected": 4
+    }
+  ]
+}

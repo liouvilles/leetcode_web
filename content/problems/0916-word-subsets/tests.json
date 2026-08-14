@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "wordSubsets",
+  "parameterTypes": [
+    "stringArray",
+    "stringArray"
+  ],
+  "returnType": "stringList",
+  "cases": [
+    {
+      "name": "需要 e 和 o",
+      "args": [
+        [
+          "amazon",
+          "apple",
+          "facebook",
+          "google",
+          "leetcode"
+        ],
+        [
+          "e",
+          "o"
+        ]
+      ],
+      "expected": [
+        "facebook",
+        "google",
+        "leetcode"
+      ]
+    },
+    {
+      "name": "需要 l 和 e",
+      "args": [
+        [
+          "amazon",
+          "apple",
+          "facebook",
+          "google",
+          "leetcode"
+        ],
+        [
+          "l",
+          "e"
+        ]
+      ],
+      "expected": [
+        "apple",
+        "google",
+        "leetcode"
+      ]
+    },
+    {
+      "name": "需要两个 o",
+      "args": [
+        [
+          "amazon",
+          "apple",
+          "facebook",
+          "google",
+          "leetcode"
+        ],
+        [
+          "e",
+          "oo"
+        ]
+      ],
+      "expected": [
+        "facebook",
+        "google"
+      ]
+    }
+  ]
+}

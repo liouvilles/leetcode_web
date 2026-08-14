@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "tribonacci",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "第四项",
+      "args": [
+        4
+      ],
+      "expected": 4
+    },
+    {
+      "name": "第二十五项",
+      "args": [
+        25
+      ],
+      "expected": 1389537
+    },
+    {
+      "name": "第零项",
+      "args": [
+        0
+      ],
+      "expected": 0
+    }
+  ]
+}

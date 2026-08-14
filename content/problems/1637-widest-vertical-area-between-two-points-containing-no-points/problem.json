@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1637,
+  "slug": "widest-vertical-area-between-two-points-containing-no-points",
+  "title": "两点之间不包含任何点的最宽垂直区域",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-023",
+  "studyTags": [
+    "数组",
+    "排序"
+  ],
+  "summary": "给定平面点集，找两条竖线之间不含任何点的最大宽度，点的纵坐标不影响答案。",
+  "insight": "只提取并排序所有横坐标。任意空白竖直带的边界必是排序后相邻的两个横坐标，取最大差即可。",
+  "pitfalls": [
+    "区域内部不含点，边界可经过点",
+    "只需考虑横坐标",
+    "相同横坐标产生宽度零"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-x-gaps",
+      "title": "横坐标排序相邻差",
+      "kind": "最优",
+      "idea": "把二维问题降为一维最大间隔。",
+      "steps": [
+        "按点的 x 坐标排序",
+        "从第二个点开始计算相邻 x 差",
+        "返回最大差"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/sorted-x-gaps/Solution.java",
+        "kotlin": "solutions/sorted-x-gaps/Solution.kt",
+        "cpp": "solutions/sorted-x-gaps/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "wateringPlants",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四株植物总步数十四",
+      "args": [
+        [
+          2,
+          2,
+          3,
+          3
+        ],
+        5
+      ],
+      "expected": 14
+    },
+    {
+      "name": "六株植物频繁补水三十步",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          4,
+          2,
+          3
+        ],
+        4
+      ],
+      "expected": 30
+    },
+    {
+      "name": "七株各耗七容量八需四十九步",
+      "args": [
+        [
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7
+        ],
+        8
+      ],
+      "expected": 49
+    }
+  ]
+}

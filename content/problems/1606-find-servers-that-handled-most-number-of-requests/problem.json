@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1606,
+  "slug": "find-servers-that-handled-most-number-of-requests",
+  "title": "找到处理最多请求的服务器",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-023",
+  "studyTags": [
+    "数组",
+    "堆（优先队列）",
+    "模拟",
+    "有序集合"
+  ],
+  "summary": "k 台服务器按请求编号从 i%k 开始循环选择首个空闲者，忙碌则请求丢弃，返回处理请求最多的服务器。",
+  "insight": "有序集合维护空闲服务器，最小堆按结束时间维护忙碌服务器。请求到达前释放完成者，再用 ceiling(i%k) 查首选服务器，不存在则环绕到集合首项。",
+  "pitfalls": [
+    "完成时间等于到达时间时服务器已空闲",
+    "分配顺序从 i%k 环形开始",
+    "丢弃请求不影响服务器状态"
+  ],
+  "solutions": [
+    {
+      "id": "available-set-busy-heap",
+      "title": "空闲有序集与忙碌小根堆",
+      "kind": "最优",
+      "idea": "分别按编号选服务器、按时间释放服务器。",
+      "steps": [
+        "available={0..k-1},busy 存 [finish,server],count[k]",
+        "请求 i 到达时释放 finish<=arrival[i]；若 available 为空丢弃",
+        "server=ceiling(i%k) 或 first，移出 available、count++、加入 busy；返回最大 count 的所有编号"
+      ],
+      "complexity": {
+        "time": "O(n log k)",
+        "space": "O(k)"
+      },
+      "files": {
+        "java": "solutions/available-set-busy-heap/Solution.java",
+        "kotlin": "solutions/available-set-busy-heap/Solution.kt",
+        "cpp": "solutions/available-set-busy-heap/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { public int[][] matrixReshape(int[][] mat,int r,int c){int rows=mat.length,columns=mat[0].length;if(rows*columns!=r*c)return mat;int[][] result=new int[r][c];for(int index=0;index<rows*columns;index++)result[index/c][index%c]=mat[index/columns][index%columns];return result;} }

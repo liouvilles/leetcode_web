@@ -1,0 +1,1 @@
+class Solution { fun stringMatching(words:Array<String>):List<String>{val answer=mutableListOf<String>();for(i in words.indices)for(j in words.indices)if(i!=j&&words[j].contains(words[i])){answer.add(words[i]);break};return answer} }

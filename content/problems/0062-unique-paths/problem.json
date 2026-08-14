@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 62,
+  "slug": "unique-paths",
+  "title": "不同路径",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-001",
+  "studyTags": [
+    "网格动态规划",
+    "状态压缩",
+    "路径计数"
+  ],
+  "summary": "机器人从网格左上角出发，每次只能向右或向下移动，计算到达右下角的不同路径数量。",
+  "insight": "到达一个格子的最后一步只能来自上方或左方，因此路径数是这两个方向路径数之和。",
+  "pitfalls": [
+    "第一行和第一列都只有一种到达方式",
+    "更新一维数组时 dp[column] 仍代表上方路径数",
+    "题目计算路径数量而不是最短步数"
+  ],
+  "solutions": [
+    {
+      "id": "one-dimensional-dp",
+      "title": "一维动态规划",
+      "kind": "最优",
+      "idea": "用一行数组保存当前行每个格子的路径数，原值代表上方，左侧值代表左方。",
+      "steps": [
+        "把第一行初始化为全 1",
+        "从第二行开始由左向右更新",
+        "执行 dp[col] += dp[col - 1]"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/one-dimensional-dp/Solution.java",
+        "kotlin": "solutions/one-dimensional-dp/Solution.kt",
+        "cpp": "solutions/one-dimensional-dp/solution.cpp"
+      }
+    }
+  ]
+}

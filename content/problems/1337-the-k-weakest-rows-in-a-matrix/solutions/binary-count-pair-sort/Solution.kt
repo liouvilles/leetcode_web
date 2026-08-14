@@ -1,0 +1,1 @@
+class Solution { fun kWeakestRows(mat:Array<IntArray>,k:Int):IntArray{val soldiers=IntArray(mat.size);for(r in mat.indices){var left=0;var right=mat[r].size;while(left<right){val middle=(left+right)/2;if(mat[r][middle]==1)left=middle+1 else right=middle};soldiers[r]=left};return mat.indices.sortedWith(compareBy<Int>{soldiers[it]}.thenBy{it}).take(k).toIntArray()} }

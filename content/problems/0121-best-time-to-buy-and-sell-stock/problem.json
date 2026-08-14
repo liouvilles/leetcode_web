@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "id": 121,
+  "slug": "best-time-to-buy-and-sell-stock",
+  "title": "买卖股票的最佳时机",
+  "status": "published",
+  "qualityGate": "compile",
+  "batch": "legacy-001",
+  "studyTags": [
+    "前缀最值",
+    "单次交易",
+    "贪心"
+  ],
+  "summary": "只能先买入再卖出一次，根据每日价格求可获得的最大利润，也可以选择不交易。",
+  "insight": "把每一天当作卖出日，最优买入价就是它之前出现过的最低价格。",
+  "pitfalls": [
+    "买入必须早于卖出",
+    "价格持续下降时答案为 0",
+    "不要把单次交易写成可重复交易"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-pairs",
+      "title": "枚举买卖日",
+      "kind": "基础",
+      "idea": "枚举所有合法的买入日和更晚的卖出日，记录最大价差。",
+      "steps": [
+        "枚举买入位置",
+        "枚举其后的卖出位置",
+        "用价差更新最大利润"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/enumerate-pairs/Solution.java",
+        "kotlin": "solutions/enumerate-pairs/Solution.kt",
+        "cpp": "solutions/enumerate-pairs/solution.cpp"
+      }
+    },
+    {
+      "id": "prefix-min",
+      "title": "维护前缀最低价",
+      "kind": "最优",
+      "idea": "一次扫描，同时维护到目前为止的最低价格和最大利润。",
+      "steps": [
+        "用首日价格初始化最低价",
+        "计算今天卖出的利润",
+        "更新答案与最低价"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/prefix-min/Solution.java",
+        "kotlin": "solutions/prefix-min/Solution.kt",
+        "cpp": "solutions/prefix-min/solution.cpp"
+      }
+    }
+  ]
+}

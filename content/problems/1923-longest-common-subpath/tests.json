@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "longestCommonSubpath",
+  "parameterTypes": [
+    "int",
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三条路径公共连续段长度二",
+      "args": [
+        5,
+        [
+          [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            2,
+            3,
+            4
+          ],
+          [
+            4,
+            0,
+            1,
+            2,
+            3
+          ]
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "单城市路径互不相同",
+      "args": [
+        3,
+        [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "公共二三连续段长度二",
+      "args": [
+        5,
+        [
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            2,
+            3
+          ]
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

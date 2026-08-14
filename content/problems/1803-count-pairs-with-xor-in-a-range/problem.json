@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1803,
+  "slug": "count-pairs-with-xor-in-a-range",
+  "title": "统计异或值在范围内的数对有多少",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-026",
+  "studyTags": [
+    "数组",
+    "字典树",
+    "位运算"
+  ],
+  "summary": "统计下标 i<j 且 low<=nums[i] xor nums[j]<=high 的数对数量。",
+  "insight": "用二进制字典树在线统计此前元素中，与当前值异或结果小于 limit 的数量。区间答案是 count(<high+1)-count(<low)。",
+  "pitfalls": [
+    "只与此前元素查询以保证 i<j",
+    "上界包含需用 high+1",
+    "逐位根据 limit 位决定可整批计入的分支"
+  ],
+  "solutions": [
+    {
+      "id": "binary-trie-less-than-count",
+      "title": "二进制字典树阈值计数",
+      "kind": "最优",
+      "idea": "将闭区间计数拆成两个前缀阈值计数。",
+      "steps": [
+        "count(limit)：空 Trie，逐 value 查询 xor<limit 的此前数量再插入 value",
+        "查询从高位到低位：limit 位为一时，可计入使 xor 位为零的整个分支并转向 xor 位一；为零只能走 xor 位零",
+        "返回 count(high+1)-count(low)"
+      ],
+      "complexity": {
+        "time": "O(n log V)",
+        "space": "O(n log V)"
+      },
+      "files": {
+        "java": "solutions/binary-trie-less-than-count/Solution.java",
+        "kotlin": "solutions/binary-trie-less-than-count/Solution.kt",
+        "cpp": "solutions/binary-trie-less-than-count/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "threeConsecutiveOdds",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "末尾三个奇数连续",
+      "args": [
+        [
+          2,
+          6,
+          4,
+          1,
+          3,
+          5
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "奇数被偶数隔开",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "恰好三个负奇数",
+      "args": [
+        [
+          -1,
+          -3,
+          -5
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

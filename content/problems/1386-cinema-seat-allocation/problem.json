@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1386,
+  "slug": "cinema-seat-allocation",
+  "title": "安排电影院座位",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-019",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "位运算",
+    "贪心"
+  ],
+  "summary": "每排十座，四人家庭只能坐 2-5、4-7 或 6-9，给定已预订座位，求最多可安排家庭数。",
+  "insight": "只有 2 到 9 号座位影响安排。未受影响的每排可坐两家；受影响行用位掩码检查左、中、右三段，左右都空可坐两家，否则任一段空可坐一家。",
+  "pitfalls": [
+    "一号和十号座位不影响家庭区块",
+    "中间区块与左右都重叠，不能和任一同时安排",
+    "只把有相关预订的行计入哈希表"
+  ],
+  "solutions": [
+    {
+      "id": "reserved-row-bitmasks",
+      "title": "预订行位掩码",
+      "kind": "最优",
+      "idea": "稀疏记录受影响行并常数时间判断三个区块。",
+      "steps": [
+        "为每个 2..9 号预订座位设置对应行 mask 位",
+        "answer=(n-affectedRows)*2",
+        "逐受影响行判断 left、middle、right 是否为空；左右都空加二，否则任一为空加一"
+      ],
+      "complexity": {
+        "time": "O(r)",
+        "space": "O(r)"
+      },
+      "files": {
+        "java": "solutions/reserved-row-bitmasks/Solution.java",
+        "kotlin": "solutions/reserved-row-bitmasks/Solution.kt",
+        "cpp": "solutions/reserved-row-bitmasks/solution.cpp"
+      }
+    }
+  ]
+}

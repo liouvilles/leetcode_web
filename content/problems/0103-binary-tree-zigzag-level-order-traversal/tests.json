@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "zigzagLevelOrder",
+  "parameterTypes": [
+    "treeNode"
+  ],
+  "returnType": "intListMatrix",
+  "cases": [
+    {
+      "name": "三层锯齿遍历",
+      "args": [
+        [
+          3,
+          9,
+          20,
+          null,
+          null,
+          15,
+          7
+        ]
+      ],
+      "expected": [
+        [
+          3
+        ],
+        [
+          20,
+          9
+        ],
+        [
+          15,
+          7
+        ]
+      ]
+    },
+    {
+      "name": "单节点",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": [
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "name": "空树",
+      "args": [
+        []
+      ],
+      "expected": []
+    }
+  ]
+}

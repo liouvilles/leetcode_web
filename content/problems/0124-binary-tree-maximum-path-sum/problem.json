@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 124,
+  "slug": "binary-tree-maximum-path-sum",
+  "title": "二叉树中的最大路径和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-003",
+  "studyTags": [
+    "树形 DP",
+    "后序遍历",
+    "负贡献剪枝"
+  ],
+  "summary": "在二叉树中选择一条不重复节点的连续路径，求路径节点值之和的最大值；路径起止点任意。",
+  "insight": "向父节点只能贡献左右分支中的一条，但以当前节点为最高点的完整路径可以同时连接左右两条正贡献分支。",
+  "pitfalls": [
+    "全负数树的答案是最大单节点值",
+    "负的子树贡献应按零处理",
+    "返回父节点的贡献不能同时包含左右两侧"
+  ],
+  "solutions": [
+    {
+      "id": "postorder-gain",
+      "title": "后序最大贡献",
+      "kind": "最优",
+      "idea": "递归返回向上延伸的最大单支贡献，并用双支路径更新全局答案。",
+      "steps": [
+        "左右贡献分别与零取最大",
+        "候选完整路径为 node+left+right",
+        "向上返回 node+max(left,right)"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(h)"
+      },
+      "files": {
+        "java": "solutions/postorder-gain/Solution.java",
+        "kotlin": "solutions/postorder-gain/Solution.kt",
+        "cpp": "solutions/postorder-gain/solution.cpp"
+      }
+    }
+  ]
+}

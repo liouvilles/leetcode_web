@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "matchPlayersAndTrainers",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四名运动员最多匹配两名",
+      "args": [
+        [
+          4,
+          7,
+          9
+        ],
+        [
+          8,
+          2,
+          5,
+          8
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "训练师均足够可全部匹配",
+      "args": [
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          10
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "能力相等可匹配",
+      "args": [
+        [
+          3
+        ],
+        [
+          3
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

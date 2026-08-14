@@ -1,0 +1,1 @@
+class Solution { public int matchPlayersAndTrainers(int[] players,int[] trainers){Arrays.sort(players);Arrays.sort(trainers);int player=0,matches=0;for(int trainer:trainers)if(player<players.length&&trainer>=players[player]){player++;matches++;}return matches;} }

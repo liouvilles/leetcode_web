@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "camelMatch",
+  "parameterTypes": [
+    "stringArray",
+    "string"
+  ],
+  "returnType": "booleanList",
+  "cases": [
+    {
+      "name": "经典 FB 模式",
+      "args": [
+        [
+          "FooBar",
+          "FooBarTest",
+          "FootBall",
+          "FrameBuffer",
+          "ForceFeedBack"
+        ],
+        "FB"
+      ],
+      "expected": [
+        true,
+        false,
+        true,
+        true,
+        false
+      ]
+    },
+    {
+      "name": "FoBa 模式",
+      "args": [
+        [
+          "FooBar",
+          "FooBarTest",
+          "FootBall",
+          "FrameBuffer",
+          "ForceFeedBack"
+        ],
+        "FoBa"
+      ],
+      "expected": [
+        true,
+        false,
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "name": "缺少模式字符",
+      "args": [
+        [
+          "abc"
+        ],
+        "abcd"
+      ],
+      "expected": [
+        false
+      ]
+    }
+  ]
+}

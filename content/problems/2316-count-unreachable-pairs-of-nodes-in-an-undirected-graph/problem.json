@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2316,
+  "slug": "count-unreachable-pairs-of-nodes-in-an-undirected-graph",
+  "title": "统计无向图中无法互相到达点对数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "深度优先搜索",
+    "广度优先搜索",
+    "并查集",
+    "图论"
+  ],
+  "summary": "给定无向图，统计两个节点分属不同连通分量的无序点对数量。",
+  "insight": "并查集合并所有边并统计根的分量大小。依次处理各分量，用已处理节点数乘当前大小，恰好统计跨越这两个部分的所有点对。",
+  "pitfalls": [
+    "点对是无序的，不能重复计数",
+    "答案可能超过 int",
+    "孤立点也是大小一的分量"
+  ],
+  "solutions": [
+    {
+      "id": "union-find-component-products",
+      "title": "并查集分量乘积",
+      "kind": "最优",
+      "idea": "先构建连通分量，再线性累计跨分量点对。",
+      "steps": [
+        "初始化 parent 与 size",
+        "对每条边 union",
+        "枚举根节点，answer+=seen*size[root]，seen+=size[root]",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O((n+e) α(n))",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/union-find-component-products/Solution.java",
+        "kotlin": "solutions/union-find-component-products/Solution.kt",
+        "cpp": "solutions/union-find-component-products/solution.cpp"
+      }
+    }
+  ]
+}

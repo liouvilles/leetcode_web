@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 216,
+  "slug": "combination-sum-iii",
+  "title": "组合总和 III",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-005",
+  "studyTags": [
+    "回溯",
+    "组合枚举",
+    "剪枝"
+  ],
+  "summary": "从一到九中选出 k 个不同数字，使它们的和等于 n，返回所有组合。",
+  "insight": "按递增顺序选择数字消除重复排列，同时根据剩余数量和目标值剪枝。",
+  "pitfalls": [
+    "每个数字最多使用一次",
+    "只能选择一到九",
+    "组合内数字按递增顺序生成"
+  ],
+  "solutions": [
+    {
+      "id": "bounded-backtracking",
+      "title": "有界递增回溯",
+      "kind": "最优",
+      "idea": "枚举下一个更大的数字，路径长度或剩余和不可能时停止。",
+      "steps": [
+        "路径长为 k 时检查 remaining 是否为零",
+        "从 start 枚举至九",
+        "value 大于 remaining 时提前结束，递归后回溯"
+      ],
+      "complexity": {
+        "time": "O(C(9,k)·k)",
+        "space": "O(k)"
+      },
+      "files": {
+        "java": "solutions/bounded-backtracking/Solution.java",
+        "kotlin": "solutions/bounded-backtracking/Solution.kt",
+        "cpp": "solutions/bounded-backtracking/solution.cpp"
+      }
+    }
+  ]
+}

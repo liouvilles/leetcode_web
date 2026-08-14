@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1697,
+  "slug": "checking-existence-of-edge-length-limited-paths",
+  "title": "检查边长度限制的路径是否存在",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-024",
+  "studyTags": [
+    "数组",
+    "并查集",
+    "图论",
+    "排序"
+  ],
+  "summary": "对每组 [p,q,limit]，判断图中是否存在从 p 到 q 且每条边权都严格小于 limit 的路径。",
+  "insight": "把边按权重、查询按 limit 排序。处理某个查询前，把所有权重小于其 limit 的边加入并查集，此时连通性正好对应合法路径。",
+  "pitfalls": [
+    "边权必须严格小于 limit",
+    "答案要按查询原顺序返回",
+    "同一并查集可随查询阈值递增复用"
+  ],
+  "solutions": [
+    {
+      "id": "offline-sorted-dsu",
+      "title": "离线排序并查集",
+      "kind": "最优",
+      "idea": "按阈值逐步开放边并回答连通查询。",
+      "steps": [
+        "edgeList 按权重升序，查询附原下标并按 limit 升序",
+        "维护 edgeIndex；处理查询时合并所有 weight<limit 的边",
+        "比较 p、q 根节点并写回原下标"
+      ],
+      "complexity": {
+        "time": "O((E+Q) log(E+Q))",
+        "space": "O(n+Q)"
+      },
+      "files": {
+        "java": "solutions/offline-sorted-dsu/Solution.java",
+        "kotlin": "solutions/offline-sorted-dsu/Solution.kt",
+        "cpp": "solutions/offline-sorted-dsu/solution.cpp"
+      }
+    }
+  ]
+}

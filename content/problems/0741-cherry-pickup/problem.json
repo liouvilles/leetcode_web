@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 741,
+  "slug": "cherry-pickup",
+  "title": "摘樱桃",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-010",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "矩阵"
+  ],
+  "summary": "从左上到右下再返回左上，路径只能经过非荆棘格，樱桃每格最多摘一次，求最多樱桃数。",
+  "insight": "往返可视为两个人同时从左上走到右下；同一时刻两人步数相同，用 (r1,c1,r2) 确定 c2，并对四种下一步组合做 DP。",
+  "pitfalls": [
+    "两人落在同一格时樱桃只能计一次",
+    "任一路径落到荆棘或越界都无效",
+    "完全不可达时答案返回零"
+  ],
+  "solutions": [
+    {
+      "id": "two-walkers-memo-dp",
+      "title": "同步双路径记忆化搜索",
+      "kind": "最优",
+      "idea": "把往返路径转换为两条同向路径，并缓存三维状态。",
+      "steps": [
+        "dfs(r1,c1,r2)，令 c2=r1+c1-r2",
+        "越界或荆棘返回负无穷，抵达终点返回该格值",
+        "当前两格樱桃去重相加，再加四种移动组合最大值；缓存，最终 max(0,dfs(0,0,0))"
+      ],
+      "complexity": {
+        "time": "O(n³)",
+        "space": "O(n³)"
+      },
+      "files": {
+        "java": "solutions/two-walkers-memo-dp/Solution.java",
+        "kotlin": "solutions/two-walkers-memo-dp/Solution.kt",
+        "cpp": "solutions/two-walkers-memo-dp/solution.cpp"
+      }
+    }
+  ]
+}

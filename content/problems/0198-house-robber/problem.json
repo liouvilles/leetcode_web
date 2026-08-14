@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 198,
+  "slug": "house-robber",
+  "title": "打家劫舍",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-001",
+  "studyTags": [
+    "动态规划",
+    "相邻互斥",
+    "滚动状态"
+  ],
+  "summary": "从一排房屋中选择若干间获取金额，但不能选择相邻房屋，求能够获得的最大总金额。",
+  "insight": "处理当前房屋时只有两种最优选择：跳过它继承上一状态，或选择它并加上隔一间之前的最优值。",
+  "pitfalls": [
+    "选择当前房屋时不能使用上一间的状态",
+    "金额可以为零",
+    "两个滚动变量更新时要保留旧值含义"
+  ],
+  "solutions": [
+    {
+      "id": "rolling-dp",
+      "title": "滚动动态规划",
+      "kind": "最优",
+      "idea": "用 previous 表示到前一间的最优值，beforePrevious 表示到前两间的最优值。",
+      "steps": [
+        "初始化两个历史状态为零",
+        "当前最优取跳过与选择当前房屋的较大值",
+        "滚动更新历史状态"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/rolling-dp/Solution.java",
+        "kotlin": "solutions/rolling-dp/Solution.kt",
+        "cpp": "solutions/rolling-dp/solution.cpp"
+      }
+    }
+  ]
+}

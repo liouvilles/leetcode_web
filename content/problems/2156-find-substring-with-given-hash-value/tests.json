@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "subStrHash",
+  "parameterTypes": [
+    "string",
+    "int",
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "经典字符串最左匹配为 ee",
+      "args": [
+        "leetcode",
+        7,
+        20,
+        2,
+        0
+      ],
+      "expected": "ee"
+    },
+    {
+      "name": "逆向哈希定位 fbx",
+      "args": [
+        "fbxzaad",
+        31,
+        100,
+        3,
+        32
+      ],
+      "expected": "fbx"
+    },
+    {
+      "name": "幂为一时字符值求和",
+      "args": [
+        "abcd",
+        1,
+        100,
+        2,
+        3
+      ],
+      "expected": "ab"
+    }
+  ]
+}

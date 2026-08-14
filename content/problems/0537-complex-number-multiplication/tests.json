@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "complexNumberMultiply",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "一加一 i 的平方",
+      "args": [
+        "1+1i",
+        "1+1i"
+      ],
+      "expected": "0+2i"
+    },
+    {
+      "name": "正负虚部相乘",
+      "args": [
+        "1+-1i",
+        "1+-1i"
+      ],
+      "expected": "0+-2i"
+    },
+    {
+      "name": "纯虚数效果",
+      "args": [
+        "0+1i",
+        "0+1i"
+      ],
+      "expected": "-1+0i"
+    }
+  ]
+}

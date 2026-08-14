@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxStudents",
+  "parameterTypes": [
+    "charMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "单排两个座位只能坐一人",
+      "args": [
+        [
+          [
+            ".",
+            "."
+          ]
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "两排两列可同列坐两人",
+      "args": [
+        [
+          [
+            ".",
+            "."
+          ],
+          [
+            ".",
+            "."
+          ]
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "坏座分隔可坐四人",
+      "args": [
+        [
+          [
+            ".",
+            "#",
+            "."
+          ],
+          [
+            ".",
+            ".",
+            "."
+          ]
+        ]
+      ],
+      "expected": 4
+    }
+  ]
+}

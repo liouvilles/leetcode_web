@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countDistinctIntegers",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一十三十十十二共六个不同数",
+      "args": [
+        [
+          1,
+          13,
+          10,
+          12,
+          31
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "重复二与反转仍只有一个值",
+      "args": [
+        [
+          2,
+          2,
+          2
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "一百反转为一得到两个值",
+      "args": [
+        [
+          100
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

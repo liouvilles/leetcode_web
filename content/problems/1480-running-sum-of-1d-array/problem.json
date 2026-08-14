@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1480,
+  "slug": "running-sum-of-1d-array",
+  "title": "一维数组的动态和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-021",
+  "studyTags": [
+    "数组",
+    "前缀和"
+  ],
+  "summary": "返回数组每个位置从开头到当前位置的元素总和。",
+  "insight": "从索引一开始把前一位置已经计算好的前缀和加到当前值，可原地完成。",
+  "pitfalls": [
+    "第零项保持原值",
+    "结果可复用输入数组",
+    "每项依赖更新后的前一项"
+  ],
+  "solutions": [
+    {
+      "id": "in-place-prefix-sum",
+      "title": "原地前缀和",
+      "kind": "最优",
+      "idea": "让每个位置累加前一个前缀结果。",
+      "steps": [
+        "i 从一到末尾",
+        "nums[i]+=nums[i-1]",
+        "返回 nums"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/in-place-prefix-sum/Solution.java",
+        "kotlin": "solutions/in-place-prefix-sum/Solution.kt",
+        "cpp": "solutions/in-place-prefix-sum/solution.cpp"
+      }
+    }
+  ]
+}

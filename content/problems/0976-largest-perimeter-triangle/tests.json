@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "largestPerimeter",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三边周长五",
+      "args": [
+        [
+          2,
+          1,
+          2
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "不能构成三角形",
+      "args": [
+        [
+          1,
+          2,
+          1,
+          10
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "选择最大合法三边",
+      "args": [
+        [
+          3,
+          6,
+          2,
+          3
+        ]
+      ],
+      "expected": 8
+    }
+  ]
+}

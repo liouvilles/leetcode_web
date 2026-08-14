@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numFriendRequests",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两个十六岁互发",
+      "args": [
+        [
+          16,
+          16
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "连续三个年龄",
+      "args": [
+        [
+          16,
+          17,
+          18
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "跨百岁条件",
+      "args": [
+        [
+          20,
+          30,
+          100,
+          110,
+          120
+        ]
+      ],
+      "expected": 3
+    }
+  ]
+}

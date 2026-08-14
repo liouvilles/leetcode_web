@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1563,
+  "slug": "stone-game-v",
+  "title": "石子游戏 V",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-022",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "博弈论"
+  ],
+  "summary": "反复把石子数组切成非空两段，丢弃和较大段并获得较小段的和；相等时任选一段，求最大总分。",
+  "insight": "区间 DP 枚举第一刀。左右和较小时下一状态被唯一确定；相等时选择两侧 DP 更优者。前缀和常数时间计算区间和。",
+  "pitfalls": [
+    "得到的分数是保留段的和",
+    "两段和相等时可选任一侧",
+    "单元素区间不能再切得分零"
+  ],
+  "solutions": [
+    {
+      "id": "interval-split-game-dp",
+      "title": "区间切分博弈动态规划",
+      "kind": "最优",
+      "idea": "按区间长度自底向上枚举所有第一刀。",
+      "steps": [
+        "构造 prefix，dp[left][right]",
+        "length 从二递增，split 从 left 到 right-1，计算 leftSum、rightSum",
+        "较小侧 sum+对应 dp；相等取 sum+max(两侧 dp)，更新区间最优"
+      ],
+      "complexity": {
+        "time": "O(n³)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/interval-split-game-dp/Solution.java",
+        "kotlin": "solutions/interval-split-game-dp/Solution.kt",
+        "cpp": "solutions/interval-split-game-dp/solution.cpp"
+      }
+    }
+  ]
+}

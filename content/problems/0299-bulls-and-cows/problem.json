@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 299,
+  "slug": "bulls-and-cows",
+  "title": "猜数字游戏",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-005",
+  "studyTags": [
+    "计数",
+    "字符串",
+    "一次扫描"
+  ],
+  "summary": "比较秘密数字与猜测，位置和值都相同记为公牛，值相同但位置不同记为奶牛。",
+  "insight": "相同位置直接计入公牛；其余数字分别计数，奶牛数是每个数字两侧频次的较小值之和。",
+  "pitfalls": [
+    "公牛不能再次计入奶牛",
+    "数字可重复",
+    "返回格式为 xAyB"
+  ],
+  "solutions": [
+    {
+      "id": "frequency-counting",
+      "title": "错位数字频次统计",
+      "kind": "最优",
+      "idea": "一次扫描分离公牛与错位数字，再求两组频次交集。",
+      "steps": [
+        "相同位置 bulls++",
+        "不同位置分别增加 secretCount/guessCount",
+        "cows 累加每个数字的 min 频次并格式化"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/frequency-counting/Solution.java",
+        "kotlin": "solutions/frequency-counting/Solution.kt",
+        "cpp": "solutions/frequency-counting/solution.cpp"
+      }
+    }
+  ]
+}

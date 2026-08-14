@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "averageWaitingTime",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "double",
+  "cases": [
+    {
+      "name": "连续到达平均等待五",
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            4,
+            3
+          ]
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "厨师多次空闲平均三点二五",
+      "args": [
+        [
+          [
+            5,
+            2
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            10,
+            3
+          ],
+          [
+            20,
+            1
+          ]
+        ]
+      ],
+      "expected": 3.25
+    },
+    {
+      "name": "单顾客等待等于烹饪时间",
+      "args": [
+        [
+          [
+            10,
+            7
+          ]
+        ]
+      ],
+      "expected": 7
+    }
+  ]
+}

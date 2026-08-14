@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "convertTime",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两小时三十四分需三步",
+      "args": [
+        "02:30",
+        "04:35"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "十一分钟需三步",
+      "args": [
+        "11:00",
+        "11:11"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "相同时刻无需操作",
+      "args": [
+        "09:15",
+        "09:15"
+      ],
+      "expected": 0
+    }
+  ]
+}

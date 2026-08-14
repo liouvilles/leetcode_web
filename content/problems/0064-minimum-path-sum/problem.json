@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 64,
+  "slug": "minimum-path-sum",
+  "title": "最小路径和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-002",
+  "studyTags": [
+    "网格动态规划",
+    "状态压缩",
+    "最优子结构"
+  ],
+  "summary": "从非负整数网格左上角出发，每次向右或向下，求到右下角路径上的最小数字总和。",
+  "insight": "到达当前格子的最小代价等于当前值加上方和左方代价中的较小者。",
+  "pitfalls": [
+    "起点值必须计入总和",
+    "第一行只能从左侧到达",
+    "第一列只能从上方到达"
+  ],
+  "solutions": [
+    {
+      "id": "one-row-dp",
+      "title": "一维网格 DP",
+      "kind": "最优",
+      "idea": "用一行数组复用上方代价，并用刚更新的左侧值完成转移。",
+      "steps": [
+        "初始化第一行的前缀和",
+        "逐行更新第一列",
+        "其余位置加上上方和左方最小值"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/one-row-dp/Solution.java",
+        "kotlin": "solutions/one-row-dp/Solution.kt",
+        "cpp": "solutions/one-row-dp/solution.cpp"
+      }
+    }
+  ]
+}

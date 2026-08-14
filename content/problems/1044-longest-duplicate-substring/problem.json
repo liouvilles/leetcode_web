@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1044,
+  "slug": "longest-duplicate-substring",
+  "title": "最长重复子串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-015",
+  "studyTags": [
+    "字符串",
+    "二分查找",
+    "滚动哈希"
+  ],
+  "summary": "返回字符串中出现至少两次的最长连续子串，出现位置可重叠；不存在返回空串。",
+  "insight": "重复子串长度具有单调性，可二分长度；对固定长度用六十四位滚动哈希找相同窗口，并逐字符复核哈希碰撞。",
+  "pitfalls": [
+    "重复出现允许重叠",
+    "哈希相等后仍复核字符串保证正确性",
+    "滚动时移除的是旧窗口首字符乘 base^length"
+  ],
+  "solutions": [
+    {
+      "id": "binary-search-rolling-hash",
+      "title": "二分长度与滚动哈希",
+      "kind": "最优",
+      "idea": "在单调长度空间中用窗口哈希判重。",
+      "steps": [
+        "二分 length=1..n-1",
+        "search(length) 计算首窗口哈希与 base^length，哈希映射到起点列表；滑动更新哈希",
+        "遇同哈希时逐个比较子串，真正相等返回当前起点；有结果保存长度并提高下界，否则降低上界，最终截取最佳子串"
+      ],
+      "complexity": {
+        "time": "O(n log n) expected",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/binary-search-rolling-hash/Solution.java",
+        "kotlin": "solutions/binary-search-rolling-hash/Solution.kt",
+        "cpp": "solutions/binary-search-rolling-hash/solution.cpp"
+      }
+    }
+  ]
+}

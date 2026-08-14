@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1658,
+  "slug": "minimum-operations-to-reduce-x-to-zero",
+  "title": "将 x 减到 0 的最小操作数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-024",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "前缀和",
+    "滑动窗口"
+  ],
+  "summary": "每次只能移除数组最左或最右元素并从 x 减去该值，求把 x 恰好减为零的最少操作数。",
+  "insight": "移除两端等价于保留一个连续中段。要让移除和为 x，应保留和为 total-x 的最长子数组，答案为 n-最长长度。正数数组可用滑动窗口。",
+  "pitfalls": [
+    "target 为零时保留空数组，答案为 n",
+    "target 小于零时不可能",
+    "需要最长而非最短目标和窗口"
+  ],
+  "solutions": [
+    {
+      "id": "longest-kept-window",
+      "title": "最长保留滑动窗口",
+      "kind": "最优",
+      "idea": "把两端删除问题转成中间连续子数组。",
+      "steps": [
+        "target=sum(nums)-x；小于零返回 -1，等于零返回 n",
+        "right 扩张并累加，sum>target 时移动 left",
+        "sum==target 时更新 longest，结束返回 n-longest 或 -1"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/longest-kept-window/Solution.java",
+        "kotlin": "solutions/longest-kept-window/Solution.kt",
+        "cpp": "solutions/longest-kept-window/solution.cpp"
+      }
+    }
+  ]
+}

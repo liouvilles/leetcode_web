@@ -1,0 +1,1 @@
+class Solution { fun maxOperations(nums:IntArray,k:Int):Int{val available=mutableMapOf<Int,Int>();var answer=0;for(value in nums){val complement=k-value;if((available[complement]?:0)>0){available[complement]=available[complement]!!-1;answer++}else available[value]=(available[value]?:0)+1};return answer} }

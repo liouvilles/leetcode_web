@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "largestPalindromic",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "经典数字构成七四四九四四七",
+      "args": [
+        "444947137"
+      ],
+      "expected": "7449447"
+    },
+    {
+      "name": "前导零对被跳过只取九",
+      "args": [
+        "00009"
+      ],
+      "expected": "9"
+    },
+    {
+      "name": "全零只能返回单个零",
+      "args": [
+        "0000"
+      ],
+      "expected": "0"
+    }
+  ]
+}

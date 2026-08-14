@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": 1470,
+  "slug": "shuffle-the-array",
+  "title": "重新排列数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-021",
+  "studyTags": [
+    "数组"
+  ],
+  "summary": "数组形如 [x1..xn,y1..yn]，返回 [x1,y1,x2,y2,...,xn,yn]。",
+  "insight": "对 i=0..n-1，把 nums[i] 和 nums[i+n] 依次写入结果。",
+  "pitfalls": [
+    "输入长度为 2n",
+    "保持各半区内部相对顺序",
+    "结果交替写入偶数和奇数位置"
+  ],
+  "solutions": [
+    {
+      "id": "two-half-interleave",
+      "title": "双半区交错",
+      "kind": "最优",
+      "idea": "同步读取数组前半和后半。",
+      "steps": [
+        "answer 长度 2n",
+        "对 i 从零到 n-1",
+        "answer[2i]=nums[i]，answer[2i+1]=nums[i+n]"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/two-half-interleave/Solution.java",
+        "kotlin": "solutions/two-half-interleave/Solution.kt",
+        "cpp": "solutions/two-half-interleave/solution.cpp"
+      }
+    }
+  ]
+}

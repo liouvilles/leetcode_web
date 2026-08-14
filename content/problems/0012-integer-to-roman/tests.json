@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "intToRoman",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "包含四的减法组合",
+      "args": [
+        3749
+      ],
+      "expected": "MMMDCCXLIX"
+    },
+    {
+      "name": "五十八",
+      "args": [
+        58
+      ],
+      "expected": "LVIII"
+    },
+    {
+      "name": "多个减法组合",
+      "args": [
+        1994
+      ],
+      "expected": "MCMXCIV"
+    }
+  ]
+}

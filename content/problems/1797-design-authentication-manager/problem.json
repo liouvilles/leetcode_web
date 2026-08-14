@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1797,
+  "slug": "design-authentication-manager",
+  "title": "设计一个验证系统",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-026",
+  "studyTags": [
+    "哈希表",
+    "设计"
+  ],
+  "summary": "令牌生成后在 timeToLive 时间内有效；支持生成、续期有效令牌及查询当前未过期令牌数。",
+  "insight": "哈希表记录 tokenId 的过期时刻。生成直接写 currentTime+ttl；续期只在旧过期时刻严格大于当前时间时更新；查询统计仍有效项。",
+  "pitfalls": [
+    "过期时刻等于当前时间已失效",
+    "续期不存在或过期令牌无效",
+    "所有 currentTime 严格递增"
+  ],
+  "solutions": [
+    {
+      "id": "expiry-time-map",
+      "title": "令牌过期时刻表",
+      "kind": "最优",
+      "idea": "直接维护每个令牌的当前失效边界。",
+      "steps": [
+        "构造保存 ttl 与 expiry map",
+        "generate 写 expiry=current+ttl",
+        "renew 检查 expiry>current 后重写；count 遍历 expiry>current 的数量"
+      ],
+      "complexity": {
+        "time": "O(1) 生成续期，O(n) 查询",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/expiry-time-map/Solution.java",
+        "kotlin": "solutions/expiry-time-map/Solution.kt",
+        "cpp": "solutions/expiry-time-map/solution.cpp"
+      }
+    }
+  ]
+}

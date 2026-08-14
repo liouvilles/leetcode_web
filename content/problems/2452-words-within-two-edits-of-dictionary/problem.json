@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2452,
+  "slug": "words-within-two-edits-of-dictionary",
+  "title": "距离字典两次编辑以内的单词",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-036",
+  "studyTags": [
+    "数组",
+    "字符串"
+  ],
+  "summary": "查询单词与字典单词等长，一次编辑可替换任一字符，返回能在至多两次编辑内变成某个字典词的查询。",
+  "insight": "逐查询与每个字典词计算对应位置不同数，差异不超过二就保留并停止比较。",
+  "pitfalls": [
+    "只能替换不能插入删除",
+    "返回保持 queries 原顺序",
+    "同一查询只加入一次"
+  ],
+  "solutions": [
+    {
+      "id": "pairwise-hamming-distance",
+      "title": "逐对汉明距离",
+      "kind": "最优",
+      "idea": "等长字符串直接统计不同位置。",
+      "steps": [
+        "answer 空",
+        "对 query 枚举 dictionary word",
+        "扫描字符，differences>2 时提前停止",
+        "某词差异<=2 则加入 query 并 break"
+      ],
+      "complexity": {
+        "time": "O(q·d·length)",
+        "space": "O(1) 除返回列表"
+      },
+      "files": {
+        "java": "solutions/pairwise-hamming-distance/Solution.java",
+        "kotlin": "solutions/pairwise-hamming-distance/Solution.kt",
+        "cpp": "solutions/pairwise-hamming-distance/solution.cpp"
+      }
+    }
+  ]
+}

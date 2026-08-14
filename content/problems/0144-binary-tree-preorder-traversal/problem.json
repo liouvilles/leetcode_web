@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 144,
+  "slug": "binary-tree-preorder-traversal",
+  "title": "二叉树的前序遍历",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-004",
+  "studyTags": [
+    "二叉树",
+    "迭代",
+    "栈"
+  ],
+  "summary": "返回二叉树节点值的前序遍历序列，即依次访问根、左子树、右子树。",
+  "insight": "栈先压右孩子再压左孩子，后进先出的顺序会让左子树优先于右子树被访问。",
+  "pitfalls": [
+    "空树返回空列表",
+    "压栈顺序与访问顺序相反",
+    "每个节点只入栈一次"
+  ],
+  "solutions": [
+    {
+      "id": "iterative-stack",
+      "title": "显式栈前序遍历",
+      "kind": "最优",
+      "idea": "弹栈时记录节点，并按右后左的压栈顺序维持根左右访问。",
+      "steps": [
+        "根非空时入栈",
+        "循环弹出并记录",
+        "先压右孩子，再压左孩子"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(h)"
+      },
+      "files": {
+        "java": "solutions/iterative-stack/Solution.java",
+        "kotlin": "solutions/iterative-stack/Solution.kt",
+        "cpp": "solutions/iterative-stack/solution.cpp"
+      }
+    }
+  ]
+}

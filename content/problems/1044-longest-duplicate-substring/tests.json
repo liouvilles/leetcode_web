@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "longestDupSubstring",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "香蕉最长 ana",
+      "args": [
+        "banana"
+      ],
+      "expected": "ana"
+    },
+    {
+      "name": "没有重复子串",
+      "args": [
+        "abcd"
+      ],
+      "expected": ""
+    },
+    {
+      "name": "五个 a 最长四个",
+      "args": [
+        "aaaaa"
+      ],
+      "expected": "aaaa"
+    }
+  ]
+}

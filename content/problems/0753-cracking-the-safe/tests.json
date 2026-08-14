@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "crackSafe",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "一位二进制密码",
+      "args": [
+        1,
+        2
+      ],
+      "expected": "01"
+    },
+    {
+      "name": "两位二进制密码",
+      "args": [
+        2,
+        2
+      ],
+      "expected": "00110"
+    },
+    {
+      "name": "单字符字母表",
+      "args": [
+        2,
+        1
+      ],
+      "expected": "00"
+    }
+  ]
+}

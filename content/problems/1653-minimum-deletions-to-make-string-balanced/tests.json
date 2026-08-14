@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumDeletions",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "混合字符串最少删除二",
+      "args": [
+        "aababbab"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "前后 b 与中间 a 最少删二",
+      "args": [
+        "bbaaaaabb"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "全 a 已平衡",
+      "args": [
+        "aaaa"
+      ],
+      "expected": 0
+    }
+  ]
+}

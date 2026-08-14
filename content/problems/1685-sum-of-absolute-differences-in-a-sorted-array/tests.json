@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getSumAbsoluteDifferences",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "二三五的绝对差和",
+      "args": [
+        [
+          2,
+          3,
+          5
+        ]
+      ],
+      "expected": [
+        4,
+        3,
+        5
+      ]
+    },
+    {
+      "name": "六元素有序数组",
+      "args": [
+        [
+          1,
+          4,
+          6,
+          8,
+          10
+        ]
+      ],
+      "expected": [
+        24,
+        15,
+        13,
+        15,
+        21
+      ]
+    },
+    {
+      "name": "单元素差和为零",
+      "args": [
+        [
+          7
+        ]
+      ],
+      "expected": [
+        0
+      ]
+    }
+  ]
+}

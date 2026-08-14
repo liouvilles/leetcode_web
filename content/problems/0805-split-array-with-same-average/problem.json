@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 805,
+  "slug": "split-array-with-same-average",
+  "title": "数组的均值分割",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-011",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "子集和"
+  ],
+  "summary": "判断数组能否分成两个都非空的子数组，使两者平均值相同。",
+  "insight": "若大小为 k 的子集和是 total·k/n，它与整体同均值，补集也自动同均值；按子集大小维护所有可达和即可。",
+  "pitfalls": [
+    "只需检查 k 到 n/2，补集对称",
+    "total*k 必须能被 n 整除才可能命中",
+    "更新子集大小要倒序，避免同一元素使用多次"
+  ],
+  "solutions": [
+    {
+      "id": "subset-size-sum-dp",
+      "title": "按子集大小的可达和 DP",
+      "kind": "最优",
+      "idea": "枚举可能子集大小并查找对应目标和。",
+      "steps": [
+        "sums[k] 存恰选 k 个元素的所有和，sums[0]={0}",
+        "对每个 value，k 从当前上限倒序，把 sums[k-1]+value 加入 sums[k]",
+        "对 k=1..n/2，若 total*k%n==0 且 sums[k] 含 total*k/n 则返回真"
+      ],
+      "complexity": {
+        "time": "O(n²·S)",
+        "space": "O(n·S)"
+      },
+      "files": {
+        "java": "solutions/subset-size-sum-dp/Solution.java",
+        "kotlin": "solutions/subset-size-sum-dp/Solution.kt",
+        "cpp": "solutions/subset-size-sum-dp/solution.cpp"
+      }
+    }
+  ]
+}

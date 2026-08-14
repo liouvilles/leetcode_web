@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isPerfectSquare",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "十六是平方数",
+      "args": [
+        16
+      ],
+      "expected": true
+    },
+    {
+      "name": "十四不是平方数",
+      "args": [
+        14
+      ],
+      "expected": false
+    },
+    {
+      "name": "较大平方数",
+      "args": [
+        2147395600
+      ],
+      "expected": true
+    }
+  ]
+}

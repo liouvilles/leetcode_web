@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "canMouseWin",
+  "parameterTypes": [
+    "stringArray",
+    "int",
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "老鼠可绕过猫到达食物",
+      "args": [
+        [
+          "####F",
+          "#C...",
+          "M...."
+        ],
+        1,
+        2
+      ],
+      "expected": true
+    },
+    {
+      "name": "老鼠跳四格可以先到食物",
+      "args": [
+        [
+          "M.C...F"
+        ],
+        1,
+        4
+      ],
+      "expected": true
+    },
+    {
+      "name": "老鼠只跳三格时猫可阻挡",
+      "args": [
+        [
+          "M.C...F"
+        ],
+        1,
+        3
+      ],
+      "expected": false
+    }
+  ]
+}

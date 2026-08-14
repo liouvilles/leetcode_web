@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findOcurrences",
+  "parameterTypes": [
+    "string",
+    "string",
+    "string"
+  ],
+  "returnType": "stringArray",
+  "cases": [
+    {
+      "name": "两个匹配后继",
+      "args": [
+        "alice is a good girl she is a good student",
+        "a",
+        "good"
+      ],
+      "expected": [
+        "girl",
+        "student"
+      ]
+    },
+    {
+      "name": "重叠匹配",
+      "args": [
+        "we will we will rock you",
+        "we",
+        "will"
+      ],
+      "expected": [
+        "we",
+        "rock"
+      ]
+    },
+    {
+      "name": "没有匹配",
+      "args": [
+        "a b c",
+        "x",
+        "y"
+      ],
+      "expected": []
+    }
+  ]
+}

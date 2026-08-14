@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getLastMoment",
+  "parameterTypes": [
+    "int",
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两侧都有蚂蚁最后四秒",
+      "args": [
+        4,
+        [
+          4,
+          3
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "全部向右最后七秒",
+      "args": [
+        7,
+        [],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "expected": 7
+    },
+    {
+      "name": "全部向左最后七秒",
+      "args": [
+        7,
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        []
+      ],
+      "expected": 7
+    }
+  ]
+}

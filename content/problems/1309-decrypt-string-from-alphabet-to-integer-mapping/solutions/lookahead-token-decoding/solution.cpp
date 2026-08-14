@@ -1,0 +1,1 @@
+class Solution { public: string freqAlphabets(string s){string answer;for(int i=0;i<(int)s.size();){int value;if(i+2<(int)s.size()&&s[i+2]=='#'){value=(s[i]-'0')*10+s[i+1]-'0';i+=3;}else value=s[i++]-'0';answer+=char('a'+value-1);}return answer;} };

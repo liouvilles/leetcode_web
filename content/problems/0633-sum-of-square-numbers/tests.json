@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "judgeSquareSum",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "一和四",
+      "args": [
+        5
+      ],
+      "expected": true
+    },
+    {
+      "name": "三不能表示",
+      "args": [
+        3
+      ],
+      "expected": false
+    },
+    {
+      "name": "两个一",
+      "args": [
+        2
+      ],
+      "expected": true
+    }
+  ]
+}

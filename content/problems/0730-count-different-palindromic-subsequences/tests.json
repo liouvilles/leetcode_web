@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countPalindromicSubsequences",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "bccb 六种回文",
+      "args": [
+        "bccb"
+      ],
+      "expected": 6
+    },
+    {
+      "name": "四个不同字符",
+      "args": [
+        "abcd"
+      ],
+      "expected": 4
+    },
+    {
+      "name": "三个相同字符",
+      "args": [
+        "aaa"
+      ],
+      "expected": 3
+    }
+  ]
+}

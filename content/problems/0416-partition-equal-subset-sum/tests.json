@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "canPartition",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "存在等和划分",
+      "args": [
+        [
+          1,
+          5,
+          11,
+          5
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "无法凑出一半总和",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          5
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "两个相等元素",
+      "args": [
+        [
+          2,
+          2
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

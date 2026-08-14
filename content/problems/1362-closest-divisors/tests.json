@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "closestDivisors",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "九为完全平方数",
+      "args": [
+        8
+      ],
+      "expected": [
+        3,
+        3
+      ]
+    },
+    {
+      "name": "一百二十五的因数更近",
+      "args": [
+        123
+      ],
+      "expected": [
+        5,
+        25
+      ]
+    },
+    {
+      "name": "一千的因数对",
+      "args": [
+        999
+      ],
+      "expected": [
+        25,
+        40
+      ]
+    }
+  ]
+}

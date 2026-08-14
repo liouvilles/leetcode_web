@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 542,
+  "slug": "01-matrix",
+  "title": "01 矩阵",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-007",
+  "studyTags": [
+    "多源 BFS",
+    "矩阵",
+    "最短距离"
+  ],
+  "summary": "对二进制矩阵每个位置，返回它到最近零格子的曼哈顿距离。",
+  "insight": "把所有零同时作为 BFS 起点，向外逐层扩展，首次到达每个一格时的距离就是最近零距离。",
+  "pitfalls": [
+    "所有零都要在初始队列中",
+    "未访问位置初始化为 -1",
+    "每格首次访问后不再入队"
+  ],
+  "solutions": [
+    {
+      "id": "multi-source-bfs",
+      "title": "从所有零多源广搜",
+      "kind": "最优",
+      "idea": "零集合共同向四周传播最短距离。",
+      "steps": [
+        "distance 初始化 -1，零格设零并入队",
+        "弹出格子枚举四邻域",
+        "未访问邻居设为当前距离+1 并入队"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(mn)"
+      },
+      "files": {
+        "java": "solutions/multi-source-bfs/Solution.java",
+        "kotlin": "solutions/multi-source-bfs/Solution.kt",
+        "cpp": "solutions/multi-source-bfs/solution.cpp"
+      }
+    }
+  ]
+}

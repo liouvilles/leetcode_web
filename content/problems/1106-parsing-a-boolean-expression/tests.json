@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "parseBoolExpr",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "非假为真",
+      "args": [
+        "!(f)"
+      ],
+      "expected": true
+    },
+    {
+      "name": "或表达式为真",
+      "args": [
+        "|(f,t)"
+      ],
+      "expected": true
+    },
+    {
+      "name": "嵌套与表达式为假",
+      "args": [
+        "&(|(f))"
+      ],
+      "expected": false
+    }
+  ]
+}

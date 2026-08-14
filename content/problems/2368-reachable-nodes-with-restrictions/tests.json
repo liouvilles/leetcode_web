@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "reachableNodes",
+  "parameterTypes": [
+    "int",
+    "intMatrix",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "限制两节点后可达四个节点",
+      "args": [
+        7,
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            5,
+            6
+          ]
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "限制根的两个分支仅根可达",
+      "args": [
+        3,
+        [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "无受限节点全树可达",
+      "args": [
+        4,
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        []
+      ],
+      "expected": 4
+    }
+  ]
+}

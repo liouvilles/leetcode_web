@@ -1,0 +1,1 @@
+class Solution { public double average(int[] salary){int sum=0,minimum=Integer.MAX_VALUE,maximum=Integer.MIN_VALUE;for(int value:salary){sum+=value;minimum=Math.min(minimum,value);maximum=Math.max(maximum,value);}return (sum-minimum-maximum)/(salary.length-2.0);} }

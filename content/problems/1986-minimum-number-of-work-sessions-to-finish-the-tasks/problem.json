@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1986,
+  "slug": "minimum-number-of-work-sessions-to-finish-the-tasks",
+  "title": "完成任务的最少工作时间段",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-029",
+  "studyTags": [
+    "位运算",
+    "数组",
+    "动态规划",
+    "状态压缩"
+  ],
+  "summary": "每段工作时间不超过 sessionTime，每个任务不可拆分，求完成全部任务的最少时段数。",
+  "insight": "对任务集合掩码记录最优二元状态：已用时段数和最后一段已用时间。加入任务若能塞进最后一段就不增段，否则新开一段；先最小化段数，再最小化末段时间。",
+  "pitfalls": [
+    "每个任务耗时不超过时段上限",
+    "空集合尚未使用时段",
+    "同段任务顺序无关"
+  ],
+  "solutions": [
+    {
+      "id": "bitmask-last-session-dp",
+      "title": "掩码与末段占用 DP",
+      "kind": "最优",
+      "idea": "逐集合扩展任务并按二元字典序取优。",
+      "steps": [
+        "sessions[0]=1、used[0]=0",
+        "对 mask 枚举未选 task；能放入则候选 [sessions,used+task]，否则 [sessions+1,task]",
+        "按 sessions 更少、相同则 used 更少更新，返回全掩码 sessions"
+      ],
+      "complexity": {
+        "time": "O(n2^n)",
+        "space": "O(2^n)"
+      },
+      "files": {
+        "java": "solutions/bitmask-last-session-dp/Solution.java",
+        "kotlin": "solutions/bitmask-last-session-dp/Solution.kt",
+        "cpp": "solutions/bitmask-last-session-dp/solution.cpp"
+      }
+    }
+  ]
+}

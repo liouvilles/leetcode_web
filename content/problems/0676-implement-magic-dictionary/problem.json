@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 676,
+  "slug": "implement-magic-dictionary",
+  "title": "实现一个魔法字典",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-009",
+  "studyTags": [
+    "设计",
+    "哈希表",
+    "字符串"
+  ],
+  "summary": "构建字符串字典，查询字符串是否能恰好修改一个字符后变成字典中的某个词。",
+  "insight": "只需比较相同长度的字典词，并统计对应位置不同字符数；差异恰好为一即成功。",
+  "pitfalls": [
+    "必须恰好修改一个字符，原词直接存在不算成功",
+    "不能插入或删除字符",
+    "buildDict 只调用一次但可保存所有词"
+  ],
+  "solutions": [
+    {
+      "id": "same-length-one-mismatch",
+      "title": "同长度逐词比较",
+      "kind": "最优",
+      "idea": "按长度组织字典词，查询时只检查可能匹配的候选。",
+      "steps": [
+        "buildDict 按词长分组保存",
+        "search 取相同长度候选",
+        "逐字符统计差异，超过一提前停止，恰好一时返回真"
+      ],
+      "complexity": {
+        "time": "O(candidates·length)",
+        "space": "O(total dictionary)"
+      },
+      "files": {
+        "java": "solutions/same-length-one-mismatch/Solution.java",
+        "kotlin": "solutions/same-length-one-mismatch/Solution.kt",
+        "cpp": "solutions/same-length-one-mismatch/solution.cpp"
+      }
+    }
+  ]
+}

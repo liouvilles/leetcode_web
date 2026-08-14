@@ -1,0 +1,1 @@
+class Solution { fun isThree(n:Int):Boolean{val root=kotlin.math.sqrt(n.toDouble()).toInt();if(root*root!=n||root<2)return false;for(divisor in 2..kotlin.math.sqrt(root.toDouble()).toInt())if(root%divisor==0)return false;return true} }

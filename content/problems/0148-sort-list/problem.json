@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 148,
+  "slug": "sort-list",
+  "title": "排序链表",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-003",
+  "studyTags": [
+    "归并排序",
+    "快慢指针",
+    "链表合并"
+  ],
+  "summary": "把单链表按节点值升序排序，目标时间复杂度为 O(n log n)。",
+  "insight": "归并排序适合链表：快慢指针在线性时间切半，两个有序链表又能原地线性合并。",
+  "pitfalls": [
+    "切半时必须断开前半链尾",
+    "递归基线是零或一个节点",
+    "合并阶段应复用原节点"
+  ],
+  "solutions": [
+    {
+      "id": "merge-sort",
+      "title": "链表归并排序",
+      "kind": "最优",
+      "idea": "递归把链表切成两半分别排序，再用双指针合并。",
+      "steps": [
+        "快慢指针定位中点前驱",
+        "断链并递归排序两半",
+        "用虚拟头结点合并两个有序链"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/merge-sort/Solution.java",
+        "kotlin": "solutions/merge-sort/Solution.kt",
+        "cpp": "solutions/merge-sort/solution.cpp"
+      }
+    }
+  ]
+}

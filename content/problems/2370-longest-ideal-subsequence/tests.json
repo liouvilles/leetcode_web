@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "longestIdealString",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "acfgbd 最长理想子序列四",
+      "args": [
+        "acfgbd",
+        2
+      ],
+      "expected": 4
+    },
+    {
+      "name": "差值三可保留 abcd 全部",
+      "args": [
+        "abcd",
+        3
+      ],
+      "expected": 4
+    },
+    {
+      "name": "k 为零保留全部相同字符",
+      "args": [
+        "aaaa",
+        0
+      ],
+      "expected": 4
+    }
+  ]
+}

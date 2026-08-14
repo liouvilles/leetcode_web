@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "containsCycle",
+  "parameterTypes": [
+    "charMatrix"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "外圈相同字符形成环",
+      "args": [
+        [
+          [
+            "a",
+            "a",
+            "a",
+            "a"
+          ],
+          [
+            "a",
+            "b",
+            "b",
+            "a"
+          ],
+          [
+            "a",
+            "b",
+            "b",
+            "a"
+          ],
+          [
+            "a",
+            "a",
+            "a",
+            "a"
+          ]
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "二乘二全相同形成四环",
+      "args": [
+        [
+          [
+            "a",
+            "a"
+          ],
+          [
+            "a",
+            "a"
+          ]
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "所有相邻字符不同",
+      "args": [
+        [
+          [
+            "a",
+            "b"
+          ],
+          [
+            "c",
+            "d"
+          ]
+        ]
+      ],
+      "expected": false
+    }
+  ]
+}

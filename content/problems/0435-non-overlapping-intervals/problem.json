@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 435,
+  "slug": "non-overlapping-intervals",
+  "title": "无重叠区间",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-006",
+  "studyTags": [
+    "贪心",
+    "区间排序",
+    "活动选择"
+  ],
+  "summary": "删除最少数量的区间，使剩余区间两两不重叠，端点相接不算重叠。",
+  "insight": "按结束位置升序选择区间能为后续留下最大空间；每个与当前已选区间重叠的项都删除。",
+  "pitfalls": [
+    "端点相等允许保留",
+    "按结束位置而非起点贪心",
+    "返回删除数量"
+  ],
+  "solutions": [
+    {
+      "id": "earliest-finish-greedy",
+      "title": "按结束点贪心",
+      "kind": "最优",
+      "idea": "保留结束最早的兼容区间，统计其余重叠区间。",
+      "steps": [
+        "按 end 升序排序",
+        "维护最后保留区间的 end",
+        "start>=end 时保留并更新，否则 removals++"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/earliest-finish-greedy/Solution.java",
+        "kotlin": "solutions/earliest-finish-greedy/Solution.kt",
+        "cpp": "solutions/earliest-finish-greedy/solution.cpp"
+      }
+    }
+  ]
+}

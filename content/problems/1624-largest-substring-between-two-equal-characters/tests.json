@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxLengthBetweenEqualCharacters",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "相邻相同字符之间长度零",
+      "args": [
+        "aa"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "首尾 a 之间长度二",
+      "args": [
+        "abca"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "没有相同字符",
+      "args": [
+        "cbzxy"
+      ],
+      "expected": -1
+    }
+  ]
+}

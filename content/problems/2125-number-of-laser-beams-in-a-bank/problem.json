@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2125,
+  "slug": "number-of-laser-beams-in-a-bank",
+  "title": "银行中的激光束数量",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-031",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "模拟"
+  ],
+  "summary": "每行安全设备数非零的相邻有效行之间形成两两激光束，求总束数。",
+  "insight": "忽略没有设备的行；当前非空行设备数与上一非空行设备数的乘积就是两行之间的激光束数。",
+  "pitfalls": [
+    "空行不切断相邻有效行关系",
+    "同一行设备间不成束",
+    "乘积在逐行扫描时累加"
+  ],
+  "solutions": [
+    {
+      "id": "nonempty-row-product-scan",
+      "title": "非空行乘积扫描",
+      "kind": "最优",
+      "idea": "只保留上一非空行的设备数。",
+      "steps": [
+        "previous=0、answer=0",
+        "统计每行字符一的数量 current",
+        "current>0 时 answer+=previous*current，并令 previous=current"
+      ],
+      "complexity": {
+        "time": "O(rows·columns)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/nonempty-row-product-scan/Solution.java",
+        "kotlin": "solutions/nonempty-row-product-scan/Solution.kt",
+        "cpp": "solutions/nonempty-row-product-scan/solution.cpp"
+      }
+    }
+  ]
+}

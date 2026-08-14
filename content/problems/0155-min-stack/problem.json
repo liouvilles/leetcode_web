@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 155,
+  "slug": "min-stack",
+  "title": "最小栈",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-003",
+  "studyTags": [
+    "设计题",
+    "辅助栈",
+    "同步最小值"
+  ],
+  "summary": "设计支持压栈、出栈、读取栈顶和常数时间获取当前最小元素的栈。",
+  "insight": "每个入栈位置同时保存截至该位置的最小值，出栈时两个状态自然同步回退。",
+  "pitfalls": [
+    "重复最小值需要分别记录",
+    "getMin 不能线性扫描",
+    "题目保证只在非空栈执行读取和弹出"
+  ],
+  "solutions": [
+    {
+      "id": "paired-values",
+      "title": "值与前缀最小值成对入栈",
+      "kind": "最优",
+      "idea": "每个栈元素保存原值和加入它之后的最小值。",
+      "steps": [
+        "push 时比较当前值与旧最小值",
+        "pop 删除一整对状态",
+        "top 和 getMin 分别读取栈顶的两个字段"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/paired-values/Solution.java",
+        "kotlin": "solutions/paired-values/Solution.kt",
+        "cpp": "solutions/paired-values/solution.cpp"
+      }
+    }
+  ]
+}

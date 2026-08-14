@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1608,
+  "slug": "special-array-with-x-elements-greater-than-or-equal-x",
+  "title": "特殊数组的特征值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-023",
+  "studyTags": [
+    "数组",
+    "排序"
+  ],
+  "summary": "若恰有 x 个元素大于等于 x，则数组特征值为 x，返回该值；不存在返回负一。",
+  "insight": "x 只可能在零到 n。枚举 x 并统计满足阈值的元素数，等于 x 时返回。",
+  "pitfalls": [
+    "不要求 x 出现在数组中",
+    "大于等于而非严格大于",
+    "题目保证若存在则唯一"
+  ],
+  "solutions": [
+    {
+      "id": "candidate-threshold-count",
+      "title": "候选阈值计数",
+      "kind": "最优",
+      "idea": "枚举所有可能的特征值并验证。",
+      "steps": [
+        "x 从零到 nums.length",
+        "count=元素 value>=x 的数量",
+        "count==x 返回 x，结束返回 -1"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/candidate-threshold-count/Solution.java",
+        "kotlin": "solutions/candidate-threshold-count/Solution.kt",
+        "cpp": "solutions/candidate-threshold-count/solution.cpp"
+      }
+    }
+  ]
+}

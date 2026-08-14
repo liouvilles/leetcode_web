@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 567,
+  "slug": "permutation-in-string",
+  "title": "字符串的排列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-003",
+  "studyTags": [
+    "定长滑动窗口",
+    "频次差",
+    "排列匹配"
+  ],
+  "summary": "判断字符串 s2 是否包含一个连续子串，它是字符串 s1 的某种排列。",
+  "insight": "排列长度固定且字符频次不变，维护与 s1 等长窗口的 26 个计数即可判断。",
+  "pitfalls": [
+    "s1 比 s2 长时必然失败",
+    "窗口每右移一步要同时加入和移除字符",
+    "只比较字符集合会漏掉重复次数"
+  ],
+  "solutions": [
+    {
+      "id": "fixed-frequency-window",
+      "title": "定长频次数组",
+      "kind": "最优",
+      "idea": "先建立第一个窗口，再逐步滑动并比较频次。",
+      "steps": [
+        "统计 s1 与 s2 首窗口频次",
+        "每轮先检查数组是否相等",
+        "加入新右端并移除旧左端"
+      ],
+      "complexity": {
+        "time": "O(26n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/fixed-frequency-window/Solution.java",
+        "kotlin": "solutions/fixed-frequency-window/Solution.kt",
+        "cpp": "solutions/fixed-frequency-window/solution.cpp"
+      }
+    }
+  ]
+}

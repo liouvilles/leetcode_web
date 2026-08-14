@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1031,
+  "slug": "maximum-sum-of-two-non-overlapping-subarrays",
+  "title": "两个非重叠子数组的最大和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-015",
+  "studyTags": [
+    "数组",
+    "滑动窗口",
+    "前缀和"
+  ],
+  "summary": "选择长度为 firstLen 和 secondLen 的两个互不重叠子数组，求元素总和最大值。",
+  "insight": "固定一种左右顺序，扫描右侧窗口起点时维护它左边所有 firstLen 窗口的最大和；分别计算 first 在左和 second 在左两种顺序。",
+  "pitfalls": [
+    "两个窗口可能以任一顺序出现",
+    "窗口长度固定",
+    "维护左窗口最大值时不能越过当前右窗口"
+  ],
+  "solutions": [
+    {
+      "id": "two-orders-prefix-window",
+      "title": "两种顺序前缀窗口",
+      "kind": "最优",
+      "idea": "在线组合当前右窗口与此前最佳左窗口。",
+      "steps": [
+        "构建 prefix sum",
+        "helper(leftLength,rightLength)：rightStart 从 leftLength 到 n-rightLength",
+        "维护 ending at rightStart 的左侧候选窗口最大和，并与当前右窗口和组合更新答案",
+        "返回两个长度顺序 helper 的最大值"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/two-orders-prefix-window/Solution.java",
+        "kotlin": "solutions/two-orders-prefix-window/Solution.kt",
+        "cpp": "solutions/two-orders-prefix-window/solution.cpp"
+      }
+    }
+  ]
+}

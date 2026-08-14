@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numPairsDivisibleBy60",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典三对",
+      "args": [
+        [
+          30,
+          20,
+          150,
+          100,
+          40
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "三个整分钟",
+      "args": [
+        [
+          60,
+          60,
+          60
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "一对互补余数",
+      "args": [
+        [
+          10,
+          50
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

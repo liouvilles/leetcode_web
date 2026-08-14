@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "busiestServers",
+  "parameterTypes": [
+    "int",
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "intList",
+  "cases": [
+    {
+      "name": "三台服务器零号最忙",
+      "args": [
+        3,
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          5,
+          2,
+          3,
+          3,
+          3
+        ]
+      ],
+      "expected": [
+        1
+      ]
+    },
+    {
+      "name": "三台服务器都处理一个请求",
+      "args": [
+        3,
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "expected": [
+        0
+      ]
+    },
+    {
+      "name": "所有服务器并列最忙",
+      "args": [
+        3,
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          10,
+          12,
+          11
+        ]
+      ],
+      "expected": [
+        0,
+        1,
+        2
+      ]
+    }
+  ]
+}

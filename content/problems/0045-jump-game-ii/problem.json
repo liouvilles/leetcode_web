@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 45,
+  "slug": "jump-game-ii",
+  "title": "跳跃游戏 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-002",
+  "studyTags": [
+    "贪心分层",
+    "最远覆盖",
+    "最少步数"
+  ],
+  "summary": "数组元素表示从当前位置最多可跳的距离，计算从第一个位置到最后一个位置所需的最少跳跃次数。",
+  "insight": "当前一次跳跃能够覆盖的区间相当于 BFS 的一层；扫描到层末端时，再把边界扩展到本层可达的最远点。",
+  "pitfalls": [
+    "无需真正选择每一步落点",
+    "最后一个位置不需要继续扩展",
+    "题目保证终点可达"
+  ],
+  "solutions": [
+    {
+      "id": "greedy-levels",
+      "title": "区间分层贪心",
+      "kind": "最优",
+      "idea": "扫描当前跳跃次数覆盖的所有位置，并收集下一次跳跃可到的最远边界。",
+      "steps": [
+        "维护 currentEnd 和 farthest",
+        "扫描到 currentEnd 时完成一次跳跃",
+        "把 currentEnd 更新为 farthest"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/greedy-levels/Solution.java",
+        "kotlin": "solutions/greedy-levels/Solution.kt",
+        "cpp": "solutions/greedy-levels/solution.cpp"
+      }
+    }
+  ]
+}

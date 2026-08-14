@@ -1,0 +1,1 @@
+class Solution { public List<Integer> intersection(int[][] nums){Map<Integer,Integer> count=new TreeMap<>();for(int[] array:nums)for(int value:array)count.merge(value,1,Integer::sum);List<Integer> answer=new ArrayList<>();for(Map.Entry<Integer,Integer> entry:count.entrySet())if(entry.getValue()==nums.length)answer.add(entry.getKey());return answer;} }

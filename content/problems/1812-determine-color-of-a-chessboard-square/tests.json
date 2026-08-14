@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "squareIsWhite",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "a1 是黑色",
+      "args": [
+        "a1"
+      ],
+      "expected": false
+    },
+    {
+      "name": "h3 是白色",
+      "args": [
+        "h3"
+      ],
+      "expected": true
+    },
+    {
+      "name": "c7 是黑色",
+      "args": [
+        "c7"
+      ],
+      "expected": false
+    }
+  ]
+}

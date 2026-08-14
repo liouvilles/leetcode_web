@@ -1,0 +1,1 @@
+class Solution { fun findEvenNumbers(digits:IntArray):IntArray{val available=IntArray(10);for(digit in digits)available[digit]++;return (100..998 step 2).filter{numberValue->val needed=IntArray(10);var value=numberValue;repeat(3){needed[value%10]++;value/=10};(0..9).all{needed[it]<=available[it]}}.toIntArray()} }

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "calculate",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "简单加减",
+      "args": [
+        "1 + 1"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "连续加减",
+      "args": [
+        " 2-1 + 2 "
+      ],
+      "expected": 3
+    },
+    {
+      "name": "嵌套括号",
+      "args": [
+        "(1+(4+5+2)-3)+(6+8)"
+      ],
+      "expected": 23
+    }
+  ]
+}

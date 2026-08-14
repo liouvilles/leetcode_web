@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1319,
+  "slug": "number-of-operations-to-make-network-connected",
+  "title": "连通网络的操作次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "图论",
+    "并查集",
+    "连通分量"
+  ],
+  "summary": "可拔下一条已有网线并连接两个未直接连通的计算机，求使 n 台计算机全部连通的最少操作数，不可能返回负一。",
+  "insight": "连通 n 个节点至少需 n-1 条边，边数不足必无解；否则多余边足以重连各分量，最少操作就是连通分量数减一。",
+  "pitfalls": [
+    "重复形成环的边就是可重用冗余线",
+    "只需统计最终并查集根数量",
+    "n 为一时答案零"
+  ],
+  "solutions": [
+    {
+      "id": "edge-count-and-union-find",
+      "title": "边数门槛与并查集",
+      "kind": "最优",
+      "idea": "判断线材总量后统计连通分量。",
+      "steps": [
+        "若 connections.length<n-1 返回 -1",
+        "初始化并查集，合并每条连接",
+        "统计 parent[i]==i 的根数 components，返回 components-1"
+      ],
+      "complexity": {
+        "time": "O((n+e)α(n))",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/edge-count-and-union-find/Solution.java",
+        "kotlin": "solutions/edge-count-and-union-find/Solution.kt",
+        "cpp": "solutions/edge-count-and-union-find/solution.cpp"
+      }
+    }
+  ]
+}

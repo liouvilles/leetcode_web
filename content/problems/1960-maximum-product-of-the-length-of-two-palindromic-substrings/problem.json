@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1960,
+  "slug": "maximum-product-of-the-length-of-two-palindromic-substrings",
+  "title": "两个回文子字符串长度的最大乘积",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-028",
+  "studyTags": [
+    "字符串",
+    "字符串匹配",
+    "Manacher 算法"
+  ],
+  "summary": "在字符串中选择两个不重叠的奇数长度回文子串，求长度乘积最大值。",
+  "insight": "Manacher 求每个中心最大奇回文。把最大回文长度记录到其终点和起点，再用缩短两端的性质传播所有内部回文，形成每个前缀与后缀的最大可用长度；枚举分割点相乘。",
+  "pitfalls": [
+    "只考虑奇数长度回文",
+    "两个子串不能重叠",
+    "答案使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "manacher-prefix-suffix-maxima",
+      "title": "Manacher 与前后缀最大值",
+      "kind": "最优",
+      "idea": "线性获得每个分割点两侧的最佳奇回文。",
+      "steps": [
+        "Manacher 得 radius[center]",
+        "记录 exactEnd[center+r-1] 与 exactStart[center-r+1] 的最大长度；分别传播缩短二的内部回文",
+        "对 exactEnd 做前缀最大、exactStart 做后缀最大，枚举 split 计算乘积"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/manacher-prefix-suffix-maxima/Solution.java",
+        "kotlin": "solutions/manacher-prefix-suffix-maxima/Solution.kt",
+        "cpp": "solutions/manacher-prefix-suffix-maxima/solution.cpp"
+      }
+    }
+  ]
+}

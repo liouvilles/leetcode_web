@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "validTicTacToe",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "O 不能先手",
+      "args": [
+        [
+          "O  ",
+          "   ",
+          "   "
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "X 比 O 多两步",
+      "args": [
+        [
+          "XOX",
+          " X ",
+          "   "
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "合法填充状态",
+      "args": [
+        [
+          "XOX",
+          "O O",
+          "XOX"
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

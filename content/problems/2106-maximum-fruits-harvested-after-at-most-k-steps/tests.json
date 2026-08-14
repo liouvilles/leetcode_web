@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxTotalFruits",
+  "parameterTypes": [
+    "intMatrix",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "从五出发四步最多摘九个",
+      "args": [
+        [
+          [
+            2,
+            8
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            8,
+            6
+          ]
+        ],
+        5,
+        4
+      ],
+      "expected": 9
+    },
+    {
+      "name": "从五出发四步摘十四个",
+      "args": [
+        [
+          [
+            0,
+            9
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            5,
+            7
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            10,
+            9
+          ]
+        ],
+        5,
+        4
+      ],
+      "expected": 14
+    },
+    {
+      "name": "所有水果都太远答案零",
+      "args": [
+        [
+          [
+            10,
+            5
+          ]
+        ],
+        0,
+        3
+      ],
+      "expected": 0
+    }
+  ]
+}

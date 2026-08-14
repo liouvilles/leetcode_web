@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "canEat",
+  "parameterTypes": [
+    "intArray",
+    "intMatrix"
+  ],
+  "returnType": "booleanList",
+  "cases": [
+    {
+      "name": "三组经典查询",
+      "args": [
+        [
+          7,
+          4,
+          5,
+          3,
+          8
+        ],
+        [
+          [
+            0,
+            2,
+            2
+          ],
+          [
+            4,
+            2,
+            4
+          ],
+          [
+            2,
+            13,
+            1000000000
+          ]
+        ]
+      ],
+      "expected": [
+        true,
+        false,
+        true
+      ]
+    },
+    {
+      "name": "第一天可吃第一类糖",
+      "args": [
+        [
+          1
+        ],
+        [
+          [
+            0,
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        true
+      ]
+    },
+    {
+      "name": "太早无法吃到第二类",
+      "args": [
+        [
+          10,
+          1
+        ],
+        [
+          [
+            1,
+            0,
+            5
+          ]
+        ]
+      ],
+      "expected": [
+        false
+      ]
+    }
+  ]
+}

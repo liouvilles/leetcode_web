@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "myPow",
+  "parameterTypes": [
+    "double",
+    "int"
+  ],
+  "returnType": "double",
+  "cases": [
+    {
+      "name": "正指数",
+      "args": [
+        2,
+        10
+      ],
+      "expected": 1024
+    },
+    {
+      "name": "负指数",
+      "args": [
+        2,
+        -2
+      ],
+      "expected": 0.25
+    },
+    {
+      "name": "负底数奇数次幂",
+      "args": [
+        -2,
+        3
+      ],
+      "expected": -8
+    }
+  ]
+}

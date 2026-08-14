@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "thousandSeparator",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "三位数不分隔",
+      "args": [
+        987
+      ],
+      "expected": "987"
+    },
+    {
+      "name": "四位数插入一个点",
+      "args": [
+        1234
+      ],
+      "expected": "1.234"
+    },
+    {
+      "name": "九位数分为三组",
+      "args": [
+        123456789
+      ],
+      "expected": "123.456.789"
+    }
+  ]
+}

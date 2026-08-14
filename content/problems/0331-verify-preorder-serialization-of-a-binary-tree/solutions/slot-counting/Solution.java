@@ -1,0 +1,1 @@
+class Solution { public boolean isValidSerialization(String preorder){int slots=1;for(String token:preorder.split(",")){if(slots==0)return false;slots--;if(!token.equals("#"))slots+=2;}return slots==0;} }

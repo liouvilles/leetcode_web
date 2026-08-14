@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "peopleIndexes",
+  "parameterTypes": [
+    "stringListMatrix"
+  ],
+  "returnType": "intList",
+  "cases": [
+    {
+      "name": "两个清单为他人子集",
+      "args": [
+        [
+          [
+            "leetcode",
+            "google",
+            "facebook"
+          ],
+          [
+            "google",
+            "microsoft"
+          ],
+          [
+            "google",
+            "facebook"
+          ],
+          [
+            "google"
+          ],
+          [
+            "amazon"
+          ]
+        ]
+      ],
+      "expected": [
+        0,
+        1,
+        4
+      ]
+    },
+    {
+      "name": "第三个清单属于第一个",
+      "args": [
+        [
+          [
+            "leetcode",
+            "google",
+            "facebook"
+          ],
+          [
+            "leetcode",
+            "amazon"
+          ],
+          [
+            "facebook",
+            "google"
+          ]
+        ]
+      ],
+      "expected": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "四个互不包含的单项清单",
+      "args": [
+        [
+          [
+            "leetcode"
+          ],
+          [
+            "google"
+          ],
+          [
+            "facebook"
+          ],
+          [
+            "amazon"
+          ]
+        ]
+      ],
+      "expected": [
+        0,
+        1,
+        2,
+        3
+      ]
+    }
+  ]
+}

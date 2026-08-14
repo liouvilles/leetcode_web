@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isSubsequence",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "合法子序列",
+      "args": [
+        "abc",
+        "ahbgdc"
+      ],
+      "expected": true
+    },
+    {
+      "name": "顺序不匹配",
+      "args": [
+        "axc",
+        "ahbgdc"
+      ],
+      "expected": false
+    },
+    {
+      "name": "空子序列",
+      "args": [
+        "",
+        "ahbgdc"
+      ],
+      "expected": true
+    }
+  ]
+}

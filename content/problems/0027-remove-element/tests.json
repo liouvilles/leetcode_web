@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "removeElement",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "移除首尾目标值",
+      "args": [
+        [
+          3,
+          2,
+          2,
+          3
+        ],
+        3
+      ],
+      "expected": 2,
+      "expectedArgs": [
+        {
+          "index": 0,
+          "type": "intArray",
+          "expected": [
+            2,
+            2,
+            2,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "name": "多次稳定覆盖",
+      "args": [
+        [
+          0,
+          1,
+          2,
+          2,
+          3,
+          0,
+          4,
+          2
+        ],
+        2
+      ],
+      "expected": 5,
+      "expectedArgs": [
+        {
+          "index": 0,
+          "type": "intArray",
+          "expected": [
+            0,
+            1,
+            3,
+            0,
+            4,
+            0,
+            4,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "name": "空数组",
+      "args": [
+        [],
+        7
+      ],
+      "expected": 0,
+      "expectedArgs": [
+        {
+          "index": 0,
+          "type": "intArray",
+          "expected": []
+        }
+      ]
+    }
+  ]
+}

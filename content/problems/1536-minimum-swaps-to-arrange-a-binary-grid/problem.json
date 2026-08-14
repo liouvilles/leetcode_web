@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1536,
+  "slug": "minimum-swaps-to-arrange-a-binary-grid",
+  "title": "排列二进制网格的最少交换次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-022",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "矩阵"
+  ],
+  "summary": "只能交换相邻两行，要求第 i 行末尾至少 n-1-i 个零，求最少交换次数或负一。",
+  "insight": "计算每行尾随零数。逐目标行 i，向下找首个满足需求的行并用相邻交换上移；选最近可行行最省且不妨碍此前位置。",
+  "pitfalls": [
+    "交换整行且只能相邻",
+    "上移时中间行依次下移",
+    "找不到满足行立即失败"
+  ],
+  "solutions": [
+    {
+      "id": "nearest-valid-row-greedy",
+      "title": "最近可行行上移贪心",
+      "kind": "最优",
+      "idea": "按从上到下的需求依次固定每一行。",
+      "steps": [
+        "计算 trailingZeros[row]",
+        "i 从零，need=n-1-i，找最小 row>=i 且 zeros[row]>=need",
+        "不存在返回 -1；answer+=row-i，并把该值冒泡移动到 i"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/nearest-valid-row-greedy/Solution.java",
+        "kotlin": "solutions/nearest-valid-row-greedy/Solution.kt",
+        "cpp": "solutions/nearest-valid-row-greedy/solution.cpp"
+      }
+    }
+  ]
+}

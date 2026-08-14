@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 769,
+  "slug": "max-chunks-to-make-sorted",
+  "title": "最多能完成排序的块",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-010",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "前缀最大值"
+  ],
+  "summary": "给定零到 n-1 的一个排列，把它分成最多连续块，各块排序后使整体升序。",
+  "insight": "排列中若扫描到 i 时前缀最大值正好等于 i，则此前所有值必为 0..i，可以在此结束一块。",
+  "pitfalls": [
+    "输入是排列这一条件使前缀判定成立",
+    "每次满足 max==i 都应切分",
+    "完全逆序仍至少有一个块"
+  ],
+  "solutions": [
+    {
+      "id": "prefix-maximum-boundary",
+      "title": "前缀最大值判定边界",
+      "kind": "最优",
+      "idea": "扫描排列并在前缀元素集合完整时切块。",
+      "steps": [
+        "maximum 初始化零",
+        "逐位置更新 maximum=max(maximum,arr[i])",
+        "若 maximum==i，说明前缀排序后恰占据原位置，answer++"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/prefix-maximum-boundary/Solution.java",
+        "kotlin": "solutions/prefix-maximum-boundary/Solution.kt",
+        "cpp": "solutions/prefix-maximum-boundary/solution.cpp"
+      }
+    }
+  ]
+}

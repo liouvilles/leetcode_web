@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2295,
+  "slug": "replace-elements-in-an-array",
+  "title": "替换数组中的元素",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-033",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "模拟"
+  ],
+  "summary": "给定元素互不相同的数组，依次执行把指定旧值替换为新值的操作，返回最终数组。",
+  "insight": "用哈希表记录每个当前值所在下标。每次替换可 O(1) 找到位置，修改数组后删除旧映射并登记新映射。",
+  "pitfalls": [
+    "操作必须按给定顺序执行",
+    "新值保证当时不在数组中",
+    "更新数组的同时也要更新位置表"
+  ],
+  "solutions": [
+    {
+      "id": "value-to-index-map",
+      "title": "值到下标的哈希映射",
+      "kind": "最优",
+      "idea": "用当前位置索引避免每次线性搜索旧值。",
+      "steps": [
+        "扫描 nums 建立 value→index",
+        "对每个 [old,new]：取出 old 的 index 并写 nums[index]=new",
+        "删除 old 映射，加入 new→index；返回 nums"
+      ],
+      "complexity": {
+        "time": "O(n+q)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/value-to-index-map/Solution.java",
+        "kotlin": "solutions/value-to-index-map/Solution.kt",
+        "cpp": "solutions/value-to-index-map/solution.cpp"
+      }
+    }
+  ]
+}

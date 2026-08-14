@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "garbageCollection",
+  "parameterTypes": [
+    "stringArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典四房屋总时间二十一",
+      "args": [
+        [
+          "G",
+          "P",
+          "GP",
+          "GG"
+        ],
+        [
+          2,
+          4,
+          3
+        ]
+      ],
+      "expected": 21
+    },
+    {
+      "name": "三房屋总时间三十七",
+      "args": [
+        [
+          "MMM",
+          "PGM",
+          "GP"
+        ],
+        [
+          3,
+          10
+        ]
+      ],
+      "expected": 37
+    },
+    {
+      "name": "单房屋只需收取一分钟",
+      "args": [
+        [
+          "G"
+        ],
+        []
+      ],
+      "expected": 1
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { public int[] sortArrayByParity(int[] nums){int[] answer=new int[nums.length];int write=0;for(int value:nums)if(value%2==0)answer[write++]=value;for(int value:nums)if(value%2!=0)answer[write++]=value;return answer;} }

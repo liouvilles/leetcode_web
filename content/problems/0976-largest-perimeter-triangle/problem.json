@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 976,
+  "slug": "largest-perimeter-triangle",
+  "title": "三角形的最大周长",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-014",
+  "studyTags": [
+    "数组",
+    "数学",
+    "贪心",
+    "排序"
+  ],
+  "summary": "从数组选择三个长度组成非退化三角形，返回可得最大周长；不存在返回零。",
+  "insight": "降序排序后依次看相邻三边 a≥b≥c；第一组满足 b+c>a 的三元组已有最大可能周长。",
+  "pitfalls": [
+    "非退化要求两小边之和严格大于最大边",
+    "只需检查排序后的相邻三元组",
+    "无合法三角形返回零"
+  ],
+  "solutions": [
+    {
+      "id": "descending-first-valid-triple",
+      "title": "降序首个合法三元组",
+      "kind": "最优",
+      "idea": "从最大边开始贪心检查三角不等式。",
+      "steps": [
+        "升序排序 nums",
+        "i 从末尾到二，令最大边 nums[i]",
+        "若 nums[i-1]+nums[i-2]>nums[i]，立即返回三边和；扫描完返回零"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/descending-first-valid-triple/Solution.java",
+        "kotlin": "solutions/descending-first-valid-triple/Solution.kt",
+        "cpp": "solutions/descending-first-valid-triple/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "dayOfTheWeek",
+  "parameterTypes": [
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "2019 年八月末",
+      "args": [
+        31,
+        8,
+        2019
+      ],
+      "expected": "Saturday"
+    },
+    {
+      "name": "1999 年七月十八",
+      "args": [
+        18,
+        7,
+        1999
+      ],
+      "expected": "Sunday"
+    },
+    {
+      "name": "1993 年八月十五",
+      "args": [
+        15,
+        8,
+        1993
+      ],
+      "expected": "Sunday"
+    }
+  ]
+}

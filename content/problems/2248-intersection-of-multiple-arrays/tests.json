@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "intersection",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "intList",
+  "cases": [
+    {
+      "name": "三个数组共同值三四",
+      "args": [
+        [
+          [
+            3,
+            1,
+            2,
+            4,
+            5
+          ],
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            3,
+            4,
+            5,
+            6
+          ]
+        ]
+      ],
+      "expected": [
+        3,
+        4
+      ]
+    },
+    {
+      "name": "两个数组只有二共同",
+      "args": [
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ]
+        ]
+      ],
+      "expected": [
+        2
+      ]
+    },
+    {
+      "name": "没有交集",
+      "args": [
+        [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      ],
+      "expected": []
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1561,
+  "slug": "maximum-number-of-coins-you-can-get",
+  "title": "可以获得的最大硬币数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-022",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "排序"
+  ],
+  "summary": "每轮从三堆中，Alice 取最大、你取第二大、Bob 取最小；所有人最优选择，求你能得到的最大硬币数。",
+  "insight": "排序后每轮让 Bob 消耗最小堆，并从剩余大堆中让 Alice 取最大、自己取次大。你获得排序区间从 n 开始每隔一个的 n 个值。",
+  "pitfalls": [
+    "总堆数是三的倍数",
+    "不是简单取前 n 大",
+    "排序后 Bob 的 n 个最小值被舍弃"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-second-largest-selection",
+      "title": "排序后选每组三堆第二大",
+      "kind": "最优",
+      "idea": "从可争夺的两倍 n 个大堆中隔位取值。",
+      "steps": [
+        "排序 piles，rounds=piles.length/3",
+        "index=rounds 开始",
+        "重复 rounds 次累加 piles[index]，index+=2"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/sorted-second-largest-selection/Solution.java",
+        "kotlin": "solutions/sorted-second-largest-selection/Solution.kt",
+        "cpp": "solutions/sorted-second-largest-selection/solution.cpp"
+      }
+    }
+  ]
+}

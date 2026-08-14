@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1850,
+  "slug": "minimum-adjacent-swaps-to-reach-the-kth-smallest-number",
+  "title": "邻位交换的最小次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-027",
+  "studyTags": [
+    "双指针",
+    "字符串",
+    "贪心"
+  ],
+  "summary": "把数字字符串变成比它大的第 k 小排列，求所需最少相邻交换次数。",
+  "insight": "先执行 k 次 nextPermutation 得目标排列。再从左到右匹配目标字符，在当前可变字符数组中找到右侧首个相同字符并冒泡到当前位置，交换数即最小。",
+  "pitfalls": [
+    "数字可能重复",
+    "第 k 个更大数按排列字典序",
+    "每次应找右侧最早匹配字符"
+  ],
+  "solutions": [
+    {
+      "id": "next-permutation-then-bubble-match",
+      "title": "目标排列与冒泡匹配",
+      "kind": "最优",
+      "idea": "先确定唯一目标，再贪心计算稳定匹配的相邻交换数。",
+      "steps": [
+        "对 target 执行 k 次 nextPermutation",
+        "current 为原串字符数组",
+        "i 从左：在 j>=i 找 target[i] 的首个位置，逐步交换到 i 并累计 j-i"
+      ],
+      "complexity": {
+        "time": "O(k n+n²)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/next-permutation-then-bubble-match/Solution.java",
+        "kotlin": "solutions/next-permutation-then-bubble-match/Solution.kt",
+        "cpp": "solutions/next-permutation-then-bubble-match/solution.cpp"
+      }
+    }
+  ]
+}

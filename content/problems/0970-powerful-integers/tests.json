@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "powerfulIntegers",
+  "parameterTypes": [
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "intList",
+  "cases": [
+    {
+      "name": "二和三的幂",
+      "args": [
+        2,
+        3,
+        10
+      ],
+      "expected": [
+        2,
+        3,
+        4,
+        5,
+        7,
+        9,
+        10
+      ]
+    },
+    {
+      "name": "三和五的幂",
+      "args": [
+        3,
+        5,
+        15
+      ],
+      "expected": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        14
+      ]
+    },
+    {
+      "name": "两个底数为一",
+      "args": [
+        1,
+        1,
+        2
+      ],
+      "expected": [
+        2
+      ]
+    }
+  ]
+}

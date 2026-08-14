@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2218,
+  "slug": "maximum-value-of-k-coins-from-piles",
+  "title": "从栈中取出 K 个硬币的最大面值和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-032",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "前缀和"
+  ],
+  "summary": "每堆硬币只能从顶部依次取，所有堆合计恰取 k 枚，求最大面值和。",
+  "insight": "逐堆做分组背包。对当前堆预计算顶部前 t 枚的前缀和；dp[used] 与取 t 枚组合转移到 next[used+t]。",
+  "pitfalls": [
+    "每堆只能取前缀",
+    "必须恰好取 k 枚",
+    "同一堆只能在该轮转移一次"
+  ],
+  "solutions": [
+    {
+      "id": "grouped-knapsack-with-pile-prefixes",
+      "title": "硬币堆前缀分组背包",
+      "kind": "最优",
+      "idea": "每堆提供取零到若干枚的一组互斥选项。",
+      "steps": [
+        "dp[0]=0，其余负无穷",
+        "对 pile：next=dp；prefix 逐枚累加",
+        "对 used、take 转移 next[used+take]=max(next,dp[used]+prefix[take])；令 dp=next",
+        "返回 dp[k]"
+      ],
+      "complexity": {
+        "time": "O(total pile choices·k)",
+        "space": "O(k)"
+      },
+      "files": {
+        "java": "solutions/grouped-knapsack-with-pile-prefixes/Solution.java",
+        "kotlin": "solutions/grouped-knapsack-with-pile-prefixes/Solution.kt",
+        "cpp": "solutions/grouped-knapsack-with-pile-prefixes/solution.cpp"
+      }
+    }
+  ]
+}

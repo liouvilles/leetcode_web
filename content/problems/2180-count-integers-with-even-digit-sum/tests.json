@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countEven",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一到四有两个偶数位和",
+      "args": [
+        4
+      ],
+      "expected": 2
+    },
+    {
+      "name": "一到三十有十四个",
+      "args": [
+        30
+      ],
+      "expected": 14
+    },
+    {
+      "name": "一没有偶数位和",
+      "args": [
+        1
+      ],
+      "expected": 0
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1519,
+  "slug": "number-of-nodes-in-the-sub-tree-with-the-same-label",
+  "title": "子树中标签相同的节点数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-022",
+  "studyTags": [
+    "树",
+    "深度优先搜索",
+    "计数",
+    "树形 DP"
+  ],
+  "summary": "无根树以节点零为根，对每个节点统计其子树中与自身标签相同的节点数量。",
+  "insight": "后序 DFS 为每个子树返回二十六个标签频次，逐孩子合并后，当前标签对应频次就是答案。",
+  "pitfalls": [
+    "输入边无方向需建立双向邻接",
+    "跳过父节点防止回走",
+    "当前节点自身也要计入"
+  ],
+  "solutions": [
+    {
+      "id": "subtree-frequency-dfs",
+      "title": "子树频次深搜",
+      "kind": "最优",
+      "idea": "自底向上合并每个孩子的标签计数向量。",
+      "steps": [
+        "建立无向图，answer[n]",
+        "dfs(node,parent) 初始化 count[label[node]]=1",
+        "递归孩子并逐字母累加，answer[node]=count[label[node]]，返回 count"
+      ],
+      "complexity": {
+        "time": "O(26n)",
+        "space": "O(26n)"
+      },
+      "files": {
+        "java": "solutions/subtree-frequency-dfs/Solution.java",
+        "kotlin": "solutions/subtree-frequency-dfs/Solution.kt",
+        "cpp": "solutions/subtree-frequency-dfs/solution.cpp"
+      }
+    }
+  ]
+}

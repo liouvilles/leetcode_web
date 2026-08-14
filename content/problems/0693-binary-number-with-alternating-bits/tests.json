@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "hasAlternatingBits",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "一零一交替",
+      "args": [
+        5
+      ],
+      "expected": true
+    },
+    {
+      "name": "连续三个一",
+      "args": [
+        7
+      ],
+      "expected": false
+    },
+    {
+      "name": "一零一零交替",
+      "args": [
+        10
+      ],
+      "expected": true
+    }
+  ]
+}

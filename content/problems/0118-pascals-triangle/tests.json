@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "generate",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "intListMatrix",
+  "cases": [
+    {
+      "name": "生成五行",
+      "args": [
+        5
+      ],
+      "expected": [
+        [
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2,
+          1
+        ],
+        [
+          1,
+          3,
+          3,
+          1
+        ],
+        [
+          1,
+          4,
+          6,
+          4,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "只有第一行",
+      "args": [
+        1
+      ],
+      "expected": [
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "name": "生成两行",
+      "args": [
+        2
+      ],
+      "expected": [
+        [
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ]
+    }
+  ]
+}

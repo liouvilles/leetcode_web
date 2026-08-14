@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "dominantIndex",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "六至少两倍于三",
+      "args": [
+        [
+          3,
+          6,
+          1,
+          0
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "四不足两倍于三",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": -1
+    },
+    {
+      "name": "单元素数组",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

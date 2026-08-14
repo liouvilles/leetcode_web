@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1547,
+  "slug": "minimum-cost-to-cut-a-stick",
+  "title": "切棍子的最小成本",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-022",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "排序"
+  ],
+  "summary": "长度 n 的木棍在指定位置全部切开，每次切割成本为当前被切木段长度，求最小总成本。",
+  "insight": "加入边界零和 n 并排序。区间 DP：完成 (left,right) 内所有切点时，第一刀选 middle，支付整段长度再加左右子区间最优成本。",
+  "pitfalls": [
+    "切割顺序影响成本",
+    "相邻边界间没有切点时成本零",
+    "切点需先排序"
+  ],
+  "solutions": [
+    {
+      "id": "interval-first-cut-dp",
+      "title": "区间第一刀动态规划",
+      "kind": "最优",
+      "idea": "枚举每段内第一处切割位置。",
+      "steps": [
+        "positions=[0,cuts...,n] 排序",
+        "按区间跨度从二开始",
+        "dp[left][right]=positions[right]-positions[left]+min(dp[left][middle]+dp[middle][right])，无 middle 时为零"
+      ],
+      "complexity": {
+        "time": "O(c³)",
+        "space": "O(c²)"
+      },
+      "files": {
+        "java": "solutions/interval-first-cut-dp/Solution.java",
+        "kotlin": "solutions/interval-first-cut-dp/Solution.kt",
+        "cpp": "solutions/interval-first-cut-dp/solution.cpp"
+      }
+    }
+  ]
+}

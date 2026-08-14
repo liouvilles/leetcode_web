@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "evaluate",
+  "parameterTypes": [
+    "string",
+    "stringListMatrix"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "替换姓名与年龄键",
+      "args": [
+        "(name)is(age)yearsold",
+        [
+          [
+            "name",
+            "bob"
+          ],
+          [
+            "age",
+            "two"
+          ]
+        ]
+      ],
+      "expected": "bobistwoyearsold"
+    },
+    {
+      "name": "未知键替换问号",
+      "args": [
+        "hi(name)",
+        [
+          [
+            "a",
+            "b"
+          ]
+        ]
+      ],
+      "expected": "hi?"
+    },
+    {
+      "name": "普通字符与已知键混合",
+      "args": [
+        "(a)(a)",
+        [
+          [
+            "a",
+            "yes"
+          ]
+        ]
+      ],
+      "expected": "yesyes"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 220,
+  "slug": "contains-duplicate-iii",
+  "title": "存在重复元素 III",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-005",
+  "studyTags": [
+    "有序集合",
+    "滑动窗口",
+    "下界查询"
+  ],
+  "summary": "判断是否存在下标距离不超过 indexDiff 且数值差不超过 valueDiff 的两个元素。",
+  "insight": "维护最近 indexDiff 个值的有序集合，对当前值查询第一个不小于 value-valueDiff 的候选。",
+  "pitfalls": [
+    "数值运算要用长整型避免溢出",
+    "查询后再把当前值加入窗口",
+    "窗口只保留允许的下标范围"
+  ],
+  "solutions": [
+    {
+      "id": "ordered-window",
+      "title": "有序集合滑动窗口",
+      "kind": "最优",
+      "idea": "TreeSet 的 ceiling 可在线性扫描中查找允许数值区间内的候选。",
+      "steps": [
+        "移除下标 i-indexDiff-1 的旧值",
+        "查 ceiling(value-valueDiff)",
+        "候选<=value+valueDiff 时成功，否则加入当前值"
+      ],
+      "complexity": {
+        "time": "O(n log k)",
+        "space": "O(k)"
+      },
+      "files": {
+        "java": "solutions/ordered-window/Solution.java",
+        "kotlin": "solutions/ordered-window/Solution.kt",
+        "cpp": "solutions/ordered-window/solution.cpp"
+      }
+    }
+  ]
+}

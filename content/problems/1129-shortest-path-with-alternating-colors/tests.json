@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "shortestAlternatingPaths",
+  "parameterTypes": [
+    "int",
+    "intMatrix",
+    "intMatrix"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "连续红边不能走两步",
+      "args": [
+        3,
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        []
+      ],
+      "expected": [
+        0,
+        1,
+        -1
+      ]
+    },
+    {
+      "name": "红蓝交替到二",
+      "args": [
+        3,
+        [
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            2
+          ]
+        ]
+      ],
+      "expected": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "name": "双向颜色选择",
+      "args": [
+        3,
+        [
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            0,
+            2
+          ]
+        ]
+      ],
+      "expected": [
+        0,
+        1,
+        1
+      ]
+    }
+  ]
+}

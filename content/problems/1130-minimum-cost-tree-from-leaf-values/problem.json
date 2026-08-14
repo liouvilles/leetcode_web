@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1130,
+  "slug": "minimum-cost-tree-from-leaf-values",
+  "title": "叶值的最小代价生成树",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-016",
+  "studyTags": [
+    "数组",
+    "单调栈",
+    "贪心"
+  ],
+  "summary": "给定中序叶值，构造每个非叶节点值等于其子树最大叶值乘积的二叉树，求非叶节点值总和最小值。",
+  "insight": "单调递减栈中遇到更大叶值时，中间较小值必须与左右较小的邻居之一配对，选择 min(left,current) 最优；最后结算剩余相邻项。",
+  "pitfalls": [
+    "栈底放无穷哨兵",
+    "相等值也应弹出结算",
+    "最后栈中仍有多个递减叶值需逐个相乘"
+  ],
+  "solutions": [
+    {
+      "id": "decreasing-stack-local-pairing",
+      "title": "递减栈局部配对",
+      "kind": "最优",
+      "idea": "让每个局部最小叶值尽早与更小邻居组合。",
+      "steps": [
+        "stack=[MAX]，cost=0",
+        "对 value：while stack.top<=value，middle=pop，cost+=middle*min(stack.top,value)；再压 value",
+        "扫描后 while stack.size>2，cost+=pop*stack.top；返回 cost"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/decreasing-stack-local-pairing/Solution.java",
+        "kotlin": "solutions/decreasing-stack-local-pairing/Solution.kt",
+        "cpp": "solutions/decreasing-stack-local-pairing/solution.cpp"
+      }
+    }
+  ]
+}

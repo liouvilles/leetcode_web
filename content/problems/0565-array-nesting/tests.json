@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "arrayNesting",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典长度四环",
+      "args": [
+        [
+          5,
+          4,
+          0,
+          3,
+          1,
+          6,
+          2
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "全部自环",
+      "args": [
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "两个元素成环",
+      "args": [
+        [
+          1,
+          0
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "toLowerCase",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "首字母大写",
+      "args": [
+        "Hello"
+      ],
+      "expected": "hello"
+    },
+    {
+      "name": "全小写不变",
+      "args": [
+        "here"
+      ],
+      "expected": "here"
+    },
+    {
+      "name": "混合大写",
+      "args": [
+        "LOVELY"
+      ],
+      "expected": "lovely"
+    }
+  ]
+}

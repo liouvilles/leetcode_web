@@ -1,0 +1,1 @@
+class Solution { public: long long subArrayRanges(vector<int>& nums){long long answer=0;for(int left=0;left<(int)nums.size();++left){int minimum=nums[left],maximum=nums[left];for(int right=left;right<(int)nums.size();++right){minimum=min(minimum,nums[right]);maximum=max(maximum,nums[right]);answer+=maximum-minimum;}}return answer;} };

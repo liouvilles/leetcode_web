@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1710,
+  "slug": "maximum-units-on-a-truck",
+  "title": "卡车上的最大单元数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-024",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "排序"
+  ],
+  "summary": "每种箱子有数量和每箱单元数，卡车最多装 truckSize 个箱子，求可装单元总数最大值。",
+  "insight": "每个箱子占用相同容量，应按每箱单元数从高到低装载，当前类型尽量装满剩余位置。",
+  "pitfalls": [
+    "truckSize 限制箱子个数而非单元数",
+    "同类型可只装部分箱子",
+    "装满或箱子用尽时结束"
+  ],
+  "solutions": [
+    {
+      "id": "units-descending-greedy",
+      "title": "单位箱价值降序贪心",
+      "kind": "最优",
+      "idea": "优先占用容量收益最大的箱子。",
+      "steps": [
+        "boxTypes 按 unitsPerBox 降序排序",
+        "remaining=truckSize，answer=0",
+        "每类 take=min(count,remaining)，answer+=take*units，扣 remaining，返回"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/units-descending-greedy/Solution.java",
+        "kotlin": "solutions/units-descending-greedy/Solution.kt",
+        "cpp": "solutions/units-descending-greedy/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "combinationSum",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "intListMatrix",
+  "cases": [
+    {
+      "name": "重复选择得到目标",
+      "args": [
+        [
+          2,
+          3,
+          6,
+          7
+        ],
+        7
+      ],
+      "expected": [
+        [
+          2,
+          2,
+          3
+        ],
+        [
+          7
+        ]
+      ]
+    },
+    {
+      "name": "存在三种组合",
+      "args": [
+        [
+          2,
+          3,
+          5
+        ],
+        8
+      ],
+      "expected": [
+        [
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          3,
+          3
+        ],
+        [
+          3,
+          5
+        ]
+      ]
+    },
+    {
+      "name": "最小候选值也超过目标",
+      "args": [
+        [
+          2
+        ],
+        1
+      ],
+      "expected": []
+    }
+  ]
+}

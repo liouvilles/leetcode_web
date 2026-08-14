@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "predictTheWinner",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "先手无法获胜",
+      "args": [
+        [
+          1,
+          5,
+          2
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "先手可拿高分",
+      "args": [
+        [
+          1,
+          5,
+          233,
+          7
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "单元素",
+      "args": [
+        [
+          0
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

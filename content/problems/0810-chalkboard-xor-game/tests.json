@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "xorGame",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "奇数长度异或非零",
+      "args": [
+        [
+          1,
+          1,
+          2
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "偶数长度必胜",
+      "args": [
+        [
+          0,
+          1
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "初始异或为零",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

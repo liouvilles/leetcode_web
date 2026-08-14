@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1338,
+  "slug": "reduce-array-size-to-the-half",
+  "title": "数组大小减半",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-019",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "贪心",
+    "排序"
+  ],
+  "summary": "选择尽量少的不同整数并删除它们的所有出现，使数组剩余长度不超过原来一半，返回最少选择数。",
+  "insight": "每选择一个值的成本相同，收益是其频次，因此按频次从大到小删除总能用最少值达到目标。",
+  "pitfalls": [
+    "要删除至少向上取整的一半元素",
+    "每次选择会删除该值全部出现",
+    "答案计不同整数个数"
+  ],
+  "solutions": [
+    {
+      "id": "descending-frequency-greedy",
+      "title": "频次降序贪心",
+      "kind": "最优",
+      "idea": "优先删除出现次数最多的值。",
+      "steps": [
+        "统计每个值 frequency",
+        "取所有频次列表降序排序",
+        "removed 累加频次、answer++，直到 removed*2>=n，返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/descending-frequency-greedy/Solution.java",
+        "kotlin": "solutions/descending-frequency-greedy/Solution.kt",
+        "cpp": "solutions/descending-frequency-greedy/solution.cpp"
+      }
+    }
+  ]
+}

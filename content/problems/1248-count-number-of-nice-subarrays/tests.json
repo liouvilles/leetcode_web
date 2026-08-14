@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numberOfSubarrays",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "五项恰三奇数有二段",
+      "args": [
+        [
+          1,
+          1,
+          2,
+          1,
+          1
+        ],
+        3
+      ],
+      "expected": 2
+    },
+    {
+      "name": "全偶数无优美段",
+      "args": [
+        [
+          2,
+          4,
+          6
+        ],
+        1
+      ],
+      "expected": 0
+    },
+    {
+      "name": "偶数边界产生十六段",
+      "args": [
+        [
+          2,
+          2,
+          2,
+          1,
+          2,
+          2,
+          1,
+          2,
+          2,
+          2
+        ],
+        2
+      ],
+      "expected": 16
+    }
+  ]
+}

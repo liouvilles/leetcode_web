@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2190,
+  "slug": "most-frequent-number-following-key-in-an-array",
+  "title": "数组中紧跟 Key 之后出现最频繁的数字",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-032",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "计数"
+  ],
+  "summary": "统计所有 nums[i]==key 后面的 nums[i+1]，返回出现频率最高的目标值。",
+  "insight": "扫描相邻对，前项等于 key 时增加后项频次，并在线维护最高频目标。题目保证答案唯一。",
+  "pitfalls": [
+    "最后一个元素不能作为前项访问后继",
+    "同一 key 的多次出现分别计数",
+    "返回目标值而非频次"
+  ],
+  "solutions": [
+    {
+      "id": "successor-frequency-count",
+      "title": "后继频次统计",
+      "kind": "最优",
+      "idea": "只对以 key 开头的相邻对计数。",
+      "steps": [
+        "Map frequency、bestCount=0",
+        "i 从零到 n-2，若 nums[i]==key 则 count[nums[i+1]]++",
+        "新频次大于 bestCount 时更新 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/successor-frequency-count/Solution.java",
+        "kotlin": "solutions/successor-frequency-count/Solution.kt",
+        "cpp": "solutions/successor-frequency-count/solution.cpp"
+      }
+    }
+  ]
+}

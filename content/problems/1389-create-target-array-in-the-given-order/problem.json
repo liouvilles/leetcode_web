@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1389,
+  "slug": "create-target-array-in-the-given-order",
+  "title": "按既定顺序创建目标数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-020",
+  "studyTags": [
+    "数组",
+    "模拟"
+  ],
+  "summary": "依次把 nums[i] 插入 target 的 index[i] 位置，返回最终数组。",
+  "insight": "动态数组的按位插入恰好对应题意；按输入顺序模拟即可。",
+  "pitfalls": [
+    "后续插入会把已有元素右移",
+    "必须按 i 从小到大处理",
+    "index[i] 在当前数组范围内"
+  ],
+  "solutions": [
+    {
+      "id": "dynamic-list-insertion",
+      "title": "动态数组插入",
+      "kind": "最优",
+      "idea": "逐项调用列表的指定位置插入操作。",
+      "steps": [
+        "创建空动态数组 target",
+        "对 i 从零到末尾，在 index[i] 插入 nums[i]",
+        "把列表转成整数数组返回"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/dynamic-list-insertion/Solution.java",
+        "kotlin": "solutions/dynamic-list-insertion/Solution.kt",
+        "cpp": "solutions/dynamic-list-insertion/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numPoints",
+  "parameterTypes": [
+    "intMatrix",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四个方向点均在半径二圆上",
+      "args": [
+        [
+          [
+            -2,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            -2
+          ]
+        ],
+        2
+      ],
+      "expected": 4
+    },
+    {
+      "name": "单位半径最多覆盖方形相邻两点",
+      "args": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            2,
+            2
+          ]
+        ],
+        1
+      ],
+      "expected": 2
+    },
+    {
+      "name": "单个飞镖",
+      "args": [
+        [
+          [
+            1,
+            2
+          ]
+        ],
+        3
+      ],
+      "expected": 1
+    }
+  ]
+}

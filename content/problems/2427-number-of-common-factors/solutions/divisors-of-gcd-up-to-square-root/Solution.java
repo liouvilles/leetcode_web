@@ -1,0 +1,1 @@
+class Solution { private int gcd(int a,int b){while(b!=0){int t=a%b;a=b;b=t;}return a;}public int commonFactors(int a,int b){int value=gcd(a,b),answer=0;for(int divisor=1;divisor*divisor<=value;divisor++)if(value%divisor==0)answer+=divisor*divisor==value?1:2;return answer;} }

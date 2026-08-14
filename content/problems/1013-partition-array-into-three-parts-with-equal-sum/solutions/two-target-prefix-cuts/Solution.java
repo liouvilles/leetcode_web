@@ -1,0 +1,1 @@
+class Solution { public boolean canThreePartsEqualSum(int[] arr){int total=Arrays.stream(arr).sum();if(total%3!=0)return false;int target=total/3,running=0,parts=0;for(int i=0;i<arr.length-1;i++){running+=arr[i];if(running==target){running=0;if(++parts==2)return true;}}return false;} }

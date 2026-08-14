@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "addOneRow",
+  "parameterTypes": [
+    "treeNode",
+    "int",
+    "int"
+  ],
+  "returnType": "treeNode",
+  "cases": [
+    {
+      "name": "在第二层插入",
+      "args": [
+        [
+          4,
+          2,
+          6,
+          3,
+          1,
+          5
+        ],
+        1,
+        2
+      ],
+      "expected": [
+        4,
+        1,
+        1,
+        2,
+        null,
+        null,
+        6,
+        3,
+        1,
+        5
+      ]
+    },
+    {
+      "name": "新建根节点",
+      "args": [
+        [
+          4,
+          2,
+          6
+        ],
+        9,
+        1
+      ],
+      "expected": [
+        9,
+        4,
+        null,
+        2,
+        6
+      ]
+    },
+    {
+      "name": "在叶节点上方插入",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        5,
+        3
+      ],
+      "expected": [
+        1,
+        2,
+        3,
+        5,
+        5,
+        5,
+        5
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "modifyString",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "开头问号替换为 a",
+      "args": [
+        "?zs"
+      ],
+      "expected": "azs"
+    },
+    {
+      "name": "中间问号选择 a",
+      "args": [
+        "ubv?w"
+      ],
+      "expected": "ubvaw"
+    },
+    {
+      "name": "多个问号依次局部选择",
+      "args": [
+        "j?qg??b"
+      ],
+      "expected": "jaqgacb"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "pivotArray",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "经典数组按十稳定划分",
+      "args": [
+        [
+          9,
+          12,
+          5,
+          10,
+          14,
+          3,
+          10
+        ],
+        10
+      ],
+      "expected": [
+        9,
+        5,
+        3,
+        10,
+        10,
+        12,
+        14
+      ]
+    },
+    {
+      "name": "负数枢轴稳定划分",
+      "args": [
+        [
+          -3,
+          4,
+          3,
+          2
+        ],
+        2
+      ],
+      "expected": [
+        -3,
+        2,
+        4,
+        3
+      ]
+    },
+    {
+      "name": "全部等于枢轴",
+      "args": [
+        [
+          5,
+          5
+        ],
+        5
+      ],
+      "expected": [
+        5,
+        5
+      ]
+    }
+  ]
+}

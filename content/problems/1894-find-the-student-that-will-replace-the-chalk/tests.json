@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "chalkReplacer",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "二十二支粉笔轮转后学生零补充",
+      "args": [
+        [
+          5,
+          1,
+          5
+        ],
+        22
+      ],
+      "expected": 0
+    },
+    {
+      "name": "二十五支粉笔由学生一补充",
+      "args": [
+        [
+          3,
+          4,
+          1,
+          2
+        ],
+        25
+      ],
+      "expected": 1
+    },
+    {
+      "name": "单学生始终由零号补充",
+      "args": [
+        [
+          1
+        ],
+        100
+      ],
+      "expected": 0
+    }
+  ]
+}

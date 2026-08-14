@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "leastInterval",
+  "parameterTypes": [
+    "charArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "需要两个空闲单位",
+      "args": [
+        [
+          "A",
+          "A",
+          "A",
+          "B",
+          "B",
+          "B"
+        ],
+        2
+      ],
+      "expected": 8
+    },
+    {
+      "name": "没有冷却时间",
+      "args": [
+        [
+          "A",
+          "A",
+          "A",
+          "B",
+          "B",
+          "B"
+        ],
+        0
+      ],
+      "expected": 6
+    },
+    {
+      "name": "单一最高频任务",
+      "args": [
+        [
+          "A",
+          "A",
+          "A",
+          "A",
+          "B",
+          "B",
+          "C",
+          "C"
+        ],
+        2
+      ],
+      "expected": 10
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "suggestedProducts",
+  "parameterTypes": [
+    "stringArray",
+    "string"
+  ],
+  "returnType": "stringListMatrix",
+  "cases": [
+    {
+      "name": "mouse 逐层建议",
+      "args": [
+        [
+          "mobile",
+          "mouse",
+          "moneypot",
+          "monitor",
+          "mousepad"
+        ],
+        "mouse"
+      ],
+      "expected": [
+        [
+          "mobile",
+          "moneypot",
+          "monitor"
+        ],
+        [
+          "mobile",
+          "moneypot",
+          "monitor"
+        ],
+        [
+          "mouse",
+          "mousepad"
+        ],
+        [
+          "mouse",
+          "mousepad"
+        ],
+        [
+          "mouse",
+          "mousepad"
+        ]
+      ]
+    },
+    {
+      "name": "单商品始终命中",
+      "args": [
+        [
+          "havana"
+        ],
+        "havana"
+      ],
+      "expected": [
+        [
+          "havana"
+        ],
+        [
+          "havana"
+        ],
+        [
+          "havana"
+        ],
+        [
+          "havana"
+        ],
+        [
+          "havana"
+        ],
+        [
+          "havana"
+        ]
+      ]
+    },
+    {
+      "name": "后续前缀无匹配",
+      "args": [
+        [
+          "bags",
+          "baggage",
+          "banner",
+          "box",
+          "cloths"
+        ],
+        "bags"
+      ],
+      "expected": [
+        [
+          "baggage",
+          "bags",
+          "banner"
+        ],
+        [
+          "baggage",
+          "bags",
+          "banner"
+        ],
+        [
+          "baggage",
+          "bags"
+        ],
+        [
+          "bags"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 436,
+  "slug": "find-right-interval",
+  "title": "寻找右区间",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-006",
+  "studyTags": [
+    "排序",
+    "二分查找",
+    "区间"
+  ],
+  "summary": "对每个区间找到起点不小于其终点且起点最小的区间下标，不存在则返回 -1。",
+  "insight": "把所有起点和原下标排序，对每个终点做 lower bound 即可定位右区间。",
+  "pitfalls": [
+    "返回原始下标而非排序位置",
+    "每个起点互不相同",
+    "区间本身也可能成为其他区间的右区间"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-starts-lower-bound",
+      "title": "起点排序后二分",
+      "kind": "最优",
+      "idea": "预处理 [start,index] 数组并对每个 end 查首个 start>=end。",
+      "steps": [
+        "构建并按 start 排序 starts",
+        "对每个 interval.end 二分 lower bound",
+        "越界写 -1，否则写 starts[position].index"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/sorted-starts-lower-bound/Solution.java",
+        "kotlin": "solutions/sorted-starts-lower-bound/Solution.kt",
+        "cpp": "solutions/sorted-starts-lower-bound/solution.cpp"
+      }
+    }
+  ]
+}

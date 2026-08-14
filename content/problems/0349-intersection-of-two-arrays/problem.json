@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 349,
+  "slug": "intersection-of-two-arrays",
+  "title": "两个数组的交集",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-006",
+  "studyTags": [
+    "哈希集合",
+    "排序",
+    "数组"
+  ],
+  "summary": "返回两个整数数组共有的不同元素，每个元素在结果中只出现一次。",
+  "insight": "先把一个数组放入集合，再扫描另一个数组收集命中值；最终排序使输出稳定。",
+  "pitfalls": [
+    "结果不能含重复元素",
+    "答案顺序本身不限",
+    "空交集返回空数组"
+  ],
+  "solutions": [
+    {
+      "id": "set-intersection",
+      "title": "集合求交集",
+      "kind": "最优",
+      "idea": "集合提供常数期望时间查找，结果集合负责去重。",
+      "steps": [
+        "建立 nums1 的集合",
+        "扫描 nums2 并收集存在值",
+        "结果升序排序后转数组"
+      ],
+      "complexity": {
+        "time": "O(m+n+k log k)",
+        "space": "O(m+k)"
+      },
+      "files": {
+        "java": "solutions/set-intersection/Solution.java",
+        "kotlin": "solutions/set-intersection/Solution.kt",
+        "cpp": "solutions/set-intersection/solution.cpp"
+      }
+    }
+  ]
+}

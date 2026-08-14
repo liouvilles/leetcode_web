@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sortList",
+  "parameterTypes": [
+    "listNode"
+  ],
+  "returnType": "listNode",
+  "cases": [
+    {
+      "name": "四节点乱序链表",
+      "args": [
+        [
+          4,
+          2,
+          1,
+          3
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "name": "包含负数和重复值",
+      "args": [
+        [
+          -1,
+          5,
+          3,
+          4,
+          0,
+          3
+        ]
+      ],
+      "expected": [
+        -1,
+        0,
+        3,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "name": "空链表",
+      "args": [
+        []
+      ],
+      "expected": []
+    }
+  ]
+}

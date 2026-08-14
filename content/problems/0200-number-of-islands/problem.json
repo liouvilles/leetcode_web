@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "id": 200,
+  "slug": "number-of-islands",
+  "title": "岛屿数量",
+  "status": "published",
+  "qualityGate": "compile",
+  "batch": "legacy-001",
+  "studyTags": [
+    "网格连通块",
+    "沉岛法",
+    "四方向搜索"
+  ],
+  "summary": "在由陆地和水组成的网格中，统计上下左右相连的陆地连通块数量。",
+  "insight": "每次发现一块尚未访问的陆地，就找到了一个新岛；随后一次搜索可标记整座岛。",
+  "pitfalls": [
+    "只有上下左右连通，不含对角线",
+    "标记访问状态要在入栈或入队时完成",
+    "原地改网格会改变输入"
+  ],
+  "solutions": [
+    {
+      "id": "dfs-sink",
+      "title": "DFS 沉岛",
+      "kind": "最优",
+      "idea": "发现陆地后把它及所有相连陆地递归改为水，避免重复计数。",
+      "steps": [
+        "扫描全部网格",
+        "遇到 1 时答案加一并启动 DFS",
+        "DFS 越界或遇水返回，否则标记并访问四邻域"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(mn)"
+      },
+      "files": {
+        "java": "solutions/dfs-sink/Solution.java",
+        "kotlin": "solutions/dfs-sink/Solution.kt",
+        "cpp": "solutions/dfs-sink/solution.cpp"
+      }
+    },
+    {
+      "id": "bfs",
+      "title": "队列 BFS",
+      "kind": "进阶",
+      "idea": "以新岛的首块陆地为起点，用队列逐层标记整个连通块。",
+      "steps": [
+        "发现新陆地后计数并立即标记",
+        "位置出队后检查四个邻居",
+        "未访问陆地在入队时标记"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(mn)"
+      },
+      "files": {
+        "java": "solutions/bfs/Solution.java",
+        "kotlin": "solutions/bfs/Solution.kt",
+        "cpp": "solutions/bfs/solution.cpp"
+      }
+    },
+    {
+      "id": "union-find",
+      "title": "并查集",
+      "kind": "进阶",
+      "idea": "先把每块陆地视为独立集合，再合并相邻陆地；最终集合数就是岛屿数。",
+      "steps": [
+        "为每块陆地建立父结点并计数",
+        "只检查右方与下方邻居以避免重复",
+        "每次合并不同集合时将计数减一"
+      ],
+      "complexity": {
+        "time": "O(mn α(mn))",
+        "space": "O(mn)"
+      },
+      "files": {
+        "java": "solutions/union-find/Solution.java",
+        "kotlin": "solutions/union-find/Solution.kt",
+        "cpp": "solutions/union-find/solution.cpp"
+      }
+    }
+  ]
+}

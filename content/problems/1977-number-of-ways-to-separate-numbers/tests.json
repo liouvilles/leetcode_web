@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numberOfCombinations",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三二七可整体或三与二十七",
+      "args": [
+        "327"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "首字符为零没有合法方案",
+      "args": [
+        "094"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "一二三四共有五种非递减划分",
+      "args": [
+        "1234"
+      ],
+      "expected": 5
+    }
+  ]
+}

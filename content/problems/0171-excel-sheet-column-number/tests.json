@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "titleToNumber",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "第一列",
+      "args": [
+        "A"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "两字符列名",
+      "args": [
+        "AB"
+      ],
+      "expected": 28
+    },
+    {
+      "name": "Z 开头列名",
+      "args": [
+        "ZY"
+      ],
+      "expected": 701
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 812,
+  "slug": "largest-triangle-area",
+  "title": "最大三角形面积",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-011",
+  "studyTags": [
+    "数组",
+    "数学",
+    "几何",
+    "枚举"
+  ],
+  "summary": "给定平面点集，选择三个不同点构成三角形，返回最大面积。",
+  "insight": "三点叉积绝对值的一半就是三角形面积，枚举所有三元组取最大值。",
+  "pitfalls": [
+    "三点共线时面积为零",
+    "先取叉积绝对值再除二",
+    "坐标差与乘积可用整数，最终返回浮点数"
+  ],
+  "solutions": [
+    {
+      "id": "triple-cross-product",
+      "title": "三元组叉积枚举",
+      "kind": "最优",
+      "idea": "用二维叉积计算每组三点的两倍面积。",
+      "steps": [
+        "枚举 i<j<k",
+        "计算 abs((xj-xi)(yk-yi)-(yj-yi)(xk-xi))",
+        "维护最大两倍面积并在返回时除以 2.0"
+      ],
+      "complexity": {
+        "time": "O(n³)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/triple-cross-product/Solution.java",
+        "kotlin": "solutions/triple-cross-product/Solution.kt",
+        "cpp": "solutions/triple-cross-product/solution.cpp"
+      }
+    }
+  ]
+}

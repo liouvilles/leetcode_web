@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1763,
+  "slug": "longest-nice-substring",
+  "title": "最长的美好子字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-025",
+  "studyTags": [
+    "哈希表",
+    "字符串",
+    "分治",
+    "滑动窗口"
+  ],
+  "summary": "若子串中每个英文字母都同时出现大小写形式，则为美好子串，返回最长者；并列取最早出现。",
+  "insight": "若当前区间某字符缺少其大小写对应形式，任何跨过该字符的子串都不可能美好；以它为界递归求左右区间最长解。",
+  "pitfalls": [
+    "长度小于二不可能美好",
+    "并列要保留左侧结果",
+    "对应大小写判断不区分原字符形式"
+  ],
+  "solutions": [
+    {
+      "id": "invalid-character-divide-and-conquer",
+      "title": "缺失大小写字符分治",
+      "kind": "最优",
+      "idea": "用必不能包含的字符切开候选区间。",
+      "steps": [
+        "若 text.length<2 返回空串，建立当前字符集合",
+        "找到首个缺少对应大小写的字符 index",
+        "递归 left=text[0,index)、right=text[index+1,n)，返回更长者；若无此字符当前串即美好"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/invalid-character-divide-and-conquer/Solution.java",
+        "kotlin": "solutions/invalid-character-divide-and-conquer/Solution.kt",
+        "cpp": "solutions/invalid-character-divide-and-conquer/solution.cpp"
+      }
+    }
+  ]
+}

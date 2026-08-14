@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 898,
+  "slug": "bitwise-ors-of-subarrays",
+  "title": "子数组按位或操作",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "位运算",
+    "哈希集合"
+  ],
+  "summary": "返回所有非空连续子数组按位或结果中不同值的数量。",
+  "insight": "以当前位置结尾的结果集合由当前值本身，以及上一位置所有结果与当前值按位或组成；整数的置位只增不减，因此每轮集合规模很小。",
+  "pitfalls": [
+    "统计不同结果而非子数组数量",
+    "每轮 current 必须新建",
+    "全局集合累加所有结尾位置结果"
+  ],
+  "solutions": [
+    {
+      "id": "ending-or-result-sets",
+      "title": "按结尾位置滚动或集合",
+      "kind": "最优",
+      "idea": "动态维护所有以当前元素结尾的按位或值。",
+      "steps": [
+        "current 为空，all 为空",
+        "对 value：next={value}，对 current 中 result 加入 result|value",
+        "current=next，all.addAll(current)，结束返回 all.size"
+      ],
+      "complexity": {
+        "time": "O(n·wordBits)",
+        "space": "O(n·wordBits)"
+      },
+      "files": {
+        "java": "solutions/ending-or-result-sets/Solution.java",
+        "kotlin": "solutions/ending-or-result-sets/Solution.kt",
+        "cpp": "solutions/ending-or-result-sets/solution.cpp"
+      }
+    }
+  ]
+}

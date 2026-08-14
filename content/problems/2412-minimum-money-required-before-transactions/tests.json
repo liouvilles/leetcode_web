@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumMoney",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "经典三交易需要十元",
+      "args": [
+        [
+          [
+            2,
+            1
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            4,
+            2
+          ]
+        ]
+      ],
+      "expected": 10
+    },
+    {
+      "name": "亏损交易后盈利交易需要三元",
+      "args": [
+        [
+          [
+            3,
+            0
+          ],
+          [
+            0,
+            3
+          ]
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "全盈利交易最大成本为二",
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

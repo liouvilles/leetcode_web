@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1723,
+  "slug": "find-minimum-time-to-finish-all-jobs",
+  "title": "完成所有工作的最短时间",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-025",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "回溯",
+    "状态压缩"
+  ],
+  "summary": "把每份不可拆分工作分给 k 名工人，使所有工人完成时间的最大值最小。",
+  "insight": "工作按耗时降序回溯分配，先放大任务能更快形成上界和剪枝。对当前任务尝试每个工人，相同负载只尝试一次，负载已超过当前最优则跳过。",
+  "pitfalls": [
+    "目标是最大个人负载最小",
+    "工人身份对称，相同当前负载无需重复尝试",
+    "给空闲工人尝试失败后无需再试其他空闲工人"
+  ],
+  "solutions": [
+    {
+      "id": "descending-load-backtracking",
+      "title": "大任务优先负载回溯",
+      "kind": "最优",
+      "idea": "枚举分配并用对称性与当前上界剪枝。",
+      "steps": [
+        "jobs 降序排序，loads[k]，best=sum",
+        "dfs(index)：若全部分完用当前最大负载更新 best",
+        "尝试各 worker；新负载<best 且本层未试过相同旧负载时分配并递归，恢复；旧负载为零时停止同类尝试"
+      ],
+      "complexity": {
+        "time": "O(k^n)",
+        "space": "O(k+n)"
+      },
+      "files": {
+        "java": "solutions/descending-load-backtracking/Solution.java",
+        "kotlin": "solutions/descending-load-backtracking/Solution.kt",
+        "cpp": "solutions/descending-load-backtracking/solution.cpp"
+      }
+    }
+  ]
+}

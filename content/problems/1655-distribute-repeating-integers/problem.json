@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1655,
+  "slug": "distribute-repeating-integers",
+  "title": "分配重复整数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-024",
+  "studyTags": [
+    "数组",
+    "回溯",
+    "状态压缩"
+  ],
+  "summary": "把 nums 中的整数分给若干顾客，每人需要 quantity[i] 个完全相同的整数，判断能否满足所有人。",
+  "insight": "只需关心各不同整数的出现次数。把需求从大到小回溯分配到容量桶，优先处理大需求并跳过相同剩余容量可显著剪枝。",
+  "pitfalls": [
+    "不同顾客可获得不同数值",
+    "同一数值的库存可分给多个顾客",
+    "相同容量桶在当前层只尝试一次"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-demand-backtracking",
+      "title": "需求降序容量回溯",
+      "kind": "最优",
+      "idea": "把顾客需求装入各数值频次容量。",
+      "steps": [
+        "统计 nums 各值频次并得到 capacities",
+        "quantity 排序后从最大需求开始递归",
+        "尝试每个容量足够的桶，扣减后递归并恢复；本层跳过相同容量"
+      ],
+      "complexity": {
+        "time": "O(c^q)",
+        "space": "O(c+q)"
+      },
+      "files": {
+        "java": "solutions/sorted-demand-backtracking/Solution.java",
+        "kotlin": "solutions/sorted-demand-backtracking/Solution.kt",
+        "cpp": "solutions/sorted-demand-backtracking/solution.cpp"
+      }
+    }
+  ]
+}

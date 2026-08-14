@@ -1,0 +1,1 @@
+class Solution { public String reverseWords(String s){char[] chars=s.toCharArray();for(int start=0,end=0;end<=chars.length;end++)if(end==chars.length||chars[end]==' '){for(int left=start,right=end-1;left<right;left++,right--){char value=chars[left];chars[left]=chars[right];chars[right]=value;}start=end+1;}return new String(chars);} }

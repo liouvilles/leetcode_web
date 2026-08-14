@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "pivotIndex",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "中心下标三",
+      "args": [
+        [
+          1,
+          7,
+          3,
+          6,
+          5,
+          6
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "不存在中心",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": -1
+    },
+    {
+      "name": "最左边是中心",
+      "args": [
+        [
+          2,
+          1,
+          -1
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

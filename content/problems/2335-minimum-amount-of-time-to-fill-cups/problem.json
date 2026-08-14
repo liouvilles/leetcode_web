@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2335,
+  "slug": "minimum-amount-of-time-to-fill-cups",
+  "title": "装满杯子需要的最短总时长",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "排序"
+  ],
+  "summary": "三类杯子每秒可装一杯，或同时装不同类型各一杯，求装完给定数量所需最少秒数。",
+  "insight": "总量给出下界 ceil(sum/2)，最多的一类无法与自身配对又给出下界 maxAmount；两者较大值总能通过优先配不同类型达到。",
+  "pitfalls": [
+    "同一秒不能装两杯同类型",
+    "总量为奇数时向上取整",
+    "某一类占绝对多数时由它决定答案"
+  ],
+  "solutions": [
+    {
+      "id": "two-lower-bounds-greedy-formula",
+      "title": "双下界贪心公式",
+      "kind": "最优",
+      "idea": "最大类别与每秒最多两杯共同决定最优时间。",
+      "steps": [
+        "sum=三类总数、maximum=最大类",
+        "pairedBound=(sum+1)/2",
+        "返回 max(maximum,pairedBound)"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/two-lower-bounds-greedy-formula/Solution.java",
+        "kotlin": "solutions/two-lower-bounds-greedy-formula/Solution.kt",
+        "cpp": "solutions/two-lower-bounds-greedy-formula/solution.cpp"
+      }
+    }
+  ]
+}

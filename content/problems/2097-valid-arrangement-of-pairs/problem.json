@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2097,
+  "slug": "valid-arrangement-of-pairs",
+  "title": "合法重新排列数对",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "深度优先搜索",
+    "图论",
+    "欧拉回路"
+  ],
+  "summary": "重新排列有向数对，使每个数对的终点等于下一数对的起点，返回任一合法排列。",
+  "insight": "把数对视为有向边，题目保证存在使用全部边的欧拉路径。起点优先选出度比入度多一的节点，否则任一边起点；用显式栈执行 Hierholzer，退出死路时收集边并反转。",
+  "pitfalls": [
+    "每条数对必须恰用一次",
+    "存在重复边",
+    "欧拉回路时任意有出边节点均可起"
+  ],
+  "solutions": [
+    {
+      "id": "iterative-hierholzer-directed-euler-trail",
+      "title": "迭代 Hierholzer 有向欧拉路径",
+      "kind": "最优",
+      "idea": "显式节点栈沿未使用边前进，走到死路后逐边回退并收集答案。",
+      "steps": [
+        "建立 node→出边终点栈并统计入出度",
+        "选 out=in+1 的节点，否则 pairs[0][0]；把起点压入节点栈",
+        "栈顶仍有边则压入其终点；否则弹出节点并记录与新栈顶之间的边，最后反转记录"
+      ],
+      "complexity": {
+        "time": "O(E)",
+        "space": "O(E)"
+      },
+      "files": {
+        "java": "solutions/iterative-hierholzer-directed-euler-trail/Solution.java",
+        "kotlin": "solutions/iterative-hierholzer-directed-euler-trail/Solution.kt",
+        "cpp": "solutions/iterative-hierholzer-directed-euler-trail/solution.cpp"
+      }
+    }
+  ]
+}

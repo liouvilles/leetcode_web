@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "ATM",
+  "constructorTypes": [],
+  "cases": [
+    {
+      "name": "经典存款提款与失败不扣库存",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "deposit",
+          "parameterTypes": [
+            "intArray"
+          ],
+          "args": [
+            [
+              0,
+              0,
+              1,
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "method": "withdraw",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            600
+          ],
+          "returnType": "intArray",
+          "expected": [
+            0,
+            0,
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "method": "deposit",
+          "parameterTypes": [
+            "intArray"
+          ],
+          "args": [
+            [
+              0,
+              1,
+              0,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "method": "withdraw",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            600
+          ],
+          "returnType": "intArray",
+          "expected": [
+            -1
+          ]
+        },
+        {
+          "method": "withdraw",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            550
+          ],
+          "returnType": "intArray",
+          "expected": [
+            0,
+            1,
+            0,
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "name": "单张二十元提款",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "deposit",
+          "parameterTypes": [
+            "intArray"
+          ],
+          "args": [
+            [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "method": "withdraw",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            20
+          ],
+          "returnType": "intArray",
+          "expected": [
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "空库存提款失败",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "withdraw",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            100
+          ],
+          "returnType": "intArray",
+          "expected": [
+            -1
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "fourSumCount",
+  "parameterTypes": [
+    "intArray",
+    "intArray",
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两个四元组",
+      "args": [
+        [
+          1,
+          2
+        ],
+        [
+          -2,
+          -1
+        ],
+        [
+          -1,
+          2
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "全零单元素",
+      "args": [
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "重复零产生十六组",
+      "args": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "expected": 16
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1588,
+  "slug": "sum-of-all-odd-length-subarrays",
+  "title": "所有奇数长度子数组的和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-023",
+  "studyTags": [
+    "数组",
+    "数学"
+  ],
+  "summary": "返回数组中所有奇数长度连续子数组的元素和总和。",
+  "insight": "元素 arr[i] 被包含在 (i+1)(n-i) 个子数组中，其中奇数长度数量是总数向上取半，即 (total+1)/2。按贡献累加。",
+  "pitfalls": [
+    "计数包含所有起止点组合",
+    "奇数子数组数量向上取半",
+    "每个元素按出现次数加权"
+  ],
+  "solutions": [
+    {
+      "id": "per-index-contribution",
+      "title": "逐元素贡献计数",
+      "kind": "最优",
+      "idea": "计算每个位置参与奇数长度子数组的次数。",
+      "steps": [
+        "对 i 计算 total=(i+1)*(n-i)",
+        "oddCount=(total+1)/2",
+        "answer+=arr[i]*oddCount"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/per-index-contribution/Solution.java",
+        "kotlin": "solutions/per-index-contribution/Solution.kt",
+        "cpp": "solutions/per-index-contribution/solution.cpp"
+      }
+    }
+  ]
+}

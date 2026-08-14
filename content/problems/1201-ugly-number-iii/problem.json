@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1201,
+  "slug": "ugly-number-iii",
+  "title": "丑数 III",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-017",
+  "studyTags": [
+    "数学",
+    "二分查找",
+    "容斥原理",
+    "最大公约数"
+  ],
+  "summary": "求正整数中第 n 个能被 a、b 或 c 至少一个整除的数。",
+  "insight": "不超过 x 的合法数个数可用三集合容斥计算，并随 x 单调不减；对答案范围二分寻找计数首次达到 n 的最小 x。",
+  "pitfalls": [
+    "两两和三者最小公倍数要防溢出",
+    "容斥中两两交集相减、三者交集加回",
+    "答案保证在 2×10^9 内"
+  ],
+  "solutions": [
+    {
+      "id": "inclusion-exclusion-binary-search",
+      "title": "容斥计数二分",
+      "kind": "最优",
+      "idea": "用可整除数数量作为单调判定。",
+      "steps": [
+        "计算 ab、ac、bc 以及 abc 的安全最小公倍数，大于答案上界时截断",
+        "count(x)=x/a+x/b+x/c-x/ab-x/ac-x/bc+x/abc",
+        "在 [1,2e9] 二分首个 count>=n 的数并返回"
+      ],
+      "complexity": {
+        "time": "O(log 2e9)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/inclusion-exclusion-binary-search/Solution.java",
+        "kotlin": "solutions/inclusion-exclusion-binary-search/Solution.kt",
+        "cpp": "solutions/inclusion-exclusion-binary-search/solution.cpp"
+      }
+    }
+  ]
+}

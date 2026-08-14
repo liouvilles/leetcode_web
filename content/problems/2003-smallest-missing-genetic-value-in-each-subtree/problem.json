@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2003,
+  "slug": "smallest-missing-genetic-value-in-each-subtree",
+  "title": "每棵子树内缺失的最小基因值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-029",
+  "studyTags": [
+    "树",
+    "深度优先搜索",
+    "并查集",
+    "数组"
+  ],
+  "summary": "树节点基因值互不相同，返回每个节点子树中未出现的最小正整数。",
+  "insight": "若子树不含基因一，答案必为一，所以只有值一节点到根的祖先链需要计算。沿这条链向上，每步 DFS 新纳入的旁支节点并标记基因值，维护从一递增的最小未见值。",
+  "pitfalls": [
+    "基因值互不相同",
+    "已处理子树不能重复遍历",
+    "没有值一时所有答案均一"
+  ],
+  "solutions": [
+    {
+      "id": "path-from-gene-one-incremental-dfs",
+      "title": "值一到根路径增量 DFS",
+      "kind": "最优",
+      "idea": "只为可能改变答案的祖先逐步扩大已见集合。",
+      "steps": [
+        "answer 全一，定位 nums[node]==1；不存在直接返回",
+        "从该节点沿 parent 到根，每层 DFS 尚未访问的整棵子树并标记基因",
+        "递增 missing 至未见值，赋给当前祖先"
+      ],
+      "complexity": {
+        "time": "O(n+maxGene)",
+        "space": "O(n+maxGene)"
+      },
+      "files": {
+        "java": "solutions/path-from-gene-one-incremental-dfs/Solution.java",
+        "kotlin": "solutions/path-from-gene-one-incremental-dfs/Solution.kt",
+        "cpp": "solutions/path-from-gene-one-incremental-dfs/solution.cpp"
+      }
+    }
+  ]
+}

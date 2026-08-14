@@ -1,0 +1,1 @@
+class LUPrefix { boolean[] uploaded;int prefix;public LUPrefix(int n){uploaded=new boolean[n+2];}public void upload(int video){uploaded[video]=true;while(uploaded[prefix+1])prefix++;}public int longest(){return prefix;} }

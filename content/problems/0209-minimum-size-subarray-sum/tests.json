@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minSubArrayLen",
+  "parameterTypes": [
+    "int",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两个元素达到目标",
+      "args": [
+        7,
+        [
+          2,
+          3,
+          1,
+          2,
+          4,
+          3
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "单元素达到目标",
+      "args": [
+        4,
+        [
+          1,
+          4,
+          4
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "总和仍不足",
+      "args": [
+        11,
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

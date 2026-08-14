@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minDistance",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "五户三邮筒最小距离五",
+      "args": [
+        [
+          1,
+          4,
+          8,
+          10,
+          20
+        ],
+        3
+      ],
+      "expected": 5
+    },
+    {
+      "name": "五户两邮筒最小距离九",
+      "args": [
+        [
+          2,
+          3,
+          5,
+          12,
+          18
+        ],
+        2
+      ],
+      "expected": 9
+    },
+    {
+      "name": "四户一个邮筒距离八",
+      "args": [
+        [
+          7,
+          4,
+          6,
+          1
+        ],
+        1
+      ],
+      "expected": 8
+    }
+  ]
+}

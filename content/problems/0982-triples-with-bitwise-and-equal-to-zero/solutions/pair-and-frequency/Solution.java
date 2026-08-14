@@ -1,0 +1,1 @@
+class Solution { public int countTriplets(int[] nums){Map<Integer,Integer> frequency=new HashMap<>();for(int a:nums)for(int b:nums)frequency.merge(a&b,1,Integer::sum);int answer=0;for(int value:nums)for(Map.Entry<Integer,Integer> entry:frequency.entrySet())if((entry.getKey()&value)==0)answer+=entry.getValue();return answer;} }

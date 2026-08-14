@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "toGoatLatin",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "三个短词",
+      "args": [
+        "I speak Goat Latin"
+      ],
+      "expected": "Imaa peaksmaaa oatGmaaaa atinLmaaaaa"
+    },
+    {
+      "name": "元音与辅音",
+      "args": [
+        "The quick brown fox jumped over the lazy dog"
+      ],
+      "expected": "heTmaa uickqmaaa rownbmaaaa oxfmaaaaa umpedjmaaaaaa overmaaaaaaa hetmaaaaaaaa azylmaaaaaaaaa ogdmaaaaaaaaaa"
+    },
+    {
+      "name": "单个元音词",
+      "args": [
+        "Apple"
+      ],
+      "expected": "Applemaa"
+    }
+  ]
+}

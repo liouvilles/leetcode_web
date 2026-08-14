@@ -1,0 +1,1 @@
+class Solution { fun canBeValid(s:String,locked:String):Boolean{if(s.length%2==1)return false;var low=0;var high=0;for(i in s.indices){if(locked[i]=='0'){low--;high++}else if(s[i]=='('){low++;high++}else{low--;high--};if(high<0)return false;low=maxOf(low,0)};return low==0} }

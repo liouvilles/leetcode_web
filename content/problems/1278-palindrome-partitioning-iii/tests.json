@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "palindromePartition",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "abc 分两段改一次",
+      "args": [
+        "abc",
+        2
+      ],
+      "expected": 1
+    },
+    {
+      "name": "可切成三个回文",
+      "args": [
+        "aabbc",
+        3
+      ],
+      "expected": 0
+    },
+    {
+      "name": "每字符单独成段",
+      "args": [
+        "leetcode",
+        8
+      ],
+      "expected": 0
+    }
+  ]
+}

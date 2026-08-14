@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "removeDuplicates",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "连锁消除得到 ca",
+      "args": [
+        "abbaca"
+      ],
+      "expected": "ca"
+    },
+    {
+      "name": "全部消除",
+      "args": [
+        "azxxzy"
+      ],
+      "expected": "ay"
+    },
+    {
+      "name": "没有重复",
+      "args": [
+        "abc"
+      ],
+      "expected": "abc"
+    }
+  ]
+}

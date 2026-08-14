@@ -1,0 +1,1 @@
+class Solution { private int minutes(String time){return Integer.parseInt(time.substring(0,2))*60+Integer.parseInt(time.substring(3));}public int numberOfRounds(String loginTime,String logoutTime){int start=minutes(loginTime),finish=minutes(logoutTime);if(finish<start)finish+=1440;start=(start+14)/15*15;finish=finish/15*15;return Math.max(0,(finish-start)/15);} }

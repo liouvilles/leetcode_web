@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "deleteDuplicateFolder",
+  "parameterTypes": [
+    "stringListMatrix"
+  ],
+  "returnType": "stringListMatrix",
+  "cases": [
+    {
+      "name": "a 与 c 的相同 b 子树被删除",
+      "args": [
+        [
+          [
+            "a"
+          ],
+          [
+            "c"
+          ],
+          [
+            "d"
+          ],
+          [
+            "a",
+            "b"
+          ],
+          [
+            "c",
+            "b"
+          ],
+          [
+            "d",
+            "a"
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          "d"
+        ],
+        [
+          "d",
+          "a"
+        ]
+      ]
+    },
+    {
+      "name": "不同子文件夹名称全部保留",
+      "args": [
+        [
+          [
+            "a"
+          ],
+          [
+            "a",
+            "x"
+          ],
+          [
+            "b"
+          ],
+          [
+            "b",
+            "y"
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          "a"
+        ],
+        [
+          "a",
+          "x"
+        ],
+        [
+          "b"
+        ],
+        [
+          "b",
+          "y"
+        ]
+      ]
+    },
+    {
+      "name": "两棵相同非空子树全部删除",
+      "args": [
+        [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ],
+          [
+            "a",
+            "x"
+          ],
+          [
+            "b",
+            "x"
+          ]
+        ]
+      ],
+      "expected": []
+    }
+  ]
+}

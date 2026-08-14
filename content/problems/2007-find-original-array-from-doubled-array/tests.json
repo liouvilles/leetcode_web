@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findOriginalArray",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "一三四匹配二六八",
+      "args": [
+        [
+          1,
+          3,
+          4,
+          2,
+          6,
+          8
+        ]
+      ],
+      "expected": [
+        1,
+        3,
+        4
+      ]
+    },
+    {
+      "name": "无法为三找到双倍值",
+      "args": [
+        [
+          6,
+          3,
+          0,
+          1
+        ]
+      ],
+      "expected": []
+    },
+    {
+      "name": "两个零还原一个零",
+      "args": [
+        [
+          0,
+          0
+        ]
+      ],
+      "expected": [
+        0
+      ]
+    }
+  ]
+}

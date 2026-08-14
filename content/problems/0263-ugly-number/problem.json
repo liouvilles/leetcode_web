@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 263,
+  "slug": "ugly-number",
+  "title": "丑数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-005",
+  "studyTags": [
+    "数学",
+    "质因数",
+    "整除"
+  ],
+  "summary": "判断正整数的质因数是否只包含二、三和五。",
+  "insight": "不断除尽允许的三个质因数，最终剩下一才说明不存在其他质因数。",
+  "pitfalls": [
+    "非正数不是丑数",
+    "一没有质因数且被视为丑数",
+    "每个因子需要循环除尽"
+  ],
+  "solutions": [
+    {
+      "id": "factor-stripping",
+      "title": "剥离允许质因数",
+      "kind": "最优",
+      "idea": "依次反复整除二、三、五，再检查剩余值。",
+      "steps": [
+        "排除 n<=0",
+        "对 2、3、5 分别 while 整除",
+        "返回 n==1"
+      ],
+      "complexity": {
+        "time": "O(log n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/factor-stripping/Solution.java",
+        "kotlin": "solutions/factor-stripping/Solution.kt",
+        "cpp": "solutions/factor-stripping/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 77,
+  "slug": "combinations",
+  "title": "组合",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-004",
+  "studyTags": [
+    "回溯",
+    "剪枝",
+    "组合枚举"
+  ],
+  "summary": "从 1 到 n 中选择 k 个不同数字，返回所有不考虑顺序的组合。",
+  "insight": "递增选择下一个数字天然消除排列重复；根据还需选择的数量限制枚举上界可以提前剪枝。",
+  "pitfalls": [
+    "组合内必须保持递增选择",
+    "加入答案时需要复制当前路径",
+    "候选上界要为剩余位置留足数字"
+  ],
+  "solutions": [
+    {
+      "id": "backtracking-pruning",
+      "title": "递增回溯剪枝",
+      "kind": "最优",
+      "idea": "路径只向更大数字扩展，并用剩余数量计算本层最大起点。",
+      "steps": [
+        "路径长度达到 k 时复制到答案",
+        "枚举 value 到 n-(k-size)+1",
+        "选择、递归、撤销选择"
+      ],
+      "complexity": {
+        "time": "O(C(n,k)·k)",
+        "space": "O(k) excluding output"
+      },
+      "files": {
+        "java": "solutions/backtracking-pruning/Solution.java",
+        "kotlin": "solutions/backtracking-pruning/Solution.kt",
+        "cpp": "solutions/backtracking-pruning/solution.cpp"
+      }
+    }
+  ]
+}

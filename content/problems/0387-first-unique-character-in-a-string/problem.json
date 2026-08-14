@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 387,
+  "slug": "first-unique-character-in-a-string",
+  "title": "字符串中的第一个唯一字符",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-006",
+  "studyTags": [
+    "字符计数",
+    "字符串",
+    "两遍扫描"
+  ],
+  "summary": "返回字符串中第一个只出现一次的字符下标，不存在时返回 -1。",
+  "insight": "第一遍统计频次，第二遍按原顺序找频次为一的首个位置。",
+  "pitfalls": [
+    "返回的是下标而不是字符",
+    "必须选择最左唯一字符",
+    "没有唯一字符返回负一"
+  ],
+  "solutions": [
+    {
+      "id": "count-then-scan",
+      "title": "先计数后定位",
+      "kind": "最优",
+      "idea": "固定字母频次数组与第二次顺序扫描组合。",
+      "steps": [
+        "统计所有字符次数",
+        "从下标零重新扫描",
+        "首个 count==1 的位置返回，结束返回 -1"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/count-then-scan/Solution.java",
+        "kotlin": "solutions/count-then-scan/Solution.kt",
+        "cpp": "solutions/count-then-scan/solution.cpp"
+      }
+    }
+  ]
+}

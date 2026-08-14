@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxWidthRamp",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "最大宽度四",
+      "args": [
+        [
+          6,
+          0,
+          8,
+          2,
+          1,
+          5
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "最大宽度七",
+      "args": [
+        [
+          9,
+          8,
+          1,
+          0,
+          1,
+          9,
+          4,
+          0,
+          4,
+          1
+        ]
+      ],
+      "expected": 7
+    },
+    {
+      "name": "两元素递增",
+      "args": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

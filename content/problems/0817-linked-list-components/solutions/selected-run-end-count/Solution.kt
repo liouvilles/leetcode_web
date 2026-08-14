@@ -1,0 +1,1 @@
+class Solution { fun numComponents(head:ListNode?,nums:IntArray):Int{val selected=nums.toSet();var answer=0;var node=head;while(node!=null){if(node.`val` in selected&&(node.next==null||node.next!!.`val` !in selected))answer++;node=node.next};return answer} }

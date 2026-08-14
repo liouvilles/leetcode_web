@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findLongestChain",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "可选两对",
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "三对完全可连接",
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            7,
+            8
+          ],
+          [
+            4,
+            5
+          ]
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "嵌套区间选择短者",
+      "args": [
+        [
+          [
+            1,
+            10
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

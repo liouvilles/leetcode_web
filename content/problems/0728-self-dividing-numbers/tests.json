@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "selfDividingNumbers",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "intList",
+  "cases": [
+    {
+      "name": "一到二十二",
+      "args": [
+        1,
+        22
+      ],
+      "expected": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        15,
+        22
+      ]
+    },
+    {
+      "name": "四十七到八十五",
+      "args": [
+        47,
+        85
+      ],
+      "expected": [
+        48,
+        55,
+        66,
+        77
+      ]
+    },
+    {
+      "name": "单个自除数",
+      "args": [
+        128,
+        128
+      ],
+      "expected": [
+        128
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { fun furthestBuilding(heights:IntArray,bricksValue:Int,ladders:Int):Int{val climbs=java.util.PriorityQueue<Int>();var bricks=bricksValue;for(i in 0 until heights.lastIndex){val climb=heights[i+1]-heights[i];if(climb<=0)continue;climbs.add(climb);if(climbs.size>ladders)bricks-=climbs.remove();if(bricks<0)return i};return heights.lastIndex} }

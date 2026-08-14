@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countTime",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "问号十位有两个合法小时",
+      "args": [
+        "?5:00"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "小时与分钟个位各十种",
+      "args": [
+        "0?:0?"
+      ],
+      "expected": 100
+    },
+    {
+      "name": "全问号有一千四百四十种",
+      "args": [
+        "??:??"
+      ],
+      "expected": 1440
+    }
+  ]
+}

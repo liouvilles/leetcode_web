@@ -1,0 +1,1 @@
+class Solution { public: int countSpecialSubsequences(vector<int>& nums){long long zero=0,one=0,two=0,mod=1000000007;for(int value:nums)if(value==0)zero=(2*zero+1)%mod;else if(value==1)one=(2*one+zero)%mod;else two=(2*two+one)%mod;return two;} };

@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minAbsDifference",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "存在子序列和恰好为六",
+      "args": [
+        [
+          5,
+          -7,
+          3,
+          5
+        ],
+        6
+      ],
+      "expected": 0
+    },
+    {
+      "name": "最接近负五相差一",
+      "args": [
+        [
+          7,
+          -9,
+          15,
+          -2
+        ],
+        -5
+      ],
+      "expected": 1
+    },
+    {
+      "name": "目标小于所有子集和相差七",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        -7
+      ],
+      "expected": 7
+    }
+  ]
+}

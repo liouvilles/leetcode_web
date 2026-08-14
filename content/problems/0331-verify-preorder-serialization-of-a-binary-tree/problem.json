@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 331,
+  "slug": "verify-preorder-serialization-of-a-binary-tree",
+  "title": "验证二叉树的前序序列化",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-005",
+  "studyTags": [
+    "槽位计数",
+    "二叉树",
+    "字符串解析"
+  ],
+  "summary": "判断用逗号分隔、井号表示空节点的前序序列能否恰好描述一棵二叉树。",
+  "insight": "开始有一个待填槽位；每个标记消耗一个槽位，非空节点再产生两个新槽位，过程中槽位不能提前归零。",
+  "pitfalls": [
+    "所有标记处理完槽位必须恰好为零",
+    "空节点不产生子槽位",
+    "槽位为零后仍有标记立即非法"
+  ],
+  "solutions": [
+    {
+      "id": "slot-counting",
+      "title": "待填子节点槽位计数",
+      "kind": "最优",
+      "idea": "用一个整数模拟序列化过程中尚待连接的位置数量。",
+      "steps": [
+        "slots 初始化一",
+        "每个 token 先检查并消耗一个槽位",
+        "非 # 再增加两个槽位，最终判断 slots==0"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/slot-counting/Solution.java",
+        "kotlin": "solutions/slot-counting/Solution.kt",
+        "cpp": "solutions/slot-counting/solution.cpp"
+      }
+    }
+  ]
+}

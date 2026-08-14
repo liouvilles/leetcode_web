@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "highestPeak",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "intMatrix",
+  "cases": [
+    {
+      "name": "单个右上水域生成距离高度",
+      "args": [
+        [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "两个水域的多源距离",
+      "args": [
+        [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          2,
+          2
+        ]
+      ]
+    },
+    {
+      "name": "全水域高度全零",
+      "args": [
+        [
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          0
+        ]
+      ]
+    }
+  ]
+}

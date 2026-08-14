@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1824,
+  "slug": "minimum-sideway-jumps",
+  "title": "最少侧跳次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-026",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "贪心"
+  ],
+  "summary": "青蛙从赛道二起点前进，三条赛道各位置可能有障碍；前进免费，侧跳计一次，求到终点最少侧跳数。",
+  "insight": "dp[lane] 表示到当前位置位于该赛道的最小侧跳数。先把有障碍赛道设为无穷，再用当前可行三赛道最小值加一更新其余赛道。",
+  "pitfalls": [
+    "起点在赛道二",
+    "不能跳入当前位置有障碍的赛道",
+    "同一位置可侧跳后继续前进"
+  ],
+  "solutions": [
+    {
+      "id": "three-lane-dp",
+      "title": "三赛道滚动动态规划",
+      "kind": "最优",
+      "idea": "每个位置先封锁障碍再松弛侧跳边。",
+      "steps": [
+        "dp=[1,0,1]",
+        "position 从一到末尾，有 obstacle 时对应 dp=∞",
+        "minimum=min(dp)，所有无障碍 lane 更新 dp[lane]=min(dp[lane],minimum+1)，返回 min(dp)"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/three-lane-dp/Solution.java",
+        "kotlin": "solutions/three-lane-dp/Solution.kt",
+        "cpp": "solutions/three-lane-dp/solution.cpp"
+      }
+    }
+  ]
+}

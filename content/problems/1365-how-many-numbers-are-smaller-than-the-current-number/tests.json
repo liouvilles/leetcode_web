@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "smallerNumbersThanCurrent",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "含重复二",
+      "args": [
+        [
+          8,
+          1,
+          2,
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        4,
+        0,
+        1,
+        1,
+        3
+      ]
+    },
+    {
+      "name": "四个不同数字",
+      "args": [
+        [
+          6,
+          5,
+          4,
+          8
+        ]
+      ],
+      "expected": [
+        2,
+        1,
+        0,
+        3
+      ]
+    },
+    {
+      "name": "全部相等",
+      "args": [
+        [
+          7,
+          7,
+          7,
+          7
+        ]
+      ],
+      "expected": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}

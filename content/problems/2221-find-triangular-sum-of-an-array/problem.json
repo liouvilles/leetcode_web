@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2221,
+  "slug": "find-triangular-sum-of-an-array",
+  "title": "数组的三角和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-032",
+  "studyTags": [
+    "数组",
+    "数学",
+    "模拟"
+  ],
+  "summary": "反复把相邻元素和模十形成短一位的新数组，直到只剩一个数，返回该数。",
+  "insight": "可原地覆盖数组前缀：每轮令 nums[i]=(nums[i]+nums[i+1])%10，活动长度减一。",
+  "pitfalls": [
+    "每次都要模十",
+    "后一轮只能读上一轮有效前缀",
+    "单元素直接返回"
+  ],
+  "solutions": [
+    {
+      "id": "in-place-layer-reduction",
+      "title": "原地逐层归约",
+      "kind": "最优",
+      "idea": "用数组前缀存放每一层结果。",
+      "steps": [
+        "length=nums.length",
+        "while length>1：i=0..length-2 更新相邻和模十",
+        "length--；返回 nums[0]"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/in-place-layer-reduction/Solution.java",
+        "kotlin": "solutions/in-place-layer-reduction/Solution.kt",
+        "cpp": "solutions/in-place-layer-reduction/solution.cpp"
+      }
+    }
+  ]
+}

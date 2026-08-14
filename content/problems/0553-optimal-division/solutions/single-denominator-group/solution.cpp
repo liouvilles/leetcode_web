@@ -1,0 +1,1 @@
+class Solution { public: string optimalDivision(vector<int>& nums){if(nums.size()==1)return to_string(nums[0]);string suffix=to_string(nums[1]);for(int i=2;i<(int)nums.size();++i)suffix+="/"+to_string(nums[i]);return nums.size()==2?to_string(nums[0])+"/"+suffix:to_string(nums[0])+"/("+suffix+")";} };

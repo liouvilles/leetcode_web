@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 947,
+  "slug": "most-stones-removed-with-same-row-or-column",
+  "title": "移除最多的同行或同列石头",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-013",
+  "studyTags": [
+    "数组",
+    "图论",
+    "并查集"
+  ],
+  "summary": "平面上每个整数坐标至多一块石头；若某石头与另一块同行或同列即可移除，求最多移除数量。",
+  "insight": "把同行或同列石头连成无向图；每个连通分量最终必须留下至少一块且总能删到只剩一块，因此答案是石头数减分量数。",
+  "pitfalls": [
+    "连接关系具有传递性",
+    "孤立石头不能移除",
+    "按石头下标做并查集即可"
+  ],
+  "solutions": [
+    {
+      "id": "stone-index-dsu",
+      "title": "石头下标并查集",
+      "kind": "最优",
+      "idea": "合并共享横坐标或纵坐标的石头。",
+      "steps": [
+        "初始化 n 个并查集分量",
+        "枚举石头对，同行或同列则合并",
+        "统计不同根数量，返回 n-components"
+      ],
+      "complexity": {
+        "time": "O(n² α(n))",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/stone-index-dsu/Solution.java",
+        "kotlin": "solutions/stone-index-dsu/Solution.kt",
+        "cpp": "solutions/stone-index-dsu/solution.cpp"
+      }
+    }
+  ]
+}

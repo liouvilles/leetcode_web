@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 837,
+  "slug": "new-21-game",
+  "title": "新 21 点",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-011",
+  "studyTags": [
+    "动态规划",
+    "概率",
+    "滑动窗口"
+  ],
+  "summary": "Alice 从零分开始，在分数小于 k 时均匀抽取 1..maxPts，停止时得分不超过 n 的概率是多少。",
+  "insight": "dp[x] 是恰到 x 的概率；只有 x<k 的状态会继续贡献给后面 maxPts 个分数，用滑动窗口维护这些可继续状态概率和。",
+  "pitfalls": [
+    "达到 k 后停止，不能再进入窗口",
+    "答案累加 k..n 的停止状态",
+    "当 k=0 或 n>=k-1+maxPts 时概率为一"
+  ],
+  "solutions": [
+    {
+      "id": "probability-sliding-window-dp",
+      "title": "概率 DP 滑动窗口",
+      "kind": "最优",
+      "idea": "滚动维护能转移到当前分数的概率和。",
+      "steps": [
+        "若 k==0 或 n>=k-1+maxPts 返回一",
+        "dp[0]=1，window=1",
+        "score=1..n：dp[score]=window/maxPts；若 score<k 加入 window，否则累加答案；移除 score-maxPts 处且仍小于 k 的状态"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/probability-sliding-window-dp/Solution.java",
+        "kotlin": "solutions/probability-sliding-window-dp/Solution.kt",
+        "cpp": "solutions/probability-sliding-window-dp/solution.cpp"
+      }
+    }
+  ]
+}

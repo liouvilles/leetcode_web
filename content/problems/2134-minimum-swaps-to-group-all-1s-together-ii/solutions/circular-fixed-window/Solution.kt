@@ -1,0 +1,1 @@
+class Solution { fun minSwaps(nums:IntArray):Int{val n=nums.size;val ones=nums.sum();if(ones<=1)return 0;var window=0;for(i in 0 until ones)window+=nums[i%n];var maximum=window;for(end in ones until ones+n){window+=nums[end%n]-nums[(end-ones)%n];maximum=maxOf(maximum,window)};return ones-maximum} }

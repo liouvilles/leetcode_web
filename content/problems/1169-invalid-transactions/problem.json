@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1169,
+  "slug": "invalid-transactions",
+  "title": "查询无效交易",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-016",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "模拟",
+    "标记"
+  ],
+  "summary": "交易金额超过一千，或同名用户在六十分钟内于不同城市交易时无效，返回输入中所有无效交易字符串。",
+  "insight": "先解析每条交易并标记金额违规项，再逐对比较同名交易的时间和城市；满足跨城时间条件时两条都标为无效，最后按原输入顺序收集。",
+  "pitfalls": [
+    "跨城冲突会同时使两笔交易无效",
+    "时间差取绝对值且六十分钟边界包含",
+    "返回原始交易字符串而非解析后的字段"
+  ],
+  "solutions": [
+    {
+      "id": "parsed-pairwise-invalid-marking",
+      "title": "解析后两两标记",
+      "kind": "最优",
+      "idea": "利用交易数上限直接检查所有可能冲突对。",
+      "steps": [
+        "把每条字符串解析为 name、time、amount、city，amount>1000 时标记",
+        "枚举 i<j；若姓名相同、城市不同且时间差<=60，将 i、j 都标记",
+        "按原下标顺序把已标记的原字符串加入答案"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/parsed-pairwise-invalid-marking/Solution.java",
+        "kotlin": "solutions/parsed-pairwise-invalid-marking/Solution.kt",
+        "cpp": "solutions/parsed-pairwise-invalid-marking/solution.cpp"
+      }
+    }
+  ]
+}

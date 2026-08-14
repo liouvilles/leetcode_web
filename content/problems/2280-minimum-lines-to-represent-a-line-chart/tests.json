@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumLines",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典八点折线需要三段",
+      "args": [
+        [
+          [
+            1,
+            7
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            7,
+            2
+          ],
+          [
+            8,
+            1
+          ]
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "乱序共线点只需一段",
+      "args": [
+        [
+          [
+            3,
+            4
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            7,
+            8
+          ],
+          [
+            2,
+            3
+          ]
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "单点无需线段",
+      "args": [
+        [
+          [
+            5,
+            10
+          ]
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

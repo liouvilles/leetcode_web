@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 661,
+  "slug": "image-smoother",
+  "title": "图片平滑器",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-008",
+  "studyTags": [
+    "数组",
+    "矩阵",
+    "模拟"
+  ],
+  "summary": "对灰度图每个单元格，取它及周围八个有效单元格的平均值向下取整，生成平滑图像。",
+  "insight": "逐格枚举以它为中心的 3×3 区域，只累计仍在矩阵边界内的坐标。",
+  "pitfalls": [
+    "边界与角落的邻居数量少于九",
+    "平均值使用整数除法向下取整",
+    "结果不能覆盖输入后再继续读取"
+  ],
+  "solutions": [
+    {
+      "id": "nine-neighbor-scan",
+      "title": "逐格扫描有效邻域",
+      "kind": "最优",
+      "idea": "为每个输出位置独立计算邻域和与数量。",
+      "steps": [
+        "创建同尺寸结果矩阵",
+        "对每个 row,column 枚举 deltaRow、deltaColumn∈[-1,1]",
+        "合法邻居累加 sum 和 count，写入 sum/count"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(mn)"
+      },
+      "files": {
+        "java": "solutions/nine-neighbor-scan/Solution.java",
+        "kotlin": "solutions/nine-neighbor-scan/Solution.kt",
+        "cpp": "solutions/nine-neighbor-scan/solution.cpp"
+      }
+    }
+  ]
+}

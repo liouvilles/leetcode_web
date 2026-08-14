@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2194,
+  "slug": "cells-in-a-range-on-an-excel-sheet",
+  "title": "Excel 表中某个范围内的单元格",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-032",
+  "studyTags": [
+    "字符串",
+    "模拟"
+  ],
+  "summary": "范围形如 C1:C2，按列从左到右、每列按行从小到大返回所有单元格名称。",
+  "insight": "输入只含单字母列和单数字行，直接双重循环枚举列字符与行字符并拼接。",
+  "pitfalls": [
+    "外层是列、内层是行",
+    "范围两端都包含",
+    "返回顺序由题目指定"
+  ],
+  "solutions": [
+    {
+      "id": "nested-range-enumeration",
+      "title": "双重范围枚举",
+      "kind": "最优",
+      "idea": "按列优先顺序生成单元格。",
+      "steps": [
+        "解析 startColumn、startRow、endColumn、endRow",
+        "column 从起始到结束",
+        "row 从起始到结束，加入 column+row"
+      ],
+      "complexity": {
+        "time": "O(number of cells)",
+        "space": "O(number of cells)"
+      },
+      "files": {
+        "java": "solutions/nested-range-enumeration/Solution.java",
+        "kotlin": "solutions/nested-range-enumeration/Solution.kt",
+        "cpp": "solutions/nested-range-enumeration/solution.cpp"
+      }
+    }
+  ]
+}

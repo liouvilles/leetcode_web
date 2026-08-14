@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "longestStrChain",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典四词链",
+      "args": [
+        [
+          "a",
+          "b",
+          "ba",
+          "bca",
+          "bda",
+          "bdca"
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "五词链",
+      "args": [
+        [
+          "xbc",
+          "pcxbcf",
+          "xb",
+          "cxbc",
+          "pcxbc"
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "无法连接",
+      "args": [
+        [
+          "abcd",
+          "dbqca"
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

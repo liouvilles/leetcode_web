@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numberOfWays",
+  "parameterTypes": [
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三步从一到二有三种",
+      "args": [
+        1,
+        2,
+        3
+      ],
+      "expected": 3
+    },
+    {
+      "name": "奇偶不匹配没有方法",
+      "args": [
+        2,
+        5,
+        10
+      ],
+      "expected": 0
+    },
+    {
+      "name": "两步回到原点有两种",
+      "args": [
+        0,
+        0,
+        2
+      ],
+      "expected": 2
+    }
+  ]
+}

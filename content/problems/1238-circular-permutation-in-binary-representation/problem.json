@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1238,
+  "slug": "circular-permutation-in-binary-representation",
+  "title": "循环码排列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-017",
+  "studyTags": [
+    "数学",
+    "位运算",
+    "格雷码"
+  ],
+  "summary": "返回零到 2^n-1 的一个循环排列，以 start 开头且相邻数字（含首尾）二进制恰有一位不同。",
+  "insight": "标准格雷码 gray(i)=i xor (i>>1) 本身构成首尾相邻的哈密顿环；把每项再异或 start 不改变任意两项的异或差，并让第一项变成 start。",
+  "pitfalls": [
+    "结果长度为 2^n",
+    "首尾也必须相差一位",
+    "异或整体平移不会产生重复"
+  ],
+  "solutions": [
+    {
+      "id": "xor-shifted-gray-code",
+      "title": "异或平移格雷码",
+      "kind": "最优",
+      "idea": "生成标准格雷环并整体异或起点。",
+      "steps": [
+        "size=1<<n，answer 为空",
+        "对 i=0..size-1 计算 gray=i xor (i>>1)",
+        "加入 start xor gray，返回列表"
+      ],
+      "complexity": {
+        "time": "O(2^n)",
+        "space": "O(2^n)"
+      },
+      "files": {
+        "java": "solutions/xor-shifted-gray-code/Solution.java",
+        "kotlin": "solutions/xor-shifted-gray-code/Solution.kt",
+        "cpp": "solutions/xor-shifted-gray-code/solution.cpp"
+      }
+    }
+  ]
+}

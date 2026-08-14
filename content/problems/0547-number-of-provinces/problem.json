@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 547,
+  "slug": "number-of-provinces",
+  "title": "省份数量",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-007",
+  "studyTags": [
+    "并查集",
+    "图论",
+    "连通分量"
+  ],
+  "summary": "城市连接关系由对称邻接矩阵给出，统计传递连通形成的省份数量。",
+  "insight": "初始每个城市是独立集合，扫描矩阵上三角并合并直接相连城市，每次成功合并使连通分量数减一。",
+  "pitfalls": [
+    "矩阵对称只需扫描一半",
+    "自身连接无需处理",
+    "间接连接由并查集传递维护"
+  ],
+  "solutions": [
+    {
+      "id": "union-find",
+      "title": "并查集合并城市",
+      "kind": "最优",
+      "idea": "路径压缩和按秩合并维护连通分量数量。",
+      "steps": [
+        "parent 初始化为自身，components=n",
+        "扫描 row<column 的连接项",
+        "根不同则 union 并 components--，返回 components"
+      ],
+      "complexity": {
+        "time": "O(n² α(n))",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/union-find/Solution.java",
+        "kotlin": "solutions/union-find/Solution.kt",
+        "cpp": "solutions/union-find/solution.cpp"
+      }
+    }
+  ]
+}

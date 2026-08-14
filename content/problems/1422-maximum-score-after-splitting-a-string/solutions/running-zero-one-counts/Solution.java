@@ -1,0 +1,1 @@
+class Solution { public int maxScore(String text){int rightOnes=0;for(char value:text.toCharArray())if(value=='1')rightOnes++;int leftZeros=0,answer=0;for(int i=0;i<text.length()-1;i++){if(text.charAt(i)=='0')leftZeros++;else rightOnes--;answer=Math.max(answer,leftZeros+rightOnes);}return answer;} }

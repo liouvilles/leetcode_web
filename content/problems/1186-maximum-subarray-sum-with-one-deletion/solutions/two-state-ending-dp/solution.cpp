@@ -1,0 +1,1 @@
+class Solution { public: int maximumSum(vector<int>& arr){int keep=arr[0],removed=INT_MIN/2,answer=arr[0];for(int i=1;i<(int)arr.size();++i){int nextRemoved=max(removed+arr[i],keep),nextKeep=max(arr[i],keep+arr[i]);keep=nextKeep;removed=nextRemoved;answer=max({answer,keep,removed});}return answer;} };

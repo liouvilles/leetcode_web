@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 90,
+  "slug": "subsets-ii",
+  "title": "子集 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-004",
+  "studyTags": [
+    "回溯",
+    "排序去重",
+    "子集枚举"
+  ],
+  "summary": "返回可能含重复元素的整数数组的所有不同子集，结果中不能出现重复子集。",
+  "insight": "先排序让相同值相邻；同一递归层中只选择相同值的第一次出现，仍允许在更深层再次选择它。",
+  "pitfalls": [
+    "去重只发生在同一递归层",
+    "空集也必须加入答案",
+    "加入答案时需要复制路径"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-backtracking",
+      "title": "排序后同层去重",
+      "kind": "最优",
+      "idea": "每个递归节点先记录当前路径，再枚举后续元素并跳过同层重复项。",
+      "steps": [
+        "数组排序",
+        "每次递归复制路径到答案",
+        "从 start 枚举，若 index>start 且与前项相同则跳过"
+      ],
+      "complexity": {
+        "time": "O(n·2^n)",
+        "space": "O(n) excluding output"
+      },
+      "files": {
+        "java": "solutions/sorted-backtracking/Solution.java",
+        "kotlin": "solutions/sorted-backtracking/Solution.kt",
+        "cpp": "solutions/sorted-backtracking/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2379,
+  "slug": "minimum-recolors-to-get-k-consecutive-black-blocks",
+  "title": "得到 K 个连续黑块的最少涂色次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-035",
+  "studyTags": [
+    "字符串",
+    "滑动窗口"
+  ],
+  "summary": "把白块可涂成黑块，求出现长度 k 的全黑连续段所需最少涂色次数。",
+  "insight": "每个长度 k 窗口中白块数量就是让该窗口全黑的操作数，滑动维护白块计数取最小。",
+  "pitfalls": [
+    "窗口长度固定为 k",
+    "只需白变黑",
+    "需包含首个窗口"
+  ],
+  "solutions": [
+    {
+      "id": "fixed-window-white-count",
+      "title": "固定窗口白块计数",
+      "kind": "最优",
+      "idea": "滑动统计每个候选段需重涂的格数。",
+      "steps": [
+        "统计前 k 个字符 W 数",
+        "answer=当前白数",
+        "右移窗口，加入新字符并移除旧字符的白贡献",
+        "更新最小值"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/fixed-window-white-count/Solution.java",
+        "kotlin": "solutions/fixed-window-white-count/Solution.kt",
+        "cpp": "solutions/fixed-window-white-count/solution.cpp"
+      }
+    }
+  ]
+}

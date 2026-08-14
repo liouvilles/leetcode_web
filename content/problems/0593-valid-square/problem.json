@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 593,
+  "slug": "valid-square",
+  "title": "有效的正方形",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-008",
+  "studyTags": [
+    "数学",
+    "几何",
+    "排序"
+  ],
+  "summary": "给定平面上四个点，判断它们能否组成一个正方形。",
+  "insight": "四点共有六个两两距离；正方形恰有四条相等且非零的边，以及两条相等且为边长两倍的对角线。",
+  "pitfalls": [
+    "重合点会产生零边长",
+    "使用平方距离避免浮点误差",
+    "点的输入顺序任意"
+  ],
+  "solutions": [
+    {
+      "id": "six-squared-distances",
+      "title": "排序六个平方距离",
+      "kind": "最优",
+      "idea": "用距离多重集合直接验证正方形的边和对角线关系。",
+      "steps": [
+        "计算六对点的平方距离",
+        "升序排序距离",
+        "确认前四个相等且大于零，后两个相等并等于边长两倍"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/six-squared-distances/Solution.java",
+        "kotlin": "solutions/six-squared-distances/Solution.kt",
+        "cpp": "solutions/six-squared-distances/solution.cpp"
+      }
+    }
+  ]
+}

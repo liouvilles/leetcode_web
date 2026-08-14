@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findDuplicate",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "stringListMatrix",
+  "cases": [
+    {
+      "name": "两组重复文件",
+      "args": [
+        [
+          "root/a 1.txt(abcd) 2.txt(efgh)",
+          "root/c 3.txt(abcd)",
+          "root/c/d 4.txt(efgh)",
+          "root 4.txt(efgh)"
+        ]
+      ],
+      "expected": [
+        [
+          "root/a/1.txt",
+          "root/c/3.txt"
+        ],
+        [
+          "root/4.txt",
+          "root/a/2.txt",
+          "root/c/d/4.txt"
+        ]
+      ]
+    },
+    {
+      "name": "没有重复内容",
+      "args": [
+        [
+          "root/a 1.txt(a)",
+          "root/b 2.txt(b)"
+        ]
+      ],
+      "expected": []
+    },
+    {
+      "name": "同目录重复内容",
+      "args": [
+        [
+          "root/a x.txt(z) y.txt(z)"
+        ]
+      ],
+      "expected": [
+        [
+          "root/a/x.txt",
+          "root/a/y.txt"
+        ]
+      ]
+    }
+  ]
+}

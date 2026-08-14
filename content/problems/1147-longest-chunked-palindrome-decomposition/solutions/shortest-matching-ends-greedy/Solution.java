@@ -1,0 +1,1 @@
+class Solution { public int longestDecomposition(String text){int n=text.length();if(n==0)return 0;for(int length=1;length*2<=n;length++)if(text.regionMatches(0,text,n-length,length))return 2+longestDecomposition(text.substring(length,n-length));return 1;} }

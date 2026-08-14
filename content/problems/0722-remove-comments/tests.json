@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "removeComments",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "stringList",
+  "cases": [
+    {
+      "name": "跨行块注释拼接",
+      "args": [
+        [
+          "a/*comment",
+          "line",
+          "more_comment*/b"
+        ]
+      ],
+      "expected": [
+        "ab"
+      ]
+    },
+    {
+      "name": "删除行尾注释",
+      "args": [
+        [
+          "int a; // declaration",
+          "int b;"
+        ]
+      ],
+      "expected": [
+        "int a; ",
+        "int b;"
+      ]
+    },
+    {
+      "name": "整行块注释被移除",
+      "args": [
+        [
+          "/*comment*/",
+          "code"
+        ]
+      ],
+      "expected": [
+        "code"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "totalFruit",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三棵全部可采",
+      "args": [
+        [
+          1,
+          2,
+          1
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "最长尾部三棵",
+      "args": [
+        [
+          0,
+          1,
+          2,
+          2
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "最长四棵",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          2,
+          2
+        ]
+      ],
+      "expected": 4
+    }
+  ]
+}

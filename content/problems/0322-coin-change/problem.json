@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "id": 322,
+  "slug": "coin-change",
+  "title": "零钱兑换",
+  "status": "published",
+  "qualityGate": "compile",
+  "batch": "legacy-001",
+  "studyTags": [
+    "完全背包",
+    "最少步数",
+    "记忆化搜索"
+  ],
+  "summary": "给定可无限使用的硬币面额，求组成目标金额所需的最少硬币数；无法组成时返回 -1。",
+  "insight": "金额 x 的最优答案来自某个可用硬币 coin 加上金额 x-coin 的最优答案。",
+  "pitfalls": [
+    "硬币可以重复使用",
+    "不可达状态不能参与最小值更新",
+    "目标金额为 0 时答案是 0"
+  ],
+  "solutions": [
+    {
+      "id": "bottom-up-dp",
+      "title": "自底向上动态规划",
+      "kind": "最优",
+      "idea": "dp[x] 表示凑成金额 x 的最少硬币数，从小金额逐步推到 amount。",
+      "steps": [
+        "用 amount + 1 初始化不可达状态，dp[0] = 0",
+        "枚举每个金额和可用硬币",
+        "从已可达的较小金额转移并返回 dp[amount]"
+      ],
+      "complexity": {
+        "time": "O(amount · k)",
+        "space": "O(amount)"
+      },
+      "files": {
+        "java": "solutions/bottom-up-dp/Solution.java",
+        "kotlin": "solutions/bottom-up-dp/Solution.kt",
+        "cpp": "solutions/bottom-up-dp/solution.cpp"
+      }
+    },
+    {
+      "id": "memoized-dfs",
+      "title": "记忆化搜索",
+      "kind": "进阶",
+      "idea": "从目标金额向下尝试每种硬币，并缓存每个剩余金额的最优结果。",
+      "steps": [
+        "剩余金额为 0 时成功、为负时失败",
+        "读取或计算 memo[remain]",
+        "汇总所有有效子问题的最小值"
+      ],
+      "complexity": {
+        "time": "O(amount · k)",
+        "space": "O(amount)"
+      },
+      "files": {
+        "java": "solutions/memoized-dfs/Solution.java",
+        "kotlin": "solutions/memoized-dfs/Solution.kt",
+        "cpp": "solutions/memoized-dfs/solution.cpp"
+      }
+    },
+    {
+      "id": "bfs-amounts",
+      "title": "金额状态 BFS",
+      "kind": "进阶",
+      "idea": "把金额视作图上的状态，每加一枚硬币走一条边；首次到达 amount 的层数就是最少硬币数。",
+      "steps": [
+        "从金额 0 入队并标记",
+        "逐层尝试加上每种硬币",
+        "首次生成 amount 时返回当前层数加一"
+      ],
+      "complexity": {
+        "time": "O(amount · k)",
+        "space": "O(amount)"
+      },
+      "files": {
+        "java": "solutions/bfs-amounts/Solution.java",
+        "kotlin": "solutions/bfs-amounts/Solution.kt",
+        "cpp": "solutions/bfs-amounts/solution.cpp"
+      }
+    }
+  ]
+}

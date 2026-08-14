@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 509,
+  "slug": "fibonacci-number",
+  "title": "斐波那契数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-007",
+  "studyTags": [
+    "动态规划",
+    "迭代",
+    "数学"
+  ],
+  "summary": "按 F(0)=0、F(1)=1、F(n)=F(n-1)+F(n-2) 计算第 n 个斐波那契数。",
+  "insight": "每次只依赖前两项，用两个变量滚动更新即可，不需要保存整个数组。",
+  "pitfalls": [
+    "零和一是递推边界",
+    "更新时需保留旧的后项",
+    "题目范围内结果适合 32 位整数"
+  ],
+  "solutions": [
+    {
+      "id": "two-variable-iteration",
+      "title": "双变量滚动递推",
+      "kind": "最优",
+      "idea": "从 F0/F1 开始逐步推进到 Fn。",
+      "steps": [
+        "first=0,second=1",
+        "重复 n 次令 next=first+second",
+        "first=second,second=next，返回 first"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/two-variable-iteration/Solution.java",
+        "kotlin": "solutions/two-variable-iteration/Solution.kt",
+        "cpp": "solutions/two-variable-iteration/solution.cpp"
+      }
+    }
+  ]
+}

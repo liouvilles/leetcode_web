@@ -1,0 +1,1 @@
+class Solution { public: int clumsy(int n){vector<int> stack{n};int operation=0;for(int value=n-1;value>=1;--value,++operation){if(operation%4==0)stack.back()*=value;else if(operation%4==1)stack.back()/=value;else if(operation%4==2)stack.push_back(value);else stack.push_back(-value);}return accumulate(stack.begin(),stack.end(),0);} };

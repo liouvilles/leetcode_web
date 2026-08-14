@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "lemonadeChange",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "顺利找零",
+      "args": [
+        [
+          5,
+          5,
+          5,
+          10,
+          20
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "最后缺零钱",
+      "args": [
+        [
+          5,
+          5,
+          10,
+          10,
+          20
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "首位付十元",
+      "args": [
+        [
+          10
+        ]
+      ],
+      "expected": false
+    }
+  ]
+}

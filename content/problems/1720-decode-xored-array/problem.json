@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1720,
+  "slug": "decode-xored-array",
+  "title": "解码异或后的数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-025",
+  "studyTags": [
+    "数组",
+    "位运算"
+  ],
+  "summary": "encoded[i]=arr[i] xor arr[i+1]，已知 arr 首元素 first，恢复完整 arr。",
+  "insight": "异或可逆：arr[i+1]=arr[i] xor encoded[i]。从已知首项顺序递推即可。",
+  "pitfalls": [
+    "结果长度比 encoded 多一",
+    "异或同一数两次会抵消",
+    "按顺序使用刚恢复的前一项"
+  ],
+  "solutions": [
+    {
+      "id": "xor-prefix-reconstruction",
+      "title": "异或前缀恢复",
+      "kind": "最优",
+      "idea": "用相邻异或关系逐项解码。",
+      "steps": [
+        "answer[0]=first",
+        "i 从零到 encoded.length-1",
+        "answer[i+1]=answer[i] xor encoded[i]，返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/xor-prefix-reconstruction/Solution.java",
+        "kotlin": "solutions/xor-prefix-reconstruction/Solution.kt",
+        "cpp": "solutions/xor-prefix-reconstruction/solution.cpp"
+      }
+    }
+  ]
+}

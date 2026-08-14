@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findAndReplacePattern",
+  "parameterTypes": [
+    "stringArray",
+    "string"
+  ],
+  "returnType": "stringList",
+  "cases": [
+    {
+      "name": "经典两个匹配词",
+      "args": [
+        [
+          "abc",
+          "deq",
+          "mee",
+          "aqq",
+          "dkd",
+          "ccc"
+        ],
+        "abb"
+      ],
+      "expected": [
+        "mee",
+        "aqq"
+      ]
+    },
+    {
+      "name": "三个互异字符",
+      "args": [
+        [
+          "abc",
+          "deq",
+          "mee"
+        ],
+        "abc"
+      ],
+      "expected": [
+        "abc",
+        "deq"
+      ]
+    },
+    {
+      "name": "重复模式不匹配互异词",
+      "args": [
+        [
+          "xyz"
+        ],
+        "aaa"
+      ],
+      "expected": []
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1707,
+  "slug": "maximum-xor-with-an-element-from-array",
+  "title": "与数组中元素的最大异或值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-024",
+  "studyTags": [
+    "数组",
+    "字典树",
+    "位运算",
+    "离线查询"
+  ],
+  "summary": "每个查询 [x,m] 要在 nums 中选择不大于 m 的数，使 x 异或它最大；不存在合法数返回负一。",
+  "insight": "查询按 m 升序离线处理，逐步把 nums 中不超过当前 m 的数插入二进制字典树。查询时从高位到低位优先走与 x 当前位相反的分支。",
+  "pitfalls": [
+    "候选数限制是小于等于 m",
+    "答案保持原查询顺序",
+    "字典树为空时返回负一"
+  ],
+  "solutions": [
+    {
+      "id": "offline-binary-trie",
+      "title": "离线排序二进制字典树",
+      "kind": "最优",
+      "idea": "将数值上限转成单调插入过程。",
+      "steps": [
+        "nums 排序，查询附原下标按 m 排序",
+        "对每个查询插入所有 nums[index]<=m 的数到 30 位 Trie",
+        "若未插入任何数写 -1，否则逐位优先相反 bit，累加最大 XOR 并写回"
+      ],
+      "complexity": {
+        "time": "O((n+q) log V+n log n+q log q)",
+        "space": "O(n log V+q)"
+      },
+      "files": {
+        "java": "solutions/offline-binary-trie/Solution.java",
+        "kotlin": "solutions/offline-binary-trie/Solution.kt",
+        "cpp": "solutions/offline-binary-trie/solution.cpp"
+      }
+    }
+  ]
+}

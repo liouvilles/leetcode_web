@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "waysToBuyPensPencils",
+  "parameterTypes": [
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "二十预算有九种方案",
+      "args": [
+        20,
+        10,
+        5
+      ],
+      "expected": 9
+    },
+    {
+      "name": "五预算两种价格有四种",
+      "args": [
+        5,
+        10,
+        10
+      ],
+      "expected": 1
+    },
+    {
+      "name": "零预算只有全零方案",
+      "args": [
+        0,
+        2,
+        3
+      ],
+      "expected": 1
+    }
+  ]
+}

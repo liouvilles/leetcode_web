@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "oddCells",
+  "parameterTypes": [
+    "int",
+    "int",
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两行同列被操作",
+      "args": [
+        2,
+        3,
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "行列各翻两次",
+      "args": [
+        2,
+        2,
+        [
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "没有操作",
+      "args": [
+        3,
+        4,
+        []
+      ],
+      "expected": 0
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1771,
+  "slug": "maximize-palindrome-length-from-subsequences",
+  "title": "由子序列构造的最长回文串长度",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-025",
+  "studyTags": [
+    "字符串",
+    "动态规划"
+  ],
+  "summary": "分别从 word1、word2 选非空子序列并连接，求可形成的最长回文串长度；回文必须使用两串字符。",
+  "insight": "连接两串后做最长回文子序列 DP。只要回文的两个外端分别来自 word1 与 word2，就保证使用了两侧；枚举这类相等外端并结合内部 LPS。",
+  "pitfalls": [
+    "两边子序列都必须非空",
+    "外端 i 在 word1、j 在 word2",
+    "若没有跨串相等字符答案为零"
+  ],
+  "solutions": [
+    {
+      "id": "combined-lps-cross-boundary",
+      "title": "合并串 LPS 与跨界外端",
+      "kind": "最优",
+      "idea": "先求所有区间最长回文，再强制选择跨两串的首尾字符。",
+      "steps": [
+        "text=word1+word2，按区间长度构造 lps",
+        "字符相等时 lps[i][j]=lps[i+1][j-1]+2，否则取去掉一端最大值",
+        "枚举 i<word1.length、j>=word1.length 且字符相等，answer=max(answer,2+lps[i+1][j-1])"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/combined-lps-cross-boundary/Solution.java",
+        "kotlin": "solutions/combined-lps-cross-boundary/Solution.kt",
+        "cpp": "solutions/combined-lps-cross-boundary/solution.cpp"
+      }
+    }
+  ]
+}

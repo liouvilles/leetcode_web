@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "distinctSequences",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "长度一有六种",
+      "args": [
+        1
+      ],
+      "expected": 6
+    },
+    {
+      "name": "长度二有二十二种",
+      "args": [
+        2
+      ],
+      "expected": 22
+    },
+    {
+      "name": "长度四有一百八十四种",
+      "args": [
+        4
+      ],
+      "expected": 184
+    }
+  ]
+}

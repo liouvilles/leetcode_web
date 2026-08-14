@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getMaximumGenerated",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "生成到七的最大值三",
+      "args": [
+        7
+      ],
+      "expected": 3
+    },
+    {
+      "name": "生成到二的最大值一",
+      "args": [
+        2
+      ],
+      "expected": 1
+    },
+    {
+      "name": "零不生成正下标元素",
+      "args": [
+        0
+      ],
+      "expected": 0
+    }
+  ]
+}

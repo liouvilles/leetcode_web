@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2432,
+  "slug": "the-employee-that-worked-on-the-longest-task",
+  "title": "处理用时最长的任务的员工",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-036",
+  "studyTags": [
+    "数组"
+  ],
+  "summary": "任务按结束时间记录员工编号，每个任务紧接前一个开始，返回单次任务用时最长且编号最小的员工。",
+  "insight": "当前任务时长为结束时间减前一任务结束时间，逐项比较时长，平局取较小员工编号。",
+  "pitfalls": [
+    "第一项从时间零开始",
+    "比较单次任务而非员工总时长",
+    "平局取较小编号"
+  ],
+  "solutions": [
+    {
+      "id": "duration-difference-scan",
+      "title": "结束时间差扫描",
+      "kind": "最优",
+      "idea": "滚动上一结束时刻并维护最优员工。",
+      "steps": [
+        "previous=0、bestDuration=-1、answer=∞",
+        "对 log 计算 duration=end-previous",
+        "更长或同长员工更小时更新",
+        "previous=end，返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/duration-difference-scan/Solution.java",
+        "kotlin": "solutions/duration-difference-scan/Solution.kt",
+        "cpp": "solutions/duration-difference-scan/solution.cpp"
+      }
+    }
+  ]
+}

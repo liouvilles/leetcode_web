@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "bestCoordinate",
+  "parameterTypes": [
+    "intMatrix",
+    "int"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "三座塔最佳坐标二一",
+      "args": [
+        [
+          [
+            1,
+            2,
+            5
+          ],
+          [
+            2,
+            1,
+            7
+          ],
+          [
+            3,
+            1,
+            9
+          ]
+        ],
+        2
+      ],
+      "expected": [
+        2,
+        1
+      ]
+    },
+    {
+      "name": "单塔中心最佳",
+      "args": [
+        [
+          [
+            23,
+            11,
+            21
+          ]
+        ],
+        9
+      ],
+      "expected": [
+        23,
+        11
+      ]
+    },
+    {
+      "name": "原点单塔保持原点",
+      "args": [
+        [
+          [
+            0,
+            0,
+            10
+          ]
+        ],
+        1
+      ],
+      "expected": [
+        0,
+        0
+      ]
+    }
+  ]
+}

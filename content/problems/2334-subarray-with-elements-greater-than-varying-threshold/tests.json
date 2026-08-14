@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "validSubarraySize",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典数组存在长度三",
+      "args": [
+        [
+          1,
+          3,
+          4,
+          3,
+          1
+        ],
+        6
+      ],
+      "expected": 3
+    },
+    {
+      "name": "整个数组也满足阈值七",
+      "args": [
+        [
+          6,
+          5,
+          6,
+          5,
+          8
+        ],
+        7
+      ],
+      "expected": 5
+    },
+    {
+      "name": "三个一不严格超过三",
+      "args": [
+        [
+          1,
+          1,
+          1
+        ],
+        3
+      ],
+      "expected": -1
+    }
+  ]
+}

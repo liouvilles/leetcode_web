@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1234,
+  "slug": "replace-the-substring-for-balanced-string",
+  "title": "替换子串得到平衡字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-017",
+  "studyTags": [
+    "字符串",
+    "滑动窗口",
+    "计数"
+  ],
+  "summary": "长度为四的倍数且只含 QWER，替换一个连续子串为任意同长度字符串，求使四种字符各占四分之一的最短替换长度。",
+  "insight": "窗口内字符可任意重建，因此只需保证窗口外每种字符数量都不超过 target；用滑动窗口维护外部计数，满足条件时尽量收缩。",
+  "pitfalls": [
+    "已经平衡时答案为零",
+    "进入窗口要从外部计数扣除字符",
+    "判断所有四种外部频次均不超过 target"
+  ],
+  "solutions": [
+    {
+      "id": "outside-count-sliding-window",
+      "title": "窗口外计数滑动窗口",
+      "kind": "最优",
+      "idea": "寻找覆盖所有过量字符的最短区间。",
+      "steps": [
+        "统计整串四种字符，target=n/4；若均不超 target 返回零",
+        "right 扩展时将 s[right] 从外部 count 减一",
+        "当外部所有 count<=target 时更新最短长度，并把 left 字符加回外部、left++ 继续收缩"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/outside-count-sliding-window/Solution.java",
+        "kotlin": "solutions/outside-count-sliding-window/Solution.kt",
+        "cpp": "solutions/outside-count-sliding-window/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "addDigits",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三十八",
+      "args": [
+        38
+      ],
+      "expected": 2
+    },
+    {
+      "name": "零",
+      "args": [
+        0
+      ],
+      "expected": 0
+    },
+    {
+      "name": "九的倍数",
+      "args": [
+        99
+      ],
+      "expected": 9
+    }
+  ]
+}

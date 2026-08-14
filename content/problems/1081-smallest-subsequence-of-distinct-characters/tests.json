@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "smallestSubsequence",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "bcabc 得 abc",
+      "args": [
+        "bcabc"
+      ],
+      "expected": "abc"
+    },
+    {
+      "name": "复杂重复字符",
+      "args": [
+        "cbacdcbc"
+      ],
+      "expected": "acdb"
+    },
+    {
+      "name": "单字符",
+      "args": [
+        "a"
+      ],
+      "expected": "a"
+    }
+  ]
+}

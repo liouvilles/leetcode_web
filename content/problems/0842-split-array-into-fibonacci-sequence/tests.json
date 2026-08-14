@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "splitIntoFibonacci",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "intList",
+  "cases": [
+    {
+      "name": "标准斐波那契串",
+      "args": [
+        "11235813"
+      ],
+      "expected": [
+        1,
+        1,
+        2,
+        3,
+        5,
+        8,
+        13
+      ]
+    },
+    {
+      "name": "含零的合法序列",
+      "args": [
+        "1101111"
+      ],
+      "expected": [
+        11,
+        0,
+        11,
+        11
+      ]
+    },
+    {
+      "name": "前导零且无解",
+      "args": [
+        "0123"
+      ],
+      "expected": []
+    }
+  ]
+}

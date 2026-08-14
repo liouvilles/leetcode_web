@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1109,
+  "slug": "corporate-flight-bookings",
+  "title": "航班预订统计",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-016",
+  "studyTags": [
+    "数组",
+    "差分",
+    "前缀和"
+  ],
+  "summary": "每条预订 [first,last,seats] 为编号区间内每个航班增加座位，返回 n 个航班最终预订数。",
+  "insight": "区间统一增加可用差分数组：在 first 起点加 seats，在 last 后一位减 seats，最后前缀和恢复每个航班值。",
+  "pitfalls": [
+    "航班编号从一开始",
+    "last 是包含边界",
+    "last==n 时无需在数组内减"
+  ],
+  "solutions": [
+    {
+      "id": "range-add-difference-array",
+      "title": "区间加差分数组",
+      "kind": "最优",
+      "idea": "用两个端点变化表示整段预订。",
+      "steps": [
+        "difference 长度 n+1",
+        "对 booking，difference[first-1]+=seats，difference[last]-=seats",
+        "对前 n 项做前缀累计并写 answer，返回"
+      ],
+      "complexity": {
+        "time": "O(bookings+n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/range-add-difference-array/Solution.java",
+        "kotlin": "solutions/range-add-difference-array/Solution.kt",
+        "cpp": "solutions/range-add-difference-array/solution.cpp"
+      }
+    }
+  ]
+}

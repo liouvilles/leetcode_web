@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "CombinationIterator",
+  "constructorTypes": [
+    "string",
+    "int"
+  ],
+  "cases": [
+    {
+      "name": "abc 取二依次输出",
+      "constructorArgs": [
+        "abc",
+        2
+      ],
+      "calls": [
+        {
+          "method": "next",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "string",
+          "expected": "ab"
+        },
+        {
+          "method": "hasNext",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "next",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "string",
+          "expected": "ac"
+        },
+        {
+          "method": "next",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "string",
+          "expected": "bc"
+        },
+        {
+          "method": "hasNext",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "boolean",
+          "expected": false
+        }
+      ]
+    },
+    {
+      "name": "完整长度只有一种",
+      "constructorArgs": [
+        "abcd",
+        4
+      ],
+      "calls": [
+        {
+          "method": "hasNext",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "next",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "string",
+          "expected": "abcd"
+        },
+        {
+          "method": "hasNext",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "boolean",
+          "expected": false
+        }
+      ]
+    },
+    {
+      "name": "单字符组合",
+      "constructorArgs": [
+        "xy",
+        1
+      ],
+      "calls": [
+        {
+          "method": "next",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "string",
+          "expected": "x"
+        },
+        {
+          "method": "next",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "string",
+          "expected": "y"
+        },
+        {
+          "method": "hasNext",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "boolean",
+          "expected": false
+        }
+      ]
+    }
+  ]
+}

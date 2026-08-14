@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2209,
+  "slug": "minimum-white-tiles-after-covering-with-carpets",
+  "title": "用地毯覆盖后的最少白色砖块",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-032",
+  "studyTags": [
+    "字符串",
+    "动态规划"
+  ],
+  "summary": "地板由黑白砖组成，可放最多 numCarpets 张长度 carpetLen 的地毯，求未覆盖白砖最少数。",
+  "insight": "状态 dp[index][remaining]：从 index 起用剩余地毯的最少白砖。选择不铺时承担当前白砖并前进一格；铺地毯时跳过 carpetLen 格并消耗一张。",
+  "pitfalls": [
+    "地毯允许重叠但最优无需主动重叠",
+    "最多使用而非必须使用全部",
+    "越过末尾后代价为零"
+  ],
+  "solutions": [
+    {
+      "id": "index-carpet-count-dp",
+      "title": "位置与地毯数动态规划",
+      "kind": "最优",
+      "idea": "每个位置比较覆盖与不覆盖两种决策。",
+      "steps": [
+        "memo 初始化 -1",
+        "dfs(index,carpets)：index>=n 返回零；carpets==0 返回后缀一数量",
+        "skip=(floor[index]==1)+dfs(index+1,carpets)，cover=dfs(index+carpetLen,carpets-1)，缓存 min"
+      ],
+      "complexity": {
+        "time": "O(n·numCarpets)",
+        "space": "O(n·numCarpets)"
+      },
+      "files": {
+        "java": "solutions/index-carpet-count-dp/Solution.java",
+        "kotlin": "solutions/index-carpet-count-dp/Solution.kt",
+        "cpp": "solutions/index-carpet-count-dp/solution.cpp"
+      }
+    }
+  ]
+}

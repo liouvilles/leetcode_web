@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "checkMove",
+  "parameterTypes": [
+    "charMatrix",
+    "int",
+    "int",
+    "char"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "横向夹住一个白棋合法",
+      "args": [
+        [
+          [
+            "B",
+            "W",
+            "."
+          ],
+          [
+            ".",
+            ".",
+            "."
+          ],
+          [
+            ".",
+            ".",
+            "."
+          ]
+        ],
+        0,
+        2,
+        "B"
+      ],
+      "expected": true
+    },
+    {
+      "name": "纵向夹住一个黑棋合法",
+      "args": [
+        [
+          [
+            ".",
+            ".",
+            "."
+          ],
+          [
+            ".",
+            "B",
+            "."
+          ],
+          [
+            ".",
+            "W",
+            "."
+          ]
+        ],
+        0,
+        1,
+        "W"
+      ],
+      "expected": true
+    },
+    {
+      "name": "中间没有异色棋子不合法",
+      "args": [
+        [
+          [
+            "B",
+            ".",
+            "."
+          ],
+          [
+            ".",
+            ".",
+            "."
+          ],
+          [
+            ".",
+            ".",
+            "."
+          ]
+        ],
+        0,
+        2,
+        "B"
+      ],
+      "expected": false
+    }
+  ]
+}

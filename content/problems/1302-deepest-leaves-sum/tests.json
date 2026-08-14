@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "deepestLeavesSum",
+  "parameterTypes": [
+    "treeNode"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "最深七八和十五",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          null,
+          6,
+          7,
+          null,
+          null,
+          null,
+          null,
+          8
+        ]
+      ],
+      "expected": 15
+    },
+    {
+      "name": "单节点本身",
+      "args": [
+        [
+          5
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "最深层两个节点",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": 9
+    }
+  ]
+}

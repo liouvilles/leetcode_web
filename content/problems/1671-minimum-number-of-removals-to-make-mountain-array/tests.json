@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumMountainRemovals",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三元素已是山形无需删除",
+      "args": [
+        [
+          1,
+          3,
+          1
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "复杂数组最少删除三",
+      "args": [
+        [
+          2,
+          1,
+          1,
+          5,
+          6,
+          2,
+          3,
+          1
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "删除一个平台元素形成山形",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          3,
+          2,
+          1
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

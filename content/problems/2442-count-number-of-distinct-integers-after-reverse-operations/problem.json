@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2442,
+  "slug": "count-number-of-distinct-integers-after-reverse-operations",
+  "title": "反转之后不同整数的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-036",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "数学",
+    "计数"
+  ],
+  "summary": "把数组每个整数的十进制反转值也加入数组，统计最终不同整数数量。",
+  "insight": "集合先加入原值，同时计算逐位反转结果加入；前导零自然在整数表示中消失。",
+  "pitfalls": [
+    "原数也保留",
+    "反转后的前导零被丢弃",
+    "重复只计一次"
+  ],
+  "solutions": [
+    {
+      "id": "set-original-and-reversed-values",
+      "title": "集合加入原值与反转值",
+      "kind": "最优",
+      "idea": "逐数计算十进制逆序。",
+      "steps": [
+        "集合为空",
+        "对 value 加入自身",
+        "循环 digits 构造 reversed=reversed*10+digit",
+        "加入 reversed，返回集合大小"
+      ],
+      "complexity": {
+        "time": "O(total digits)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/set-original-and-reversed-values/Solution.java",
+        "kotlin": "solutions/set-original-and-reversed-values/Solution.kt",
+        "cpp": "solutions/set-original-and-reversed-values/solution.cpp"
+      }
+    }
+  ]
+}

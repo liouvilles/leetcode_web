@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 729,
+  "slug": "my-calendar-i",
+  "title": "我的日程安排表 I",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-009",
+  "studyTags": [
+    "设计",
+    "有序集合",
+    "区间"
+  ],
+  "summary": "日历每次预订半开区间 [startTime,endTime)，若与已有日程有正长度重叠则拒绝，否则接受。",
+  "insight": "按开始时间有序保存日程；新日程只可能与紧邻的前一个和后一个区间冲突。",
+  "pitfalls": [
+    "端点相接不算重叠",
+    "预订失败不能修改日历",
+    "需要同时检查前驱结束时间和后继开始时间"
+  ],
+  "solutions": [
+    {
+      "id": "ordered-neighbor-check",
+      "title": "有序映射检查相邻区间",
+      "kind": "最优",
+      "idea": "用 TreeMap/map 定位新起点两侧的已有日程。",
+      "steps": [
+        "找到 floor(start) 与 ceiling(start)",
+        "前驱存在且 end>start 时冲突，后继存在且 nextStart<end 时冲突",
+        "无冲突则保存 start→end 并返回真"
+      ],
+      "complexity": {
+        "time": "O(log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/ordered-neighbor-check/Solution.java",
+        "kotlin": "solutions/ordered-neighbor-check/Solution.kt",
+        "cpp": "solutions/ordered-neighbor-check/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2242,
+  "slug": "maximum-score-of-a-node-sequence",
+  "title": "节点序列的最大得分",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-033",
+  "studyTags": [
+    "图论",
+    "数组",
+    "排序"
+  ],
+  "summary": "无向图中选择四个互异节点 a-b-c-d 且三条相邻边存在，最大化四节点分数和。",
+  "insight": "固定中间边 b-c 后，只需为 b 选除 c 外最高分邻居 a，为 c 选除 b、a 外最高分邻居 d。每点只保留分数最高的三个邻居就足以绕开至多两个冲突。",
+  "pitfalls": [
+    "四个节点必须互异",
+    "答案不存在时负一",
+    "每条无向边作为中间边枚举一次"
+  ],
+  "solutions": [
+    {
+      "id": "top-three-neighbors-per-node",
+      "title": "每点最高分三个邻居",
+      "kind": "最优",
+      "idea": "压缩端点候选后枚举中间边与常数个组合。",
+      "steps": [
+        "为每点收集邻居并按 scores 降序保留前三",
+        "遍历 edges 的 b,c",
+        "枚举 a in best[b]、d in best[c]，若四点互异则更新 scores 和"
+      ],
+      "complexity": {
+        "time": "O(E+V·degree log degree)",
+        "space": "O(E)"
+      },
+      "files": {
+        "java": "solutions/top-three-neighbors-per-node/Solution.java",
+        "kotlin": "solutions/top-three-neighbors-per-node/Solution.kt",
+        "cpp": "solutions/top-three-neighbors-per-node/solution.cpp"
+      }
+    }
+  ]
+}

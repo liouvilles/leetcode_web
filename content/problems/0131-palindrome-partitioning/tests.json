@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "partition",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "stringListMatrix",
+  "cases": [
+    {
+      "name": "单字与双字回文方案",
+      "args": [
+        "aab"
+      ],
+      "expected": [
+        [
+          "a",
+          "a",
+          "b"
+        ],
+        [
+          "aa",
+          "b"
+        ]
+      ]
+    },
+    {
+      "name": "单字符",
+      "args": [
+        "a"
+      ],
+      "expected": [
+        [
+          "a"
+        ]
+      ]
+    },
+    {
+      "name": "整串也是回文",
+      "args": [
+        "efe"
+      ],
+      "expected": [
+        [
+          "e",
+          "f",
+          "e"
+        ],
+        [
+          "efe"
+        ]
+      ]
+    }
+  ]
+}

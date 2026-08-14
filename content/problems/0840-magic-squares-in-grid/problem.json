@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 840,
+  "slug": "magic-squares-in-grid",
+  "title": "矩阵中的幻方",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-011",
+  "studyTags": [
+    "数组",
+    "矩阵",
+    "枚举"
+  ],
+  "summary": "统计网格中有多少个 3×3 子矩阵包含一到九各一次，且每行、列和两条对角线的和都相等。",
+  "insight": "一到九各一次时总和为 45，幻方每条线必为 15；枚举每个 3×3 窗口检查范围、唯一性及八条线。",
+  "pitfalls": [
+    "元素必须恰在一到九范围内",
+    "重复数字即失败",
+    "不足三行或三列时答案为零"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-three-by-three-check",
+      "title": "枚举 3×3 窗口完整校验",
+      "kind": "最优",
+      "idea": "逐窗口检查数字集合和所有线之和。",
+      "steps": [
+        "枚举左上角 r,c",
+        "用 seen[10] 检查九格均在 1..9 且不重复",
+        "检查三行、三列及两对角线和均为 15，通过则 answer++"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/enumerate-three-by-three-check/Solution.java",
+        "kotlin": "solutions/enumerate-three-by-three-check/Solution.kt",
+        "cpp": "solutions/enumerate-three-by-three-check/solution.cpp"
+      }
+    }
+  ]
+}

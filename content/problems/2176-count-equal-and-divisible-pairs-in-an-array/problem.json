@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2176,
+  "slug": "count-equal-and-divisible-pairs-in-an-array",
+  "title": "统计数组中相等且可以被整除的数对",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-031",
+  "studyTags": [
+    "数组",
+    "数学",
+    "枚举"
+  ],
+  "summary": "统计下标 i<j、对应值相等且 i*j 能被 k 整除的数对数量。",
+  "insight": "数组规模小，直接枚举全部下标对并检查两个条件最清晰可靠。",
+  "pitfalls": [
+    "要求严格 i<j",
+    "整除的是下标乘积",
+    "值相等与整除缺一不可"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-index-pairs",
+      "title": "枚举下标对",
+      "kind": "最优",
+      "idea": "对每个无序下标对执行常数时间判定。",
+      "steps": [
+        "answer=0",
+        "i 从零到 n-1，j 从 i+1 到 n-1",
+        "若 nums[i]==nums[j] 且 (i*j)%k==0 则 answer++"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/enumerate-index-pairs/Solution.java",
+        "kotlin": "solutions/enumerate-index-pairs/Solution.kt",
+        "cpp": "solutions/enumerate-index-pairs/solution.cpp"
+      }
+    }
+  ]
+}

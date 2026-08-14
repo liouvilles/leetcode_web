@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "printVertically",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "stringList",
+  "cases": [
+    {
+      "name": "HOW ARE YOU",
+      "args": [
+        "HOW ARE YOU"
+      ],
+      "expected": [
+        "HAY",
+        "ORO",
+        "WEU"
+      ]
+    },
+    {
+      "name": "TO BE OR NOT TO BE",
+      "args": [
+        "TO BE OR NOT TO BE"
+      ],
+      "expected": [
+        "TBONTB",
+        "OEROOE",
+        "   T"
+      ]
+    },
+    {
+      "name": "CONTEST IS COMING",
+      "args": [
+        "CONTEST IS COMING"
+      ],
+      "expected": [
+        "CIC",
+        "OSO",
+        "N M",
+        "T I",
+        "E N",
+        "S G",
+        "T"
+      ]
+    }
+  ]
+}

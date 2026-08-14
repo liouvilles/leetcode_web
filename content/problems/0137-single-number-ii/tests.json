@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "singleNumber",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "单独数字在中间",
+      "args": [
+        [
+          2,
+          2,
+          3,
+          2
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "较大单独数字",
+      "args": [
+        [
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          99
+        ]
+      ],
+      "expected": 99
+    },
+    {
+      "name": "包含负数",
+      "args": [
+        [
+          -2,
+          -2,
+          -2,
+          -7
+        ]
+      ],
+      "expected": -7
+    }
+  ]
+}

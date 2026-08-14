@@ -1,0 +1,1 @@
+class Solution { fun mincostTickets(days:IntArray,costs:IntArray):Int{val last=days.last();val travel=BooleanArray(last+1);for(day in days)travel[day]=true;val dp=IntArray(last+1);for(day in 1..last)dp[day]=if(!travel[day])dp[day-1] else minOf(dp[day-1]+costs[0],dp[maxOf(0,day-7)]+costs[1],dp[maxOf(0,day-30)]+costs[2]);return dp[last]} }

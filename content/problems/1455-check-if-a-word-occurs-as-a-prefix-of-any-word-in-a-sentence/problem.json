@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1455,
+  "slug": "check-if-a-word-occurs-as-a-prefix-of-any-word-in-a-sentence",
+  "title": "检查单词是否为句中其他单词的前缀",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-021",
+  "studyTags": [
+    "字符串",
+    "字符串匹配"
+  ],
+  "summary": "返回 searchWord 是句子中第几个单词前缀，单词编号从一开始；不存在返回负一。",
+  "insight": "按空格切词并顺序调用 startsWith，首次命中即是答案。",
+  "pitfalls": [
+    "返回一基编号",
+    "必须是完整单词的开头",
+    "只返回最早匹配"
+  ],
+  "solutions": [
+    {
+      "id": "word-prefix-scan",
+      "title": "逐词前缀扫描",
+      "kind": "最优",
+      "idea": "顺序检查句中每个单词。",
+      "steps": [
+        "words=sentence.split",
+        "i 从零扫描",
+        "words[i].startsWith(searchWord) 时返回 i+1，结束返回 -1"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/word-prefix-scan/Solution.java",
+        "kotlin": "solutions/word-prefix-scan/Solution.kt",
+        "cpp": "solutions/word-prefix-scan/solution.cpp"
+      }
+    }
+  ]
+}

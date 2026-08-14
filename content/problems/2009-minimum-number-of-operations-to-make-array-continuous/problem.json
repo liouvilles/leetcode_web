@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2009,
+  "slug": "minimum-number-of-operations-to-make-array-continuous",
+  "title": "使数组连续的最少操作数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-029",
+  "studyTags": [
+    "数组",
+    "二分查找",
+    "排序",
+    "滑动窗口"
+  ],
+  "summary": "每次可把任一元素替换为任意整数，求使数组元素互不相同且最大最小差为 n-1 的最少操作数。",
+  "insight": "最终值是某个长度 n 的整数区间。排序去重后，用滑动窗口找能落在同一长度 n 区间内的最多已有不同值，其余位置替换即可。",
+  "pitfalls": [
+    "重复值最多保留一个",
+    "窗口条件为 value<start+n",
+    "答案按原数组长度减保留数"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-unique-value-window",
+      "title": "排序去重值域滑窗",
+      "kind": "最优",
+      "idea": "寻找长度 n 值域窗口中的最大不同值数量。",
+      "steps": [
+        "排序并生成 unique",
+        "right 扩展；保持 unique[right]<unique[left]+n",
+        "maximum=max(maximum,right-left+1)，返回 n-maximum"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/sorted-unique-value-window/Solution.java",
+        "kotlin": "solutions/sorted-unique-value-window/Solution.kt",
+        "cpp": "solutions/sorted-unique-value-window/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "makeIntegerBeautiful",
+  "parameterTypes": [
+    "long",
+    "int"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "十六增加四变二十",
+      "args": [
+        16,
+        6
+      ],
+      "expected": 4
+    },
+    {
+      "name": "四百六十七增加三十三变五百",
+      "args": [
+        467,
+        6
+      ],
+      "expected": 33
+    },
+    {
+      "name": "一已满足目标无需增加",
+      "args": [
+        1,
+        1
+      ],
+      "expected": 0
+    }
+  ]
+}

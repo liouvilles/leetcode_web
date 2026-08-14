@@ -1,0 +1,1 @@
+class Solution { public boolean hasAllCodes(String text,int k){int needed=1<<k;if(text.length()-k+1<needed)return false;boolean[] seen=new boolean[needed];int mask=needed-1,value=0,count=0;for(int i=0;i<text.length();i++){value=((value<<1)|(text.charAt(i)-'0'))&mask;if(i>=k-1&&!seen[value]){seen[value]=true;if(++count==needed)return true;}}return false;} }

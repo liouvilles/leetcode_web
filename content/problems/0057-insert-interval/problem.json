@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 57,
+  "slug": "insert-interval",
+  "title": "插入区间",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-004",
+  "studyTags": [
+    "区间合并",
+    "线性扫描",
+    "分类讨论"
+  ],
+  "summary": "把一个新区间插入按起点有序且互不重叠的区间列表，并合并所有重叠部分。",
+  "insight": "区间只分为新区间左侧、与新区间重叠、以及新区间右侧三段，按顺序一次扫描即可。",
+  "pitfalls": [
+    "端点相接也应视为重叠",
+    "新区间可能覆盖多个原区间",
+    "输入为空时只返回新区间"
+  ],
+  "solutions": [
+    {
+      "id": "three-phase-scan",
+      "title": "三阶段线性合并",
+      "kind": "最优",
+      "idea": "先收集完全位于左侧的区间，再扩张新区间，最后追加右侧区间。",
+      "steps": [
+        "追加 end < newStart 的区间",
+        "对 start <= newEnd 的区间更新合并边界",
+        "加入合并区间和剩余区间"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/three-phase-scan/Solution.java",
+        "kotlin": "solutions/three-phase-scan/Solution.kt",
+        "cpp": "solutions/three-phase-scan/solution.cpp"
+      }
+    }
+  ]
+}

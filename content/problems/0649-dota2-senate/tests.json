@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "predictPartyVictory",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "Radiant 先行动",
+      "args": [
+        "RD"
+      ],
+      "expected": "Radiant"
+    },
+    {
+      "name": "Dire 最终占优",
+      "args": [
+        "RDD"
+      ],
+      "expected": "Dire"
+    },
+    {
+      "name": "跨轮次继续竞争",
+      "args": [
+        "RRDDD"
+      ],
+      "expected": "Radiant"
+    }
+  ]
+}

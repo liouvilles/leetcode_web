@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "canTransform",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "多次合法移动",
+      "args": [
+        "RXXLRXRXL",
+        "XRLXXRRLX"
+      ],
+      "expected": true
+    },
+    {
+      "name": "不能凭空生成 L",
+      "args": [
+        "X",
+        "L"
+      ],
+      "expected": false
+    },
+    {
+      "name": "非 X 序列不同",
+      "args": [
+        "LLR",
+        "RRL"
+      ],
+      "expected": false
+    }
+  ]
+}

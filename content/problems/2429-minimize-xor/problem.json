@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2429,
+  "slug": "minimize-xor",
+  "title": "最小 XOR",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-036",
+  "studyTags": [
+    "贪心",
+    "位运算"
+  ],
+  "summary": "构造正整数 x，使其一比特数量等于 num2，且 x 与 num1 的异或值最小。",
+  "insight": "优先复用 num1 中权重最高的一位以避免昂贵异或差；数量仍不足时，从低位起设置 num1 原本为零的位。",
+  "pitfalls": [
+    "一比特总数必须完全相等",
+    "先保留高位一",
+    "补位应从最低空位开始"
+  ],
+  "solutions": [
+    {
+      "id": "keep-high-ones-fill-low-zeros",
+      "title": "保留高位一再补低位零",
+      "kind": "最优",
+      "idea": "按每位对异或值贡献的权重贪心。",
+      "steps": [
+        "need=bitCount(num2)、answer=0",
+        "bit 从30到0，若 num1 该位为一且 need>0则设置并 need--",
+        "bit 从0到30，若 answer 该位未设且 need>0则设置",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(word bits)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/keep-high-ones-fill-low-zeros/Solution.java",
+        "kotlin": "solutions/keep-high-ones-fill-low-zeros/Solution.kt",
+        "cpp": "solutions/keep-high-ones-fill-low-zeros/solution.cpp"
+      }
+    }
+  ]
+}

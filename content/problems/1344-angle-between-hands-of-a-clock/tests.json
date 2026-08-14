@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "angleClock",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "double",
+  "cases": [
+    {
+      "name": "十二点三十分一百六十五度",
+      "args": [
+        12,
+        30
+      ],
+      "expected": 165
+    },
+    {
+      "name": "三点三十分七十五度",
+      "args": [
+        3,
+        30
+      ],
+      "expected": 75
+    },
+    {
+      "name": "三点整九十度",
+      "args": [
+        3,
+        0
+      ],
+      "expected": 90
+    }
+  ]
+}

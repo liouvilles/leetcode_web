@@ -1,0 +1,1 @@
+class Solution { fun matrixReshape(mat:Array<IntArray>,r:Int,c:Int):Array<IntArray>{val rows=mat.size;val columns=mat[0].size;if(rows*columns!=r*c)return mat;val result=Array(r){IntArray(c)};for(index in 0 until rows*columns)result[index/c][index%c]=mat[index/columns][index%columns];return result} }

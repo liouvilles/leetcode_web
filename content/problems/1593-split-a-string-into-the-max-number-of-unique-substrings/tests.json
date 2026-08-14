@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxUniqueSplit",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "ababccc 最多五段",
+      "args": [
+        "ababccc"
+      ],
+      "expected": 5
+    },
+    {
+      "name": "aba 最多两段",
+      "args": [
+        "aba"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "全部不同字符可逐字符拆分",
+      "args": [
+        "abcdef"
+      ],
+      "expected": 6
+    }
+  ]
+}

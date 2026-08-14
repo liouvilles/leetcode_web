@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 835,
+  "slug": "image-overlap",
+  "title": "图像重叠",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-011",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "矩阵"
+  ],
+  "summary": "平移一个二进制方阵后与另一个方阵叠加，求两者值一位置重叠的最大数量。",
+  "insight": "每对来自两图的一位置决定一个平移向量；统计所有平移向量出现次数，最高频就是该位移下的重叠数。",
+  "pitfalls": [
+    "只枚举值一的位置可减少工作",
+    "平移向量可为负数",
+    "没有一时答案为零"
+  ],
+  "solutions": [
+    {
+      "id": "one-pair-shift-frequency",
+      "title": "一位置对的位移频次",
+      "kind": "最优",
+      "idea": "枚举两图所有一格配对并计数位移。",
+      "steps": [
+        "分别收集 img1、img2 中值一坐标",
+        "对每对坐标计算 (r1-r2,c1-c2)",
+        "用映射累计该位移次数并维护最大值"
+      ],
+      "complexity": {
+        "time": "O(a·b)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/one-pair-shift-frequency/Solution.java",
+        "kotlin": "solutions/one-pair-shift-frequency/Solution.kt",
+        "cpp": "solutions/one-pair-shift-frequency/solution.cpp"
+      }
+    }
+  ]
+}

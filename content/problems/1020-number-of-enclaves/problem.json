@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1020,
+  "slug": "number-of-enclaves",
+  "title": "飞地的数量",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-015",
+  "studyTags": [
+    "数组",
+    "深度优先搜索",
+    "矩阵"
+  ],
+  "summary": "二进制网格中陆地可四向移动，统计无法走到边界的陆地格数量。",
+  "insight": "所有能到边界的陆地都不是飞地；从四条边界洪泛删除可达陆地，剩余一的数量就是答案。",
+  "pitfalls": [
+    "边界本身的陆地也要删除",
+    "洪泛只沿上下左右",
+    "四条边重复起点无妨，首次访问后置零"
+  ],
+  "solutions": [
+    {
+      "id": "boundary-land-flood-fill",
+      "title": "边界陆地洪泛",
+      "kind": "最优",
+      "idea": "先消去所有与边界连通的陆地分量。",
+      "steps": [
+        "对每行洪泛左右边界，对每列洪泛上下边界",
+        "flood 遇越界或非一返回，否则置零并递归四邻",
+        "扫描修改后网格，累加剩余的一并返回"
+      ],
+      "complexity": {
+        "time": "O(rows·cols)",
+        "space": "O(rows·cols)"
+      },
+      "files": {
+        "java": "solutions/boundary-land-flood-fill/Solution.java",
+        "kotlin": "solutions/boundary-land-flood-fill/Solution.kt",
+        "cpp": "solutions/boundary-land-flood-fill/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minOperations",
+  "parameterTypes": [
+    "intMatrix",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "二四六八以四或六为目标需四次",
+      "args": [
+        [
+          [
+            2,
+            4
+          ],
+          [
+            6,
+            8
+          ]
+        ],
+        2
+      ],
+      "expected": 4
+    },
+    {
+      "name": "步长一中位数最少五次",
+      "args": [
+        [
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        1
+      ],
+      "expected": 5
+    },
+    {
+      "name": "余数不同无法统一",
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        2
+      ],
+      "expected": -1
+    }
+  ]
+}

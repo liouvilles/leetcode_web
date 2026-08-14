@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 33,
+  "slug": "search-in-rotated-sorted-array",
+  "title": "搜索旋转排序数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-001",
+  "studyTags": [
+    "二分查找",
+    "有序半区",
+    "旋转数组"
+  ],
+  "summary": "在一个元素互不相同、经过未知位置旋转的升序数组中查找目标值下标，不存在时返回 -1。",
+  "insight": "任意二分区间至少有一半仍然有序，判断目标是否落在该有序半区即可排除另一半。",
+  "pitfalls": [
+    "边界比较要统一使用闭区间",
+    "先确定哪一半有序，再判断目标范围",
+    "目标不存在时必须返回 -1"
+  ],
+  "solutions": [
+    {
+      "id": "modified-binary-search",
+      "title": "识别有序半区的二分",
+      "kind": "最优",
+      "idea": "每轮利用端点和中点识别有序的一半，再根据目标范围缩小搜索区间。",
+      "steps": [
+        "计算中点并直接检查目标",
+        "比较左端与中点判断左半区是否有序",
+        "依据目标是否位于有序范围更新左右边界"
+      ],
+      "complexity": {
+        "time": "O(log n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/modified-binary-search/Solution.java",
+        "kotlin": "solutions/modified-binary-search/Solution.kt",
+        "cpp": "solutions/modified-binary-search/solution.cpp"
+      }
+    }
+  ]
+}

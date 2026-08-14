@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2407,
+  "slug": "longest-increasing-subsequence-ii",
+  "title": "最长递增子序列 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-035",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "线段树"
+  ],
+  "summary": "求最长严格递增子序列，且相邻所选值之差不超过 k。",
+  "insight": "处理 value 时，前驱值必须落在 [value-k,value-1]。线段树按数值维护该值结尾的最大长度，区间查询最优前驱后在 value 点更新。",
+  "pitfalls": [
+    "必须严格递增所以不含 value 本身",
+    "查询下界不能小于一",
+    "同一值更新取最大"
+  ],
+  "solutions": [
+    {
+      "id": "value-domain-segment-tree-dp",
+      "title": "值域线段树 DP",
+      "kind": "最优",
+      "idea": "区间最大值查询加单点取大更新。",
+      "steps": [
+        "树覆盖 1..max(nums)",
+        "对 value：best=query(max(1,value-k),value-1)+1",
+        "update(value,best)",
+        "返回根节点最大值"
+      ],
+      "complexity": {
+        "time": "O(n log maxValue)",
+        "space": "O(maxValue)"
+      },
+      "files": {
+        "java": "solutions/value-domain-segment-tree-dp/Solution.java",
+        "kotlin": "solutions/value-domain-segment-tree-dp/Solution.kt",
+        "cpp": "solutions/value-domain-segment-tree-dp/solution.cpp"
+      }
+    }
+  ]
+}

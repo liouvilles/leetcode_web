@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 565,
+  "slug": "array-nesting",
+  "title": "数组嵌套",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-007",
+  "studyTags": [
+    "数组",
+    "环检测",
+    "原地遍历"
+  ],
+  "summary": "数组是零到 n-1 的排列，从任意下标反复跳到 nums[index] 会形成环，求最长环的长度。",
+  "insight": "排列中的每个下标只属于一个环；访问一个未见下标时走完整个环并标记，所有遍历合计线性。",
+  "pitfalls": [
+    "值本身就是下一下标",
+    "已访问环无需重复统计",
+    "每个元素都可能是长度一的自环"
+  ],
+  "solutions": [
+    {
+      "id": "visited-cycle-walk",
+      "title": "访问标记遍历所有环",
+      "kind": "最优",
+      "idea": "从每个未访问下标沿映射前进并计数。",
+      "steps": [
+        "建立 visited 布尔数组",
+        "对每个未访问起点循环跳转并标记",
+        "用本次长度更新最大值"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/visited-cycle-walk/Solution.java",
+        "kotlin": "solutions/visited-cycle-walk/Solution.kt",
+        "cpp": "solutions/visited-cycle-walk/solution.cpp"
+      }
+    }
+  ]
+}

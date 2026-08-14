@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "checkPowersOfThree",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "十二等于九加三",
+      "args": [
+        12
+      ],
+      "expected": true
+    },
+    {
+      "name": "九十一可由不同三幂组成",
+      "args": [
+        91
+      ],
+      "expected": true
+    },
+    {
+      "name": "二十一三进制含二",
+      "args": [
+        21
+      ],
+      "expected": false
+    }
+  ]
+}

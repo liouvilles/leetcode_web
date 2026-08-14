@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1981,
+  "slug": "minimize-the-difference-between-target-and-chosen-elements",
+  "title": "最小化目标值与所选元素的差",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-028",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "矩阵"
+  ],
+  "summary": "矩阵每行恰选一个元素，最小化所选元素总和与 target 的绝对差。",
+  "insight": "所有元素较小，用布尔集合维护处理若干行后可达的总和。每行把此前每个可达和与该行每个值组合，最后扫描所有可达和取最小绝对差。",
+  "pitfalls": [
+    "每行必须且只选一个",
+    "同一行重复值不影响可达性",
+    "最大和由各行最大值之和界定"
+  ],
+  "solutions": [
+    {
+      "id": "reachable-sums-row-dp",
+      "title": "逐行可达和 DP",
+      "kind": "最优",
+      "idea": "用布尔背包合并每行的多选一候选。",
+      "steps": [
+        "maximum=各行最大值之和，reachable[0]=true",
+        "对每行创建 next；对可达 sum 和行中 value 标记 next[sum+value]",
+        "最终扫描 reachable，返回 min(abs(sum-target))"
+      ],
+      "complexity": {
+        "time": "O(rows·maxSum·cols)",
+        "space": "O(maxSum)"
+      },
+      "files": {
+        "java": "solutions/reachable-sums-row-dp/Solution.java",
+        "kotlin": "solutions/reachable-sums-row-dp/Solution.kt",
+        "cpp": "solutions/reachable-sums-row-dp/solution.cpp"
+      }
+    }
+  ]
+}

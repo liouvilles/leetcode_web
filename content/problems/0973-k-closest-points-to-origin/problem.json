@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 973,
+  "slug": "k-closest-points-to-origin",
+  "title": "最接近原点的 K 个点",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-014",
+  "studyTags": [
+    "数组",
+    "几何",
+    "排序"
+  ],
+  "summary": "返回平面点集中欧氏距离原点最近的 k 个点，答案顺序任意。",
+  "insight": "平方距离与真实距离排序一致且无需开方；按 x²+y² 升序排序后取前 k 个点。",
+  "pitfalls": [
+    "平方计算用长整型防止中间溢出",
+    "题目允许任意答案顺序",
+    "返回点坐标而非距离"
+  ],
+  "solutions": [
+    {
+      "id": "squared-distance-sort",
+      "title": "平方距离排序",
+      "kind": "最优",
+      "idea": "按无需开方的距离键排序全部点。",
+      "steps": [
+        "按 (long)x*x+(long)y*y 对 points 升序排序",
+        "创建长度 k 的结果矩阵",
+        "复制排序后的前 k 行并返回"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/squared-distance-sort/Solution.java",
+        "kotlin": "solutions/squared-distance-sort/Solution.kt",
+        "cpp": "solutions/squared-distance-sort/solution.cpp"
+      }
+    }
+  ]
+}

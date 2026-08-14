@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numberOfWays",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四座椅中间有三个可分缝隙",
+      "args": [
+        "SSPPSPS"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "恰两座椅只有一种方案",
+      "args": [
+        "PPSPSP"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "奇数座椅无合法方案",
+      "args": [
+        "S"
+      ],
+      "expected": 0
+    }
+  ]
+}

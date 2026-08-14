@@ -1,0 +1,1 @@
+class RLEIterator(encoding:IntArray){private val values=LongArray(encoding.size){encoding[it].toLong()};private var index=0;fun next(n:Int):Int{var remaining=n.toLong();while(index<values.size){if(values[index]>=remaining){values[index]-=remaining;return values[index+1].toInt()};remaining-=values[index];index+=2};return -1} }

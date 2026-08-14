@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1598,
+  "slug": "crawler-log-folder",
+  "title": "文件夹操作日志搜集器",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-023",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "栈"
+  ],
+  "summary": "从主文件夹开始执行进入子目录、返回上层或停留操作，返回回到主文件夹所需最少上层操作数。",
+  "insight": "只需维护当前深度：进入普通目录加一，../ 在深度大于零时减一，./ 不变；最终深度就是答案。",
+  "pitfalls": [
+    "在主目录执行 ../ 仍停留主目录",
+    "./ 不改变深度",
+    "普通日志均表示进入一个子目录"
+  ],
+  "solutions": [
+    {
+      "id": "folder-depth-counter",
+      "title": "目录深度计数",
+      "kind": "最优",
+      "idea": "把完整路径状态压缩为相对主目录深度。",
+      "steps": [
+        "depth=0",
+        "log==../ 时 depth=max(0,depth-1)",
+        "log==./ 时不变，否则 depth++；返回 depth"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/folder-depth-counter/Solution.java",
+        "kotlin": "solutions/folder-depth-counter/Solution.kt",
+        "cpp": "solutions/folder-depth-counter/solution.cpp"
+      }
+    }
+  ]
+}

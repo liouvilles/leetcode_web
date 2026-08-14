@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "id": 21,
+  "slug": "merge-two-sorted-lists",
+  "title": "合并两个有序链表",
+  "status": "published",
+  "qualityGate": "compile",
+  "batch": "legacy-001",
+  "studyTags": [
+    "虚拟头结点",
+    "双指针",
+    "有序合并"
+  ],
+  "summary": "把两个非递减链表合并为一个非递减链表，并复用原有结点。",
+  "insight": "两个链表的头部较小者一定是剩余结果的下一个结点。",
+  "pitfalls": [
+    "结果头结点可能来自任意一条链表",
+    "循环结束后要接上未处理的尾部",
+    "递归深度与结点总数同阶"
+  ],
+  "solutions": [
+    {
+      "id": "iterative-dummy",
+      "title": "虚拟头结点迭代",
+      "kind": "最优",
+      "idea": "虚拟头结点统一处理结果链表为空与非空的情况，尾指针持续接入较小结点。",
+      "steps": [
+        "创建 dummy 与 tail",
+        "比较两条链表头部并移动被选中的指针",
+        "接上剩余链表并返回 dummy.next"
+      ],
+      "complexity": {
+        "time": "O(m+n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/iterative-dummy/Solution.java",
+        "kotlin": "solutions/iterative-dummy/Solution.kt",
+        "cpp": "solutions/iterative-dummy/solution.cpp"
+      }
+    },
+    {
+      "id": "recursive",
+      "title": "递归合并",
+      "kind": "进阶",
+      "idea": "选出较小头结点后，问题缩小为该结点的后继与另一条链表的合并。",
+      "steps": [
+        "任一链表为空时返回另一条",
+        "选较小的头结点",
+        "递归设置它的 next 并返回"
+      ],
+      "complexity": {
+        "time": "O(m+n)",
+        "space": "O(m+n)"
+      },
+      "files": {
+        "java": "solutions/recursive/Solution.java",
+        "kotlin": "solutions/recursive/Solution.kt",
+        "cpp": "solutions/recursive/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumProduct",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四个正数",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": 24
+    },
+    {
+      "name": "两个大负数",
+      "args": [
+        [
+          -100,
+          -98,
+          -1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": 39200
+    },
+    {
+      "name": "全为负数",
+      "args": [
+        [
+          -1,
+          -2,
+          -3
+        ]
+      ],
+      "expected": -6
+    }
+  ]
+}

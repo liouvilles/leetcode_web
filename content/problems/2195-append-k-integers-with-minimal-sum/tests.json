@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimalKSum",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "缺失二三之和为五",
+      "args": [
+        [
+          1,
+          4,
+          25,
+          10,
+          25
+        ],
+        2
+      ],
+      "expected": 5
+    },
+    {
+      "name": "跳过五六选六个最小缺失数",
+      "args": [
+        [
+          5,
+          6
+        ],
+        6
+      ],
+      "expected": 25
+    },
+    {
+      "name": "一二三后选择四五",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        2
+      ],
+      "expected": 9
+    }
+  ]
+}

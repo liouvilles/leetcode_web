@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 279,
+  "slug": "perfect-squares",
+  "title": "完全平方数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-003",
+  "studyTags": [
+    "完全背包",
+    "动态规划",
+    "最少数量"
+  ],
+  "summary": "求若干个完全平方数之和等于 n 时所需的最少项数，每个平方数可以重复使用。",
+  "insight": "把每个平方数视为可无限使用的物品，dp[value] 从所有 dp[value-square]+1 中取最小。",
+  "pitfalls": [
+    "一也属于完全平方数，因此一定有解",
+    "平方数可重复使用",
+    "状态初始值要大于任何可能答案"
+  ],
+  "solutions": [
+    {
+      "id": "complete-knapsack-dp",
+      "title": "最短组成动态规划",
+      "kind": "最优",
+      "idea": "从一到 n 依次计算每个整数的最少平方数数量。",
+      "steps": [
+        "dp[0]=0，其余初始化较大值",
+        "枚举 value 的所有 square<=value",
+        "更新 dp[value]=min(dp[value],dp[value-square]+1)"
+      ],
+      "complexity": {
+        "time": "O(n√n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/complete-knapsack-dp/Solution.java",
+        "kotlin": "solutions/complete-knapsack-dp/Solution.kt",
+        "cpp": "solutions/complete-knapsack-dp/solution.cpp"
+      }
+    }
+  ]
+}

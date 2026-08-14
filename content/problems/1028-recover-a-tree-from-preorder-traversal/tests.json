@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "recoverFromPreorder",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "treeNode",
+  "cases": [
+    {
+      "name": "完整三层树",
+      "args": [
+        "1-2--3--4-5--6--7"
+      ],
+      "expected": [
+        1,
+        2,
+        5,
+        3,
+        4,
+        6,
+        7
+      ]
+    },
+    {
+      "name": "左深右浅",
+      "args": [
+        "1-2--3---4-5--6---7"
+      ],
+      "expected": [
+        1,
+        2,
+        5,
+        3,
+        null,
+        6,
+        null,
+        4,
+        null,
+        7
+      ]
+    },
+    {
+      "name": "多位节点值",
+      "args": [
+        "1-401--349---90--88"
+      ],
+      "expected": [
+        1,
+        401,
+        null,
+        349,
+        88,
+        90
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 790,
+  "slug": "domino-and-tromino-tiling",
+  "title": "多米诺和托米诺平铺",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-010",
+  "studyTags": [
+    "动态规划",
+    "递推",
+    "状态机"
+  ],
+  "summary": "用 2×1 多米诺和 L 形托米诺平铺 2×n 面板，求方案数对 1e9+7 取模。",
+  "insight": "消去带缺口的辅助状态后，完整平铺数满足 dp[n]=2·dp[n-1]+dp[n-3]，初值 dp0=1、dp1=1、dp2=2。",
+  "pitfalls": [
+    "递推从 n=3 开始",
+    "乘二前使用长整型避免溢出",
+    "空面板 dp0=1 是递推所需边界"
+  ],
+  "solutions": [
+    {
+      "id": "compressed-tiling-recurrence",
+      "title": "压缩后的三项递推",
+      "kind": "最优",
+      "idea": "滚动保存 dp[i-3..i-1] 计算下一项。",
+      "steps": [
+        "处理 n=1、n=2",
+        "令 a=dp0,b=dp1,c=dp2",
+        "i 从 3 到 n，next=(2*c+a)%MOD，然后 a=b,b=c,c=next；返回 c"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/compressed-tiling-recurrence/Solution.java",
+        "kotlin": "solutions/compressed-tiling-recurrence/Solution.kt",
+        "cpp": "solutions/compressed-tiling-recurrence/solution.cpp"
+      }
+    }
+  ]
+}

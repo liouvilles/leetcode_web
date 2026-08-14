@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1770,
+  "slug": "maximum-score-from-performing-multiplication-operations",
+  "title": "执行乘法运算的最大分数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-025",
+  "studyTags": [
+    "数组",
+    "动态规划"
+  ],
+  "summary": "依次使用 multipliers，每次从 nums 左端或右端取一个数相乘并移除，求 m 次后的最大总分。",
+  "insight": "第 step 次已从左取 left 个，则从右已取 step-left 个，右端下标可直接算出。二维 DP 只需记录 step 与 left。",
+  "pitfalls": [
+    "乘数使用顺序固定",
+    "nums 可能有负数",
+    "右端下标为 n-1-(step-left)"
+  ],
+  "solutions": [
+    {
+      "id": "operation-left-count-dp",
+      "title": "操作步数与左取数量 DP",
+      "kind": "最优",
+      "idea": "用已取总数推导右侧状态，消除显式右指针。",
+      "steps": [
+        "memo[step][left]",
+        "leftChoice=nums[left]*mult[step]+dfs(step+1,left+1)",
+        "rightIndex=n-1-(step-left)，rightChoice 类似；取最大，step==m 返回零"
+      ],
+      "complexity": {
+        "time": "O(m²)",
+        "space": "O(m²)"
+      },
+      "files": {
+        "java": "solutions/operation-left-count-dp/Solution.java",
+        "kotlin": "solutions/operation-left-count-dp/Solution.kt",
+        "cpp": "solutions/operation-left-count-dp/solution.cpp"
+      }
+    }
+  ]
+}

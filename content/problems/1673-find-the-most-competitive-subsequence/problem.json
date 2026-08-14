@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1673,
+  "slug": "find-the-most-competitive-subsequence",
+  "title": "找出最具竞争力的子序列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-024",
+  "studyTags": [
+    "数组",
+    "栈",
+    "贪心",
+    "单调栈"
+  ],
+  "summary": "在数组所有长度为 k 的子序列中，返回字典序最小者。",
+  "insight": "维护递增倾向的栈；当前值更小时，只要删除栈顶后剩余元素仍足够凑齐 k，就弹出栈顶。最后保留前 k 个。",
+  "pitfalls": [
+    "只能删除元素不能改变相对顺序",
+    "弹栈前需确保剩余数量足够",
+    "结果长度严格为 k"
+  ],
+  "solutions": [
+    {
+      "id": "monotonic-subsequence-stack",
+      "title": "单调子序列栈",
+      "kind": "最优",
+      "idea": "贪心删除会让首个差异位置更大的元素。",
+      "steps": [
+        "stack 数组与 size=0",
+        "扫描 i：while 栈顶>nums[i] 且 size-1+(n-i)>=k 时弹栈",
+        "若 size<k 则压入当前值，返回 stack"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(k)"
+      },
+      "files": {
+        "java": "solutions/monotonic-subsequence-stack/Solution.java",
+        "kotlin": "solutions/monotonic-subsequence-stack/Solution.kt",
+        "cpp": "solutions/monotonic-subsequence-stack/solution.cpp"
+      }
+    }
+  ]
+}

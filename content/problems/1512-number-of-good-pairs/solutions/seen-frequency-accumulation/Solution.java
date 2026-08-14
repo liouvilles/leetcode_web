@@ -1,0 +1,1 @@
+class Solution { public int numIdenticalPairs(int[] nums){Map<Integer,Integer> count=new HashMap<>();int answer=0;for(int value:nums){answer+=count.getOrDefault(value,0);count.merge(value,1,Integer::sum);}return answer;} }

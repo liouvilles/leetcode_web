@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "fairCandySwap",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "一与二交换",
+      "args": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "expected": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "不同总和交换",
+      "args": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "单盒与三交换",
+      "args": [
+        [
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "expected": [
+        2,
+        3
+      ]
+    }
+  ]
+}

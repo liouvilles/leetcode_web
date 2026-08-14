@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getWinner",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "连续两胜的五获胜",
+      "args": [
+        [
+          2,
+          1,
+          3,
+          5,
+          4,
+          6,
+          7
+        ],
+        2
+      ],
+      "expected": 5
+    },
+    {
+      "name": "胜场很大时最大值获胜",
+      "args": [
+        [
+          3,
+          2,
+          1
+        ],
+        10
+      ],
+      "expected": 3
+    },
+    {
+      "name": "一胜即由二十五获胜",
+      "args": [
+        [
+          1,
+          25,
+          35,
+          42,
+          68,
+          70
+        ],
+        1
+      ],
+      "expected": 25
+    }
+  ]
+}

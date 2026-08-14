@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 229,
+  "slug": "majority-element-ii",
+  "title": "多数元素 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-005",
+  "studyTags": [
+    "摩尔投票",
+    "数组",
+    "候选验证"
+  ],
+  "summary": "返回数组中所有出现次数严格超过三分之一的元素。",
+  "insight": "这样的元素最多两个；摩尔投票维护两个候选并抵消其他值，最后再验证真实频次。",
+  "pitfalls": [
+    "候选阶段结束后必须二次计数",
+    "答案最多含两个值",
+    "匹配候选要先于空计数槽判断"
+  ],
+  "solutions": [
+    {
+      "id": "boyer-moore-two-candidates",
+      "title": "双候选摩尔投票",
+      "kind": "最优",
+      "idea": "用两个槽位抵消不属于候选的元素，再验证候选是否过阈值。",
+      "steps": [
+        "扫描更新 candidate1/candidate2 与计数",
+        "其他值令两个计数同时减一",
+        "重新统计候选出现次数并筛选"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/boyer-moore-two-candidates/Solution.java",
+        "kotlin": "solutions/boyer-moore-two-candidates/Solution.kt",
+        "cpp": "solutions/boyer-moore-two-candidates/solution.cpp"
+      }
+    }
+  ]
+}

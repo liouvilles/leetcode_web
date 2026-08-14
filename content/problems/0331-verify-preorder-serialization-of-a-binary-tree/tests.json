@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isValidSerialization",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "合法完整序列",
+      "args": [
+        "9,3,4,#,#,1,#,#,2,#,6,#,#"
+      ],
+      "expected": true
+    },
+    {
+      "name": "缺少孩子",
+      "args": [
+        "1,#"
+      ],
+      "expected": false
+    },
+    {
+      "name": "根已空仍有标记",
+      "args": [
+        "9,#,#,1"
+      ],
+      "expected": false
+    }
+  ]
+}

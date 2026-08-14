@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 54,
+  "slug": "spiral-matrix",
+  "title": "螺旋矩阵",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-002",
+  "studyTags": [
+    "边界模拟",
+    "分层遍历",
+    "矩阵"
+  ],
+  "summary": "按从左到右、从上到下、从右到左、从下到上的顺序，螺旋返回矩阵中的所有元素。",
+  "insight": "维护尚未访问矩形的四条边，每完成一条边就向内收缩，并在逆向遍历前确认边界仍有效。",
+  "pitfalls": [
+    "单行或单列时不能重复访问",
+    "下边和左边遍历前要再次检查边界",
+    "结果长度应恰好等于元素总数"
+  ],
+  "solutions": [
+    {
+      "id": "shrinking-boundaries",
+      "title": "四边界收缩",
+      "kind": "最优",
+      "idea": "循环遍历当前矩形的四条边并逐层向内。",
+      "steps": [
+        "遍历上边并增加 top",
+        "遍历右边并减少 right",
+        "边界有效时遍历下边和左边"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/shrinking-boundaries/Solution.java",
+        "kotlin": "solutions/shrinking-boundaries/Solution.kt",
+        "cpp": "solutions/shrinking-boundaries/solution.cpp"
+      }
+    }
+  ]
+}

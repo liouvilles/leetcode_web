@@ -1,0 +1,1 @@
+class Solution { fun findMinFibonacciNumbers(k:Int):Int{var remaining=k;val fib=mutableListOf(1,2);while(fib.last()<remaining)fib.add(fib[fib.lastIndex]+fib[fib.lastIndex-1]);var answer=0;for(i in fib.lastIndex downTo 0)if(fib[i]<=remaining){remaining-=fib[i];answer++};return answer} }

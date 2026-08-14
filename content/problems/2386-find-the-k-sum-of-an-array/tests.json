@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "kSum",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "二四负二的第五大和为二",
+      "args": [
+        [
+          2,
+          4,
+          -2
+        ],
+        5
+      ],
+      "expected": 2
+    },
+    {
+      "name": "全负数组第二大和为负一",
+      "args": [
+        [
+          -1,
+          -2,
+          -3,
+          -4
+        ],
+        2
+      ],
+      "expected": -1
+    },
+    {
+      "name": "单元素第二大为空子序列和",
+      "args": [
+        [
+          1
+        ],
+        2
+      ],
+      "expected": 0
+    }
+  ]
+}

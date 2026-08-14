@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numIdenticalPairs",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三个一与两个二共四对",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          1,
+          1,
+          3
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "四个一共有六对",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "全部不同没有好数对",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

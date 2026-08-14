@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1542,
+  "slug": "find-longest-awesome-substring",
+  "title": "找出最长的超赞子字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-022",
+  "studyTags": [
+    "哈希表",
+    "字符串",
+    "位运算"
+  ],
+  "summary": "若数字字符串的字符可重排成回文则为超赞，求最长超赞子字符串长度。",
+  "insight": "用十位掩码表示前缀中各数字频次奇偶。合法子串两端掩码相同或只相差一位；记录每个掩码最早位置即可求最长。",
+  "pitfalls": [
+    "零个或一个奇频数字都合法",
+    "状态零最早位置为负一",
+    "每个状态只记录首次出现"
+  ],
+  "solutions": [
+    {
+      "id": "digit-parity-prefix-mask",
+      "title": "数字奇偶前缀掩码",
+      "kind": "最优",
+      "idea": "查询相同或一位不同的历史前缀状态。",
+      "steps": [
+        "earliest[1024] 初始化 -2，earliest[0]=-1",
+        "扫描 i 切换 digit 位",
+        "用同 mask 与 mask xor (1<<digit) 的最早位置更新答案；未见 mask 时记录 i"
+      ],
+      "complexity": {
+        "time": "O(10n)",
+        "space": "O(1024)"
+      },
+      "files": {
+        "java": "solutions/digit-parity-prefix-mask/Solution.java",
+        "kotlin": "solutions/digit-parity-prefix-mask/Solution.kt",
+        "cpp": "solutions/digit-parity-prefix-mask/solution.cpp"
+      }
+    }
+  ]
+}

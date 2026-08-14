@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "reinitializePermutation",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "n 二一次恢复",
+      "args": [
+        2
+      ],
+      "expected": 1
+    },
+    {
+      "name": "n 四两次恢复",
+      "args": [
+        4
+      ],
+      "expected": 2
+    },
+    {
+      "name": "n 六四次恢复",
+      "args": [
+        6
+      ],
+      "expected": 4
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 753,
+  "slug": "cracking-the-safe",
+  "title": "破解保险箱",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-010",
+  "studyTags": [
+    "字符串",
+    "图论",
+    "欧拉回路",
+    "de Bruijn 序列"
+  ],
+  "summary": "保险箱密码由 n 位、每位 0 到 k-1 组成，输入串的每个连续 n 位会被尝试；构造包含全部密码的最短字符串。",
+  "insight": "把长度 n-1 的串视为节点、长度 n 的密码视为有向边，问题变成遍历每条边一次的欧拉回路，即 de Bruijn 序列。",
+  "pitfalls": [
+    "最终长度应为 k^n+n-1",
+    "每个密码只需出现一次",
+    "后序追加边字符再反转可得到欧拉路径顺序"
+  ],
+  "solutions": [
+    {
+      "id": "de-bruijn-euler-tour",
+      "title": "de Bruijn 图欧拉回路",
+      "kind": "最优",
+      "idea": "Hierholzer DFS 遍历每条密码边一次。",
+      "steps": [
+        "start 为 n-1 个零",
+        "dfs(node)：按 digit 从零到 k-1 构造 edge=node+digit，未访问则递归 edge 后 n-1 位并后序追加 digit",
+        "反转后序字符并接在 start 后返回"
+      ],
+      "complexity": {
+        "time": "O(k^n)",
+        "space": "O(k^n)"
+      },
+      "files": {
+        "java": "solutions/de-bruijn-euler-tour/Solution.java",
+        "kotlin": "solutions/de-bruijn-euler-tour/Solution.kt",
+        "cpp": "solutions/de-bruijn-euler-tour/solution.cpp"
+      }
+    }
+  ]
+}

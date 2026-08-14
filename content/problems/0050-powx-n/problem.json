@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 50,
+  "slug": "powx-n",
+  "title": "Pow(x, n)",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-004",
+  "studyTags": [
+    "快速幂",
+    "二进制拆分",
+    "负指数"
+  ],
+  "summary": "计算浮点数 x 的整数次幂，并正确处理负指数和 32 位指数边界。",
+  "insight": "把指数按二进制拆分；每轮平方底数，当前位为一时乘入答案，使乘法次数降为对数级。",
+  "pitfalls": [
+    "先把指数转成长整型再取负，避免最小整数溢出",
+    "负指数等价于底数取倒数",
+    "指数为零时结果为一"
+  ],
+  "solutions": [
+    {
+      "id": "binary-exponentiation",
+      "title": "迭代快速幂",
+      "kind": "最优",
+      "idea": "用指数二进制位决定是否乘入当前底数，并逐轮平方。",
+      "steps": [
+        "将 n 转为 long，负数时底数取倒数并翻转指数",
+        "若当前最低位为一则 answer*=base",
+        "base 自乘，指数右移"
+      ],
+      "complexity": {
+        "time": "O(log |n|)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/binary-exponentiation/Solution.java",
+        "kotlin": "solutions/binary-exponentiation/Solution.kt",
+        "cpp": "solutions/binary-exponentiation/solution.cpp"
+      }
+    }
+  ]
+}

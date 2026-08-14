@@ -1,0 +1,1 @@
+class Solution { public String lastSubstring(String s){int n=s.length(),i=0,j=1,k=0;while(j+k<n){char first=s.charAt(i+k),second=s.charAt(j+k);if(first==second)k++;else if(first<second){i=Math.max(i+k+1,j);j=i+1;k=0;}else{j=j+k+1;k=0;}}return s.substring(i);} }

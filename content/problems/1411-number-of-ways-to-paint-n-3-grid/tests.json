@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numOfWays",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一行十二种",
+      "args": [
+        1
+      ],
+      "expected": 12
+    },
+    {
+      "name": "两行五十四种",
+      "args": [
+        2
+      ],
+      "expected": 54
+    },
+    {
+      "name": "三行二百四十六种",
+      "args": [
+        3
+      ],
+      "expected": 246
+    }
+  ]
+}

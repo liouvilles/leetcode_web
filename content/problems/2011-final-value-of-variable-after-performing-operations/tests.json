@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "finalValueAfterOperations",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两减一加结果负一",
+      "args": [
+        [
+          "--X",
+          "X++",
+          "X++"
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "三次自增结果三",
+      "args": [
+        [
+          "++X",
+          "++X",
+          "X++"
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "一加一减回到零",
+      "args": [
+        [
+          "X++",
+          "--X"
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

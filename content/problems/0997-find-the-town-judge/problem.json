@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 997,
+  "slug": "find-the-town-judge",
+  "title": "找到小镇的法官",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-014",
+  "studyTags": [
+    "数组",
+    "图论",
+    "计数"
+  ],
+  "summary": "法官不信任任何人且除自己外所有人都信任法官，返回法官编号；不存在返回负一。",
+  "insight": "为每人维护净信任分：被信任加一，信任别人减一；法官恰有 n-1 分，其他人不可能达到。",
+  "pitfalls": [
+    "n=1 且无关系时唯一居民就是法官",
+    "关系保证不重复",
+    "编号从一到 n"
+  ],
+  "solutions": [
+    {
+      "id": "net-trust-degree",
+      "title": "净信任度计数",
+      "kind": "最优",
+      "idea": "用入度减出度识别唯一候选。",
+      "steps": [
+        "score 长度 n+1 初始化零",
+        "对 [a,b]，score[a]--、score[b]++",
+        "扫描 1..n，返回 score==n-1 的编号，否则负一"
+      ],
+      "complexity": {
+        "time": "O(n+trust)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/net-trust-degree/Solution.java",
+        "kotlin": "solutions/net-trust-degree/Solution.kt",
+        "cpp": "solutions/net-trust-degree/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1977,
+  "slug": "number-of-ways-to-separate-numbers",
+  "title": "划分数字的方案数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-028",
+  "studyTags": [
+    "字符串",
+    "动态规划",
+    "字符串匹配",
+    "后缀数组"
+  ],
+  "summary": "把数字字符串划分为无前导零且数值非递减的正整数序列，求方案数并取模。",
+  "insight": "令 ways[end][length] 表示前 end 个字符、末段长度为 length 的方案。更短的前一段必小于当前段，可用长度前缀和批量取得；等长时借助 LCP O(1) 比较两个子串。只保存 ways 的长度前缀和即可。",
+  "pitfalls": [
+    "任何数字不能有前导零",
+    "等长数字需按字典序比较",
+    "答案矩阵与 LCP 均为平方空间"
+  ],
+  "solutions": [
+    {
+      "id": "lcp-and-length-prefix-dp",
+      "title": "LCP 比较与长度前缀 DP",
+      "kind": "最优",
+      "idea": "用 LCP 解决等长转移，用前缀和解决所有更短转移。",
+      "steps": [
+        "倒序计算 lcp[i][j]",
+        "end 从 1 到 n，length 从 1 到 end；start=end-length，前一段更短方案为 prefix[start][min(length-1,start)]",
+        "若前一段等长且不大于当前段，再加该精确长度方案；维护 prefix[end][length]，返回 prefix[n][n]"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/lcp-and-length-prefix-dp/Solution.java",
+        "kotlin": "solutions/lcp-and-length-prefix-dp/Solution.kt",
+        "cpp": "solutions/lcp-and-length-prefix-dp/solution.cpp"
+      }
+    }
+  ]
+}

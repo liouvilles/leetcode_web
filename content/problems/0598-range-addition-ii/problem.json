@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 598,
+  "slug": "range-addition-ii",
+  "title": "范围求和 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-008",
+  "studyTags": [
+    "数组",
+    "数学",
+    "区间交集"
+  ],
+  "summary": "对 m×n 零矩阵执行若干左上角矩形加一操作，求最终最大元素的个数。",
+  "insight": "所有操作都覆盖的矩形元素被增加次数最多，其尺寸是所有操作行列范围的分别最小值。",
+  "pitfalls": [
+    "操作数组为空时整个矩阵都是最大值",
+    "每个操作范围从坐标零开始",
+    "只需维护行列最小边界而无需模拟矩阵"
+  ],
+  "solutions": [
+    {
+      "id": "rectangle-intersection",
+      "title": "求所有操作矩形交集",
+      "kind": "最优",
+      "idea": "最大值区域就是所有左上矩形的公共交集。",
+      "steps": [
+        "minimumRow=m、minimumColumn=n",
+        "遍历操作分别缩小两条边界",
+        "返回 minimumRow*minimumColumn"
+      ],
+      "complexity": {
+        "time": "O(k)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/rectangle-intersection/Solution.java",
+        "kotlin": "solutions/rectangle-intersection/Solution.kt",
+        "cpp": "solutions/rectangle-intersection/solution.cpp"
+      }
+    }
+  ]
+}

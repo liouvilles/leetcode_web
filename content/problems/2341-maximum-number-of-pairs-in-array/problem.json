@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2341,
+  "slug": "maximum-number-of-pairs-in-array",
+  "title": "数组能形成多少数对",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "计数"
+  ],
+  "summary": "反复从数组中选两个相等元素组成数对并删除，返回最多数对数和最终剩余元素数。",
+  "insight": "每个值频次 frequency 独立贡献 floor(frequency/2) 对和 frequency mod 2 个剩余。",
+  "pitfalls": [
+    "不同值不能配对",
+    "返回顺序是数对数、剩余数",
+    "无需真实删除元素"
+  ],
+  "solutions": [
+    {
+      "id": "frequency-parity-count",
+      "title": "频次奇偶计数",
+      "kind": "最优",
+      "idea": "按值汇总可组成的配对与余数。",
+      "steps": [
+        "哈希表统计每个值频次",
+        "pairs+=frequency/2",
+        "leftovers+=frequency%2",
+        "返回 [pairs,leftovers]"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(distinct values)"
+      },
+      "files": {
+        "java": "solutions/frequency-parity-count/Solution.java",
+        "kotlin": "solutions/frequency-parity-count/Solution.kt",
+        "cpp": "solutions/frequency-parity-count/solution.cpp"
+      }
+    }
+  ]
+}

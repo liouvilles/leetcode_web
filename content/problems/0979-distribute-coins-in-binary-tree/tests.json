@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "distributeCoins",
+  "parameterTypes": [
+    "treeNode"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "根分给两个孩子",
+      "args": [
+        [
+          3,
+          0,
+          0
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "左孩子向两处运输",
+      "args": [
+        [
+          0,
+          3,
+          0
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "单节点已平衡",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

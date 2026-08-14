@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1447,
+  "slug": "simplified-fractions",
+  "title": "最简分数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-020",
+  "studyTags": [
+    "数学",
+    "字符串",
+    "数论"
+  ],
+  "summary": "返回分母不超过 n、位于零和一之间的所有最简分数。",
+  "insight": "枚举分母 2..n 与分子 1..denominator-1；最大公约数为一恰好表示分数已经最简。",
+  "pitfalls": [
+    "不包含零和一",
+    "不同未约分表示不能重复输出",
+    "本实现按分母再按分子升序"
+  ],
+  "solutions": [
+    {
+      "id": "gcd-enumeration",
+      "title": "最大公约数枚举",
+      "kind": "最优",
+      "idea": "用互质条件过滤所有候选分子分母对。",
+      "steps": [
+        "denominator 从二到 n",
+        "numerator 从一到 denominator-1",
+        "gcd(numerator,denominator)==1 时加入 numerator/denominator"
+      ],
+      "complexity": {
+        "time": "O(n² log n)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/gcd-enumeration/Solution.java",
+        "kotlin": "solutions/gcd-enumeration/Solution.kt",
+        "cpp": "solutions/gcd-enumeration/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "triangularSum",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典五元素三角和八",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": 8
+    },
+    {
+      "name": "五和九相加模十为四",
+      "args": [
+        [
+          5,
+          9
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "单元素保持不变",
+      "args": [
+        [
+          7
+        ]
+      ],
+      "expected": 7
+    }
+  ]
+}

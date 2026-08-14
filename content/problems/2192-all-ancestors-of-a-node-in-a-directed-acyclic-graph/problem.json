@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2192,
+  "slug": "all-ancestors-of-a-node-in-a-directed-acyclic-graph",
+  "title": "有向无环图中一个节点的所有祖先",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-032",
+  "studyTags": [
+    "图论",
+    "深度优先搜索",
+    "拓扑排序"
+  ],
+  "summary": "给定 DAG，返回每个节点所有能到达它的祖先，并按编号升序排列。",
+  "insight": "按祖先编号从小到大分别做图遍历；从 source 可达的每个其他节点都追加 source。由于 source 外层升序，列表天然有序。",
+  "pitfalls": [
+    "节点不是自己的祖先",
+    "图保证无环但遍历仍需 visited",
+    "返回列表需要升序"
+  ],
+  "solutions": [
+    {
+      "id": "dfs-from-each-source",
+      "title": "逐源可达性遍历",
+      "kind": "最优",
+      "idea": "从每个节点传播其祖先身份。",
+      "steps": [
+        "建有向邻接表",
+        "source 从零到 n-1，清空 visited 并从其直接后继入栈",
+        "每首次到达 node，把 source 加入 answer[node] 并继续遍历"
+      ],
+      "complexity": {
+        "time": "O(n(n+E))",
+        "space": "O(n²+E)"
+      },
+      "files": {
+        "java": "solutions/dfs-from-each-source/Solution.java",
+        "kotlin": "solutions/dfs-from-each-source/Solution.kt",
+        "cpp": "solutions/dfs-from-each-source/solution.cpp"
+      }
+    }
+  ]
+}

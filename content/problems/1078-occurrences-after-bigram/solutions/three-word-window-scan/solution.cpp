@@ -1,0 +1,1 @@
+class Solution { public: vector<string> findOcurrences(string text,string first,string second){istringstream input(text);vector<string> words,answer;for(string word;input>>word;)words.push_back(word);for(int i=0;i+2<(int)words.size();++i)if(words[i]==first&&words[i+1]==second)answer.push_back(words[i+2]);return answer;} };

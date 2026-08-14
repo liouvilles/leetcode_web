@@ -1,0 +1,1 @@
+class Solution { public int kthSmallest(int[][] mat,int k){List<Integer> sums=new ArrayList<>();sums.add(0);for(int[] row:mat){List<Integer> merged=new ArrayList<>();for(int sum:sums)for(int value:row)merged.add(sum+value);Collections.sort(merged);sums=new ArrayList<>(merged.subList(0,Math.min(k,merged.size())));}return sums.get(k-1);} }

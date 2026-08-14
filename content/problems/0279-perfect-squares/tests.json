@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numSquares",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "十二由三个四组成",
+      "args": [
+        12
+      ],
+      "expected": 3
+    },
+    {
+      "name": "十三由九加四组成",
+      "args": [
+        13
+      ],
+      "expected": 2
+    },
+    {
+      "name": "完全平方数自身",
+      "args": [
+        16
+      ],
+      "expected": 1
+    }
+  ]
+}

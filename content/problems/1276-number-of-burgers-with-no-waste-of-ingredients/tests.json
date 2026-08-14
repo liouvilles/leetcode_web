@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numOfBurgers",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "intList",
+  "cases": [
+    {
+      "name": "一个巨无霸六个小堡",
+      "args": [
+        16,
+        7
+      ],
+      "expected": [
+        1,
+        6
+      ]
+    },
+    {
+      "name": "番茄数为奇数无解",
+      "args": [
+        17,
+        4
+      ],
+      "expected": []
+    },
+    {
+      "name": "零原料零汉堡",
+      "args": [
+        0,
+        0
+      ],
+      "expected": [
+        0,
+        0
+      ]
+    }
+  ]
+}

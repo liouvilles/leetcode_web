@@ -1,0 +1,1 @@
+class Solution { fun numUniqueEmails(emails:Array<String>):Int{val unique=mutableSetOf<String>();for(email in emails){val at=email.indexOf('@');var local=email.substring(0,at);val plus=local.indexOf('+');if(plus>=0)local=local.substring(0,plus);unique.add(local.replace(".","")+email.substring(at))};return unique.size} }

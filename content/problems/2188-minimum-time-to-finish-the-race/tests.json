@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumFinishTime",
+  "parameterTypes": [
+    "intMatrix",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两种轮胎四圈最少二十一",
+      "args": [
+        [
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        5,
+        4
+      ],
+      "expected": 21
+    },
+    {
+      "name": "三种轮胎五圈最少二十五",
+      "args": [
+        [
+          [
+            1,
+            10
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        6,
+        5
+      ],
+      "expected": 25
+    },
+    {
+      "name": "单圈直接使用轮胎",
+      "args": [
+        [
+          [
+            2,
+            2
+          ]
+        ],
+        1,
+        1
+      ],
+      "expected": 2
+    }
+  ]
+}

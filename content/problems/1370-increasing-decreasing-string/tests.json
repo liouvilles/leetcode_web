@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sortString",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "三组重复字母",
+      "args": [
+        "aaaabbbbcccc"
+      ],
+      "expected": "abccbaabccba"
+    },
+    {
+      "name": "三个不同字母",
+      "args": [
+        "rat"
+      ],
+      "expected": "art"
+    },
+    {
+      "name": "leetcode 重排",
+      "args": [
+        "leetcode"
+      ],
+      "expected": "cdelotee"
+    }
+  ]
+}

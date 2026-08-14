@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": 2235,
+  "slug": "add-two-integers",
+  "title": "两整数相加",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-032",
+  "studyTags": [
+    "数学"
+  ],
+  "summary": "返回两个整数 num1 与 num2 的和。",
+  "insight": "直接使用整数加法。",
+  "pitfalls": [
+    "允许负数",
+    "约束保证结果在 int 范围",
+    "无需额外数据结构"
+  ],
+  "solutions": [
+    {
+      "id": "direct-addition",
+      "title": "直接相加",
+      "kind": "最优",
+      "idea": "使用语言内置整数加法。",
+      "steps": [
+        "计算 num1+num2",
+        "返回结果"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/direct-addition/Solution.java",
+        "kotlin": "solutions/direct-addition/Solution.kt",
+        "cpp": "solutions/direct-addition/solution.cpp"
+      }
+    }
+  ]
+}

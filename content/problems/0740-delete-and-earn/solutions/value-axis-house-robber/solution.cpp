@@ -1,0 +1,1 @@
+class Solution { public: int deleteAndEarn(vector<int>& nums){int maximum=*max_element(nums.begin(),nums.end());vector<int> points(maximum+1);for(int value:nums)points[value]+=value;int take=0,skip=0;for(int score:points){int newTake=skip+score,newSkip=max(skip,take);take=newTake;skip=newSkip;}return max(take,skip);} };

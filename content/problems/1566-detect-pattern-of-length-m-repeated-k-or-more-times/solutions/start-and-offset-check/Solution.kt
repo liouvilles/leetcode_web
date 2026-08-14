@@ -1,0 +1,1 @@
+class Solution { fun containsPattern(arr:IntArray,m:Int,k:Int):Boolean{val required=m*k;for(start in 0..arr.size-required){var valid=true;for(offset in m until required)if(arr[start+offset]!=arr[start+offset-m]){valid=false;break};if(valid)return true};return false} }

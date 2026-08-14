@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "buildTree",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "treeNode",
+  "cases": [
+    {
+      "name": "同时包含左右子树",
+      "args": [
+        [
+          3,
+          9,
+          20,
+          15,
+          7
+        ],
+        [
+          9,
+          3,
+          15,
+          20,
+          7
+        ]
+      ],
+      "expected": [
+        3,
+        9,
+        20,
+        null,
+        null,
+        15,
+        7
+      ]
+    },
+    {
+      "name": "单节点树",
+      "args": [
+        [
+          -1
+        ],
+        [
+          -1
+        ]
+      ],
+      "expected": [
+        -1
+      ]
+    },
+    {
+      "name": "只有左孩子",
+      "args": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "expected": [
+        1,
+        2
+      ]
+    }
+  ]
+}

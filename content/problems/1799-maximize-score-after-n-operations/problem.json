@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 1799,
+  "slug": "maximize-score-after-n-operations",
+  "title": "N 次操作后的最大分数和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-026",
+  "studyTags": [
+    "数组",
+    "数学",
+    "动态规划",
+    "回溯",
+    "状态压缩"
+  ],
+  "summary": "长度 2n 数组每次选择两个未使用元素，第 operation 次得 operation*gcd，两数移除，求 n 次最大总分。",
+  "insight": "用位掩码表示已使用元素。操作序号由已用位数的一半加一确定，枚举两个未用下标配对并记忆化最大值。",
+  "pitfalls": [
+    "操作序号从一开始且权重递增",
+    "同一对顺序无关只枚举 first<second",
+    "状态终点是所有位都使用"
+  ],
+  "solutions": [
+    {
+      "id": "pairing-mask-dp",
+      "title": "配对状态压缩 DP",
+      "kind": "最优",
+      "idea": "在每个已用集合状态枚举下一对。",
+      "steps": [
+        "memo[mask]，operation=bitcount(mask)/2+1",
+        "枚举未用 first<second",
+        "score=operation*gcd(nums[first],nums[second])+dfs(mask|两位)，取最大"
+      ],
+      "complexity": {
+        "time": "O(3^n)",
+        "space": "O(2^(2n))"
+      },
+      "files": {
+        "java": "solutions/pairing-mask-dp/Solution.java",
+        "kotlin": "solutions/pairing-mask-dp/Solution.kt",
+        "cpp": "solutions/pairing-mask-dp/solution.cpp"
+      }
+    }
+  ]
+}

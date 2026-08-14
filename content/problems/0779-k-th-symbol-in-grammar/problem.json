@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 779,
+  "slug": "k-th-symbol-in-grammar",
+  "title": "第 K 个语法符号",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-010",
+  "studyTags": [
+    "数学",
+    "位运算",
+    "递归"
+  ],
+  "summary": "语法从 0 开始，每轮把 0 替为 01、1 替为 10，求第 n 行第 k 个符号。",
+  "insight": "第 k 个符号等于 k-1 的二进制一位数奇偶性：每个一位代表从祖先路径翻转一次。",
+  "pitfalls": [
+    "k 是一基下标，计算时使用 k-1",
+    "n 只限制合法范围，答案由 k 决定",
+    "返回零或一而非布尔值"
+  ],
+  "solutions": [
+    {
+      "id": "popcount-parity",
+      "title": "下标置位数奇偶性",
+      "kind": "最优",
+      "idea": "用路径翻转次数的奇偶性直接得到符号。",
+      "steps": [
+        "把一基下标转换为 k-1",
+        "计算 k-1 的 bitCount",
+        "bitCount 为奇数返回一，否则返回零"
+      ],
+      "complexity": {
+        "time": "O(log k)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/popcount-parity/Solution.java",
+        "kotlin": "solutions/popcount-parity/Solution.kt",
+        "cpp": "solutions/popcount-parity/solution.cpp"
+      }
+    }
+  ]
+}

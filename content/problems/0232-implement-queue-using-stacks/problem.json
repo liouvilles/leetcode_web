@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 232,
+  "slug": "implement-queue-using-stacks",
+  "title": "用栈实现队列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-005",
+  "studyTags": [
+    "设计",
+    "双栈",
+    "惰性转移"
+  ],
+  "summary": "只使用栈的基本操作实现先进先出的队列，支持入队、出队、查看队首和判空。",
+  "insight": "输入栈负责接收新元素；输出栈为空时一次性倒入输入栈，倒序后栈顶就是最早元素。",
+  "pitfalls": [
+    "只有输出栈为空时才转移",
+    "转移后可以连续出队",
+    "empty 需同时检查两个栈"
+  ],
+  "solutions": [
+    {
+      "id": "two-stacks",
+      "title": "输入栈 + 输出栈",
+      "kind": "最优",
+      "idea": "通过惰性转移让每个元素最多在两个栈间移动一次。",
+      "steps": [
+        "push 放入 input",
+        "peek/pop 前若 output 为空则倒入",
+        "从 output 栈顶读取或删除"
+      ],
+      "complexity": {
+        "time": "amortized O(1)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/two-stacks/Solution.java",
+        "kotlin": "solutions/two-stacks/Solution.kt",
+        "cpp": "solutions/two-stacks/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1382,
+  "slug": "balance-a-binary-search-tree",
+  "title": "将二叉搜索树变平衡",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-019",
+  "studyTags": [
+    "树",
+    "二叉搜索树",
+    "分治"
+  ],
+  "summary": "把给定二叉搜索树重构为高度平衡的二叉搜索树，节点值保持不变。",
+  "insight": "BST 中序遍历得到有序值数组；每次选择区间中点为根，递归构造左右半区即可保证高度差不超过一。",
+  "pitfalls": [
+    "中序序列必须保持全部节点",
+    "构造区间为空时返回 null",
+    "题目允许多种平衡答案，本实现固定选择左中点"
+  ],
+  "solutions": [
+    {
+      "id": "inorder-balanced-rebuild",
+      "title": "中序序列分治重建",
+      "kind": "最优",
+      "idea": "先排序化节点值，再按中点递归构造。",
+      "steps": [
+        "中序 DFS 把值加入 values",
+        "build(left,right) 选 middle=(left+right)/2 创建根",
+        "递归连接左右区间并返回 build(0,n-1)"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/inorder-balanced-rebuild/Solution.java",
+        "kotlin": "solutions/inorder-balanced-rebuild/Solution.kt",
+        "cpp": "solutions/inorder-balanced-rebuild/solution.cpp"
+      }
+    }
+  ]
+}

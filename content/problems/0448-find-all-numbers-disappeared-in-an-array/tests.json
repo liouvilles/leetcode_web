@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findDisappearedNumbers",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intList",
+  "cases": [
+    {
+      "name": "缺失五和六",
+      "args": [
+        [
+          4,
+          3,
+          2,
+          7,
+          8,
+          2,
+          3,
+          1
+        ]
+      ],
+      "expected": [
+        5,
+        6
+      ]
+    },
+    {
+      "name": "缺失二",
+      "args": [
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": [
+        2
+      ]
+    },
+    {
+      "name": "没有缺失",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": []
+    }
+  ]
+}

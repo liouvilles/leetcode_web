@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1620,
+  "slug": "coordinate-with-maximum-network-quality",
+  "title": "网络信号最好的坐标",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-023",
+  "studyTags": [
+    "数组",
+    "枚举",
+    "数学"
+  ],
+  "summary": "各信号塔在半径内按 floor(quality/(1+distance)) 贡献信号，求总信号最强的整数坐标，平局取字典序最小者。",
+  "insight": "塔坐标范围很小，直接枚举 0 到 50 的所有整数坐标并累加范围内各塔贡献。按 x、y 递增扫描，只在严格更优时更新即可处理平局。",
+  "pitfalls": [
+    "欧氏距离大于 radius 的塔不贡献",
+    "每座塔贡献需要向下取整",
+    "平局先比较 x 再比较 y"
+  ],
+  "solutions": [
+    {
+      "id": "bounded-coordinate-enumeration",
+      "title": "有界坐标枚举",
+      "kind": "最优",
+      "idea": "逐坐标精确计算总信号质量。",
+      "steps": [
+        "x、y 分别从零枚举到五十",
+        "对每座塔计算平方距离，范围内累加 floor(q/(1+sqrt(distance)))",
+        "严格超过最佳值时记录当前坐标"
+      ],
+      "complexity": {
+        "time": "O(51²t)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/bounded-coordinate-enumeration/Solution.java",
+        "kotlin": "solutions/bounded-coordinate-enumeration/Solution.kt",
+        "cpp": "solutions/bounded-coordinate-enumeration/solution.cpp"
+      }
+    }
+  ]
+}

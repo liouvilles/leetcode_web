@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 328,
+  "slug": "odd-even-linked-list",
+  "title": "奇偶链表",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-005",
+  "studyTags": [
+    "链表",
+    "双指针",
+    "原地重排"
+  ],
+  "summary": "按节点下标奇偶性重排链表，使所有奇数位置节点保持原顺序位于偶数位置节点之前。",
+  "insight": "分别串联奇位置链与偶位置链，扫描结束后把奇链尾连接到保存的偶链头。",
+  "pitfalls": [
+    "奇偶指位置而非节点值",
+    "两组内部相对顺序不变",
+    "需要保存最初的偶节点头"
+  ],
+  "solutions": [
+    {
+      "id": "two-position-chains",
+      "title": "奇偶双链拼接",
+      "kind": "最优",
+      "idea": "两个尾指针交替跳过对方节点，最后连接两段。",
+      "steps": [
+        "短链表直接返回",
+        "odd=head, even=head.next 并保存 evenHead",
+        "交替更新 odd.next 和 even.next，最后 odd.next=evenHead"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/two-position-chains/Solution.java",
+        "kotlin": "solutions/two-position-chains/Solution.kt",
+        "cpp": "solutions/two-position-chains/solution.cpp"
+      }
+    }
+  ]
+}

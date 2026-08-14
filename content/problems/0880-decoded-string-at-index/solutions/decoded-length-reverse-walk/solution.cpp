@@ -1,0 +1,1 @@
+class Solution { public: string decodeAtIndex(string s,int k){long long size=0;for(char c:s)if(isdigit(c))size*=c-'0';else ++size;long long index=k;for(int i=s.size()-1;i>=0;--i){char c=s[i];if(isdigit(c))size/=c-'0';else{if(index%size==0)return string(1,c);--size;}}return"";} };

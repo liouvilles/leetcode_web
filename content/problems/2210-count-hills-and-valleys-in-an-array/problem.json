@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": 2210,
+  "slug": "count-hills-and-valleys-in-an-array",
+  "title": "统计数组中的山峰和山谷",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-032",
+  "studyTags": [
+    "数组"
+  ],
+  "summary": "忽略相邻相等值后，中间元素严格高于两侧为山峰、严格低于两侧为山谷，统计总数。",
+  "insight": "先压缩连续相等值，随后每个内部元素只需与压缩序列的前后邻居比较。",
+  "pitfalls": [
+    "平台上的相等元素整体只可能代表一个峰谷",
+    "首尾不计",
+    "必须严格比较"
+  ],
+  "solutions": [
+    {
+      "id": "compress-equal-runs-then-compare",
+      "title": "压缩相等段后比较",
+      "kind": "最优",
+      "idea": "去掉平台重复后峰谷定义变成局部极值。",
+      "steps": [
+        "构建 compressed，只在 value!=last 时加入",
+        "i 从一到 size-2",
+        "若 current 同时大于两侧或同时小于两侧，answer++"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/compress-equal-runs-then-compare/Solution.java",
+        "kotlin": "solutions/compress-equal-runs-then-compare/Solution.kt",
+        "cpp": "solutions/compress-equal-runs-then-compare/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numMatchingSubseq",
+  "parameterTypes": [
+    "string",
+    "stringArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四词中三个匹配",
+      "args": [
+        "abcde",
+        [
+          "a",
+          "bb",
+          "acd",
+          "ace"
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "长字符串两个匹配",
+      "args": [
+        "dsahjpjauf",
+        [
+          "ahjpjau",
+          "ja",
+          "ahbwzgqnuk",
+          "tnmlanowax"
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "重复单词分别计数",
+      "args": [
+        "abc",
+        [
+          "a",
+          "a",
+          "b"
+        ]
+      ],
+      "expected": 3
+    }
+  ]
+}

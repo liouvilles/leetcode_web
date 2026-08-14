@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 609,
+  "slug": "find-duplicate-file-in-system",
+  "title": "在系统中查找重复文件",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-008",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "字符串解析"
+  ],
+  "summary": "目录描述中包含文件名和文件内容，按相同内容找出所有重复文件路径组。",
+  "insight": "解析每个文件的括号内容作为哈希键，把完整路径追加到对应列表，最后保留大小至少为二的分组。",
+  "pitfalls": [
+    "目录路径与文件名之间要补斜杠",
+    "单独出现的内容不返回",
+    "原题不要求分组顺序，测试中排序以保持稳定"
+  ],
+  "solutions": [
+    {
+      "id": "content-to-paths-map",
+      "title": "按文件内容聚合路径",
+      "kind": "最优",
+      "idea": "逐条解析目录描述并以内容建立倒排索引。",
+      "steps": [
+        "按空格拆分每条描述，首项是目录",
+        "解析 file(content)，将 directory/file 加入 content 对应列表",
+        "筛选重复组并在组内排序后返回"
+      ],
+      "complexity": {
+        "time": "O(total input)",
+        "space": "O(total files)"
+      },
+      "files": {
+        "java": "solutions/content-to-paths-map/Solution.java",
+        "kotlin": "solutions/content-to-paths-map/Solution.kt",
+        "cpp": "solutions/content-to-paths-map/solution.cpp"
+      }
+    }
+  ]
+}

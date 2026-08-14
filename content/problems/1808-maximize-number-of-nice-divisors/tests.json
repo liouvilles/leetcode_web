@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxNiceDivisors",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "五拆成三与二乘积六",
+      "args": [
+        5
+      ],
+      "expected": 6
+    },
+    {
+      "name": "八拆分最大乘积十八",
+      "args": [
+        8
+      ],
+      "expected": 18
+    },
+    {
+      "name": "一个质因子答案一",
+      "args": [
+        1
+      ],
+      "expected": 1
+    }
+  ]
+}

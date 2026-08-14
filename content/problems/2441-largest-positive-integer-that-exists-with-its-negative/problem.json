@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2441,
+  "slug": "largest-positive-integer-that-exists-with-its-negative",
+  "title": "与对应负数同时存在的最大正整数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-036",
+  "studyTags": [
+    "数组",
+    "哈希表"
+  ],
+  "summary": "找数组中最大的正整数 k，使 k 与 -k 都出现；不存在返回负一。",
+  "insight": "把所有值放入集合，再扫描正数并检查其相反数。",
+  "pitfalls": [
+    "k 必须为正",
+    "零不算答案",
+    "返回最大符合值"
+  ],
+  "solutions": [
+    {
+      "id": "hash-set-opposite-check",
+      "title": "集合检查相反数",
+      "kind": "最优",
+      "idea": "常数时间判断每个正数的负数是否存在。",
+      "steps": [
+        "values=set(nums)",
+        "answer=-1",
+        "对 value>0 且 set 含 -value，更新最大",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/hash-set-opposite-check/Solution.java",
+        "kotlin": "solutions/hash-set-opposite-check/Solution.kt",
+        "cpp": "solutions/hash-set-opposite-check/solution.cpp"
+      }
+    }
+  ]
+}

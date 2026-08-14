@@ -1,0 +1,1 @@
+class Solution { public: int countCharacters(vector<string>& words,string chars){int available[26]={};for(char ch:chars)++available[ch-'a'];int answer=0;for(string& word:words){int need[26]={};bool valid=true;for(char ch:word)if(++need[ch-'a']>available[ch-'a']){valid=false;break;}if(valid)answer+=word.size();}return answer;} };

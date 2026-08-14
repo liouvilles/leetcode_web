@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "largestOddNumber",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "末位三为奇数保留全串",
+      "args": [
+        "52"
+      ],
+      "expected": "5"
+    },
+    {
+      "name": "最右奇数位截得三五四二七",
+      "args": [
+        "35427"
+      ],
+      "expected": "35427"
+    },
+    {
+      "name": "全偶数字符不存在奇数",
+      "args": [
+        "4206"
+      ],
+      "expected": ""
+    }
+  ]
+}

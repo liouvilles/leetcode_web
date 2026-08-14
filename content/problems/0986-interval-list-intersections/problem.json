@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 986,
+  "slug": "interval-list-intersections",
+  "title": "区间列表的交集",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-014",
+  "studyTags": [
+    "数组",
+    "双指针"
+  ],
+  "summary": "两个列表各自由互不相交且已排序的闭区间组成，返回两列表所有区间交集。",
+  "insight": "当前两区间交集端点是 max(start) 与 min(end)；记录非空交集后，结束更早的区间不可能再与对方后续相交，移动对应指针。",
+  "pitfalls": [
+    "闭区间在端点相等时也有一个点的交集",
+    "两个区间同一时刻结束可移动任一侧",
+    "输出自然按顺序产生"
+  ],
+  "solutions": [
+    {
+      "id": "two-list-interval-sweep",
+      "title": "双列表区间扫描",
+      "kind": "最优",
+      "idea": "比较当前区间并淘汰先结束者。",
+      "steps": [
+        "i=j=0，结果为空",
+        "low=max(first[i].start,second[j].start)，high=min(end)；low≤high 时加入 [low,high]",
+        "若 first end<second end 则 i++，否则 j++；任一列表耗尽后返回"
+      ],
+      "complexity": {
+        "time": "O(m+n)",
+        "space": "O(output)"
+      },
+      "files": {
+        "java": "solutions/two-list-interval-sweep/Solution.java",
+        "kotlin": "solutions/two-list-interval-sweep/Solution.kt",
+        "cpp": "solutions/two-list-interval-sweep/solution.cpp"
+      }
+    }
+  ]
+}

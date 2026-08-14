@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getAverages",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "半径三示例平均值",
+      "args": [
+        [
+          7,
+          4,
+          3,
+          9,
+          1,
+          8,
+          5,
+          2,
+          6
+        ],
+        3
+      ],
+      "expected": [
+        -1,
+        -1,
+        -1,
+        5,
+        4,
+        4,
+        -1,
+        -1,
+        -1
+      ]
+    },
+    {
+      "name": "半径零返回原数组",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        0
+      ],
+      "expected": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "name": "窗口大于数组全负一",
+      "args": [
+        [
+          8
+        ],
+        1
+      ],
+      "expected": [
+        -1
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1560,
+  "slug": "most-visited-sector-in-a-circular-track",
+  "title": "圆形赛道上经过次数最多的扇区",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-022",
+  "studyTags": [
+    "数组",
+    "模拟"
+  ],
+  "summary": "在编号一到 n 的环形赛道按 rounds 依次顺时针跑，返回访问次数最多的所有扇区并升序排列。",
+  "insight": "完整圈对所有扇区贡献相同，差异只由起点到最终终点的最后不完整路径决定；该路径上的扇区多访问一次。",
+  "pitfalls": [
+    "起点和最终终点都包含",
+    "跨越 n 后回到一",
+    "结果需数值升序"
+  ],
+  "solutions": [
+    {
+      "id": "final-partial-lap",
+      "title": "最后不完整圈",
+      "kind": "最优",
+      "idea": "只输出从首个起点顺时针到最终终点的扇区集合。",
+      "steps": [
+        "start=rounds[0],end=rounds[last]",
+        "若 start<=end 返回 start..end",
+        "否则按升序返回 1..end 再 start..n"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/final-partial-lap/Solution.java",
+        "kotlin": "solutions/final-partial-lap/Solution.kt",
+        "cpp": "solutions/final-partial-lap/solution.cpp"
+      }
+    }
+  ]
+}

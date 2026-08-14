@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2075,
+  "slug": "decode-the-slanted-ciphertext",
+  "title": "解码斜向换位密码",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "字符串",
+    "模拟"
+  ],
+  "summary": "编码文本按行写入矩阵，原文通过从顶行各列向右下读取并去掉末尾空格得到，返回原文。",
+  "insight": "列数为 encodedText.length/rows。对顶行每个起始列，沿 row 递增、col 同步递增读取；全部拼接后删除尾部空格。",
+  "pitfalls": [
+    "只删除结果尾部空格",
+    "矩阵按行优先填充",
+    "斜线越过最后一列即停止"
+  ],
+  "solutions": [
+    {
+      "id": "diagonal-matrix-indexing",
+      "title": "矩阵对角下标读取",
+      "kind": "最优",
+      "idea": "无需真正建矩阵即可用 row*cols+col 访问。",
+      "steps": [
+        "cols=length/rows",
+        "startCol 从 0 到 cols-1",
+        "row=0,col=startCol 同步加一且在界内，追加 encoded[row*cols+col]；最后 trimEnd"
+      ],
+      "complexity": {
+        "time": "O(length)",
+        "space": "O(length)"
+      },
+      "files": {
+        "java": "solutions/diagonal-matrix-indexing/Solution.java",
+        "kotlin": "solutions/diagonal-matrix-indexing/Solution.kt",
+        "cpp": "solutions/diagonal-matrix-indexing/solution.cpp"
+      }
+    }
+  ]
+}

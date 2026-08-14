@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "fullBloomFlowers",
+  "parameterTypes": [
+    "intMatrix",
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "经典花期查询",
+      "args": [
+        [
+          [
+            1,
+            6
+          ],
+          [
+            3,
+            7
+          ],
+          [
+            9,
+            12
+          ],
+          [
+            4,
+            13
+          ]
+        ],
+        [
+          2,
+          3,
+          7,
+          11
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "name": "结束时刻仍在开放",
+      "args": [
+        [
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "重叠花期分别计数",
+      "args": [
+        [
+          [
+            1,
+            5
+          ],
+          [
+            1,
+            5
+          ]
+        ],
+        [
+          3
+        ]
+      ],
+      "expected": [
+        2
+      ]
+    }
+  ]
+}

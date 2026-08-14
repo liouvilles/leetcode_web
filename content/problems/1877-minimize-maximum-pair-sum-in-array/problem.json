@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1877,
+  "slug": "minimize-maximum-pair-sum-in-array",
+  "title": "数组中最大数对和的最小值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-027",
+  "studyTags": [
+    "数组",
+    "双指针",
+    "贪心",
+    "排序"
+  ],
+  "summary": "把偶数长度数组分成数对，最小化所有数对和中的最大值。",
+  "insight": "排序后让最小值与最大值配对。若两个大数配在一起只会抬高最大和；首尾配对通过交换论证最优。",
+  "pitfalls": [
+    "每个元素必须恰好使用一次",
+    "返回配对和中的最大值",
+    "数组长度保证为偶数"
+  ],
+  "solutions": [
+    {
+      "id": "sort-pair-extremes",
+      "title": "排序后首尾配对",
+      "kind": "最优",
+      "idea": "用强弱互补压低最坏数对和。",
+      "steps": [
+        "升序排序",
+        "left=0、right=n-1",
+        "更新 max(nums[left]+nums[right]) 后双向收缩，返回"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/sort-pair-extremes/Solution.java",
+        "kotlin": "solutions/sort-pair-extremes/Solution.kt",
+        "cpp": "solutions/sort-pair-extremes/solution.cpp"
+      }
+    }
+  ]
+}

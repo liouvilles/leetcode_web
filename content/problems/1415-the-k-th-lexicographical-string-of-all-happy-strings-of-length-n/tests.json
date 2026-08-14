@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getHappyString",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "一位第三个是 c",
+      "args": [
+        1,
+        3
+      ],
+      "expected": "c"
+    },
+    {
+      "name": "一位不存在第四个",
+      "args": [
+        1,
+        4
+      ],
+      "expected": ""
+    },
+    {
+      "name": "三位第九个是 cab",
+      "args": [
+        3,
+        9
+      ],
+      "expected": "cab"
+    }
+  ]
+}

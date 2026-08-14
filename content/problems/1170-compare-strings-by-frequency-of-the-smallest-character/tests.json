@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numSmallerByFrequency",
+  "parameterTypes": [
+    "stringArray",
+    "stringArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "单查询单单词",
+      "args": [
+        [
+          "cbd"
+        ],
+        [
+          "zaaaz"
+        ]
+      ],
+      "expected": [
+        1
+      ]
+    },
+    {
+      "name": "两个查询不同上界",
+      "args": [
+        [
+          "bbb",
+          "cc"
+        ],
+        [
+          "a",
+          "aa",
+          "aaa",
+          "aaaa"
+        ]
+      ],
+      "expected": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "相等频次不计入",
+      "args": [
+        [
+          "a"
+        ],
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "expected": [
+        0
+      ]
+    }
+  ]
+}

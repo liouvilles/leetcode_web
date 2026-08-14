@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "strongPasswordCheckerII",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "满足全部强密码条件",
+      "args": [
+        "IloveLe3tcode!"
+      ],
+      "expected": true
+    },
+    {
+      "name": "相邻字符相同不合格",
+      "args": [
+        "Me+You--IsMyDream"
+      ],
+      "expected": false
+    },
+    {
+      "name": "缺少数字不合格",
+      "args": [
+        "Aa!bcdef"
+      ],
+      "expected": false
+    }
+  ]
+}

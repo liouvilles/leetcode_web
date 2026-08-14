@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "convertToTitle",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "第一列",
+      "args": [
+        1
+      ],
+      "expected": "A"
+    },
+    {
+      "name": "跨过 Z",
+      "args": [
+        28
+      ],
+      "expected": "AB"
+    },
+    {
+      "name": "两位最大附近",
+      "args": [
+        701
+      ],
+      "expected": "ZY"
+    }
+  ]
+}

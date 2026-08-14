@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "longestPath",
+  "parameterTypes": [
+    "intArray",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典树最长不同字符路径三",
+      "args": [
+        [
+          -1,
+          0,
+          0,
+          1,
+          1,
+          2
+        ],
+        "abacbe"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "根连接两个不同字符孩子路径三",
+      "args": [
+        [
+          -1,
+          0,
+          0,
+          0
+        ],
+        "aabc"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "同字符链只能取一个节点",
+      "args": [
+        [
+          -1,
+          0,
+          1
+        ],
+        "aaa"
+      ],
+      "expected": 1
+    }
+  ]
+}

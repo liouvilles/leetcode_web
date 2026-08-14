@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1582,
+  "slug": "special-positions-in-a-binary-matrix",
+  "title": "二进制矩阵中的特殊位置",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-022",
+  "studyTags": [
+    "数组",
+    "矩阵"
+  ],
+  "summary": "若矩阵某位置为一且所在行和列其余元素全为零，则为特殊位置，统计数量。",
+  "insight": "先计算每行和每列的一数量，再扫描一元素，行和列计数都为一即特殊。",
+  "pitfalls": [
+    "位置本身必须为一",
+    "行列条件同时满足",
+    "矩阵不一定方形"
+  ],
+  "solutions": [
+    {
+      "id": "row-column-one-counts",
+      "title": "行列一计数",
+      "kind": "最优",
+      "idea": "用两个计数数组常数时间判断每个单元格。",
+      "steps": [
+        "统计 rowCount 与 colCount",
+        "answer=0",
+        "扫描 matrix[row][col]==1 且 rowCount[row]==1 且 colCount[col]==1 时计数"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(m+n)"
+      },
+      "files": {
+        "java": "solutions/row-column-one-counts/Solution.java",
+        "kotlin": "solutions/row-column-one-counts/Solution.kt",
+        "cpp": "solutions/row-column-one-counts/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2285,
+  "slug": "maximum-total-importance-of-roads",
+  "title": "道路的最大总重要性",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-033",
+  "studyTags": [
+    "图论",
+    "贪心",
+    "排序"
+  ],
+  "summary": "给 n 城市分配一到 n 的不同重要性，道路价值为两端重要性和，最大化全部道路价值和。",
+  "insight": "城市重要性在总和中的系数就是其度数。按度数升序把较大编号分配给更高次数，重排不等式保证最优。",
+  "pitfalls": [
+    "每个重要性恰用一次",
+    "道路无向且两端度数各加一",
+    "答案使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "sort-degrees-assign-ranks",
+      "title": "度数排序分配排名",
+      "kind": "最优",
+      "idea": "把线性目标按系数大小配对最大权值。",
+      "steps": [
+        "degree[n] 统计道路端点次数",
+        "升序排序 degree",
+        "answer=sum(degree[i]*(i+1))"
+      ],
+      "complexity": {
+        "time": "O(n log n+roads)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/sort-degrees-assign-ranks/Solution.java",
+        "kotlin": "solutions/sort-degrees-assign-ranks/Solution.kt",
+        "cpp": "solutions/sort-degrees-assign-ranks/solution.cpp"
+      }
+    }
+  ]
+}

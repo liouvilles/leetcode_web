@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "avoidFlood",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "两个晴天分别抽二和一",
+      "args": [
+        [
+          1,
+          2,
+          0,
+          0,
+          2,
+          1
+        ]
+      ],
+      "expected": [
+        -1,
+        -1,
+        2,
+        1,
+        -1,
+        -1
+      ]
+    },
+    {
+      "name": "一个晴天无法保护两个湖",
+      "args": [
+        [
+          1,
+          2,
+          0,
+          1,
+          2
+        ]
+      ],
+      "expected": []
+    },
+    {
+      "name": "多余晴天填默认湖一",
+      "args": [
+        [
+          69,
+          0,
+          0,
+          0,
+          69
+        ]
+      ],
+      "expected": [
+        -1,
+        69,
+        1,
+        1,
+        -1
+      ]
+    }
+  ]
+}

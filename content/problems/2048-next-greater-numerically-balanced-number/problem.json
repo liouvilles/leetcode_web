@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2048,
+  "slug": "next-greater-numerically-balanced-number",
+  "title": "下一个更大的数值平衡数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "数学",
+    "枚举"
+  ],
+  "summary": "若数字中每个出现的数位 d 恰出现 d 次，则为数值平衡数；求严格大于 n 的最小平衡数。",
+  "insight": "答案范围很小，从 n+1 递增枚举并统计十个数位频次；每个正频次必须等于对应数位，且零不能出现。首个满足者即答案。",
+  "pitfalls": [
+    "必须严格大于 n",
+    "数字零出现后不可能平衡",
+    "未出现的数位不要求频次等于自身"
+  ],
+  "solutions": [
+    {
+      "id": "incremental-frequency-check",
+      "title": "递增枚举与数位频次",
+      "kind": "最优",
+      "idea": "逐数检查定义直到命中最小答案。",
+      "steps": [
+        "candidate=n+1 起",
+        "统计 candidate 各数位频次",
+        "若每个 count>0 都满足 count==digit 则返回，否则 candidate++"
+      ],
+      "complexity": {
+        "time": "O(answer-n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/incremental-frequency-check/Solution.java",
+        "kotlin": "solutions/incremental-frequency-check/Solution.kt",
+        "cpp": "solutions/incremental-frequency-check/solution.cpp"
+      }
+    }
+  ]
+}

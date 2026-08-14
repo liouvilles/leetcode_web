@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 892,
+  "slug": "surface-area-of-3d-shapes",
+  "title": "三维形体的表面积",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "数组",
+    "数学",
+    "矩阵"
+  ],
+  "summary": "网格每格堆叠若干单位立方体，求组合形体暴露在外的总表面积。",
+  "insight": "高度 h 的独立柱贡献 4h+2；与上方和左方相邻柱每重叠一层会遮住两个面，减去 2·min(height1,height2)。",
+  "pitfalls": [
+    "高度零的柱没有顶底面",
+    "每对相邻柱只处理一次",
+    "上下左右四面通过两方向邻接扣减即可"
+  ],
+  "solutions": [
+    {
+      "id": "column-surfaces-minus-shared-faces",
+      "title": "柱体表面减共享面",
+      "kind": "最优",
+      "idea": "逐格加入独立柱面积并扣除已扫描邻居重合面。",
+      "steps": [
+        "对 h>0 加 4*h+2",
+        "若 row>0，减 2*min(h,grid[row-1][column])",
+        "若 column>0，对左邻同样扣减；返回总和"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/column-surfaces-minus-shared-faces/Solution.java",
+        "kotlin": "solutions/column-surfaces-minus-shared-faces/Solution.kt",
+        "cpp": "solutions/column-surfaces-minus-shared-faces/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1425,
+  "slug": "constrained-subsequence-sum",
+  "title": "带限制的子序列和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-020",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "单调队列"
+  ],
+  "summary": "选择非空子序列，相邻所选下标差不超过 k，求最大元素和。",
+  "insight": "dp[i]=nums[i]+max(0,最近 k 个 dp)。用按 dp 值递减的双端队列维护滑动窗口最大值。",
+  "pitfalls": [
+    "可以从任意位置重新开始子序列",
+    "队首过期下标要在转移前移除",
+    "全负数时答案是最大单元素"
+  ],
+  "solutions": [
+    {
+      "id": "monotonic-deque-dp",
+      "title": "单调队列动态规划",
+      "kind": "最优",
+      "idea": "在线获得最近 k 个状态的最大正贡献。",
+      "steps": [
+        "dp 数组与递减下标 deque",
+        "i 处先移除 index<i-k；dp[i]=nums[i]+max(0,dp[front])",
+        "从队尾移除 dp<=dp[i] 后加入 i，并更新答案"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/monotonic-deque-dp/Solution.java",
+        "kotlin": "solutions/monotonic-deque-dp/Solution.kt",
+        "cpp": "solutions/monotonic-deque-dp/solution.cpp"
+      }
+    }
+  ]
+}

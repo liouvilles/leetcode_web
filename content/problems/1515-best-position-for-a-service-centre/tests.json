@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getMinDistSum",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "double",
+  "cases": [
+    {
+      "name": "十字四点中心距离和四",
+      "args": [
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ]
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "两点距离和等于端点距离",
+      "args": [
+        [
+          [
+            1,
+            1
+          ],
+          [
+            3,
+            3
+          ]
+        ]
+      ],
+      "expected": 2.8284271247461903
+    },
+    {
+      "name": "单点距离和为零",
+      "args": [
+        [
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

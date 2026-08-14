@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sortArrayByParity",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "偶数稳定移到前面",
+      "args": [
+        [
+          3,
+          1,
+          2,
+          4
+        ]
+      ],
+      "expected": [
+        2,
+        4,
+        3,
+        1
+      ]
+    },
+    {
+      "name": "单个零",
+      "args": [
+        [
+          0
+        ]
+      ],
+      "expected": [
+        0
+      ]
+    },
+    {
+      "name": "一奇一偶",
+      "args": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": [
+        2,
+        1
+      ]
+    }
+  ]
+}

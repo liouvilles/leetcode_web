@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getDecimalValue",
+  "parameterTypes": [
+    "listNode"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一零一等于五",
+      "args": [
+        [
+          1,
+          0,
+          1
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "单个零",
+      "args": [
+        [
+          0
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "四个一等于十五",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": 15
+    }
+  ]
+}

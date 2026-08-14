@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findRestaurant",
+  "parameterTypes": [
+    "stringArray",
+    "stringArray"
+  ],
+  "returnType": "stringArray",
+  "cases": [
+    {
+      "name": "唯一共同首选",
+      "args": [
+        [
+          "Shogun",
+          "Tapioca Express",
+          "Burger King",
+          "KFC"
+        ],
+        [
+          "KFC",
+          "Shogun",
+          "Burger King"
+        ]
+      ],
+      "expected": [
+        "Shogun"
+      ]
+    },
+    {
+      "name": "列表完全相同",
+      "args": [
+        [
+          "happy",
+          "sad",
+          "good"
+        ],
+        [
+          "happy",
+          "sad",
+          "good"
+        ]
+      ],
+      "expected": [
+        "happy"
+      ]
+    },
+    {
+      "name": "两个并列答案",
+      "args": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "b",
+          "a"
+        ]
+      ],
+      "expected": [
+        "b",
+        "a"
+      ]
+    }
+  ]
+}

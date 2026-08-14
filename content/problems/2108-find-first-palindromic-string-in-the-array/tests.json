@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "firstPalindrome",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "第一个回文字符串 ada",
+      "args": [
+        [
+          "abc",
+          "car",
+          "ada",
+          "racecar",
+          "cool"
+        ]
+      ],
+      "expected": "ada"
+    },
+    {
+      "name": "首个字符串就是回文",
+      "args": [
+        [
+          "notapalindrome",
+          "racecar"
+        ]
+      ],
+      "expected": "racecar"
+    },
+    {
+      "name": "没有回文返回空串",
+      "args": [
+        [
+          "def",
+          "ghi"
+        ]
+      ],
+      "expected": ""
+    }
+  ]
+}

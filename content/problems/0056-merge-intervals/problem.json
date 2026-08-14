@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 56,
+  "slug": "merge-intervals",
+  "title": "合并区间",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-001",
+  "studyTags": [
+    "区间排序",
+    "扫描合并",
+    "边界维护"
+  ],
+  "summary": "合并一组可能互相重叠的闭区间，返回覆盖范围相同且互不重叠的区间集合。",
+  "insight": "按起点排序后，新区间只可能与当前合并结果的最后一个区间重叠。",
+  "pitfalls": [
+    "端点相等的闭区间也应合并",
+    "重叠时右端点要取两者最大值",
+    "输入顺序不能直接用于线性合并"
+  ],
+  "solutions": [
+    {
+      "id": "sort-and-scan",
+      "title": "排序后线性扫描",
+      "kind": "最优",
+      "idea": "先按左端点排序，再维护当前尚未结束的合并区间。",
+      "steps": [
+        "按区间起点升序排序",
+        "若新区间起点超过当前右端点则开始新区间",
+        "否则扩大当前区间的右端点"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/sort-and-scan/Solution.java",
+        "kotlin": "solutions/sort-and-scan/Solution.kt",
+        "cpp": "solutions/sort-and-scan/solution.cpp"
+      }
+    }
+  ]
+}

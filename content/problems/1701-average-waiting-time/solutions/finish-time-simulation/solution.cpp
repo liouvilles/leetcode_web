@@ -1,0 +1,1 @@
+class Solution { public: double averageWaitingTime(vector<vector<int>>& customers){long long finish=0,totalWait=0;for(auto& customer:customers){finish=max(finish,1LL*customer[0])+customer[1];totalWait+=finish-customer[0];}return (double)totalWait/customers.size();} };

@@ -1,0 +1,1 @@
+class Solution { public int minCost(String colors,int[] neededTime){int answer=0,kept=neededTime[0];for(int i=1;i<colors.length();i++)if(colors.charAt(i)==colors.charAt(i-1)){answer+=Math.min(kept,neededTime[i]);kept=Math.max(kept,neededTime[i]);}else kept=neededTime[i];return answer;} }

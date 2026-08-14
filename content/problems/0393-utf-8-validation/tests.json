@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "validUtf8",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "合法双字节后接单字节",
+      "args": [
+        [
+          197,
+          130,
+          1
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "延续字节前缀错误",
+      "args": [
+        [
+          235,
+          140,
+          4
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "五个前导一非法",
+      "args": [
+        [
+          255
+        ]
+      ],
+      "expected": false
+    }
+  ]
+}

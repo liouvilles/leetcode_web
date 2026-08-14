@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1865,
+  "slug": "finding-pairs-with-a-certain-sum",
+  "title": "找出和为指定值的下标对",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-027",
+  "studyTags": [
+    "设计",
+    "数组",
+    "哈希表"
+  ],
+  "summary": "维护两个数组，支持给第二个数组单点加值，并查询两数组中和为指定值的下标对数量。",
+  "insight": "第一个数组不变，给第二个数组维护值频次。更新时同步减少旧值、增加新值；查询时遍历第一个数组并累加补数频次。",
+  "pitfalls": [
+    "下标对按下标计数，重复值不能去重",
+    "add 是增加而非赋值",
+    "频次降为零后可以保留或删除"
+  ],
+  "solutions": [
+    {
+      "id": "mutable-frequency-counter",
+      "title": "第二数组动态频次",
+      "kind": "最优",
+      "idea": "用频次表把每次 count 从二重循环降为遍历第一个数组。",
+      "steps": [
+        "构造时复制引用并统计 nums2",
+        "add：旧值频次减一，元素加 val，新值频次加一",
+        "count：对 nums1 中 value 累加 frequency[tot-value]"
+      ],
+      "complexity": {
+        "time": "O(n1) 每次查询，O(1) 每次更新",
+        "space": "O(n2)"
+      },
+      "files": {
+        "java": "solutions/mutable-frequency-counter/Solution.java",
+        "kotlin": "solutions/mutable-frequency-counter/Solution.kt",
+        "cpp": "solutions/mutable-frequency-counter/solution.cpp"
+      }
+    }
+  ]
+}

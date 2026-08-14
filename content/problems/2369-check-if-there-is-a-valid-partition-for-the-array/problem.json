@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2369,
+  "slug": "check-if-there-is-a-valid-partition-for-the-array",
+  "title": "检查数组是否存在有效划分",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-035",
+  "studyTags": [
+    "数组",
+    "动态规划"
+  ],
+  "summary": "把数组划分为若干连续组，每组必须是两个相等、三个相等，或三个连续递增整数，判断能否完整划分。",
+  "insight": "dp[i] 表示前 i 个元素可有效划分；末组只可能长度二或三，检查对应规则并从 dp[i-2]、dp[i-3] 转移。",
+  "pitfalls": [
+    "递增三元组公差必须为一",
+    "组之间连续且覆盖全部元素",
+    "三个相等与三个递增都需考虑"
+  ],
+  "solutions": [
+    {
+      "id": "prefix-validity-dp",
+      "title": "前缀有效性 DP",
+      "kind": "最优",
+      "idea": "枚举末尾合法组长度完成布尔转移。",
+      "steps": [
+        "dp[0]=true",
+        "i 从2到 n：相邻两数相等且 dp[i-2] 则 dp[i]=true",
+        "i>=3 时检查末三数全等或连续递增并结合 dp[i-3]",
+        "返回 dp[n]"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/prefix-validity-dp/Solution.java",
+        "kotlin": "solutions/prefix-validity-dp/Solution.kt",
+        "cpp": "solutions/prefix-validity-dp/solution.cpp"
+      }
+    }
+  ]
+}

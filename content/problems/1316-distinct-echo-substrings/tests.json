@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "distinctEchoSubstrings",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "abcabcabc 有三个不同回声串",
+      "args": [
+        "abcabcabc"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "leetcode 只有 ee",
+      "args": [
+        "leetcode"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "五个 a 有两个不同回声串",
+      "args": [
+        "aaaaa"
+      ],
+      "expected": 2
+    }
+  ]
+}

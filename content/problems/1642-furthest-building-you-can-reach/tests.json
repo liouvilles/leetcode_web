@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "furthestBuilding",
+  "parameterTypes": [
+    "intArray",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "五块砖一梯到第四栋",
+      "args": [
+        [
+          4,
+          2,
+          7,
+          6,
+          9,
+          14,
+          12
+        ],
+        5,
+        1
+      ],
+      "expected": 4
+    },
+    {
+      "name": "十块砖两梯到第七栋",
+      "args": [
+        [
+          4,
+          12,
+          2,
+          7,
+          3,
+          18,
+          20,
+          3,
+          19
+        ],
+        10,
+        2
+      ],
+      "expected": 7
+    },
+    {
+      "name": "十七块砖可到末尾",
+      "args": [
+        [
+          14,
+          3,
+          19,
+          3
+        ],
+        17,
+        0
+      ],
+      "expected": 3
+    }
+  ]
+}

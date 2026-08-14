@@ -1,0 +1,1 @@
+class Solution { fun tribonacci(n:Int):Int{if(n==0)return 0;if(n<3)return 1;var first=0;var second=1;var third=1;for(i in 3..n){val next=first+second+third;first=second;second=third;third=next};return third} }

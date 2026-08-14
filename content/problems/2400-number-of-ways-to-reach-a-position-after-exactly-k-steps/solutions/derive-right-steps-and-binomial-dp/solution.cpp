@@ -1,0 +1,1 @@
+class Solution { public:int numberOfWays(int startPos,int endPos,int k){int value=k+endPos-startPos;if(value%2)return 0;int right=value/2;if(right<0||right>k)return 0;const long long mod=1000000007;vector<long long> ways(k+1);ways[0]=1;for(int step=1;step<=k;++step)for(int count=step;count>=1;--count)ways[count]=(ways[count]+ways[count-1])%mod;return ways[right];} };

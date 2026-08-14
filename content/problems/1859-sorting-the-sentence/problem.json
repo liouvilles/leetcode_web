@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1859,
+  "slug": "sorting-the-sentence",
+  "title": "将句子排序",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-027",
+  "studyTags": [
+    "字符串",
+    "排序"
+  ],
+  "summary": "乱序句子的每个单词末尾带一位位置数字，恢复正确单词顺序并删除数字。",
+  "insight": "拆分单词后按末尾数字放入对应下标，存入时去掉最后一个字符，最后连接。",
+  "pitfalls": [
+    "位置数字从一开始",
+    "每个位置恰好一个词",
+    "输出使用单空格"
+  ],
+  "solutions": [
+    {
+      "id": "position-suffixed-placement",
+      "title": "后缀位置放置",
+      "kind": "最优",
+      "idea": "直接利用编码位置恢复顺序，无需比较排序。",
+      "steps": [
+        "split 得 words",
+        "result[words.length]",
+        "对 word：position=lastDigit-1，result[position]=去掉末字符，join 返回"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/position-suffixed-placement/Solution.java",
+        "kotlin": "solutions/position-suffixed-placement/Solution.kt",
+        "cpp": "solutions/position-suffixed-placement/solution.cpp"
+      }
+    }
+  ]
+}

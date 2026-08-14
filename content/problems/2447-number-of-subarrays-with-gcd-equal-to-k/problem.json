@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2447,
+  "slug": "number-of-subarrays-with-gcd-equal-to-k",
+  "title": "最大公因数等于 K 的子数组数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-036",
+  "studyTags": [
+    "数组",
+    "数学",
+    "数论"
+  ],
+  "summary": "统计连续非空子数组中所有元素最大公因数恰等于 k 的数量。",
+  "insight": "枚举左端点并向右滚动 gcd；一旦 gcd 不能被 k 整除，继续加入元素也不可能回到 k 的倍数，可提前停止。",
+  "pitfalls": [
+    "要求连续子数组",
+    "单元素也计入",
+    "gcd 只会不增"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-starts-with-running-gcd",
+      "title": "枚举起点滚动公因数",
+      "kind": "最优",
+      "idea": "二次扫描并用整除性提前剪枝。",
+      "steps": [
+        "对每个 left，gcd=0",
+        "right 向后更新 gcd",
+        "gcd==k 时 answer++",
+        "gcd%k!=0 时 break"
+      ],
+      "complexity": {
+        "time": "O(n² log value)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/enumerate-starts-with-running-gcd/Solution.java",
+        "kotlin": "solutions/enumerate-starts-with-running-gcd/Solution.kt",
+        "cpp": "solutions/enumerate-starts-with-running-gcd/solution.cpp"
+      }
+    }
+  ]
+}

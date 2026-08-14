@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minFallingPathSum",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三阶方阵",
+      "args": [
+        [
+          [
+            2,
+            1,
+            3
+          ],
+          [
+            6,
+            5,
+            4
+          ],
+          [
+            7,
+            8,
+            9
+          ]
+        ]
+      ],
+      "expected": 13
+    },
+    {
+      "name": "含负数",
+      "args": [
+        [
+          [
+            -19,
+            57
+          ],
+          [
+            -40,
+            -5
+          ]
+        ]
+      ],
+      "expected": -59
+    },
+    {
+      "name": "单格",
+      "args": [
+        [
+          [
+            1
+          ]
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

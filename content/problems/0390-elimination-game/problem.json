@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 390,
+  "slug": "elimination-game",
+  "title": "消除游戏",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-006",
+  "studyTags": [
+    "数学",
+    "模拟",
+    "方向切换"
+  ],
+  "summary": "从一到 n 的有序列表开始，交替从左到右和从右到左删除每隔一个数字，求最后剩下的数。",
+  "insight": "不保存列表，只维护当前首元素、相邻间距、剩余数量和删除方向；某些轮次首元素会向前移动一步。",
+  "pitfalls": [
+    "从左删除时首元素必移动",
+    "从右删除且剩余数为奇数时首元素也移动",
+    "每轮间距翻倍且方向反转"
+  ],
+  "solutions": [
+    {
+      "id": "head-step-simulation",
+      "title": "首项与步长模拟",
+      "kind": "最优",
+      "idea": "用等差序列参数表示每轮剩余列表。",
+      "steps": [
+        "head=1,step=1,remaining=n,leftToRight=true",
+        "若从左或 remaining 为奇数则 head+=step",
+        "remaining 折半、step 翻倍、方向切换直到剩一项"
+      ],
+      "complexity": {
+        "time": "O(log n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/head-step-simulation/Solution.java",
+        "kotlin": "solutions/head-step-simulation/Solution.kt",
+        "cpp": "solutions/head-step-simulation/solution.cpp"
+      }
+    }
+  ]
+}

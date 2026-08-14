@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2326,
+  "slug": "spiral-matrix-iv",
+  "title": "螺旋矩阵 IV",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "数组",
+    "链表",
+    "矩阵",
+    "模拟"
+  ],
+  "summary": "把链表节点值按顺时针螺旋顺序填入 m×n 矩阵，未被链表覆盖的格子填负一。",
+  "insight": "矩阵先填负一；当前位置写入节点值后尝试沿当前方向前进，若越界或下一格已填写就顺时针转向。",
+  "pitfalls": [
+    "链表长度不超过矩阵容量",
+    "未访问格与链表值可用负一明确区分",
+    "最后一个节点写完后无需继续移动"
+  ],
+  "solutions": [
+    {
+      "id": "direction-turning-spiral-fill",
+      "title": "转向模拟螺旋填充",
+      "kind": "最优",
+      "idea": "用已填矩阵本身标记访问状态。",
+      "steps": [
+        "matrix 全填 -1，位置 (0,0)，方向向右",
+        "链表非空时写当前格",
+        "计算下一格；若越界或不为 -1，方向顺时针旋转后重算",
+        "节点后移，返回矩阵"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(1) 除返回矩阵"
+      },
+      "files": {
+        "java": "solutions/direction-turning-spiral-fill/Solution.java",
+        "kotlin": "solutions/direction-turning-spiral-fill/Solution.kt",
+        "cpp": "solutions/direction-turning-spiral-fill/solution.cpp"
+      }
+    }
+  ]
+}

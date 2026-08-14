@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2333,
+  "slug": "minimum-sum-of-squared-difference",
+  "title": "最小差值平方和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "数组",
+    "二分查找",
+    "贪心",
+    "排序"
+  ],
+  "summary": "每次可把任一数组中的一个元素加一或减一，共至多 k1+k2 次，求两数组对应差绝对值平方和的最小值。",
+  "insight": "操作等价于把绝对差每次减一。二分最终统一上界 threshold，使把所有更大差降到它的花费不超过 k；剩余操作再把若干个等于 threshold 的差降一。",
+  "pitfalls": [
+    "总操作数可能很大，不能逐次使用堆",
+    "操作超过差值总和后答案为零",
+    "平方和与操作数使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "binary-search-leveling-threshold",
+      "title": "二分削平阈值",
+      "kind": "最优",
+      "idea": "批量把最大差值水位降低。",
+      "steps": [
+        "计算 differences、总和与最大值，k=min(k1+k2,total)",
+        "二分最小 threshold，使 sum(max(0,d-threshold))<=k",
+        "把所有 d 降到 threshold，remaining=k-used",
+        "再把 remaining 个仍等于 threshold 的正差各降一，累加平方"
+      ],
+      "complexity": {
+        "time": "O(n log maxDiff)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/binary-search-leveling-threshold/Solution.java",
+        "kotlin": "solutions/binary-search-leveling-threshold/Solution.kt",
+        "cpp": "solutions/binary-search-leveling-threshold/solution.cpp"
+      }
+    }
+  ]
+}

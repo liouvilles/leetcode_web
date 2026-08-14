@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "reverseWords",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "普通三个单词",
+      "args": [
+        "the sky is blue"
+      ],
+      "expected": "blue is sky the"
+    },
+    {
+      "name": "去除首尾空格",
+      "args": [
+        "  hello world  "
+      ],
+      "expected": "world hello"
+    },
+    {
+      "name": "压缩单词间多个空格",
+      "args": [
+        "a good   example"
+      ],
+      "expected": "example good a"
+    }
+  ]
+}

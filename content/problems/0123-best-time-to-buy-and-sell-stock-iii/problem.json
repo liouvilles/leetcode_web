@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 123,
+  "slug": "best-time-to-buy-and-sell-stock-iii",
+  "title": "买卖股票的最佳时机 III",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-004",
+  "studyTags": [
+    "动态规划",
+    "状态机",
+    "股票"
+  ],
+  "summary": "在最多完成两笔买卖且任意时刻最多持有一股的条件下，计算可获得的最大利润。",
+  "insight": "依次维护第一次买入、第一次卖出、第二次买入、第二次卖出的最佳余额，每个价格更新四个状态。",
+  "pitfalls": [
+    "买入状态保存的是扣款后的最大余额",
+    "第二次买入依赖第一次卖出的利润",
+    "不足两笔交易也包含在状态中"
+  ],
+  "solutions": [
+    {
+      "id": "four-state-dp",
+      "title": "四状态滚动更新",
+      "kind": "最优",
+      "idea": "把两笔交易拆成四个有顺序的动作，用常量空间保存各动作后的最优值。",
+      "steps": [
+        "buy1=max(buy1,-price)",
+        "sell1 与 buy2 依次更新",
+        "sell2 更新为最终答案"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/four-state-dp/Solution.java",
+        "kotlin": "solutions/four-state-dp/Solution.kt",
+        "cpp": "solutions/four-state-dp/solution.cpp"
+      }
+    }
+  ]
+}

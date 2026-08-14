@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "kthSmallestProduct",
+  "parameterTypes": [
+    "intArray",
+    "intArray",
+    "long"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "四个正乘积第二小为八",
+      "args": [
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          4
+        ],
+        2
+      ],
+      "expected": 8
+    },
+    {
+      "name": "含负数与零第六小为零",
+      "args": [
+        [
+          -4,
+          -2,
+          0,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        6
+      ],
+      "expected": 0
+    },
+    {
+      "name": "四个负乘积第三小为负四",
+      "args": [
+        [
+          -2,
+          -1
+        ],
+        [
+          3,
+          4
+        ],
+        3
+      ],
+      "expected": -4
+    }
+  ]
+}

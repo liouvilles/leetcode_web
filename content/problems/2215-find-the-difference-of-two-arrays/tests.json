@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findDifference",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "intListMatrix",
+  "cases": [
+    {
+      "name": "两个数组各有独有值",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          4,
+          6
+        ]
+      ],
+      "expected": [
+        [
+          1,
+          3
+        ],
+        [
+          4,
+          6
+        ]
+      ]
+    },
+    {
+      "name": "重复值去重后求差",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          3
+        ],
+        [
+          1,
+          1,
+          2,
+          2
+        ]
+      ],
+      "expected": [
+        [
+          3
+        ],
+        []
+      ]
+    },
+    {
+      "name": "相同集合差集均空",
+      "args": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "expected": [
+        [],
+        []
+      ]
+    }
+  ]
+}

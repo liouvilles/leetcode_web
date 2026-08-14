@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2365,
+  "slug": "task-scheduler-ii",
+  "title": "任务调度器 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "模拟"
+  ],
+  "summary": "按给定顺序完成任务，每天至多完成一个；相同类型两次执行之间至少间隔 space 天，可休息，求完成全部任务的最早天数。",
+  "insight": "维护每类任务上次执行日。处理下一任务时先进入下一天，若距上次不足，则直接跳到 last+space+1，随后更新执行日。",
+  "pitfalls": [
+    "任务相对顺序不能改变",
+    "间隔 space 天意味着执行日差至少 space+1",
+    "天数可能超过 int"
+  ],
+  "solutions": [
+    {
+      "id": "last-execution-day-jumps",
+      "title": "上次执行日直接跳转",
+      "kind": "最优",
+      "idea": "无需逐天空转，冲突时跳到最早合法日。",
+      "steps": [
+        "day=0、lastDay map",
+        "对 task：day++",
+        "若存在 last，day=max(day,last+space+1)",
+        "last[task]=day；最终返回 day"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(distinct tasks)"
+      },
+      "files": {
+        "java": "solutions/last-execution-day-jumps/Solution.java",
+        "kotlin": "solutions/last-execution-day-jumps/Solution.kt",
+        "cpp": "solutions/last-execution-day-jumps/solution.cpp"
+      }
+    }
+  ]
+}

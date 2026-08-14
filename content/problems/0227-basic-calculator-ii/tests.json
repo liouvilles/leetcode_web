@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "calculate",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "乘法优先",
+      "args": [
+        "3+2*2"
+      ],
+      "expected": 7
+    },
+    {
+      "name": "除法向零截断",
+      "args": [
+        " 3/2 "
+      ],
+      "expected": 1
+    },
+    {
+      "name": "混合运算",
+      "args": [
+        " 3+5 / 2 "
+      ],
+      "expected": 5
+    }
+  ]
+}

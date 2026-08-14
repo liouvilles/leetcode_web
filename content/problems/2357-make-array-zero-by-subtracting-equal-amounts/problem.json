@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2357,
+  "slug": "make-array-zero-by-subtracting-equal-amounts",
+  "title": "使数组中所有元素都等于零",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "贪心",
+    "排序",
+    "模拟"
+  ],
+  "summary": "每次选择一个正数 x，从数组所有正元素减去 x 且不能产生负数，求把全部元素变零的最少操作数。",
+  "insight": "每种不同的正数层级都必须被消去一次；按从小到大依次减去相邻层差即可做到，所以答案就是不同正值数量。",
+  "pitfalls": [
+    "零不需要操作",
+    "重复相同正值只贡献一次",
+    "每次 x 受当前最小正值限制"
+  ],
+  "solutions": [
+    {
+      "id": "count-distinct-positive-values",
+      "title": "统计不同正值",
+      "kind": "最优",
+      "idea": "不同高度层数就是所需操作次数。",
+      "steps": [
+        "建立集合",
+        "遍历 nums，仅把 value>0 加入",
+        "返回集合大小"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(distinct values)"
+      },
+      "files": {
+        "java": "solutions/count-distinct-positive-values/Solution.java",
+        "kotlin": "solutions/count-distinct-positive-values/Solution.kt",
+        "cpp": "solutions/count-distinct-positive-values/solution.cpp"
+      }
+    }
+  ]
+}

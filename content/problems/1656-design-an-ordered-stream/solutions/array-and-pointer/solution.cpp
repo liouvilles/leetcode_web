@@ -1,0 +1,1 @@
+class OrderedStream { vector<string> values;int pointer=1;public:OrderedStream(int n):values(n+1){}vector<string> insert(int idKey,string value){values[idKey]=value;vector<string> answer;while(pointer<(int)values.size()&&!values[pointer].empty())answer.push_back(values[pointer++]);return answer;} };

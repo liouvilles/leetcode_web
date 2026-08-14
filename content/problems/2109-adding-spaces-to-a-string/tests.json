@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "addSpaces",
+  "parameterTypes": [
+    "string",
+    "intArray"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "三个位置插空格组成短句",
+      "args": [
+        "LeetcodeHelpsMeLearn",
+        [
+          8,
+          13,
+          15
+        ]
+      ],
+      "expected": "Leetcode Helps Me Learn"
+    },
+    {
+      "name": "每隔一字插空格",
+      "args": [
+        "icodeinpython",
+        [
+          1,
+          5,
+          7,
+          9
+        ]
+      ],
+      "expected": "i code in py thon"
+    },
+    {
+      "name": "下标零前插空格",
+      "args": [
+        "abc",
+        [
+          0
+        ]
+      ],
+      "expected": " abc"
+    }
+  ]
+}

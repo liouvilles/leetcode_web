@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "closestCost",
+  "parameterTypes": [
+    "intArray",
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "可恰好组成目标十",
+      "args": [
+        [
+          1,
+          7
+        ],
+        [
+          3,
+          4
+        ],
+        10
+      ],
+      "expected": 10
+    },
+    {
+      "name": "最接近十八的是十七",
+      "args": [
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5,
+          100
+        ],
+        18
+      ],
+      "expected": 17
+    },
+    {
+      "name": "差值相同时选择较小八",
+      "args": [
+        [
+          3,
+          10
+        ],
+        [
+          2,
+          5
+        ],
+        9
+      ],
+      "expected": 8
+    }
+  ]
+}

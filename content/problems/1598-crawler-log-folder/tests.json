@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minOperations",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "进入两层后退一层再进入",
+      "args": [
+        [
+          "d1/",
+          "d2/",
+          "../",
+          "d21/",
+          "./"
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "多次返回到主目录",
+      "args": [
+        [
+          "d1/",
+          "d2/",
+          "./",
+          "d3/",
+          "../",
+          "d31/"
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "主目录继续向上仍为零",
+      "args": [
+        [
+          "d1/",
+          "../",
+          "../",
+          "../"
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

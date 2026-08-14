@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "MyCalendar",
+  "constructorTypes": [],
+  "cases": [
+    {
+      "name": "经典三次预订",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "book",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            10,
+            20
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "book",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            15,
+            25
+          ],
+          "returnType": "boolean",
+          "expected": false
+        },
+        {
+          "method": "book",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            20,
+            30
+          ],
+          "returnType": "boolean",
+          "expected": true
+        }
+      ]
+    },
+    {
+      "name": "相邻区间都接受",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "book",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            1,
+            2
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "book",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            2,
+            3
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "book",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            0,
+            1
+          ],
+          "returnType": "boolean",
+          "expected": true
+        }
+      ]
+    },
+    {
+      "name": "被已有区间完全包含",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "book",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            5,
+            10
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "book",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            6,
+            9
+          ],
+          "returnType": "boolean",
+          "expected": false
+        }
+      ]
+    }
+  ]
+}

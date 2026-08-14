@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2270,
+  "slug": "number-of-ways-to-split-array",
+  "title": "分割数组的方案数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-033",
+  "studyTags": [
+    "数组",
+    "前缀和"
+  ],
+  "summary": "在下标 i 后分割非空数组，使左侧和不小于右侧和，统计合法切分位置数量。",
+  "insight": "总和与滚动前缀即可比较 prefix >= total-prefix，只枚举 i 到 n-2 保证两侧非空。",
+  "pitfalls": [
+    "切分位置不能在末尾",
+    "元素可为负数",
+    "和使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "rolling-prefix-comparison",
+      "title": "滚动前缀和比较",
+      "kind": "最优",
+      "idea": "逐合法边界比较两侧总和。",
+      "steps": [
+        "total=sum(nums)，prefix=0",
+        "i 从零到 n-2：prefix+=nums[i]",
+        "若 prefix>=total-prefix，answer++；返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/rolling-prefix-comparison/Solution.java",
+        "kotlin": "solutions/rolling-prefix-comparison/Solution.kt",
+        "cpp": "solutions/rolling-prefix-comparison/solution.cpp"
+      }
+    }
+  ]
+}

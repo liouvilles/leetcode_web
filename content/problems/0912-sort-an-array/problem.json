@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 912,
+  "slug": "sort-an-array",
+  "title": "排序数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-013",
+  "studyTags": [
+    "数组",
+    "分治",
+    "归并排序"
+  ],
+  "summary": "把整数数组升序排序。",
+  "insight": "归并排序递归拆分区间，再用辅助数组线性合并两个有序半区，时间复杂度稳定为 n log n。",
+  "pitfalls": [
+    "合并后要把辅助区间复制回原数组",
+    "相等时先取左侧可保持稳定",
+    "空或单元素区间直接返回"
+  ],
+  "solutions": [
+    {
+      "id": "top-down-merge-sort",
+      "title": "自顶向下归并排序",
+      "kind": "最优",
+      "idea": "分治排序左右半区并归并。",
+      "steps": [
+        "创建 temporary 数组",
+        "sort(left,right)：left>=right 返回，递归两半",
+        "merge 用双指针把较小值写 temporary，再复制回 nums[left..right]，最终返回 nums"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/top-down-merge-sort/Solution.java",
+        "kotlin": "solutions/top-down-merge-sort/Solution.kt",
+        "cpp": "solutions/top-down-merge-sort/solution.cpp"
+      }
+    }
+  ]
+}

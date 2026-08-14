@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1139,
+  "slug": "largest-1-bordered-square",
+  "title": "最大的以 1 为边界的正方形",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-016",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "矩阵"
+  ],
+  "summary": "在零一矩阵中寻找四条边全部为一的最大正方形，返回其面积。",
+  "insight": "预处理每格向左和向上的连续一数量。枚举右下角与边长时，右边和下边由当前格状态保证，只需再检查左边和上边。",
+  "pitfalls": [
+    "内部元素可以为零",
+    "返回面积而不是边长",
+    "全零矩阵答案为零"
+  ],
+  "solutions": [
+    {
+      "id": "left-up-run-dp",
+      "title": "横纵连续一动态规划",
+      "kind": "最优",
+      "idea": "用两张连续长度表常数时间验证每个候选边界。",
+      "steps": [
+        "计算 left[r][c] 与 up[r][c]：当前为一时分别继承左格、上格再加一",
+        "枚举每个右下角，候选边长从 min(left,up) 降到 best+1",
+        "若候选左边 up[r][c-side+1] 和上边 left[r-side+1][c] 都至少为 side，更新 best；返回 best²"
+      ],
+      "complexity": {
+        "time": "O(rows·cols·min(rows,cols))",
+        "space": "O(rows·cols)"
+      },
+      "files": {
+        "java": "solutions/left-up-run-dp/Solution.java",
+        "kotlin": "solutions/left-up-run-dp/Solution.kt",
+        "cpp": "solutions/left-up-run-dp/solution.cpp"
+      }
+    }
+  ]
+}

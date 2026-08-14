@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1404,
+  "slug": "number-of-steps-to-reduce-a-number-in-binary-representation-to-one",
+  "title": "将二进制表示减到一的步骤数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-020",
+  "studyTags": [
+    "字符串",
+    "位运算",
+    "模拟"
+  ],
+  "summary": "正整数以二进制字符串给出，偶数除二、奇数加一，求变成一的步骤数。",
+  "insight": "从最低位向最高位模拟进位：当前位加 carry 为一表示数为奇数，需要加一再除二共两步并保持进位；否则只除二一步。",
+  "pitfalls": [
+    "最高位一不直接处理，只在最后加 carry",
+    "加一可能连续向高位进位",
+    "输入为一时答案为零"
+  ],
+  "solutions": [
+    {
+      "id": "right-to-left-carry",
+      "title": "从右向左模拟进位",
+      "kind": "最优",
+      "idea": "不构造大整数，仅跟踪加一产生的进位。",
+      "steps": [
+        "steps=0,carry=0",
+        "从末位扫到索引一；bit+carry==1 时 steps+=2,carry=1，否则 steps++",
+        "返回 steps+carry"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/right-to-left-carry/Solution.java",
+        "kotlin": "solutions/right-to-left-carry/Solution.kt",
+        "cpp": "solutions/right-to-left-carry/solution.cpp"
+      }
+    }
+  ]
+}

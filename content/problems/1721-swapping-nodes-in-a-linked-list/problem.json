@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1721,
+  "slug": "swapping-nodes-in-a-linked-list",
+  "title": "交换链表中的节点",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-025",
+  "studyTags": [
+    "链表",
+    "双指针"
+  ],
+  "summary": "交换链表正数第 k 个节点与倒数第 k 个节点，返回链表。",
+  "insight": "先定位正数第 k 个节点 front；再让一个指针从头、另一个从 front 同步走到后者到达尾部，此时前者就是倒数第 k 个。交换两节点值即可。",
+  "pitfalls": [
+    "k 从一开始",
+    "两个位置可能是同一节点",
+    "只交换值能避免复杂的相邻指针重连"
+  ],
+  "solutions": [
+    {
+      "id": "two-pointer-value-swap",
+      "title": "双指针定位后交换值",
+      "kind": "最优",
+      "idea": "利用同步移动得到与尾部等距的节点。",
+      "steps": [
+        "front 从 head 前进 k-1 步",
+        "back=head，runner=front；runner.next 非空时二者同步前进",
+        "交换 front.val 与 back.val，返回 head"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/two-pointer-value-swap/Solution.java",
+        "kotlin": "solutions/two-pointer-value-swap/Solution.kt",
+        "cpp": "solutions/two-pointer-value-swap/solution.cpp"
+      }
+    }
+  ]
+}

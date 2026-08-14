@@ -1,0 +1,1 @@
+class Solution { fun mergeSimilarItems(items1:Array<IntArray>,items2:Array<IntArray>):List<List<Int>>{val weights=java.util.TreeMap<Int,Int>();for(item in items1)weights[item[0]]=(weights[item[0]]?:0)+item[1];for(item in items2)weights[item[0]]=(weights[item[0]]?:0)+item[1];return weights.map{listOf(it.key,it.value)}} }

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "alphabetBoardPath",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "leet 路径",
+      "args": [
+        "leet"
+      ],
+      "expected": "DDR!UURRR!!DDD!"
+    },
+    {
+      "name": "code 路径",
+      "args": [
+        "code"
+      ],
+      "expected": "RR!DDRR!UUL!R!"
+    },
+    {
+      "name": "移动到 z",
+      "args": [
+        "z"
+      ],
+      "expected": "DDDDD!"
+    }
+  ]
+}

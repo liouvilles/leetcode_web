@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1969,
+  "slug": "minimum-non-zero-product-of-the-array-elements",
+  "title": "数组元素的最小非零乘积",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-028",
+  "studyTags": [
+    "贪心",
+    "递归",
+    "数学",
+    "快速幂"
+  ],
+  "summary": "数组含一到 2^p-1，可在任意两元素相同二进制位间交换，求可达的最小非零乘积并取模。",
+  "insight": "最优结构是保留一个最大值 2^p-1，其余元素成对变为 1 与 2^p-2。因此乘积为 max·(max-1)^(2^(p-1)-1)。",
+  "pitfalls": [
+    "指数很大但 p 至多六十可用 long",
+    "底数和结果都取模",
+    "p=1 时指数为零"
+  ],
+  "solutions": [
+    {
+      "id": "closed-form-modular-power",
+      "title": "最优结构闭式与模快速幂",
+      "kind": "最优",
+      "idea": "应用已证明的极值分配并快速幂。",
+      "steps": [
+        "maximum=(2^p-1) mod MOD",
+        "base=maximum-1，exponent=2^(p-1)-1",
+        "返回 maximum*pow(base,exponent)%MOD"
+      ],
+      "complexity": {
+        "time": "O(p)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/closed-form-modular-power/Solution.java",
+        "kotlin": "solutions/closed-form-modular-power/Solution.kt",
+        "cpp": "solutions/closed-form-modular-power/solution.cpp"
+      }
+    }
+  ]
+}

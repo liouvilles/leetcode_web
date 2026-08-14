@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 963,
+  "slug": "minimum-area-rectangle-ii",
+  "title": "最小面积矩形 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-014",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "几何"
+  ],
+  "summary": "给定平面点集，寻找边可任意倾斜且四个顶点都在点集中的最小正面积矩形，不存在返回零。",
+  "insight": "矩形两条对角线中点相同且长度相等；按端点坐标和与平方距离给所有点对分组，同组任意两条不同对角线构成矩形。",
+  "pitfalls": [
+    "坐标和等于中点的两倍，可避免浮点键",
+    "还要把对角线平方长度加入分组键",
+    "面积用从一条对角线端点到另一条对角线两端的叉积绝对值"
+  ],
+  "solutions": [
+    {
+      "id": "equal-diagonal-grouping",
+      "title": "等中点等长对角线分组",
+      "kind": "最优",
+      "idea": "枚举同组对角线对并计算矩形面积。",
+      "steps": [
+        "枚举点对 i<j，按 sumX,sumY,distanceSquared 加入分组",
+        "对每个分组枚举两条对角线",
+        "取第一条一个端点 p 和第二条两端 q,r，面积为 |(q-p)×(r-p)|，更新最小正值"
+      ],
+      "complexity": {
+        "time": "O(n⁴) worst case",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/equal-diagonal-grouping/Solution.java",
+        "kotlin": "solutions/equal-diagonal-grouping/Solution.kt",
+        "cpp": "solutions/equal-diagonal-grouping/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxScoreIndices",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intList",
+  "cases": [
+    {
+      "name": "两个切分边界并列最高",
+      "args": [
+        [
+          0,
+          0,
+          1,
+          0
+        ]
+      ],
+      "expected": [
+        2,
+        4
+      ]
+    },
+    {
+      "name": "全零应在末尾切分",
+      "args": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected": [
+        3
+      ]
+    },
+    {
+      "name": "全一应在开头切分",
+      "args": [
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": [
+        0
+      ]
+    }
+  ]
+}

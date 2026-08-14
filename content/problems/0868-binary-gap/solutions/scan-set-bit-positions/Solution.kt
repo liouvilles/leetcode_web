@@ -1,0 +1,1 @@
+class Solution { fun binaryGap(input:Int):Int{var n=input;var answer=0;var previous=-1;var position=0;while(n>0){if((n and 1)==1){if(previous>=0)answer=maxOf(answer,position-previous);previous=position};n=n shr 1;position++};return answer} }

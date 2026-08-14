@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "islandPerimeter",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典岛屿",
+      "args": [
+        [
+          [
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            0,
+            0
+          ]
+        ]
+      ],
+      "expected": 16
+    },
+    {
+      "name": "单块陆地",
+      "args": [
+        [
+          [
+            1
+          ]
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "横向相邻两块",
+      "args": [
+        [
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": 6
+    }
+  ]
+}

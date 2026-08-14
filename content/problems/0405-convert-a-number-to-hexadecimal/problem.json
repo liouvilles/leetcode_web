@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 405,
+  "slug": "convert-a-number-to-hexadecimal",
+  "title": "数字转换为十六进制数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-006",
+  "studyTags": [
+    "位运算",
+    "进制转换",
+    "补码"
+  ],
+  "summary": "把 32 位整数转换为小写十六进制字符串，负数按二进制补码表示且不能使用库转换函数。",
+  "insight": "每次读取最低四位映射为十六进制字符，再做无符号右移，负数也会在八轮内归零。",
+  "pitfalls": [
+    "零需要单独返回 0",
+    "Java 和 Kotlin 必须使用无符号右移",
+    "结果低位先生成后反转"
+  ],
+  "solutions": [
+    {
+      "id": "nibble-extraction",
+      "title": "逐四位提取",
+      "kind": "最优",
+      "idea": "用掩码 15 读取十六进制最低位并逻辑右移。",
+      "steps": [
+        "num==0 返回 0",
+        "追加 digits[num&15]",
+        "num 无符号右移四位至零，反转结果"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/nibble-extraction/Solution.java",
+        "kotlin": "solutions/nibble-extraction/Solution.kt",
+        "cpp": "solutions/nibble-extraction/solution.cpp"
+      }
+    }
+  ]
+}

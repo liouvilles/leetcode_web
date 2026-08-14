@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2188,
+  "slug": "minimum-time-to-finish-the-race",
+  "title": "完成比赛的最少时间",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-032",
+  "studyTags": [
+    "数组",
+    "动态规划"
+  ],
+  "summary": "轮胎连续使用时单圈时间按倍率增长，换胎固定耗时，求完成 numLaps 圈的最短时间。",
+  "insight": "预处理不换胎连续跑若干圈的最小累计时间；当下一圈时间已不如换胎后用最快首圈时即可停止延伸。随后按圈数做完全分段 DP，每段对应一套连续使用的轮胎。",
+  "pitfalls": [
+    "第一套轮胎不支付换胎时间",
+    "每种胎连续圈数很快受指数增长限制",
+    "中间累计使用 long 防溢出"
+  ],
+  "solutions": [
+    {
+      "id": "best-stint-precompute-and-lap-dp",
+      "title": "连续赛段预处理与圈数 DP",
+      "kind": "最优",
+      "idea": "把比赛拆成若干不换胎赛段。",
+      "steps": [
+        "fastestFirst=min f；best[run] 初始化无穷，对每种胎累计连续圈耗时并更新，下一圈超过 fastestFirst+changeTime 时停止",
+        "dp[0]=-changeTime",
+        "laps 从一到 numLaps，枚举 run<=laps 且 best 有效，dp[laps]=min(dp[laps-run]+changeTime+best[run])"
+      ],
+      "complexity": {
+        "time": "O(tires·log limit+numLaps²)",
+        "space": "O(numLaps)"
+      },
+      "files": {
+        "java": "solutions/best-stint-precompute-and-lap-dp/Solution.java",
+        "kotlin": "solutions/best-stint-precompute-and-lap-dp/Solution.kt",
+        "cpp": "solutions/best-stint-precompute-and-lap-dp/solution.cpp"
+      }
+    }
+  ]
+}

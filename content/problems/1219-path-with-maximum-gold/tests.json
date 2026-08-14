@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getMaximumGold",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "十字矿区二十四",
+      "args": [
+        [
+          [
+            0,
+            6,
+            0
+          ],
+          [
+            5,
+            8,
+            7
+          ],
+          [
+            0,
+            9,
+            0
+          ]
+        ]
+      ],
+      "expected": 24
+    },
+    {
+      "name": "复杂矿区二十八",
+      "args": [
+        [
+          [
+            1,
+            0,
+            7
+          ],
+          [
+            2,
+            0,
+            6
+          ],
+          [
+            3,
+            4,
+            5
+          ],
+          [
+            0,
+            3,
+            0
+          ],
+          [
+            9,
+            0,
+            20
+          ]
+        ]
+      ],
+      "expected": 28
+    },
+    {
+      "name": "没有黄金",
+      "args": [
+        [
+          [
+            0
+          ]
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

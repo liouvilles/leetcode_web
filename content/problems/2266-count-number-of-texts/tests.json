@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countTexts",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "二二二三三有八种文本",
+      "args": [
+        "22233"
+      ],
+      "expected": 8
+    },
+    {
+      "name": "单次按键只有一种",
+      "args": [
+        "7"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "四个七有八种分组",
+      "args": [
+        "7777"
+      ],
+      "expected": 8
+    }
+  ]
+}

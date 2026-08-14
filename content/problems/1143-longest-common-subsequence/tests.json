@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "longestCommonSubsequence",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "跳过字符形成公共子序列",
+      "args": [
+        "abcde",
+        "ace"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "两个字符串完全相同",
+      "args": [
+        "abc",
+        "abc"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "没有公共字符",
+      "args": [
+        "abc",
+        "def"
+      ],
+      "expected": 0
+    }
+  ]
+}

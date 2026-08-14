@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxValue",
+  "parameterTypes": [
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四长度总和六峰值二",
+      "args": [
+        4,
+        2,
+        6
+      ],
+      "expected": 2
+    },
+    {
+      "name": "六长度总和十峰值三",
+      "args": [
+        6,
+        1,
+        10
+      ],
+      "expected": 3
+    },
+    {
+      "name": "单元素可取全部总和",
+      "args": [
+        1,
+        0,
+        24
+      ],
+      "expected": 24
+    }
+  ]
+}

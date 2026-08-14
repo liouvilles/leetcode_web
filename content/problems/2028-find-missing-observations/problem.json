@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2028,
+  "slug": "find-missing-observations",
+  "title": "找出缺失的观测数据",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-029",
+  "studyTags": [
+    "数组",
+    "数学",
+    "构造"
+  ],
+  "summary": "已知部分骰子结果、总体平均值和缺失数量 n，构造任一取值一到六的缺失数组，不可能返回空。",
+  "insight": "总体所需总和减已知和得到 missingSum。其必须在 n 到 6n；可把商均匀分给每项，再给前 remainder 项各加一。",
+  "pitfalls": [
+    "平均值保证为整数目标但缺失部分可能不可行",
+    "每项必须一到六",
+    "输出任一排列即可"
+  ],
+  "solutions": [
+    {
+      "id": "balanced-sum-distribution",
+      "title": "目标和均匀分配",
+      "kind": "最优",
+      "idea": "检查范围后用商和余数构造合法骰子值。",
+      "steps": [
+        "missingSum=mean*(rolls.length+n)-sum(rolls)",
+        "若不在 [n,6n] 返回空",
+        "base=missingSum/n、remainder=missingSum%n；前 remainder 项 base+1，其余 base"
+      ],
+      "complexity": {
+        "time": "O(rolls+n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/balanced-sum-distribution/Solution.java",
+        "kotlin": "solutions/balanced-sum-distribution/Solution.kt",
+        "cpp": "solutions/balanced-sum-distribution/solution.cpp"
+      }
+    }
+  ]
+}

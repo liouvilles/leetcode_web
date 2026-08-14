@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "LUPrefix",
+  "constructorTypes": [
+    "int"
+  ],
+  "cases": [
+    {
+      "name": "乱序上传后前缀逐步增长",
+      "constructorArgs": [
+        4
+      ],
+      "calls": [
+        {
+          "method": "upload",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            3
+          ]
+        },
+        {
+          "method": "longest",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 0
+        },
+        {
+          "method": "upload",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ]
+        },
+        {
+          "method": "longest",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "upload",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ]
+        },
+        {
+          "method": "longest",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 3
+        }
+      ]
+    },
+    {
+      "name": "按序上传前缀同步增长",
+      "constructorArgs": [
+        3
+      ],
+      "calls": [
+        {
+          "method": "upload",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ]
+        },
+        {
+          "method": "longest",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "upload",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ]
+        },
+        {
+          "method": "longest",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 2
+        }
+      ]
+    },
+    {
+      "name": "只上传末尾前缀仍为零",
+      "constructorArgs": [
+        2
+      ],
+      "calls": [
+        {
+          "method": "upload",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ]
+        },
+        {
+          "method": "longest",
+          "parameterTypes": [],
+          "args": [],
+          "returnType": "int",
+          "expected": 0
+        }
+      ]
+    }
+  ]
+}

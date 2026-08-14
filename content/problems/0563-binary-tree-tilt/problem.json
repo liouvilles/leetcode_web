@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 563,
+  "slug": "binary-tree-tilt",
+  "title": "二叉树的坡度",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-007",
+  "studyTags": [
+    "二叉树",
+    "后序遍历",
+    "深度优先搜索"
+  ],
+  "summary": "树中节点坡度为左右子树节点值之和的绝对差，求整棵树所有节点坡度之和。",
+  "insight": "后序遍历返回每棵子树的节点和，同时在当前节点把左右子树和之差累加到答案。",
+  "pitfalls": [
+    "坡度比较的是子树总和而非直接子节点值",
+    "空子树的和为零",
+    "每个节点恰好累加一次"
+  ],
+  "solutions": [
+    {
+      "id": "postorder-subtree-sums",
+      "title": "后序计算子树和",
+      "kind": "最优",
+      "idea": "一次 DFS 同时生成父节点所需的子树和与全局坡度。",
+      "steps": [
+        "递归得到 leftSum 和 rightSum",
+        "累加 abs(leftSum-rightSum)",
+        "向父节点返回 leftSum+rightSum+node.val"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(h)"
+      },
+      "files": {
+        "java": "solutions/postorder-subtree-sums/Solution.java",
+        "kotlin": "solutions/postorder-subtree-sums/Solution.kt",
+        "cpp": "solutions/postorder-subtree-sums/solution.cpp"
+      }
+    }
+  ]
+}

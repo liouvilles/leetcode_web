@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "StockSpanner",
+  "constructorTypes": [],
+  "cases": [
+    {
+      "name": "经典七日价格",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "next",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            100
+          ],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "next",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            80
+          ],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "next",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            60
+          ],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "next",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            70
+          ],
+          "returnType": "int",
+          "expected": 2
+        },
+        {
+          "method": "next",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            60
+          ],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "next",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            75
+          ],
+          "returnType": "int",
+          "expected": 4
+        },
+        {
+          "method": "next",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            85
+          ],
+          "returnType": "int",
+          "expected": 6
+        }
+      ]
+    },
+    {
+      "name": "连续上涨",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "next",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "next",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ],
+          "returnType": "int",
+          "expected": 2
+        },
+        {
+          "method": "next",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            3
+          ],
+          "returnType": "int",
+          "expected": 3
+        }
+      ]
+    },
+    {
+      "name": "相等价格也合并",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "next",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            5
+          ],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "next",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            5
+          ],
+          "returnType": "int",
+          "expected": 2
+        }
+      ]
+    }
+  ]
+}

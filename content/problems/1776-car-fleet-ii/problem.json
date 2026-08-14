@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1776,
+  "slug": "car-fleet-ii",
+  "title": "车队 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-025",
+  "studyTags": [
+    "数组",
+    "栈",
+    "单调栈",
+    "数学"
+  ],
+  "summary": "车辆按位置递增向右行驶且速度恒定，碰撞后车队以较慢速度前进；求每辆车首次撞到下一车辆的时间，不会碰撞返回负一。",
+  "insight": "从右向左维护可能被追上的车辆栈。若当前车不比栈顶快，永远追不上它；若理论碰撞时间晚于栈顶自身碰撞时间，则届时栈顶状态已改变，也应跳过它。",
+  "pitfalls": [
+    "比较时间使用 double",
+    "候选车无碰撞时理论追上时间总有效",
+    "答案是首次碰撞时间"
+  ],
+  "solutions": [
+    {
+      "id": "right-to-left-collision-stack",
+      "title": "从右向左碰撞单调栈",
+      "kind": "最优",
+      "idea": "删除不可能成为当前车首次碰撞对象的右侧车辆。",
+      "steps": [
+        "answer 全 -1，stack 存右侧车辆下标",
+        "i 从右向左：栈顶速度>=当前速度则弹出",
+        "计算 time；若 answer[top]<0 或 time<=answer[top] 则有效，否则弹出继续；有效时记录并压入 i"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/right-to-left-collision-stack/Solution.java",
+        "kotlin": "solutions/right-to-left-collision-stack/Solution.kt",
+        "cpp": "solutions/right-to-left-collision-stack/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 749,
+  "slug": "contain-virus",
+  "title": "隔离病毒",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-010",
+  "studyTags": [
+    "数组",
+    "深度优先搜索",
+    "矩阵",
+    "模拟"
+  ],
+  "summary": "病毒区域每天向相邻未感染格传播；每天可封锁威胁未感染格最多的一个连通区域，求最终建造墙的总数。",
+  "insight": "每天先枚举所有活跃感染区域，分别收集区域格、未感染前沿集合和所需边界墙数；封锁最大前沿区域，其余区域同时扩散。",
+  "pitfalls": [
+    "墙按感染格到未感染格的边计数，同一未感染格可能需要多面墙",
+    "已封锁区域不再参与搜索或传播",
+    "前沿大小用于选择区域，墙数用于累加答案"
+  ],
+  "solutions": [
+    {
+      "id": "daily-region-simulation",
+      "title": "逐日区域前沿模拟",
+      "kind": "最优",
+      "idea": "每轮完整分析区域后封锁一个并让其余扩散。",
+      "steps": [
+        "DFS 每个值为 1 的区域，收集 cells、frontier set、walls",
+        "选择 frontier.size 最大区域；若最大为零结束，累加其 walls 并把 cells 标为 -1",
+        "其他区域的 frontier 全部写成 1，进入下一天"
+      ],
+      "complexity": {
+        "time": "O(days·mn)",
+        "space": "O(mn)"
+      },
+      "files": {
+        "java": "solutions/daily-region-simulation/Solution.java",
+        "kotlin": "solutions/daily-region-simulation/Solution.kt",
+        "cpp": "solutions/daily-region-simulation/solution.cpp"
+      }
+    }
+  ]
+}

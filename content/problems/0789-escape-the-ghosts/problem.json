@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 789,
+  "slug": "escape-the-ghosts",
+  "title": "逃脱阻碍者",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-010",
+  "studyTags": [
+    "数组",
+    "数学",
+    "曼哈顿距离"
+  ],
+  "summary": "玩家从原点走向 target，多个幽灵也每步四向移动；判断玩家是否能保证先于幽灵到达目标。",
+  "insight": "在无障碍网格中最短路就是曼哈顿距离；只要任一幽灵到目标的距离不大于玩家距离，它就能在目标等待或同时抵达并阻止玩家。",
+  "pitfalls": [
+    "幽灵与玩家同时到达也算玩家失败",
+    "只需比较到目标的距离，无需模拟追逐",
+    "坐标可为负数，使用绝对值"
+  ],
+  "solutions": [
+    {
+      "id": "compare-manhattan-distance",
+      "title": "比较到目标的曼哈顿距离",
+      "kind": "最优",
+      "idea": "判断玩家是否严格早于所有幽灵。",
+      "steps": [
+        "计算 playerDistance=abs(tx)+abs(ty)",
+        "对每个 ghost 计算到 target 的曼哈顿距离",
+        "若 ghostDistance<=playerDistance 返回假；全部更远则返回真"
+      ],
+      "complexity": {
+        "time": "O(g)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/compare-manhattan-distance/Solution.java",
+        "kotlin": "solutions/compare-manhattan-distance/Solution.kt",
+        "cpp": "solutions/compare-manhattan-distance/solution.cpp"
+      }
+    }
+  ]
+}

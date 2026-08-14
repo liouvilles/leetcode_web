@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "orangesRotting",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四分钟传播到全部位置",
+      "args": [
+        [
+          [
+            2,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "新鲜橘子被空格隔断",
+      "args": [
+        [
+          [
+            2,
+            1,
+            1
+          ],
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": -1
+    },
+    {
+      "name": "没有新鲜橘子",
+      "args": [
+        [
+          [
+            0,
+            2
+          ]
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

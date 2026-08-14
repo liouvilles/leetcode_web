@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": 1464,
+  "slug": "maximum-product-of-two-elements-in-an-array",
+  "title": "数组中两元素的最大乘积",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-021",
+  "studyTags": [
+    "数组"
+  ],
+  "summary": "选择数组中两个不同元素 i、j，最大化 (nums[i]-1)(nums[j]-1)。",
+  "insight": "数组元素为正，目标随两个数单调增加，因此只需维护最大的两个元素。",
+  "pitfalls": [
+    "必须来自不同下标",
+    "乘积前两个元素都减一",
+    "相等最大值可分别来自两个位置"
+  ],
+  "solutions": [
+    {
+      "id": "two-largest-values",
+      "title": "维护最大两值",
+      "kind": "最优",
+      "idea": "单遍更新第一大与第二大元素。",
+      "steps": [
+        "first=second=负无穷",
+        "value>=first 时 second=first,first=value；否则若 value>second 更新 second",
+        "返回 (first-1)*(second-1)"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/two-largest-values/Solution.java",
+        "kotlin": "solutions/two-largest-values/Solution.kt",
+        "cpp": "solutions/two-largest-values/solution.cpp"
+      }
+    }
+  ]
+}

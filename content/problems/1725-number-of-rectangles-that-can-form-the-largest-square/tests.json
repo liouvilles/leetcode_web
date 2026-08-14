@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countGoodRectangles",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四矩形有三个可切最大正方形",
+      "args": [
+        [
+          [
+            5,
+            8
+          ],
+          [
+            3,
+            9
+          ],
+          [
+            5,
+            12
+          ],
+          [
+            16,
+            5
+          ]
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "所有矩形短边相同",
+      "args": [
+        [
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            7
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            3,
+            7
+          ]
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "单矩形计数一",
+      "args": [
+        [
+          [
+            4,
+            4
+          ]
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

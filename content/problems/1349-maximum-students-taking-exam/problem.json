@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1349,
+  "slug": "maximum-students-taking-exam",
+  "title": "参加考试的最大学生数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-019",
+  "studyTags": [
+    "数组",
+    "位运算",
+    "状态压缩动态规划",
+    "矩阵"
+  ],
+  "summary": "教室坏座不能坐人；学生不能左右相邻，也不能与前一排左右斜对角学生相邻，求最多可安排人数。",
+  "insight": "每排座位数小，用位掩码枚举该排所有合法安排；逐排 DP，把当前掩码与上一排掩码检查两条斜对角冲突后转移最大人数。",
+  "pitfalls": [
+    "正前方和正后方不算作弊",
+    "同排不能相邻",
+    "坏座对应位必须为零"
+  ],
+  "solutions": [
+    {
+      "id": "row-mask-compatibility-dp",
+      "title": "逐排掩码兼容动态规划",
+      "kind": "最优",
+      "idea": "枚举合法行状态并跨行检查斜向冲突。",
+      "steps": [
+        "每行构造 availableMask；枚举 mask，要求 mask 是 available 子集且 mask&(mask<<1)==0",
+        "dp 映射上一行掩码到最大人数，初始 {0:0}",
+        "每行对 current、previous，若 current&(previous<<1)==0 且 current&(previous>>1)==0，更新 next[current]；最后取最大"
+      ],
+      "complexity": {
+        "time": "O(rows·4^columns)",
+        "space": "O(2^columns)"
+      },
+      "files": {
+        "java": "solutions/row-mask-compatibility-dp/Solution.java",
+        "kotlin": "solutions/row-mask-compatibility-dp/Solution.kt",
+        "cpp": "solutions/row-mask-compatibility-dp/solution.cpp"
+      }
+    }
+  ]
+}

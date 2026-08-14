@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1143,
+  "slug": "longest-common-subsequence",
+  "title": "最长公共子序列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-003",
+  "studyTags": [
+    "二维动态规划",
+    "字符串子序列",
+    "前缀状态"
+  ],
+  "summary": "求两个字符串共同子序列的最大长度，子序列保留相对顺序但不要求连续。",
+  "insight": "末字符相同就接在两个更短前缀的最优子序列后；不同则至少舍弃其中一个末字符并取较优结果。",
+  "pitfalls": [
+    "子序列不要求连续",
+    "字符相同时转移自左上角加一",
+    "字符不同时取上方与左方最大值"
+  ],
+  "solutions": [
+    {
+      "id": "prefix-dp",
+      "title": "双前缀动态规划",
+      "kind": "最优",
+      "idea": "dp[i][j] 表示两个长度为 i、j 的前缀的最长公共子序列长度。",
+      "steps": [
+        "空前缀边界保持零",
+        "末字符相同则 dp[i-1][j-1]+1",
+        "否则 max(dp[i-1][j],dp[i][j-1])"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(mn)"
+      },
+      "files": {
+        "java": "solutions/prefix-dp/Solution.java",
+        "kotlin": "solutions/prefix-dp/Solution.kt",
+        "cpp": "solutions/prefix-dp/solution.cpp"
+      }
+    }
+  ]
+}

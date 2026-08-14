@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxOperations",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一二三四组成两对和五",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        5
+      ],
+      "expected": 2
+    },
+    {
+      "name": "重复数只能组成一对和六",
+      "args": [
+        [
+          3,
+          1,
+          3,
+          4,
+          3
+        ],
+        6
+      ],
+      "expected": 1
+    },
+    {
+      "name": "没有补数无法配对",
+      "args": [
+        [
+          1,
+          1,
+          1
+        ],
+        5
+      ],
+      "expected": 0
+    }
+  ]
+}

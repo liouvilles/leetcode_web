@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countSpecialNumbers",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一到二十有十九个特殊整数",
+      "args": [
+        20
+      ],
+      "expected": 19
+    },
+    {
+      "name": "一到五全部特殊",
+      "args": [
+        5
+      ],
+      "expected": 5
+    },
+    {
+      "name": "一到一百三十五有一百一十个",
+      "args": [
+        135
+      ],
+      "expected": 110
+    }
+  ]
+}

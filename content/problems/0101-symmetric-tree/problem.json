@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 101,
+  "slug": "symmetric-tree",
+  "title": "对称二叉树",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-001",
+  "studyTags": [
+    "镜像递归",
+    "成对比较",
+    "树结构"
+  ],
+  "summary": "判断一棵二叉树是否关于根节点的中心轴左右镜像对称。",
+  "insight": "对称性要求左树的外侧对应右树的外侧，同时左树内侧对应右树内侧。",
+  "pitfalls": [
+    "节点值相等还不够，空节点位置也必须镜像",
+    "递归比较的是 left.left 与 right.right",
+    "空树可以视为对称"
+  ],
+  "solutions": [
+    {
+      "id": "mirror-recursion",
+      "title": "镜像节点递归",
+      "kind": "最优",
+      "idea": "同时递归两个应当互为镜像的节点，并交叉比较它们的孩子。",
+      "steps": [
+        "根为空时直接返回真",
+        "一空一非空或值不同则失败",
+        "递归比较外侧节点对和内侧节点对"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(h)"
+      },
+      "files": {
+        "java": "solutions/mirror-recursion/Solution.java",
+        "kotlin": "solutions/mirror-recursion/Solution.kt",
+        "cpp": "solutions/mirror-recursion/solution.cpp"
+      }
+    }
+  ]
+}

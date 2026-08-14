@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getMinDistance",
+  "parameterTypes": [
+    "intArray",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "从三号位置到最近五距离一",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        5,
+        3
+      ],
+      "expected": 1
+    },
+    {
+      "name": "重复目标最近距离零",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        1,
+        0
+      ],
+      "expected": 0
+    },
+    {
+      "name": "目标在左侧距离二",
+      "args": [
+        [
+          5,
+          1,
+          2
+        ],
+        5,
+        2
+      ],
+      "expected": 2
+    }
+  ]
+}

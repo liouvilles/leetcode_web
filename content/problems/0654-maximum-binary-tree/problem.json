@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 654,
+  "slug": "maximum-binary-tree",
+  "title": "最大二叉树",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-008",
+  "studyTags": [
+    "数组",
+    "单调栈",
+    "笛卡尔树"
+  ],
+  "summary": "递归选择数组最大值作为根，左侧和右侧子数组分别构造左右子树，返回最大二叉树。",
+  "insight": "递减单调栈可在线构造笛卡尔树：新值弹出的较小节点中最后一个成为其左孩子，栈顶剩余节点把它设为右孩子。",
+  "pitfalls": [
+    "数组元素互不相同",
+    "弹栈后的最后一个节点是新节点左孩子",
+    "最终栈底是整棵树根"
+  ],
+  "solutions": [
+    {
+      "id": "decreasing-monotonic-stack",
+      "title": "递减栈构造笛卡尔树",
+      "kind": "最优",
+      "idea": "每个节点只进出栈一次，在线确定父子关系。",
+      "steps": [
+        "建立空递减节点栈",
+        "对每个 value 建节点，弹出所有更小栈顶并把最后弹出者设为 node.left",
+        "若栈非空令栈顶.right=node，再压入；返回栈底"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/decreasing-monotonic-stack/Solution.java",
+        "kotlin": "solutions/decreasing-monotonic-stack/Solution.kt",
+        "cpp": "solutions/decreasing-monotonic-stack/solution.cpp"
+      }
+    }
+  ]
+}

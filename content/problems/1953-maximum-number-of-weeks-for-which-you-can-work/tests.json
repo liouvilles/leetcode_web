@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numberOfWeeks",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "一二三可完成全部六周",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "最大项目过多只能工作七周",
+      "args": [
+        [
+          5,
+          2,
+          1
+        ]
+      ],
+      "expected": 7
+    },
+    {
+      "name": "单项目只能工作一周",
+      "args": [
+        [
+          100
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

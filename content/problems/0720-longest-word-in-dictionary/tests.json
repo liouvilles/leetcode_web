@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "longestWord",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "逐级构造 world",
+      "args": [
+        [
+          "w",
+          "wo",
+          "wor",
+          "worl",
+          "world"
+        ]
+      ],
+      "expected": "world"
+    },
+    {
+      "name": "同长取 apple",
+      "args": [
+        [
+          "a",
+          "banana",
+          "app",
+          "appl",
+          "ap",
+          "apply",
+          "apple"
+        ]
+      ],
+      "expected": "apple"
+    },
+    {
+      "name": "较长 breakfast",
+      "args": [
+        [
+          "b",
+          "br",
+          "bre",
+          "brea",
+          "break",
+          "breakf",
+          "breakfa",
+          "breakfas",
+          "breakfast",
+          "l",
+          "lu",
+          "lun",
+          "lunc",
+          "lunch"
+        ]
+      ],
+      "expected": "breakfast"
+    }
+  ]
+}

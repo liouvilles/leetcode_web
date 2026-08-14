@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 543,
+  "slug": "diameter-of-binary-tree",
+  "title": "二叉树的直径",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-003",
+  "studyTags": [
+    "后序遍历",
+    "子树高度",
+    "全局最优"
+  ],
+  "summary": "求二叉树中任意两个节点之间最长路径所经过的边数，路径不一定经过根。",
+  "insight": "以某节点为最高点的最长路径边数等于左子树高度加右子树高度，后序遍历所有节点即可取最大。",
+  "pitfalls": [
+    "直径按边数而不是节点数计算",
+    "最优路径可能完全位于某个子树",
+    "高度返回较大子树高度加一"
+  ],
+  "solutions": [
+    {
+      "id": "postorder-heights",
+      "title": "后序高度合并",
+      "kind": "最优",
+      "idea": "递归返回节点高度，并用左右高度之和更新全局直径。",
+      "steps": [
+        "空节点高度为零",
+        "递归求左右高度",
+        "更新直径并返回 max(left,right)+1"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(h)"
+      },
+      "files": {
+        "java": "solutions/postorder-heights/Solution.java",
+        "kotlin": "solutions/postorder-heights/Solution.kt",
+        "cpp": "solutions/postorder-heights/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "nextGreaterElements",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "通过循环找到更大值",
+      "args": [
+        [
+          1,
+          2,
+          1
+        ]
+      ],
+      "expected": [
+        2,
+        -1,
+        2
+      ]
+    },
+    {
+      "name": "严格递减数组",
+      "args": [
+        [
+          5,
+          4,
+          3,
+          2,
+          1
+        ]
+      ],
+      "expected": [
+        -1,
+        5,
+        5,
+        5,
+        5
+      ]
+    },
+    {
+      "name": "单元素",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": [
+        -1
+      ]
+    }
+  ]
+}

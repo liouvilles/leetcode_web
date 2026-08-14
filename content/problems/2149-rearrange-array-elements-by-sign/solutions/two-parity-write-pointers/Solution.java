@@ -1,0 +1,1 @@
+class Solution { public int[] rearrangeArray(int[] nums){int[] answer=new int[nums.length];int positive=0,negative=1;for(int value:nums)if(value>0){answer[positive]=value;positive+=2;}else{answer[negative]=value;negative+=2;}return answer;} }

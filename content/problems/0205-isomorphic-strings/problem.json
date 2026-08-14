@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 205,
+  "slug": "isomorphic-strings",
+  "title": "同构字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-003",
+  "studyTags": [
+    "双向映射",
+    "一一对应",
+    "字符串"
+  ],
+  "summary": "判断能否通过把第一个字符串中的每个字符统一替换为另一个字符得到第二个字符串，同时保持字符顺序。",
+  "insight": "映射必须是一一对应，因此既要保证 s→t 一致，也要保证 t→s 不被另一个字符占用。",
+  "pitfalls": [
+    "不同源字符不能映射到同一个目标字符",
+    "同一源字符的所有出现位置必须映射一致",
+    "字符可以映射为自身"
+  ],
+  "solutions": [
+    {
+      "id": "two-way-mapping",
+      "title": "双向字符映射",
+      "kind": "最优",
+      "idea": "扫描对应字符并同时维护两个方向的映射约束。",
+      "steps": [
+        "读取同一位置的两个字符",
+        "任一方向已有映射则检查一致性",
+        "两方向都未建立时同时登记"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(|Σ|)"
+      },
+      "files": {
+        "java": "solutions/two-way-mapping/Solution.java",
+        "kotlin": "solutions/two-way-mapping/Solution.kt",
+        "cpp": "solutions/two-way-mapping/solution.cpp"
+      }
+    }
+  ]
+}

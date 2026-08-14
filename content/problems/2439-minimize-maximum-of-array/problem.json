@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2439,
+  "slug": "minimize-maximum-of-array",
+  "title": "最小化数组中的最大值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-036",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "前缀和"
+  ],
+  "summary": "每次可把下标 i>0 的一个单位移到 i-1，求经过任意操作后数组最大值的最小可能值。",
+  "insight": "前 i+1 个元素总和无法向右移出该前缀，因此最大值至少为其平均值向上取整；所有前缀下界的最大值也可通过从右向左均衡达到。",
+  "pitfalls": [
+    "只能向左移动",
+    "前缀和使用 long",
+    "平均值需要向上取整"
+  ],
+  "solutions": [
+    {
+      "id": "maximum-ceiling-prefix-average",
+      "title": "最大前缀平均上取整",
+      "kind": "最优",
+      "idea": "所有前缀容量约束共同决定答案。",
+      "steps": [
+        "prefix=0、answer=0",
+        "扫描 i 加 nums[i]",
+        "bound=ceil(prefix/(i+1))",
+        "answer=max(answer,bound)"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/maximum-ceiling-prefix-average/Solution.java",
+        "kotlin": "solutions/maximum-ceiling-prefix-average/Solution.kt",
+        "cpp": "solutions/maximum-ceiling-prefix-average/solution.cpp"
+      }
+    }
+  ]
+}

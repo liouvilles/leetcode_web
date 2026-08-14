@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sumNumbers",
+  "parameterTypes": [
+    "treeNode"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两条两位数路径",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 25
+    },
+    {
+      "name": "三条路径",
+      "args": [
+        [
+          4,
+          9,
+          0,
+          5,
+          1
+        ]
+      ],
+      "expected": 1026
+    },
+    {
+      "name": "空树",
+      "args": [
+        []
+      ],
+      "expected": 0
+    }
+  ]
+}

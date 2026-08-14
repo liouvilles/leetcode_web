@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 857,
+  "slug": "minimum-cost-to-hire-k-workers",
+  "title": "雇佣 K 名工人的最低成本",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "数组",
+    "排序",
+    "堆",
+    "贪心"
+  ],
+  "summary": "每名工人有质量和最低工资，雇佣组内工资必须按质量同比例且满足各自最低工资，求恰好 k 人最低总成本。",
+  "insight": "若某人决定组内最高工资质量比 ratio，则所有已扫描的比率不高于它；在这些人中选择质量和最小的 k 人最优，用最大堆维护。",
+  "pitfalls": [
+    "按 wage/quality 浮点比率升序",
+    "堆超过 k 时移除最大质量",
+    "候选成本为当前质量和乘当前比率"
+  ],
+  "solutions": [
+    {
+      "id": "ratio-sort-max-quality-heap",
+      "title": "比率排序与质量最大堆",
+      "kind": "最优",
+      "idea": "枚举决定工资比例的工人并维护最小质量和。",
+      "steps": [
+        "构造 [ratio,quality] 并按 ratio 升序",
+        "把 quality 入最大堆并加到 totalQuality，堆大小超过 k 时弹最大质量",
+        "堆大小等于 k 时用 totalQuality*ratio 更新最小成本"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/ratio-sort-max-quality-heap/Solution.java",
+        "kotlin": "solutions/ratio-sort-max-quality-heap/Solution.kt",
+        "cpp": "solutions/ratio-sort-max-quality-heap/solution.cpp"
+      }
+    }
+  ]
+}

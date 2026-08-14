@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "removeDuplicates",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一个值出现三次",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          2,
+          2,
+          3
+        ]
+      ],
+      "expected": 5,
+      "expectedArgs": [
+        {
+          "index": 0,
+          "type": "intArray",
+          "expected": [
+            1,
+            1,
+            2,
+            2,
+            3,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "name": "多个长重复段",
+      "args": [
+        [
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          2,
+          3,
+          3
+        ]
+      ],
+      "expected": 7,
+      "expectedArgs": [
+        {
+          "index": 0,
+          "type": "intArray",
+          "expected": [
+            0,
+            0,
+            1,
+            1,
+            2,
+            3,
+            3,
+            3,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "name": "单元素",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 1,
+      "expectedArgs": [
+        {
+          "index": 0,
+          "type": "intArray",
+          "expected": [
+            1
+          ]
+        }
+      ]
+    }
+  ]
+}

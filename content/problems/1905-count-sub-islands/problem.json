@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 1905,
+  "slug": "count-sub-islands",
+  "title": "统计子岛屿",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-027",
+  "studyTags": [
+    "深度优先搜索",
+    "广度优先搜索",
+    "并查集",
+    "数组",
+    "矩阵"
+  ],
+  "summary": "grid2 中若一座岛屿的所有陆地格在 grid1 中也为陆地，则是子岛屿；统计其数量。",
+  "insight": "遍历 grid2 的每座岛并将其淹没。DFS 返回整座岛是否都被 grid1 覆盖；即使发现一个不覆盖格也必须继续遍历其余部分，避免同一岛被重复计数。",
+  "pitfalls": [
+    "必须检查整座 grid2 岛屿",
+    "发现失败后仍要完整访问该岛",
+    "四方向相邻"
+  ],
+  "solutions": [
+    {
+      "id": "flood-fill-with-validity",
+      "title": "带合法性的岛屿淹没",
+      "kind": "最优",
+      "idea": "DFS 同时清除岛屿并合并每个格子的覆盖状态。",
+      "steps": [
+        "遇到 grid2 陆地启动 dfs",
+        "先把当前格 grid2 置零",
+        "valid=grid1[row][col]==1，再递归四邻并用逻辑与合并；valid 时计数"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(mn)"
+      },
+      "files": {
+        "java": "solutions/flood-fill-with-validity/Solution.java",
+        "kotlin": "solutions/flood-fill-with-validity/Solution.kt",
+        "cpp": "solutions/flood-fill-with-validity/solution.cpp"
+      }
+    }
+  ]
+}

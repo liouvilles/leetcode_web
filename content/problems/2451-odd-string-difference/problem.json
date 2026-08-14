@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2451,
+  "slug": "odd-string-difference",
+  "title": "差值数组不同的字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-036",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "字符串"
+  ],
+  "summary": "等长小写单词的相邻字符差值数组中，恰有一个单词的差值数组与其他不同，返回它。",
+  "insight": "把每个单词差值序列编码为键并统计频次，再返回频次为一的单词。",
+  "pitfalls": [
+    "差值可为负",
+    "比较的是相邻字符数值差",
+    "保证唯一答案"
+  ],
+  "solutions": [
+    {
+      "id": "difference-signature-frequency",
+      "title": "差值签名频次",
+      "kind": "最优",
+      "idea": "用序列键归类单词。",
+      "steps": [
+        "为每个 word 构造相邻差并以逗号连接",
+        "统计 key 频次并保存各 word key",
+        "返回 key 频次为一的 word"
+      ],
+      "complexity": {
+        "time": "O(words·length)",
+        "space": "O(words·length)"
+      },
+      "files": {
+        "java": "solutions/difference-signature-frequency/Solution.java",
+        "kotlin": "solutions/difference-signature-frequency/Solution.kt",
+        "cpp": "solutions/difference-signature-frequency/solution.cpp"
+      }
+    }
+  ]
+}

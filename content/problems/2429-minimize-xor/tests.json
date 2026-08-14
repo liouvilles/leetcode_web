@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimizeXor",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三与五的一比特数相同返回三",
+      "args": [
+        3,
+        5
+      ],
+      "expected": 3
+    },
+    {
+      "name": "一需补最低空位得到三",
+      "args": [
+        1,
+        12
+      ],
+      "expected": 3
+    },
+    {
+      "name": "二十五保留高两位得到二十四",
+      "args": [
+        25,
+        72
+      ],
+      "expected": 24
+    }
+  ]
+}

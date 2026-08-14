@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "balancedStringSplit",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典四段",
+      "args": [
+        "RLRRLLRLRL"
+      ],
+      "expected": 4
+    },
+    {
+      "name": "三个连续平衡段",
+      "args": [
+        "RLRRRLLRLL"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "整串一段",
+      "args": [
+        "LLLLRRRR"
+      ],
+      "expected": 1
+    }
+  ]
+}

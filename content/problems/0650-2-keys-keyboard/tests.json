@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minSteps",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三个 A",
+      "args": [
+        3
+      ],
+      "expected": 3
+    },
+    {
+      "name": "初始一个 A",
+      "args": [
+        1
+      ],
+      "expected": 0
+    },
+    {
+      "name": "九分解为三乘三",
+      "args": [
+        9
+      ],
+      "expected": 6
+    }
+  ]
+}

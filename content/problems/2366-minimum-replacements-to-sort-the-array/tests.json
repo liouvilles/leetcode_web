@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumReplacement",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "九拆成三个三需两次",
+      "args": [
+        [
+          3,
+          9,
+          3
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "已非递减无需替换",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "经典多次拆分共六次",
+      "args": [
+        [
+          12,
+          9,
+          7,
+          6,
+          17,
+          19,
+          21
+        ]
+      ],
+      "expected": 6
+    }
+  ]
+}

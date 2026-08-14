@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minPairSum",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "首尾配对最大和七",
+      "args": [
+        [
+          3,
+          5,
+          2,
+          3
+        ]
+      ],
+      "expected": 7
+    },
+    {
+      "name": "六个数最优最大和八",
+      "args": [
+        [
+          3,
+          5,
+          4,
+          2,
+          4,
+          6
+        ]
+      ],
+      "expected": 8
+    },
+    {
+      "name": "两个一只能配成二",
+      "args": [
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

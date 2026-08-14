@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minRefuelStops",
+  "parameterTypes": [
+    "int",
+    "int",
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典需要两站",
+      "args": [
+        100,
+        10,
+        [
+          [
+            10,
+            60
+          ],
+          [
+            20,
+            30
+          ],
+          [
+            30,
+            30
+          ],
+          [
+            60,
+            40
+          ]
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "首站不可达",
+      "args": [
+        100,
+        1,
+        [
+          [
+            10,
+            100
+          ]
+        ]
+      ],
+      "expected": -1
+    },
+    {
+      "name": "起始油量足够",
+      "args": [
+        1,
+        1,
+        []
+      ],
+      "expected": 0
+    }
+  ]
+}

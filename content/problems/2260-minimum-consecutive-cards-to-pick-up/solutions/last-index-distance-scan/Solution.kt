@@ -1,0 +1,1 @@
+class Solution { fun minimumCardPickup(cards:IntArray):Int{val last=HashMap<Int,Int>();var answer=Int.MAX_VALUE;for(i in cards.indices){last[cards[i]]?.let{answer=minOf(answer,i-it+1)};last[cards[i]]=i};return if(answer==Int.MAX_VALUE)-1 else answer} }

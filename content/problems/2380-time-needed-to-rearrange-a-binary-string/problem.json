@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2380,
+  "slug": "time-needed-to-rearrange-a-binary-string",
+  "title": "二进制字符串重新安排顺序需要的时间",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-035",
+  "studyTags": [
+    "字符串",
+    "动态规划",
+    "模拟"
+  ],
+  "summary": "每秒同时把所有 01 替换为 10，求直到字符串不再含 01 所需秒数。",
+  "insight": "从左到右统计已见零数。每个一若前方有零，至少要跨过 zeros 个零，同时不能与前一个一的移动重叠，所以完成时间为 max(zeros,answer+1)。",
+  "pitfalls": [
+    "每秒替换同时发生",
+    "没有前置零的一不需要移动",
+    "多个一通过同一位置需排队"
+  ],
+  "solutions": [
+    {
+      "id": "zero-count-and-one-delay-dp",
+      "title": "零计数与一的延迟 DP",
+      "kind": "最优",
+      "idea": "用公式压缩逐秒模拟。",
+      "steps": [
+        "zeros=0、answer=0",
+        "遇零 zeros++",
+        "遇一且 zeros>0，answer=max(zeros,answer+1)",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/zero-count-and-one-delay-dp/Solution.java",
+        "kotlin": "solutions/zero-count-and-one-delay-dp/Solution.kt",
+        "cpp": "solutions/zero-count-and-one-delay-dp/solution.cpp"
+      }
+    }
+  ]
+}

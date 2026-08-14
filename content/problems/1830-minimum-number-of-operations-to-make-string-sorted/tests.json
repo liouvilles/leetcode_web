@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "makeStringSorted",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "cba 排名前有五个排列",
+      "args": [
+        "cba"
+      ],
+      "expected": 5
+    },
+    {
+      "name": "aabaa 排名前有两个排列",
+      "args": [
+        "aabaa"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "abc 已排序无需操作",
+      "args": [
+        "abc"
+      ],
+      "expected": 0
+    }
+  ]
+}

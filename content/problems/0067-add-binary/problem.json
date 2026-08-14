@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 67,
+  "slug": "add-binary",
+  "title": "二进制求和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-004",
+  "studyTags": [
+    "双指针",
+    "进位模拟",
+    "字符串"
+  ],
+  "summary": "给定两个二进制字符串，返回它们相加后的二进制字符串。",
+  "insight": "从两个字符串末尾同步取位，加上进位后写入结果最低位，并把商作为下一位进位。",
+  "pitfalls": [
+    "两个字符串长度可能不同",
+    "循环结束后可能仍有最高位进位",
+    "逆序生成后需要反转结果"
+  ],
+  "solutions": [
+    {
+      "id": "digit-carry",
+      "title": "逆序逐位进位",
+      "kind": "最优",
+      "idea": "用两个下标从低位向高位模拟二进制竖式加法。",
+      "steps": [
+        "下标从两串末尾开始",
+        "累加有效位和 carry，追加 sum%2",
+        "更新 carry=sum/2，最后反转"
+      ],
+      "complexity": {
+        "time": "O(m+n)",
+        "space": "O(m+n)"
+      },
+      "files": {
+        "java": "solutions/digit-carry/Solution.java",
+        "kotlin": "solutions/digit-carry/Solution.kt",
+        "cpp": "solutions/digit-carry/solution.cpp"
+      }
+    }
+  ]
+}

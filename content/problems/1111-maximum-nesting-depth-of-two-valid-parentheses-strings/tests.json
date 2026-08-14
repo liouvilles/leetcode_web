@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxDepthAfterSplit",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "两层嵌套交替",
+      "args": [
+        "(()())"
+      ],
+      "expected": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "并列与嵌套",
+      "args": [
+        "()(())"
+      ],
+      "expected": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "单对括号",
+      "args": [
+        "()"
+      ],
+      "expected": [
+        0,
+        0
+      ]
+    }
+  ]
+}

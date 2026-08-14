@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2266,
+  "slug": "count-number-of-texts",
+  "title": "统计打字方案数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-033",
+  "studyTags": [
+    "字符串",
+    "动态规划"
+  ],
+  "summary": "老式手机同一数字连续按若干次表示一个字母，七和九每个字母最多按四次，其他数字最多三次，统计给定按键串的可能文本数。",
+  "insight": "dp[i] 表示前 i 个按键的解码数。向后看同一数字的连续一到 limit 个字符，均可作为最后一个字母，累加 dp[i-length]。",
+  "pitfalls": [
+    "只能把相同数字归为一个字母",
+    "七和九上限四，其余上限三",
+    "结果取模"
+  ],
+  "solutions": [
+    {
+      "id": "prefix-decoding-dp",
+      "title": "按键前缀解码 DP",
+      "kind": "最优",
+      "idea": "枚举最后一个字母消耗的相同按键数量。",
+      "steps": [
+        "dp[0]=1",
+        "i 从一到 n，limit=当前数字为七九则四否则三",
+        "length=1..limit 且 i-length>=0、区间字符均与末字符相同，dp[i]+=dp[i-length]",
+        "返回 dp[n] mod MOD"
+      ],
+      "complexity": {
+        "time": "O(4n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/prefix-decoding-dp/Solution.java",
+        "kotlin": "solutions/prefix-decoding-dp/Solution.kt",
+        "cpp": "solutions/prefix-decoding-dp/solution.cpp"
+      }
+    }
+  ]
+}

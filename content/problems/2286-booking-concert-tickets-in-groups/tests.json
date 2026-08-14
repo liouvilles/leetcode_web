@@ -1,0 +1,164 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "BookMyShow",
+  "constructorTypes": [
+    "int",
+    "int"
+  ],
+  "cases": [
+    {
+      "name": "经典连续与分散订票序列",
+      "constructorArgs": [
+        2,
+        5
+      ],
+      "calls": [
+        {
+          "method": "gather",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            4,
+            0
+          ],
+          "returnType": "intArray",
+          "expected": [
+            0,
+            0
+          ]
+        },
+        {
+          "method": "gather",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            2,
+            0
+          ],
+          "returnType": "intArray",
+          "expected": []
+        },
+        {
+          "method": "scatter",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            5,
+            1
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "scatter",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            5,
+            1
+          ],
+          "returnType": "boolean",
+          "expected": false
+        }
+      ]
+    },
+    {
+      "name": "单排订满后无座",
+      "constructorArgs": [
+        1,
+        3
+      ],
+      "calls": [
+        {
+          "method": "gather",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            2,
+            0
+          ],
+          "returnType": "intArray",
+          "expected": [
+            0,
+            0
+          ]
+        },
+        {
+          "method": "scatter",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            1,
+            0
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "gather",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            1,
+            0
+          ],
+          "returnType": "intArray",
+          "expected": []
+        }
+      ]
+    },
+    {
+      "name": "分散后从行内剩余位置连续订票",
+      "constructorArgs": [
+        3,
+        2
+      ],
+      "calls": [
+        {
+          "method": "scatter",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            3,
+            1
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "gather",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            1,
+            2
+          ],
+          "returnType": "intArray",
+          "expected": [
+            1,
+            1
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 940,
+  "slug": "distinct-subsequences-ii",
+  "title": "不同的子序列 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-013",
+  "studyTags": [
+    "字符串",
+    "动态规划"
+  ],
+  "summary": "统计字符串的不同非空子序列数量，对 1e9+7 取模。",
+  "insight": "追加字符 c 时，旧子序列可选择不追加或追加 c，另有单字符 c；但此前所有以 c 结尾的子序列会重复，需要减去。",
+  "pitfalls": [
+    "统计不同内容而非不同下标选择",
+    "减法取模要加模数防负",
+    "ending[c] 应更新为追加前 total+1"
+  ],
+  "solutions": [
+    {
+      "id": "ending-character-dp",
+      "title": "按末字符去重动态规划",
+      "kind": "最优",
+      "idea": "记录每种末字符对应的子序列数量。",
+      "steps": [
+        "total=0，ending[26]=0",
+        "对字符 c，next=2*total+1-ending[c] 并规范取模",
+        "令 ending[c]=total+1，再把 total=next；返回 total"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/ending-character-dp/Solution.java",
+        "kotlin": "solutions/ending-character-dp/Solution.kt",
+        "cpp": "solutions/ending-character-dp/solution.cpp"
+      }
+    }
+  ]
+}

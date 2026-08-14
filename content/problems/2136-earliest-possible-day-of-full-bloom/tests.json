@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "earliestFullBloom",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三颗种子最早第九天全开",
+      "args": [
+        [
+          1,
+          4,
+          3
+        ],
+        [
+          2,
+          3,
+          1
+        ]
+      ],
+      "expected": 9
+    },
+    {
+      "name": "四颗种子合理调度第九天",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          2
+        ],
+        [
+          2,
+          1,
+          2,
+          1
+        ]
+      ],
+      "expected": 9
+    },
+    {
+      "name": "单颗种子播种加生长",
+      "args": [
+        [
+          5
+        ],
+        [
+          10
+        ]
+      ],
+      "expected": 15
+    }
+  ]
+}

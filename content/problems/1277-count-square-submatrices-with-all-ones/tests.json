@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countSquares",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典矩阵十五个",
+      "args": [
+        [
+          [
+            0,
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            1,
+            1
+          ],
+          [
+            0,
+            1,
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": 15
+    },
+    {
+      "name": "小矩阵七个",
+      "args": [
+        [
+          [
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            0
+          ]
+        ]
+      ],
+      "expected": 7
+    },
+    {
+      "name": "全零没有正方形",
+      "args": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

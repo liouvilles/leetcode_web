@@ -1,0 +1,1 @@
+class Solution { public int longestSubarray(int[] nums){int maximum=Arrays.stream(nums).max().getAsInt(),current=0,answer=0;for(int value:nums){current=value==maximum?current+1:0;answer=Math.max(answer,current);}return answer;} }

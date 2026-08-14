@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1220,
+  "slug": "count-vowels-permutation",
+  "title": "统计元音字母序列的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-017",
+  "studyTags": [
+    "动态规划",
+    "计数",
+    "滚动数组"
+  ],
+  "summary": "按指定相邻元音规则，统计长度为 n、只含 aeiou 的字符串数量，结果对 10^9+7 取模。",
+  "insight": "维护以五个元音分别结尾的序列数。下一位置的每个结尾只从允许位于它之前的元音状态转移，滚动更新即可。",
+  "pitfalls": [
+    "n=1 时五个元音各一种",
+    "转移方向要按前驱而不是后继理解",
+    "每轮加法对模数取余"
+  ],
+  "solutions": [
+    {
+      "id": "five-ending-state-dp",
+      "title": "五种结尾状态动态规划",
+      "kind": "最优",
+      "idea": "按允许的相邻关系滚动五个计数。",
+      "steps": [
+        "初始 a=e=i=o=u=1",
+        "从长度 2 到 n：nextA=e+i+u，nextE=a+i，nextI=e+o，nextO=i，nextU=i+o，均取模",
+        "替换五状态，最终求和取模返回"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/five-ending-state-dp/Solution.java",
+        "kotlin": "solutions/five-ending-state-dp/Solution.kt",
+        "cpp": "solutions/five-ending-state-dp/solution.cpp"
+      }
+    }
+  ]
+}

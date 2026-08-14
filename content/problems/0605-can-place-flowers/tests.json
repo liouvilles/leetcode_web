@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "canPlaceFlowers",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "可以种一朵",
+      "args": [
+        [
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        1
+      ],
+      "expected": true
+    },
+    {
+      "name": "不能种两朵",
+      "args": [
+        [
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        2
+      ],
+      "expected": false
+    },
+    {
+      "name": "单空花坛",
+      "args": [
+        [
+          0
+        ],
+        1
+      ],
+      "expected": true
+    }
+  ]
+}

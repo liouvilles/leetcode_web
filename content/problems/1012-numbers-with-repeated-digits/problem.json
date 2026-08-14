@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1012,
+  "slug": "numbers-with-repeated-digits",
+  "title": "至少有 1 位重复的数字",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-015",
+  "studyTags": [
+    "数学",
+    "动态规划",
+    "组合数学",
+    "数位 DP"
+  ],
+  "summary": "统计 1 到 n 中十进制表示至少有一位数字重复的正整数数量。",
+  "insight": "用补集更简单：按位数统计各位互异的正整数，再逐位枚举与 n 同长度且更小的可选数字；答案是 n 减去无重复数字数。",
+  "pitfalls": [
+    "最高位不能为零",
+    "前缀中已用数字不能再选",
+    "若 n 自身各位互异要把它计入无重复数"
+  ],
+  "solutions": [
+    {
+      "id": "count-unique-digit-complement",
+      "title": "无重复数补集计数",
+      "kind": "最优",
+      "idea": "按长度和与 n 的公共前缀计算互异数字数量。",
+      "steps": [
+        "对长度 1..L-1 累加 9*P(9,length-1)",
+        "同长度从左到右：枚举小于当前位且未用的候选，累加 P(10-i-1,L-i-1)",
+        "若当前位已用则停止；否则标记，若完整扫描则 unique++；返回 n-unique"
+      ],
+      "complexity": {
+        "time": "O(digits²)",
+        "space": "O(10)"
+      },
+      "files": {
+        "java": "solutions/count-unique-digit-complement/Solution.java",
+        "kotlin": "solutions/count-unique-digit-complement/Solution.kt",
+        "cpp": "solutions/count-unique-digit-complement/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { fun findJudge(n:Int,trust:Array<IntArray>):Int{val score=IntArray(n+1);for(relation in trust){score[relation[0]]--;score[relation[1]]++};for(person in 1..n)if(score[person]==n-1)return person;return -1} }

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countPrimes",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "十以内四个质数",
+      "args": [
+        10
+      ],
+      "expected": 4
+    },
+    {
+      "name": "边界零",
+      "args": [
+        0
+      ],
+      "expected": 0
+    },
+    {
+      "name": "一百以内",
+      "args": [
+        100
+      ],
+      "expected": 25
+    }
+  ]
+}

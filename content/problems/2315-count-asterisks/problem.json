@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2315,
+  "slug": "count-asterisks",
+  "title": "统计星号",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "字符串"
+  ],
+  "summary": "字符串由成对竖线划分若干区域，统计不在任意竖线对内部的星号数量。",
+  "insight": "扫描时每遇竖线切换 inside 状态，只在 inside 为假时累计星号。",
+  "pitfalls": [
+    "竖线保证成对出现",
+    "竖线本身不计数",
+    "多个分隔区域需反复切换状态"
+  ],
+  "solutions": [
+    {
+      "id": "toggle-between-bars",
+      "title": "竖线状态切换",
+      "kind": "最优",
+      "idea": "一个布尔状态表示当前是否位于竖线对中。",
+      "steps": [
+        "inside=false、answer=0",
+        "遇 | 切换 inside",
+        "遇 * 且 !inside 时 answer++",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/toggle-between-bars/Solution.java",
+        "kotlin": "solutions/toggle-between-bars/Solution.kt",
+        "cpp": "solutions/toggle-between-bars/solution.cpp"
+      }
+    }
+  ]
+}

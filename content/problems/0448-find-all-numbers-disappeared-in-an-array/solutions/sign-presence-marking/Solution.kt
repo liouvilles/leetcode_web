@@ -1,0 +1,1 @@
+class Solution { fun findDisappearedNumbers(nums:IntArray):List<Int>{for(item in nums){val index=kotlin.math.abs(item)-1;nums[index]=-kotlin.math.abs(nums[index])};val answer=mutableListOf<Int>();for(i in nums.indices)if(nums[i]>0)answer.add(i+1);return answer} }

@@ -1,0 +1,1 @@
+class Solution { public: string customSortString(string order,string s){int frequency[26]{};for(char c:s)++frequency[c-'a'];string answer;for(char c:order)while(frequency[c-'a']>0){answer+=c;--frequency[c-'a'];}for(int i=0;i<26;++i)while(frequency[i]>0){answer+=char('a'+i);--frequency[i];}return answer;} };

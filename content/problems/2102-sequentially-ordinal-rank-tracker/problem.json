@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2102,
+  "slug": "sequentially-ordinal-rank-tracker",
+  "title": "序列顺序查询排名",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "设计",
+    "数据流",
+    "有序集合",
+    "堆（优先队列）"
+  ],
+  "summary": "动态加入景点名称与分数；第 k 次 get 返回当前排名第 k 好的景点，排名按分数降序、同分名称升序。",
+  "insight": "维护两个堆：selected 包含已执行 get 次数个最优景点，堆顶是其中最差者；remaining 堆顶是未选景点中最好者。add 后交换越界元素，get 把 remaining 最好者移入 selected 并返回。",
+  "pitfalls": [
+    "每次 get 的 k 自动递增",
+    "add 可发生在 get 之间",
+    "名称互不相同"
+  ],
+  "solutions": [
+    {
+      "id": "two-ranking-heaps",
+      "title": "已选与未选双排名堆",
+      "kind": "最优",
+      "idea": "用两个相反比较器维护动态前 k 分界。",
+      "steps": [
+        "remaining 按最好优先：score 降、name 升；selected 按最差优先：score 升、name 降",
+        "add 放 remaining；若 remaining 最好优于 selected 最差则交换",
+        "get：弹 remaining 最好加入 selected 并返回名称"
+      ],
+      "complexity": {
+        "time": "O(log n) 每次操作",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/two-ranking-heaps/Solution.java",
+        "kotlin": "solutions/two-ranking-heaps/Solution.kt",
+        "cpp": "solutions/two-ranking-heaps/solution.cpp"
+      }
+    }
+  ]
+}

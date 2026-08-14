@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findRightInterval",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "没有右区间",
+      "args": [
+        [
+          [
+            1,
+            2
+          ]
+        ]
+      ],
+      "expected": [
+        -1
+      ]
+    },
+    {
+      "name": "逆序输入",
+      "args": [
+        [
+          [
+            3,
+            4
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            1,
+            2
+          ]
+        ]
+      ],
+      "expected": [
+        -1,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "混合命中",
+      "args": [
+        [
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      ],
+      "expected": [
+        -1,
+        2,
+        -1
+      ]
+    }
+  ]
+}

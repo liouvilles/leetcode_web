@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "leastBricks",
+  "parameterTypes": [
+    "intListMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典砖墙",
+      "args": [
+        [
+          [
+            1,
+            2,
+            2,
+            1
+          ],
+          [
+            3,
+            1,
+            2
+          ],
+          [
+            1,
+            3,
+            2
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            1,
+            2
+          ],
+          [
+            1,
+            3,
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "单块砖墙",
+      "args": [
+        [
+          [
+            1
+          ]
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "两行共享砖缝",
+      "args": [
+        [
+          [
+            1,
+            1
+          ],
+          [
+            2
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

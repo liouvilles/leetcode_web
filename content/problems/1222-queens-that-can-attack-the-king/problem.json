@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1222,
+  "slug": "queens-that-can-attack-the-king",
+  "title": "可以攻击国王的皇后",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-017",
+  "studyTags": [
+    "数组",
+    "矩阵",
+    "模拟",
+    "方向扫描"
+  ],
+  "summary": "八乘八棋盘上给定若干皇后和一个国王，返回能沿横、竖或对角线直接攻击国王的皇后。",
+  "insight": "从国王沿八个方向向外扫描，每个方向遇到的第一个皇后能攻击国王，更远皇后会被它挡住；空格继续前进。",
+  "pitfalls": [
+    "每个方向最多返回一个皇后",
+    "棋盘边界是零到七",
+    "结果顺序不限，但实现按固定方向输出"
+  ],
+  "solutions": [
+    {
+      "id": "eight-ray-first-queen",
+      "title": "八方向射线首皇后",
+      "kind": "最优",
+      "idea": "沿国王八条射线寻找第一个占用格。",
+      "steps": [
+        "用 boolean[8][8] 标记 queen 坐标",
+        "对八个方向分别从 king 相邻格出发",
+        "未越界时若遇皇后则加入坐标并停止该方向，否则继续前进，返回结果"
+      ],
+      "complexity": {
+        "time": "O(64+皇后数)",
+        "space": "O(64)"
+      },
+      "files": {
+        "java": "solutions/eight-ray-first-queen/Solution.java",
+        "kotlin": "solutions/eight-ray-first-queen/Solution.kt",
+        "cpp": "solutions/eight-ray-first-queen/solution.cpp"
+      }
+    }
+  ]
+}

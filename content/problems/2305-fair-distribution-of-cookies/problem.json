@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2305,
+  "slug": "fair-distribution-of-cookies",
+  "title": "公平分发饼干",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "数组",
+    "回溯",
+    "状态压缩"
+  ],
+  "summary": "把每袋饼干完整分给 k 个孩子，孩子的不公平程度为所得总数，求所有孩子最大所得数的最小可能值。",
+  "insight": "按袋大小降序回溯分配，尽早形成强剪枝。若当前最大值已不小于最优答案则停止；相同负载孩子等价，空孩子也只试一个。",
+  "pitfalls": [
+    "每袋不能拆分",
+    "允许某孩子暂时为空",
+    "目标是最小化最大负载而非负载差"
+  ],
+  "solutions": [
+    {
+      "id": "descending-backtracking-with-symmetry-pruning",
+      "title": "降序回溯与对称剪枝",
+      "kind": "最优",
+      "idea": "优先放大袋并跳过等价孩子状态。",
+      "steps": [
+        "cookies 降序，loads[k]=0，best=∞",
+        "递归处理第 index 袋；若 currentMax>=best 剪枝",
+        "对未出现过的 loads[i] 尝试放入，递归后撤销；原负载为零时尝试一次即停止",
+        "分完更新 best"
+      ],
+      "complexity": {
+        "time": "O(k^n)，剪枝显著减少",
+        "space": "O(k+n)"
+      },
+      "files": {
+        "java": "solutions/descending-backtracking-with-symmetry-pruning/Solution.java",
+        "kotlin": "solutions/descending-backtracking-with-symmetry-pruning/Solution.kt",
+        "cpp": "solutions/descending-backtracking-with-symmetry-pruning/solution.cpp"
+      }
+    }
+  ]
+}

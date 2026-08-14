@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 1872,
+  "slug": "stone-game-viii",
+  "title": "石子游戏 VIII",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-027",
+  "studyTags": [
+    "数组",
+    "数学",
+    "动态规划",
+    "前缀和",
+    "博弈"
+  ],
+  "summary": "两人轮流把最左边至少两堆石子合并并获得其和，双方最优时求先手与后手最终得分差。",
+  "insight": "用前缀和表示一次合并后的首堆。倒序 DP：在前缀 i 处，当前玩家可保留已有最优结果，或选择该前缀并得到 prefix[i]-后续最优差值。",
+  "pitfalls": [
+    "每次必须取至少两堆",
+    "分数允许为负",
+    "答案是双方得分差而非先手得分"
+  ],
+  "solutions": [
+    {
+      "id": "reverse-prefix-game-dp",
+      "title": "倒序前缀博弈 DP",
+      "kind": "最优",
+      "idea": "压缩状态为从某前缀开始时当前玩家的最大差值。",
+      "steps": [
+        "计算 prefix",
+        "best=prefix[n-1]",
+        "i 从 n-2 递减到 1：best=max(best,prefix[i]-best)，返回 best"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/reverse-prefix-game-dp/Solution.java",
+        "kotlin": "solutions/reverse-prefix-game-dp/Solution.kt",
+        "cpp": "solutions/reverse-prefix-game-dp/solution.cpp"
+      }
+    }
+  ]
+}

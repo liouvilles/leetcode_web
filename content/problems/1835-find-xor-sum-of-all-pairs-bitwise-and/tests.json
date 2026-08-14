@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getXORSum",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典数组异或与结果零",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          6,
+          5
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "第二组结果四",
+      "args": [
+        [
+          12
+        ],
+        [
+          4
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "相同单值按位与自身",
+      "args": [
+        [
+          7
+        ],
+        [
+          7
+        ]
+      ],
+      "expected": 7
+    }
+  ]
+}

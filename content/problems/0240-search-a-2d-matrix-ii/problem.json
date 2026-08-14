@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 240,
+  "slug": "search-a-2d-matrix-ii",
+  "title": "搜索二维矩阵 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-003",
+  "studyTags": [
+    "Z 字形搜索",
+    "矩阵单调性",
+    "线性消除"
+  ],
+  "summary": "矩阵每行从左到右递增、每列从上到下递增，判断目标值是否存在。",
+  "insight": "从右上角开始，当前值过大就左移排除一列，过小就下移排除一行。",
+  "pitfalls": [
+    "该矩阵并非按行整体连续有序",
+    "起点应选择右上或左下角",
+    "每一步至少排除一整行或一整列"
+  ],
+  "solutions": [
+    {
+      "id": "top-right-walk",
+      "title": "右上角阶梯搜索",
+      "kind": "最优",
+      "idea": "利用右上角同时是所在行最大候选和所在列最小候选的性质。",
+      "steps": [
+        "从 row=0、column=n-1 开始",
+        "当前值大于目标则左移",
+        "当前值小于目标则下移"
+      ],
+      "complexity": {
+        "time": "O(m+n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/top-right-walk/Solution.java",
+        "kotlin": "solutions/top-right-walk/Solution.kt",
+        "cpp": "solutions/top-right-walk/solution.cpp"
+      }
+    }
+  ]
+}

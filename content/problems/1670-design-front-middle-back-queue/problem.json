@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1670,
+  "slug": "design-front-middle-back-queue",
+  "title": "设计前中后队列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-024",
+  "studyTags": [
+    "数组",
+    "链表",
+    "设计",
+    "队列"
+  ],
+  "summary": "设计支持在队首、正中、队尾插入和删除的队列；偶数长度删除中间时返回靠前的中间元素。",
+  "insight": "用 left、right 两个双端队列表示前后半段，始终保持 left.size 等于 right.size 或多一。所有中间操作都发生在 left 尾部。",
+  "pitfalls": [
+    "偶数长度的中间定义为两个中点中靠前者",
+    "每次操作后都要恢复两半平衡",
+    "空队列弹出返回负一"
+  ],
+  "solutions": [
+    {
+      "id": "balanced-two-deques",
+      "title": "平衡双端队列",
+      "kind": "最优",
+      "idea": "通过两个半区让六种操作都只触及端点。",
+      "steps": [
+        "维护 left.size==right.size 或 left.size==right.size+1",
+        "push 操作后移动一个边界元素恢复不变量",
+        "popMiddle 移除 left 尾；popFront、popBack 从外侧端点移除，再平衡"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/balanced-two-deques/Solution.java",
+        "kotlin": "solutions/balanced-two-deques/Solution.kt",
+        "cpp": "solutions/balanced-two-deques/solution.cpp"
+      }
+    }
+  ]
+}

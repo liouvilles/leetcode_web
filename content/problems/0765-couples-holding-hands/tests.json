@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minSwapsCouples",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "交换一次配对",
+      "args": [
+        [
+          0,
+          2,
+          1,
+          3
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "两对已经相邻",
+      "args": [
+        [
+          3,
+          2,
+          0,
+          1
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "三对中只错一对",
+      "args": [
+        [
+          0,
+          2,
+          1,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class KthLargest(private val k:Int,nums:IntArray){private val heap=java.util.PriorityQueue<Int>();init{for(value in nums)add(value)};fun add(`val`:Int):Int{heap.add(`val`);if(heap.size>k)heap.remove();return heap.peek()} }

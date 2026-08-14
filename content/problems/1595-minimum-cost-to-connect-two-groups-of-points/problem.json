@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1595,
+  "slug": "minimum-cost-to-connect-two-groups-of-points",
+  "title": "连通两组点的最小成本",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-023",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "位运算",
+    "状态压缩"
+  ],
+  "summary": "连接两组点，使每个点至少与另一组一个点相连，给定每对连接成本，求最小总成本。",
+  "insight": "逐个处理第一组，每个点至少选一条到第二组的边，用 mask 记录已覆盖第二组点；处理完后，对未覆盖的第二组点补上其连接第一组任一点的最小成本。",
+  "pitfalls": [
+    "第一组每个点必须在递归中选择一条边",
+    "第二组可由多个第一组点重复连接",
+    "末尾补边可连接到已处理的任意第一组点"
+  ],
+  "solutions": [
+    {
+      "id": "first-group-mask-dp",
+      "title": "第一组逐点状态压缩",
+      "kind": "最优",
+      "idea": "用第二组覆盖掩码记录跨组连接状态。",
+      "steps": [
+        "预计算 minToSecond[j]",
+        "dfs(i,mask)：i==size1 时累加所有 mask 未覆盖 j 的 minToSecond[j]",
+        "否则枚举 j，cost[i][j]+dfs(i+1,mask|1<<j) 取最小并记忆化"
+      ],
+      "complexity": {
+        "time": "O(m·2^n·n)",
+        "space": "O(m·2^n)"
+      },
+      "files": {
+        "java": "solutions/first-group-mask-dp/Solution.java",
+        "kotlin": "solutions/first-group-mask-dp/Solution.kt",
+        "cpp": "solutions/first-group-mask-dp/solution.cpp"
+      }
+    }
+  ]
+}

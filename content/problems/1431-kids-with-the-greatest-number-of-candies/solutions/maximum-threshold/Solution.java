@@ -1,0 +1,1 @@
+class Solution { public List<Boolean> kidsWithCandies(int[] candies,int extraCandies){int maximum=Arrays.stream(candies).max().getAsInt();List<Boolean> answer=new ArrayList<>();for(int value:candies)answer.add(value+extraCandies>=maximum);return answer;} }

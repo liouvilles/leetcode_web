@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 783,
+  "slug": "minimum-distance-between-bst-nodes",
+  "title": "二叉搜索树节点最小距离",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-010",
+  "studyTags": [
+    "树",
+    "二叉搜索树",
+    "深度优先搜索",
+    "中序遍历"
+  ],
+  "summary": "给定二叉搜索树，求任意两个不同节点值的最小差值。",
+  "insight": "BST 中序遍历得到严格递增序列，最小差值一定出现在相邻元素之间，因此遍历时只需保存前一个值。",
+  "pitfalls": [
+    "必须按中序而非先序遍历",
+    "更新差值前确认已有前驱",
+    "节点至少两个，结果可初始化为最大整数"
+  ],
+  "solutions": [
+    {
+      "id": "inorder-adjacent-difference",
+      "title": "中序相邻差值",
+      "kind": "最优",
+      "idea": "在有序遍历过程中滚动维护前驱和最小差。",
+      "steps": [
+        "递归遍历左子树",
+        "用当前值减前驱更新 answer，再把当前值设为前驱",
+        "递归右子树，结束返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(h)"
+      },
+      "files": {
+        "java": "solutions/inorder-adjacent-difference/Solution.java",
+        "kotlin": "solutions/inorder-adjacent-difference/Solution.kt",
+        "cpp": "solutions/inorder-adjacent-difference/solution.cpp"
+      }
+    }
+  ]
+}

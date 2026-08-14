@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2373,
+  "slug": "largest-local-values-in-a-matrix",
+  "title": "矩阵中的局部最大值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-035",
+  "studyTags": [
+    "数组",
+    "矩阵"
+  ],
+  "summary": "对 n×n 矩阵每个连续 3×3 子矩阵求最大值，组成 (n-2)×(n-2) 结果。",
+  "insight": "枚举结果左上位置，再扫描对应九个格子取最大值。",
+  "pitfalls": [
+    "结果维度各减二",
+    "窗口包含九个位置",
+    "输入 n 至少为三"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-three-by-three-windows",
+      "title": "枚举三乘三窗口",
+      "kind": "最优",
+      "idea": "逐结果格直接计算局部最大值。",
+      "steps": [
+        "创建 result[n-2][n-2]",
+        "枚举 row,column",
+        "扫描 dr,dc=0..2 更新 maximum",
+        "写入 result 并返回"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(1) 除返回矩阵"
+      },
+      "files": {
+        "java": "solutions/enumerate-three-by-three-windows/Solution.java",
+        "kotlin": "solutions/enumerate-three-by-three-windows/Solution.kt",
+        "cpp": "solutions/enumerate-three-by-three-windows/solution.cpp"
+      }
+    }
+  ]
+}

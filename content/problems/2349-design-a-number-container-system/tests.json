@@ -1,0 +1,224 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "NumberContainers",
+  "constructorTypes": [],
+  "cases": [
+    {
+      "name": "经典修改与最小下标查询",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "find",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            10
+          ],
+          "returnType": "int",
+          "expected": -1
+        },
+        {
+          "method": "change",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            2,
+            10
+          ]
+        },
+        {
+          "method": "change",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            1,
+            10
+          ]
+        },
+        {
+          "method": "change",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            3,
+            10
+          ]
+        },
+        {
+          "method": "change",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            5,
+            10
+          ]
+        },
+        {
+          "method": "find",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            10
+          ],
+          "returnType": "int",
+          "expected": 1
+        },
+        {
+          "method": "change",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            1,
+            20
+          ]
+        },
+        {
+          "method": "find",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            10
+          ],
+          "returnType": "int",
+          "expected": 2
+        }
+      ]
+    },
+    {
+      "name": "改回原数字恢复最小下标",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "change",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            4,
+            7
+          ]
+        },
+        {
+          "method": "change",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            2,
+            7
+          ]
+        },
+        {
+          "method": "change",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            2,
+            8
+          ]
+        },
+        {
+          "method": "find",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            7
+          ],
+          "returnType": "int",
+          "expected": 4
+        },
+        {
+          "method": "change",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            2,
+            7
+          ]
+        },
+        {
+          "method": "find",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            7
+          ],
+          "returnType": "int",
+          "expected": 2
+        }
+      ]
+    },
+    {
+      "name": "单个下标换值后旧值消失",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "change",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            1,
+            5
+          ]
+        },
+        {
+          "method": "change",
+          "parameterTypes": [
+            "int",
+            "int"
+          ],
+          "args": [
+            1,
+            6
+          ]
+        },
+        {
+          "method": "find",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            5
+          ],
+          "returnType": "int",
+          "expected": -1
+        },
+        {
+          "method": "find",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            6
+          ],
+          "returnType": "int",
+          "expected": 1
+        }
+      ]
+    }
+  ]
+}

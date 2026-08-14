@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "cherryPickup",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典最多五颗",
+      "args": [
+        [
+          [
+            0,
+            1,
+            -1
+          ],
+          [
+            1,
+            0,
+            -1
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "终点不可达",
+      "args": [
+        [
+          [
+            1,
+            1,
+            -1
+          ],
+          [
+            1,
+            -1,
+            1
+          ],
+          [
+            -1,
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "单格樱桃",
+      "args": [
+        [
+          [
+            1
+          ]
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2426,
+  "slug": "number-of-pairs-satisfying-inequality",
+  "title": "满足不等式的数对数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-035",
+  "studyTags": [
+    "数组",
+    "二分查找",
+    "树状数组",
+    "有序集合"
+  ],
+  "summary": "统计 i<j 且 nums1[i]-nums1[j] 小于等于 nums2[i]-nums2[j]+diff 的下标对。",
+  "insight": "令 value[i]=nums1[i]-nums2[i]，条件化为 value[i]<=value[j]+diff。按 j 扫描，用坐标压缩树状数组查询此前不超过该上界的 value 数量。",
+  "pitfalls": [
+    "只统计此前下标保证 i<j",
+    "数值可能为负需坐标压缩",
+    "答案使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "compressed-fenwick-prefix-count",
+      "title": "坐标压缩树状数组前缀计数",
+      "kind": "最优",
+      "idea": "在线查询此前值不超过阈值的数量。",
+      "steps": [
+        "计算 values 并排序去重为 coordinates",
+        "Fenwick 初始空",
+        "对 value：upperBound(coordinates,value+diff) 得查询长度，answer+=prefixCount",
+        "把当前 value 的 lowerBound 坐标加一",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/compressed-fenwick-prefix-count/Solution.java",
+        "kotlin": "solutions/compressed-fenwick-prefix-count/Solution.kt",
+        "cpp": "solutions/compressed-fenwick-prefix-count/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countTriplets",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典十二个",
+      "args": [
+        [
+          2,
+          1,
+          3
+        ]
+      ],
+      "expected": 12
+    },
+    {
+      "name": "三个零全部成立",
+      "args": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected": 27
+    },
+    {
+      "name": "单个一不成立",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 137,
+  "slug": "single-number-ii",
+  "title": "只出现一次的数字 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-004",
+  "studyTags": [
+    "位运算",
+    "有限状态机",
+    "异或"
+  ],
+  "summary": "数组中除一个数出现一次外，其余数都恰好出现三次，在线性时间和常量空间内找出单独的数。",
+  "insight": "对每个二进制位维护出现次数模三的两位状态 ones 和 twos，第三次出现时两者都会清零。",
+  "pitfalls": [
+    "负数同样按补码逐位处理",
+    "更新 twos 时使用更新后的 ones",
+    "不能使用额外哈希表才能满足空间要求"
+  ],
+  "solutions": [
+    {
+      "id": "bit-state-machine",
+      "title": "位状态机模三计数",
+      "kind": "最优",
+      "idea": "并行处理所有二进制位，让状态在 00→01→10→00 间循环。",
+      "steps": [
+        "ones=(ones xor value) and not twos",
+        "twos=(twos xor value) and not ones",
+        "所有数处理后 ones 即只出现一次的数"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/bit-state-machine/Solution.java",
+        "kotlin": "solutions/bit-state-machine/Solution.kt",
+        "cpp": "solutions/bit-state-machine/solution.cpp"
+      }
+    }
+  ]
+}

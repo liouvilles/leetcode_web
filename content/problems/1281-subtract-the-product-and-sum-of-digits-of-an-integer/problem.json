@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1281,
+  "slug": "subtract-the-product-and-sum-of-digits-of-an-integer",
+  "title": "整数的各位积和之差",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "数学",
+    "数位"
+  ],
+  "summary": "返回正整数各十进制位数字之积减去数字之和。",
+  "insight": "反复对十取余取得最低位，同时维护 product 和 sum，再整除十去掉该位。",
+  "pitfalls": [
+    "乘积初值为一",
+    "输入为正整数，不需处理零位空循环",
+    "数字中包含零时乘积变零"
+  ],
+  "solutions": [
+    {
+      "id": "digit-extraction",
+      "title": "逐位提取",
+      "kind": "最优",
+      "idea": "一次扫描整数所有十进制位。",
+      "steps": [
+        "product=1,sum=0",
+        "当 n>0：digit=n%10，product*=digit，sum+=digit，n/=10",
+        "返回 product-sum"
+      ],
+      "complexity": {
+        "time": "O(log n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/digit-extraction/Solution.java",
+        "kotlin": "solutions/digit-extraction/Solution.kt",
+        "cpp": "solutions/digit-extraction/solution.cpp"
+      }
+    }
+  ]
+}

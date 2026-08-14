@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "bitwiseComplement",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "五的反码为二",
+      "args": [
+        5
+      ],
+      "expected": 2
+    },
+    {
+      "name": "七的反码为零",
+      "args": [
+        7
+      ],
+      "expected": 0
+    },
+    {
+      "name": "十的反码为五",
+      "args": [
+        10
+      ],
+      "expected": 5
+    }
+  ]
+}

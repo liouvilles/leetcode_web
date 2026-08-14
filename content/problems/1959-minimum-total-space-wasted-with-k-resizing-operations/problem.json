@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1959,
+  "slug": "minimum-total-space-wasted-with-k-resizing-operations",
+  "title": "K 次调整数组大小浪费的最小总空间",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-028",
+  "studyTags": [
+    "数组",
+    "动态规划"
+  ],
+  "summary": "数组容量在每段内固定且不得小于需求，最多调整 k 次，求各时刻容量减需求的最小浪费总和。",
+  "insight": "最多调整 k 次等价于把数组分为至多 k+1 个连续段。预计算任意段的浪费 max(segment)*length-sum(segment)，再做分段 DP。",
+  "pitfalls": [
+    "初始设置容量不计调整",
+    "每段最优容量是该段最大需求",
+    "允许少于 k 次调整"
+  ],
+  "solutions": [
+    {
+      "id": "interval-cost-partition-dp",
+      "title": "区间代价分段 DP",
+      "kind": "最优",
+      "idea": "把容量调整位置视为连续分段边界。",
+      "steps": [
+        "预计算 waste[left][right]",
+        "dp[groups][end] 表示前 end 项分 groups 段的最小浪费",
+        "枚举最后一段 start，转移 dp[g-1][start]+waste[start][end-1]；取 groups<=k+1 最小"
+      ],
+      "complexity": {
+        "time": "O(k n²+n²)",
+        "space": "O(kn+n²)"
+      },
+      "files": {
+        "java": "solutions/interval-cost-partition-dp/Solution.java",
+        "kotlin": "solutions/interval-cost-partition-dp/Solution.kt",
+        "cpp": "solutions/interval-cost-partition-dp/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,202 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "FoodRatings",
+  "constructorTypes": [
+    "stringArray",
+    "stringArray",
+    "intArray"
+  ],
+  "cases": [
+    {
+      "name": "经典菜系查询改分与并列",
+      "constructorArgs": [
+        [
+          "kimchi",
+          "miso",
+          "sushi",
+          "moussaka",
+          "ramen",
+          "bulgogi"
+        ],
+        [
+          "korean",
+          "japanese",
+          "japanese",
+          "greek",
+          "japanese",
+          "korean"
+        ],
+        [
+          9,
+          12,
+          8,
+          15,
+          14,
+          7
+        ]
+      ],
+      "calls": [
+        {
+          "method": "highestRated",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "korean"
+          ],
+          "returnType": "string",
+          "expected": "kimchi"
+        },
+        {
+          "method": "highestRated",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "japanese"
+          ],
+          "returnType": "string",
+          "expected": "ramen"
+        },
+        {
+          "method": "changeRating",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "sushi",
+            16
+          ]
+        },
+        {
+          "method": "highestRated",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "japanese"
+          ],
+          "returnType": "string",
+          "expected": "sushi"
+        },
+        {
+          "method": "changeRating",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "ramen",
+            16
+          ]
+        },
+        {
+          "method": "highestRated",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "japanese"
+          ],
+          "returnType": "string",
+          "expected": "ramen"
+        }
+      ]
+    },
+    {
+      "name": "同分时名称较小者优先",
+      "constructorArgs": [
+        [
+          "beta",
+          "alpha"
+        ],
+        [
+          "x",
+          "x"
+        ],
+        [
+          5,
+          5
+        ]
+      ],
+      "calls": [
+        {
+          "method": "highestRated",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "x"
+          ],
+          "returnType": "string",
+          "expected": "alpha"
+        },
+        {
+          "method": "changeRating",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "beta",
+            6
+          ]
+        },
+        {
+          "method": "highestRated",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "x"
+          ],
+          "returnType": "string",
+          "expected": "beta"
+        }
+      ]
+    },
+    {
+      "name": "降低原冠军评分后更换冠军",
+      "constructorArgs": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "c",
+          "c"
+        ],
+        [
+          10,
+          8
+        ]
+      ],
+      "calls": [
+        {
+          "method": "changeRating",
+          "parameterTypes": [
+            "string",
+            "int"
+          ],
+          "args": [
+            "a",
+            7
+          ]
+        },
+        {
+          "method": "highestRated",
+          "parameterTypes": [
+            "string"
+          ],
+          "args": [
+            "c"
+          ],
+          "returnType": "string",
+          "expected": "b"
+        }
+      ]
+    }
+  ]
+}

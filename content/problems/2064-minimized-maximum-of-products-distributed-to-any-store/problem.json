@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2064,
+  "slug": "minimized-maximum-of-products-distributed-to-any-store",
+  "title": "分配给商店的最多商品的最小值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "数组",
+    "二分查找"
+  ],
+  "summary": "把每种商品分给若干商店，每店只能一种商品，求所有商店商品数最大值的最小可能值。",
+  "insight": "若限制每店最多 limit，一种数量 q 需要 ceil(q/limit) 家商店。所需商店总数随 limit 单调下降，二分最小可行 limit。",
+  "pitfalls": [
+    "同一种商品可拆给多店",
+    "商店允许空置",
+    "向上取整避免浮点"
+  ],
+  "solutions": [
+    {
+      "id": "binary-search-store-capacity",
+      "title": "二分单店容量",
+      "kind": "最优",
+      "idea": "以所需商店数是否不超过 n 判断容量可行性。",
+      "steps": [
+        "left=1、right=max(quantities)",
+        "middle，required=Σ(q+middle-1)/middle",
+        "required<=n 时 right=middle，否则 left=middle+1，返回 left"
+      ],
+      "complexity": {
+        "time": "O(types log maxQuantity)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/binary-search-store-capacity/Solution.java",
+        "kotlin": "solutions/binary-search-store-capacity/Solution.kt",
+        "cpp": "solutions/binary-search-store-capacity/solution.cpp"
+      }
+    }
+  ]
+}

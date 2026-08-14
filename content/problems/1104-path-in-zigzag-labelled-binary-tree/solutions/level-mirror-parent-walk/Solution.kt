@@ -1,0 +1,1 @@
+class Solution { fun pathInZigZagTree(labelInput:Int):List<Int>{var label=labelInput;var level=31-Integer.numberOfLeadingZeros(label);val path=mutableListOf<Int>();while(label>=1){path.add(label);val start=1 shl level;val end=(1 shl (level+1))-1;label=(start+end-label)/2;level--};path.reverse();return path} }

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1189,
+  "slug": "maximum-number-of-balloons",
+  "title": "气球的最大数量",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-017",
+  "studyTags": [
+    "字符串",
+    "计数",
+    "哈希表"
+  ],
+  "summary": "给定小写字符串，求最多能用其中字符组成多少个单词 balloon，每个字符只能使用一次。",
+  "insight": "balloon 需要 b、a、n 各一个，l、o 各两个；统计字母频次后取这五种资源配额的最小值。",
+  "pitfalls": [
+    "l 和 o 的需求量为二",
+    "无关字符不影响答案",
+    "资源不足一种就不能再组成完整单词"
+  ],
+  "solutions": [
+    {
+      "id": "required-letter-quotas",
+      "title": "目标字母配额",
+      "kind": "最优",
+      "idea": "按 balloon 各字符需求折算可组成数量。",
+      "steps": [
+        "统计 text 中 26 个字母频次",
+        "计算 b、a、n 的原频次，以及 l/2、o/2",
+        "返回五者最小值"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/required-letter-quotas/Solution.java",
+        "kotlin": "solutions/required-letter-quotas/Solution.kt",
+        "cpp": "solutions/required-letter-quotas/solution.cpp"
+      }
+    }
+  ]
+}

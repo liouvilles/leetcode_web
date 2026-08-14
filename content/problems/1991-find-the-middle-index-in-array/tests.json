@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findMiddleIndex",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "下标三左右和相等",
+      "args": [
+        [
+          2,
+          3,
+          -1,
+          8,
+          4
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "没有中间位置",
+      "args": [
+        [
+          1,
+          -1,
+          4
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "首位右侧和为零",
+      "args": [
+        [
+          2,
+          5
+        ]
+      ],
+      "expected": -1
+    }
+  ]
+}

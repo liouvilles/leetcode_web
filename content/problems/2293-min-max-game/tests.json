@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minMaxGame",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典八元素结果一",
+      "args": [
+        [
+          1,
+          3,
+          5,
+          2,
+          4,
+          8,
+          2,
+          2
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "单元素保持不变",
+      "args": [
+        [
+          7
+        ]
+      ],
+      "expected": 7
+    },
+    {
+      "name": "两元素取最小",
+      "args": [
+        [
+          4,
+          2
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

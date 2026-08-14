@@ -1,0 +1,1 @@
+class Solution { public: int twoCitySchedCost(vector<vector<int>>& costs){sort(costs.begin(),costs.end(),[](auto& a,auto& b){return a[0]-a[1]<b[0]-b[1];});int answer=0,n=costs.size()/2;for(int i=0;i<(int)costs.size();++i)answer+=i<n?costs[i][0]:costs[i][1];return answer;} };

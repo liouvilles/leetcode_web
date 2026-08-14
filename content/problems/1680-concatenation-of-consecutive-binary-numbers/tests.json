@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "concatenatedBinary",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "只连接一得到一",
+      "args": [
+        1
+      ],
+      "expected": 1
+    },
+    {
+      "name": "连接一二三得到二十七",
+      "args": [
+        3
+      ],
+      "expected": 27
+    },
+    {
+      "name": "连接到十二并取模",
+      "args": [
+        12
+      ],
+      "expected": 505379714
+    }
+  ]
+}

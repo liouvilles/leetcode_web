@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1862,
+  "slug": "sum-of-floored-pairs",
+  "title": "向下取整数对和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-027",
+  "studyTags": [
+    "数组",
+    "数学",
+    "前缀和"
+  ],
+  "summary": "对 nums 所有有序数对 (i,j) 累加 floor(nums[i]/nums[j])，结果取模。",
+  "insight": "统计每个值频次与前缀频次。固定分母 d 后，分子落在 [q*d,(q+1)d-1] 的商为 q，可按值段批量计数。",
+  "pitfalls": [
+    "是 n² 个有序数对",
+    "重复值按频次相乘",
+    "所有数为正数"
+  ],
+  "solutions": [
+    {
+      "id": "frequency-prefix-quotient-buckets",
+      "title": "频次前缀与商区间分桶",
+      "kind": "最优",
+      "idea": "按分母值和商对应的分子区间批量累加。",
+      "steps": [
+        "frequency 与 prefix，maximum",
+        "对每个 frequency[d]>0，multiple=d,2d...；count=prefix[min(max,multiple+d-1)]-prefix[multiple-1]",
+        "answer+=frequency[d]*(multiple/d)*count，取模"
+      ],
+      "complexity": {
+        "time": "O(max log max)",
+        "space": "O(max)"
+      },
+      "files": {
+        "java": "solutions/frequency-prefix-quotient-buckets/Solution.java",
+        "kotlin": "solutions/frequency-prefix-quotient-buckets/Solution.kt",
+        "cpp": "solutions/frequency-prefix-quotient-buckets/solution.cpp"
+      }
+    }
+  ]
+}

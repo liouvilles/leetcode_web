@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "canWinNim",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "四块必败",
+      "args": [
+        4
+      ],
+      "expected": false
+    },
+    {
+      "name": "一块必胜",
+      "args": [
+        1
+      ],
+      "expected": true
+    },
+    {
+      "name": "十块必胜",
+      "args": [
+        10
+      ],
+      "expected": true
+    }
+  ]
+}

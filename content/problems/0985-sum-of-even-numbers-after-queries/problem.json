@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 985,
+  "slug": "sum-of-even-numbers-after-queries",
+  "title": "查询后的偶数和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-014",
+  "studyTags": [
+    "数组",
+    "模拟"
+  ],
+  "summary": "每次查询把 val 加到 nums[index]，返回每次操作完成后数组所有偶数之和。",
+  "insight": "维护当前偶数和；更新一个位置前若旧值为偶数先减掉，写入新值后若新值为偶数再加回，避免每次扫描全数组。",
+  "pitfalls": [
+    "负偶数也计入偶数和",
+    "判断旧值要在修改前完成",
+    "零是偶数"
+  ],
+  "solutions": [
+    {
+      "id": "maintained-even-sum",
+      "title": "维护偶数总和",
+      "kind": "最优",
+      "idea": "每次只调整被修改元素对总和的贡献。",
+      "steps": [
+        "初始化 evenSum 为 nums 中所有偶数之和",
+        "对查询 [value,index]，旧 nums[index] 偶数则从 evenSum 减去",
+        "更新元素；新值偶数则加入 evenSum，把结果写入答案"
+      ],
+      "complexity": {
+        "time": "O(n+q)",
+        "space": "O(q)"
+      },
+      "files": {
+        "java": "solutions/maintained-even-sum/Solution.java",
+        "kotlin": "solutions/maintained-even-sum/Solution.kt",
+        "cpp": "solutions/maintained-even-sum/solution.cpp"
+      }
+    }
+  ]
+}

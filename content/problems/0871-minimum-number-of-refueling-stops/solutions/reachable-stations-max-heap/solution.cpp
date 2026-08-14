@@ -1,0 +1,1 @@
+class Solution { public: int minRefuelStops(int target,int startFuel,vector<vector<int>>& stations){priority_queue<int> heap;long long fuel=startFuel;int index=0,stops=0;while(fuel<target){while(index<(int)stations.size()&&stations[index][0]<=fuel)heap.push(stations[index++][1]);if(heap.empty())return -1;fuel+=heap.top();heap.pop();++stops;}return stops;} };

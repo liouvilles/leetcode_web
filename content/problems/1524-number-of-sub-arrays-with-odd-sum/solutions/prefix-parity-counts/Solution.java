@@ -1,0 +1,1 @@
+class Solution { public int numOfSubarrays(int[] arr){long even=1,odd=0,answer=0,mod=1_000_000_007L;int parity=0;for(int value:arr){parity^=value&1;if(parity==0){answer+=odd;even++;}else{answer+=even;odd++;}answer%=mod;}return (int)answer;} }

@@ -1,0 +1,1 @@
+class Solution { public:vector<string> twoEditWords(vector<string>& queries,vector<string>& dictionary){vector<string> answer;for(string& query:queries)for(string& word:dictionary){int differences=0;for(int i=0;i<(int)query.size();++i)differences+=query[i]!=word[i];if(differences<=2){answer.push_back(query);break;}}return answer;} };

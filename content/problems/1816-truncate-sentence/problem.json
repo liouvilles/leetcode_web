@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1816,
+  "slug": "truncate-sentence",
+  "title": "截断句子",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-026",
+  "studyTags": [
+    "数组",
+    "字符串"
+  ],
+  "summary": "给定由单空格分隔的句子，返回前 k 个单词组成的截断句。",
+  "insight": "按空格拆成单词，取前 k 项再用单空格连接。",
+  "pitfalls": [
+    "k 至少为一且不超过单词数",
+    "输出不含尾随空格",
+    "保持原单词顺序"
+  ],
+  "solutions": [
+    {
+      "id": "split-take-join",
+      "title": "拆分截取连接",
+      "kind": "最优",
+      "idea": "直接按句子单词结构处理。",
+      "steps": [
+        "sentence.split(\" \")",
+        "取索引零到 k-1",
+        "用单空格连接返回"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/split-take-join/Solution.java",
+        "kotlin": "solutions/split-take-join/Solution.kt",
+        "cpp": "solutions/split-take-join/solution.cpp"
+      }
+    }
+  ]
+}

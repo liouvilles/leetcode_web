@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1671,
+  "slug": "minimum-number-of-removals-to-make-mountain-array",
+  "title": "得到山形数组的最少删除次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-024",
+  "studyTags": [
+    "数组",
+    "二分查找",
+    "动态规划",
+    "最长递增子序列"
+  ],
+  "summary": "删除最少元素，使剩余数组长度至少三，先严格递增到峰顶再严格递减。",
+  "insight": "对每个位置分别计算以它结尾的严格递增长度和以它开始的严格递减长度。两边长度都大于一时可作峰顶，保留长度为二者之和减一。",
+  "pitfalls": [
+    "峰顶不能是首尾元素",
+    "两侧都必须严格变化",
+    "求最长可保留山形后用 n 减去它"
+  ],
+  "solutions": [
+    {
+      "id": "bidirectional-lis-dp",
+      "title": "双向最长递增动态规划",
+      "kind": "最优",
+      "idea": "枚举每个位置作为山峰并组合两侧长度。",
+      "steps": [
+        "lis[i] 由 j<i 且 nums[j]<nums[i] 转移",
+        "decreasing[i] 从右向左由 j>i 且 nums[j]<nums[i] 转移",
+        "仅 lis、decreasing 都大于一时更新最长山形，返回 n-longest"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/bidirectional-lis-dp/Solution.java",
+        "kotlin": "solutions/bidirectional-lis-dp/Solution.kt",
+        "cpp": "solutions/bidirectional-lis-dp/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "smallestRangeI",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "单元素差零",
+      "args": [
+        [
+          1
+        ],
+        0
+      ],
+      "expected": 0
+    },
+    {
+      "name": "两端可合拢",
+      "args": [
+        [
+          0,
+          10
+        ],
+        5
+      ],
+      "expected": 0
+    },
+    {
+      "name": "仍剩三点差",
+      "args": [
+        [
+          1,
+          3,
+          6
+        ],
+        1
+      ],
+      "expected": 3
+    }
+  ]
+}

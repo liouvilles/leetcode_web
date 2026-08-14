@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minFlipsMonoIncr",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "翻转一个",
+      "args": [
+        "00110"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "翻转两个",
+      "args": [
+        "010110"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "尾部零较多",
+      "args": [
+        "00011000"
+      ],
+      "expected": 2
+    }
+  ]
+}

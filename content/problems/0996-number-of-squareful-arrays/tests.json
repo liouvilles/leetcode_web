@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numSquarefulPerms",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一八十七两种",
+      "args": [
+        [
+          1,
+          17,
+          8
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "全相同一种",
+      "args": [
+        [
+          2,
+          2,
+          2
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "两一两八三种",
+      "args": [
+        [
+          1,
+          1,
+          8,
+          8
+        ]
+      ],
+      "expected": 3
+    }
+  ]
+}

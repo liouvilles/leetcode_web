@@ -1,0 +1,1 @@
+class Solution { public: bool canThreePartsEqualSum(vector<int>& arr){int total=accumulate(arr.begin(),arr.end(),0);if(total%3)return false;int target=total/3,running=0,parts=0;for(int i=0;i<(int)arr.size()-1;++i){running+=arr[i];if(running==target){running=0;if(++parts==2)return true;}}return false;} };

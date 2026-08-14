@@ -1,0 +1,1 @@
+class Solution { public: vector<int> constructArray(int n,int k){vector<int> answer;int left=1,right=k+1;while(left<=right){answer.push_back(left++);if(left<=right)answer.push_back(right--);}for(int value=k+2;value<=n;++value)answer.push_back(value);return answer;} };

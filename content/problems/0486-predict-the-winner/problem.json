@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 486,
+  "slug": "predict-the-winner",
+  "title": "预测赢家",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-007",
+  "studyTags": [
+    "区间动态规划",
+    "博弈论",
+    "最优策略"
+  ],
+  "summary": "两名玩家从数组两端轮流取数且都采用最优策略，判断先手最终得分是否不少于后手。",
+  "insight": "dp[left][right] 表示当前玩家在该区间相对对手能获得的最大分差，取左或右后要减去对手在剩余区间的最优分差。",
+  "pitfalls": [
+    "双方都按最优策略",
+    "平局也视为先手获胜",
+    "转移保存分差而非绝对得分"
+  ],
+  "solutions": [
+    {
+      "id": "score-difference-dp",
+      "title": "区间分差动态规划",
+      "kind": "最优",
+      "idea": "从短区间向长区间计算当前行动者的最大领先分。",
+      "steps": [
+        "dp[i]=nums[i]",
+        "按区间长度递增",
+        "dp[left][right]=max(nums[left]-dp[left+1][right], nums[right]-dp[left][right-1])，检查是否非负"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/score-difference-dp/Solution.java",
+        "kotlin": "solutions/score-difference-dp/Solution.kt",
+        "cpp": "solutions/score-difference-dp/solution.cpp"
+      }
+    }
+  ]
+}

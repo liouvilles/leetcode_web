@@ -1,0 +1,1 @@
+class Solution { int answer;private int[] dfs(TreeNode node){if(node==null)return new int[]{0,0};int[] left=dfs(node.left),right=dfs(node.right);int sum=node.val+left[0]+right[0],count=1+left[1]+right[1];if(node.val==sum/count)answer++;return new int[]{sum,count};}public int averageOfSubtree(TreeNode root){dfs(root);return answer;} }

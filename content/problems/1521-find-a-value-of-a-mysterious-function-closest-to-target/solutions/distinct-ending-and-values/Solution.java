@@ -1,0 +1,1 @@
+class Solution { public int closestToTarget(int[] arr,int target){Set<Integer> previous=new HashSet<>();int answer=Integer.MAX_VALUE;for(int value:arr){Set<Integer> current=new HashSet<>();current.add(value);for(int old:previous)current.add(old&value);for(int result:current)answer=Math.min(answer,Math.abs(result-target));previous=current;}return answer;} }

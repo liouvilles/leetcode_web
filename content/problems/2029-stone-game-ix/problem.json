@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2029,
+  "slug": "stone-game-ix",
+  "title": "石子游戏 IX",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-029",
+  "studyTags": [
+    "数组",
+    "数学",
+    "计数",
+    "博弈"
+  ],
+  "summary": "两人轮流移除石子，移除后累计和被三整除者立即输；无石子时 Bob 胜，双方最优判断 Alice 是否获胜。",
+  "insight": "只需统计余数零一二。余数零石子会切换行动节奏：零的数量为偶数时必须同时存在余一和余二；为奇数时两类非零余数数量差必须大于二，Alice 才能迫使 Bob 失败。",
+  "pitfalls": [
+    "累计和而非单颗石子判断",
+    "无石子可取时 Bob 胜",
+    "只关心模三余数"
+  ],
+  "solutions": [
+    {
+      "id": "modulo-count-game-characterization",
+      "title": "模三计数博弈判定",
+      "kind": "最优",
+      "idea": "应用三类余数序列的胜负充要条件。",
+      "steps": [
+        "count[value%3]",
+        "若 count0 偶数，返回 count1>0&&count2>0",
+        "若 count0 奇数，返回 abs(count1-count2)>2"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/modulo-count-game-characterization/Solution.java",
+        "kotlin": "solutions/modulo-count-game-characterization/Solution.kt",
+        "cpp": "solutions/modulo-count-game-characterization/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 1878,
+  "slug": "get-biggest-three-rhombus-sums-in-a-grid",
+  "title": "矩阵中最大的三个菱形和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-027",
+  "studyTags": [
+    "数组",
+    "数学",
+    "矩阵",
+    "排序",
+    "前缀和"
+  ],
+  "summary": "计算网格中所有菱形边界的元素和，返回互不相同的最大三个值，不足三个则全部返回。",
+  "insight": "枚举菱形顶点与半径，沿四条斜边各走半开的一段，使四个顶点各计一次；用有序集合去重并直接取得前三大。单格视为半径零菱形。",
+  "pitfalls": [
+    "只计算边界而非内部",
+    "四个顶点不能重复计数",
+    "答案要求不同的和"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-rhombus-perimeters",
+      "title": "枚举菱形周长",
+      "kind": "最优",
+      "idea": "枚举合法中心宽度并把四条边分段求和。",
+      "steps": [
+        "把每个单格加入降序集合",
+        "枚举 top=(row,col) 和 radius，要求 row+2r、col±r 合法",
+        "每条边走 r 步并相加，加入集合；取前三项"
+      ],
+      "complexity": {
+        "time": "O(mn·min(m,n)²)",
+        "space": "O(mn·min(m,n))"
+      },
+      "files": {
+        "java": "solutions/enumerate-rhombus-perimeters/Solution.java",
+        "kotlin": "solutions/enumerate-rhombus-perimeters/Solution.kt",
+        "cpp": "solutions/enumerate-rhombus-perimeters/solution.cpp"
+      }
+    }
+  ]
+}

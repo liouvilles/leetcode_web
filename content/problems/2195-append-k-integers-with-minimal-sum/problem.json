@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2195,
+  "slug": "append-k-integers-with-minimal-sum",
+  "title": "向数组中追加 K 个整数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-032",
+  "studyTags": [
+    "数组",
+    "数学",
+    "贪心",
+    "排序"
+  ],
+  "summary": "向数组追加 k 个互不相同且原数组中不存在的正整数，使追加数字之和最小。",
+  "insight": "排序去重后从一开始填空档。遇到已有值 value 时，先取 current 到 value-1 中最多 k 个最小数；最后若仍不足，取连续尾段。用等差数列 O(1) 求和。",
+  "pitfalls": [
+    "原数组重复值只阻塞一次",
+    "追加数字必须彼此不同",
+    "求和使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-gap-arithmetic-sums",
+      "title": "排序空档与等差和",
+      "kind": "最优",
+      "idea": "按正整数顺序批量选取未出现的最小值。",
+      "steps": [
+        "排序 nums，current=1、remaining=k",
+        "跳过重复或小于 current 的 value；take=min(remaining,value-current)，累加 current..current+take-1",
+        "令 current=value+1；扫描结束后补 remaining 个连续数"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(1) 或排序空间"
+      },
+      "files": {
+        "java": "solutions/sorted-gap-arithmetic-sums/Solution.java",
+        "kotlin": "solutions/sorted-gap-arithmetic-sums/Solution.kt",
+        "cpp": "solutions/sorted-gap-arithmetic-sums/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2343,
+  "slug": "query-kth-smallest-trimmed-number",
+  "title": "裁剪数字后查询第 K 小的下标",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-034",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "排序",
+    "基数排序"
+  ],
+  "summary": "等长数字字符串数组中，每个查询取所有字符串末尾 trim 位作为数字，按数值及原下标稳定排序，返回第 k 小的原下标。",
+  "insight": "长度相同且可能有前导零，所以裁剪串的字典序就是数值序。每个查询排序下标，比较对应后缀，后缀相同时比较原下标。",
+  "pitfalls": [
+    "k 从一开始计数",
+    "前导零必须保留",
+    "相等裁剪值按较小原下标优先"
+  ],
+  "solutions": [
+    {
+      "id": "sort-indices-per-query",
+      "title": "逐查询排序下标",
+      "kind": "最优",
+      "idea": "直接按固定长度后缀与下标排序。",
+      "steps": [
+        "对每个 [k,trim] 创建 indices=0..n-1",
+        "比较 nums[index].substring(length-trim)",
+        "后缀相同按 index 升序",
+        "答案为 indices[k-1]"
+      ],
+      "complexity": {
+        "time": "O(q·n log n·length)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/sort-indices-per-query/Solution.java",
+        "kotlin": "solutions/sort-indices-per-query/Solution.kt",
+        "cpp": "solutions/sort-indices-per-query/solution.cpp"
+      }
+    }
+  ]
+}

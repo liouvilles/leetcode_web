@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 664,
+  "slug": "strange-printer",
+  "title": "奇怪的打印机",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-008",
+  "studyTags": [
+    "字符串",
+    "区间动态规划"
+  ],
+  "summary": "打印机每次可在任意区间打印同一个字符并覆盖旧字符，求打印目标字符串所需的最少次数。",
+  "insight": "区间 [i,j] 默认先单独打印 s[i]；若后面位置 k 与 s[i] 相同，可让它们在同一次打印中完成，把区间拆为中间与 [k,j]。",
+  "pitfalls": [
+    "一次操作可覆盖之前打印内容",
+    "相同字符不必连续也能合并一次打印",
+    "区间为空时贡献零次"
+  ],
+  "solutions": [
+    {
+      "id": "interval-dp-merge-equal",
+      "title": "相同字符合并的区间 DP",
+      "kind": "最优",
+      "idea": "从短区间到长区间计算最少打印次数。",
+      "steps": [
+        "dp[i][i]=1，i 从后向前",
+        "dp[i][j] 初始化为 dp[i+1][j]+1",
+        "枚举 k∈[i+1,j] 且 s[k]==s[i]，用 dp[i+1][k-1]+dp[k][j] 更新"
+      ],
+      "complexity": {
+        "time": "O(n³)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/interval-dp-merge-equal/Solution.java",
+        "kotlin": "solutions/interval-dp-merge-equal/Solution.kt",
+        "cpp": "solutions/interval-dp-merge-equal/solution.cpp"
+      }
+    }
+  ]
+}

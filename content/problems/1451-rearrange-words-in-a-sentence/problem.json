@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1451,
+  "slug": "rearrange-words-in-a-sentence",
+  "title": "重新排列句子中的单词",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-020",
+  "studyTags": [
+    "字符串",
+    "排序"
+  ],
+  "summary": "把句子单词按长度非递减稳定排序，结果仅首字母大写。",
+  "insight": "先将原首字母转小写，使所有词统一；使用稳定排序保持同长度词原相对顺序，再把结果首字符大写。",
+  "pitfalls": [
+    "同长度单词必须保持原顺序",
+    "输入仅原句首字母大写",
+    "输出词之间恰好一个空格"
+  ],
+  "solutions": [
+    {
+      "id": "stable-length-sort",
+      "title": "按长度稳定排序",
+      "kind": "最优",
+      "idea": "规范化大小写后稳定排列单词。",
+      "steps": [
+        "把 text 首字符改为小写并按空格拆词",
+        "按 word.length 稳定排序",
+        "用空格拼接并把结果首字符改为大写"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/stable-length-sort/Solution.java",
+        "kotlin": "solutions/stable-length-sort/Solution.kt",
+        "cpp": "solutions/stable-length-sort/solution.cpp"
+      }
+    }
+  ]
+}

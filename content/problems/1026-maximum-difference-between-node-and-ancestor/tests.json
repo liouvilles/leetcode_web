@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxAncestorDiff",
+  "parameterTypes": [
+    "treeNode"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典最大差七",
+      "args": [
+        [
+          8,
+          3,
+          10,
+          1,
+          6,
+          null,
+          14,
+          null,
+          null,
+          4,
+          7,
+          13
+        ]
+      ],
+      "expected": 7
+    },
+    {
+      "name": "深链最大差三",
+      "args": [
+        [
+          1,
+          null,
+          2,
+          null,
+          0,
+          3
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "单节点",
+      "args": [
+        [
+          5
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

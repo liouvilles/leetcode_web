@@ -1,0 +1,1 @@
+class Solution { public: int kthSmallest(vector<vector<int>>& mat,int k){vector<int> sums{0};for(auto& row:mat){vector<int> merged;for(int sum:sums)for(int value:row)merged.push_back(sum+value);sort(merged.begin(),merged.end());if((int)merged.size()>k)merged.resize(k);sums=move(merged);}return sums[k-1];} };

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numberOfUniqueGoodSubsequences",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "零零一有二种好序列",
+      "args": [
+        "001"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "一零一有五种",
+      "args": [
+        "101"
+      ],
+      "expected": 5
+    },
+    {
+      "name": "全零只有单独零一种",
+      "args": [
+        "000"
+      ],
+      "expected": 1
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "diStringMatch",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "交替增减",
+      "args": [
+        "IDID"
+      ],
+      "expected": [
+        0,
+        4,
+        1,
+        3,
+        2
+      ]
+    },
+    {
+      "name": "全递增",
+      "args": [
+        "III"
+      ],
+      "expected": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "name": "两降一增",
+      "args": [
+        "DDI"
+      ],
+      "expected": [
+        3,
+        2,
+        0,
+        1
+      ]
+    }
+  ]
+}

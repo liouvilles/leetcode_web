@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 224,
+  "slug": "basic-calculator",
+  "title": "基本计算器",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-005",
+  "studyTags": [
+    "栈",
+    "表达式解析",
+    "符号"
+  ],
+  "summary": "计算包含整数、加减号、括号和空格的有效表达式。",
+  "insight": "维护当前括号层的累计结果、正在读取的数和符号；遇到左括号时保存外层状态，右括号时合并。",
+  "pitfalls": [
+    "一元负号可由初始 sign=-1 处理",
+    "数字可能有多位",
+    "表达式末尾的数字必须结算"
+  ],
+  "solutions": [
+    {
+      "id": "sign-stack",
+      "title": "结果与符号栈",
+      "kind": "最优",
+      "idea": "扫描字符并在运算符和括号处结算数字。",
+      "steps": [
+        "数字连续累积",
+        "加减号先把 sign*number 加入 result",
+        "左括号压入 result/sign 并重置，右括号结算后合并"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/sign-stack/Solution.java",
+        "kotlin": "solutions/sign-stack/Solution.kt",
+        "cpp": "solutions/sign-stack/solution.cpp"
+      }
+    }
+  ]
+}

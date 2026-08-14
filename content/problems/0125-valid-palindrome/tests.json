@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isPalindrome",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "忽略标点和大小写后回文",
+      "args": [
+        "A man, a plan, a canal: Panama"
+      ],
+      "expected": true
+    },
+    {
+      "name": "有效字符顺序不回文",
+      "args": [
+        "race a car"
+      ],
+      "expected": false
+    },
+    {
+      "name": "只有空格",
+      "args": [
+        " "
+      ],
+      "expected": true
+    }
+  ]
+}

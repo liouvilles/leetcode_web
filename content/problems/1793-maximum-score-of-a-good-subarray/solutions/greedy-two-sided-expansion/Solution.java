@@ -1,0 +1,1 @@
+class Solution { public int maximumScore(int[] nums,int k){int left=k,right=k,minimum=nums[k],answer=minimum;while(left>0||right+1<nums.length){if(left==0||right+1<nums.length&&nums[right+1]>nums[left-1])minimum=Math.min(minimum,nums[++right]);else minimum=Math.min(minimum,nums[--left]);answer=Math.max(answer,minimum*(right-left+1));}return answer;} }

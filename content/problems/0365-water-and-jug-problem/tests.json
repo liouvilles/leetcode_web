@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "canMeasureWater",
+  "parameterTypes": [
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "三五量四",
+      "args": [
+        3,
+        5,
+        4
+      ],
+      "expected": true
+    },
+    {
+      "name": "二六不能量五",
+      "args": [
+        2,
+        6,
+        5
+      ],
+      "expected": false
+    },
+    {
+      "name": "总容量目标",
+      "args": [
+        1,
+        2,
+        3
+      ],
+      "expected": true
+    }
+  ]
+}

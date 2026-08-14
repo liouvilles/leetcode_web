@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "rangeBitwiseAnd",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "五到七",
+      "args": [
+        5,
+        7
+      ],
+      "expected": 4
+    },
+    {
+      "name": "单点区间",
+      "args": [
+        0,
+        0
+      ],
+      "expected": 0
+    },
+    {
+      "name": "跨越高位边界",
+      "args": [
+        1,
+        2147483647
+      ],
+      "expected": 0
+    }
+  ]
+}

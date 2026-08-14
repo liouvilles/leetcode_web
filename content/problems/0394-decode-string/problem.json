@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 394,
+  "slug": "decode-string",
+  "title": "字符串解码",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-003",
+  "studyTags": [
+    "栈",
+    "嵌套结构",
+    "多位数字"
+  ],
+  "summary": "把 k[片段] 形式的编码字符串展开，编码可以嵌套且重复次数可能有多位。",
+  "insight": "遇到左括号时保存外层已构造字符串和重复次数，右括号时完成当前层并拼回外层。",
+  "pitfalls": [
+    "重复次数可能超过一位",
+    "嵌套层需要成对保存次数和字符串",
+    "普通字母直接追加到当前层"
+  ],
+  "solutions": [
+    {
+      "id": "two-stacks",
+      "title": "次数栈 + 字符串栈",
+      "kind": "最优",
+      "idea": "扫描字符并在括号边界切换当前构造层。",
+      "steps": [
+        "数字连续累积为 repeat",
+        "左括号时压入外层状态并清空当前层",
+        "右括号时弹出状态并重复拼接当前层"
+      ],
+      "complexity": {
+        "time": "O(output length)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/two-stacks/Solution.java",
+        "kotlin": "solutions/two-stacks/Solution.kt",
+        "cpp": "solutions/two-stacks/solution.cpp"
+      }
+    }
+  ]
+}

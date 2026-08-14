@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countCollisions",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典方向串有五次碰撞",
+      "args": [
+        "RLRSLL"
+      ],
+      "expected": 5
+    },
+    {
+      "name": "向外行驶车辆均逃逸",
+      "args": [
+        "LLRR"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "相向两车贡献两次",
+      "args": [
+        "RLS"
+      ],
+      "expected": 2
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isUgly",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "六",
+      "args": [
+        6
+      ],
+      "expected": true
+    },
+    {
+      "name": "含七因子",
+      "args": [
+        14
+      ],
+      "expected": false
+    },
+    {
+      "name": "一",
+      "args": [
+        1
+      ],
+      "expected": true
+    }
+  ]
+}

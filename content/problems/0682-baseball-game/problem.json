@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 682,
+  "slug": "baseball-game",
+  "title": "棒球比赛",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-009",
+  "studyTags": [
+    "数组",
+    "栈",
+    "模拟"
+  ],
+  "summary": "按操作记录棒球得分：整数记新分，+ 记前两次得分之和，D 记前次两倍，C 撤销前次得分，求最终总分。",
+  "insight": "只有有效得分会成为后续操作依据，用栈保存它们即可自然支持读取最近两项和撤销。",
+  "pitfalls": [
+    "C 操作本身不产生得分",
+    "+ 使用的是最近两次仍有效得分",
+    "输入保证所有操作合法"
+  ],
+  "solutions": [
+    {
+      "id": "score-stack",
+      "title": "有效得分栈模拟",
+      "kind": "最优",
+      "idea": "逐操作更新得分栈，结束累加。",
+      "steps": [
+        "整数直接压栈",
+        "C 弹栈，D 压入栈顶两倍，+ 压入最近两项之和",
+        "遍历栈求总和并返回"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/score-stack/Solution.java",
+        "kotlin": "solutions/score-stack/Solution.kt",
+        "cpp": "solutions/score-stack/solution.cpp"
+      }
+    }
+  ]
+}

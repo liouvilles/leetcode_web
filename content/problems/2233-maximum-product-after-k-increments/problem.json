@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2233,
+  "slug": "maximum-product-after-k-increments",
+  "title": "K 次增加后的最大乘积",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-032",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "堆（优先队列）"
+  ],
+  "summary": "恰好 k 次选择一个数组元素加一，求最终数组乘积的最大值并取模。",
+  "insight": "为最大化乘积，应始终增加当前最小元素，让数值尽量均衡；使用小根堆执行 k 次。最后对堆中所有数取模相乘。",
+  "pitfalls": [
+    "比较阶段不能提前取模",
+    "零元素应优先被增加",
+    "最终乘积对十亿零七取模"
+  ],
+  "solutions": [
+    {
+      "id": "min-heap-leveling",
+      "title": "小根堆均衡递增",
+      "kind": "最优",
+      "idea": "每次把最小值提升一。",
+      "steps": [
+        "所有 nums 入小根堆",
+        "重复 k 次：value=pop+1 再入堆",
+        "answer=1，弹出全部元素按模乘；返回 answer"
+      ],
+      "complexity": {
+        "time": "O((n+k) log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/min-heap-leveling/Solution.java",
+        "kotlin": "solutions/min-heap-leveling/Solution.kt",
+        "cpp": "solutions/min-heap-leveling/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { public int numberOfWeakCharacters(int[][] properties){Arrays.sort(properties,(a,b)->a[0]!=b[0]?b[0]-a[0]:a[1]-b[1]);int answer=0,maximum=0;for(int[] property:properties){if(property[1]<maximum)answer++;maximum=Math.max(maximum,property[1]);}return answer;} }

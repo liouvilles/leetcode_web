@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "majorityElement",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三个元素中的多数",
+      "args": [
+        [
+          3,
+          2,
+          3
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "候选值多次变化",
+      "args": [
+        [
+          2,
+          2,
+          1,
+          1,
+          1,
+          2,
+          2
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "单元素数组",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

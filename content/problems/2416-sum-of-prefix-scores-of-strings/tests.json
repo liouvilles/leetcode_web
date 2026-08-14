@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sumPrefixScores",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "四单词前缀分数",
+      "args": [
+        [
+          "abc",
+          "ab",
+          "bc",
+          "b"
+        ]
+      ],
+      "expected": [
+        5,
+        4,
+        3,
+        2
+      ]
+    },
+    {
+      "name": "单词每个前缀分数一",
+      "args": [
+        [
+          "abcd"
+        ]
+      ],
+      "expected": [
+        4
+      ]
+    },
+    {
+      "name": "重复单词各前缀分数二",
+      "args": [
+        [
+          "a",
+          "a"
+        ]
+      ],
+      "expected": [
+        2,
+        2
+      ]
+    }
+  ]
+}

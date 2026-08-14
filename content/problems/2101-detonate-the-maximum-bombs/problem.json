@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2101,
+  "slug": "detonate-the-maximum-bombs",
+  "title": "引爆最多的炸弹",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "深度优先搜索",
+    "广度优先搜索",
+    "图论",
+    "几何"
+  ],
+  "summary": "引爆一个炸弹可递归引爆其半径内其他炸弹，求选择一个起点最多能引爆多少枚。",
+  "insight": "建立有向图 i→j，当两中心距离平方不超过 i 半径平方。对每个起点 DFS/BFS 统计可达节点数并取最大。",
+  "pitfalls": [
+    "引爆关系有方向",
+    "距离平方与半径平方使用 long",
+    "每个起点需独立访问集"
+  ],
+  "solutions": [
+    {
+      "id": "directed-reachability-from-each-bomb",
+      "title": "有向爆炸图逐起点可达",
+      "kind": "最优",
+      "idea": "构图后从每枚炸弹做一次遍历。",
+      "steps": [
+        "双循环判断 dx²+dy²<=radius_i² 并加 i→j",
+        "对 start 初始化 visited 与栈",
+        "DFS 统计可达数，更新最大"
+      ],
+      "complexity": {
+        "time": "O(n³)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/directed-reachability-from-each-bomb/Solution.java",
+        "kotlin": "solutions/directed-reachability-from-each-bomb/Solution.kt",
+        "cpp": "solutions/directed-reachability-from-each-bomb/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class RLEIterator { vector<long long> encoding;int index=0;public:RLEIterator(vector<int>& values):encoding(values.begin(),values.end()){}int next(int n){long long remaining=n;while(index<(int)encoding.size()){if(encoding[index]>=remaining){encoding[index]-=remaining;return encoding[index+1];}remaining-=encoding[index];index+=2;}return -1;} };

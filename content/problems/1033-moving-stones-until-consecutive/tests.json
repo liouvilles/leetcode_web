@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numMovesStones",
+  "parameterTypes": [
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "一二五",
+      "args": [
+        1,
+        2,
+        5
+      ],
+      "expected": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "已经连续",
+      "args": [
+        4,
+        3,
+        2
+      ],
+      "expected": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "两段各一空位",
+      "args": [
+        3,
+        5,
+        1
+      ],
+      "expected": [
+        1,
+        2
+      ]
+    }
+  ]
+}

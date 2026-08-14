@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 152,
+  "slug": "maximum-product-subarray",
+  "title": "乘积最大子数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-001",
+  "studyTags": [
+    "动态规划",
+    "最大最小状态",
+    "负数翻转"
+  ],
+  "summary": "在整数数组中寻找乘积最大的非空连续子数组，并返回该最大乘积。",
+  "insight": "负数会交换最大值和最小值的角色，因此每个位置必须同时维护以它结尾的最大乘积与最小乘积。",
+  "pitfalls": [
+    "不能只维护最大乘积",
+    "遇到零时当前状态会自然重启",
+    "更新最小值时必须使用上一轮的最大值"
+  ],
+  "solutions": [
+    {
+      "id": "max-min-dp",
+      "title": "最大最小双状态",
+      "kind": "最优",
+      "idea": "对每个新元素比较独立开始、乘以前一最大值、乘以前一最小值三种选择。",
+      "steps": [
+        "初始化最大、最小和答案为首元素",
+        "保存上一轮状态后计算三个候选值",
+        "分别更新当前最大、最小以及全局答案"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/max-min-dp/Solution.java",
+        "kotlin": "solutions/max-min-dp/Solution.kt",
+        "cpp": "solutions/max-min-dp/solution.cpp"
+      }
+    }
+  ]
+}

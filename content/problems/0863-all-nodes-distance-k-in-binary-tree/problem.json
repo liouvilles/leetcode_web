@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 863,
+  "slug": "all-nodes-distance-k-in-binary-tree",
+  "title": "二叉树中所有距离为 K 的结点",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-012",
+  "studyTags": [
+    "树",
+    "深度优先搜索",
+    "广度优先搜索",
+    "哈希表"
+  ],
+  "summary": "二叉树节点值唯一，返回与指定目标节点距离恰为 k 的所有节点值。",
+  "insight": "先建立每个节点到父节点的指针，把树变成可向左、右、父三向走的无向图；从目标节点 BFS 到第 k 层。离线测试中按唯一值在根树中定位目标实例。",
+  "pitfalls": [
+    "必须用访问集合避免父子往返",
+    "k=0 直接返回目标",
+    "答案顺序任意，这里按左、右、父的 BFS 顺序稳定输出"
+  ],
+  "solutions": [
+    {
+      "id": "parent-map-bfs",
+      "title": "父指针映射与分层 BFS",
+      "kind": "最优",
+      "idea": "把树临时视作无向图后从目标扩散。",
+      "steps": [
+        "DFS 建 parent 映射并按 target.val 找到根树中的目标节点",
+        "队列从目标开始，seen 标记，按层扩展 left、right、parent",
+        "扩展 k 层后把队列中节点值依次返回"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/parent-map-bfs/Solution.java",
+        "kotlin": "solutions/parent-map-bfs/Solution.kt",
+        "cpp": "solutions/parent-map-bfs/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "constructFromPrePost",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "treeNode",
+  "cases": [
+    {
+      "name": "完整七节点树",
+      "args": [
+        [
+          1,
+          2,
+          4,
+          5,
+          3,
+          6,
+          7
+        ],
+        [
+          4,
+          5,
+          2,
+          6,
+          7,
+          3,
+          1
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "name": "单节点",
+      "args": [
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ],
+      "expected": [
+        1
+      ]
+    },
+    {
+      "name": "单链选择左孩子",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          3,
+          2,
+          1
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        null,
+        3
+      ]
+    }
+  ]
+}

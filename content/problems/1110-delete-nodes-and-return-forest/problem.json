@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1110,
+  "slug": "delete-nodes-and-return-forest",
+  "title": "删点成林",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-016",
+  "studyTags": [
+    "树",
+    "深度优先搜索",
+    "哈希集合"
+  ],
+  "summary": "删除二叉树中值属于 to_delete 的节点，其非空孩子成为新树根，返回剩余森林。",
+  "insight": "后序递归返回删除后的子树根；携带当前节点是否可能成为根，若它未删除且 isRoot 为真就加入结果，删除节点则向孩子传递 isRoot=true。",
+  "pitfalls": [
+    "应先递归修改左右孩子再决定返回空或当前节点",
+    "根节点未删除时也要加入森林",
+    "节点值互不相同"
+  ],
+  "solutions": [
+    {
+      "id": "root-flag-postorder-pruning",
+      "title": "根标记后序剪枝",
+      "kind": "最优",
+      "idea": "递归同时完成删除和新根收集。",
+      "steps": [
+        "把 to_delete 放集合，answer 为空",
+        "dfs(node,isRoot)：空返回空，deleted=集合含 node.val",
+        "若 isRoot 且未删除则加入 answer；左右递归时 isRoot=deleted，更新孩子",
+        "deleted 返回空，否则返回 node；初始 dfs(root,true)，返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/root-flag-postorder-pruning/Solution.java",
+        "kotlin": "solutions/root-flag-postorder-pruning/Solution.kt",
+        "cpp": "solutions/root-flag-postorder-pruning/solution.cpp"
+      }
+    }
+  ]
+}

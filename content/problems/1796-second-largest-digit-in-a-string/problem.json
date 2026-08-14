@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1796,
+  "slug": "second-largest-digit-in-a-string",
+  "title": "字符串中第二大的数字",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-026",
+  "studyTags": [
+    "哈希表",
+    "字符串"
+  ],
+  "summary": "返回字符串中第二大的不同数字，若不存在则返回负一。",
+  "insight": "扫描数字字符，维护最大值与严格次大值；重复最大值不改变次大。",
+  "pitfalls": [
+    "只考虑数字字符",
+    "要求不同数字",
+    "字符转数值减去零字符"
+  ],
+  "solutions": [
+    {
+      "id": "two-distinct-maximums",
+      "title": "两个不同最大值",
+      "kind": "最优",
+      "idea": "常数状态在线维护最大和次大数字。",
+      "steps": [
+        "largest=second=-1",
+        "遇 digit：若 digit>largest，second=largest、largest=digit",
+        "否则若 digit<largest 且 digit>second，更新 second；返回 second"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/two-distinct-maximums/Solution.java",
+        "kotlin": "solutions/two-distinct-maximums/Solution.kt",
+        "cpp": "solutions/two-distinct-maximums/solution.cpp"
+      }
+    }
+  ]
+}

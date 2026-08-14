@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1283,
+  "slug": "find-the-smallest-divisor-given-a-threshold",
+  "title": "使结果不超过阈值的最小除数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "数组",
+    "二分查找",
+    "单调性"
+  ],
+  "summary": "用同一正整数除数分别除数组元素并向上取整，求使总和不超过 threshold 的最小除数。",
+  "insight": "除数增大时取整和单调不增；答案位于一到数组最大值，用二分查找首个满足和不超阈值的除数。",
+  "pitfalls": [
+    "向上取整可写为 (value+divisor-1)/divisor",
+    "阈值至少为数组长度，最大值一定可行",
+    "要找最左可行值"
+  ],
+  "solutions": [
+    {
+      "id": "binary-search-divisor",
+      "title": "二分最小除数",
+      "kind": "最优",
+      "idea": "在单调可行区间上找左边界。",
+      "steps": [
+        "left=1,right=max(nums)",
+        "middle=(left+right)/2，计算所有 ceil(value/middle) 之和",
+        "若 sum<=threshold 则 right=middle，否则 left=middle+1，收敛后返回 left"
+      ],
+      "complexity": {
+        "time": "O(n log maxValue)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/binary-search-divisor/Solution.java",
+        "kotlin": "solutions/binary-search-divisor/Solution.kt",
+        "cpp": "solutions/binary-search-divisor/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1302,
+  "slug": "deepest-leaves-sum",
+  "title": "层数最深叶子节点的和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "树",
+    "广度优先搜索",
+    "层序遍历"
+  ],
+  "summary": "返回二叉树最深一层所有叶节点值之和。",
+  "insight": "层序遍历时每进入一层就把 sum 重置为零并累加该层所有节点；队列耗尽时最后一次计算的层和就是最深层之和。",
+  "pitfalls": [
+    "求的是最深层所有节点，它们必为叶子",
+    "每层必须重置和",
+    "根为空不在题目范围"
+  ],
+  "solutions": [
+    {
+      "id": "last-level-bfs-sum",
+      "title": "末层广度优先求和",
+      "kind": "最优",
+      "idea": "逐层覆盖当前层和直到队列为空。",
+      "steps": [
+        "根入队，sum=0",
+        "每轮取当前队列 size，sum 重置零，弹出这些节点并累加，非空孩子入队",
+        "循环结束返回最后一轮 sum"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(width)"
+      },
+      "files": {
+        "java": "solutions/last-level-bfs-sum/Solution.java",
+        "kotlin": "solutions/last-level-bfs-sum/Solution.kt",
+        "cpp": "solutions/last-level-bfs-sum/solution.cpp"
+      }
+    }
+  ]
+}

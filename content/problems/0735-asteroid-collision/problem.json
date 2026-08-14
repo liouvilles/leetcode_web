@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 735,
+  "slug": "asteroid-collision",
+  "title": "行星碰撞",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-009",
+  "studyTags": [
+    "数组",
+    "栈",
+    "模拟"
+  ],
+  "summary": "整数绝对值表示行星大小，正负表示向右或向左；相向碰撞时小者消失，相等都消失，返回最终行星序列。",
+  "insight": "只有栈顶向右且新行星向左时会发生碰撞；循环比较大小直到新行星消失、双方消失或栈顶不再构成相向关系。",
+  "pitfalls": [
+    "同向行星不会碰撞",
+    "新左行星可能连续摧毁多个右行星",
+    "相等时双方都不保留"
+  ],
+  "solutions": [
+    {
+      "id": "collision-stack",
+      "title": "幸存行星栈模拟",
+      "kind": "最优",
+      "idea": "栈保存当前已稳定的前缀，处理新行星与末尾的连锁碰撞。",
+      "steps": [
+        "对 asteroid 令 alive=true",
+        "while alive 且 asteroid<0 且栈顶>0：比较绝对值；栈顶小则弹出继续，等大则弹出并令 alive=false，栈顶大则 alive=false",
+        "alive 时压栈，最后返回栈内容"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/collision-stack/Solution.java",
+        "kotlin": "solutions/collision-stack/Solution.kt",
+        "cpp": "solutions/collision-stack/solution.cpp"
+      }
+    }
+  ]
+}

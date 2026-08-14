@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "largestSumOfAverages",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "double",
+  "cases": [
+    {
+      "name": "经典三组",
+      "args": [
+        [
+          9,
+          1,
+          2,
+          3,
+          9
+        ],
+        3
+      ],
+      "expected": 20
+    },
+    {
+      "name": "七项分四组",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        4
+      ],
+      "expected": 20.5
+    },
+    {
+      "name": "单元素单组",
+      "args": [
+        [
+          5
+        ],
+        1
+      ],
+      "expected": 5
+    }
+  ]
+}

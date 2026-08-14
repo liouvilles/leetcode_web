@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "longestAwesome",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三二四二四最长五",
+      "args": [
+        "3242415"
+      ],
+      "expected": 5
+    },
+    {
+      "name": "全部数字不同最长一",
+      "args": [
+        "12345678"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "每个数字出现偶数次",
+      "args": [
+        "213123"
+      ],
+      "expected": 6
+    }
+  ]
+}

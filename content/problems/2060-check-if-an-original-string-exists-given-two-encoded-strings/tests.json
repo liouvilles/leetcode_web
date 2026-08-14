@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "possiblyEquals",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "国际化缩写可来自同一字符串",
+      "args": [
+        "internationalization",
+        "i18n"
+      ],
+      "expected": true
+    },
+    {
+      "name": "不同数字拆分可表示同长度",
+      "args": [
+        "l123e",
+        "44"
+      ],
+      "expected": true
+    },
+    {
+      "name": "固定首字符冲突不可能同源",
+      "args": [
+        "a5b",
+        "c5b"
+      ],
+      "expected": false
+    }
+  ]
+}

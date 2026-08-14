@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2085,
+  "slug": "count-common-words-with-one-occurrence",
+  "title": "统计出现过一次的公共字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "字符串",
+    "计数"
+  ],
+  "summary": "统计同时在两个字符串数组中且在各自数组都恰出现一次的单词数量。",
+  "insight": "分别统计两数组频次，再遍历第一张表，频次为一且第二张表同词频次也为一时计数。",
+  "pitfalls": [
+    "两个数组内都必须恰一次",
+    "按不同字符串计数",
+    "数组重复项不分别计"
+  ],
+  "solutions": [
+    {
+      "id": "two-frequency-maps",
+      "title": "双频次表交集",
+      "kind": "最优",
+      "idea": "比较两个数组中每个词的精确出现次数。",
+      "steps": [
+        "统计 first 与 second Map",
+        "answer=0",
+        "遍历 first entries，value==1 且 second.getOrDefault(word,0)==1 时 answer++"
+      ],
+      "complexity": {
+        "time": "O(n+m)",
+        "space": "O(n+m)"
+      },
+      "files": {
+        "java": "solutions/two-frequency-maps/Solution.java",
+        "kotlin": "solutions/two-frequency-maps/Solution.kt",
+        "cpp": "solutions/two-frequency-maps/solution.cpp"
+      }
+    }
+  ]
+}

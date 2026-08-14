@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 967,
+  "slug": "numbers-with-same-consecutive-differences",
+  "title": "连续差相同的数字",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-014",
+  "studyTags": [
+    "广度优先搜索",
+    "回溯",
+    "数学"
+  ],
+  "summary": "返回所有长度为 n、无前导零且相邻数字绝对差为 k 的非负整数；n=1 时零也合法。",
+  "insight": "从首位 1 到 9 开始逐位扩展，末位 d 的下一位只能是 d+k 或 d-k；k=0 时去重即可。",
+  "pitfalls": [
+    "多位数首位不能为零",
+    "n=1 要额外包含零",
+    "d+k 与 d-k 相同不能重复加入"
+  ],
+  "solutions": [
+    {
+      "id": "digit-layer-bfs",
+      "title": "逐位数字 BFS",
+      "kind": "最优",
+      "idea": "逐层为现有数字追加合法末位。",
+      "steps": [
+        "n=1 返回 0..9，否则列表初始化 1..9",
+        "重复 n-1 次，对每个 number 取 last",
+        "尝试 last+k 与 last-k，范围 0..9 且去重后生成 number*10+digit；返回数组"
+      ],
+      "complexity": {
+        "time": "O(result size)",
+        "space": "O(result size)"
+      },
+      "files": {
+        "java": "solutions/digit-layer-bfs/Solution.java",
+        "kotlin": "solutions/digit-layer-bfs/Solution.kt",
+        "cpp": "solutions/digit-layer-bfs/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxProduct",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "五和四得到十二",
+      "args": [
+        [
+          3,
+          4,
+          5,
+          2
+        ]
+      ],
+      "expected": 12
+    },
+    {
+      "name": "五和五得到十六",
+      "args": [
+        [
+          1,
+          5,
+          4,
+          5
+        ]
+      ],
+      "expected": 16
+    },
+    {
+      "name": "两个三得到四",
+      "args": [
+        [
+          3,
+          3
+        ]
+      ],
+      "expected": 4
+    }
+  ]
+}

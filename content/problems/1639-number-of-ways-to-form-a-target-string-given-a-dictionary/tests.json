@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numWays",
+  "parameterTypes": [
+    "stringArray",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三词构造 aba 有六种",
+      "args": [
+        [
+          "acca",
+          "bbbb",
+          "caca"
+        ],
+        "aba"
+      ],
+      "expected": 6
+    },
+    {
+      "name": "两词构造 bab 有四种",
+      "args": [
+        [
+          "abba",
+          "baab"
+        ],
+        "bab"
+      ],
+      "expected": 4
+    },
+    {
+      "name": "单词与目标相同只有一种",
+      "args": [
+        [
+          "abcd"
+        ],
+        "abcd"
+      ],
+      "expected": 1
+    }
+  ]
+}

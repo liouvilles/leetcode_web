@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1315,
+  "slug": "sum-of-nodes-with-even-valued-grandparent",
+  "title": "祖父节点值为偶数的节点和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "树",
+    "深度优先搜索",
+    "递归"
+  ],
+  "summary": "返回二叉树中祖父节点值为偶数的所有节点值之和。",
+  "insight": "DFS 向下传递父节点值和祖父节点值；访问当前节点时若传入祖父值为偶数就累加，再把 parent、current 作为孩子的新祖父、父信息。",
+  "pitfalls": [
+    "根和第二层没有祖父节点不能计入",
+    "节点值均为正，可用 -1 表示不存在",
+    "判断的是祖父而非父节点"
+  ],
+  "solutions": [
+    {
+      "id": "ancestor-value-dfs",
+      "title": "祖先值深度优先搜索",
+      "kind": "最优",
+      "idea": "沿递归栈携带两代祖先值。",
+      "steps": [
+        "调用 dfs(root,-1,-1)",
+        "空节点返回零；grandparent>=0 且为偶数时贡献 node.val",
+        "递归左右孩子参数变为 parent=node.val、grandparent=旧 parent，返回三部分之和"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(height)"
+      },
+      "files": {
+        "java": "solutions/ancestor-value-dfs/Solution.java",
+        "kotlin": "solutions/ancestor-value-dfs/Solution.kt",
+        "cpp": "solutions/ancestor-value-dfs/solution.cpp"
+      }
+    }
+  ]
+}

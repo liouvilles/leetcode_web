@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "generateMatrix",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "intMatrix",
+  "cases": [
+    {
+      "name": "三阶矩阵",
+      "args": [
+        3
+      ],
+      "expected": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          8,
+          9,
+          4
+        ],
+        [
+          7,
+          6,
+          5
+        ]
+      ]
+    },
+    {
+      "name": "单元素",
+      "args": [
+        1
+      ],
+      "expected": [
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "name": "二阶矩阵",
+      "args": [
+        2
+      ],
+      "expected": [
+        [
+          1,
+          2
+        ],
+        [
+          4,
+          3
+        ]
+      ]
+    }
+  ]
+}

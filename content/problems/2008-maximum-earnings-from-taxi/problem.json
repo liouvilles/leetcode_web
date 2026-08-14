@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2008,
+  "slug": "maximum-earnings-from-taxi",
+  "title": "出租车的最大盈利",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-029",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "排序",
+    "二分查找"
+  ],
+  "summary": "出租车从一开到 n，可接起终点递增的乘客且行程不能重叠，收益为距离加小费，求最大总收益。",
+  "insight": "按终点排序行程，令 dp[position] 为到达该位置时最大收益。每个终点继承前一位置收益，并用所有在此结束的行程从 dp[start] 转移。",
+  "pitfalls": [
+    "可空驶前往下一起点",
+    "同一终点可能有多条行程",
+    "收益使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "endpoint-dynamic-programming",
+      "title": "按终点位置 DP",
+      "kind": "最优",
+      "idea": "沿道路坐标依次处理所有以当前位置结束的行程。",
+      "steps": [
+        "rides 按 end 排序，dp[0..n]",
+        "position 从 1 到 n，dp[position]=dp[position-1]",
+        "处理 end==position 的 ride：dp[position]=max(dp[position],dp[start]+end-start+tip)，返回 dp[n]"
+      ],
+      "complexity": {
+        "time": "O(n+r log r)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/endpoint-dynamic-programming/Solution.java",
+        "kotlin": "solutions/endpoint-dynamic-programming/Solution.kt",
+        "cpp": "solutions/endpoint-dynamic-programming/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumBeauty",
+  "parameterTypes": [
+    "intArray",
+    "long",
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "经典四花园最大美丽十四",
+      "args": [
+        [
+          1,
+          3,
+          1,
+          1
+        ],
+        7,
+        6,
+        12,
+        1
+      ],
+      "expected": 14
+    },
+    {
+      "name": "补满三个并抬高剩余得三十",
+      "args": [
+        [
+          2,
+          4,
+          5,
+          3
+        ],
+        10,
+        5,
+        2,
+        6
+      ],
+      "expected": 30
+    },
+    {
+      "name": "已有完整花园直接计满分",
+      "args": [
+        [
+          5,
+          5
+        ],
+        0,
+        5,
+        10,
+        1
+      ],
+      "expected": 20
+    }
+  ]
+}

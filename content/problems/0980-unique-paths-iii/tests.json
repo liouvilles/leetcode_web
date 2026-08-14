@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "uniquePathsIII",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典两条路径",
+      "args": [
+        [
+          [
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            2,
+            -1
+          ]
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "无障碍四条路径",
+      "args": [
+        [
+          [
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            2
+          ]
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "无法覆盖所有格",
+      "args": [
+        [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            0
+          ]
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

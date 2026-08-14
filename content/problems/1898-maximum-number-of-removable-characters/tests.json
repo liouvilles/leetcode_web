@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumRemovals",
+  "parameterTypes": [
+    "string",
+    "string",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "移除前三个仍保留子序列",
+      "args": [
+        "abcacb",
+        "ab",
+        [
+          3,
+          1,
+          0
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "可移除首字符一次",
+      "args": [
+        "abcbddddd",
+        "abcd",
+        [
+          3,
+          2,
+          1,
+          4,
+          5,
+          6
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "全部候选均不能先移除",
+      "args": [
+        "abcab",
+        "abc",
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

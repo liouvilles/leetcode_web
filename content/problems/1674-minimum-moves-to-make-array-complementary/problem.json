@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1674,
+  "slug": "minimum-moves-to-make-array-complementary",
+  "title": "使数组互补的最少操作次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-024",
+  "studyTags": [
+    "数组",
+    "前缀和",
+    "差分数组"
+  ],
+  "summary": "每次把一个元素改为 1 到 limit；使所有对称位置元素之和相等，求最少修改次数。",
+  "insight": "对每个对称数对，目标和在 [2,2limit] 上的代价呈分段常数：通常两次、落在一改可达区间时一次、等于原和时零。用差分数组叠加所有分段。",
+  "pitfalls": [
+    "每对元素独立贡献零到两次修改",
+    "一改可达区间为 min+1 到 max+limit",
+    "扫描目标和时累加差分得到总代价"
+  ],
+  "solutions": [
+    {
+      "id": "sum-cost-difference-array",
+      "title": "目标和代价差分",
+      "kind": "最优",
+      "idea": "批量记录每个数对在目标和轴上的代价变化点。",
+      "steps": [
+        "diff[2]+=2 表示每对默认两次修改",
+        "在 min+1 降一、原和再降一、原和+1 加一、max+limit+1 再加一",
+        "对所有数对更新后从和二扫描前缀，取最小代价"
+      ],
+      "complexity": {
+        "time": "O(n+limit)",
+        "space": "O(limit)"
+      },
+      "files": {
+        "java": "solutions/sum-cost-difference-array/Solution.java",
+        "kotlin": "solutions/sum-cost-difference-array/Solution.kt",
+        "cpp": "solutions/sum-cost-difference-array/solution.cpp"
+      }
+    }
+  ]
+}

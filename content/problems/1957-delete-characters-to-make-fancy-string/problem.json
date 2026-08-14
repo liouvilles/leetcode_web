@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1957,
+  "slug": "delete-characters-to-make-fancy-string",
+  "title": "删除字符使字符串变好",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-028",
+  "studyTags": [
+    "字符串",
+    "贪心"
+  ],
+  "summary": "删除尽量少的字符，使结果中不存在三个连续相同字符。",
+  "insight": "从左到右保留字符，只在当前字符与结果末尾两个字符都相同时跳过；其他字符全部保留即删除最少。",
+  "pitfalls": [
+    "允许两个相同字符连续",
+    "删除后需基于新结果判断",
+    "保留相对顺序"
+  ],
+  "solutions": [
+    {
+      "id": "keep-unless-third-repeat",
+      "title": "仅跳过第三个连续重复",
+      "kind": "最优",
+      "idea": "可变字符串记录已经保留的结果。",
+      "steps": [
+        "builder 为空",
+        "遍历字符，若 builder 最后两位都等于当前则跳过",
+        "否则追加，返回"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/keep-unless-third-repeat/Solution.java",
+        "kotlin": "solutions/keep-unless-third-repeat/Solution.kt",
+        "cpp": "solutions/keep-unless-third-repeat/solution.cpp"
+      }
+    }
+  ]
+}

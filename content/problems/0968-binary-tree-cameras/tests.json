@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minCameraCover",
+  "parameterTypes": [
+    "treeNode"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "父节点一个摄像头覆盖",
+      "args": [
+        [
+          0,
+          0,
+          null,
+          0,
+          0
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "长链需要两个",
+      "args": [
+        [
+          0,
+          0,
+          null,
+          0,
+          null,
+          0
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "单节点需要一个",
+      "args": [
+        [
+          0
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

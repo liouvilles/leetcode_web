@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": 1446,
+  "slug": "consecutive-characters",
+  "title": "连续字符",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-020",
+  "studyTags": [
+    "字符串"
+  ],
+  "summary": "字符串的能量是相同字符连续子串的最大长度，返回该长度。",
+  "insight": "单遍维护当前连续段长度；字符与前一位相同则加一，否则重置为一。",
+  "pitfalls": [
+    "字符串非空",
+    "最大段可能在结尾",
+    "比较相邻字符即可"
+  ],
+  "solutions": [
+    {
+      "id": "run-length-scan",
+      "title": "连续段扫描",
+      "kind": "最优",
+      "idea": "在线更新当前段与最长段。",
+      "steps": [
+        "current=1,answer=1",
+        "从索引一开始，相同则 current++，不同则 current=1",
+        "answer=max(answer,current)，返回"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/run-length-scan/Solution.java",
+        "kotlin": "solutions/run-length-scan/Solution.kt",
+        "cpp": "solutions/run-length-scan/solution.cpp"
+      }
+    }
+  ]
+}

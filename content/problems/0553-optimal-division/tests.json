@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "optimalDivision",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "四个数字",
+      "args": [
+        [
+          1000,
+          100,
+          10,
+          2
+        ]
+      ],
+      "expected": "1000/(100/10/2)"
+    },
+    {
+      "name": "两个数字",
+      "args": [
+        [
+          2,
+          3
+        ]
+      ],
+      "expected": "2/3"
+    },
+    {
+      "name": "单个数字",
+      "args": [
+        [
+          2
+        ]
+      ],
+      "expected": "2"
+    }
+  ]
+}

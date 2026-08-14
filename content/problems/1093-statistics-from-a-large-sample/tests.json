@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sampleStats",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "doubleArray",
+  "cases": [
+    {
+      "name": "八项混合样本",
+      "args": [
+        [
+          0,
+          1,
+          3,
+          4
+        ]
+      ],
+      "expected": [
+        1,
+        3,
+        2.375,
+        2.5,
+        3
+      ]
+    },
+    {
+      "name": "单一取值",
+      "args": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ]
+      ],
+      "expected": [
+        5,
+        5,
+        5,
+        5,
+        5
+      ]
+    },
+    {
+      "name": "两端各一次",
+      "args": [
+        [
+          1,
+          0,
+          1
+        ]
+      ],
+      "expected": [
+        0,
+        2,
+        1,
+        1,
+        0
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2182,
+  "slug": "construct-string-with-repeat-limit",
+  "title": "构造限制重复的字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-032",
+  "studyTags": [
+    "字符串",
+    "贪心",
+    "计数"
+  ],
+  "summary": "重排并可舍弃字符，要求相同字符连续不超过 repeatLimit，求字典序最大的字符串。",
+  "insight": "始终尽量放当前最大字符，连续达到上限后必须用一个次大字符分隔，再继续使用最大字符；若无次大字符则结束。",
+  "pitfalls": [
+    "允许不使用全部字符",
+    "分隔字符每次只需放一个",
+    "字典序优先于最终长度"
+  ],
+  "solutions": [
+    {
+      "id": "descending-count-greedy",
+      "title": "降序字符计数贪心",
+      "kind": "最优",
+      "idea": "用次大字符打断最大字符的连续段。",
+      "steps": [
+        "统计二十六字符频次，current 从 z 向下",
+        "每轮放 current 最多 repeatLimit 个",
+        "若 current 仍剩余，向下找 separator；不存在则结束，存在则放一个 separator 后继续"
+      ],
+      "complexity": {
+        "time": "O(n+alphabet²)",
+        "space": "O(alphabet)"
+      },
+      "files": {
+        "java": "solutions/descending-count-greedy/Solution.java",
+        "kotlin": "solutions/descending-count-greedy/Solution.kt",
+        "cpp": "solutions/descending-count-greedy/solution.cpp"
+      }
+    }
+  ]
+}

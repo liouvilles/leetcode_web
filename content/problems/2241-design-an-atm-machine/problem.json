@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2241,
+  "slug": "design-an-atm-machine",
+  "title": "设计一个 ATM 机器",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-033",
+  "studyTags": [
+    "设计",
+    "数组",
+    "贪心"
+  ],
+  "summary": "ATM 支持存入五种固定面额钞票，并按从大到小贪心提款；无法恰好组成金额时返回负一且库存不变。",
+  "insight": "提款先在临时数组中按 500、200、100、50、20 尽量取钞；只有剩余金额为零时才提交库存扣减。",
+  "pitfalls": [
+    "题目指定按大面额贪心而非任意可行组合",
+    "失败提款不能修改库存",
+    "库存使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "transactional-largest-denomination-greedy",
+      "title": "事务式大面额贪心",
+      "kind": "最优",
+      "idea": "先试算提款方案，成功后一次性提交。",
+      "steps": [
+        "deposit 对五种库存逐项相加",
+        "withdraw 从面额四到零，take=min(stock,amount/value)，记录并扣减剩余金额",
+        "remaining!=0 返回 [-1]；否则从库存扣除记录并返回"
+      ],
+      "complexity": {
+        "time": "O(1) 每次操作",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/transactional-largest-denomination-greedy/Solution.java",
+        "kotlin": "solutions/transactional-largest-denomination-greedy/Solution.kt",
+        "cpp": "solutions/transactional-largest-denomination-greedy/solution.cpp"
+      }
+    }
+  ]
+}

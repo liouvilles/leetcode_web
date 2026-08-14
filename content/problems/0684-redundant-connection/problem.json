@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 684,
+  "slug": "redundant-connection",
+  "title": "冗余连接",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-003",
+  "studyTags": [
+    "并查集",
+    "环检测",
+    "无向图"
+  ],
+  "summary": "一棵 n 节点树额外加入一条边后，找出可以删除使图重新成为树的那条边。",
+  "insight": "按输入顺序加入边，若两个端点已经属于同一连通分量，当前边就是形成环的冗余边。",
+  "pitfalls": [
+    "节点编号从一开始",
+    "需要按输入顺序处理边",
+    "路径压缩可降低查找开销"
+  ],
+  "solutions": [
+    {
+      "id": "union-find",
+      "title": "并查集判环",
+      "kind": "最优",
+      "idea": "每条边尝试合并两个集合，合并失败时返回当前边。",
+      "steps": [
+        "初始化每个节点父亲为自身",
+        "find 使用路径压缩",
+        "根相同则当前边冗余，否则连接两个根"
+      ],
+      "complexity": {
+        "time": "O(n α(n))",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/union-find/Solution.java",
+        "kotlin": "solutions/union-find/Solution.kt",
+        "cpp": "solutions/union-find/solution.cpp"
+      }
+    }
+  ]
+}

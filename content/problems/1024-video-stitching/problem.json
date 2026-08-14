@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 1024,
+  "slug": "video-stitching",
+  "title": "视频拼接",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-015",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "贪心",
+    "区间"
+  ],
+  "summary": "用若干视频片段覆盖连续时间区间 [0,time]，片段可裁剪，求最少片段数；无法覆盖返回负一。",
+  "insight": "类似最少跳跃：当前已选片段覆盖到 currentEnd，扫描所有起点不超过 currentEnd 的片段扩展 farthest；每次走到边界必须提交一个片段。",
+  "pitfalls": [
+    "片段起点等于当前边界可衔接",
+    "若 farthest 未超过 currentEnd 则出现缺口",
+    "达到 time 后立即返回使用数"
+  ],
+  "solutions": [
+    {
+      "id": "greedy-farthest-reach",
+      "title": "最远覆盖贪心",
+      "kind": "最优",
+      "idea": "在每个已覆盖边界内选择能延伸最远的片段。",
+      "steps": [
+        "按起点升序排序 clips，index=0,currentEnd=0,used=0",
+        "while currentEnd<time：枚举所有 start<=currentEnd 的片段更新 farthest",
+        "若 farthest==currentEnd 返回 -1；否则 used++、currentEnd=farthest，循环结束返回 used"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n)"
+      },
+      "files": {
+        "java": "solutions/greedy-farthest-reach/Solution.java",
+        "kotlin": "solutions/greedy-farthest-reach/Solution.kt",
+        "cpp": "solutions/greedy-farthest-reach/solution.cpp"
+      }
+    }
+  ]
+}

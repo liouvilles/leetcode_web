@@ -1,0 +1,1 @@
+class Solution { public TreeNode constructMaximumBinaryTree(int[] nums){Deque<TreeNode> stack=new ArrayDeque<>();for(int value:nums){TreeNode node=new TreeNode(value);while(!stack.isEmpty()&&stack.peekLast().val<value)node.left=stack.removeLast();if(!stack.isEmpty())stack.peekLast().right=node;stack.addLast(node);}return stack.peekFirst();} }

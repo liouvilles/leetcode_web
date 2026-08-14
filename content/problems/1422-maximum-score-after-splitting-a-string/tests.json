@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxScore",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典字符串最大五",
+      "args": [
+        "011101"
+      ],
+      "expected": 5
+    },
+    {
+      "name": "全部零左侧尽量长",
+      "args": [
+        "00"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "全部一右侧尽量长",
+      "args": [
+        "1111"
+      ],
+      "expected": 3
+    }
+  ]
+}

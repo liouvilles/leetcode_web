@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "mostPoints",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "经典四题最高五分",
+      "args": [
+        [
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            2,
+            5
+          ]
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "五题选择组合得七分",
+      "args": [
+        [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            5
+          ]
+        ]
+      ],
+      "expected": 7
+    },
+    {
+      "name": "单题直接作答",
+      "args": [
+        [
+          [
+            10,
+            100
+          ]
+        ]
+      ],
+      "expected": 10
+    }
+  ]
+}

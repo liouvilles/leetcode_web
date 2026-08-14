@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2063,
+  "slug": "vowels-of-all-substrings",
+  "title": "所有子字符串中的元音",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "数学",
+    "字符串",
+    "动态规划"
+  ],
+  "summary": "对字符串所有子字符串，累计其中元音字符出现次数。",
+  "insight": "下标 i 的字符被包含在 (i+1)*(n-i) 个子字符串中；若它是元音，把这个贡献直接加入答案。",
+  "pitfalls": [
+    "按每个子字符串中的出现次数累计",
+    "答案使用 long",
+    "五个小写元音"
+  ],
+  "solutions": [
+    {
+      "id": "per-position-substring-contribution",
+      "title": "按位置计算子串贡献",
+      "kind": "最优",
+      "idea": "把双重子串枚举转为每个元音位置的组合数。",
+      "steps": [
+        "answer=0",
+        "遍历 i，判断 word[i] 是否在 aeiou",
+        "若是，answer+=(i+1)*(n-i)，返回"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/per-position-substring-contribution/Solution.java",
+        "kotlin": "solutions/per-position-substring-contribution/Solution.kt",
+        "cpp": "solutions/per-position-substring-contribution/solution.cpp"
+      }
+    }
+  ]
+}

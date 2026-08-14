@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 1759,
+  "slug": "count-number-of-homogenous-substrings",
+  "title": "统计同构子字符串的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-025",
+  "studyTags": [
+    "数学",
+    "字符串"
+  ],
+  "summary": "若子串所有字符相同则为同构子串，统计所有非空同构子串数量并取模。",
+  "insight": "每个长度为 L 的连续同字符段贡献 L(L+1)/2 个子串；也可扫描时令当前连续长度加一并把它加入答案。",
+  "pitfalls": [
+    "不同下标的相同内容子串分别计数",
+    "连续段跨字符边界归零",
+    "每步取模"
+  ],
+  "solutions": [
+    {
+      "id": "running-equal-run-length",
+      "title": "连续同字符长度累加",
+      "kind": "最优",
+      "idea": "以每个位置结尾的同构子串数就是当前连续段长度。",
+      "steps": [
+        "run=answer=0",
+        "扫描 i，若 i>0 且字符相同则 run++，否则 run=1",
+        "answer=(answer+run)%MOD，返回"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/running-equal-run-length/Solution.java",
+        "kotlin": "solutions/running-equal-run-length/Solution.kt",
+        "cpp": "solutions/running-equal-run-length/solution.cpp"
+      }
+    }
+  ]
+}

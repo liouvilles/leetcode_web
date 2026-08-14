@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1976,
+  "slug": "number-of-ways-to-arrive-at-destination",
+  "title": "到达目的地的方案数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-028",
+  "studyTags": [
+    "图论",
+    "最短路",
+    "动态规划"
+  ],
+  "summary": "带正权无向图中，统计从零到 n-1 的最短路径条数并取模。",
+  "insight": "Dijkstra 除最短距离外维护 ways。发现更短距离时覆盖方案数；发现相同最短距离时累加来源节点方案数。正权保证弹出顺序正确。",
+  "pitfalls": [
+    "只统计最短耗时路径",
+    "距离使用 long",
+    "过期堆状态应跳过"
+  ],
+  "solutions": [
+    {
+      "id": "dijkstra-with-path-counts",
+      "title": "Dijkstra 最短路计数",
+      "kind": "最优",
+      "idea": "在松弛边时同步维护等长最短路径数量。",
+      "steps": [
+        "建无向邻接表，dist[0]=0、ways[0]=1",
+        "最小堆弹出距离，过期跳过",
+        "new<dist 时覆盖并入堆；new==dist 时 ways 累加，返回 ways[n-1]"
+      ],
+      "complexity": {
+        "time": "O((V+E) log V)",
+        "space": "O(V+E)"
+      },
+      "files": {
+        "java": "solutions/dijkstra-with-path-counts/Solution.java",
+        "kotlin": "solutions/dijkstra-with-path-counts/Solution.kt",
+        "cpp": "solutions/dijkstra-with-path-counts/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numSubarraysWithSum",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三个一选两个",
+      "args": [
+        [
+          1,
+          0,
+          1,
+          0,
+          1
+        ],
+        2
+      ],
+      "expected": 4
+    },
+    {
+      "name": "全零子数组",
+      "args": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        0
+      ],
+      "expected": 15
+    },
+    {
+      "name": "三个一选相邻两个",
+      "args": [
+        [
+          1,
+          1,
+          1
+        ],
+        2
+      ],
+      "expected": 2
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 433,
+  "slug": "minimum-genetic-mutation",
+  "title": "最小基因变化",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-006",
+  "studyTags": [
+    "广度优先搜索",
+    "字符串",
+    "最短路径"
+  ],
+  "summary": "每次只能改变基因字符串一个字符且中间字符串必须在基因库中，求从起点到终点的最少变化次数。",
+  "insight": "每个合法基因是图节点，一次字符变化是等权边；BFS 第一次到达终点即为最短路径。",
+  "pitfalls": [
+    "每个中间状态都必须在 bank 中",
+    "起点等于终点时答案为零",
+    "访问过的基因要移出候选避免重复"
+  ],
+  "solutions": [
+    {
+      "id": "bfs-mutations",
+      "title": "基因状态 BFS",
+      "kind": "最优",
+      "idea": "逐层枚举每个位置的四种字符并将未访问合法状态入队。",
+      "steps": [
+        "bank 转集合并处理起终点边界",
+        "队列从 start 开始逐层扩展",
+        "对八个位置尝试 A/C/G/T，命中集合时删除并入队，首次到 end 返回层数"
+      ],
+      "complexity": {
+        "time": "O(B·L·4)",
+        "space": "O(B)"
+      },
+      "files": {
+        "java": "solutions/bfs-mutations/Solution.java",
+        "kotlin": "solutions/bfs-mutations/Solution.kt",
+        "cpp": "solutions/bfs-mutations/solution.cpp"
+      }
+    }
+  ]
+}

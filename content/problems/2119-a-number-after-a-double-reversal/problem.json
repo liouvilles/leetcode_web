@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": 2119,
+  "slug": "a-number-after-a-double-reversal",
+  "title": "反转两次的数字",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-031",
+  "studyTags": [
+    "数学"
+  ],
+  "summary": "十进制整数去掉前导零地反转两次后，判断能否回到原数。",
+  "insight": "第一次反转会永久丢掉原数末尾的零；除零本身外，只要末位非零，两次反转就保持全部数位。",
+  "pitfalls": [
+    "零是特例且应返回真",
+    "正整数末尾为零时返回假",
+    "无需真的构造反转结果"
+  ],
+  "solutions": [
+    {
+      "id": "trailing-zero-characterization",
+      "title": "末尾零判定",
+      "kind": "最优",
+      "idea": "直接使用双反转保持性的充要条件。",
+      "steps": [
+        "若 num==0 返回 true",
+        "否则检查 num%10",
+        "末位非零返回 true，末位零返回 false"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/trailing-zero-characterization/Solution.java",
+        "kotlin": "solutions/trailing-zero-characterization/Solution.kt",
+        "cpp": "solutions/trailing-zero-characterization/solution.cpp"
+      }
+    }
+  ]
+}

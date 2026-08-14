@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 365,
+  "slug": "water-and-jug-problem",
+  "title": "水壶问题",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-006",
+  "studyTags": [
+    "数学",
+    "最大公约数",
+    "裴蜀定理"
+  ],
+  "summary": "两个无刻度水壶允许装满、倒空和互相倾倒，判断能否量出指定水量。",
+  "insight": "可量出的水量必须不超过总容量，并且是两个容量最大公约数的倍数。",
+  "pitfalls": [
+    "目标为零总能实现",
+    "目标不能超过两壶容量之和",
+    "容量为零时要正确处理最大公约数"
+  ],
+  "solutions": [
+    {
+      "id": "bezout-gcd",
+      "title": "裴蜀定理 + 最大公约数",
+      "kind": "最优",
+      "idea": "用可达水量的整数组合条件直接判定。",
+      "steps": [
+        "target=0 返回真",
+        "target>x+y 返回假",
+        "计算 gcd(x,y)，判断 target%gcd==0"
+      ],
+      "complexity": {
+        "time": "O(log min(x,y))",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/bezout-gcd/Solution.java",
+        "kotlin": "solutions/bezout-gcd/Solution.kt",
+        "cpp": "solutions/bezout-gcd/solution.cpp"
+      }
+    }
+  ]
+}

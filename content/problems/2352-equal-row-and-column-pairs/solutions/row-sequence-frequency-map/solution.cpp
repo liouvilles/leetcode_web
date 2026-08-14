@@ -1,0 +1,1 @@
+class Solution { public:int equalPairs(vector<vector<int>>& grid){map<vector<int>,int> frequency;for(auto& row:grid)++frequency[row];int n=grid.size(),answer=0;for(int column=0;column<n;++column){vector<int> values;for(int row=0;row<n;++row)values.push_back(grid[row][column]);answer+=frequency[values];}return answer;} };

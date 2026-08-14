@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "reverseOddLevels",
+  "parameterTypes": [
+    "treeNode"
+  ],
+  "returnType": "treeNode",
+  "cases": [
+    {
+      "name": "七节点树反转第一层",
+      "args": [
+        [
+          2,
+          3,
+          5,
+          8,
+          13,
+          21,
+          34
+        ]
+      ],
+      "expected": [
+        2,
+        5,
+        3,
+        8,
+        13,
+        21,
+        34
+      ]
+    },
+    {
+      "name": "三节点树交换两个孩子",
+      "args": [
+        [
+          7,
+          13,
+          11
+        ]
+      ],
+      "expected": [
+        7,
+        11,
+        13
+      ]
+    },
+    {
+      "name": "单节点树保持不变",
+      "args": [
+        [
+          0
+        ]
+      ],
+      "expected": [
+        0
+      ]
+    }
+  ]
+}

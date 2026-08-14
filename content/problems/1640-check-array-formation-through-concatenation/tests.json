@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "canFormArray",
+  "parameterTypes": [
+    "intArray",
+    "intMatrix"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "单片段直接形成数组",
+      "args": [
+        [
+          85
+        ],
+        [
+          [
+            85
+          ]
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "片段可交换顺序",
+      "args": [
+        [
+          15,
+          88
+        ],
+        [
+          [
+            88
+          ],
+          [
+            15
+          ]
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "片段内部顺序错误",
+      "args": [
+        [
+          49,
+          18,
+          16
+        ],
+        [
+          [
+            16,
+            18,
+            49
+          ]
+        ]
+      ],
+      "expected": false
+    }
+  ]
+}

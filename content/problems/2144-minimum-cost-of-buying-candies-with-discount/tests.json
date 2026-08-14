@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumCost",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三颗糖最便宜一颗免费",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "六颗糖分两组付二十三",
+      "args": [
+        [
+          6,
+          5,
+          7,
+          9,
+          2,
+          2
+        ]
+      ],
+      "expected": 23
+    },
+    {
+      "name": "不足三颗全部付费",
+      "args": [
+        [
+          5,
+          5
+        ]
+      ],
+      "expected": 10
+    }
+  ]
+}

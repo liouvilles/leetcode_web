@@ -1,0 +1,1 @@
+class Solution { public String addSpaces(String s,int[] spaces){StringBuilder answer=new StringBuilder();int next=0;for(int i=0;i<s.length();i++){if(next<spaces.length&&spaces[next]==i){answer.append(' ');next++;}answer.append(s.charAt(i));}return answer.toString();} }

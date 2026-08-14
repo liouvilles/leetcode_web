@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minSubarray",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "移除四即可被六整除",
+      "args": [
+        [
+          3,
+          1,
+          4,
+          2
+        ],
+        6
+      ],
+      "expected": 1
+    },
+    {
+      "name": "移除二六长度二",
+      "args": [
+        [
+          6,
+          3,
+          5,
+          2
+        ],
+        9
+      ],
+      "expected": 2
+    },
+    {
+      "name": "总和已被三整除",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        3
+      ],
+      "expected": 0
+    }
+  ]
+}

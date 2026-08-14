@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1385,
+  "slug": "find-the-distance-value-between-two-arrays",
+  "title": "两个数组间的距离值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-019",
+  "studyTags": [
+    "数组",
+    "二分查找",
+    "排序"
+  ],
+  "summary": "统计 arr1 中有多少元素与 arr2 的每个元素之差绝对值都大于 d。",
+  "insight": "排序 arr2 后，对 arr1 的每个值二分其插入位置；距离最近的候选只可能是插入位置及其前一个元素。",
+  "pitfalls": [
+    "条件要求对 arr2 所有元素都大于 d",
+    "检查二分位置左右两个邻居",
+    "相等元素距离为零必不合法"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-neighbor-search",
+      "title": "排序后二分邻居",
+      "kind": "最优",
+      "idea": "用有序数组中相邻候选判断最近距离。",
+      "steps": [
+        "排序 arr2",
+        "对每个 value 二分 lowerBound",
+        "若右邻或左邻距离不超过 d 则无效，否则计数"
+      ],
+      "complexity": {
+        "time": "O(m log m+n log m)",
+        "space": "O(log m)"
+      },
+      "files": {
+        "java": "solutions/sorted-neighbor-search/Solution.java",
+        "kotlin": "solutions/sorted-neighbor-search/Solution.kt",
+        "cpp": "solutions/sorted-neighbor-search/solution.cpp"
+      }
+    }
+  ]
+}

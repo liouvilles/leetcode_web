@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "daysBetweenDates",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "相邻两天",
+      "args": [
+        "2019-06-29",
+        "2019-06-30"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "跨年十五天",
+      "args": [
+        "2020-01-15",
+        "2019-12-31"
+      ],
+      "expected": 15
+    },
+    {
+      "name": "同一天",
+      "args": [
+        "2024-02-29",
+        "2024-02-29"
+      ],
+      "expected": 0
+    }
+  ]
+}

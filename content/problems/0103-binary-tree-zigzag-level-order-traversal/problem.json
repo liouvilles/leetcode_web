@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 103,
+  "slug": "binary-tree-zigzag-level-order-traversal",
+  "title": "二叉树的锯齿形层序遍历",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-004",
+  "studyTags": [
+    "二叉树",
+    "广度优先搜索",
+    "方向切换"
+  ],
+  "summary": "按层遍历二叉树，并让相邻层的节点值输出方向在从左到右与从右到左之间交替。",
+  "insight": "队列仍按普通层序顺序扩展节点，只需根据层方向把值写入本层数组的正向或反向下标。",
+  "pitfalls": [
+    "改变的是输出顺序而非子节点入队顺序",
+    "每处理完一层再切换方向",
+    "空树返回空列表"
+  ],
+  "solutions": [
+    {
+      "id": "bfs-index-placement",
+      "title": "层序遍历按方向写入",
+      "kind": "最优",
+      "idea": "逐层固定大小出队，并用镜像下标生成锯齿顺序。",
+      "steps": [
+        "根节点入队",
+        "按当前层 size 创建列表",
+        "值写入 index 或 size-1-index，子节点正常入队，随后切换方向"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(w)"
+      },
+      "files": {
+        "java": "solutions/bfs-index-placement/Solution.java",
+        "kotlin": "solutions/bfs-index-placement/Solution.kt",
+        "cpp": "solutions/bfs-index-placement/solution.cpp"
+      }
+    }
+  ]
+}

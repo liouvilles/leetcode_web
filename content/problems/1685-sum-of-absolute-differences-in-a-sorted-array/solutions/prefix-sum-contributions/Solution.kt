@@ -1,0 +1,1 @@
+class Solution { fun getSumAbsoluteDifferences(nums:IntArray):IntArray{val total=nums.sumOf{it.toLong()};var leftSum=0L;return IntArray(nums.size){i->val left=nums[i].toLong()*i-leftSum;val right=total-leftSum-nums[i]-nums[i].toLong()*(nums.size-i-1);leftSum+=nums[i];(left+right).toInt()}} }

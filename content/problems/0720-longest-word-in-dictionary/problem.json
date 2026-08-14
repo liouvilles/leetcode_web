@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 720,
+  "slug": "longest-word-in-dictionary",
+  "title": "词典中最长的单词",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-009",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "字符串",
+    "排序"
+  ],
+  "summary": "从词典中找出可由逐次添加一个字母且所有中间前缀都在词典中的最长单词；并列取字典序最小。",
+  "insight": "先按字典序排序，从短到长判断所有前缀是否存在；合法词只在长度严格变大时更新，天然保留字典序最小者。",
+  "pitfalls": [
+    "单字母词无需更短前缀",
+    "必须每个非空真前缀都在词典中",
+    "并列长度不能用后出现词覆盖"
+  ],
+  "solutions": [
+    {
+      "id": "prefix-set-check",
+      "title": "前缀集合验证",
+      "kind": "最优",
+      "idea": "哈希集合提供每个前缀的常数时间存在性检查。",
+      "steps": [
+        "把所有 words 放入集合并按字典序排序",
+        "对每个 word 检查长度 1 到 length-1 的前缀",
+        "全部存在且长度大于当前答案时更新；返回答案"
+      ],
+      "complexity": {
+        "time": "O(total length²)",
+        "space": "O(total length)"
+      },
+      "files": {
+        "java": "solutions/prefix-set-check/Solution.java",
+        "kotlin": "solutions/prefix-set-check/Solution.kt",
+        "cpp": "solutions/prefix-set-check/solution.cpp"
+      }
+    }
+  ]
+}

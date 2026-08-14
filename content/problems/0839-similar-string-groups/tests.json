@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numSimilarGroups",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四串形成两组",
+      "args": [
+        [
+          "tars",
+          "rats",
+          "arts",
+          "star"
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "两个相似字符串",
+      "args": [
+        [
+          "omv",
+          "ovm"
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "单字符串",
+      "args": [
+        [
+          "abc"
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

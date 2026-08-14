@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "partitionArray",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "经典数组分成两组",
+      "args": [
+        [
+          3,
+          6,
+          1,
+          2,
+          5
+        ],
+        2
+      ],
+      "expected": 2
+    },
+    {
+      "name": "k 为零按不同值分组",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        0
+      ],
+      "expected": 3
+    },
+    {
+      "name": "全部值在范围内一组",
+      "args": [
+        [
+          1,
+          2,
+          2,
+          3
+        ],
+        2
+      ],
+      "expected": 1
+    }
+  ]
+}

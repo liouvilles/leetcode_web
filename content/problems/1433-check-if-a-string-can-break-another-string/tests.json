@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "checkIfCanBreak",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "xya 可打破 abc",
+      "args": [
+        "abc",
+        "xya"
+      ],
+      "expected": true
+    },
+    {
+      "name": "排序后大小关系交叉",
+      "args": [
+        "abe",
+        "acd"
+      ],
+      "expected": false
+    },
+    {
+      "name": "相同字符串互相可打破",
+      "args": [
+        "abc",
+        "abc"
+      ],
+      "expected": true
+    }
+  ]
+}

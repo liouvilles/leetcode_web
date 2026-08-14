@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "shortestPath",
+  "parameterTypes": [
+    "intMatrix",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "消除一个障碍六步",
+      "args": [
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        1
+      ],
+      "expected": 6
+    },
+    {
+      "name": "没有足够额度不可达",
+      "args": [
+        [
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            0,
+            0
+          ]
+        ],
+        1
+      ],
+      "expected": -1
+    },
+    {
+      "name": "单格起终点相同",
+      "args": [
+        [
+          [
+            0
+          ]
+        ],
+        0
+      ],
+      "expected": 0
+    }
+  ]
+}

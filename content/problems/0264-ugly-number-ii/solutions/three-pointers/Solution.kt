@@ -1,0 +1,1 @@
+class Solution { fun nthUglyNumber(n:Int):Int{val ugly=IntArray(n);ugly[0]=1;var p2=0;var p3=0;var p5=0;for(i in 1 until n){val next=minOf(ugly[p2]*2,ugly[p3]*3,ugly[p5]*5);ugly[i]=next;if(next==ugly[p2]*2)p2++;if(next==ugly[p3]*3)p3++;if(next==ugly[p5]*5)p5++};return ugly.last()} }

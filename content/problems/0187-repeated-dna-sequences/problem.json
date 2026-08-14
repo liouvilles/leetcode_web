@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 187,
+  "slug": "repeated-dna-sequences",
+  "title": "重复的 DNA 序列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-005",
+  "studyTags": [
+    "滑动窗口",
+    "哈希表",
+    "字符串"
+  ],
+  "summary": "找出 DNA 字符串中所有出现超过一次的长度为十的连续片段。",
+  "insight": "固定长度窗口从左到右扫描，用已见集合判断重复，并用另一集合保证每个答案只加入一次。",
+  "pitfalls": [
+    "窗口长度固定为十",
+    "重复片段只能输出一次",
+    "短于十的字符串没有答案"
+  ],
+  "solutions": [
+    {
+      "id": "two-hash-sets",
+      "title": "双集合滑动窗口",
+      "kind": "最优",
+      "idea": "seen 记录首次出现，repeated 按首次重复顺序收集。",
+      "steps": [
+        "枚举所有长度十窗口",
+        "加入 seen 失败时加入 repeated",
+        "返回 repeated 列表"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/two-hash-sets/Solution.java",
+        "kotlin": "solutions/two-hash-sets/Solution.kt",
+        "cpp": "solutions/two-hash-sets/solution.cpp"
+      }
+    }
+  ]
+}

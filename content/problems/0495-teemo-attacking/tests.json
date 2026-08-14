@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findPoisonedDuration",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "互不重叠",
+      "args": [
+        [
+          1,
+          4
+        ],
+        2
+      ],
+      "expected": 4
+    },
+    {
+      "name": "发生重叠",
+      "args": [
+        [
+          1,
+          2
+        ],
+        2
+      ],
+      "expected": 3
+    },
+    {
+      "name": "空攻击序列",
+      "args": [
+        [],
+        5
+      ],
+      "expected": 0
+    }
+  ]
+}

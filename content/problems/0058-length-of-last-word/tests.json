@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "lengthOfLastWord",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "普通句子",
+      "args": [
+        "Hello World"
+      ],
+      "expected": 5
+    },
+    {
+      "name": "包含多余空格",
+      "args": [
+        "   fly me   to   the moon  "
+      ],
+      "expected": 4
+    },
+    {
+      "name": "单个长单词",
+      "args": [
+        "luffy"
+      ],
+      "expected": 5
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { fun minimumRemoval(beans:IntArray):Long{beans.sort();val total=beans.sumOf{it.toLong()};var answer=Long.MAX_VALUE;for(i in beans.indices)answer=minOf(answer,total-(beans.size-i).toLong()*beans[i]);return answer} }

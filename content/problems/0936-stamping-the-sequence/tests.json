@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "movesToStamp",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "经典两次印章",
+      "args": [
+        "abc",
+        "ababc"
+      ],
+      "expected": [
+        0,
+        2
+      ]
+    },
+    {
+      "name": "单字符覆盖三次",
+      "args": [
+        "a",
+        "aaa"
+      ],
+      "expected": [
+        2,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "两个独立窗口",
+      "args": [
+        "ab",
+        "abab"
+      ],
+      "expected": [
+        2,
+        0
+      ]
+    }
+  ]
+}

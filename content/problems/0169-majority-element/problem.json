@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 169,
+  "slug": "majority-element",
+  "title": "多数元素",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-001",
+  "studyTags": [
+    "Boyer-Moore",
+    "投票抵消",
+    "常数空间"
+  ],
+  "summary": "找出数组中出现次数严格超过一半的元素，题目保证这样的元素一定存在。",
+  "insight": "把多数元素与其他元素两两抵消，多数元素最终仍会留下，因此只需维护一个候选值和票数。",
+  "pitfalls": [
+    "票数归零后当前元素应成为新候选",
+    "抵消过程依赖多数元素必然存在的前提",
+    "候选值变化不代表之前的统计需要回溯"
+  ],
+  "solutions": [
+    {
+      "id": "boyer-moore-voting",
+      "title": "Boyer-Moore 投票",
+      "kind": "最优",
+      "idea": "相同元素给候选加票，不同元素减票，票数清零时更换候选。",
+      "steps": [
+        "票数为零时把当前值设为候选",
+        "当前值等于候选则加一，否则减一",
+        "遍历结束后候选即为多数元素"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/boyer-moore-voting/Solution.java",
+        "kotlin": "solutions/boyer-moore-voting/Solution.kt",
+        "cpp": "solutions/boyer-moore-voting/solution.cpp"
+      }
+    }
+  ]
+}

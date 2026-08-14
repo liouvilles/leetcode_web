@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "Bank",
+  "constructorTypes": [
+    "longArray"
+  ],
+  "cases": [
+    {
+      "name": "经典转账存款取款流程",
+      "constructorArgs": [
+        [
+          10,
+          100,
+          20,
+          50,
+          30
+        ]
+      ],
+      "calls": [
+        {
+          "method": "withdraw",
+          "parameterTypes": [
+            "int",
+            "long"
+          ],
+          "args": [
+            3,
+            10
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "transfer",
+          "parameterTypes": [
+            "int",
+            "int",
+            "long"
+          ],
+          "args": [
+            5,
+            1,
+            20
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "deposit",
+          "parameterTypes": [
+            "int",
+            "long"
+          ],
+          "args": [
+            5,
+            20
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "transfer",
+          "parameterTypes": [
+            "int",
+            "int",
+            "long"
+          ],
+          "args": [
+            3,
+            4,
+            15
+          ],
+          "returnType": "boolean",
+          "expected": false
+        },
+        {
+          "method": "withdraw",
+          "parameterTypes": [
+            "int",
+            "long"
+          ],
+          "args": [
+            10,
+            50
+          ],
+          "returnType": "boolean",
+          "expected": false
+        }
+      ]
+    },
+    {
+      "name": "余额不足操作失败且状态不变",
+      "constructorArgs": [
+        [
+          5,
+          5
+        ]
+      ],
+      "calls": [
+        {
+          "method": "withdraw",
+          "parameterTypes": [
+            "int",
+            "long"
+          ],
+          "args": [
+            1,
+            6
+          ],
+          "returnType": "boolean",
+          "expected": false
+        },
+        {
+          "method": "transfer",
+          "parameterTypes": [
+            "int",
+            "int",
+            "long"
+          ],
+          "args": [
+            1,
+            2,
+            5
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "withdraw",
+          "parameterTypes": [
+            "int",
+            "long"
+          ],
+          "args": [
+            1,
+            1
+          ],
+          "returnType": "boolean",
+          "expected": false
+        }
+      ]
+    },
+    {
+      "name": "存款后可成功取款",
+      "constructorArgs": [
+        [
+          0
+        ]
+      ],
+      "calls": [
+        {
+          "method": "deposit",
+          "parameterTypes": [
+            "int",
+            "long"
+          ],
+          "args": [
+            1,
+            7
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "withdraw",
+          "parameterTypes": [
+            "int",
+            "long"
+          ],
+          "args": [
+            1,
+            7
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "withdraw",
+          "parameterTypes": [
+            "int",
+            "long"
+          ],
+          "args": [
+            1,
+            1
+          ],
+          "returnType": "boolean",
+          "expected": false
+        }
+      ]
+    }
+  ]
+}

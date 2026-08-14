@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxDiff",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "五五五极差八八八",
+      "args": [
+        555
+      ],
+      "expected": 888
+    },
+    {
+      "name": "单个九最大差八",
+      "args": [
+        9
+      ],
+      "expected": 8
+    },
+    {
+      "name": "六位数替换最高有效位",
+      "args": [
+        123456
+      ],
+      "expected": 820000
+    }
+  ]
+}

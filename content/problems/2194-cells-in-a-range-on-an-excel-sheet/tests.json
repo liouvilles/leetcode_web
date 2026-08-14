@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "cellsInRange",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "stringList",
+  "cases": [
+    {
+      "name": "K 到 L 两列两行",
+      "args": [
+        "K1:L2"
+      ],
+      "expected": [
+        "K1",
+        "K2",
+        "L1",
+        "L2"
+      ]
+    },
+    {
+      "name": "单列三行",
+      "args": [
+        "A1:A3"
+      ],
+      "expected": [
+        "A1",
+        "A2",
+        "A3"
+      ]
+    },
+    {
+      "name": "单个单元格",
+      "args": [
+        "C5:C5"
+      ],
+      "expected": [
+        "C5"
+      ]
+    }
+  ]
+}

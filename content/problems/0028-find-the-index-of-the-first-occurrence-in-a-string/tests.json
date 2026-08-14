@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "strStr",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "开头首次匹配",
+      "args": [
+        "sadbutsad",
+        "sad"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "不存在匹配项",
+      "args": [
+        "leetcode",
+        "leeto"
+      ],
+      "expected": -1
+    },
+    {
+      "name": "中间匹配",
+      "args": [
+        "mississippi",
+        "issip"
+      ],
+      "expected": 4
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 1320,
+  "slug": "minimum-distance-to-type-a-word-using-two-fingers",
+  "title": "二指输入的最小距离",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-018",
+  "studyTags": [
+    "字符串",
+    "动态规划",
+    "状态压缩"
+  ],
+  "summary": "在六列字母键盘上用两根手指依次输入单词，手指初始可放任意位置，求总曼哈顿移动距离最小值。",
+  "insight": "输入到位置 i 后，把一根“活动手指”固定为刚输入的字符，只需记录另一根手指位置。下个字符可由活动手指输入，或由另一根输入并交换两者角色。",
+  "pitfalls": [
+    "任一手指第一次使用移动代价为零",
+    "两根手指没有固定左右身份",
+    "键盘坐标为 index/6、index%6"
+  ],
+  "solutions": [
+    {
+      "id": "active-finger-other-position-dp",
+      "title": "活动手指与另一位置动态规划",
+      "kind": "最优",
+      "idea": "用二十七个状态滚动表示另一根手指位置或未使用。",
+      "steps": [
+        "dp[26]=0 表示输入首字母后另一指未使用，其余无穷",
+        "对每个后续 target，current 为上一字符；使用活动指时 next[other]=dp+dist(current,target)",
+        "使用另一指时 next[current]=min(next[current],dp+dist(other,target))，其中 other=26 距离零；最后返回 dp 最小值"
+      ],
+      "complexity": {
+        "time": "O(word长度·27)",
+        "space": "O(27)"
+      },
+      "files": {
+        "java": "solutions/active-finger-other-position-dp/Solution.java",
+        "kotlin": "solutions/active-finger-other-position-dp/Solution.kt",
+        "cpp": "solutions/active-finger-other-position-dp/solution.cpp"
+      }
+    }
+  ]
+}

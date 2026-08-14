@@ -1,0 +1,193 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "Fancy",
+  "constructorTypes": [],
+  "cases": [
+    {
+      "name": "经典追加与批量运算流程",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "append",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ]
+        },
+        {
+          "method": "addAll",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            3
+          ]
+        },
+        {
+          "method": "append",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            7
+          ]
+        },
+        {
+          "method": "multAll",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ]
+        },
+        {
+          "method": "getIndex",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            0
+          ],
+          "returnType": "int",
+          "expected": 10
+        },
+        {
+          "method": "addAll",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            3
+          ]
+        },
+        {
+          "method": "append",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            10
+          ]
+        },
+        {
+          "method": "multAll",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ]
+        },
+        {
+          "method": "getIndex",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            0
+          ],
+          "returnType": "int",
+          "expected": 26
+        },
+        {
+          "method": "getIndex",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ],
+          "returnType": "int",
+          "expected": 34
+        },
+        {
+          "method": "getIndex",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ],
+          "returnType": "int",
+          "expected": 20
+        }
+      ]
+    },
+    {
+      "name": "新追加元素不受旧加法影响",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "append",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ]
+        },
+        {
+          "method": "addAll",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            5
+          ]
+        },
+        {
+          "method": "append",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ]
+        },
+        {
+          "method": "getIndex",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            0
+          ],
+          "returnType": "int",
+          "expected": 6
+        },
+        {
+          "method": "getIndex",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ],
+          "returnType": "int",
+          "expected": 2
+        }
+      ]
+    },
+    {
+      "name": "越界查询返回负一",
+      "constructorArgs": [],
+      "calls": [
+        {
+          "method": "getIndex",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            0
+          ],
+          "returnType": "int",
+          "expected": -1
+        }
+      ]
+    }
+  ]
+}

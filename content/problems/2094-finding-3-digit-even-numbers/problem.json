@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2094,
+  "slug": "finding-3-digit-even-numbers",
+  "title": "找出 3 位偶数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-030",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "枚举",
+    "排序"
+  ],
+  "summary": "从给定数字中选三个不同下标组成无前导零的三位偶数，返回所有不同结果升序排列。",
+  "insight": "三位偶数只有 100 到 998 的偶数，共 450 个。逐个拆数位并检查所需频次是否不超过输入数字频次，命中即按自然升序加入。",
+  "pitfalls": [
+    "百位不能为零",
+    "相同数字需要足够多个下标",
+    "结果去重且升序"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-three-digit-evens",
+      "title": "枚举全部三位偶数",
+      "kind": "最优",
+      "idea": "固定小值域内验证数位多重集合包含关系。",
+      "steps": [
+        "统计 digits[10]",
+        "number 从 100 到 998 步长二",
+        "统计 number 三位需求，若各位需求<=digits 则加入答案"
+      ],
+      "complexity": {
+        "time": "O(450·10+n)",
+        "space": "O(1) 除输出"
+      },
+      "files": {
+        "java": "solutions/enumerate-three-digit-evens/Solution.java",
+        "kotlin": "solutions/enumerate-three-digit-evens/Solution.kt",
+        "cpp": "solutions/enumerate-three-digit-evens/solution.cpp"
+      }
+    }
+  ]
+}

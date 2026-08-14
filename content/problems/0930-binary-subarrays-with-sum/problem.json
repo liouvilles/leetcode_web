@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 930,
+  "slug": "binary-subarrays-with-sum",
+  "title": "和相同的二元子数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-013",
+  "studyTags": [
+    "数组",
+    "滑动窗口",
+    "前缀和"
+  ],
+  "summary": "统计二进制数组中元素和恰好等于 goal 的非空连续子数组数量。",
+  "insight": "非负数组中，和恰为 goal 的数量等于和至多 goal 的子数组数减去和至多 goal-1 的子数组数；两次滑动窗口即可。",
+  "pitfalls": [
+    "goal 为零时第二个上界为负应返回零",
+    "窗口左端仅在和超上界时移动",
+    "每个右端贡献 right-left+1 个至多上界子数组"
+  ],
+  "solutions": [
+    {
+      "id": "difference-of-at-most-windows",
+      "title": "两个至多滑窗作差",
+      "kind": "最优",
+      "idea": "把精确和转化为两个单调窗口计数之差。",
+      "steps": [
+        "定义 atMost(limit)，limit<0 返回零",
+        "右指针扩展并累加 nums[right]，和超过 limit 时移动 left",
+        "每个 right 累加 right-left+1；返回 atMost(goal)-atMost(goal-1)"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/difference-of-at-most-windows/Solution.java",
+        "kotlin": "solutions/difference-of-at-most-windows/Solution.kt",
+        "cpp": "solutions/difference-of-at-most-windows/solution.cpp"
+      }
+    }
+  ]
+}

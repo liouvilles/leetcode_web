@@ -1,0 +1,1 @@
+class Solution { public int findSecondMinimumValue(TreeNode root){long answer=dfs(root,root.val);return answer==Long.MAX_VALUE?-1:(int)answer;}private long dfs(TreeNode node,int minimum){if(node==null)return Long.MAX_VALUE;if(node.val>minimum)return node.val;return Math.min(dfs(node.left,minimum),dfs(node.right,minimum));} }

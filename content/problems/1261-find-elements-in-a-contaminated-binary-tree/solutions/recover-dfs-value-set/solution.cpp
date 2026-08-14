@@ -1,0 +1,1 @@
+class FindElements { unordered_set<int> values;void recover(TreeNode* node,int value){if(!node)return;node->val=value;values.insert(value);recover(node->left,value*2+1);recover(node->right,value*2+2);}public:FindElements(TreeNode* root){recover(root,0);}bool find(int target){return values.count(target);} };

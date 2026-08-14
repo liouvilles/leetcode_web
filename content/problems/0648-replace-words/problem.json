@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 648,
+  "slug": "replace-words",
+  "title": "单词替换",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-008",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "字典树"
+  ],
+  "summary": "字典中是若干词根，把句子中每个拥有词根前缀的单词替换为最短词根。",
+  "insight": "把所有词根插入字典树，扫描单词字符时第一次遇到终止节点即得到最短词根；路径不存在则保留原词。",
+  "pitfalls": [
+    "存在多个词根时选择最短者",
+    "句子单词由单个空格分隔",
+    "词根本身也会替换为自己"
+  ],
+  "solutions": [
+    {
+      "id": "prefix-trie",
+      "title": "词根字典树",
+      "kind": "最优",
+      "idea": "沿单词前缀查找第一个词根终点。",
+      "steps": [
+        "把 dictionary 中每个词根插入 Trie 并标记末节点",
+        "对句中每个单词从根逐字符走",
+        "路径断开保留原词，首次命中 end 返回此前缀；连接替换结果"
+      ],
+      "complexity": {
+        "time": "O(total characters)",
+        "space": "O(total root characters)"
+      },
+      "files": {
+        "java": "solutions/prefix-trie/Solution.java",
+        "kotlin": "solutions/prefix-trie/Solution.kt",
+        "cpp": "solutions/prefix-trie/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 1696,
+  "slug": "jump-game-vi",
+  "title": "跳跃游戏 VI",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-024",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "队列",
+    "单调队列",
+    "滑动窗口"
+  ],
+  "summary": "从下标零出发，每次最多向前跳 k 格，到达末尾；得分为经过元素之和，求最大得分。",
+  "insight": "dp[i]=nums[i]+前 k 个 dp 的最大值。用下标单调队列维护窗口内 dp 递减序列，队首就是转移最大值。",
+  "pitfalls": [
+    "窗口只包含 i-k 到 i-1",
+    "过期下标要在转移前移除",
+    "负数也必须经过某条合法路径"
+  ],
+  "solutions": [
+    {
+      "id": "monotonic-queue-dp",
+      "title": "单调队列优化动态规划",
+      "kind": "最优",
+      "idea": "维护滑动窗口最大 dp，把转移降为常数均摊。",
+      "steps": [
+        "dp[0]=nums[0]，deque=[0]",
+        "i 从一开始，移除 deque.front<i-k",
+        "dp[i]=nums[i]+dp[front]；从尾部移除 dp<=dp[i] 的下标，再加入 i"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/monotonic-queue-dp/Solution.java",
+        "kotlin": "solutions/monotonic-queue-dp/Solution.kt",
+        "cpp": "solutions/monotonic-queue-dp/solution.cpp"
+      }
+    }
+  ]
+}
