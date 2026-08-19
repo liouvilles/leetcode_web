@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minOrAfterOperations",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两次合并后最小或值为三",
+      "args": [
+        [
+          3,
+          5,
+          3,
+          2,
+          7
+        ],
+        2
+      ],
+      "expected": 3
+    },
+    {
+      "name": "四次合并可得到二与零",
+      "args": [
+        [
+          7,
+          3,
+          15,
+          14,
+          2,
+          8
+        ],
+        4
+      ],
+      "expected": 2
+    },
+    {
+      "name": "一次合并无法消除结果中的四个位",
+      "args": [
+        [
+          10,
+          7,
+          10,
+          3,
+          9,
+          14,
+          9,
+          4
+        ],
+        1
+      ],
+      "expected": 15
+    },
+    {
+      "name": "零次操作只能取原数组或值",
+      "args": [
+        [
+          1,
+          2,
+          4
+        ],
+        0
+      ],
+      "expected": 7
+    },
+    {
+      "name": "合并整个数组得到所有元素的与",
+      "args": [
+        [
+          7,
+          3,
+          5
+        ],
+        2
+      ],
+      "expected": 1
+    },
+    {
+      "name": "最高合法数据位也被正确检查",
+      "args": [
+        [
+          536870912,
+          536870911
+        ],
+        1
+      ],
+      "expected": 0
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { public:int minimumArrayLength(vector<int>& nums){int minimum=*min_element(nums.begin(),nums.end()),count=0;for(int value:nums){if(value%minimum)return 1;if(value==minimum)++count;}return (count+1)/2;} };

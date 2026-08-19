@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": 3030,
+  "slug": "find-the-grid-of-region-average",
+  "title": "找出网格的区域平均强度",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-052",
+  "studyTags": [
+    "数组",
+    "矩阵",
+    "模拟"
+  ],
+  "summary": "枚举所有相邻像素差不超过 threshold 的 3×3 区域，先向下取整求每个区域平均强度；每个像素取其所属有效区域平均值的向下取整均值，若不属于任何区域则保留原值。",
+  "insight": "每个 3×3 候选只需检查六条水平边和六条垂直边。有效时计算九个像素的整数平均值，并把该区域平均值累加到覆盖的九个格子，同时增加覆盖次数；最后逐格相除即可。",
+  "pitfalls": [
+    "只检查共享边的相邻像素",
+    "区域平均值要先向下取整再参与像素的二次平均",
+    "一个像素最多属于多个重叠区域",
+    "无有效区域覆盖时必须返回原像素值",
+    "threshold 等于边差时仍合法"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-valid-regions-and-accumulate",
+      "title": "枚举有效区域并累加",
+      "kind": "最优",
+      "idea": "为每个像素累计所有合法 3×3 区域的整数平均值。",
+      "steps": [
+        "建立 sum 与 count 矩阵",
+        "枚举每个 3×3 左上角",
+        "检查区域内所有水平与垂直相邻差",
+        "若合法则求九个像素和除以九",
+        "把区域平均值加入九个格子的 sum 并增加 count",
+        "逐格令结果为 sum/count；count 为零则用原值",
+        "返回结果矩阵"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(mn)"
+      },
+      "files": {
+        "java": "solutions/enumerate-valid-regions-and-accumulate/Solution.java",
+        "kotlin": "solutions/enumerate-valid-regions-and-accumulate/Solution.kt",
+        "cpp": "solutions/enumerate-valid-regions-and-accumulate/solution.cpp"
+      }
+    }
+  ]
+}

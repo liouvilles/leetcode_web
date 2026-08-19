@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumTimeToInitialState",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "位移六时后缀 a 匹配前缀",
+      "args": [
+        "abacaba",
+        3
+      ],
+      "expected": 2
+    },
+    {
+      "name": "位移四时 caba 已与前缀相同",
+      "args": [
+        "abacaba",
+        4
+      ],
+      "expected": 1
+    },
+    {
+      "name": "没有提前边界匹配需四秒删完整串",
+      "args": [
+        "abcbabcd",
+        2
+      ],
+      "expected": 4
+    },
+    {
+      "name": "全相同字符一秒即可恢复",
+      "args": [
+        "aaaa",
+        1
+      ],
+      "expected": 1
+    },
+    {
+      "name": "一次删除整个单词后可以完全重建",
+      "args": [
+        "abc",
+        3
+      ],
+      "expected": 1
+    }
+  ]
+}

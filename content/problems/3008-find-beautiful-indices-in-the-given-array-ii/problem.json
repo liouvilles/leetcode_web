@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": 3008,
+  "slug": "find-beautiful-indices-in-the-given-array-ii",
+  "title": "找出数组中的美丽下标 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-052",
+  "studyTags": [
+    "双指针",
+    "字符串",
+    "字符串匹配",
+    "KMP"
+  ],
+  "summary": "找出字符串 s 中模式 a 的所有起始下标 i，使模式 b 至少有一个起始下标 j 满足 |i-j| 不超过 k，并按升序返回这些美丽下标。",
+  "insight": "分别用 KMP 在线性时间找出 a 与 b 的全部匹配起点，两个列表天然升序。扫描 a 的起点时，单调移动 b 列表指针，跳过所有小于 i-k 的位置；此时首个未跳过位置若不大于 i+k，i 就是美丽下标。",
+  "pitfalls": [
+    "下标指模式串的起始位置而非结束位置",
+    "模式可以比 s 更长，此时匹配列表为空",
+    "KMP 找到一次匹配后要退到前缀函数指示的位置，不能漏掉重叠匹配",
+    "距离条件包含等于 k 的边界",
+    "结果必须升序，按第一个匹配列表的原顺序扫描即可"
+  ],
+  "solutions": [
+    {
+      "id": "kmp-occurrences-and-two-pointers",
+      "title": "两次 KMP 与双指针",
+      "kind": "最优",
+      "idea": "先线性找出两种模式的全部出现位置，再在线性扫描中判断距离。",
+      "steps": [
+        "为模式串构造前缀函数",
+        "扫描 s 并记录模式 a 的所有匹配起点，匹配成功后回退以保留重叠匹配",
+        "同样记录模式 b 的所有匹配起点",
+        "依次枚举 a 的每个起点 i，并将 b 指针移过所有小于 i-k 的位置",
+        "若当前 b 起点存在且不大于 i+k，把 i 加入答案",
+        "返回答案列表"
+      ],
+      "complexity": {
+        "time": "O(|s| + |a| + |b|)",
+        "space": "O(|s| + |a| + |b|)"
+      },
+      "files": {
+        "java": "solutions/kmp-occurrences-and-two-pointers/Solution.java",
+        "kotlin": "solutions/kmp-occurrences-and-two-pointers/Solution.kt",
+        "cpp": "solutions/kmp-occurrences-and-two-pointers/solution.cpp"
+      }
+    }
+  ]
+}

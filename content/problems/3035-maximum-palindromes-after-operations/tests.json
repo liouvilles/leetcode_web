@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxPalindromesAfterOperations",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "交换后三个单词都能成为回文",
+      "args": [
+        [
+          "abbb",
+          "ba",
+          "aa"
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "五个字符可重排成两个回文",
+      "args": [
+        [
+          "abc",
+          "ab"
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "四个不同字符只能保留单字符回文",
+      "args": [
+        [
+          "cd",
+          "ef",
+          "a"
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "所有单字符本身都是回文",
+      "args": [
+        [
+          "a",
+          "b",
+          "c"
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "没有任何相同字符对时偶数单词均失败",
+      "args": [
+        [
+          "ab",
+          "cd",
+          "ef"
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "三组字符对最多支持三个目标单词",
+      "args": [
+        [
+          "aa",
+          "bb",
+          "cc",
+          "abc"
+        ]
+      ],
+      "expected": 3
+    }
+  ]
+}

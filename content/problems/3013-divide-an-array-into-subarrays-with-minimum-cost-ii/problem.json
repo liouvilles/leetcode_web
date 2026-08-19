@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": 3013,
+  "slug": "divide-an-array-into-subarrays-with-minimum-cost-ii",
+  "title": "将数组分成最小总代价的子数组 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-052",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "滑动窗口",
+    "堆（优先队列）"
+  ],
+  "summary": "把数组分成 k 个连续非空子数组，以各子数组首元素之和为代价，并要求第二与第 k 个子数组首下标之差不超过 dist；求最小总代价。",
+  "insight": "除 nums[0] 固定成为第一段代价外，还要选择 k-1 个递增下标作为其余段的起点，并且这些下标的最大值与最小值之差不超过 dist。因此问题等价于：在 nums[1..] 的每个长度 dist+1 的下标窗口中，求最小的 k-1 个值之和。滑动窗口内用两个有序多重集维护较小的 k-1 项及其总和即可。",
+  "pitfalls": [
+    "选择的是子数组首下标，对应值不要求在数值上有序",
+    "第二段到最后一段首下标的跨度包含两端，窗口长度是 dist+1",
+    "nums[0] 的代价固定且只在最后加一次",
+    "窗口内有重复值时必须按出现次数维护多重集",
+    "k-1 个较小值的和及最终答案可能超过 int，必须使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "sliding-window-k-smallest-multisets",
+      "title": "滑窗维护最小 k-1 项",
+      "kind": "最优",
+      "idea": "用两个平衡树多重集动态维护每个合法下标窗口中的 k-1 个最小值。",
+      "steps": [
+        "令 need=k-1",
+        "把 nums[1..dist+1] 加入窗口结构",
+        "small 保存 need 个最小值并维护其和，large 保存其余值",
+        "记录 nums[0]+smallSum 作为当前答案",
+        "窗口右移时删除离开的值并加入新值",
+        "每次在两个集合间移动边界元素以恢复 small 大小和有序性",
+        "返回所有窗口中的最小总代价"
+      ],
+      "complexity": {
+        "time": "O(n log(dist+1))",
+        "space": "O(dist)"
+      },
+      "files": {
+        "java": "solutions/sliding-window-k-smallest-multisets/Solution.java",
+        "kotlin": "solutions/sliding-window-k-smallest-multisets/Solution.kt",
+        "cpp": "solutions/sliding-window-k-smallest-multisets/solution.cpp"
+      }
+    }
+  ]
+}

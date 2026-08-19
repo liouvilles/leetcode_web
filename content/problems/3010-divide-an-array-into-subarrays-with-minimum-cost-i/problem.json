@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 3010,
+  "slug": "divide-an-array-into-subarrays-with-minimum-cost-i",
+  "title": "将数组分成最小总代价的子数组 I",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-052",
+  "studyTags": [
+    "数组",
+    "枚举",
+    "排序"
+  ],
+  "summary": "把数组划分为三个连续且非空的子数组；每个子数组的代价是首元素，求三个代价之和的最小值。",
+  "insight": "第一个子数组必然从 nums[0] 开始，后两个子数组的首元素就是任选的两个不同后缀下标，且较小下标作为第二段起点。任何两下标都会形成合法划分，所以只需寻找 nums[1..] 中最小的两个元素。",
+  "pitfalls": [
+    "第一项 nums[0] 的代价无法改变",
+    "后两段起点必须是两个不同下标",
+    "两个最小值可能数值相等但来自不同位置",
+    "无需枚举每段的结束位置，两个起点已经唯一确定三段",
+    "题目数组长度至少为三，后缀一定能取出两个元素"
+  ],
+  "solutions": [
+    {
+      "id": "two-smallest-suffix-values",
+      "title": "扫描后缀两个最小值",
+      "kind": "最优",
+      "idea": "把划分问题化为选择后缀中代价最小的两个起点。",
+      "steps": [
+        "令 first、second 为后缀中最小与次小值",
+        "从下标一开始扫描 nums",
+        "若当前值小于 first，将旧 first 下放到 second，再更新 first",
+        "否则若当前值小于 second，只更新 second",
+        "返回 nums[0]+first+second"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/two-smallest-suffix-values/Solution.java",
+        "kotlin": "solutions/two-smallest-suffix-values/Solution.kt",
+        "cpp": "solutions/two-smallest-suffix-values/solution.cpp"
+      }
+    }
+  ]
+}

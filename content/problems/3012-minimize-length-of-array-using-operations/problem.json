@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 3012,
+  "slug": "minimize-length-of-array-using-operations",
+  "title": "通过操作使数组长度最小",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-052",
+  "studyTags": [
+    "数组",
+    "数学",
+    "贪心",
+    "数论"
+  ],
+  "summary": "每次选择两个正元素，将它们删除并加入第一个数对第二个数的余数；操作后的零不能再被选择，求最终数组能达到的最小长度。",
+  "insight": "设全局最小值为 m。若存在不能被 m 整除的元素，就能先产生一个小于 m 的正余数，再沿欧几里得算法不断缩小并最终把所有元素合并成一个。否则所有数都是 m 的倍数，正余数始终也是 m 的倍数；真正限制答案的是 m 的出现次数，两两合并相等的 m 会得到不可再使用的零，最少留下 ceil(count(m)/2) 个元素。",
+  "pitfalls": [
+    "取模有方向，但可按需要决定两个下标的先后顺序",
+    "只有正元素可以参与后续操作，产生的零会永久留下",
+    "判断的是每个元素能否被全局最小值整除",
+    "全都可整除时只统计等于最小值的元素个数",
+    "最小值出现奇数次时答案要向上取整"
+  ],
+  "solutions": [
+    {
+      "id": "minimum-divisibility-and-count",
+      "title": "最小值整除性与计数",
+      "kind": "最优",
+      "idea": "根据是否能产生更小正余数，把答案分为一与最小值计数的一半向上取整。",
+      "steps": [
+        "扫描数组求全局最小值 minimum",
+        "再次扫描；若某个 value 对 minimum 的余数非零，立即返回一",
+        "同时统计等于 minimum 的元素个数 count",
+        "所有元素都被 minimum 整除时返回 (count+1)/2"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/minimum-divisibility-and-count/Solution.java",
+        "kotlin": "solutions/minimum-divisibility-and-count/Solution.kt",
+        "cpp": "solutions/minimum-divisibility-and-count/solution.cpp"
+      }
+    }
+  ]
+}

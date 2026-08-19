@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "beautifulIndices",
+  "parameterTypes": [
+    "string",
+    "string",
+    "string",
+    "int"
+  ],
+  "returnType": "intList",
+  "cases": [
+    {
+      "name": "两个 my 都靠近某个 squirrel",
+      "args": [
+        "isawsquirrelnearmysquirrelhouseohmy",
+        "my",
+        "squirrel",
+        15
+      ],
+      "expected": [
+        16,
+        33
+      ]
+    },
+    {
+      "name": "同一个匹配可同时充当两种模式",
+      "args": [
+        "abcd",
+        "a",
+        "a",
+        4
+      ],
+      "expected": [
+        0
+      ]
+    },
+    {
+      "name": "重叠出现的两种模式全部被保留",
+      "args": [
+        "aaaaa",
+        "aa",
+        "aaa",
+        1
+      ],
+      "expected": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "name": "两个匹配的距离超过边界",
+      "args": [
+        "abcd",
+        "a",
+        "d",
+        2
+      ],
+      "expected": []
+    },
+    {
+      "name": "模式比原串更长时没有匹配",
+      "args": [
+        "abc",
+        "abcd",
+        "a",
+        1
+      ],
+      "expected": []
+    }
+  ]
+}

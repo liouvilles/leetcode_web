@@ -1,0 +1,1 @@
+class Solution { fun minimumArrayLength(nums:IntArray):Int{var minimum=nums[0];for(value in nums)minimum=minOf(minimum,value);var count=0;for(value in nums){if(value%minimum!=0)return 1;if(value==minimum)count++};return (count+1)/2} }

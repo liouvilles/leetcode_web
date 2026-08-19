@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumPushes",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "五个不同字母都使用第一按压层",
+      "args": [
+        "abcde"
+      ],
+      "expected": 5
+    },
+    {
+      "name": "十个字母中两个进入第二按压层",
+      "args": [
+        "xycdefghij"
+      ],
+      "expected": 12
+    },
+    {
+      "name": "恰好八个字母均只按一次",
+      "args": [
+        "abcdefgh"
+      ],
+      "expected": 8
+    },
+    {
+      "name": "第九个字母需要按两次",
+      "args": [
+        "abcdefghi"
+      ],
+      "expected": 10
+    },
+    {
+      "name": "二十六个字母占满四个按压层",
+      "args": [
+        "abcdefghijklmnopqrstuvwxyz"
+      ],
+      "expected": 56
+    },
+    {
+      "name": "单个字母只需按一次",
+      "args": [
+        "z"
+      ],
+      "expected": 1
+    }
+  ]
+}

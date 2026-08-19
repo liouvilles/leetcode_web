@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": 3011,
+  "slug": "find-if-array-can-be-sorted",
+  "title": "判断一个数组是否可以变为有序",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-052",
+  "studyTags": [
+    "数组",
+    "位运算",
+    "排序"
+  ],
+  "summary": "可以任意多次交换相邻且二进制置位数相同的两个元素，判断能否把数组按非递减顺序排列。",
+  "insight": "交换不会改变每个位置所属的置位数序列，因此不同置位数形成的连续段永远不能互相跨越；同一连续段内部则可通过相邻交换实现任意排列。只要每段的最大值不大于下一段的最小值，把各段内部排序后整体就是有序数组。",
+  "pitfalls": [
+    "只能交换相邻元素，不能把被其他置位数隔开的同类元素放在一起",
+    "应按连续的置位数段处理，而不是按置位数全局分组",
+    "目标是非递减排列，段边界允许相等",
+    "每段无需实际排序，只比较最小值与最大值",
+    "置位数必须对数值本身计算，输入均为正整数"
+  ],
+  "solutions": [
+    {
+      "id": "validate-equal-popcount-runs",
+      "title": "验证相邻置位数分段",
+      "kind": "最优",
+      "idea": "扫描不可跨越的置位数连续段，并检查段间数值范围是否有序。",
+      "steps": [
+        "令 previousMax 为已处理上一段的最大值",
+        "从左到右确定当前置位数相同的最大连续段",
+        "扫描该段得到 currentMin 与 currentMax",
+        "若 previousMax 大于 currentMin，任何段内排列都无法使边界有序，返回 false",
+        "否则令 previousMax=currentMax 并处理下一段",
+        "全部分段通过后返回 true"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/validate-equal-popcount-runs/Solution.java",
+        "kotlin": "solutions/validate-equal-popcount-runs/Solution.kt",
+        "cpp": "solutions/validate-equal-popcount-runs/solution.cpp"
+      }
+    }
+  ]
+}

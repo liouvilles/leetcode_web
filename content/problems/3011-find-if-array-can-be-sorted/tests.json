@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "canSortArray",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "每个置位数段都能内部调整为有序",
+      "args": [
+        [
+          8,
+          4,
+          2,
+          30,
+          15
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "原数组已升序时无需交换",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "不同置位数的元素无法跨段交换",
+      "args": [
+        [
+          3,
+          16,
+          8,
+          4,
+          2
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "相同置位数的一整段可任意排列",
+      "args": [
+        [
+          6,
+          5,
+          3
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "同类元素被其他置位数隔开仍不可跨越",
+      "args": [
+        [
+          7,
+          3,
+          5
+        ]
+      ],
+      "expected": false
+    }
+  ]
+}

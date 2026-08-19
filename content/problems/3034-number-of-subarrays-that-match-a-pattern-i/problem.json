@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": 3034,
+  "slug": "number-of-subarrays-that-match-a-pattern-i",
+  "title": "匹配模式数组的子数组数目 I",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-052",
+  "studyTags": [
+    "数组",
+    "枚举",
+    "字符串匹配"
+  ],
+  "summary": "长度 m+1 的子数组匹配 pattern，当相邻元素的大小关系依次等于 pattern 中的 1、0、-1；统计所有匹配起点。",
+  "insight": "本题规模最多一百，可枚举每个长度 m+1 的窗口，使用 compare 将相邻数关系规范化为 -1、0、1，再与 pattern 逐项比较。",
+  "pitfalls": [
+    "pattern 描述的是相邻元素关系",
+    "窗口长度是 pattern.length+1",
+    "相等关系对应零",
+    "不同窗口允许重叠",
+    "数值可达十亿但比较无需做减法"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-windows-and-compare-signs",
+      "title": "枚举窗口并比较符号",
+      "kind": "最优",
+      "idea": "直接验证每个可能起点的全部相邻关系。",
+      "steps": [
+        "answer=0",
+        "枚举 start 从零到 n-m-1",
+        "依次计算 nums[start+j+1] 与 nums[start+j] 的比较结果",
+        "任一结果不等于 pattern[j] 就判失败",
+        "全部匹配则 answer++",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(nm)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/enumerate-windows-and-compare-signs/Solution.java",
+        "kotlin": "solutions/enumerate-windows-and-compare-signs/Solution.kt",
+        "cpp": "solutions/enumerate-windows-and-compare-signs/solution.cpp"
+      }
+    }
+  ]
+}

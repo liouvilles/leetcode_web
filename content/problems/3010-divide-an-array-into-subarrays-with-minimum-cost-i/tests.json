@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumCost",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "选择二和三作为后两段起点",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          12
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "三个元素只能各自成为一段",
+      "args": [
+        [
+          5,
+          4,
+          3
+        ]
+      ],
+      "expected": 12
+    },
+    {
+      "name": "后缀中的两个一都可作为起点",
+      "args": [
+        [
+          10,
+          3,
+          1,
+          1
+        ]
+      ],
+      "expected": 12
+    },
+    {
+      "name": "不相邻的两个一给出最小代价",
+      "args": [
+        [
+          7,
+          1,
+          5,
+          2,
+          1
+        ]
+      ],
+      "expected": 9
+    },
+    {
+      "name": "较小值位于后缀末端",
+      "args": [
+        [
+          1,
+          50,
+          2,
+          3
+        ]
+      ],
+      "expected": 6
+    }
+  ]
+}

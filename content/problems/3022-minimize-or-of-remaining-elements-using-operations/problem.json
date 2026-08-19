@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": 3022,
+  "slug": "minimize-or-of-remaining-elements-using-operations",
+  "title": "给定操作次数内使剩余元素的或值最小",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-052",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "位运算"
+  ],
+  "summary": "至多执行 k 次操作，每次把两个相邻元素替换为它们的按位与，求最终剩余元素按位或的最小值。",
+  "insight": "连续合并等价于把原数组划分为若干连续段，每段贡献该段所有数的按位与；执行次数等于 n 减段数。按答案位从高到低贪心，维护希望同时消除的位集合 mask。对一个候选 mask，扫描数组并在当前段按位与落到零时立即切段，这会得到最多的合格段；末尾不合格部分可并入前一合格段而仍保持零。若最多合格段数 g 满足 n-g≤k，就能让 mask 中所有位在最终或值里为零，否则当前位必须保留为一。",
+  "pitfalls": [
+    "操作只能合并相邻元素，因此最终结构是连续分段而不是任意分组",
+    "每段内部做按位与，所有段的结果再做按位或",
+    "至多 k 次操作等价于最终至少保留 n-k 段",
+    "测试多个目标位时必须要求它们同时为零，不能逐位独立判断",
+    "末尾未达到零的后缀应并入前一个合格段，不能误算成新段",
+    "数字小于 2^30，只需检查第 29 位到第 0 位"
+  ],
+  "solutions": [
+    {
+      "id": "high-to-low-zero-mask-greedy",
+      "title": "高位到低位的零掩码贪心",
+      "kind": "最优",
+      "idea": "逐位判断能否在操作预算内让当前及此前选定的位全部消失。",
+      "steps": [
+        "初始化 zeroMask=0、answer=0",
+        "从第 29 位降到第 0 位，把当前位加入候选零掩码",
+        "用 candidate 作为段内初值，依次与上数组元素",
+        "每当段内结果变为零就立即切出一个合格段并重置",
+        "设得到的最多合格段数为 groups",
+        "若 n-groups≤k，则接受 candidate 作为新的 zeroMask",
+        "否则当前答案位必须为一",
+        "处理完所有位后返回 answer"
+      ],
+      "complexity": {
+        "time": "O(30n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/high-to-low-zero-mask-greedy/Solution.java",
+        "kotlin": "solutions/high-to-low-zero-mask-greedy/Solution.kt",
+        "cpp": "solutions/high-to-low-zero-mask-greedy/solution.cpp"
+      }
+    }
+  ]
+}

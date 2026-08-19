@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumTimeToInitialState",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "abacaba 每次删三字符需两秒",
+      "args": [
+        "abacaba",
+        3
+      ],
+      "expected": 2
+    },
+    {
+      "name": "位移四的后缀立即匹配原前缀",
+      "args": [
+        "abacaba",
+        4
+      ],
+      "expected": 1
+    },
+    {
+      "name": "无提前匹配时第四秒完整重建",
+      "args": [
+        "abcbabcd",
+        2
+      ],
+      "expected": 4
+    },
+    {
+      "name": "周期全相同单词一秒恢复",
+      "args": [
+        "aaaa",
+        1
+      ],
+      "expected": 1
+    },
+    {
+      "name": "一次删除整个字符串时答案一",
+      "args": [
+        "abc",
+        3
+      ],
+      "expected": 1
+    }
+  ]
+}

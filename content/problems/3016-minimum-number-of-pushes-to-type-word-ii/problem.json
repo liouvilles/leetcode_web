@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": 3016,
+  "slug": "minimum-number-of-pushes-to-type-word-ii",
+  "title": "输入单词需要的最少按键次数 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-052",
+  "studyTags": [
+    "贪心",
+    "哈希表",
+    "字符串",
+    "计数",
+    "排序"
+  ],
+  "summary": "可把小写字母重新映射到八个电话按键的不同按压层级；单词允许重复字母，求输入整个单词所需的最少按键次数。",
+  "insight": "每一按压层最多容纳八个字母。为了最小化加权和，应让出现频率最高的八个字母处于第一层、接下来八个处于第二层，以此类推；这是把最大频率匹配最小按压成本的贪心排序。",
+  "pitfalls": [
+    "本题字母可以重复，不能像 I 一样只按单词长度计算",
+    "排序对象是二十六个字母的出现频率",
+    "每层最多八个字母，因为只有八个可用按键",
+    "零频字母无需贡献成本，也不影响结果",
+    "答案按 frequency*按压层数累加"
+  ],
+  "solutions": [
+    {
+      "id": "descending-frequency-greedy-assignment",
+      "title": "频率降序分配按压层",
+      "kind": "最优",
+      "idea": "把高频字母依次放入成本最低的八键层级。",
+      "steps": [
+        "统计二十六个字母频率",
+        "把频率升序排序",
+        "按 rank 从零到二十五读取降序频率",
+        "第 rank 个字母的按压成本是 rank/8+1",
+        "累加频率乘按压成本并返回"
+      ],
+      "complexity": {
+        "time": "O(|word|+26 log 26)",
+        "space": "O(26)"
+      },
+      "files": {
+        "java": "solutions/descending-frequency-greedy-assignment/Solution.java",
+        "kotlin": "solutions/descending-frequency-greedy-assignment/Solution.kt",
+        "cpp": "solutions/descending-frequency-greedy-assignment/solution.cpp"
+      }
+    }
+  ]
+}

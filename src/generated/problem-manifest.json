@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "problemCount": 2121,
-  "solutionCount": 2148,
-  "implementationCount": 6444,
+  "problemCount": 2146,
+  "solutionCount": 2173,
+  "implementationCount": 6519,
   "problems": [
     {
       "id": 1,
@@ -31815,6 +31815,388 @@
       "batch": "batch-051",
       "solutionCount": 1,
       "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3007,
+      "slug": "maximum-number-that-sum-of-the-prices-is-less-than-or-equal-to-k",
+      "title": "价值和小于等于 K 的最大数字",
+      "studyTags": [
+        "数学",
+        "二分查找",
+        "动态规划",
+        "位运算"
+      ],
+      "status": "published",
+      "batch": "batch-052",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3008,
+      "slug": "find-beautiful-indices-in-the-given-array-ii",
+      "title": "找出数组中的美丽下标 II",
+      "studyTags": [
+        "双指针",
+        "字符串",
+        "字符串匹配",
+        "KMP"
+      ],
+      "status": "published",
+      "batch": "batch-052",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3010,
+      "slug": "divide-an-array-into-subarrays-with-minimum-cost-i",
+      "title": "将数组分成最小总代价的子数组 I",
+      "studyTags": [
+        "数组",
+        "枚举",
+        "排序"
+      ],
+      "status": "published",
+      "batch": "batch-052",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3011,
+      "slug": "find-if-array-can-be-sorted",
+      "title": "判断一个数组是否可以变为有序",
+      "studyTags": [
+        "数组",
+        "位运算",
+        "排序"
+      ],
+      "status": "published",
+      "batch": "batch-052",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3012,
+      "slug": "minimize-length-of-array-using-operations",
+      "title": "通过操作使数组长度最小",
+      "studyTags": [
+        "数组",
+        "数学",
+        "贪心",
+        "数论"
+      ],
+      "status": "published",
+      "batch": "batch-052",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3013,
+      "slug": "divide-an-array-into-subarrays-with-minimum-cost-ii",
+      "title": "将数组分成最小总代价的子数组 II",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "滑动窗口",
+        "堆（优先队列）"
+      ],
+      "status": "published",
+      "batch": "batch-052",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3014,
+      "slug": "minimum-number-of-pushes-to-type-word-i",
+      "title": "输入单词需要的最少按键次数 I",
+      "studyTags": [
+        "贪心",
+        "数学",
+        "字符串"
+      ],
+      "status": "published",
+      "batch": "batch-052",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3015,
+      "slug": "count-the-number-of-houses-at-a-certain-distance-i",
+      "title": "按距离统计房屋对数目 I",
+      "studyTags": [
+        "广度优先搜索",
+        "图",
+        "前缀和"
+      ],
+      "status": "published",
+      "batch": "batch-052",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3016,
+      "slug": "minimum-number-of-pushes-to-type-word-ii",
+      "title": "输入单词需要的最少按键次数 II",
+      "studyTags": [
+        "贪心",
+        "哈希表",
+        "字符串",
+        "计数",
+        "排序"
+      ],
+      "status": "published",
+      "batch": "batch-052",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3017,
+      "slug": "count-the-number-of-houses-at-a-certain-distance-ii",
+      "title": "按距离统计房屋对数目 II",
+      "studyTags": [
+        "图",
+        "前缀和"
+      ],
+      "status": "published",
+      "batch": "batch-052",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3019,
+      "slug": "number-of-changing-keys",
+      "title": "按键变更的次数",
+      "studyTags": [
+        "字符串"
+      ],
+      "status": "published",
+      "batch": "batch-052",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3020,
+      "slug": "find-the-maximum-number-of-elements-in-subset",
+      "title": "子集中元素的最大数量",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "枚举"
+      ],
+      "status": "published",
+      "batch": "batch-052",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3021,
+      "slug": "alice-and-bob-playing-flower-game",
+      "title": "Alice 和 Bob 玩鲜花游戏",
+      "studyTags": [
+        "数学"
+      ],
+      "status": "published",
+      "batch": "batch-052",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3022,
+      "slug": "minimize-or-of-remaining-elements-using-operations",
+      "title": "给定操作次数内使剩余元素的或值最小",
+      "studyTags": [
+        "数组",
+        "贪心",
+        "位运算"
+      ],
+      "status": "published",
+      "batch": "batch-052",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3024,
+      "slug": "type-of-triangle",
+      "title": "三角形类型",
+      "studyTags": [
+        "数组",
+        "数学",
+        "排序",
+        "多边形"
+      ],
+      "status": "published",
+      "batch": "batch-052",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3025,
+      "slug": "find-the-number-of-ways-to-place-people-i",
+      "title": "人员站位的方案数 I",
+      "studyTags": [
+        "数组",
+        "几何",
+        "排序",
+        "枚举"
+      ],
+      "status": "published",
+      "batch": "batch-052",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3026,
+      "slug": "maximum-good-subarray-sum",
+      "title": "最大好子数组和",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "前缀和"
+      ],
+      "status": "published",
+      "batch": "batch-052",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3027,
+      "slug": "find-the-number-of-ways-to-place-people-ii",
+      "title": "人员站位的方案数 II",
+      "studyTags": [
+        "数组",
+        "几何",
+        "排序",
+        "枚举"
+      ],
+      "status": "published",
+      "batch": "batch-052",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3028,
+      "slug": "ant-on-the-boundary",
+      "title": "边界上的蚂蚁",
+      "studyTags": [
+        "数组",
+        "模拟",
+        "前缀和"
+      ],
+      "status": "published",
+      "batch": "batch-052",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3029,
+      "slug": "minimum-time-to-revert-word-to-initial-state-i",
+      "title": "将单词恢复初始状态所需的最短时间 I",
+      "studyTags": [
+        "字符串",
+        "字符串匹配",
+        "枚举"
+      ],
+      "status": "published",
+      "batch": "batch-052",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3030,
+      "slug": "find-the-grid-of-region-average",
+      "title": "找出网格的区域平均强度",
+      "studyTags": [
+        "数组",
+        "矩阵",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-052",
+      "solutionCount": 1,
+      "testCount": 4,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3031,
+      "slug": "minimum-time-to-revert-word-to-initial-state-ii",
+      "title": "将单词恢复初始状态所需的最短时间 II",
+      "studyTags": [
+        "字符串",
+        "字符串匹配",
+        "Z 函数"
+      ],
+      "status": "published",
+      "batch": "batch-052",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3033,
+      "slug": "modify-the-matrix",
+      "title": "修改矩阵",
+      "studyTags": [
+        "数组",
+        "矩阵",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-052",
+      "solutionCount": 1,
+      "testCount": 4,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3034,
+      "slug": "number-of-subarrays-that-match-a-pattern-i",
+      "title": "匹配模式数组的子数组数目 I",
+      "studyTags": [
+        "数组",
+        "枚举",
+        "字符串匹配"
+      ],
+      "status": "published",
+      "batch": "batch-052",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3035,
+      "slug": "maximum-palindromes-after-operations",
+      "title": "回文字符串的最大数量",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "字符串",
+        "贪心",
+        "排序",
+        "计数"
+      ],
+      "status": "published",
+      "batch": "batch-052",
+      "solutionCount": 1,
+      "testCount": 6,
       "qualityGate": "tested"
     }
   ]

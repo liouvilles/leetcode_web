@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findMaximumNumber",
+  "parameterTypes": [
+    "long",
+    "int"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "每一位都计价且预算九时答案为六",
+      "args": [
+        9,
+        1
+      ],
+      "expected": 6
+    },
+    {
+      "name": "只统计偶数位且预算七时答案为九",
+      "args": [
+        7,
+        2
+      ],
+      "expected": 9
+    },
+    {
+      "name": "预算一只能包含数字一",
+      "args": [
+        1,
+        1
+      ],
+      "expected": 1
+    },
+    {
+      "name": "第二位首次计价前可包含数字二",
+      "args": [
+        1,
+        2
+      ],
+      "expected": 2
+    },
+    {
+      "name": "第八位前的数字价值均为零",
+      "args": [
+        1,
+        8
+      ],
+      "expected": 128
+    }
+  ]
+}

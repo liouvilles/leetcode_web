@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countKeyChanges",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "大小写切换不计而字母变化两次",
+      "args": [
+        "aAbBcC"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "始终使用同一个字母按键",
+      "args": [
+        "AaAaAaaA"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "连续相同字母只在边界换键",
+      "args": [
+        "leetcode"
+      ],
+      "expected": 6
+    },
+    {
+      "name": "单字符没有前一次按键",
+      "args": [
+        "Z"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "首尾字母相同仍按相邻变化计数",
+      "args": [
+        "aZzA"
+      ],
+      "expected": 2
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": 3025,
+  "slug": "find-the-number-of-ways-to-place-people-i",
+  "title": "人员站位的方案数 I",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-052",
+  "studyTags": [
+    "数组",
+    "几何",
+    "排序",
+    "枚举"
+  ],
+  "summary": "在平面点中选择 Alice 和 Bob，使 Alice 位于 Bob 的左上方，并且二者围成的闭矩形或线段上没有其他点；统计有序站位方案数。",
+  "insight": "按 x 升序、同 x 按 y 降序排列。固定 Alice 后向右扫描 Bob，只考虑 y 不高于 Alice 的点；已扫描候选中的最高 y 会挡住所有不高于它的新候选，因此只有 y 严格高于此前最高可见下界的点能形成空矩形。",
+  "pitfalls": [
+    "Alice 的 x 不大于 Bob 且 y 不小于 Bob",
+    "边界上的第三个点也会使方案无效",
+    "同一 x 的点要按 y 降序处理",
+    "矩形可以退化成水平或竖直线段",
+    "每对位置的角色顺序固定"
+  ],
+  "solutions": [
+    {
+      "id": "sort-and-visible-lower-bound-scan",
+      "title": "排序与可见下界扫描",
+      "kind": "最优",
+      "idea": "固定左上点，按横坐标顺序统计向右下方向可见的点。",
+      "steps": [
+        "按 x 升序且同 x 按 y 降序排序",
+        "枚举每个点作为 Alice",
+        "lowestVisible 初始化为负无穷",
+        "向后扫描每个 Bob 候选",
+        "若 Bob.y<=Alice.y 且 Bob.y>lowestVisible，则答案加一",
+        "用 Bob.y 更新 lowestVisible",
+        "返回答案"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(log n) 排序栈"
+      },
+      "files": {
+        "java": "solutions/sort-and-visible-lower-bound-scan/Solution.java",
+        "kotlin": "solutions/sort-and-visible-lower-bound-scan/Solution.kt",
+        "cpp": "solutions/sort-and-visible-lower-bound-scan/solution.cpp"
+      }
+    }
+  ]
+}

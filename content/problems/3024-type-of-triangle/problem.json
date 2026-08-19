@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 3024,
+  "slug": "type-of-triangle",
+  "title": "三角形类型",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-052",
+  "studyTags": [
+    "数组",
+    "数学",
+    "排序",
+    "多边形"
+  ],
+  "summary": "给定三个正整数边长，判断它们不能成三角形，或能组成等边、等腰、普通三角形中的哪一种。",
+  "insight": "排序后三边满足 a≤b≤c，只需检查严格三角不等式 a+b>c。若不成立返回 none；成立后依次判断三边全等、任意两边相等，否则三边互异。",
+  "pitfalls": [
+    "三角形不等式必须严格大于，a+b==c 不能成三角形",
+    "排序后只需检查最短两边之和是否大于最长边",
+    "三边全等也满足任意两边相等，必须先判断 equilateral",
+    "返回值必须使用题目规定的英文小写字符串"
+  ],
+  "solutions": [
+    {
+      "id": "sort-and-classify",
+      "title": "排序后检查三角不等式与相等关系",
+      "kind": "最优",
+      "idea": "先确定能否成三角形，再按边长重复情况分类。",
+      "steps": [
+        "升序排序三个边长",
+        "若 nums[0]+nums[1]≤nums[2]，返回 none",
+        "若三个边长全相等，返回 equilateral",
+        "若任意一对边长相等，返回 isosceles",
+        "否则返回 scalene"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/sort-and-classify/Solution.java",
+        "kotlin": "solutions/sort-and-classify/Solution.kt",
+        "cpp": "solutions/sort-and-classify/solution.cpp"
+      }
+    }
+  ]
+}

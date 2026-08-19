@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "flowerGame",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "三乘二范围有三个异奇偶数对",
+      "args": [
+        3,
+        2
+      ],
+      "expected": 3
+    },
+    {
+      "name": "一乘一只有偶数总花数",
+      "args": [
+        1,
+        1
+      ],
+      "expected": 0
+    },
+    {
+      "name": "二乘二各有两种异奇偶组合",
+      "args": [
+        2,
+        2
+      ],
+      "expected": 2
+    },
+    {
+      "name": "两个范围大小不同仍统计有序数对",
+      "args": [
+        4,
+        3
+      ],
+      "expected": 6
+    },
+    {
+      "name": "上界规模答案需要长整数",
+      "args": [
+        100000,
+        100000
+      ],
+      "expected": 5000000000
+    },
+    {
+      "name": "第一条花道固定一朵",
+      "args": [
+        1,
+        100000
+      ],
+      "expected": 50000
+    }
+  ]
+}

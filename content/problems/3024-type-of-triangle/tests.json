@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "triangleType",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "三边相等为等边三角形",
+      "args": [
+        [
+          3,
+          3,
+          3
+        ]
+      ],
+      "expected": "equilateral"
+    },
+    {
+      "name": "经典三四五为普通三角形",
+      "args": [
+        [
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": "scalene"
+    },
+    {
+      "name": "两短边之和等于最长边不能成形",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": "none"
+    },
+    {
+      "name": "恰有两边相等为等腰三角形",
+      "args": [
+        [
+          3,
+          3,
+          5
+        ]
+      ],
+      "expected": "isosceles"
+    },
+    {
+      "name": "无序输入排序后仍正确分类",
+      "args": [
+        [
+          4,
+          2,
+          4
+        ]
+      ],
+      "expected": "isosceles"
+    },
+    {
+      "name": "相等短边之和等于长边仍不能成形",
+      "args": [
+        [
+          1,
+          1,
+          2
+        ]
+      ],
+      "expected": "none"
+    }
+  ]
+}

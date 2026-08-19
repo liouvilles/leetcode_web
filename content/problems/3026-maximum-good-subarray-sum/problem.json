@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": 3026,
+  "slug": "maximum-good-subarray-sum",
+  "title": "最大好子数组和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-052",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "前缀和"
+  ],
+  "summary": "好子数组的首尾元素绝对差恰好为 k；求所有好子数组中的最大元素和，不存在时返回零。",
+  "insight": "扫描右端点 value 时，合法左端点值只能是 value-k 或 value+k。若某值曾作为左端点，保留它对应的最小左端前缀和，就能让当前子数组和最大；用当前结尾前缀和减去该最小值即可。",
+  "pitfalls": [
+    "要求首尾元素之差而非子数组最大最小值之差",
+    "最大答案也可能为负数",
+    "没有合法子数组时才返回零",
+    "同一个左端值只需保留最小的起始前缀和",
+    "前缀和可超出 32 位"
+  ],
+  "solutions": [
+    {
+      "id": "minimum-prefix-by-endpoint-value",
+      "title": "按端点值维护最小前缀和",
+      "kind": "最优",
+      "idea": "用哈希表压缩所有可能左端点并在线计算最大子数组和。",
+      "steps": [
+        "prefix=0、answer=负无穷",
+        "遍历当前 value",
+        "endPrefix=prefix+value",
+        "查询 value-k 与 value+k 对应的最小起始前缀",
+        "用 endPrefix-startPrefix 更新 answer",
+        "把 value 对应的起始前缀 prefix 取最小写入表",
+        "令 prefix=endPrefix",
+        "无候选返回零，否则返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/minimum-prefix-by-endpoint-value/Solution.java",
+        "kotlin": "solutions/minimum-prefix-by-endpoint-value/Solution.kt",
+        "cpp": "solutions/minimum-prefix-by-endpoint-value/solution.cpp"
+      }
+    }
+  ]
+}

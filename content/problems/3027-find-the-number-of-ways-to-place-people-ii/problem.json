@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": 3027,
+  "slug": "find-the-number-of-ways-to-place-people-ii",
+  "title": "人员站位的方案数 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-052",
+  "studyTags": [
+    "数组",
+    "几何",
+    "排序",
+    "枚举"
+  ],
+  "summary": "在最多一千个平面点中选择 Alice 为左上角、Bob 为右下角，要求二者形成的闭矩形或线段内除二人外没有其他点；统计方案数。",
+  "insight": "把点按 x 升序、同 x 按 y 降序排列。固定 Alice 后从左向右扫描，所有 y 不高于 Alice 的点中，只有 y 严格超过此前见过的最高下界时才没有更早的点落在闭矩形内，因此每个 Alice 可在线性统计。",
+  "pitfalls": [
+    "坐标可为负十亿，排序比较不能用减法",
+    "同一横坐标必须先扫描较高点",
+    "第三个点在边界上同样会阻挡",
+    "只考虑 Bob.y<=Alice.y 的方向",
+    "二次扫描可满足 n<=1000"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-quadratic-visibility-scan",
+      "title": "排序后二次可见性扫描",
+      "kind": "最优",
+      "idea": "将空矩形条件转化为固定 Alice 时的单调可见 y 记录。",
+      "steps": [
+        "按 x 升序、同 x 按 y 降序排序",
+        "枚举 Alice 下标",
+        "visibleY 初始化为负无穷",
+        "扫描右侧每个 Bob",
+        "若 Bob 不高于 Alice 且高于 visibleY，则该对合法",
+        "把 visibleY 更新为 Bob.y",
+        "累加并返回答案"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(log n) 排序栈"
+      },
+      "files": {
+        "java": "solutions/sorted-quadratic-visibility-scan/Solution.java",
+        "kotlin": "solutions/sorted-quadratic-visibility-scan/Solution.kt",
+        "cpp": "solutions/sorted-quadratic-visibility-scan/solution.cpp"
+      }
+    }
+  ]
+}
