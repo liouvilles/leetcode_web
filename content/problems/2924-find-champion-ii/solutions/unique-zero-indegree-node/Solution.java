@@ -1,0 +1,1 @@
+class Solution { public int findChampion(int n,int[][] edges){boolean[] defeated=new boolean[n];for(int[] edge:edges)defeated[edge[1]]=true;int candidate=-1;for(int team=0;team<n;team++)if(!defeated[team]){if(candidate!=-1)return -1;candidate=team;}return candidate;} }

@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "lengthOfLongestSubsequence",
+  "parameterTypes": [
+    "intList",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "和为九最多选择三个元素",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        9
+      ],
+      "expected": 3
+    },
+    {
+      "name": "两个一可使和为七的长度达到四",
+      "args": [
+        [
+          4,
+          1,
+          3,
+          2,
+          1,
+          5
+        ],
+        7
+      ],
+      "expected": 4
+    },
+    {
+      "name": "无法恰好组成目标三",
+      "args": [
+        [
+          1,
+          1,
+          5,
+          4,
+          5
+        ],
+        3
+      ],
+      "expected": -1
+    },
+    {
+      "name": "三个一组成目标三优于单个三",
+      "args": [
+        [
+          3,
+          1,
+          1,
+          1
+        ],
+        3
+      ],
+      "expected": 3
+    }
+  ]
+}

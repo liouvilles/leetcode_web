@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumChanges",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "分成 ab 与 cac 只需修改一次",
+      "args": [
+        "abcac",
+        2
+      ],
+      "expected": 1
+    },
+    {
+      "name": "两个长度三子串各需修改一次",
+      "args": [
+        "abcdef",
+        2
+      ],
+      "expected": 2
+    },
+    {
+      "name": "三个双字符回文段无需修改",
+      "args": [
+        "aabbaa",
+        3
+      ],
+      "expected": 0
+    },
+    {
+      "name": "因子三使 abcabc 已是半回文串",
+      "args": [
+        "abcabc",
+        1
+      ],
+      "expected": 0
+    },
+    {
+      "name": "长度二只能选因子一并修改一位",
+      "args": [
+        "ab",
+        1
+      ],
+      "expected": 1
+    }
+  ]
+}

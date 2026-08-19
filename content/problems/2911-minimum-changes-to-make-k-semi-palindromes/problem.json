@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": 2911,
+  "slug": "minimum-changes-to-make-k-semi-palindromes",
+  "title": "得到 K 个半回文串的最少修改次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-049",
+  "studyTags": [
+    "双指针",
+    "字符串",
+    "动态规划",
+    "预处理"
+  ],
+  "summary": "把字符串 s 划分为恰好 k 个非空子串，使每段都能通过尽量少的字符替换变成半回文串，返回总修改次数的最小值。半回文串要求存在一个小于串长的正因子 d，使每个下标模 d 相同的字符序列都是回文。",
+  "insight": "先求每个区间成为半回文串的最小代价。固定真因子 d 和长度 L 时，各模 d 序列最外层的比较恰好是区间首尾两个长度为 d 的连续块；用按字符间距统计的不等前缀可 O(1) 求这批失配，再复用去掉首尾块后的同因子代价。对所有因子取最小后，做按前缀长度与段数划分的 DP。",
+  "pitfalls": [
+    "因子 d 必须整除子串长度且严格小于长度，所以每段至少长二",
+    "分组依据是相对下标模 d，相邻块本身不要求是回文",
+    "一个区间的代价要在所有合法因子中取最小，不能累加",
+    "分组 DP 的每个切分都必须为当前段和剩余段各预留至少两个字符"
+  ],
+  "solutions": [
+    {
+      "id": "divisor-cost-precomputation-and-partition-dp",
+      "title": "因子代价预处理与分组 DP",
+      "kind": "最优",
+      "idea": "用错位前缀和同因子递推求区间代价，再进行定段数最短路式转移。",
+      "steps": [
+        "对每个 gap 预处理 s[i] 与 s[i+gap] 是否不同的前缀和",
+        "枚举因子 d 及长度 2d、3d 等所有倍数",
+        "用首尾 d 字符块的失配数加去掉两块后的同因子代价",
+        "将每个区间在所有真因子下的代价取最小",
+        "令 previous[end] 表示已分若干段覆盖前缀 [0,end)",
+        "枚举下一段起点，转移 previous[start]+change[start][end-1]",
+        "每段长度至少二并为未分段保留足够字符，返回 k 段覆盖 n 的状态"
+      ],
+      "complexity": {
+        "time": "O(n²(log n+k))",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/divisor-cost-precomputation-and-partition-dp/Solution.java",
+        "kotlin": "solutions/divisor-cost-precomputation-and-partition-dp/Solution.kt",
+        "cpp": "solutions/divisor-cost-precomputation-and-partition-dp/solution.cpp"
+      }
+    }
+  ]
+}

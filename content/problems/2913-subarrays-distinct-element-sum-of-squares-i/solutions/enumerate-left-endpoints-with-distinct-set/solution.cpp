@@ -1,0 +1,1 @@
+class Solution { public:int sumCounts(vector<int>& nums){int answer=0;for(int left=0;left<(int)nums.size();++left){unordered_set<int> distinct;for(int right=left;right<(int)nums.size();++right){distinct.insert(nums[right]);int count=distinct.size();answer+=count*count;}}return answer;} };

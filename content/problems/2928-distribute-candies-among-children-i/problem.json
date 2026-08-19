@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": 2928,
+  "slug": "distribute-candies-among-children-i",
+  "title": "给小朋友们分糖果 I",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-049",
+  "studyTags": [
+    "数学",
+    "组合数学",
+    "枚举",
+    "容斥原理"
+  ],
+  "summary": "把 n 颗相同糖果分给三个小朋友，每人得到的数量不超过 limit，统计分配方案数。",
+  "insight": "先忽略上限，三个非负整数和为 s 的方案数是 C(s+2,2)。对一个、两个或三个小朋友超过 limit 的事件做容斥，超限变量减去 limit+1 后仍是同一个无上限计数问题。",
+  "pitfalls": [
+    "每人可以得到零颗糖",
+    "上限是小于等于 limit",
+    "平移后的剩余糖果为负时贡献零",
+    "第一版答案虽为 int，组合计算仍可统一使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "inclusion-exclusion-for-three-variables",
+      "title": "三个变量的容斥计数",
+      "kind": "最优",
+      "idea": "用无上限隔板法减去违反上限的方案。",
+      "steps": [
+        "定义 ways(sum)=sum<0 时为零，否则 C(sum+2,2)",
+        "answer=ways(n)",
+        "减去 3*ways(n-(limit+1))",
+        "加上 3*ways(n-2*(limit+1))",
+        "减去 ways(n-3*(limit+1))",
+        "转为 int 返回"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/inclusion-exclusion-for-three-variables/Solution.java",
+        "kotlin": "solutions/inclusion-exclusion-for-three-variables/Solution.kt",
+        "cpp": "solutions/inclusion-exclusion-for-three-variables/solution.cpp"
+      }
+    }
+  ]
+}

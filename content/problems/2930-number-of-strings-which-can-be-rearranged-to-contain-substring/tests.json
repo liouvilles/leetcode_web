@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "stringCount",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "长度三不可能包含四个所需字符",
+      "args": [
+        3
+      ],
+      "expected": 0
+    },
+    {
+      "name": "长度四只能是leet的十二种排列",
+      "args": [
+        4
+      ],
+      "expected": 12
+    },
+    {
+      "name": "长度五加入任意额外字符共有一千四百六十种",
+      "args": [
+        5
+      ],
+      "expected": 1460
+    },
+    {
+      "name": "长度十的取模结果",
+      "args": [
+        10
+      ],
+      "expected": 83943898
+    }
+  ]
+}

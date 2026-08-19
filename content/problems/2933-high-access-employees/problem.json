@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": 2933,
+  "slug": "high-access-employees",
+  "title": "高访问员工",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-049",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "字符串",
+    "排序",
+    "滑动窗口"
+  ],
+  "summary": "给出员工姓名与同一天内的访问时间，找出任意不到一小时的时间段内至少访问三次的员工。",
+  "insight": "按员工收集并把 HHMM 转为从零点起的分钟数。每名员工排序后，只需检查任意连续三个时间：若第三次与第一次相差严格小于 60 分钟，就满足条件。",
+  "pitfalls": [
+    "一小时边界是严格小于六十分钟",
+    "HHMM 不能直接当普通分钟数相减",
+    "同一分钟的多次访问分别计数",
+    "返回顺序任意，但实现按姓名排序以保证稳定"
+  ],
+  "solutions": [
+    {
+      "id": "group-sort-and-check-triples",
+      "title": "分组排序后检查连续三次",
+      "kind": "最优",
+      "idea": "对每个员工独立寻找跨度不足一小时的三个访问。",
+      "steps": [
+        "用有序映射按姓名收集分钟数",
+        "把 HHMM 的小时乘六十再加分钟",
+        "排序每名员工的时间数组",
+        "从第三个时间开始检查 time[i]-time[i-2]<60",
+        "命中则把姓名加入答案并停止检查该员工",
+        "返回答案"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/group-sort-and-check-triples/Solution.java",
+        "kotlin": "solutions/group-sort-and-check-triples/Solution.kt",
+        "cpp": "solutions/group-sort-and-check-triples/solution.cpp"
+      }
+    }
+  ]
+}

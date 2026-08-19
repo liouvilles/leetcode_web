@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxSpending",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "两行物品按一二四五六八购买",
+      "args": [
+        [
+          [
+            8,
+            5,
+            2
+          ],
+          [
+            6,
+            4,
+            1
+          ]
+        ]
+      ],
+      "expected": 115
+    },
+    {
+      "name": "两个单物品商店先买价值一",
+      "args": [
+        [
+          [
+            10
+          ],
+          [
+            1
+          ]
+        ]
+      ],
+      "expected": 21
+    },
+    {
+      "name": "四件物品的最优开销为三十七",
+      "args": [
+        [
+          [
+            5,
+            1
+          ],
+          [
+            4,
+            2
+          ]
+        ]
+      ],
+      "expected": 37
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": 2926,
+  "slug": "maximum-balanced-subsequence-sum",
+  "title": "平衡子序列的最大和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-049",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "二分查找",
+    "树状数组",
+    "离散化"
+  ],
+  "summary": "选择一个非空子序列，使任意相邻所选下标 i<j 都满足 nums[j]-nums[i]>=j-i，求元素和的最大值。",
+  "insight": "把条件移项可得 nums[i]-i 在所选下标上非递减。按原顺序扫描，令 key=nums[i]-i，当前元素可接在所有 key 不大于它的状态之后；离散化 key 后用维护前缀最大值的树状数组查询最佳前驱。",
+  "pitfalls": [
+    "必须选择至少一个元素，全负数组不能返回零",
+    "平衡条件等价于 key 非递减而非严格递增",
+    "动态规划和答案需要 64 位整数",
+    "树状数组更新的是最大值而不是累加和"
+  ],
+  "solutions": [
+    {
+      "id": "fenwick-prefix-maximum-dp",
+      "title": "树状数组维护前缀最大 DP",
+      "kind": "最优",
+      "idea": "对变换后的 key 离散化，用前缀最大值加速转移。",
+      "steps": [
+        "计算每个 key=nums[i]-i 并排序去重",
+        "建立存储最大值的树状数组",
+        "按原下标顺序扫描",
+        "二分得到 key 的一基排名",
+        "查询排名前缀的最大子序列和",
+        "dp=nums[i]+max(0,prefixBest)",
+        "用 dp 更新当前排名",
+        "维护所有 dp 的最大值并返回"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/fenwick-prefix-maximum-dp/Solution.java",
+        "kotlin": "solutions/fenwick-prefix-maximum-dp/Solution.kt",
+        "cpp": "solutions/fenwick-prefix-maximum-dp/solution.cpp"
+      }
+    }
+  ]
+}

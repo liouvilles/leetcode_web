@@ -1,0 +1,1 @@
+class Solution { public:int lengthOfLongestSubsequence(vector<int>& nums,int target){vector<int> dp(target+1,-1);dp[0]=0;for(int value:nums)for(int sum=target;sum>=value;--sum)if(dp[sum-value]>=0)dp[sum]=max(dp[sum],dp[sum-value]+1);return dp[target];} };

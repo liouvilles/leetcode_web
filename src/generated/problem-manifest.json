@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "problemCount": 2046,
-  "solutionCount": 2073,
-  "implementationCount": 6219,
+  "problemCount": 2071,
+  "solutionCount": 2098,
+  "implementationCount": 6294,
   "problems": [
     {
       "id": 1,
@@ -30645,6 +30645,391 @@
       "batch": "batch-048",
       "solutionCount": 1,
       "testCount": 4,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2906,
+      "slug": "construct-product-matrix",
+      "title": "构造乘积矩阵",
+      "studyTags": [
+        "数组",
+        "矩阵",
+        "前缀和"
+      ],
+      "status": "published",
+      "batch": "batch-049",
+      "solutionCount": 1,
+      "testCount": 4,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2908,
+      "slug": "minimum-sum-of-mountain-triplets-i",
+      "title": "元素和最小的山形三元组 I",
+      "studyTags": [
+        "数组",
+        "前缀最小值"
+      ],
+      "status": "published",
+      "batch": "batch-049",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2909,
+      "slug": "minimum-sum-of-mountain-triplets-ii",
+      "title": "元素和最小的山形三元组 II",
+      "studyTags": [
+        "数组",
+        "前缀和",
+        "前缀最小值"
+      ],
+      "status": "published",
+      "batch": "batch-049",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2910,
+      "slug": "minimum-number-of-groups-to-create-a-valid-assignment",
+      "title": "合法分组的最少组数",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "贪心"
+      ],
+      "status": "published",
+      "batch": "batch-049",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2911,
+      "slug": "minimum-changes-to-make-k-semi-palindromes",
+      "title": "得到 K 个半回文串的最少修改次数",
+      "studyTags": [
+        "双指针",
+        "字符串",
+        "动态规划",
+        "预处理"
+      ],
+      "status": "published",
+      "batch": "batch-049",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2913,
+      "slug": "subarrays-distinct-element-sum-of-squares-i",
+      "title": "子数组不同元素数目的平方和 I",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "枚举"
+      ],
+      "status": "published",
+      "batch": "batch-049",
+      "solutionCount": 1,
+      "testCount": 4,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2914,
+      "slug": "minimum-number-of-changes-to-make-binary-string-beautiful",
+      "title": "使二进制字符串变美丽的最少修改次数",
+      "studyTags": [
+        "字符串",
+        "贪心"
+      ],
+      "status": "published",
+      "batch": "batch-049",
+      "solutionCount": 1,
+      "testCount": 4,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2915,
+      "slug": "length-of-the-longest-subsequence-that-sums-to-target",
+      "title": "和为目标值的最长子序列的长度",
+      "studyTags": [
+        "数组",
+        "动态规划",
+        "背包问题",
+        "0-1 背包"
+      ],
+      "status": "published",
+      "batch": "batch-049",
+      "solutionCount": 1,
+      "testCount": 4,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2916,
+      "slug": "subarrays-distinct-element-sum-of-squares-ii",
+      "title": "子数组不同元素数目的平方和 II",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "线段树",
+        "懒标记"
+      ],
+      "status": "published",
+      "batch": "batch-049",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2917,
+      "slug": "find-the-k-or-of-an-array",
+      "title": "找出数组中的 K-or 值",
+      "studyTags": [
+        "数组",
+        "位运算",
+        "计数"
+      ],
+      "status": "published",
+      "batch": "batch-049",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2918,
+      "slug": "minimum-equal-sum-of-two-arrays-after-replacing-zeros",
+      "title": "数组的最小相等和",
+      "studyTags": [
+        "数组",
+        "贪心"
+      ],
+      "status": "published",
+      "batch": "batch-049",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2919,
+      "slug": "minimum-increment-operations-to-make-array-beautiful",
+      "title": "使数组变美的最小增量运算数",
+      "studyTags": [
+        "数组",
+        "动态规划"
+      ],
+      "status": "published",
+      "batch": "batch-049",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2920,
+      "slug": "maximum-points-after-collecting-coins-from-all-nodes",
+      "title": "收集所有金币可获得的最大积分",
+      "studyTags": [
+        "数组",
+        "动态规划",
+        "位运算",
+        "树",
+        "深度优先搜索",
+        "记忆化搜索",
+        "树形 DP"
+      ],
+      "status": "published",
+      "batch": "batch-049",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2923,
+      "slug": "find-champion-i",
+      "title": "找到冠军 I",
+      "studyTags": [
+        "数组",
+        "矩阵"
+      ],
+      "status": "published",
+      "batch": "batch-049",
+      "solutionCount": 1,
+      "testCount": 4,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2924,
+      "slug": "find-champion-ii",
+      "title": "找到冠军 II",
+      "studyTags": [
+        "图论"
+      ],
+      "status": "published",
+      "batch": "batch-049",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2925,
+      "slug": "maximum-score-after-applying-operations-on-a-tree",
+      "title": "在树上执行操作以后得到的最大分数",
+      "studyTags": [
+        "树",
+        "深度优先搜索",
+        "动态规划",
+        "树形动态规划"
+      ],
+      "status": "published",
+      "batch": "batch-049",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2926,
+      "slug": "maximum-balanced-subsequence-sum",
+      "title": "平衡子序列的最大和",
+      "studyTags": [
+        "数组",
+        "动态规划",
+        "二分查找",
+        "树状数组",
+        "离散化"
+      ],
+      "status": "published",
+      "batch": "batch-049",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2928,
+      "slug": "distribute-candies-among-children-i",
+      "title": "给小朋友们分糖果 I",
+      "studyTags": [
+        "数学",
+        "组合数学",
+        "枚举",
+        "容斥原理"
+      ],
+      "status": "published",
+      "batch": "batch-049",
+      "solutionCount": 1,
+      "testCount": 4,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2929,
+      "slug": "distribute-candies-among-children-ii",
+      "title": "给小朋友们分糖果 II",
+      "studyTags": [
+        "数学",
+        "组合数学",
+        "容斥原理"
+      ],
+      "status": "published",
+      "batch": "batch-049",
+      "solutionCount": 1,
+      "testCount": 4,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2930,
+      "slug": "number-of-strings-which-can-be-rearranged-to-contain-substring",
+      "title": "重新排列后包含指定子字符串的字符串数目",
+      "studyTags": [
+        "动态规划",
+        "组合数学",
+        "字符串",
+        "状态压缩"
+      ],
+      "status": "published",
+      "batch": "batch-049",
+      "solutionCount": 1,
+      "testCount": 4,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2931,
+      "slug": "maximum-spending-after-buying-items",
+      "title": "购买物品的最大开销",
+      "studyTags": [
+        "数组",
+        "矩阵",
+        "贪心",
+        "优先队列"
+      ],
+      "status": "published",
+      "batch": "batch-049",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2932,
+      "slug": "maximum-strong-pair-xor-i",
+      "title": "找出强数对的最大异或值 I",
+      "studyTags": [
+        "数组",
+        "位运算",
+        "枚举"
+      ],
+      "status": "published",
+      "batch": "batch-049",
+      "solutionCount": 1,
+      "testCount": 4,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2933,
+      "slug": "high-access-employees",
+      "title": "高访问员工",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "字符串",
+        "排序",
+        "滑动窗口"
+      ],
+      "status": "published",
+      "batch": "batch-049",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2934,
+      "slug": "minimum-operations-to-maximize-last-elements-in-arrays",
+      "title": "最大化数组末位元素的最少操作次数",
+      "studyTags": [
+        "数组",
+        "贪心",
+        "枚举"
+      ],
+      "status": "published",
+      "batch": "batch-049",
+      "solutionCount": 1,
+      "testCount": 4,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2935,
+      "slug": "maximum-strong-pair-xor-ii",
+      "title": "找出强数对的最大异或值 II",
+      "studyTags": [
+        "数组",
+        "位运算",
+        "排序",
+        "滑动窗口",
+        "字典树"
+      ],
+      "status": "published",
+      "batch": "batch-049",
+      "solutionCount": 1,
+      "testCount": 5,
       "qualityGate": "tested"
     }
   ]

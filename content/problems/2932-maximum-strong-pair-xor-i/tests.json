@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumStrongPairXor",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三和四构成强数对且异或为七",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": 7
+    },
+    {
+      "name": "十与一百不能配对只能得到零",
+      "args": [
+        [
+          10,
+          100
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "五与六异或为三",
+      "args": [
+        [
+          5,
+          6
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "单元素只能与自身配对",
+      "args": [
+        [
+          42
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

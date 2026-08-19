@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2932,
+  "slug": "maximum-strong-pair-xor-i",
+  "title": "找出强数对的最大异或值 I",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-049",
+  "studyTags": [
+    "数组",
+    "位运算",
+    "枚举"
+  ],
+  "summary": "若一对数 x、y 满足 |x-y|<=min(x,y)，则称为强数对；求数组中强数对的最大异或值。",
+  "insight": "第一版数据规模较小，可以枚举所有包含同一下标的无序数对，直接检查强数对条件并更新 x XOR y。",
+  "pitfalls": [
+    "允许两个元素来自同一个下标",
+    "相等数值一定构成强数对但异或为零",
+    "条件中的右侧是较小值",
+    "需要枚举到 i=j 以自然覆盖单元素数组"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-all-pairs",
+      "title": "枚举全部数对",
+      "kind": "最优",
+      "idea": "逐对检查强数对定义。",
+      "steps": [
+        "answer=0",
+        "i 从零到 n-1",
+        "j 从 i 到 n-1",
+        "若 abs(nums[i]-nums[j])<=min(nums[i],nums[j])",
+        "用 nums[i] XOR nums[j] 更新 answer",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/enumerate-all-pairs/Solution.java",
+        "kotlin": "solutions/enumerate-all-pairs/Solution.kt",
+        "cpp": "solutions/enumerate-all-pairs/solution.cpp"
+      }
+    }
+  ]
+}

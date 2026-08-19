@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2918,
+  "slug": "minimum-equal-sum-of-two-arrays-after-replacing-zeros",
+  "title": "数组的最小相等和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-049",
+  "studyTags": [
+    "数组",
+    "贪心"
+  ],
+  "summary": "把两个数组中的每个零替换为严格正整数，使两数组元素和相等，求能够得到的最小相等和；无法做到时返回负一。",
+  "insight": "把每个零先替换为一，就得到该数组可达到的最小和。只要数组含零，便可把其中某个替换值继续增大，从而达到任意不小于该最小和的总和；不含零的数组总和则固定。因此候选答案是两个最小和的较大值，唯一的失败情形是最小和较小的一侧没有零，无法追上另一侧。",
+  "pitfalls": [
+    "零必须替换为正整数，最小贡献是一而不是零",
+    "不含零的数组总和不能再增大",
+    "只需检查最小和较小的一侧是否具有可调节的零",
+    "数组总和可能超过 int，必须使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "minimum-reachable-sums-and-flexibility-check",
+      "title": "最小可达和与可调节性判断",
+      "kind": "最优",
+      "idea": "分别求两数组的最小可达和，并判断较小者能否继续增加。",
+      "steps": [
+        "扫描 nums1，把非零值直接累加、把每个零按一累加并计数",
+        "同样计算 nums2 的最小可达和与零数",
+        "若 first<second 且 nums1 没有零，返回负一",
+        "若 second<first 且 nums2 没有零，返回负一",
+        "否则返回两个最小可达和的较大值"
+      ],
+      "complexity": {
+        "time": "O(n+m)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/minimum-reachable-sums-and-flexibility-check/Solution.java",
+        "kotlin": "solutions/minimum-reachable-sums-and-flexibility-check/Solution.kt",
+        "cpp": "solutions/minimum-reachable-sums-and-flexibility-check/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2909,
+  "slug": "minimum-sum-of-mountain-triplets-ii",
+  "title": "元素和最小的山形三元组 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-049",
+  "studyTags": [
+    "数组",
+    "前缀和",
+    "前缀最小值"
+  ],
+  "summary": "在大规模数组中寻找 i<j<k、且两端值都严格小于中间值的山形三元组，返回最小元素和；若不存在则返回 -1。",
+  "insight": "对固定峰 j，最优左端一定是其左侧最小值，最优右端一定是其右侧最小值。先线性预处理后缀最小值，再以一个变量维护扫描位置左侧的最小值，就能在线性时间判断每个峰。",
+  "pitfalls": [
+    "不能为每个峰再次扫描两侧，否则十万长度会超时",
+    "前后缀最小值必须排除峰位置本身",
+    "比较条件是严格小于而非小于等于",
+    "答案未被更新时才返回 -1"
+  ],
+  "solutions": [
+    {
+      "id": "linear-prefix-suffix-minima",
+      "title": "线性前后缀最小值",
+      "kind": "最优",
+      "idea": "用两侧极小值压缩峰外所有端点候选。",
+      "steps": [
+        "构造从每个位置开始的后缀最小值",
+        "维护当前峰左边的滚动最小值",
+        "枚举所有非端点位置作为峰",
+        "两侧最小值均小于峰时更新最小三数和",
+        "将当前值并入左侧最小值",
+        "返回答案或 -1"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/linear-prefix-suffix-minima/Solution.java",
+        "kotlin": "solutions/linear-prefix-suffix-minima/Solution.kt",
+        "cpp": "solutions/linear-prefix-suffix-minima/solution.cpp"
+      }
+    }
+  ]
+}

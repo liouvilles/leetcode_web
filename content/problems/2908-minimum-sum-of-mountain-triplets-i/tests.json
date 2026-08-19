@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumSum",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "末三项一五三得到最小和九",
+      "args": [
+        [
+          8,
+          6,
+          1,
+          5,
+          3
+        ]
+      ],
+      "expected": 9
+    },
+    {
+      "name": "选择四七二得到最小和十三",
+      "args": [
+        [
+          5,
+          4,
+          8,
+          7,
+          10,
+          2
+        ]
+      ],
+      "expected": 13
+    },
+    {
+      "name": "先降后升没有山形峰",
+      "args": [
+        [
+          6,
+          5,
+          4,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": -1
+    },
+    {
+      "name": "左端等于峰值不满足严格小于",
+      "args": [
+        [
+          2,
+          2,
+          1
+        ]
+      ],
+      "expected": -1
+    },
+    {
+      "name": "右端等于峰值不满足严格小于",
+      "args": [
+        [
+          1,
+          2,
+          2
+        ]
+      ],
+      "expected": -1
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": 2915,
+  "slug": "length-of-the-longest-subsequence-that-sums-to-target",
+  "title": "和为目标值的最长子序列的长度",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-049",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "背包问题",
+    "0-1 背包"
+  ],
+  "summary": "从正整数数组中选取和恰好等于 target 的子序列，返回其最大长度；无法得到目标和时返回负一。",
+  "insight": "把每个元素视作只能选一次的零一背包物品，价值统一为一。dp[sum] 表示恰好组成 sum 的最大元素数；按和从大到小更新，可防止当前元素在同一轮被重复选择。",
+  "pitfalls": [
+    "要求和恰好等于 target",
+    "子序列不要求连续但每个元素最多选一次",
+    "状态必须倒序更新",
+    "不可达状态不能参与转移，最终不可达返回负一"
+  ],
+  "solutions": [
+    {
+      "id": "zero-one-knapsack-maximize-length",
+      "title": "零一背包最大化长度",
+      "kind": "最优",
+      "idea": "在所有恰好达到各个和的方案中保留最长者。",
+      "steps": [
+        "创建 target+1 个状态并初始化为负一",
+        "令 dp[0]=0",
+        "依次遍历每个 value",
+        "sum 从 target 倒序到 value",
+        "若 dp[sum-value] 可达，则用其加一更新 dp[sum]",
+        "返回 dp[target]"
+      ],
+      "complexity": {
+        "time": "O(n·target)",
+        "space": "O(target)"
+      },
+      "files": {
+        "java": "solutions/zero-one-knapsack-maximize-length/Solution.java",
+        "kotlin": "solutions/zero-one-knapsack-maximize-length/Solution.kt",
+        "cpp": "solutions/zero-one-knapsack-maximize-length/solution.cpp"
+      }
+    }
+  ]
+}

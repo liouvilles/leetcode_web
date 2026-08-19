@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findHighAccessEmployees",
+  "parameterTypes": [
+    "stringListMatrix"
+  ],
+  "returnType": "stringList",
+  "cases": [
+    {
+      "name": "员工a在四十九分钟内访问三次",
+      "args": [
+        [
+          [
+            "a",
+            "0549"
+          ],
+          [
+            "a",
+            "0532"
+          ],
+          [
+            "a",
+            "0621"
+          ],
+          [
+            "b",
+            "0457"
+          ],
+          [
+            "b",
+            "0540"
+          ]
+        ]
+      ],
+      "expected": [
+        "a"
+      ]
+    },
+    {
+      "name": "恰好六十分钟不算高访问",
+      "args": [
+        [
+          [
+            "alice",
+            "0900"
+          ],
+          [
+            "alice",
+            "0930"
+          ],
+          [
+            "alice",
+            "1000"
+          ]
+        ]
+      ],
+      "expected": []
+    },
+    {
+      "name": "多名员工按姓名稳定返回",
+      "args": [
+        [
+          [
+            "zack",
+            "1000"
+          ],
+          [
+            "amy",
+            "0800"
+          ],
+          [
+            "zack",
+            "1010"
+          ],
+          [
+            "amy",
+            "0810"
+          ],
+          [
+            "zack",
+            "1020"
+          ],
+          [
+            "amy",
+            "0820"
+          ]
+        ]
+      ],
+      "expected": [
+        "amy",
+        "zack"
+      ]
+    }
+  ]
+}

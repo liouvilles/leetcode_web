@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "distributeCandies",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "五颗糖且每人至多二颗只有三个排列",
+      "args": [
+        5,
+        2
+      ],
+      "expected": 3
+    },
+    {
+      "name": "上限不约束时共有十种隔板方案",
+      "args": [
+        3,
+        3
+      ],
+      "expected": 10
+    },
+    {
+      "name": "总容量不足时没有方案",
+      "args": [
+        4,
+        1
+      ],
+      "expected": 0
+    },
+    {
+      "name": "一颗糖可交给三个孩子中的任意一个",
+      "args": [
+        1,
+        1
+      ],
+      "expected": 3
+    }
+  ]
+}

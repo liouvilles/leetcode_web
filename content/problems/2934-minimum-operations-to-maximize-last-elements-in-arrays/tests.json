@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minOperations",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "交换末位一次即可让两个末位最大",
+      "args": [
+        [
+          1,
+          2,
+          7
+        ],
+        [
+          4,
+          5,
+          3
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "两个数组原本已满足条件",
+      "args": [
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          1,
+          2,
+          5
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "两种末位方向都无法容纳首元素",
+      "args": [
+        [
+          5,
+          1
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "expected": -1
+    },
+    {
+      "name": "交换末位优于交换前两个位置",
+      "args": [
+        [
+          8,
+          9,
+          1,
+          5
+        ],
+        [
+          4,
+          3,
+          2,
+          10
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

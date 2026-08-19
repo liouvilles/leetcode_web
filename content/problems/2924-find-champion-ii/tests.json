@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findChampion",
+  "parameterTypes": [
+    "int",
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "有向链唯一零入度为零号队",
+      "args": [
+        3,
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "零号和一号均未落败所以无唯一冠军",
+      "args": [
+        4,
+        [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            2
+          ]
+        ]
+      ],
+      "expected": -1
+    },
+    {
+      "name": "二号队直接战胜其余三队",
+      "args": [
+        4,
+        [
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "没有比赛时两队都可能是冠军",
+      "args": [
+        2,
+        []
+      ],
+      "expected": -1
+    },
+    {
+      "name": "单支队伍自然是唯一冠军",
+      "args": [
+        1,
+        []
+      ],
+      "expected": 0
+    }
+  ]
+}

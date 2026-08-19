@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": 2931,
+  "slug": "maximum-spending-after-buying-items",
+  "title": "购买物品的最大开销",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-049",
+  "studyTags": [
+    "数组",
+    "矩阵",
+    "贪心",
+    "优先队列"
+  ],
+  "summary": "每家商店只能从当前最右侧购买物品，每天恰买一件，第 d 天购买价值 v 的物品产生 d×v 开销，求买完全部物品的最大总开销。",
+  "insight": "所有商店最右侧物品构成当前可选集合。为了让较大的价值乘上较晚、较大的天数，每天应买当前可选的最小值；买掉它后，同一行左边的物品才进入候选。用最小堆维护每行当前最右物品即可。",
+  "pitfalls": [
+    "每行只能从右向左购买",
+    "天数从一开始",
+    "堆中每行同时至多有一个可买物品",
+    "总开销需要 64 位整数"
+  ],
+  "solutions": [
+    {
+      "id": "min-heap-of-row-frontiers",
+      "title": "行末边界最小堆",
+      "kind": "最优",
+      "idea": "每天取出当前最便宜物品，并暴露它左边的下一件。",
+      "steps": [
+        "把每一行最右元素及行列坐标加入最小堆",
+        "day 从一开始",
+        "弹出价值最小的候选",
+        "answer+=day*value",
+        "若该列左侧仍有元素，将左邻元素加入堆",
+        "day 加一，直到堆为空",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(mn log m)",
+        "space": "O(m)"
+      },
+      "files": {
+        "java": "solutions/min-heap-of-row-frontiers/Solution.java",
+        "kotlin": "solutions/min-heap-of-row-frontiers/Solution.kt",
+        "cpp": "solutions/min-heap-of-row-frontiers/solution.cpp"
+      }
+    }
+  ]
+}

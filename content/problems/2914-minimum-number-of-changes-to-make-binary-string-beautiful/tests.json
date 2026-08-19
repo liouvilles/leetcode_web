@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minChanges",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一零与零一两对都需修改",
+      "args": [
+        "1001"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "单个不匹配字符对需修改一次",
+      "args": [
+        "10"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "全零字符串已经美丽",
+      "args": [
+        "0000"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "两对零一各需一次修改",
+      "args": [
+        "0101"
+      ],
+      "expected": 2
+    }
+  ]
+}

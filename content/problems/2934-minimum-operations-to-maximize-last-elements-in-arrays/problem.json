@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": 2934,
+  "slug": "minimum-operations-to-maximize-last-elements-in-arrays",
+  "title": "最大化数组末位元素的最少操作次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-049",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "枚举"
+  ],
+  "summary": "一次操作可交换 nums1 与 nums2 在同一位置的元素，求让两个数组的末位元素分别成为各自最大值的最少操作数，不可能则返回负一。",
+  "insight": "最终末位只有两种状态：保持原样，或交换末位。固定两个目标最大值后，每个此前位置彼此独立；能原样放置就不交换，否则若交换后能同时不超过目标就交换，否则该场景无解。分别计算两种末位状态取最小值。",
+  "pitfalls": [
+    "交换操作只能发生在两个数组的同一下标",
+    "末位交换本身也计一次操作",
+    "两个目标上界要同时满足",
+    "两种末位状态都无解才返回负一"
+  ],
+  "solutions": [
+    {
+      "id": "evaluate-two-last-position-orientations",
+      "title": "枚举末位的两种方向",
+      "kind": "最优",
+      "idea": "固定末位后贪心决定每个此前位置是否交换。",
+      "steps": [
+        "定义 solve(lastA,lastB) 并扫描 i<n-1",
+        "若 a[i]<=lastA 且 b[i]<=lastB，保持原样",
+        "否则若 b[i]<=lastA 且 a[i]<=lastB，交换并计数",
+        "否则返回无穷",
+        "计算末位不交换的代价",
+        "计算末位交换的代价并加一",
+        "取较小值，无穷则返回负一"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/evaluate-two-last-position-orientations/Solution.java",
+        "kotlin": "solutions/evaluate-two-last-position-orientations/Solution.kt",
+        "cpp": "solutions/evaluate-two-last-position-orientations/solution.cpp"
+      }
+    }
+  ]
+}

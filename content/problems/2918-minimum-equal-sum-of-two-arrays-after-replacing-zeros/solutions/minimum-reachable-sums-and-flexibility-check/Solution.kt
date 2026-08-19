@@ -1,0 +1,1 @@
+class Solution { fun minSum(nums1:IntArray,nums2:IntArray):Long{var first=0L;var second=0L;var zerosFirst=0;var zerosSecond=0;for(value in nums1){if(value==0){first++;zerosFirst++}else first+=value};for(value in nums2){if(value==0){second++;zerosSecond++}else second+=value};if(first<second&&zerosFirst==0||second<first&&zerosSecond==0)return -1L;return maxOf(first,second)} }

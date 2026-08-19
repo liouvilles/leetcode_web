@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": 2925,
+  "slug": "maximum-score-after-applying-operations-on-a-tree",
+  "title": "在树上执行操作以后得到的最大分数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-049",
+  "studyTags": [
+    "树",
+    "深度优先搜索",
+    "动态规划",
+    "树形动态规划"
+  ],
+  "summary": "树的每个节点有一个正数值，可以把若干节点的值加入分数并清零；操作后每条从根到叶子的路径都必须仍有正值，求最大分数。",
+  "insight": "最大化取走的分数等价于最小化必须留下的总值。对一棵子树，可以留下当前根节点来同时覆盖所有叶路径，代价是 values[node]；也可以不留当前节点，转而让每棵孩子子树各自保持健康，代价是孩子最小代价之和，二者取小。叶子没有孩子，只能留下自身。",
+  "pitfalls": [
+    "健康条件作用于每一条根到叶路径",
+    "叶子节点不能被单独取空",
+    "答案和子树代价都可能超过 32 位整数",
+    "无向边需要从节点零定根后再做后序计算"
+  ],
+  "solutions": [
+    {
+      "id": "iterative-tree-dp-minimum-kept-value",
+      "title": "迭代后序树形 DP",
+      "kind": "最优",
+      "idea": "先求必须保留的最小总值，再用所有节点总和减去它。",
+      "steps": [
+        "建立无向邻接表",
+        "从根零迭代遍历并记录 parent 与 order",
+        "逆序处理 order",
+        "叶子的 keep 等于自身值",
+        "非叶节点令 childrenKeep 为所有孩子 keep 之和",
+        "keep[node]=min(values[node],childrenKeep)",
+        "返回 total-keep[0]"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/iterative-tree-dp-minimum-kept-value/Solution.java",
+        "kotlin": "solutions/iterative-tree-dp-minimum-kept-value/Solution.kt",
+        "cpp": "solutions/iterative-tree-dp-minimum-kept-value/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2914,
+  "slug": "minimum-number-of-changes-to-make-binary-string-beautiful",
+  "title": "使二进制字符串变美丽的最少修改次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-049",
+  "studyTags": [
+    "字符串",
+    "贪心"
+  ],
+  "summary": "修改尽量少的字符，使偶数长度二进制字符串能划分成若干个长度为偶数且字符相同的子串。",
+  "insight": "美丽字符串等价于从下标零开始的每一对相邻字符都相同：相同字符的若干对可合并成合法偶数长度段，也可各自成段。每个不相同的字符对独立且恰需修改一次。",
+  "pitfalls": [
+    "必须按下标零一、二三这样固定配对",
+    "不相同的一对只需改其中任意一个字符",
+    "不同字符对之间没有联动",
+    "题目保证字符串长度为偶数"
+  ],
+  "solutions": [
+    {
+      "id": "count-mismatched-adjacent-pairs",
+      "title": "统计不匹配的相邻字符对",
+      "kind": "最优",
+      "idea": "逐对检查并累加每个必需的一次修改。",
+      "steps": [
+        "changes=0",
+        "按步长二枚举每一对的首下标",
+        "若 s[i] 与 s[i+1] 不同则 changes++",
+        "返回 changes"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/count-mismatched-adjacent-pairs/Solution.java",
+        "kotlin": "solutions/count-mismatched-adjacent-pairs/Solution.kt",
+        "cpp": "solutions/count-mismatched-adjacent-pairs/solution.cpp"
+      }
+    }
+  ]
+}

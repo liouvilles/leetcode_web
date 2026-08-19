@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": 2935,
+  "slug": "maximum-strong-pair-xor-ii",
+  "title": "找出强数对的最大异或值 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-049",
+  "studyTags": [
+    "数组",
+    "位运算",
+    "排序",
+    "滑动窗口",
+    "字典树"
+  ],
+  "summary": "求数组中满足 |x-y|<=min(x,y) 的强数对最大异或值，数据规模要求优于二次枚举。",
+  "insight": "排序后固定右端最大值 x，强数对条件化为 x<=2y，因此合法 y 构成一个滑动窗口。二进制 Trie 维护窗口内数字的每一位与出现次数；加入 x、移除过小值后，贪心查询每一位与 x 相反的分支即可得到当前最大异或。",
+  "pitfalls": [
+    "排序后窗口条件是 2*最小值>=当前最大值",
+    "Trie 删除节点时必须维护频次以处理重复值",
+    "查询前先把当前值加入，保证窗口永不为空",
+    "两倍比较在更大值域下应注意溢出，这里使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-window-and-binary-trie",
+      "title": "排序滑窗与二进制 Trie",
+      "kind": "最优",
+      "idea": "动态维护所有能与当前最大值组成强数对的数。",
+      "steps": [
+        "排序 nums",
+        "建立带节点频次的二进制 Trie",
+        "right 从左到右扫描并加入 nums[right]",
+        "当 2*nums[left]<nums[right] 时从 Trie 删除并右移 left",
+        "从最高位到最低位优先走与当前位相反且频次为正的分支",
+        "用查询异或值更新答案",
+        "返回答案"
+      ],
+      "complexity": {
+        "time": "O(n log V+n log n)",
+        "space": "O(n log V)"
+      },
+      "files": {
+        "java": "solutions/sorted-window-and-binary-trie/Solution.java",
+        "kotlin": "solutions/sorted-window-and-binary-trie/Solution.kt",
+        "cpp": "solutions/sorted-window-and-binary-trie/solution.cpp"
+      }
+    }
+  ]
+}

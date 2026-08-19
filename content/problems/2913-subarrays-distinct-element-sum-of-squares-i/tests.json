@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sumCounts",
+  "parameterTypes": [
+    "intList"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一二一的不同元素平方和为十五",
+      "args": [
+        [
+          1,
+          2,
+          1
+        ]
+      ],
+      "expected": 15
+    },
+    {
+      "name": "两个相同元素的三个子数组均贡献一",
+      "args": [
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "三个互异元素贡献一二三的平方组合",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 20
+    },
+    {
+      "name": "单元素只有一个子数组",
+      "args": [
+        [
+          7
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

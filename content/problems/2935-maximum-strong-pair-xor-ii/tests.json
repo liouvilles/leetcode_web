@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumStrongPairXor",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三和四的最大强数对异或为七",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": 7
+    },
+    {
+      "name": "相差过大的两个不同值不能配对",
+      "args": [
+        [
+          10,
+          100
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "五与六构成异或三",
+      "args": [
+        [
+          5,
+          6
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "倍增序列的八和十六异或二十四",
+      "args": [
+        [
+          1,
+          2,
+          4,
+          8,
+          16
+        ]
+      ],
+      "expected": 24
+    },
+    {
+      "name": "删除两个重复旧值后继续查询",
+      "args": [
+        [
+          1,
+          1,
+          8,
+          9
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "distributeCandies",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "五颗糖且上限二只有三个方案",
+      "args": [
+        5,
+        2
+      ],
+      "expected": 3
+    },
+    {
+      "name": "上限覆盖全部糖果时共有十种方案",
+      "args": [
+        3,
+        3
+      ],
+      "expected": 10
+    },
+    {
+      "name": "三个孩子总容量不足",
+      "args": [
+        4,
+        1
+      ],
+      "expected": 0
+    },
+    {
+      "name": "大输入验证六十四位组合数",
+      "args": [
+        1000000,
+        1000000
+      ],
+      "expected": 500001500001
+    }
+  ]
+}

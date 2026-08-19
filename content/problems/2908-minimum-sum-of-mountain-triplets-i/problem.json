@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2908,
+  "slug": "minimum-sum-of-mountain-triplets-i",
+  "title": "元素和最小的山形三元组 I",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-049",
+  "studyTags": [
+    "数组",
+    "前缀最小值"
+  ],
+  "summary": "在数组中选择 i<j<k 且 nums[i]、nums[k] 都严格小于 nums[j] 的山形三元组，求其最小元素和；不存在时返回 -1。",
+  "insight": "固定中间峰 j 后，左右两端彼此独立。若左侧最小值和右侧最小值都小于峰，它们就是该峰对应的最小和选择；预处理右侧后缀最小值并滚动维护左侧最小值即可一次扫描所有峰。",
+  "pitfalls": [
+    "两侧元素必须严格小于峰值，相等不合法",
+    "左侧滚动最小值要在处理当前峰之后才吸收 nums[j]",
+    "右侧候选应读取 j+1 开始的后缀",
+    "所有位置都不能作为峰时返回 -1"
+  ],
+  "solutions": [
+    {
+      "id": "running-left-and-suffix-minimum",
+      "title": "滚动左侧最小值与后缀最小值",
+      "kind": "最优",
+      "idea": "为每个候选峰直接取得两侧最小合法端点。",
+      "steps": [
+        "从右到左计算 rightMinimum[i]",
+        "leftMinimum 初始化为 nums[0]",
+        "枚举 j=1..n-2",
+        "若左右最小值都严格小于 nums[j]，用三者之和更新答案",
+        "处理完 j 后更新 leftMinimum",
+        "没有更新过答案则返回 -1"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/running-left-and-suffix-minimum/Solution.java",
+        "kotlin": "solutions/running-left-and-suffix-minimum/Solution.kt",
+        "cpp": "solutions/running-left-and-suffix-minimum/solution.cpp"
+      }
+    }
+  ]
+}

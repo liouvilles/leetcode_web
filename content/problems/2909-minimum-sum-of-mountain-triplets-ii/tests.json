@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumSum",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "右侧三与左侧一围成峰五",
+      "args": [
+        [
+          8,
+          6,
+          1,
+          5,
+          3
+        ]
+      ],
+      "expected": 9
+    },
+    {
+      "name": "多个峰中四七二的和最小",
+      "args": [
+        [
+          5,
+          4,
+          8,
+          7,
+          10,
+          2
+        ]
+      ],
+      "expected": 13
+    },
+    {
+      "name": "不存在两侧都更小的峰",
+      "args": [
+        [
+          6,
+          5,
+          4,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": -1
+    },
+    {
+      "name": "大数峰验证线性极值选择",
+      "args": [
+        [
+          1,
+          100000000,
+          2
+        ]
+      ],
+      "expected": 100000003
+    },
+    {
+      "name": "右端等于峰值时不是山形三元组",
+      "args": [
+        [
+          1,
+          2,
+          2
+        ]
+      ],
+      "expected": -1
+    }
+  ]
+}

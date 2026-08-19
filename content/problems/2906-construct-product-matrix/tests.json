@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "constructProductMatrix",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "intMatrix",
+  "cases": [
+    {
+      "name": "二乘二矩阵逐格排除当前元素",
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          24,
+          12
+        ],
+        [
+          8,
+          6
+        ]
+      ]
+    },
+    {
+      "name": "含模数因子时不能使用模逆元",
+      "args": [
+        [
+          [
+            12345
+          ],
+          [
+            2
+          ],
+          [
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          2
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "name": "单行矩阵保持行优先前后缀关系",
+      "args": [
+        [
+          [
+            2,
+            3,
+            5
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          15,
+          10,
+          6
+        ]
+      ]
+    },
+    {
+      "name": "两个一组成的单列矩阵",
+      "args": [
+        [
+          [
+            1
+          ],
+          [
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "id": 2920,
+  "slug": "maximum-points-after-collecting-coins-from-all-nodes",
+  "title": "收集所有金币可获得的最大积分",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-049",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "位运算",
+    "树",
+    "深度优先搜索",
+    "记忆化搜索",
+    "树形 DP"
+  ],
+  "summary": "在以零号节点为根的树上按祖先到后代收集金币；每个节点可选择获得当前金币数减 k，或获得当前金币数的一半并让其整个子树继续减半，求收完所有节点的最大积分。",
+  "insight": "祖先使用第二种操作的次数 shift 完全决定当前子树金币被右移的位数。设 dp[node][shift] 为此前已整体减半 shift 次时该子树的最大积分：第一种操作贡献 (coins[node]>>shift)-k，孩子保持 shift；第二种贡献 coins[node]>>(shift+1)，孩子进入 shift+1。金币至多一万，右移十四位后必为零，因此只需状态零到十四。先用显式栈建立父节点与根序，再逆序计算，可避免十万节点链导致递归栈溢出。",
+  "pitfalls": [
+    "第一种操作也要使用被祖先减半后的金币值",
+    "第二种操作会让所有直接孩子的状态统一增加一次位移",
+    "第一种操作可能产生负积分，不能把状态默认限制为非负",
+    "金币右移十四位后为零，可把更深位移钳制在十四",
+    "节点数可达十万，递归 DFS 可能栈溢出"
+  ],
+  "solutions": [
+    {
+      "id": "iterative-postorder-shift-state-tree-dp",
+      "title": "迭代后序与金币位移树形 DP",
+      "kind": "最优",
+      "idea": "显式确定父子关系后，按逆根序计算每个节点的十五个位移状态。",
+      "steps": [
+        "建立无向邻接表",
+        "用显式栈从根零遍历，记录 parent 与根序 order",
+        "按 order 的逆序处理节点，保证孩子已经完成",
+        "对 shift 从十四降到零计算两种操作",
+        "first=(coins[node]>>shift)-k+所有 child.dp[shift]",
+        "second=(coins[node]>>nextShift)+所有 child.dp[nextShift]，其中 nextShift=min(14,shift+1)",
+        "dp[node][shift]=max(first,second)",
+        "返回 dp[0][0]"
+      ],
+      "complexity": {
+        "time": "O(n log C)",
+        "space": "O(n log C)"
+      },
+      "files": {
+        "java": "solutions/iterative-postorder-shift-state-tree-dp/Solution.java",
+        "kotlin": "solutions/iterative-postorder-shift-state-tree-dp/Solution.kt",
+        "cpp": "solutions/iterative-postorder-shift-state-tree-dp/solution.cpp"
+      }
+    }
+  ]
+}
