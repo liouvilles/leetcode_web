@@ -1,0 +1,1 @@
+class Solution { public:int findMinimumOperations(string s1,string s2,string s3){int length1=s1.size(),length2=s2.size(),length3=s3.size(),limit=min({length1,length2,length3}),prefix=0;while(prefix<limit&&s1[prefix]==s2[prefix]&&s1[prefix]==s3[prefix])++prefix;return prefix==0?-1:length1+length2+length3-3*prefix;} };

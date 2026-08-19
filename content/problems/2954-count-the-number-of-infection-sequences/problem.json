@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": 2954,
+  "slug": "count-the-number-of-infection-sequences",
+  "title": "统计感冒序列的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-050",
+  "studyTags": [
+    "数组",
+    "数学",
+    "组合数学",
+    "快速幂"
+  ],
+  "summary": "n 个小朋友排成一列，初始 sick 中的位置已经感冒；之后每次只能让与感冒者相邻的健康小朋友感冒，统计所有让剩余人依次感冒的合法顺序并取模。",
+  "insight": "初始病人把健康位置分成若干间隙。左右边界间隙只能从靠近病人的一端向外扩展，内部长度为 g 的间隙可从两端扩展，内部顺序有 2^(g-1) 种。不同间隙的感染步骤可任意交错，用多项式系数 healthy!/∏g! 计数，再乘所有内部间隙的二次幂。",
+  "pitfalls": [
+    "只有夹在两个初始病人之间的间隙有左右选择",
+    "长度为零的间隙不贡献二次幂",
+    "不同间隙步骤的交错要用多项式系数计数",
+    "组合数和快速幂都要对十亿零七取模"
+  ],
+  "solutions": [
+    {
+      "id": "gap-multinomial-and-interior-powers",
+      "title": "间隙多项式系数与内部二次幂",
+      "kind": "最优",
+      "idea": "按间隙长度直接组合所有合法感染顺序。",
+      "steps": [
+        "计算健康人数 healthy=n-sick.length",
+        "预处理 factorial[0..healthy] 与 inverseFactorial",
+        "answer=factorial[healthy]",
+        "乘左边界间隙与右边界间隙的 inverseFactorial",
+        "枚举相邻 sick 得到每个内部间隙 g",
+        "乘 inverseFactorial[g]",
+        "若 g>0，再乘 2^(g-1)",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n+healthy)",
+        "space": "O(healthy)"
+      },
+      "files": {
+        "java": "solutions/gap-multinomial-and-interior-powers/Solution.java",
+        "kotlin": "solutions/gap-multinomial-and-interior-powers/Solution.kt",
+        "cpp": "solutions/gap-multinomial-and-interior-powers/solution.cpp"
+      }
+    }
+  ]
+}

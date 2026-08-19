@@ -1,0 +1,1 @@
+class Solution { private int longestSpan(int[] bars){Arrays.sort(bars);int best=1,current=1;for(int i=1;i<bars.length;i++){if(bars[i]==bars[i-1]+1)current++;else current=1;best=Math.max(best,current);}return best+1;}public int maximizeSquareHoleArea(int n,int m,int[] hBars,int[] vBars){int side=Math.min(longestSpan(hBars),longestSpan(vBars));return side*side;} }

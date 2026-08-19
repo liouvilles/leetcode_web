@@ -1,0 +1,1 @@
+class Solution { public:vector<int> findMissingAndRepeatedValues(vector<vector<int>>& grid){int limit=grid.size()*grid.size(),repeated=-1,missing=-1;vector<char> seen(limit+1);for(auto& row:grid)for(int value:row){if(seen[value])repeated=value;seen[value]=true;}for(int value=1;value<=limit;++value)if(!seen[value]){missing=value;break;}return {repeated,missing};} };

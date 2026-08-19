@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumSteps",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "中间黑球跨过一个白球",
+      "args": [
+        "101"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "首个黑球需跨过两个白球",
+      "args": [
+        "100"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "白球已全部位于黑球左侧",
+      "args": [
+        "0111"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "两个前置黑球各跨过三个白球",
+      "args": [
+        "110001"
+      ],
+      "expected": 6
+    }
+  ]
+}

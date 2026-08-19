@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "areSimilar",
+  "parameterTypes": [
+    "intMatrix",
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "三列矩阵移动四次后顺序改变",
+      "args": [
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            4,
+            5,
+            6
+          ],
+          [
+            7,
+            8,
+            9
+          ]
+        ],
+        4
+      ],
+      "expected": false
+    },
+    {
+      "name": "周期为二的各行移动两次保持不变",
+      "args": [
+        [
+          [
+            1,
+            2,
+            1,
+            2
+          ],
+          [
+            5,
+            5,
+            5,
+            5
+          ],
+          [
+            6,
+            3,
+            6,
+            3
+          ]
+        ],
+        2
+      ],
+      "expected": true
+    },
+    {
+      "name": "全相等矩阵任意方向移动仍相同",
+      "args": [
+        [
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            2
+          ]
+        ],
+        3
+      ],
+      "expected": true
+    },
+    {
+      "name": "移动完整列数后任意矩阵均复原",
+      "args": [
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            4,
+            5,
+            6
+          ]
+        ],
+        3
+      ],
+      "expected": true
+    }
+  ]
+}

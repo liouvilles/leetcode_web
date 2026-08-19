@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2956,
+  "slug": "find-common-elements-between-two-arrays",
+  "title": "找到两个数组中的公共元素",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-050",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "计数"
+  ],
+  "summary": "返回长度二的答案：nums1 中有多少个元素也出现在 nums2，及 nums2 中有多少个元素也出现在 nums1；重复下标分别计数。",
+  "insight": "把两个数组各自放进集合用于存在性查询，再分别扫描原数组计数。集合只去重被查询的一侧，扫描侧的重复元素仍会逐个贡献。",
+  "pitfalls": [
+    "统计的是元素下标数量而不是不同公共值数量",
+    "两个方向的计数可能不同",
+    "重复元素在扫描数组中要重复计数",
+    "返回顺序先 nums1 后 nums2"
+  ],
+  "solutions": [
+    {
+      "id": "two-membership-sets",
+      "title": "双集合存在性计数",
+      "kind": "最优",
+      "idea": "分别用另一数组的集合检查每个原元素。",
+      "steps": [
+        "建立 nums1 与 nums2 的值集合",
+        "扫描 nums1，若值在 nums2Set 中则 answer[0]++",
+        "扫描 nums2，若值在 nums1Set 中则 answer[1]++",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n+m)",
+        "space": "O(n+m)"
+      },
+      "files": {
+        "java": "solutions/two-membership-sets/Solution.java",
+        "kotlin": "solutions/two-membership-sets/Solution.kt",
+        "cpp": "solutions/two-membership-sets/solution.cpp"
+      }
+    }
+  ]
+}

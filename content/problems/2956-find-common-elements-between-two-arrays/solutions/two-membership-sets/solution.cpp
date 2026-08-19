@@ -1,0 +1,1 @@
+class Solution { public:vector<int> findIntersectionValues(vector<int>& nums1,vector<int>& nums2){unordered_set<int> first(nums1.begin(),nums1.end()),second(nums2.begin(),nums2.end());vector<int> answer(2);for(int value:nums1)answer[0]+=second.count(value);for(int value:nums2)answer[1]+=first.count(value);return answer;} };

@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getGoodIndices",
+  "parameterTypes": [
+    "intMatrix",
+    "int"
+  ],
+  "returnType": "intList",
+  "cases": [
+    {
+      "name": "第零与第二行的双模幂都等于二",
+      "args": [
+        [
+          [
+            2,
+            3,
+            3,
+            10
+          ],
+          [
+            3,
+            3,
+            3,
+            1
+          ],
+          [
+            6,
+            1,
+            1,
+            4
+          ]
+        ],
+        2
+      ],
+      "expected": [
+        0,
+        2
+      ]
+    },
+    {
+      "name": "模一时结果恒为零",
+      "args": [
+        [
+          [
+            9,
+            9,
+            9,
+            1
+          ]
+        ],
+        0
+      ],
+      "expected": [
+        0
+      ]
+    },
+    {
+      "name": "没有一行结果等于目标",
+      "args": [
+        [
+          [
+            2,
+            2,
+            2,
+            5
+          ],
+          [
+            3,
+            1,
+            1,
+            7
+          ]
+        ],
+        6
+      ],
+      "expected": []
+    },
+    {
+      "name": "一的任意正次幂仍为一",
+      "args": [
+        [
+          [
+            1,
+            100,
+            100,
+            9
+          ]
+        ],
+        1
+      ],
+      "expected": [
+        0
+      ]
+    }
+  ]
+}

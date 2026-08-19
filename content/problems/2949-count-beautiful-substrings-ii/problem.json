@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": 2949,
+  "slug": "count-beautiful-substrings-ii",
+  "title": "统计美丽子字符串 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-050",
+  "studyTags": [
+    "哈希表",
+    "数学",
+    "字符串",
+    "数论",
+    "前缀和"
+  ],
+  "summary": "统计元音数等于辅音数，且元音数与辅音数的乘积能被 k 整除的非空子字符串数量。",
+  "insight": "当元音数与辅音数相等并都为 t 时，整除条件化为 k 整除 t 的平方。若 k 的质因数分解中某个指数为 e，则 t 至少要含该质因子的 ceil(e/2) 次幂；令 base 为这些次幂的乘积，则 t 必须是 base 的倍数，子串长度必须是 period=2*base 的倍数。用元音记正一、辅音记负一，两个前缀的平衡值相同保证中间元辅音相等；前缀位置模 period 相同再保证长度条件。因此按“平衡值与位置余数”联合状态统计此前前缀即可。",
+  "pitfalls": [
+    "元辅音相等后乘积是 t 的平方，不能只要求长度或 t 被 k 整除",
+    "质因数指数要取向上除以二，base 既不一定等于 k 也不一定等于 k 的平方根",
+    "必须先放入位置零的空前缀状态",
+    "答案和状态出现次数都使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "prime-period-balanced-prefix-counting",
+      "title": "质因数周期与平衡前缀计数",
+      "kind": "最优",
+      "idea": "从 k 推出合法长度周期，再哈希统计具有相同平衡值和位置余数的前缀对。",
+      "steps": [
+        "质因数分解 k，对指数 e 把对应质因子的 ceil(e/2) 次幂乘入 base",
+        "令 period=2*base",
+        "把空前缀的 balance=0、position mod period=0 放入计数表",
+        "扫描字符串；元音令 balance 加一，辅音令其减一",
+        "用 (balance+n)*period+position%period 编码联合状态",
+        "当前答案增加该状态此前出现次数，再把状态次数加一"
+      ],
+      "complexity": {
+        "time": "O(n+sqrt(k))",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/prime-period-balanced-prefix-counting/Solution.java",
+        "kotlin": "solutions/prime-period-balanced-prefix-counting/Solution.kt",
+        "cpp": "solutions/prime-period-balanced-prefix-counting/solution.cpp"
+      }
+    }
+  ]
+}

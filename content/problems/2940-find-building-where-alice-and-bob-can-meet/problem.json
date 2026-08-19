@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": 2940,
+  "slug": "find-building-where-alice-and-bob-can-meet",
+  "title": "找到 Alice 和 Bob 可以相遇的建筑",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-050",
+  "studyTags": [
+    "数组",
+    "离线查询",
+    "堆（优先队列）"
+  ],
+  "summary": "建筑从左到右排列，只有当目标下标更大且目标高度严格更高时才能移动。对每组 Alice、Bob 的起点，返回两人都能到达的最左建筑下标，不存在则返回 -1。",
+  "insight": "把起点规范为 left<=right。若两人同楼，或 heights[left]<heights[right]，答案可直接是 right；否则共同目标必须位于 right 右侧且高度严格大于 heights[left]。把这类查询挂在 right 上，扫描建筑时用按高度阈值排序的小根堆维护已经越过右端点的查询，当前高度超过堆顶阈值时即可确定该查询的最左答案。",
+  "pitfalls": [
+    "查询两个起点的给出顺序不保证从左到右，必须先规范化",
+    "同一建筑的查询应直接返回该下标",
+    "左楼更矮时可以直接跳到右楼，无需继续搜索",
+    "不能直接相遇时阈值是较左起点的高度，此时它不小于右起点高度",
+    "目标高度必须严格大于阈值，相等的建筑不能到达",
+    "未决查询要在处理其 right 位置之后才入堆，确保目标下标严格更大",
+    "扫描结束仍在堆中的查询答案保持 -1"
+  ],
+  "solutions": [
+    {
+      "id": "offline-threshold-min-heap-scan",
+      "title": "离线阈值小根堆扫描",
+      "kind": "最优",
+      "idea": "按右端点激活查询，让第一次超过阈值的建筑成为最左共同目标。",
+      "steps": [
+        "answer 初始化为 -1，并为每个建筑准备待激活查询列表",
+        "对每组查询规范化 left、right",
+        "同楼或 left 楼更矮时直接回答 right",
+        "否则把 [heights[left],queryIndex] 挂到 waiting[right]",
+        "从左到右扫描 building",
+        "先弹出所有 threshold<heights[building] 的活动查询并回答 building",
+        "再把 waiting[building] 中的查询加入小根堆，使其只能匹配后续建筑",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O((n+q) log q)",
+        "space": "O(n+q)"
+      },
+      "files": {
+        "java": "solutions/offline-threshold-min-heap-scan/Solution.java",
+        "kotlin": "solutions/offline-threshold-min-heap-scan/Solution.kt",
+        "cpp": "solutions/offline-threshold-min-heap-scan/solution.cpp"
+      }
+    }
+  ]
+}

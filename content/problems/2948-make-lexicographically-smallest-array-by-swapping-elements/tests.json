@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "lexicographicallySmallestArray",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "两个独立交换分量分别升序",
+      "args": [
+        [
+          1,
+          5,
+          3,
+          9,
+          8
+        ],
+        2
+      ],
+      "expected": [
+        1,
+        3,
+        5,
+        8,
+        9
+      ]
+    },
+    {
+      "name": "重复值可连接远处位置",
+      "args": [
+        [
+          1,
+          7,
+          6,
+          18,
+          2,
+          1
+        ],
+        3
+      ],
+      "expected": [
+        1,
+        6,
+        7,
+        18,
+        1,
+        2
+      ]
+    },
+    {
+      "name": "唯一可交换分量已处于最优顺序",
+      "args": [
+        [
+          1,
+          7,
+          28,
+          19,
+          10
+        ],
+        3
+      ],
+      "expected": [
+        1,
+        7,
+        28,
+        19,
+        10
+      ]
+    },
+    {
+      "name": "通过中间值传递连通整个分量",
+      "args": [
+        [
+          4,
+          1,
+          3
+        ],
+        2
+      ],
+      "expected": [
+        1,
+        3,
+        4
+      ]
+    }
+  ]
+}

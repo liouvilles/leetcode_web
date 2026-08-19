@@ -1,0 +1,1 @@
+class Solution { fun minimumAddedCoins(coins:IntArray,target:Int):Int{coins.sort();var index=0;var answer=0;var reach=0L;while(reach<target){if(index<coins.size&&coins[index].toLong()<=reach+1){reach+=coins[index].toLong();index++}else{reach+=reach+1;answer++}};return answer} }

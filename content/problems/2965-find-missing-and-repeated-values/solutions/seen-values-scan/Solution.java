@@ -1,0 +1,1 @@
+class Solution { public int[] findMissingAndRepeatedValues(int[][] grid){int limit=grid.length*grid.length,repeated=-1,missing=-1;boolean[] seen=new boolean[limit+1];for(int[] row:grid)for(int value:row){if(seen[value])repeated=value;seen[value]=true;}for(int value=1;value<=limit;value++)if(!seen[value]){missing=value;break;}return new int[]{repeated,missing};} }

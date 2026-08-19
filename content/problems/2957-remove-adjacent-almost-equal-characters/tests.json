@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "removeAlmostEqualCharacters",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四个相同字符需要改两个",
+      "args": [
+        "aaaa"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "连续递增三字符只需改中间一个",
+      "args": [
+        "abc"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "相邻字符差二时无需修改",
+      "args": [
+        "ace"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "两个分离坏对分别需要一次操作",
+      "args": [
+        "abcc"
+      ],
+      "expected": 2
+    }
+  ]
+}

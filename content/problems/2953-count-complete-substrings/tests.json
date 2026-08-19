@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countCompleteSubstrings",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "重叠窗口与整段共三个完全子串",
+      "args": [
+        "igigee",
+        2
+      ],
+      "expected": 3
+    },
+    {
+      "name": "三组字符组合出六个子串",
+      "args": [
+        "aaabbbccc",
+        3
+      ],
+      "expected": 6
+    },
+    {
+      "name": "大字符差边界阻止窗口跨段",
+      "args": [
+        "abczab",
+        1
+      ],
+      "expected": 10
+    },
+    {
+      "name": "单字符频次窗口可以重叠",
+      "args": [
+        "aaaa",
+        2
+      ],
+      "expected": 3
+    }
+  ]
+}

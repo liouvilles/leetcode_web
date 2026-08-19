@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2938,
+  "slug": "separate-black-and-white-balls",
+  "title": "区分黑球与白球",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-050",
+  "studyTags": [
+    "双指针",
+    "字符串",
+    "贪心"
+  ],
+  "summary": "二进制字符串中的 0 表示白球、1 表示黑球，每步可交换一对相邻球，求把所有白球移到黑球左侧所需的最少步数。",
+  "insight": "从左到右遇到白球时，它最终必须越过此前出现的每个黑球；每次越过恰对应一次相邻交换。累计每个 0 左侧的 1 的数量，就精确统计了所有逆序对和最少交换数。",
+  "pitfalls": [
+    "目标顺序是所有 0 在左、所有 1 在右",
+    "每个黑白逆序对必须且只需交换一次",
+    "长度十万时逆序对数量可能超过 int，答案必须使用 64 位整数",
+    "已经分好时答案为零"
+  ],
+  "solutions": [
+    {
+      "id": "count-one-zero-inversions",
+      "title": "统计一零逆序对",
+      "kind": "最优",
+      "idea": "扫描时维护已见黑球数，每个白球贡献其左侧全部黑球。",
+      "steps": [
+        "ones=0、answer=0",
+        "从左到右扫描字符串",
+        "遇到 1 时增加 ones",
+        "遇到 0 时把 ones 加入 answer",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/count-one-zero-inversions/Solution.java",
+        "kotlin": "solutions/count-one-zero-inversions/Solution.kt",
+        "cpp": "solutions/count-one-zero-inversions/solution.cpp"
+      }
+    }
+  ]
+}

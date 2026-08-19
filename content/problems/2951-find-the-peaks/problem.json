@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2951,
+  "slug": "find-the-peaks",
+  "title": "找出峰值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-050",
+  "studyTags": [
+    "数组",
+    "枚举"
+  ],
+  "summary": "返回数组中所有严格大于左右相邻元素的下标；首尾元素不能成为峰值。",
+  "insight": "峰值只由当前位置和左右两个相邻值决定。跳过首尾，从左到右检查每个内部下标，若当前值同时严格大于两侧就按自然顺序加入答案。",
+  "pitfalls": [
+    "首尾元素即使很大也不是峰值",
+    "比较必须严格大于，平台顶部不是峰值",
+    "返回的是下标而不是峰值本身",
+    "扫描顺序已经保证答案下标递增"
+  ],
+  "solutions": [
+    {
+      "id": "single-pass-neighbor-comparison",
+      "title": "单次相邻比较",
+      "kind": "最优",
+      "idea": "枚举所有内部位置并收集严格高于两侧的位置。",
+      "steps": [
+        "创建空答案列表",
+        "从下标一扫描到倒数第二个下标",
+        "若 mountain[i] 大于 mountain[i-1] 且大于 mountain[i+1]，记录 i",
+        "返回答案"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1) 额外空间"
+      },
+      "files": {
+        "java": "solutions/single-pass-neighbor-comparison/Solution.java",
+        "kotlin": "solutions/single-pass-neighbor-comparison/Solution.kt",
+        "cpp": "solutions/single-pass-neighbor-comparison/solution.cpp"
+      }
+    }
+  ]
+}

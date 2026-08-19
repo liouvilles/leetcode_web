@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "beautifulSubstrings",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "长度四的两个美丽子串",
+      "args": [
+        "baeyh",
+        2
+      ],
+      "expected": 2
+    },
+    {
+      "name": "k为一时三个平衡子串",
+      "args": [
+        "abba",
+        1
+      ],
+      "expected": 3
+    },
+    {
+      "name": "没有元音无法平衡",
+      "args": [
+        "bcdf",
+        1
+      ],
+      "expected": 0
+    },
+    {
+      "name": "八的指数要求四个元音和四个辅音",
+      "args": [
+        "abababab",
+        8
+      ],
+      "expected": 1
+    }
+  ]
+}

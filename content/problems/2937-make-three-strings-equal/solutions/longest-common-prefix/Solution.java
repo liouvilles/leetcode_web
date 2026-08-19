@@ -1,0 +1,1 @@
+class Solution { public int findMinimumOperations(String s1,String s2,String s3){int limit=Math.min(s1.length(),Math.min(s2.length(),s3.length())),prefix=0;while(prefix<limit&&s1.charAt(prefix)==s2.charAt(prefix)&&s1.charAt(prefix)==s3.charAt(prefix))prefix++;return prefix==0?-1:s1.length()+s2.length()+s3.length()-3*prefix;} }

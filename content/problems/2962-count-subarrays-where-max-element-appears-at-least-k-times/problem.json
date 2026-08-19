@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2962,
+  "slug": "count-subarrays-where-max-element-appears-at-least-k-times",
+  "title": "统计最大元素出现至少 K 次的子数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-050",
+  "studyTags": [
+    "数组",
+    "滑动窗口"
+  ],
+  "summary": "统计连续子数组中，全局最大元素至少出现 k 次的子数组数量。",
+  "insight": "扫描右端点并维护窗口内全局最大值数量。数量达到 k 后不断移动左端点，直到窗口重新只含 k-1 个最大值；此时 left 之前的所有起点都能与当前右端组成合法子数组，贡献恰为 left。",
+  "pitfalls": [
+    "目标是整个 nums 的最大值而非每个子数组自己的最大值",
+    "答案可达 n(n+1)/2，需要 64 位",
+    "收缩直到最大值数量小于 k",
+    "每个右端点贡献合法起点个数 left"
+  ],
+  "solutions": [
+    {
+      "id": "sliding-window-count-valid-starts",
+      "title": "滑窗统计合法起点",
+      "kind": "最优",
+      "idea": "让 left 始终位于第 k 个最大值之后。",
+      "steps": [
+        "求数组全局 maximum",
+        "left=0、maximumCount=0、answer=0",
+        "right 扫描，遇 maximum 则计数加一",
+        "当 maximumCount>=k 时移出 left；移出 maximum 要减计数",
+        "收缩结束后 answer+=left",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/sliding-window-count-valid-starts/Solution.java",
+        "kotlin": "solutions/sliding-window-count-valid-starts/Solution.kt",
+        "cpp": "solutions/sliding-window-count-valid-starts/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { fun maxSubarrayLength(nums:IntArray,k:Int):Int{val frequency=HashMap<Int,Int>();var left=0;var answer=0;for(right in nums.indices){frequency[nums[right]]=(frequency[nums[right]]?:0)+1;while(frequency[nums[right]]!!>k){frequency[nums[left]]=frequency[nums[left]]!!-1;left++};answer=maxOf(answer,right-left+1)};return answer} }

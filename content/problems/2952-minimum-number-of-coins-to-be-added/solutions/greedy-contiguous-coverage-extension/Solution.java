@@ -1,0 +1,1 @@
+class Solution { public int minimumAddedCoins(int[] coins,int target){Arrays.sort(coins);int index=0,answer=0;long reach=0;while(reach<target){if(index<coins.length&&coins[index]<=reach+1)reach+=coins[index++];else{reach+=reach+1;answer++;}}return answer;} }

@@ -1,0 +1,1 @@
+class Solution { fun findIntersectionValues(nums1:IntArray,nums2:IntArray):IntArray{val first=nums1.toHashSet();val second=nums2.toHashSet();val answer=IntArray(2);for(value in nums1)if(value in second)answer[0]++;for(value in nums2)if(value in first)answer[1]++;return answer} }

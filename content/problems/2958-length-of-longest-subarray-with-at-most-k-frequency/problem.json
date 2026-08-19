@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2958,
+  "slug": "length-of-longest-subarray-with-at-most-k-frequency",
+  "title": "最多 K 个重复元素的最长子数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-050",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "滑动窗口"
+  ],
+  "summary": "寻找最长连续子数组，使其中每个不同元素的出现次数都不超过 k。",
+  "insight": "右端点加入一个值后，只有这个值可能超过 k；若超限就移动左端点并递减沿途频次，直到新值频次恢复到 k。窗口始终合法，可直接更新最大长度。",
+  "pitfalls": [
+    "限制作用于窗口内每一种值",
+    "只需在新加入值超限时收缩",
+    "左端移出元素要同步递减频次",
+    "答案是连续子数组长度"
+  ],
+  "solutions": [
+    {
+      "id": "frequency-sliding-window",
+      "title": "频次滑动窗口",
+      "kind": "最优",
+      "idea": "维持所有值出现次数均不超过 k 的最大窗口。",
+      "steps": [
+        "left=0、answer=0、frequency 为空",
+        "right 扫描并增加 nums[right] 频次",
+        "当该值频次大于 k 时不断移出 nums[left]",
+        "窗口合法后更新 answer=max(answer,right-left+1)",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/frequency-sliding-window/Solution.java",
+        "kotlin": "solutions/frequency-sliding-window/Solution.kt",
+        "cpp": "solutions/frequency-sliding-window/solution.cpp"
+      }
+    }
+  ]
+}

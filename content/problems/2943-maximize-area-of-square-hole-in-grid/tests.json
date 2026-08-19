@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximizeSquareHoleArea",
+  "parameterTypes": [
+    "int",
+    "int",
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "连续移除两条水平线但竖直跨度限制边长",
+      "args": [
+        2,
+        1,
+        [
+          2,
+          3
+        ],
+        [
+          2
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "两个方向各移除一条线形成二乘二空洞",
+      "args": [
+        1,
+        1,
+        [
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "不连续竖直线无法形成三格宽空洞",
+      "args": [
+        2,
+        3,
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "乱序线条中最长连续段决定四格边长",
+      "args": [
+        8,
+        7,
+        [
+          6,
+          2,
+          5,
+          4
+        ],
+        [
+          7,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "expected": 16
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": 2959,
+  "slug": "number-of-possible-sets-of-closing-branches",
+  "title": "关闭分部的可行集合数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-050",
+  "studyTags": [
+    "图论",
+    "最短路",
+    "动态规划",
+    "状态压缩",
+    "Floyd"
+  ],
+  "summary": "有 n 个分部和带权无向道路，选择关闭任意分部后，只保留开放分部及它们之间的道路；统计开放分部任意两点最短距离都不超过 maxDistance 的关闭方案数。",
+  "insight": "n 很小，可枚举开放节点集合。对每个集合，只用集合内节点初始化道路并运行 Floyd；这样不会错误借道已关闭节点。若集合内所有点对最短路都不超过阈值，该集合对应一种合法关闭方案，空集和单点集自然合法。",
+  "pitfalls": [
+    "最短路径不能经过已关闭分部",
+    "同一对分部可能有多条道路，要保留最小权值",
+    "空开放集合和单点集合没有超距点对",
+    "必须检查不可达点也视为超过阈值"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-subsets-with-restricted-floyd",
+      "title": "枚举集合并做受限 Floyd",
+      "kind": "最优",
+      "idea": "为每个开放掩码独立计算仅经过开放节点的最短路。",
+      "steps": [
+        "answer=0，枚举 mask 从零到 2^n-1",
+        "初始化 dist 对角线为零、其余为无穷",
+        "仅当道路两端都在 mask 中时用最小权值更新",
+        "枚举 mask 内中间点、起点、终点执行 Floyd",
+        "检查所有 mask 内点对距离是否不超过 maxDistance",
+        "合法则 answer++",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(2^n·(|roads|+n³))",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/enumerate-subsets-with-restricted-floyd/Solution.java",
+        "kotlin": "solutions/enumerate-subsets-with-restricted-floyd/Solution.kt",
+        "cpp": "solutions/enumerate-subsets-with-restricted-floyd/solution.cpp"
+      }
+    }
+  ]
+}

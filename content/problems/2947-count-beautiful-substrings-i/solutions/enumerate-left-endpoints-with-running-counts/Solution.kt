@@ -1,0 +1,1 @@
+class Solution { private fun isVowel(letter:Char)=letter=='a'||letter=='e'||letter=='i'||letter=='o'||letter=='u';fun beautifulSubstrings(s:String,k:Int):Int{var answer=0;for(left in s.indices){var vowels=0;var consonants=0;for(right in left until s.length){if(isVowel(s[right]))vowels++ else consonants++;if(vowels==consonants&&vowels*consonants%k==0)answer++}};return answer} }

@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2965,
+  "slug": "find-missing-and-repeated-values",
+  "title": "找出缺失和重复的数字",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-050",
+  "studyTags": [
+    "数组",
+    "矩阵",
+    "哈希表",
+    "数学"
+  ],
+  "summary": "n×n 矩阵本应恰好包含一到 n²，却有一个数字重复一次、另一个数字缺失；返回 [重复值,缺失值]。",
+  "insight": "用布尔数组记录已经出现的数字，第二次遇到的值就是重复值；再扫描一到 n² 找到唯一未标记者即可。",
+  "pitfalls": [
+    "返回顺序先重复后缺失",
+    "值域从一开始而非零",
+    "矩阵中重复值恰好出现两次",
+    "seen 大小要能索引 n²"
+  ],
+  "solutions": [
+    {
+      "id": "seen-values-scan",
+      "title": "出现标记扫描",
+      "kind": "最优",
+      "idea": "一次找重复值，再从完整值域找缺失值。",
+      "steps": [
+        "limit=n*n，seen 长度 limit+1",
+        "遍历矩阵中的每个 value",
+        "若 seen[value] 已真则记录 repeated，否则置真",
+        "从一到 limit 找到 seen 为假的 missing",
+        "返回 [repeated,missing]"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/seen-values-scan/Solution.java",
+        "kotlin": "solutions/seen-values-scan/Solution.kt",
+        "cpp": "solutions/seen-values-scan/solution.cpp"
+      }
+    }
+  ]
+}

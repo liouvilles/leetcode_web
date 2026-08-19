@@ -1,0 +1,1 @@
+class Solution { public:int maximumXorProduct(long long a,long long b,int n){long long first=(a>>n)<<n,second=(b>>n)<<n;for(int index=n-1;index>=0;--index){long long bit=1LL<<index;if(((a>>index)&1LL)==((b>>index)&1LL)){first|=bit;second|=bit;}else if(first<second)first|=bit;else second|=bit;}const long long MOD=1000000007;return first%MOD*(second%MOD)%MOD;} };

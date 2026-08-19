@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2952,
+  "slug": "minimum-number-of-coins-to-be-added",
+  "title": "需要添加的硬币的最小数量",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-050",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "排序"
+  ],
+  "summary": "可以向硬币数组添加任意正整数面值，求至少添加多少枚硬币，才能用某个子序列的和表示一到 target 的每个整数。",
+  "insight": "排序后维护已经能够连续表示的区间 [1,reach]。若下一枚现有硬币不超过 reach+1，它能把连续覆盖扩展到 reach+coin；否则 reach+1 是当前无法表示的最小数，任何更大的补币都无法填补这个缺口，贪心添加 reach+1 能一次把覆盖最大化到 2*reach+1。持续到 reach 覆盖 target 即可。",
+  "pitfalls": [
+    "必须先排序才能按覆盖区间吸收硬币",
+    "出现缺口时添加的最优面值恰为 reach+1",
+    "硬币可以各使用至多一次，重复面值仍要逐枚处理",
+    "累计覆盖范围使用 long 更稳妥"
+  ],
+  "solutions": [
+    {
+      "id": "greedy-contiguous-coverage-extension",
+      "title": "连续可表示区间贪心扩展",
+      "kind": "最优",
+      "idea": "吸收所有不制造缺口的现有硬币，遇到缺口就补入当前最小不可表示值。",
+      "steps": [
+        "升序排序 coins",
+        "令 reach=0，表示当前可覆盖空区间",
+        "当 reach 小于 target 时检查下一枚硬币",
+        "若 coin<=reach+1，吸收它并令 reach+=coin",
+        "否则添加 reach+1，令 reach=2*reach+1 并增加答案",
+        "覆盖 target 后返回添加数量"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n) 排序栈"
+      },
+      "files": {
+        "java": "solutions/greedy-contiguous-coverage-extension/Solution.java",
+        "kotlin": "solutions/greedy-contiguous-coverage-extension/Solution.kt",
+        "cpp": "solutions/greedy-contiguous-coverage-extension/solution.cpp"
+      }
+    }
+  ]
+}

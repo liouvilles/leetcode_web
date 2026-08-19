@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numberOfSequence",
+  "parameterTypes": [
+    "int",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两端已感冒时内部三人有四种扩展顺序",
+      "args": [
+        5,
+        [
+          0,
+          4
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "单个初始病人两侧步骤可三选交错",
+      "args": [
+        4,
+        [
+          1
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "一个内部健康人与右侧两人共有三种交错",
+      "args": [
+        5,
+        [
+          0,
+          2
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "中间病人向左右感染有两种顺序",
+      "args": [
+        3,
+        [
+          1
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

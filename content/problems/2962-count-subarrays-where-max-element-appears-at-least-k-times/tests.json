@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countSubarrays",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "三个最大值产生六个至少含两个的子数组",
+      "args": [
+        [
+          1,
+          3,
+          2,
+          3,
+          3
+        ],
+        2
+      ],
+      "expected": 6
+    },
+    {
+      "name": "最大值只出现一次不足三次",
+      "args": [
+        [
+          1,
+          4,
+          2,
+          1
+        ],
+        3
+      ],
+      "expected": 0
+    },
+    {
+      "name": "三个元素全为最大值且k一时所有子数组合法",
+      "args": [
+        [
+          5,
+          5,
+          5
+        ],
+        1
+      ],
+      "expected": 6
+    },
+    {
+      "name": "三个最大值中选择至少两个共有四个子数组",
+      "args": [
+        [
+          2,
+          2,
+          1,
+          2
+        ],
+        2
+      ],
+      "expected": 4
+    }
+  ]
+}

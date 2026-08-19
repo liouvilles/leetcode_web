@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "beautifulSubstrings",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "baey 与 aeyh 是两个满足整除条件的子串",
+      "args": [
+        "baeyh",
+        2
+      ],
+      "expected": 2
+    },
+    {
+      "name": "k 为一时 ab、ba 与 abba 均美丽",
+      "args": [
+        "abba",
+        1
+      ],
+      "expected": 3
+    },
+    {
+      "name": "全辅音字符串没有美丽子串",
+      "args": [
+        "bcdf",
+        1
+      ],
+      "expected": 0
+    },
+    {
+      "name": "只有四字符整体的乘积能被二整除",
+      "args": [
+        "aabb",
+        2
+      ],
+      "expected": 1
+    },
+    {
+      "name": "单元音单辅音的乘积不能被二整除",
+      "args": [
+        "ab",
+        2
+      ],
+      "expected": 0
+    }
+  ]
+}

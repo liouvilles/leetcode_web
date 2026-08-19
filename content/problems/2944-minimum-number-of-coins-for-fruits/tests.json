@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumCoins",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "购买免费水果以延伸奖励总共花四枚金币",
+      "args": [
+        [
+          3,
+          1,
+          2
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "跳过昂贵的第二个水果只需两枚金币",
+      "args": [
+        [
+          1,
+          10,
+          1,
+          1
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "多段奖励衔接的最优成本为三十九",
+      "args": [
+        [
+          26,
+          18,
+          6,
+          12,
+          49,
+          7,
+          45,
+          45
+        ]
+      ],
+      "expected": 39
+    },
+    {
+      "name": "单个水果必须直接购买",
+      "args": [
+        [
+          7
+        ]
+      ],
+      "expected": 7
+    },
+    {
+      "name": "首个奖励结束后的第三个水果仍需购买",
+      "args": [
+        [
+          3,
+          100,
+          1
+        ]
+      ],
+      "expected": 4
+    }
+  ]
+}

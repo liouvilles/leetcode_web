@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumXorProduct",
+  "parameterTypes": [
+    "long",
+    "long",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四个可变位平衡为十四与七",
+      "args": [
+        12,
+        5,
+        4
+      ],
+      "expected": 98
+    },
+    {
+      "name": "五个可变位得到三十一乘三十",
+      "args": [
+        6,
+        7,
+        5
+      ],
+      "expected": 930
+    },
+    {
+      "name": "只允许最低一位且保留高位",
+      "args": [
+        10,
+        7,
+        1
+      ],
+      "expected": 70
+    },
+    {
+      "name": "零个可变位仅对原乘积取模",
+      "args": [
+        1000000008,
+        1000000009,
+        0
+      ],
+      "expected": 2
+    },
+    {
+      "name": "五十位边界使用长整数并取模",
+      "args": [
+        0,
+        0,
+        50
+      ],
+      "expected": 178448631
+    }
+  ]
+}

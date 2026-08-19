@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countTestedDevices",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "五台设备中三台测试时仍有电",
+      "args": [
+        [
+          1,
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "零一二递增电量可测试后两台",
+      "args": [
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "全零设备都不能测试",
+      "args": [
+        [
+          0,
+          0
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "单台正电量设备必被测试",
+      "args": [
+        [
+          5
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

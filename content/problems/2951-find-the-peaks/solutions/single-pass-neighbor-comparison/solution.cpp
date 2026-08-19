@@ -1,0 +1,1 @@
+class Solution { public:vector<int> findPeaks(vector<int>& mountain){vector<int> answer;for(int i=1;i+1<(int)mountain.size();++i)if(mountain[i]>mountain[i-1]&&mountain[i]>mountain[i+1])answer.push_back(i);return answer;} };

@@ -1,0 +1,1 @@
+class Solution { public long countSubarrays(int[] nums,int k){int maximum=Arrays.stream(nums).max().getAsInt();int left=0,count=0;long answer=0;for(int value:nums){if(value==maximum)count++;while(count>=k)if(nums[left++]==maximum)count--;answer+=left;}return answer;} }

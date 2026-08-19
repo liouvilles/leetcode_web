@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findMinimumOperations",
+  "parameterTypes": [
+    "string",
+    "string",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三个串保留公共前缀 ab",
+      "args": [
+        "abc",
+        "abb",
+        "ab"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "首字符不同无法得到非空相等串",
+      "args": [
+        "dac",
+        "bac",
+        "cac"
+      ],
+      "expected": -1
+    },
+    {
+      "name": "三个单字符已经相等",
+      "args": [
+        "a",
+        "a",
+        "a"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "保留 abc 后共删除三个字符",
+      "args": [
+        "abcde",
+        "abc",
+        "abcf"
+      ],
+      "expected": 3
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxSubarrayLength",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一最多两次的最长窗口长度六",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          1,
+          2,
+          3,
+          1,
+          2
+        ],
+        2
+      ],
+      "expected": 6
+    },
+    {
+      "name": "全相同元素只能保留三个",
+      "args": [
+        [
+          5,
+          5,
+          5,
+          5
+        ],
+        3
+      ],
+      "expected": 3
+    },
+    {
+      "name": "所有元素不同可取整个数组",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        1
+      ],
+      "expected": 4
+    },
+    {
+      "name": "交替重复在第三个一处收缩",
+      "args": [
+        [
+          1,
+          2,
+          1,
+          2,
+          1
+        ],
+        2
+      ],
+      "expected": 4
+    }
+  ]
+}

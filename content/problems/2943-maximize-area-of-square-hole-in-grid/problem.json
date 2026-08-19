@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2943,
+  "slug": "maximize-area-of-square-hole-in-grid",
+  "title": "最大化网格图中正方形空洞的面积",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-050",
+  "studyTags": [
+    "数组",
+    "排序"
+  ],
+  "summary": "网格中的部分水平线和竖直线可以移除；求移除任意可选线条后能够形成的最大正方形空洞面积。",
+  "insight": "同一方向只有编号连续的可移除线条才能连通相邻单元格。连续移除 r 条线会跨过 r+1 个单元格，因此分别排序水平线与竖直线、求最长连续编号段并加一，就得到两个方向的最大跨度；正方形边长取二者较小值。",
+  "pitfalls": [
+    "连续可移除线条的数量不是空洞边长，必须再加一",
+    "编号不连续的线条不能合并成同一个大空洞",
+    "水平线和竖直线需要分别排序并统计",
+    "最终边长取两个方向最大跨度的较小值"
+  ],
+  "solutions": [
+    {
+      "id": "sort-and-longest-consecutive-bars",
+      "title": "排序统计最长连续线段",
+      "kind": "最优",
+      "idea": "把每个方向的最长连续可移除线段转换为可连通的单元格跨度。",
+      "steps": [
+        "分别排序 hBars 与 vBars",
+        "在线条编号相差一时延长当前连续段，否则重新计数",
+        "记录每个方向的最长连续线条数并加一",
+        "取两个跨度的较小值作为正方形边长",
+        "返回边长平方"
+      ],
+      "complexity": {
+        "time": "O(h log h+v log v)",
+        "space": "O(log h+log v)"
+      },
+      "files": {
+        "java": "solutions/sort-and-longest-consecutive-bars/Solution.java",
+        "kotlin": "solutions/sort-and-longest-consecutive-bars/Solution.kt",
+        "cpp": "solutions/sort-and-longest-consecutive-bars/solution.cpp"
+      }
+    }
+  ]
+}
