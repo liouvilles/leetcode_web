@@ -1,0 +1,1 @@
+class Solution { public:int maxSum(vector<int>& nums,int k){const long long MOD=1000000007;int count[31]={};for(int value:nums)for(int bit=0;bit<31;++bit)if(value&(1<<bit))++count[bit];long long answer=0;while(k--){int value=0;for(int bit=0;bit<31;++bit)if(count[bit]){value|=1<<bit;--count[bit];}answer=(answer+(long long)value*value)%MOD;}return answer;} };

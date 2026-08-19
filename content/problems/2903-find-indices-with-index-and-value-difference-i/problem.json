@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2903,
+  "slug": "find-indices-with-index-and-value-difference-i",
+  "title": "找出满足差值条件的下标 I",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-048",
+  "studyTags": [
+    "数组",
+    "双指针",
+    "枚举"
+  ],
+  "summary": "寻找下标 i、j，使下标差绝对值至少为 indexDifference，元素差绝对值至少为 valueDifference；不存在返回 [-1,-1]。",
+  "insight": "第一版数据范围较小，可枚举 i 以及所有 j≥i+indexDifference。这样已覆盖所有无序下标对，并按首次发现立即返回。",
+  "pitfalls": [
+    "两个差值条件都使用大于等于",
+    "indexDifference 为零时允许 i 等于 j",
+    "元素差要取绝对值",
+    "不存在时返回两个负一"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-eligible-index-pairs",
+      "title": "枚举满足下标距离的点对",
+      "kind": "最优",
+      "idea": "先保证下标差，再检查数值差。",
+      "steps": [
+        "i 从零到 n-1",
+        "j 从 i+indexDifference 到 n-1",
+        "若 abs(nums[i]-nums[j])>=valueDifference 返回 [i,j]",
+        "循环结束返回 [-1,-1]"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/enumerate-eligible-index-pairs/Solution.java",
+        "kotlin": "solutions/enumerate-eligible-index-pairs/Solution.kt",
+        "cpp": "solutions/enumerate-eligible-index-pairs/solution.cpp"
+      }
+    }
+  ]
+}

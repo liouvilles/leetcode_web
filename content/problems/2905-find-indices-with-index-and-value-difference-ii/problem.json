@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2905,
+  "slug": "find-indices-with-index-and-value-difference-ii",
+  "title": "找出满足差值条件的下标 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-048",
+  "studyTags": [
+    "数组",
+    "双指针",
+    "前缀最值"
+  ],
+  "summary": "寻找两个下标，使下标距离至少为 indexDifference 且元素值距离至少为 valueDifference；数据规模要求线性算法。",
+  "insight": "从右下标 j 向右扫描时，所有 i≤j-indexDifference 都已满足下标条件。只需维护这些候选中的最小值、最大值及其下标；当前值与任一极值的差达到阈值即可返回。",
+  "pitfalls": [
+    "候选极值必须在检查当前 j 前加入",
+    "要同时检查当前值减最小值和最大值减当前值",
+    "indexDifference 为零时当前下标也属于候选",
+    "不存在时返回 [-1,-1]"
+  ],
+  "solutions": [
+    {
+      "id": "eligible-prefix-minimum-and-maximum",
+      "title": "合格前缀的最小值与最大值",
+      "kind": "最优",
+      "idea": "用两个极值代表所有已满足下标距离的候选。",
+      "steps": [
+        "初始化 minValue=+∞、maxValue=-∞",
+        "j 从 indexDifference 到 n-1",
+        "加入 candidate=j-indexDifference 到最小值与最大值",
+        "若 nums[j]-minValue>=valueDifference 返回 [minIndex,j]",
+        "若 maxValue-nums[j]>=valueDifference 返回 [maxIndex,j]",
+        "结束返回 [-1,-1]"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/eligible-prefix-minimum-and-maximum/Solution.java",
+        "kotlin": "solutions/eligible-prefix-minimum-and-maximum/Solution.kt",
+        "cpp": "solutions/eligible-prefix-minimum-and-maximum/solution.cpp"
+      }
+    }
+  ]
+}

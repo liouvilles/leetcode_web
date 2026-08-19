@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2899,
+  "slug": "last-visited-integers",
+  "title": "上一个遍历的整数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-048",
+  "studyTags": [
+    "数组",
+    "模拟"
+  ],
+  "summary": "按顺序读取整数数组，其中负一表示查询；连续第 k 个负一要返回此前遇到整数中的倒数第 k 个，不存在则返回负一。",
+  "insight": "用列表保存所有已遇到的非负一整数，并用 counter 记录当前连续出现了多少个负一。遇到新整数时把它追加并把 counter 重置为零。",
+  "pitfalls": [
+    "只有连续负一才会依次向更早整数移动",
+    "遇到任意新整数都重置查询次数",
+    "作为查询标记的负一不会加入历史整数列表",
+    "历史不足时返回负一但计数仍继续增加"
+  ],
+  "solutions": [
+    {
+      "id": "history-list-and-consecutive-prev-count",
+      "title": "历史列表与连续查询计数",
+      "kind": "最优",
+      "idea": "用 size-counter 定位连续第 counter 个上一个整数。",
+      "steps": [
+        "初始化 history 与 counter=0",
+        "遍历 nums",
+        "若 value 是负一，counter 加一",
+        "index=history.size-counter，合法则输出 history[index] 否则负一",
+        "若是普通整数，加入 history 并重置 counter",
+        "返回所有查询结果"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/history-list-and-consecutive-prev-count/Solution.java",
+        "kotlin": "solutions/history-list-and-consecutive-prev-count/Solution.kt",
+        "cpp": "solutions/history-list-and-consecutive-prev-count/solution.cpp"
+      }
+    }
+  ]
+}

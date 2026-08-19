@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2895,
+  "slug": "minimum-processing-time",
+  "title": "最小处理时间",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-048",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "排序"
+  ],
+  "summary": "每台处理器同时执行恰好四个任务，任务完成时间为处理器可用时间加任务耗时，求全部任务完成的最早时刻。",
+  "insight": "把最慢的四个任务交给最早可用的处理器，次慢四个交给次早处理器，以此类推。交换论证表明让较大的任务组最大值配较小的处理器时间不会使最大完成时刻变差。",
+  "pitfalls": [
+    "每台处理器必须分配四个任务",
+    "同组完成时间只由组内最大任务决定",
+    "处理器升序时任务应降序分组",
+    "答案是所有处理器完成时间的最大值"
+  ],
+  "solutions": [
+    {
+      "id": "opposite-sorting-in-groups-of-four",
+      "title": "反向排序并每四个任务分组",
+      "kind": "最优",
+      "idea": "按处理器升序、任务降序配对每组最大任务。",
+      "steps": [
+        "processorTime 升序排序",
+        "tasks 降序排序",
+        "第 i 台处理器分配 tasks[4i..4i+3]",
+        "用 processor[i]+tasks[4i] 更新答案",
+        "返回最大值"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/opposite-sorting-in-groups-of-four/Solution.java",
+        "kotlin": "solutions/opposite-sorting-in-groups-of-four/Solution.kt",
+        "cpp": "solutions/opposite-sorting-in-groups-of-four/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "differenceOfSums",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一到十分组后差值十九",
+      "args": [
+        10,
+        3
+      ],
+      "expected": 19
+    },
+    {
+      "name": "没有数能被六整除",
+      "args": [
+        5,
+        6
+      ],
+      "expected": 15
+    },
+    {
+      "name": "所有数都能被一整除",
+      "args": [
+        5,
+        1
+      ],
+      "expected": -15
+    },
+    {
+      "name": "只有四是四的倍数",
+      "args": [
+        4,
+        4
+      ],
+      "expected": 2
+    }
+  ]
+}

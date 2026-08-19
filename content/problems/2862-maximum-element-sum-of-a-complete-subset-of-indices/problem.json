@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2862,
+  "slug": "maximum-element-sum-of-a-complete-subset-of-indices",
+  "title": "完全子集的最大元素和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-048",
+  "studyTags": [
+    "数组",
+    "数学",
+    "数论"
+  ],
+  "summary": "从一开始编号的数组下标中选非空子集，要求任意两个下标的乘积都是完全平方数，求所选下标对应元素的最大和。",
+  "insight": "两个正整数乘积为完全平方数，当且仅当它们质因数指数的奇偶性相同，也就是平方自由核相同。每个下标可唯一写成 squareFreeBase × square，因此按平方自由的 base 枚举 base、base×4、base×9 等下标并求和，取最大组即可。",
+  "pitfalls": [
+    "条件作用于从一开始的下标而非元素值",
+    "单元素集合总是完整子集",
+    "base 必须不含任何平方因子才能唯一分组",
+    "元素总和需要 long"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-square-free-kernel-groups",
+      "title": "枚举平方自由核分组",
+      "kind": "最优",
+      "idea": "筛出平方自由 base，并累加其乘各个完全平方数得到的下标。",
+      "steps": [
+        "初始化 squareFree[1..n] 为 true",
+        "对每个 factor 把 factor² 的倍数标为非平方自由",
+        "枚举仍为平方自由的 base",
+        "累加 nums[base*multiplier²-1]",
+        "用每组总和更新答案",
+        "返回最大值"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/enumerate-square-free-kernel-groups/Solution.java",
+        "kotlin": "solutions/enumerate-square-free-kernel-groups/Solution.kt",
+        "cpp": "solutions/enumerate-square-free-kernel-groups/solution.cpp"
+      }
+    }
+  ]
+}

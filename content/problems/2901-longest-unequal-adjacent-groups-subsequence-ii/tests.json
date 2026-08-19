@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getWordsInLongestSubsequence",
+  "parameterTypes": [
+    "stringArray",
+    "intArray"
+  ],
+  "returnType": "stringList",
+  "cases": [
+    {
+      "name": "两个同组候选中选择较早合法词",
+      "args": [
+        [
+          "bab",
+          "dab",
+          "cab"
+        ],
+        [
+          1,
+          2,
+          2
+        ]
+      ],
+      "expected": [
+        "bab",
+        "dab"
+      ]
+    },
+    {
+      "name": "单字符单词与不同组可形成完整链",
+      "args": [
+        [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ]
+    },
+    {
+      "name": "三个等长单词逐次只差一位",
+      "args": [
+        [
+          "abc",
+          "acc",
+          "adc"
+        ],
+        [
+          0,
+          1,
+          0
+        ]
+      ],
+      "expected": [
+        "abc",
+        "acc",
+        "adc"
+      ]
+    },
+    {
+      "name": "没有合法转移时返回首词",
+      "args": [
+        [
+          "ab",
+          "cd"
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "expected": [
+        "ab"
+      ]
+    },
+    {
+      "name": "不同长度单词不能形成相邻转移",
+      "args": [
+        [
+          "a",
+          "ab"
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "expected": [
+        "a"
+      ]
+    }
+  ]
+}

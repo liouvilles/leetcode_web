@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": 2876,
+  "slug": "count-visited-nodes-in-a-directed-graph",
+  "title": "有向图访问计数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-048",
+  "studyTags": [
+    "动态规划",
+    "图论",
+    "拓扑排序"
+  ],
+  "summary": "函数图中每个节点恰有一条出边，从每个起点沿边前进直到首次访问重复节点，返回期间访问过的不同节点数。",
+  "insight": "用入度拓扑剥离后，未删除节点恰好都在环上，可直接把各环长度写入答案。剥离节点按删除顺序逆序处理时，其后继答案已经确定，因此 answer[node]=answer[next]+1。",
+  "pitfalls": [
+    "每个弱连通分量可能有不同长度的环",
+    "题目保证节点不会指向自身，但仍可能存在二元及更长环",
+    "拓扑序必须逆序回填链上答案",
+    "返回的是不同节点数而非走过的边数"
+  ],
+  "solutions": [
+    {
+      "id": "topological-peeling-cycle-labeling-and-reverse-dp",
+      "title": "拓扑剥离、环标记与逆序动态规划",
+      "kind": "最优",
+      "idea": "先求环上答案，再沿反向拓扑序向树枝传播。",
+      "steps": [
+        "统计每个节点入度",
+        "把所有入度零节点加入队列",
+        "拓扑剥离并按出队顺序记录节点",
+        "遍历仍有正入度且未赋值的节点，计算并写入所在环长度",
+        "逆序遍历剥离序列",
+        "answer[node]=answer[edges[node]]+1",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/topological-peeling-cycle-labeling-and-reverse-dp/Solution.java",
+        "kotlin": "solutions/topological-peeling-cycle-labeling-and-reverse-dp/Solution.kt",
+        "cpp": "solutions/topological-peeling-cycle-labeling-and-reverse-dp/solution.cpp"
+      }
+    }
+  ]
+}

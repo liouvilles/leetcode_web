@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumSumOfHeights",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "首塔为峰得到总和十三",
+      "args": [
+        [
+          5,
+          3,
+          4,
+          1,
+          1
+        ]
+      ],
+      "expected": 13
+    },
+    {
+      "name": "高度九为峰得到总和二十二",
+      "args": [
+        [
+          6,
+          5,
+          3,
+          9,
+          2,
+          7
+        ]
+      ],
+      "expected": 22
+    },
+    {
+      "name": "单座塔直接取上限",
+      "args": [
+        [
+          7
+        ]
+      ],
+      "expected": 7
+    },
+    {
+      "name": "等高平台全部取上限",
+      "args": [
+        [
+          2,
+          2,
+          2
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "三座十亿高塔验证长整型总和",
+      "args": [
+        [
+          1000000000,
+          1000000000,
+          1000000000
+        ]
+      ],
+      "expected": 3000000000
+    }
+  ]
+}

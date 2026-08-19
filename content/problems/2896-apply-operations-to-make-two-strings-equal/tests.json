@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minOperations",
+  "parameterTypes": [
+    "string",
+    "string",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四个失配用两次任意翻转代价四",
+      "args": [
+        "1100011000",
+        "0101001010",
+        2
+      ],
+      "expected": 4
+    },
+    {
+      "name": "奇数个失配无法完成",
+      "args": [
+        "10110",
+        "00011",
+        4
+      ],
+      "expected": -1
+    },
+    {
+      "name": "相邻两个失配直接翻转代价一",
+      "args": [
+        "00",
+        "11",
+        5
+      ],
+      "expected": 1
+    },
+    {
+      "name": "四个连续失配分两对相邻翻转",
+      "args": [
+        "0101",
+        "1010",
+        3
+      ],
+      "expected": 2
+    }
+  ]
+}

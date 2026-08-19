@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumOddBinaryNumber",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "单个一留在末位得到零零一",
+      "args": [
+        "010"
+      ],
+      "expected": "001"
+    },
+    {
+      "name": "两个一构成最大奇数一零零一",
+      "args": [
+        "0101"
+      ],
+      "expected": "1001"
+    },
+    {
+      "name": "只有一个一保持不变",
+      "args": [
+        "1"
+      ],
+      "expected": "1"
+    },
+    {
+      "name": "全是一时排列结果不变",
+      "args": [
+        "1111"
+      ],
+      "expected": "1111"
+    }
+  ]
+}

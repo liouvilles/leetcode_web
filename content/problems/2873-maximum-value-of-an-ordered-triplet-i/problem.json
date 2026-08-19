@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2873,
+  "slug": "maximum-value-of-an-ordered-triplet-i",
+  "title": "有序三元组中的最大值 I",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-048",
+  "studyTags": [
+    "数组",
+    "前缀和"
+  ],
+  "summary": "在数组中选择下标 i<j<k，最大化 (nums[i]-nums[j])*nums[k]；若所有三元组的值均为负数则返回零。",
+  "insight": "扫描 k 时，只需知道此前最大的差 nums[i]-nums[j]；而更新这个差又只需知道 j 左侧最大的 nums[i]。按“先计算答案、再更新差、最后更新前缀最大值”的顺序即可保证三个下标严格递增。",
+  "pitfalls": [
+    "三个下标必须严格递增",
+    "结果小于零时返回零",
+    "乘法要先转为 long",
+    "更新状态的顺序不能让当前元素同时充当两个下标"
+  ],
+  "solutions": [
+    {
+      "id": "one-pass-prefix-maximum-and-best-difference",
+      "title": "单遍前缀最大值与最大差",
+      "kind": "最优",
+      "idea": "压缩枚举 i、j 所需的两层前缀最优状态。",
+      "steps": [
+        "maximum=nums[0]、difference=0、answer=0",
+        "从 k=1 开始扫描当前值",
+        "用 difference*nums[k] 更新 answer",
+        "用 maximum-nums[k] 更新 difference",
+        "用 nums[k] 更新 maximum",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/one-pass-prefix-maximum-and-best-difference/Solution.java",
+        "kotlin": "solutions/one-pass-prefix-maximum-and-best-difference/Solution.kt",
+        "cpp": "solutions/one-pass-prefix-maximum-and-best-difference/solution.cpp"
+      }
+    }
+  ]
+}

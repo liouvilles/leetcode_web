@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": 2897,
+  "slug": "apply-operations-on-array-to-maximize-sum-of-squares",
+  "title": "对数组执行操作使平方和最大",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-048",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "贪心",
+    "位运算"
+  ],
+  "summary": "操作可在两个数之间重新分配各二进制位且保持每一位的总出现次数，求选取 k 个数的最大平方和并取模。",
+  "insight": "平方函数偏好集中。对每个二进制位统计它出现于多少个数；构造每个待选数时，把所有仍有库存的位都放入当前数，再递减对应计数，就能让较大的位集合尽量重叠并最大化平方和。",
+  "pitfalls": [
+    "每个二进制位的出现总次数保持不变",
+    "应把可用位尽量集中到同一个构造数",
+    "只需构造前 k 个数",
+    "平方与累加必须使用长整数并取模"
+  ],
+  "solutions": [
+    {
+      "id": "pack-remaining-bits-greedily",
+      "title": "按位库存贪心打包",
+      "kind": "最优",
+      "idea": "逐轮取走每种仍存在的一位，构成尽可能大的当前数。",
+      "steps": [
+        "统计 nums 中每个 bit 的出现次数",
+        "重复 k 轮",
+        "value 初始化零",
+        "对每个 count[bit]>0 的位设置到 value 并把计数减一",
+        "累加 value² 并取模",
+        "返回答案"
+      ],
+      "complexity": {
+        "time": "O((n+k)B)",
+        "space": "O(B)"
+      },
+      "files": {
+        "java": "solutions/pack-remaining-bits-greedily/Solution.java",
+        "kotlin": "solutions/pack-remaining-bits-greedily/Solution.kt",
+        "cpp": "solutions/pack-remaining-bits-greedily/solution.cpp"
+      }
+    }
+  ]
+}

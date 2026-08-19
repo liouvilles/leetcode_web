@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2900,
+  "slug": "longest-unequal-adjacent-groups-subsequence-i",
+  "title": "最长相邻不相等子序列 I",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-048",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "动态规划",
+    "贪心"
+  ],
+  "summary": "从 words 中按原顺序选择最长子序列，使相邻所选单词对应的 groups 值不同，返回任一最长单词序列。",
+  "insight": "约束只依赖上一个已选组。选中第一个单词后，每当当前组与上次选中组不同就立即选取，不会妨碍未来切换，且每次都增加子序列长度。",
+  "pitfalls": [
+    "返回的是单词而非下标",
+    "必须保持原数组相对顺序",
+    "只比较相邻所选元素的组",
+    "多个最优答案时返回任意一个即可"
+  ],
+  "solutions": [
+    {
+      "id": "greedy-on-group-changes",
+      "title": "按组变化贪心选择",
+      "kind": "最优",
+      "idea": "保留第一个元素，并在组值每次相对上次选择发生变化时加入。",
+      "steps": [
+        "答案加入 words[0]",
+        "lastGroup=groups[0]",
+        "从下标一开始扫描",
+        "若 groups[i]!=lastGroup，加入 words[i] 并更新 lastGroup",
+        "返回答案"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/greedy-on-group-changes/Solution.java",
+        "kotlin": "solutions/greedy-on-group-changes/Solution.kt",
+        "cpp": "solutions/greedy-on-group-changes/solution.cpp"
+      }
+    }
+  ]
+}

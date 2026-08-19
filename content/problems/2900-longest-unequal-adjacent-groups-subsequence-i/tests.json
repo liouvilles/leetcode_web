@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getLongestSubsequence",
+  "parameterTypes": [
+    "stringArray",
+    "intArray"
+  ],
+  "returnType": "stringList",
+  "cases": [
+    {
+      "name": "跳过同组中间词后选择末词",
+      "args": [
+        [
+          "e",
+          "a",
+          "b"
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "expected": [
+        "e",
+        "b"
+      ]
+    },
+    {
+      "name": "前三个组交替而末项同组",
+      "args": [
+        [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        [
+          1,
+          0,
+          1,
+          1
+        ]
+      ],
+      "expected": [
+        "a",
+        "b",
+        "c"
+      ]
+    },
+    {
+      "name": "所有单词同组只保留首词",
+      "args": [
+        [
+          "x",
+          "y",
+          "z"
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": [
+        "x"
+      ]
+    }
+  ]
+}

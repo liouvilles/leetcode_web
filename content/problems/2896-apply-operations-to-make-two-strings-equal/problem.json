@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2896,
+  "slug": "apply-operations-to-make-two-strings-equal",
+  "title": "执行操作使两个字符串相等",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-048",
+  "studyTags": [
+    "字符串",
+    "动态规划"
+  ],
+  "summary": "两个等长二进制串中，可花费 x 翻转任意两个位置，或花费一翻转两个相邻位置，求使两串相等的最小代价。",
+  "insight": "只需处理两串不同的位置。相邻操作把一对相邻失配沿字符串消除，代价为位置距离；任意翻转操作可配对任意两个失配，代价 x。用双倍代价 DP：单个暂未相邻配对的失配记 x，两个最终合并正好是一次 x 操作。",
+  "pitfalls": [
+    "失配数量为奇数时无解",
+    "DP 只在失配位置数组上进行",
+    "相邻配对代价是两个失配下标之差",
+    "使用双倍代价后最终要除以二"
+  ],
+  "solutions": [
+    {
+      "id": "mismatch-positions-doubled-cost-dp",
+      "title": "失配位置双倍代价 DP",
+      "kind": "最优",
+      "idea": "按顺序决定当前失配暂用任意翻转配对，或与前一失配通过相邻操作配对。",
+      "steps": [
+        "收集所有 s[i]!=t[i] 的位置",
+        "若失配数为奇数返回负一",
+        "dp[0]=0，dp[1]=x",
+        "i 从二到失配数",
+        "方案一 dp[i-1]+x",
+        "方案二 dp[i-2]+2*(pos[i-1]-pos[i-2])",
+        "取较小值并最终返回 dp[m]/2"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/mismatch-positions-doubled-cost-dp/Solution.java",
+        "kotlin": "solutions/mismatch-positions-doubled-cost-dp/Solution.kt",
+        "cpp": "solutions/mismatch-positions-doubled-cost-dp/solution.cpp"
+      }
+    }
+  ]
+}

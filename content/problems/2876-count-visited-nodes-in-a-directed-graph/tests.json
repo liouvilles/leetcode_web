@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countVisitedNodes",
+  "parameterTypes": [
+    "intList"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "三节点环外接一个前驱",
+      "args": [
+        [
+          1,
+          2,
+          0,
+          0
+        ]
+      ],
+      "expected": [
+        3,
+        3,
+        3,
+        4
+      ]
+    },
+    {
+      "name": "五个节点组成同一个环",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          0
+        ]
+      ],
+      "expected": [
+        5,
+        5,
+        5,
+        5,
+        5
+      ]
+    },
+    {
+      "name": "两个三环与一条单节点支链",
+      "args": [
+        [
+          1,
+          2,
+          0,
+          4,
+          5,
+          3,
+          5
+        ]
+      ],
+      "expected": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        4
+      ]
+    },
+    {
+      "name": "二元环前连接长度递增的链",
+      "args": [
+        [
+          1,
+          0,
+          1,
+          2
+        ]
+      ],
+      "expected": [
+        2,
+        2,
+        3,
+        4
+      ]
+    }
+  ]
+}

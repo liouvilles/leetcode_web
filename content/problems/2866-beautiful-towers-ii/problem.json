@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2866,
+  "slug": "beautiful-towers-ii",
+  "title": "美丽塔 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-048",
+  "studyTags": [
+    "数组",
+    "栈",
+    "单调栈"
+  ],
+  "summary": "为每座塔选择不超过 maxHeights[i] 的正高度，使整个序列以某个位置为峰先不减后不增，求高度总和的最大值。",
+  "insight": "对每个候选峰，左右最优形状由相邻较小上限向外传播。分别扫描两次，用单调栈找到当前上限左侧或右侧最近的不大于位置，并复用该位置已经计算的区间和，从而在线性时间得到所有峰的总和。",
+  "pitfalls": [
+    "I 与 II 的约束不同但函数签名相同",
+    "单调条件允许平台峰",
+    "栈中保存下标以复用前缀或后缀和",
+    "左右和合并时峰顶只能计算一次"
+  ],
+  "solutions": [
+    {
+      "id": "nearest-lower-stack-prefix-suffix",
+      "title": "最近不大上限栈与前后缀和",
+      "kind": "最优",
+      "idea": "用最近不大于当前高度的位置压缩一整段受限高度。",
+      "steps": [
+        "左扫弹出更高上限，计算以 i 结尾的 left 和",
+        "右扫弹出更高上限，计算以 i 开头的 right 和",
+        "栈空时整段都取当前高度",
+        "否则复用最近不大位置的已算贡献",
+        "枚举峰顶合并左右贡献并减峰高"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/nearest-lower-stack-prefix-suffix/Solution.java",
+        "kotlin": "solutions/nearest-lower-stack-prefix-suffix/Solution.kt",
+        "cpp": "solutions/nearest-lower-stack-prefix-suffix/solution.cpp"
+      }
+    }
+  ]
+}

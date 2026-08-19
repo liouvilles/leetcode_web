@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findIndices",
+  "parameterTypes": [
+    "intArray",
+    "int",
+    "int"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "前缀最大值五与末尾一满足条件",
+      "args": [
+        [
+          5,
+          1,
+          4,
+          1
+        ],
+        2,
+        4
+      ],
+      "expected": [
+        0,
+        3
+      ]
+    },
+    {
+      "name": "零阈值允许同一下标",
+      "args": [
+        [
+          2,
+          1
+        ],
+        0,
+        0
+      ],
+      "expected": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "差值不足时不存在答案",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        2,
+        4
+      ],
+      "expected": [
+        -1,
+        -1
+      ]
+    },
+    {
+      "name": "前缀最小一与末尾八满足条件",
+      "args": [
+        [
+          1,
+          5,
+          2,
+          8
+        ],
+        1,
+        6
+      ],
+      "expected": [
+        0,
+        3
+      ]
+    }
+  ]
+}

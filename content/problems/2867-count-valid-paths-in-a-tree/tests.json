@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countPaths",
+  "parameterTypes": [
+    "int",
+    "intMatrix"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "五节点树中四条路径恰含一个质数",
+      "args": [
+        5,
+        [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            2,
+            5
+          ]
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "两个质数各连两个非质数贡献六条",
+      "args": [
+        6,
+        [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            3,
+            6
+          ]
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "单边只有编号二为质数",
+      "args": [
+        2,
+        [
+          [
+            1,
+            2
+          ]
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

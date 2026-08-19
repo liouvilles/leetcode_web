@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minOperations",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三种数的频次分别为四三二",
+      "args": [
+        [
+          2,
+          3,
+          3,
+          2,
+          2,
+          4,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "数值一只出现一次无法删空",
+      "args": [
+        [
+          2,
+          1,
+          2,
+          2,
+          3,
+          3
+        ]
+      ],
+      "expected": -1
+    },
+    {
+      "name": "七个相等元素需三次删除",
+      "args": [
+        [
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "恰好两个相等元素一次删除",
+      "args": [
+        [
+          9,
+          9
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

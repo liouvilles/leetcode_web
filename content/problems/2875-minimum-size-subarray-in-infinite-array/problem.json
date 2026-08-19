@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": 2875,
+  "slug": "minimum-size-subarray-in-infinite-array",
+  "title": "无限数组的最短子数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-048",
+  "studyTags": [
+    "数组",
+    "滑动窗口",
+    "前缀和"
+  ],
+  "summary": "把正整数数组无限重复拼接，求和恰好等于 target 的最短连续子数组长度；不存在时返回负一。",
+  "insight": "设单周期总和为 total，可先确定 target 中必然包含的完整周期数 quotient，并只为 remainder 寻找额外片段。余数小于 total，若可表示，其最短片段跨界也只需在两个相邻周期上用正数滑动窗口搜索。",
+  "pitfalls": [
+    "窗口必须允许跨越周期末尾与开头",
+    "target 和周期总和的运算使用 long",
+    "余数为零时无需再找窗口",
+    "滑动窗口只因元素全为正数而成立"
+  ],
+  "solutions": [
+    {
+      "id": "full-cycles-and-doubled-sliding-window",
+      "title": "完整周期与双周期滑动窗口",
+      "kind": "最优",
+      "idea": "拆出完整周期后在线性长度的双倍数组中寻找余数。",
+      "steps": [
+        "计算 total=sum(nums)",
+        "quotient=target/total、remainder=target%total",
+        "若 remainder 为零，返回 quotient*n",
+        "left=0、window=0、best=无穷",
+        "right 扫描 0..2n-1 并加入 nums[right%n]",
+        "window>remainder 时不断移出左端",
+        "window==remainder 时更新最短窗口",
+        "找不到返回负一，否则返回 quotient*n+best"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/full-cycles-and-doubled-sliding-window/Solution.java",
+        "kotlin": "solutions/full-cycles-and-doubled-sliding-window/Solution.kt",
+        "cpp": "solutions/full-cycles-and-doubled-sliding-window/solution.cpp"
+      }
+    }
+  ]
+}

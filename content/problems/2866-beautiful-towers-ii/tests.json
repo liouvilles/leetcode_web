@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumSumOfHeights",
+  "parameterTypes": [
+    "intList"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "经典上限序列最大总和十三",
+      "args": [
+        [
+          5,
+          3,
+          4,
+          1,
+          1
+        ]
+      ],
+      "expected": 13
+    },
+    {
+      "name": "中间高峰最大总和二十二",
+      "args": [
+        [
+          6,
+          5,
+          3,
+          9,
+          2,
+          7
+        ]
+      ],
+      "expected": 22
+    },
+    {
+      "name": "双五平台峰最大总和十八",
+      "args": [
+        [
+          3,
+          2,
+          5,
+          5,
+          2,
+          3
+        ]
+      ],
+      "expected": 18
+    },
+    {
+      "name": "严格递增时全部取上限",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": 10
+    },
+    {
+      "name": "三座十亿高塔验证长整型总和",
+      "args": [
+        [
+          1000000000,
+          1000000000,
+          1000000000
+        ]
+      ],
+      "expected": 3000000000
+    }
+  ]
+}

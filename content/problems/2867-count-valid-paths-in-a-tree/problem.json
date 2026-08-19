@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": 2867,
+  "slug": "count-valid-paths-in-a-tree",
+  "title": "统计树中的合法路径数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-048",
+  "studyTags": [
+    "数学",
+    "树",
+    "并查集",
+    "数论",
+    "质数筛"
+  ],
+  "summary": "树的节点按一到 n 编号，统计路径上恰好只有一个质数编号节点的无序异点对。",
+  "insight": "删去所有质数节点后，其余节点形成若干非质数连通块。一条合法路径的唯一质数 p 要么是一个端点，要么连接 p 相邻的两个不同非质数连通块。用并查集求块大小，再对每个质数逐块累加即可。",
+  "pitfalls": [
+    "节点编号从一开始且一不是质数",
+    "单个质数节点不构成异点对",
+    "只能合并边的两端都非质数的节点",
+    "路径数可超过 int，答案使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "non-prime-components-around-each-prime",
+      "title": "按质数汇总相邻非质数块",
+      "kind": "最优",
+      "idea": "每条合法路径按其唯一质数归类计数。",
+      "steps": [
+        "用埃氏筛标记一到 n 中的质数",
+        "建图，并用并查集合并每条两端都非质数的边",
+        "枚举质数 p，维护已处理相邻块的节点总数 connected",
+        "当前块大小为 size，新增 size 条 p 到块内节点路径",
+        "再新增 size*connected 条跨两块路径",
+        "返回总计数"
+      ],
+      "complexity": {
+        "time": "O(n log log n + n α(n))",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/non-prime-components-around-each-prime/Solution.java",
+        "kotlin": "solutions/non-prime-components-around-each-prime/Solution.kt",
+        "cpp": "solutions/non-prime-components-around-each-prime/solution.cpp"
+      }
+    }
+  ]
+}

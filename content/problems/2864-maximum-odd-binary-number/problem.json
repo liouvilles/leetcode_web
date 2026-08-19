@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2864,
+  "slug": "maximum-odd-binary-number",
+  "title": "最大二进制奇数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-048",
+  "studyTags": [
+    "数学",
+    "字符串",
+    "贪心"
+  ],
+  "summary": "重新排列二进制字符串中的所有字符，使结果表示最大的二进制奇数。",
+  "insight": "奇数的末位必须是一，因此先保留一个一放在末尾。剩余高位要尽可能大，只需把其余所有一放在最前，再放全部零，最后接上保留的一。",
+  "pitfalls": [
+    "必须为末位预留一个一",
+    "零应放在高位的一与末位一之间",
+    "题目保证字符串至少包含一个一",
+    "结果长度和字符计数都不能改变"
+  ],
+  "solutions": [
+    {
+      "id": "reserve-one-for-last-bit",
+      "title": "预留末位一",
+      "kind": "最优",
+      "idea": "统计一的数量后按一、零、末位一的顺序构造。",
+      "steps": [
+        "统计 ones",
+        "追加 ones-1 个一",
+        "追加 n-ones 个零",
+        "最后追加一个一",
+        "返回结果"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/reserve-one-for-last-bit/Solution.java",
+        "kotlin": "solutions/reserve-one-for-last-bit/Solution.kt",
+        "cpp": "solutions/reserve-one-for-last-bit/solution.cpp"
+      }
+    }
+  ]
+}

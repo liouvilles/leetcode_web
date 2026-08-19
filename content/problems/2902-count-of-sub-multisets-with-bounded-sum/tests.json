@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countSubMultisets",
+  "parameterTypes": [
+    "intList",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一到五范围共有七种子多重集合",
+      "args": [
+        [
+          2,
+          1,
+          4,
+          2,
+          7
+        ],
+        1,
+        5
+      ],
+      "expected": 7
+    },
+    {
+      "name": "两个零分别可选零一二个使方案乘三",
+      "args": [
+        [
+          0,
+          0,
+          1
+        ],
+        0,
+        1
+      ],
+      "expected": 6
+    },
+    {
+      "name": "三个一选择两个或三个共两种",
+      "args": [
+        [
+          1,
+          1,
+          1
+        ],
+        2,
+        3
+      ],
+      "expected": 2
+    },
+    {
+      "name": "恰好和六只有一种选择",
+      "args": [
+        [
+          1,
+          2,
+          2,
+          3
+        ],
+        6,
+        6
+      ],
+      "expected": 1
+    }
+  ]
+}

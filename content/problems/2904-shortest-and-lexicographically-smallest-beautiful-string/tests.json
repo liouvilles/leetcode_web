@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "shortestBeautifulSubstring",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "四个一中后三个形成最短窗口",
+      "args": [
+        "100011001",
+        3
+      ],
+      "expected": "11001"
+    },
+    {
+      "name": "相邻两个一形成长度二答案",
+      "args": [
+        "1011",
+        2
+      ],
+      "expected": "11"
+    },
+    {
+      "name": "总一数不足返回空串",
+      "args": [
+        "000",
+        1
+      ],
+      "expected": ""
+    },
+    {
+      "name": "同长候选选择字典序更小的1011",
+      "args": [
+        "101101",
+        3
+      ],
+      "expected": "1011"
+    }
+  ]
+}

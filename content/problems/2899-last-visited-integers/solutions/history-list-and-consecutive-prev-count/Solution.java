@@ -1,0 +1,1 @@
+class Solution { public List<Integer> lastVisitedIntegers(int[] nums){List<Integer> history=new ArrayList<>(),answer=new ArrayList<>();int counter=0;for(int value:nums)if(value==-1){counter++;int index=history.size()-counter;answer.add(index>=0?history.get(index):-1);}else{history.add(value);counter=0;}return answer;} }

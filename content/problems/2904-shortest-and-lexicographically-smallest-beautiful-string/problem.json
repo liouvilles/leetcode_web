@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2904,
+  "slug": "shortest-and-lexicographically-smallest-beautiful-string",
+  "title": "最短且字典序最小的美丽子字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-048",
+  "studyTags": [
+    "字符串",
+    "滑动窗口"
+  ],
+  "summary": "在二进制串中寻找恰好含 k 个一的非空子字符串，先要求长度最短，再要求字典序最小；不存在返回空串。",
+  "insight": "滑动右端点并维护窗口内一的数量。当一超过 k 时收缩，随后去掉所有前导零；此时若一恰为 k，当前窗口是该右端点下最短候选。比较长度和字典序即可。",
+  "pitfalls": [
+    "必须恰好包含 k 个一",
+    "优先级先最短长度后字典序",
+    "候选窗口前导零必须及时删除",
+    "一的总数不足 k 时返回空串"
+  ],
+  "solutions": [
+    {
+      "id": "trimmed-sliding-window",
+      "title": "去前导零的滑动窗口",
+      "kind": "最优",
+      "idea": "维护至多 k 个一，并让合法窗口左端始终落在一上。",
+      "steps": [
+        "left=0、ones=0、answer 为空",
+        "right 扫描字符串并更新 ones",
+        "当左端是零或 ones>k 时收缩；跨过一要递减 ones",
+        "若 ones==k，取得当前候选",
+        "按长度更短或同长字典序更小更新 answer",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n²) worst-case substring comparison",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/trimmed-sliding-window/Solution.java",
+        "kotlin": "solutions/trimmed-sliding-window/Solution.kt",
+        "cpp": "solutions/trimmed-sliding-window/solution.cpp"
+      }
+    }
+  ]
+}

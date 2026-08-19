@@ -1,0 +1,1 @@
+class Solution { public:vector<int> lastVisitedIntegers(vector<int>& nums){vector<int> history,answer;int counter=0;for(int value:nums)if(value==-1){++counter;int index=history.size()-counter;answer.push_back(index>=0?history[index]:-1);}else{history.push_back(value);counter=0;}return answer;} };

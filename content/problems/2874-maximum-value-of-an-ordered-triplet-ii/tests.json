@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumTripletValue",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "经典样例最大值七十七",
+      "args": [
+        [
+          12,
+          6,
+          1,
+          2,
+          7
+        ]
+      ],
+      "expected": 77
+    },
+    {
+      "name": "前缀十与三形成最优差值",
+      "args": [
+        [
+          1,
+          10,
+          3,
+          4,
+          19
+        ]
+      ],
+      "expected": 133
+    },
+    {
+      "name": "递增数组没有正差值",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "大数乘积验证长整型结果",
+      "args": [
+        [
+          1000000,
+          1,
+          1000000
+        ]
+      ],
+      "expected": 999999000000
+    }
+  ]
+}

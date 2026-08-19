@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2865,
+  "slug": "beautiful-towers-i",
+  "title": "美丽塔 I",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-048",
+  "studyTags": [
+    "数组",
+    "栈",
+    "单调栈"
+  ],
+  "summary": "为每座塔选择不超过 maxHeights[i] 的正高度，并选一个峰顶使高度向峰顶不减、离开峰顶不增，求所有塔高度和的最大值。",
+  "insight": "固定峰顶后，峰顶两侧的最优高度都是从峰顶向外不断取当前上限与内侧高度的较小值。单调栈可批量计算每个位置作为右端点的左侧最优和，以及作为左端点的右侧最优和；两者相加后减去重复峰顶即可枚举所有峰。",
+  "pitfalls": [
+    "峰顶两侧允许出现相等高度",
+    "实际高度必须不超过对应上限",
+    "左右贡献都会包含峰顶一次",
+    "总高度和使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "monotonic-stack-bidirectional-sums",
+      "title": "单调栈双向贡献和",
+      "kind": "最优",
+      "idea": "预处理每个位置两侧受限单调序列的最大总和。",
+      "steps": [
+        "从左到右维护上限单调不减的下标栈",
+        "弹出比当前上限高的位置并计算 left[i]",
+        "清空栈后从右到左同理计算 right[i]",
+        "对每个峰计算 left[i]+right[i]-maxHeights[i]",
+        "返回最大值"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/monotonic-stack-bidirectional-sums/Solution.java",
+        "kotlin": "solutions/monotonic-stack-bidirectional-sums/Solution.kt",
+        "cpp": "solutions/monotonic-stack-bidirectional-sums/solution.cpp"
+      }
+    }
+  ]
+}

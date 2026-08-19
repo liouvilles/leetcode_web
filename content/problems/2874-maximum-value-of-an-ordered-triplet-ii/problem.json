@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2874,
+  "slug": "maximum-value-of-an-ordered-triplet-ii",
+  "title": "有序三元组中的最大值 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-048",
+  "studyTags": [
+    "数组",
+    "前缀和"
+  ],
+  "summary": "在更大规模的数组中选择下标 i<j<k，求 (nums[i]-nums[j])*nums[k] 的最大非负值。",
+  "insight": "枚举第三个下标时，历史最优二元差已经概括所有合法 i<j。最大前缀值可在常数时间生成新的二元差，因此一次扫描便能在大数据范围内求解。",
+  "pitfalls": [
+    "不能使用三重或二重枚举应对大规模输入",
+    "答案与中间乘积使用 long",
+    "先用旧 difference 计算当前 k 的答案",
+    "不存在正值时保持答案为零"
+  ],
+  "solutions": [
+    {
+      "id": "streaming-prefix-maximum-and-difference",
+      "title": "流式前缀最大值与差值",
+      "kind": "最优",
+      "idea": "用两个前缀最优状态消去前两个下标的枚举。",
+      "steps": [
+        "maximum=nums[0]、difference=0、answer=0",
+        "依次把每个位置作为 k",
+        "answer=max(answer,difference*nums[k])",
+        "difference=max(difference,maximum-nums[k])",
+        "maximum=max(maximum,nums[k])",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/streaming-prefix-maximum-and-difference/Solution.java",
+        "kotlin": "solutions/streaming-prefix-maximum-and-difference/Solution.kt",
+        "cpp": "solutions/streaming-prefix-maximum-and-difference/solution.cpp"
+      }
+    }
+  ]
+}

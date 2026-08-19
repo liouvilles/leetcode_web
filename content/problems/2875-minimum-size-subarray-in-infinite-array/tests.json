@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minSizeSubarray",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "单周期内二加三得到五",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        5
+      ],
+      "expected": 2
+    },
+    {
+      "name": "跨周期末尾三加开头一",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          2,
+          3
+        ],
+        4
+      ],
+      "expected": 2
+    },
+    {
+      "name": "目标是两个完整周期",
+      "args": [
+        [
+          2,
+          3
+        ],
+        10
+      ],
+      "expected": 4
+    },
+    {
+      "name": "所有连续片段均无法得到五",
+      "args": [
+        [
+          2,
+          4,
+          6
+        ],
+        5
+      ],
+      "expected": -1
+    },
+    {
+      "name": "一个完整周期加跨界余数共五个元素",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        10
+      ],
+      "expected": 5
+    }
+  ]
+}

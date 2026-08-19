@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2869,
+  "slug": "minimum-operations-to-collect-elements",
+  "title": "收集元素的最少操作次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-048",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "位运算"
+  ],
+  "summary": "每次从数组末尾删除一个元素并收集它，求收齐一到 k 所需的最少操作数。",
+  "insight": "操作顺序被数组末尾唯一确定，因此从右向左扫描即是按收集顺序模拟。用布尔数组记录一到 k 中已出现的数，最后一个缺失数首次被收集时的后缀长度就是答案。",
+  "pitfalls": [
+    "数值大于 k 也要消耗操作但不影响已收集种类",
+    "同一必需数的重复出现只能让缺失数减一一次",
+    "答案是已弹出的后缀长度",
+    "收齐后应立即停止"
+  ],
+  "solutions": [
+    {
+      "id": "reverse-scan-required-values",
+      "title": "逆序扫描必需元素",
+      "kind": "最优",
+      "idea": "模拟从末尾弹出，直到所有必需值都已出现。",
+      "steps": [
+        "collected[1..k] 初始为 false，missing=k",
+        "i 从 nums 末尾向前扫描",
+        "若 nums[i] 不超过 k 且未收集，标记并将 missing 减一",
+        "missing 变为零时返回 nums.size-i"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(k)"
+      },
+      "files": {
+        "java": "solutions/reverse-scan-required-values/Solution.java",
+        "kotlin": "solutions/reverse-scan-required-values/Solution.kt",
+        "cpp": "solutions/reverse-scan-required-values/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "problemCount": 2021,
-  "solutionCount": 2048,
-  "implementationCount": 6144,
+  "problemCount": 2046,
+  "solutionCount": 2073,
+  "implementationCount": 6219,
   "problems": [
     {
       "id": 1,
@@ -30270,6 +30270,381 @@
       "batch": "batch-047",
       "solutionCount": 1,
       "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2861,
+      "slug": "maximum-number-of-alloys",
+      "title": "最大合金数",
+      "studyTags": [
+        "数组",
+        "二分查找"
+      ],
+      "status": "published",
+      "batch": "batch-048",
+      "solutionCount": 1,
+      "testCount": 4,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2862,
+      "slug": "maximum-element-sum-of-a-complete-subset-of-indices",
+      "title": "完全子集的最大元素和",
+      "studyTags": [
+        "数组",
+        "数学",
+        "数论"
+      ],
+      "status": "published",
+      "batch": "batch-048",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2864,
+      "slug": "maximum-odd-binary-number",
+      "title": "最大二进制奇数",
+      "studyTags": [
+        "数学",
+        "字符串",
+        "贪心"
+      ],
+      "status": "published",
+      "batch": "batch-048",
+      "solutionCount": 1,
+      "testCount": 4,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2865,
+      "slug": "beautiful-towers-i",
+      "title": "美丽塔 I",
+      "studyTags": [
+        "数组",
+        "栈",
+        "单调栈"
+      ],
+      "status": "published",
+      "batch": "batch-048",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2866,
+      "slug": "beautiful-towers-ii",
+      "title": "美丽塔 II",
+      "studyTags": [
+        "数组",
+        "栈",
+        "单调栈"
+      ],
+      "status": "published",
+      "batch": "batch-048",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2867,
+      "slug": "count-valid-paths-in-a-tree",
+      "title": "统计树中的合法路径数目",
+      "studyTags": [
+        "数学",
+        "树",
+        "并查集",
+        "数论",
+        "质数筛"
+      ],
+      "status": "published",
+      "batch": "batch-048",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2869,
+      "slug": "minimum-operations-to-collect-elements",
+      "title": "收集元素的最少操作次数",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "位运算"
+      ],
+      "status": "published",
+      "batch": "batch-048",
+      "solutionCount": 1,
+      "testCount": 4,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2870,
+      "slug": "minimum-number-of-operations-to-make-array-empty",
+      "title": "使数组为空的最少操作次数",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "贪心",
+        "计数"
+      ],
+      "status": "published",
+      "batch": "batch-048",
+      "solutionCount": 1,
+      "testCount": 4,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2871,
+      "slug": "split-array-into-maximum-number-of-subarrays",
+      "title": "将数组分割成最多数目的子数组",
+      "studyTags": [
+        "数组",
+        "贪心",
+        "位运算"
+      ],
+      "status": "published",
+      "batch": "batch-048",
+      "solutionCount": 1,
+      "testCount": 4,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2872,
+      "slug": "maximum-number-of-k-divisible-components",
+      "title": "可以被 K 整除连通块的最大数目",
+      "studyTags": [
+        "树",
+        "深度优先搜索",
+        "后序遍历"
+      ],
+      "status": "published",
+      "batch": "batch-048",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2873,
+      "slug": "maximum-value-of-an-ordered-triplet-i",
+      "title": "有序三元组中的最大值 I",
+      "studyTags": [
+        "数组",
+        "前缀和"
+      ],
+      "status": "published",
+      "batch": "batch-048",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2874,
+      "slug": "maximum-value-of-an-ordered-triplet-ii",
+      "title": "有序三元组中的最大值 II",
+      "studyTags": [
+        "数组",
+        "前缀和"
+      ],
+      "status": "published",
+      "batch": "batch-048",
+      "solutionCount": 1,
+      "testCount": 4,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2875,
+      "slug": "minimum-size-subarray-in-infinite-array",
+      "title": "无限数组的最短子数组",
+      "studyTags": [
+        "数组",
+        "滑动窗口",
+        "前缀和"
+      ],
+      "status": "published",
+      "batch": "batch-048",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2876,
+      "slug": "count-visited-nodes-in-a-directed-graph",
+      "title": "有向图访问计数",
+      "studyTags": [
+        "动态规划",
+        "图论",
+        "拓扑排序"
+      ],
+      "status": "published",
+      "batch": "batch-048",
+      "solutionCount": 1,
+      "testCount": 4,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2894,
+      "slug": "divisible-and-non-divisible-sums-difference",
+      "title": "分类求和并作差",
+      "studyTags": [
+        "数学"
+      ],
+      "status": "published",
+      "batch": "batch-048",
+      "solutionCount": 1,
+      "testCount": 4,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2895,
+      "slug": "minimum-processing-time",
+      "title": "最小处理时间",
+      "studyTags": [
+        "数组",
+        "贪心",
+        "排序"
+      ],
+      "status": "published",
+      "batch": "batch-048",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2896,
+      "slug": "apply-operations-to-make-two-strings-equal",
+      "title": "执行操作使两个字符串相等",
+      "studyTags": [
+        "字符串",
+        "动态规划"
+      ],
+      "status": "published",
+      "batch": "batch-048",
+      "solutionCount": 1,
+      "testCount": 4,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2897,
+      "slug": "apply-operations-on-array-to-maximize-sum-of-squares",
+      "title": "对数组执行操作使平方和最大",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "贪心",
+        "位运算"
+      ],
+      "status": "published",
+      "batch": "batch-048",
+      "solutionCount": 1,
+      "testCount": 4,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2899,
+      "slug": "last-visited-integers",
+      "title": "上一个遍历的整数",
+      "studyTags": [
+        "数组",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-048",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2900,
+      "slug": "longest-unequal-adjacent-groups-subsequence-i",
+      "title": "最长相邻不相等子序列 I",
+      "studyTags": [
+        "数组",
+        "字符串",
+        "动态规划",
+        "贪心"
+      ],
+      "status": "published",
+      "batch": "batch-048",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2901,
+      "slug": "longest-unequal-adjacent-groups-subsequence-ii",
+      "title": "最长相邻不相等子序列 II",
+      "studyTags": [
+        "数组",
+        "字符串",
+        "动态规划"
+      ],
+      "status": "published",
+      "batch": "batch-048",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2902,
+      "slug": "count-of-sub-multisets-with-bounded-sum",
+      "title": "和带限制的子多重集合的数目",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "动态规划",
+        "滑动窗口",
+        "背包问题",
+        "多重背包"
+      ],
+      "status": "published",
+      "batch": "batch-048",
+      "solutionCount": 1,
+      "testCount": 4,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2903,
+      "slug": "find-indices-with-index-and-value-difference-i",
+      "title": "找出满足差值条件的下标 I",
+      "studyTags": [
+        "数组",
+        "双指针",
+        "枚举"
+      ],
+      "status": "published",
+      "batch": "batch-048",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2904,
+      "slug": "shortest-and-lexicographically-smallest-beautiful-string",
+      "title": "最短且字典序最小的美丽子字符串",
+      "studyTags": [
+        "字符串",
+        "滑动窗口"
+      ],
+      "status": "published",
+      "batch": "batch-048",
+      "solutionCount": 1,
+      "testCount": 4,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2905,
+      "slug": "find-indices-with-index-and-value-difference-ii",
+      "title": "找出满足差值条件的下标 II",
+      "studyTags": [
+        "数组",
+        "双指针",
+        "前缀最值"
+      ],
+      "status": "published",
+      "batch": "batch-048",
+      "solutionCount": 1,
+      "testCount": 4,
       "qualityGate": "tested"
     }
   ]

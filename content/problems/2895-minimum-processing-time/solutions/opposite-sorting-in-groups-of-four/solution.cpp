@@ -1,0 +1,1 @@
+class Solution { public:int minProcessingTime(vector<int>& processorTime,vector<int>& tasks){sort(processorTime.begin(),processorTime.end());sort(tasks.rbegin(),tasks.rend());int answer=0;for(int i=0;i<(int)processorTime.size();++i)answer=max(answer,processorTime[i]+tasks[4*i]);return answer;} };

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": 2872,
+  "slug": "maximum-number-of-k-divisible-components",
+  "title": "可以被 K 整除连通块的最大数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-048",
+  "studyTags": [
+    "树",
+    "深度优先搜索",
+    "后序遍历"
+  ],
+  "summary": "从节点带值的树中删除若干边，要求每个剩余连通块的节点值之和都能被 k 整除，求最多连通块数。",
+  "insight": "把树根化后自底向上计算子树和模 k 的余数。若某子树余数为零，立即切断它与父节点的边一定不会阻碍其余部分可行，且能多得一块；非零余数则必须传给父节点合并。",
+  "pitfalls": [
+    "节点编号从零开始",
+    "根子树余数为零时也要计为一个连通块",
+    "节点值和可超过 int，累加时用 long 并及时取模",
+    "长链树可使递归爆栈，可用显式顺序数组倒序处理"
+  ],
+  "solutions": [
+    {
+      "id": "iterative-postorder-subtree-remainders",
+      "title": "迭代后序汇总子树余数",
+      "kind": "最优",
+      "idea": "余数为零的最深子树都可独立切成一块。",
+      "steps": [
+        "建立无向邻接表",
+        "从根节点零迭代遍历，记录 parent 与先父在前的 order",
+        "初始化 remainder[node]=values[node]%k",
+        "倒序遍历 order 得到后序",
+        "当前余数为零时连通块数加一",
+        "否则把当前余数加入父节点并对 k 取模",
+        "返回连通块数"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/iterative-postorder-subtree-remainders/Solution.java",
+        "kotlin": "solutions/iterative-postorder-subtree-remainders/Solution.kt",
+        "cpp": "solutions/iterative-postorder-subtree-remainders/solution.cpp"
+      }
+    }
+  ]
+}

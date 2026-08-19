@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2861,
+  "slug": "maximum-number-of-alloys",
+  "title": "最大合金数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-048",
+  "studyTags": [
+    "数组",
+    "二分查找"
+  ],
+  "summary": "有 k 台机器，每台制造一份合金需要固定数量的 n 种金属；已有库存且可按单价补购，在预算内求使用同一台机器最多能制造多少份合金。",
+  "insight": "固定制造数量后，每台机器所需补购成本都可直接计算，数量越大可行性单调不增，因此二分答案。对任一金属，即使把全部预算只用于购买它，制造量也不能超过 (stock+budget/cost)/composition；各机器取最紧限制，再取最大值即可得到安全二分上界。",
+  "pitfalls": [
+    "一批合金只能选择同一台机器制造",
+    "库存足够的金属不产生负成本",
+    "数量、需求量和花费都要用 long",
+    "可行性是存在至少一台机器不超预算"
+  ],
+  "solutions": [
+    {
+      "id": "binary-search-production-count",
+      "title": "二分制造数量",
+      "kind": "最优",
+      "idea": "以任一机器能否在预算内制造给定数量作为单调判定。",
+      "steps": [
+        "按每台机器的各金属独立预算上界求全局 upper",
+        "二分区间设为 [0,upper+1)",
+        "对 middle 逐台计算补购费用",
+        "某台机器费用不超过 budget 即判定可行",
+        "可行时提升 low，否则降低 high",
+        "返回 low"
+      ],
+      "complexity": {
+        "time": "O(nk log U)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/binary-search-production-count/Solution.java",
+        "kotlin": "solutions/binary-search-production-count/Solution.kt",
+        "cpp": "solutions/binary-search-production-count/solution.cpp"
+      }
+    }
+  ]
+}

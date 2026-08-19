@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2894,
+  "slug": "divisible-and-non-divisible-sums-difference",
+  "title": "分类求和并作差",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-048",
+  "studyTags": [
+    "数学"
+  ],
+  "summary": "把一到 n 中不能被 m 整除的整数求和为 num1、能被 m 整除的整数求和为 num2，返回 num1-num2。",
+  "insight": "一到 n 的总和等于 num1+num2，所以所求差值为总和减去两倍 num2。m 的倍数共有 floor(n/m) 个，其和可直接用等差数列公式计算。",
+  "pitfalls": [
+    "范围包含一和 n",
+    "差值可能为负数",
+    "整除组需要在总和中扣除两次",
+    "倍数个数使用整数除法"
+  ],
+  "solutions": [
+    {
+      "id": "arithmetic-series-closed-form",
+      "title": "等差数列闭式计算",
+      "kind": "最优",
+      "idea": "分别用公式得到总和与倍数和。",
+      "steps": [
+        "count=n/m",
+        "total=n*(n+1)/2",
+        "divisible=m*count*(count+1)/2",
+        "返回 total-2*divisible"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/arithmetic-series-closed-form/Solution.java",
+        "kotlin": "solutions/arithmetic-series-closed-form/Solution.kt",
+        "cpp": "solutions/arithmetic-series-closed-form/solution.cpp"
+      }
+    }
+  ]
+}

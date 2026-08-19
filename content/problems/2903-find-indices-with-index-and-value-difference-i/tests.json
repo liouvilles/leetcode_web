@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findIndices",
+  "parameterTypes": [
+    "intArray",
+    "int",
+    "int"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "下标零与三同时满足两个差值",
+      "args": [
+        [
+          5,
+          1,
+          4,
+          1
+        ],
+        2,
+        4
+      ],
+      "expected": [
+        0,
+        3
+      ]
+    },
+    {
+      "name": "差值阈值为零时同一下标合法",
+      "args": [
+        [
+          2,
+          1
+        ],
+        0,
+        0
+      ],
+      "expected": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "没有元素差达到四",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        2,
+        4
+      ],
+      "expected": [
+        -1,
+        -1
+      ]
+    }
+  ]
+}

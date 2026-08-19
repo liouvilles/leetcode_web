@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxSum",
+  "parameterTypes": [
+    "intList",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "位集中成十五和六平方和二百六十一",
+      "args": [
+        [
+          2,
+          6,
+          5,
+          8
+        ],
+        2
+      ],
+      "expected": 261
+    },
+    {
+      "name": "构造七五四三个数平方和九十",
+      "args": [
+        [
+          4,
+          5,
+          4,
+          7
+        ],
+        3
+      ],
+      "expected": 90
+    },
+    {
+      "name": "单个一的平方仍为一",
+      "args": [
+        [
+          1
+        ],
+        1
+      ],
+      "expected": 1
+    },
+    {
+      "name": "十亿平方取模得到四十九",
+      "args": [
+        [
+          1000000000
+        ],
+        1
+      ],
+      "expected": 49
+    }
+  ]
+}

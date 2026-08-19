@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minProcessingTime",
+  "parameterTypes": [
+    "intList",
+    "intList"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "最快处理器承担最慢四任务结果十六",
+      "args": [
+        [
+          8,
+          10
+        ],
+        [
+          2,
+          2,
+          3,
+          1,
+          8,
+          7,
+          4,
+          5
+        ]
+      ],
+      "expected": 16
+    },
+    {
+      "name": "第二台较慢处理器决定完成时间",
+      "args": [
+        [
+          10,
+          20
+        ],
+        [
+          2,
+          3,
+          1,
+          2,
+          5,
+          8,
+          4,
+          3
+        ]
+      ],
+      "expected": 23
+    },
+    {
+      "name": "单处理器由最大任务决定",
+      "args": [
+        [
+          5
+        ],
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": 9
+    }
+  ]
+}
