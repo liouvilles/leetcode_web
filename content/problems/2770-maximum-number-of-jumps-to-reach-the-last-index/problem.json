@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2770,
+  "slug": "maximum-number-of-jumps-to-reach-the-last-index",
+  "title": "达到末尾下标所需的最大跳跃次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-045",
+  "studyTags": [
+    "数组",
+    "动态规划"
+  ],
+  "summary": "只能从较小下标跳到较大下标，且两值差绝对值不超过 target，求到达末尾的最大跳跃次数，不可达返回负一。",
+  "insight": "下标天然构成有向无环图。令 dp[j] 为到达 j 的最大跳数，枚举所有 i<j，若 i 可达且数值差满足条件，就用 dp[i]+1 更新 dp[j]。",
+  "pitfalls": [
+    "目标是最大跳数而非最少",
+    "只能向更大下标跳",
+    "数值差计算使用 long 防溢出",
+    "不可达状态保持负值"
+  ],
+  "solutions": [
+    {
+      "id": "quadratic-index-dp",
+      "title": "按终点做二次动态规划",
+      "kind": "最优",
+      "idea": "枚举所有可能的前驱下标。",
+      "steps": [
+        "dp 全为负一，dp[0]=0",
+        "end 从一到 n-1",
+        "枚举 start<end",
+        "若 dp[start]>=0 且绝对差<=target",
+        "dp[end]=max(dp[end],dp[start]+1)",
+        "返回 dp[n-1]"
+      ],
+      "complexity": {
+        "time": "O(n^2)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/quadratic-index-dp/Solution.java",
+        "kotlin": "solutions/quadratic-index-dp/Solution.kt",
+        "cpp": "solutions/quadratic-index-dp/solution.cpp"
+      }
+    }
+  ]
+}

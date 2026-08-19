@@ -1,0 +1,1 @@
+class Solution { public:int maximumBeauty(vector<int>& nums,int k){sort(nums.begin(),nums.end());int left=0,answer=0;for(int right=0;right<(int)nums.size();++right){while((long long)nums[right]-nums[left]>2LL*k)++left;answer=max(answer,right-left+1);}return answer;} };

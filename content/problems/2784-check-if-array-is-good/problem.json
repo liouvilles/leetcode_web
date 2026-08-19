@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2784,
+  "slug": "check-if-array-is-good",
+  "title": "检查数组是否是好的",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-045",
+  "studyTags": [
+    "数组",
+    "排序",
+    "哈希表"
+  ],
+  "summary": "长度为 n 的数组若恰含一到 n-1，其中 n-1 出现两次、其余各一次，则称为好数组，判断是否满足。",
+  "insight": "排序后，好数组的前 n-1 个位置必须依次为一到 n-1，最后一个位置还必须是 n-1。直接逐位检查即可。",
+  "pitfalls": [
+    "最大允许值是 n-1",
+    "n-1 必须恰好出现两次",
+    "其余一到 n-2 各一次",
+    "排序会修改输入"
+  ],
+  "solutions": [
+    {
+      "id": "sort-and-compare-required-sequence",
+      "title": "排序比对目标序列",
+      "kind": "最优",
+      "idea": "有序形式唯一，可逐位置验证。",
+      "steps": [
+        "升序排序 nums",
+        "i 从零到 n-2，检查 nums[i]==i+1",
+        "检查 nums[n-1]==n-1",
+        "全部满足返回 true"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n) sorting"
+      },
+      "files": {
+        "java": "solutions/sort-and-compare-required-sequence/Solution.java",
+        "kotlin": "solutions/sort-and-compare-required-sequence/Solution.kt",
+        "cpp": "solutions/sort-and-compare-required-sequence/solution.cpp"
+      }
+    }
+  ]
+}

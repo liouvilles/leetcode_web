@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "makeTheIntegerZero",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "负 num2 时三次可拆成幂和",
+      "args": [
+        3,
+        -2
+      ],
+      "expected": 3
+    },
+    {
+      "name": "目标持续为负时无解",
+      "args": [
+        5,
+        7
+      ],
+      "expected": -1
+    },
+    {
+      "name": "十减两次五得到零",
+      "args": [
+        10,
+        1
+      ],
+      "expected": 2
+    }
+  ]
+}

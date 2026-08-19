@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": 2747,
+  "slug": "count-zero-request-servers",
+  "title": "统计没有收到请求的服务器数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-045",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "滑动窗口",
+    "排序",
+    "离线查询"
+  ],
+  "summary": "给定服务器请求日志，对每个查询统计时间区间 [query-x,query] 内没有收到请求的服务器数。",
+  "insight": "把日志按时间、查询按时间分别排序，用双指针维护当前查询窗口中的日志。服务器计数从零变一或从一变零时同步维护活跃服务器数，答案就是 n 减活跃数。",
+  "pitfalls": [
+    "查询窗口左右端点都包含",
+    "多个查询要按原顺序返回",
+    "同一服务器在窗口内可能有多条日志",
+    "移出条件是 time<query-x"
+  ],
+  "solutions": [
+    {
+      "id": "offline-queries-with-log-window",
+      "title": "离线查询加日志滑动窗口",
+      "kind": "最优",
+      "idea": "查询时间单调增加时复用窗口内服务器频次。",
+      "steps": [
+        "日志按 time 升序",
+        "查询下标按 queries 值升序",
+        "加入所有 time<=query 的日志",
+        "移除所有 time<query-x 的日志",
+        "维护 count[server] 与 activeServers",
+        "answer[原查询下标]=n-activeServers"
+      ],
+      "complexity": {
+        "time": "O((L+q) log(L+q))",
+        "space": "O(n+q)"
+      },
+      "files": {
+        "java": "solutions/offline-queries-with-log-window/Solution.java",
+        "kotlin": "solutions/offline-queries-with-log-window/Solution.kt",
+        "cpp": "solutions/offline-queries-with-log-window/solution.cpp"
+      }
+    }
+  ]
+}

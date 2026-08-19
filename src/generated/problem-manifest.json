@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "problemCount": 1946,
-  "solutionCount": 1973,
-  "implementationCount": 5919,
+  "problemCount": 1971,
+  "solutionCount": 1998,
+  "implementationCount": 5994,
   "problems": [
     {
       "id": 1,
@@ -29134,6 +29134,382 @@
       ],
       "status": "published",
       "batch": "batch-044",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2747,
+      "slug": "count-zero-request-servers",
+      "title": "统计没有收到请求的服务器数目",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "滑动窗口",
+        "排序",
+        "离线查询"
+      ],
+      "status": "published",
+      "batch": "batch-045",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2748,
+      "slug": "number-of-beautiful-pairs",
+      "title": "美丽下标对的数目",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "数学",
+        "计数",
+        "数论"
+      ],
+      "status": "published",
+      "batch": "batch-045",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2749,
+      "slug": "minimum-operations-to-make-the-integer-zero",
+      "title": "得到整数零需要执行的最少操作数",
+      "studyTags": [
+        "位运算",
+        "枚举",
+        "数学"
+      ],
+      "status": "published",
+      "batch": "batch-045",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2750,
+      "slug": "ways-to-split-array-into-good-subarrays",
+      "title": "将数组划分成若干好子数组的方式",
+      "studyTags": [
+        "数组",
+        "数学",
+        "动态规划"
+      ],
+      "status": "published",
+      "batch": "batch-045",
+      "solutionCount": 1,
+      "testCount": 4,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2751,
+      "slug": "robot-collisions",
+      "title": "机器人碰撞",
+      "studyTags": [
+        "数组",
+        "栈",
+        "排序",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-045",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2760,
+      "slug": "longest-even-odd-subarray-with-threshold",
+      "title": "最长奇偶子数组",
+      "studyTags": [
+        "数组",
+        "滑动窗口"
+      ],
+      "status": "published",
+      "batch": "batch-045",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2761,
+      "slug": "prime-pairs-with-target-sum",
+      "title": "和等于目标值的质数对",
+      "studyTags": [
+        "数组",
+        "数学",
+        "枚举",
+        "数论",
+        "埃氏筛"
+      ],
+      "status": "published",
+      "batch": "batch-045",
+      "solutionCount": 1,
+      "testCount": 4,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2762,
+      "slug": "continuous-subarrays",
+      "title": "不间断子数组",
+      "studyTags": [
+        "数组",
+        "队列",
+        "滑动窗口",
+        "单调队列"
+      ],
+      "status": "published",
+      "batch": "batch-045",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2763,
+      "slug": "sum-of-imbalance-numbers-of-all-subarrays",
+      "title": "所有子数组中不平衡数字之和",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "枚举"
+      ],
+      "status": "published",
+      "batch": "batch-045",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2765,
+      "slug": "longest-alternating-subarray",
+      "title": "最长交替子数组",
+      "studyTags": [
+        "数组",
+        "枚举"
+      ],
+      "status": "published",
+      "batch": "batch-045",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2766,
+      "slug": "relocate-marbles",
+      "title": "重新放置石块",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "排序",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-045",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2767,
+      "slug": "partition-string-into-minimum-beautiful-substrings",
+      "title": "将字符串分割为最少的美丽子字符串",
+      "studyTags": [
+        "字符串",
+        "动态规划",
+        "哈希表"
+      ],
+      "status": "published",
+      "batch": "batch-045",
+      "solutionCount": 1,
+      "testCount": 4,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2768,
+      "slug": "number-of-black-blocks",
+      "title": "黑格子的数目",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "枚举",
+        "矩阵"
+      ],
+      "status": "published",
+      "batch": "batch-045",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2769,
+      "slug": "find-the-maximum-achievable-number",
+      "title": "找出最大的可达成数字",
+      "studyTags": [
+        "数学"
+      ],
+      "status": "published",
+      "batch": "batch-045",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2770,
+      "slug": "maximum-number-of-jumps-to-reach-the-last-index",
+      "title": "达到末尾下标所需的最大跳跃次数",
+      "studyTags": [
+        "数组",
+        "动态规划"
+      ],
+      "status": "published",
+      "batch": "batch-045",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2771,
+      "slug": "longest-non-decreasing-subarray-from-two-arrays",
+      "title": "构造最长非递减子数组",
+      "studyTags": [
+        "数组",
+        "动态规划"
+      ],
+      "status": "published",
+      "batch": "batch-045",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2772,
+      "slug": "apply-operations-to-make-all-array-elements-equal-to-zero",
+      "title": "使数组中的所有元素都等于零",
+      "studyTags": [
+        "数组",
+        "贪心",
+        "差分数组",
+        "前缀和"
+      ],
+      "status": "published",
+      "batch": "batch-045",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2778,
+      "slug": "sum-of-squares-of-special-elements",
+      "title": "特殊元素平方和",
+      "studyTags": [
+        "数组",
+        "枚举"
+      ],
+      "status": "published",
+      "batch": "batch-045",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2779,
+      "slug": "maximum-beauty-of-an-array-after-applying-operation",
+      "title": "数组的最大美丽值",
+      "studyTags": [
+        "数组",
+        "排序",
+        "滑动窗口"
+      ],
+      "status": "published",
+      "batch": "batch-045",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2780,
+      "slug": "minimum-index-of-a-valid-split",
+      "title": "合法分割的最小下标",
+      "studyTags": [
+        "数组",
+        "计数",
+        "Boyer-Moore 投票"
+      ],
+      "status": "published",
+      "batch": "batch-045",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2781,
+      "slug": "length-of-the-longest-valid-substring",
+      "title": "最长合法子字符串的长度",
+      "studyTags": [
+        "字符串",
+        "哈希表",
+        "滑动窗口"
+      ],
+      "status": "published",
+      "batch": "batch-045",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2784,
+      "slug": "check-if-array-is-good",
+      "title": "检查数组是否是好的",
+      "studyTags": [
+        "数组",
+        "排序",
+        "哈希表"
+      ],
+      "status": "published",
+      "batch": "batch-045",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2785,
+      "slug": "sort-vowels-in-a-string",
+      "title": "将字符串中的元音字母排序",
+      "studyTags": [
+        "字符串",
+        "排序"
+      ],
+      "status": "published",
+      "batch": "batch-045",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2786,
+      "slug": "visit-array-positions-to-maximize-score",
+      "title": "访问数组中的位置使分数最大",
+      "studyTags": [
+        "数组",
+        "动态规划"
+      ],
+      "status": "published",
+      "batch": "batch-045",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2787,
+      "slug": "ways-to-express-an-integer-as-sum-of-powers",
+      "title": "将一个数字表示成幂的和的方案数",
+      "studyTags": [
+        "动态规划",
+        "背包"
+      ],
+      "status": "published",
+      "batch": "batch-045",
       "solutionCount": 1,
       "testCount": 3,
       "qualityGate": "tested"

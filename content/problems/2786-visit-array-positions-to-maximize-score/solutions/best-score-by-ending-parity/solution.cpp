@@ -1,0 +1,1 @@
+class Solution { public:long long maxScore(vector<int>& nums,int x){const long long NEG=LLONG_MIN/4;long long even=nums[0]%2==0?nums[0]:NEG,odd=nums[0]%2?nums[0]:NEG;for(int i=1;i<(int)nums.size();++i){long long value=nums[i];if(value%2==0)even=max(even+value,odd+value-x);else odd=max(odd+value,even+value-x);}return max(even,odd);} };

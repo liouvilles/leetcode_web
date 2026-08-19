@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2785,
+  "slug": "sort-vowels-in-a-string",
+  "title": "将字符串中的元音字母排序",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-045",
+  "studyTags": [
+    "字符串",
+    "排序"
+  ],
+  "summary": "保持所有辅音位置不变，把字符串中的大小写元音按 ASCII 值升序重新放回元音位置。",
+  "insight": "先收集全部元音并排序，再扫描原字符数组；遇到元音位置就依次写入排序结果。ASCII 顺序天然让大写元音排在小写元音之前。",
+  "pitfalls": [
+    "辅音字符和值都必须保持原位",
+    "元音包含大小写 AEIOU",
+    "排序规则是 ASCII 而非忽略大小写",
+    "没有元音时返回原串"
+  ],
+  "solutions": [
+    {
+      "id": "collect-sort-and-refill-vowels",
+      "title": "收集排序再回填元音",
+      "kind": "最优",
+      "idea": "只替换原本是元音的字符位置。",
+      "steps": [
+        "扫描 s 收集所有元音",
+        "按字符值升序排序元音",
+        "复制 s 为 chars",
+        "再次扫描 chars 的元音位置",
+        "按顺序写入已排序元音",
+        "返回字符串"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/collect-sort-and-refill-vowels/Solution.java",
+        "kotlin": "solutions/collect-sort-and-refill-vowels/Solution.kt",
+        "cpp": "solutions/collect-sort-and-refill-vowels/solution.cpp"
+      }
+    }
+  ]
+}

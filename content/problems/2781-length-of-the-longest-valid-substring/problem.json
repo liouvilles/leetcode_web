@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2781,
+  "slug": "length-of-the-longest-valid-substring",
+  "title": "最长合法子字符串的长度",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-045",
+  "studyTags": [
+    "字符串",
+    "哈希表",
+    "滑动窗口"
+  ],
+  "summary": "给定单词与禁用字符串列表，求不包含任何禁用字符串作为连续片段的最长子字符串长度。",
+  "insight": "禁用串长度最多十。枚举右端点时，只需检查以它结尾的至多十个后缀；若发现禁用串，其起点必须被排除，把窗口左端移到起点后一位。按起点从大到小检查，首个命中给出最严格边界。",
+  "pitfalls": [
+    "禁用关系是连续子串而非子序列",
+    "只需检查长度不超过十的后缀",
+    "发现禁用串后左边界只能右移",
+    "窗口长度可能变为零"
+  ],
+  "solutions": [
+    {
+      "id": "bounded-suffix-check-sliding-window",
+      "title": "有限后缀检查滑动窗口",
+      "kind": "最优",
+      "idea": "每个右端点检查所有可能以其结尾的禁用串。",
+      "steps": [
+        "把 forbidden 放入哈希集合",
+        "left=0、answer=0",
+        "枚举 right",
+        "start 从 right 降到 max(left,right-9)",
+        "若 word[start..right] 禁用，left=start+1 并停止",
+        "用 right-left+1 更新答案"
+      ],
+      "complexity": {
+        "time": "O(10n)",
+        "space": "O(total forbidden length)"
+      },
+      "files": {
+        "java": "solutions/bounded-suffix-check-sliding-window/Solution.java",
+        "kotlin": "solutions/bounded-suffix-check-sliding-window/Solution.kt",
+        "cpp": "solutions/bounded-suffix-check-sliding-window/solution.cpp"
+      }
+    }
+  ]
+}

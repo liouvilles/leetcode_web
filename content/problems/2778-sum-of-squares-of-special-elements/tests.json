@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sumOfSquares",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "长度四的约数位置平方和二十一",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": 21
+    },
+    {
+      "name": "长度六的一二三六位置特殊",
+      "args": [
+        [
+          2,
+          7,
+          1,
+          19,
+          18,
+          3
+        ]
+      ],
+      "expected": 63
+    },
+    {
+      "name": "单元素必为特殊元素",
+      "args": [
+        [
+          5
+        ]
+      ],
+      "expected": 25
+    }
+  ]
+}

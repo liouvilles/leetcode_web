@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numberOfWays",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "十只能由一平方加三平方表示",
+      "args": [
+        10,
+        2
+      ],
+      "expected": 1
+    },
+    {
+      "name": "四的一次幂有两种互异底数组合",
+      "args": [
+        4,
+        1
+      ],
+      "expected": 2
+    },
+    {
+      "name": "二不能由互异正整数平方组成",
+      "args": [
+        2,
+        2
+      ],
+      "expected": 0
+    }
+  ]
+}

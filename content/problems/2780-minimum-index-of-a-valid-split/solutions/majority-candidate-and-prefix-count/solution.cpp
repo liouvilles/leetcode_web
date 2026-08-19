@@ -1,0 +1,1 @@
+class Solution { public:int minimumIndex(vector<int>& nums){int candidate=0,balance=0;for(int value:nums){if(!balance)candidate=value;balance+=value==candidate?1:-1;}int total=count(nums.begin(),nums.end(),candidate),prefix=0,n=nums.size();for(int i=0;i<n-1;++i){if(nums[i]==candidate)++prefix;if(prefix*2>i+1&&(total-prefix)*2>n-i-1)return i;}return -1;} };

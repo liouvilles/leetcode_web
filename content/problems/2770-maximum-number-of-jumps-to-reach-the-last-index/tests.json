@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumJumps",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "目标二时最多跳三次",
+      "args": [
+        [
+          1,
+          3,
+          6,
+          4,
+          1,
+          2
+        ],
+        2
+      ],
+      "expected": 3
+    },
+    {
+      "name": "目标三时可逐项跳五次",
+      "args": [
+        [
+          1,
+          3,
+          6,
+          4,
+          1,
+          2
+        ],
+        3
+      ],
+      "expected": 5
+    },
+    {
+      "name": "差值不满足时末尾不可达",
+      "args": [
+        [
+          1,
+          2
+        ],
+        0
+      ],
+      "expected": -1
+    }
+  ]
+}

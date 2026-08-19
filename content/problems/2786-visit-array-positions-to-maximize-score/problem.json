@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2786,
+  "slug": "visit-array-positions-to-maximize-score",
+  "title": "访问数组中的位置使分数最大",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-045",
+  "studyTags": [
+    "数组",
+    "动态规划"
+  ],
+  "summary": "从下标零开始按下标递增访问若干位置，获得元素值；相邻访问值奇偶变化时扣 x，求最大总分。",
+  "insight": "处理到任意位置时，后续只关心当前路径末值的奇偶性。维护末值为偶数和奇数的最高分；访问新值时可从同奇偶状态无代价转移，或从异奇偶状态扣 x 转移。",
+  "pitfalls": [
+    "必须从 nums[0] 开始",
+    "可以跳过任意中间位置",
+    "切换奇偶才扣分",
+    "答案与状态使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "best-score-by-ending-parity",
+      "title": "按结尾奇偶维护最高分",
+      "kind": "最优",
+      "idea": "两个状态压缩所有访问路径。",
+      "steps": [
+        "根据 nums[0] 奇偶初始化 even 或 odd，另一状态为负无穷",
+        "从下标一开始遍历 value",
+        "若 value 偶数，更新 even=max(even+value,odd+value-x)",
+        "若 value 奇数，对称更新 odd",
+        "另一奇偶状态保留以表示跳过当前位置",
+        "返回 max(even,odd)"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/best-score-by-ending-parity/Solution.java",
+        "kotlin": "solutions/best-score-by-ending-parity/Solution.kt",
+        "cpp": "solutions/best-score-by-ending-parity/solution.cpp"
+      }
+    }
+  ]
+}

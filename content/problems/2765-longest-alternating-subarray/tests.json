@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "alternatingSubarray",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "后三四三四形成长度四",
+      "args": [
+        [
+          2,
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "连续递增只能取长度二",
+      "args": [
+        [
+          4,
+          5,
+          6
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "没有正一差时不存在",
+      "args": [
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": -1
+    }
+  ]
+}

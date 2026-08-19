@@ -1,0 +1,1 @@
+class Solution { fun numberOfWays(n:Int,x:Int):Int{val mod=1000000007;fun powerAtMost(base:Int):Int{var value=1L;repeat(x){value*=base;if(value>n)return n+1};return value.toInt()};val dp=IntArray(n+1);dp[0]=1;var base=1;while(true){val power=powerAtMost(base++);if(power>n)break;for(sum in n downTo power){dp[sum]+=dp[sum-power];if(dp[sum]>=mod)dp[sum]-=mod}};return dp[n]} }

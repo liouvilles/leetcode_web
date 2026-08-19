@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2767,
+  "slug": "partition-string-into-minimum-beautiful-substrings",
+  "title": "将字符串分割为最少的美丽子字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-045",
+  "studyTags": [
+    "字符串",
+    "动态规划",
+    "哈希表"
+  ],
+  "summary": "把二进制字符串分割成若干非空段，每段无前导零且表示五的幂，求最少段数，不可能返回负一。",
+  "insight": "预先生成长度范围内所有五的幂。令 dp[i] 为覆盖前 i 个字符的最少段数，从每个可达且字符非零的起点向右解析二进制值，遇到五的幂就更新对应终点。",
+  "pitfalls": [
+    "五的零次幂一也合法",
+    "任何分段都不能有前导零",
+    "必须覆盖整个字符串",
+    "无解时返回负一"
+  ],
+  "solutions": [
+    {
+      "id": "prefix-dp-with-powers-of-five",
+      "title": "前缀 DP 加五次幂集合",
+      "kind": "最优",
+      "idea": "枚举每段起点并增量解析二进制值。",
+      "steps": [
+        "生成小于 2^n 的所有五次幂到集合",
+        "dp[0]=0，其余为无穷",
+        "枚举可达 start，若 s[start] 为零则跳过",
+        "向右累积 value=value*2+bit",
+        "value 是五次幂时更新 dp[end+1]",
+        "返回 dp[n] 或负一"
+      ],
+      "complexity": {
+        "time": "O(n^2)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/prefix-dp-with-powers-of-five/Solution.java",
+        "kotlin": "solutions/prefix-dp-with-powers-of-five/Solution.kt",
+        "cpp": "solutions/prefix-dp-with-powers-of-five/solution.cpp"
+      }
+    }
+  ]
+}

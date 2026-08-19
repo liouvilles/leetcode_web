@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "survivedRobotsHealths",
+  "parameterTypes": [
+    "intArray",
+    "intArray",
+    "string"
+  ],
+  "returnType": "intList",
+  "cases": [
+    {
+      "name": "全部同向按原输入顺序幸存",
+      "args": [
+        [
+          5,
+          4,
+          3,
+          2,
+          1
+        ],
+        [
+          2,
+          17,
+          9,
+          15,
+          10
+        ],
+        "RRRRR"
+      ],
+      "expected": [
+        2,
+        17,
+        9,
+        15,
+        10
+      ]
+    },
+    {
+      "name": "两轮碰撞后只剩生命十四机器人",
+      "args": [
+        [
+          3,
+          5,
+          2,
+          6
+        ],
+        [
+          10,
+          10,
+          15,
+          12
+        ],
+        "RLRL"
+      ],
+      "expected": [
+        14
+      ]
+    },
+    {
+      "name": "两对相等生命机器人全部消失",
+      "args": [
+        [
+          1,
+          2,
+          5,
+          6
+        ],
+        [
+          10,
+          10,
+          11,
+          11
+        ],
+        "RLRL"
+      ],
+      "expected": []
+    }
+  ]
+}

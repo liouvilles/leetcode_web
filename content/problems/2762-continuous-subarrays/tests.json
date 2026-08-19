@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "continuousSubarrays",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "四个元素共有八个合法子数组",
+      "args": [
+        [
+          5,
+          4,
+          2,
+          4
+        ]
+      ],
+      "expected": 8
+    },
+    {
+      "name": "差值不超过二时所有子数组合法",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "差值过大的双元素只有两个单项",
+      "args": [
+        [
+          1,
+          5
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

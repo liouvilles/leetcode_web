@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2780,
+  "slug": "minimum-index-of-a-valid-split",
+  "title": "合法分割的最小下标",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-045",
+  "studyTags": [
+    "数组",
+    "计数",
+    "Boyer-Moore 投票"
+  ],
+  "summary": "找最小下标 i，使原数组的支配元素同时是前缀 [0,i] 与后缀 [i+1,n-1] 的支配元素；不存在返回负一。",
+  "insight": "若合法分割存在，共同支配元素必然也是整个数组的支配元素。先用 Boyer-Moore 找候选并统计总频次，再扫描前缀频次，检查候选在两侧是否都严格超过各自长度一半。",
+  "pitfalls": [
+    "支配要求频次严格大于一半",
+    "左右两段都必须非空",
+    "返回最小合法下标",
+    "先验证两侧频次而非只看全局"
+  ],
+  "solutions": [
+    {
+      "id": "majority-candidate-and-prefix-count",
+      "title": "多数候选加前缀计数",
+      "kind": "最优",
+      "idea": "先定位唯一可能候选，再找最早满足两侧条件的边界。",
+      "steps": [
+        "Boyer-Moore 扫描得到 candidate",
+        "统计 candidate 总频次 total",
+        "prefix=0",
+        "i 从零扫描到 n-2，遇到 candidate 增加 prefix",
+        "若 2*prefix>i+1 且 2*(total-prefix)>n-i-1，返回 i",
+        "否则返回负一"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/majority-candidate-and-prefix-count/Solution.java",
+        "kotlin": "solutions/majority-candidate-and-prefix-count/Solution.kt",
+        "cpp": "solutions/majority-candidate-and-prefix-count/solution.cpp"
+      }
+    }
+  ]
+}

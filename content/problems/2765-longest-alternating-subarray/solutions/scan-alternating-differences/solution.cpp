@@ -1,0 +1,1 @@
+class Solution { public:int alternatingSubarray(vector<int>& nums){int current=1,answer=-1;for(int i=1;i<(int)nums.size();++i){int difference=nums[i]-nums[i-1];if(current>=2&&difference==(current%2==0?-1:1))++current;else current=difference==1?2:1;if(current>=2)answer=max(answer,current);}return answer;} };

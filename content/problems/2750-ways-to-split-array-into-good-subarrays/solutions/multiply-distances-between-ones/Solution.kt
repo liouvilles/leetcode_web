@@ -1,0 +1,1 @@
+class Solution { fun numberOfGoodSubarraySplits(nums:IntArray):Int{val mod=1000000007L;var answer=1L;var previous=-1;for(i in nums.indices)if(nums[i]==1){if(previous!=-1)answer=answer*(i-previous)%mod;previous=i};return if(previous==-1)0 else answer.toInt()} }

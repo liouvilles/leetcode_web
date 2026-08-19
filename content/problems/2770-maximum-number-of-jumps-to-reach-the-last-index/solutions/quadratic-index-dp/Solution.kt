@@ -1,0 +1,1 @@
+class Solution { fun maximumJumps(nums:IntArray,target:Int):Int{val dp=IntArray(nums.size){-1};dp[0]=0;for(end in 1 until nums.size)for(start in 0 until end)if(dp[start]>=0&&kotlin.math.abs(nums[end].toLong()-nums[start])<=target.toLong())dp[end]=maxOf(dp[end],dp[start]+1);return dp.last()} }

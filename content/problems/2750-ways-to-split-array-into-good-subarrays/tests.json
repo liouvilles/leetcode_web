@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numberOfGoodSubarraySplits",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两个一之间有三种分割位置",
+      "args": [
+        [
+          0,
+          1,
+          0,
+          0,
+          1
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "只有一个一时划分唯一",
+      "args": [
+        [
+          0,
+          1,
+          0
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "全零数组无法划分",
+      "args": [
+        [
+          0,
+          0
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "三个一的两个间隔相乘",
+      "args": [
+        [
+          1,
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "expected": 4
+    }
+  ]
+}

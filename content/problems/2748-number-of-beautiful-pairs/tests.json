@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countBeautifulPairs",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四个一位数形成五个互质对",
+      "args": [
+        [
+          2,
+          5,
+          1,
+          4
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "首位一与末位一二形成两对",
+      "args": [
+        [
+          11,
+          21,
+          12
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "三和二首位分别参与互质判断",
+      "args": [
+        [
+          31,
+          25,
+          72
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

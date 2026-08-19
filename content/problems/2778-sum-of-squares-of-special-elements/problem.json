@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2778,
+  "slug": "sum-of-squares-of-special-elements",
+  "title": "特殊元素平方和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-045",
+  "studyTags": [
+    "数组",
+    "枚举"
+  ],
+  "summary": "若数组长度能被某元素的一基下标整除，则该元素特殊，求所有特殊元素的平方和。",
+  "insight": "直接枚举零基下标 i，并检查 n%(i+1)==0；满足时把 nums[i] 的平方加入答案。",
+  "pitfalls": [
+    "题目使用一基下标",
+    "判断整除的是数组长度",
+    "累加元素值的平方而不是下标平方"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-one-based-divisors",
+      "title": "枚举一基下标约数",
+      "kind": "最优",
+      "idea": "检查每个位置是否整除数组长度。",
+      "steps": [
+        "answer=0",
+        "遍历 i 从零到 n-1",
+        "若 n%(i+1)==0",
+        "answer+=nums[i]*nums[i]",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/enumerate-one-based-divisors/Solution.java",
+        "kotlin": "solutions/enumerate-one-based-divisors/Solution.kt",
+        "cpp": "solutions/enumerate-one-based-divisors/solution.cpp"
+      }
+    }
+  ]
+}

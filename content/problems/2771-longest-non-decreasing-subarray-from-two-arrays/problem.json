@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2771,
+  "slug": "longest-non-decreasing-subarray-from-two-arrays",
+  "title": "构造最长非递减子数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-045",
+  "studyTags": [
+    "数组",
+    "动态规划"
+  ],
+  "summary": "每个下标可从 nums1[i] 或 nums2[i] 选一个值，求可形成的最长连续非递减子数组长度。",
+  "insight": "只需维护以上一位置选 nums1 或 nums2 结尾的最长长度。当前位置也有两种选择，分别与上一位置的两种结尾比较，得到四条可能转移。",
+  "pitfalls": [
+    "求的是连续子数组",
+    "每个位置可独立从两个数组选择",
+    "相等也满足非递减",
+    "两个结尾状态必须用旧值同时转移"
+  ],
+  "solutions": [
+    {
+      "id": "two-ending-state-dp",
+      "title": "两种结尾状态动态规划",
+      "kind": "最优",
+      "idea": "记录当前位置选两个候选值时的最长合法后缀。",
+      "steps": [
+        "endingFirst=endingSecond=1",
+        "从下标一开始",
+        "nextFirst 与 nums1[i-1]、nums2[i-1] 比较转移",
+        "nextSecond 与两个上一候选比较转移",
+        "同时更新两个结尾状态和全局答案"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/two-ending-state-dp/Solution.java",
+        "kotlin": "solutions/two-ending-state-dp/Solution.kt",
+        "cpp": "solutions/two-ending-state-dp/solution.cpp"
+      }
+    }
+  ]
+}

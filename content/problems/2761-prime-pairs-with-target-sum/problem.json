@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": 2761,
+  "slug": "prime-pairs-with-target-sum",
+  "title": "和等于目标值的质数对",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-045",
+  "studyTags": [
+    "数组",
+    "数学",
+    "枚举",
+    "数论",
+    "埃氏筛"
+  ],
+  "summary": "找出所有 x<=y、x+y=n 且 x、y 都为质数的数对，并按 x 升序返回。",
+  "insight": "先用埃氏筛一次标记不超过 n 的所有质数，再枚举 x 从二到 n/2；筛表中 x 与 n-x 都为真时即可输出，天然满足顺序和去重。",
+  "pitfalls": [
+    "一不是质数",
+    "只枚举到 n/2 避免重复数对",
+    "相同质数可以组成一对",
+    "返回顺序按较小质数升序"
+  ],
+  "solutions": [
+    {
+      "id": "sieve-and-enumerate-half",
+      "title": "质数筛加半区间枚举",
+      "kind": "最优",
+      "idea": "预处理质数后直接检查互补值。",
+      "steps": [
+        "prime[2..n] 初始为 true",
+        "从二开始筛掉各质数倍数",
+        "x 从二枚举到 n/2",
+        "若 prime[x] 与 prime[n-x] 都为真，加入数对",
+        "返回列表"
+      ],
+      "complexity": {
+        "time": "O(n log log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/sieve-and-enumerate-half/Solution.java",
+        "kotlin": "solutions/sieve-and-enumerate-half/Solution.kt",
+        "cpp": "solutions/sieve-and-enumerate-half/solution.cpp"
+      }
+    }
+  ]
+}

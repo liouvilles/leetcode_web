@@ -1,0 +1,1 @@
+class Solution { public int maximumBeauty(int[] nums,int k){Arrays.sort(nums);int left=0,answer=0;for(int right=0;right<nums.length;right++){while((long)nums[right]-nums[left]>2L*k)left++;answer=Math.max(answer,right-left+1);}return answer;} }

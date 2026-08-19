@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sortVowels",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "大小写元音按 ASCII 回填",
+      "args": [
+        "lEetcOde"
+      ],
+      "expected": "lEOtcede"
+    },
+    {
+      "name": "没有元音保持原串",
+      "args": [
+        "lYmpH"
+      ],
+      "expected": "lYmpH"
+    },
+    {
+      "name": "已排序元音串不变",
+      "args": [
+        "AEIOUaeiou"
+      ],
+      "expected": "AEIOUaeiou"
+    }
+  ]
+}

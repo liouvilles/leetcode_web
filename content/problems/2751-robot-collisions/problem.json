@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2751,
+  "slug": "robot-collisions",
+  "title": "机器人碰撞",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-045",
+  "studyTags": [
+    "数组",
+    "栈",
+    "排序",
+    "模拟"
+  ],
+  "summary": "机器人按位置与方向移动，相向碰撞时低生命值者消失、高者减一，相等则都消失；按原顺序返回幸存生命值。",
+  "insight": "按位置从左到右处理，只有此前向右的机器人会与当前向左机器人碰撞。用栈保存尚未解决的向右机器人，并让当前左向机器人反复与栈顶决斗，直到一方消失或栈空。",
+  "pitfalls": [
+    "先按位置处理但最终按输入顺序返回",
+    "同向机器人永不碰撞",
+    "左向机器人可能连续击败多个右向机器人",
+    "生命值相等时双方都消失"
+  ],
+  "solutions": [
+    {
+      "id": "position-sort-and-right-moving-stack",
+      "title": "位置排序加右向栈",
+      "kind": "最优",
+      "idea": "栈顶是当前左向机器人最先遇到的右向机器人。",
+      "steps": [
+        "下标按 positions 升序排序",
+        "遇到 R 下标压栈",
+        "遇到 L 时与栈顶反复比较生命值",
+        "较弱者清零；胜者生命值减一；相等都清零",
+        "按原下标扫描收集正生命值"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/position-sort-and-right-moving-stack/Solution.java",
+        "kotlin": "solutions/position-sort-and-right-moving-stack/Solution.kt",
+        "cpp": "solutions/position-sort-and-right-moving-stack/solution.cpp"
+      }
+    }
+  ]
+}

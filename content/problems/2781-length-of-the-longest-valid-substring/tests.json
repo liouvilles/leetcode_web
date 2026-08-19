@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "longestValidSubstring",
+  "parameterTypes": [
+    "string",
+    "stringList"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "排除 aaa 与 cb 后最长为四",
+      "args": [
+        "cbaaaabc",
+        [
+          "aaa",
+          "cb"
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "单字符 e 切断后保留 tcod",
+      "args": [
+        "leetcode",
+        [
+          "de",
+          "le",
+          "e"
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "禁止 aa 时全 a 最长为一",
+      "args": [
+        "aaaaa",
+        [
+          "aa"
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

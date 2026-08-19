@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countServers",
+  "parameterTypes": [
+    "int",
+    "intMatrix",
+    "int",
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "两个查询窗口依次失去一台服务器",
+      "args": [
+        3,
+        [
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            1,
+            5
+          ]
+        ],
+        5,
+        [
+          10,
+          11
+        ]
+      ],
+      "expected": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "乱序日志由离线窗口统计",
+      "args": [
+        3,
+        [
+          [
+            2,
+            4
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        2,
+        [
+          3,
+          4
+        ]
+      ],
+      "expected": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "窗口内没有任何日志",
+      "args": [
+        1,
+        [
+          [
+            1,
+            1
+          ]
+        ],
+        1,
+        [
+          3
+        ]
+      ],
+      "expected": [
+        1
+      ]
+    }
+  ]
+}

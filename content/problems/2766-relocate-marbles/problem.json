@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": 2766,
+  "slug": "relocate-marbles",
+  "title": "重新放置石块",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-045",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "排序",
+    "模拟"
+  ],
+  "summary": "若干位置上有石块，每次把 moveFrom[i] 位置的全部石块移到 moveTo[i]，返回最终有石块的位置升序列表。",
+  "insight": "题目只关心某位置是否至少有一块，而不关心数量。用集合保存占用位置，每次删除来源并加入目标；所有操作结束后把集合排序即可。",
+  "pitfalls": [
+    "初始 nums 可能有重复位置",
+    "一次操作移动来源位置的全部石块",
+    "目标已有石块时仍只保留一个位置",
+    "结果必须升序"
+  ],
+  "solutions": [
+    {
+      "id": "simulate-occupied-position-set",
+      "title": "模拟占用位置集合",
+      "kind": "最优",
+      "idea": "集合删除来源并加入目标即可表达全部石块迁移。",
+      "steps": [
+        "把 nums 所有值加入 positions 集合",
+        "依次处理每次移动",
+        "positions 删除 moveFrom[i]",
+        "positions 加入 moveTo[i]",
+        "把集合转列表并升序排序",
+        "返回结果"
+      ],
+      "complexity": {
+        "time": "O((n+q) log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/simulate-occupied-position-set/Solution.java",
+        "kotlin": "solutions/simulate-occupied-position-set/Solution.kt",
+        "cpp": "solutions/simulate-occupied-position-set/solution.cpp"
+      }
+    }
+  ]
+}

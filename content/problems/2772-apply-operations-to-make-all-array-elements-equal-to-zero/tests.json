@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "checkArray",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "长度三操作可依次归零",
+      "args": [
+        [
+          2,
+          2,
+          3,
+          1,
+          1,
+          0
+        ],
+        3
+      ],
+      "expected": true
+    },
+    {
+      "name": "第二位置必要操作导致后续过减",
+      "args": [
+        [
+          1,
+          3,
+          1,
+          1
+        ],
+        2
+      ],
+      "expected": false
+    },
+    {
+      "name": "全零数组无需操作",
+      "args": [
+        [
+          0,
+          0
+        ],
+        1
+      ],
+      "expected": true
+    }
+  ]
+}

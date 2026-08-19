@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxScore",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "选择二六一九得到十三分",
+      "args": [
+        [
+          2,
+          3,
+          6,
+          1,
+          9,
+          2
+        ],
+        5
+      ],
+      "expected": 13
+    },
+    {
+      "name": "全偶数可访问所有位置",
+      "args": [
+        [
+          2,
+          4,
+          6,
+          8
+        ],
+        3
+      ],
+      "expected": 20
+    },
+    {
+      "name": "高切换代价时只保留起点",
+      "args": [
+        [
+          1,
+          2
+        ],
+        10
+      ],
+      "expected": 1
+    }
+  ]
+}

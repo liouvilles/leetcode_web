@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2787,
+  "slug": "ways-to-express-an-integer-as-sum-of-powers",
+  "title": "将一个数字表示成幂的和的方案数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-045",
+  "studyTags": [
+    "动态规划",
+    "背包"
+  ],
+  "summary": "统计把 n 表示成若干互不相同正整数的 x 次幂之和的方案数，结果取模。",
+  "insight": "所有不超过 n 的 base^x 都是可选物品，每个底数至多使用一次。转化为目标和为 n 的零一背包计数，按底数枚举物品并倒序更新和。",
+  "pitfalls": [
+    "底数必须互不相同",
+    "组合顺序不产生新方案",
+    "背包和必须倒序避免重复选同一幂",
+    "乘方计算要防止超过 n"
+  ],
+  "solutions": [
+    {
+      "id": "zero-one-knapsack-over-powers",
+      "title": "幂值零一背包计数",
+      "kind": "最优",
+      "idea": "把每个可用 x 次幂作为一次性物品。",
+      "steps": [
+        "dp[0]=1",
+        "base 从一递增并安全计算 base^x",
+        "若幂值超过 n 停止",
+        "sum 从 n 倒序到 power",
+        "dp[sum]+=dp[sum-power] 并取模",
+        "返回 dp[n]"
+      ],
+      "complexity": {
+        "time": "O(n*n^(1/x))",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/zero-one-knapsack-over-powers/Solution.java",
+        "kotlin": "solutions/zero-one-knapsack-over-powers/Solution.kt",
+        "cpp": "solutions/zero-one-knapsack-over-powers/solution.cpp"
+      }
+    }
+  ]
+}

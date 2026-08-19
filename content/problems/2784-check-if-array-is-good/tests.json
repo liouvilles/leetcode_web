@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isGood",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "一二三三是长度四好数组",
+      "args": [
+        [
+          1,
+          3,
+          3,
+          2
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "长度三不允许值三",
+      "args": [
+        [
+          2,
+          1,
+          3
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "两个一构成最小好数组",
+      "args": [
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

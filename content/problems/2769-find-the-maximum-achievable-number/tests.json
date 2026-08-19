@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "theMaximumAchievableX",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四与一次操作可达六",
+      "args": [
+        4,
+        1
+      ],
+      "expected": 6
+    },
+    {
+      "name": "三与两次操作可达七",
+      "args": [
+        3,
+        2
+      ],
+      "expected": 7
+    },
+    {
+      "name": "零次操作只能达自身",
+      "args": [
+        8,
+        0
+      ],
+      "expected": 8
+    }
+  ]
+}
