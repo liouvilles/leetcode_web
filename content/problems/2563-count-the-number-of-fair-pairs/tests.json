@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countFairPairs",
+  "parameterTypes": [
+    "intArray",
+    "int",
+    "int"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "官方示例共有六个公平数对",
+      "args": [
+        [
+          0,
+          1,
+          7,
+          4,
+          4,
+          5
+        ],
+        3,
+        6
+      ],
+      "expected": 6
+    },
+    {
+      "name": "四个连续数中和为五有两对",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        5,
+        5
+      ],
+      "expected": 2
+    },
+    {
+      "name": "含负数区间零到二有两对",
+      "args": [
+        [
+          -1,
+          1,
+          2
+        ],
+        0,
+        2
+      ],
+      "expected": 2
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimizeSum",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三个元素可把两者改成第三个",
+      "args": [
+        [
+          1,
+          4,
+          3
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "五元素三种方案最小范围三",
+      "args": [
+        [
+          1,
+          4,
+          7,
+          8,
+          5
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "四个等差数修改两端后范围十",
+      "args": [
+        [
+          10,
+          20,
+          30,
+          40
+        ]
+      ],
+      "expected": 10
+    }
+  ]
+}

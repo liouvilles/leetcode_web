@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "leftRigthDifference",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "官方多元素示例",
+      "args": [
+        [
+          10,
+          4,
+          8,
+          3
+        ]
+      ],
+      "expected": [
+        15,
+        1,
+        11,
+        22
+      ]
+    },
+    {
+      "name": "单元素两侧都为空",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": [
+        0
+      ]
+    },
+    {
+      "name": "两个元素互为另一侧总和",
+      "args": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": [
+        2,
+        1
+      ]
+    }
+  ]
+}

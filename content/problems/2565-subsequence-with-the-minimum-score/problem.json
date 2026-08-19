@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2565,
+  "slug": "subsequence-with-the-minimum-score",
+  "title": "最少得分子序列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-040",
+  "studyTags": [
+    "字符串",
+    "双指针",
+    "前后缀"
+  ],
+  "summary": "从 t 中删除一个连续子串，使剩余字符串成为 s 的子序列，得分为删除长度，求最小得分。",
+  "insight": "从右向左预处理 suffix[i]：t[i:] 作为 s 子序列时 t[i] 的最早可用位置（按右端贪心链）。再从左向右匹配 t 前缀，并单调移动 right，找第一个 suffix[right] 位于当前前缀匹配位置之后的后缀；删除 [left,right) 即合法。",
+  "pitfalls": [
+    "可删除空串或整个 t",
+    "保留的前缀与后缀在 s 中不能重叠",
+    "suffix[m]=n 代表空后缀",
+    "前缀无法继续匹配时即可停止"
+  ],
+  "solutions": [
+    {
+      "id": "prefix-suffix-two-pointers",
+      "title": "前后缀匹配位置与双指针",
+      "kind": "最优",
+      "idea": "枚举保留前缀长度，单调寻找最早可接后缀。",
+      "steps": [
+        "从 s 末尾贪心匹配 t，得到 suffix[0..m]，suffix[m]=n",
+        "prefixPosition=-1、searchPosition=0、right=0",
+        "枚举 left=0..m，使 right>=left 且 suffix[right]>prefixPosition",
+        "用 right-left 更新答案",
+        "再在 s 中继续寻找 t[left] 以扩展保留前缀；失败则停止",
+        "返回最小删除长度"
+      ],
+      "complexity": {
+        "time": "O(n + m)",
+        "space": "O(m)"
+      },
+      "files": {
+        "java": "solutions/prefix-suffix-two-pointers/Solution.java",
+        "kotlin": "solutions/prefix-suffix-two-pointers/Solution.kt",
+        "cpp": "solutions/prefix-suffix-two-pointers/solution.cpp"
+      }
+    }
+  ]
+}

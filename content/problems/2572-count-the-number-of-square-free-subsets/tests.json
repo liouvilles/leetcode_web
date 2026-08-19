@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "squareFreeSubsets",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四的两个副本都不能选择",
+      "args": [
+        [
+          3,
+          4,
+          4,
+          5
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "单个一自身构成合法子集",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "两个一和二的所有非空子集都合法",
+      "args": [
+        [
+          1,
+          1,
+          2
+        ]
+      ],
+      "expected": 7
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "divisibilityArray",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "十二和一百二十均被三整除",
+      "args": [
+        "120",
+        3
+      ],
+      "expected": [
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "十与一千零一十被十整除",
+      "args": [
+        "1010",
+        10
+      ],
+      "expected": [
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "单个数字等于除数",
+      "args": [
+        "5",
+        5
+      ],
+      "expected": [
+        1
+      ]
+    }
+  ]
+}

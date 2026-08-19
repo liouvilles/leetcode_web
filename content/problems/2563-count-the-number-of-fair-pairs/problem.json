@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2563,
+  "slug": "count-the-number-of-fair-pairs",
+  "title": "统计公平数对的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-040",
+  "studyTags": [
+    "数组",
+    "排序",
+    "双指针"
+  ],
+  "summary": "统计 i<j 且 lower<=nums[i]+nums[j]<=upper 的下标对数量。",
+  "insight": "排序后定义 countAtMost(limit) 统计和不超过 limit 的数对：双指针指向两端，若两数和合格，则以 left 为左端、right 及其左侧都合格，一次增加 right-left；否则缩小 right。答案用两个上界计数相减。",
+  "pitfalls": [
+    "下标对只计一次",
+    "答案可能超过 int",
+    "lower-1 需要用 long 防止边界问题"
+  ],
+  "solutions": [
+    {
+      "id": "sort-and-count-at-most",
+      "title": "排序后双指针计数上界",
+      "kind": "最优",
+      "idea": "区间计数等于不超过 upper 减去不超过 lower-1。",
+      "steps": [
+        "排序 nums",
+        "定义 count(limit)：left=0、right=n-1",
+        "sum<=limit 时 result+=right-left 且 left++，否则 right--",
+        "返回 count(upper)-count(lower-1)"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n) sorting"
+      },
+      "files": {
+        "java": "solutions/sort-and-count-at-most/Solution.java",
+        "kotlin": "solutions/sort-and-count-at-most/Solution.kt",
+        "cpp": "solutions/sort-and-count-at-most/solution.cpp"
+      }
+    }
+  ]
+}

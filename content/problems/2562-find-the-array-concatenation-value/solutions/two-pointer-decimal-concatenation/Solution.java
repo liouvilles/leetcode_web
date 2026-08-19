@@ -1,0 +1,1 @@
+class Solution { public long findTheArrayConcVal(int[] nums){long answer=0;for(int left=0,right=nums.length-1;left<=right;left++,right--)answer+=left==right?nums[left]:Long.parseLong(String.valueOf(nums[left])+nums[right]);return answer;} }

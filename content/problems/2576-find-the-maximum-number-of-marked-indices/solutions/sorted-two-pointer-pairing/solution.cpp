@@ -1,0 +1,1 @@
+class Solution { public:int maxNumOfMarkedIndices(vector<int>& nums){sort(nums.begin(),nums.end());int small=0,large=(nums.size()+1)/2,pairs=0;while(small<(int)nums.size()/2&&large<(int)nums.size()){if(2LL*nums[small]<=nums[large]){++pairs;++small;}++large;}return pairs*2;} };

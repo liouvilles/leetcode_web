@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2571,
+  "slug": "minimum-operations-to-reduce-an-integer-to-0",
+  "title": "将整数减少到零需要的最少操作数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-040",
+  "studyTags": [
+    "贪心",
+    "位运算"
+  ],
+  "summary": "每次可给正整数 n 加上或减去任意一个二的幂，求变成零的最少操作次数。",
+  "insight": "最低位一若与更高一相邻（末两有效位为 11），加上该最低位会把连续一进位合并成一个更高位；否则直接减去最低位。逐步消除有效位即得最优。",
+  "pitfalls": [
+    "操作允许加法",
+    "连续多个一通常应进位而非逐个减",
+    "n 为二的幂时一步完成"
+  ],
+  "solutions": [
+    {
+      "id": "greedy-lowest-set-bit-carry",
+      "title": "最低有效位贪心进位",
+      "kind": "最优",
+      "idea": "根据最低两位一的形态决定加或减最低位。",
+      "steps": [
+        "operations=0",
+        "while n>0",
+        "若 n 的最低两位为 11，则 n++（此时最低位必为一）",
+        "否则 n-=n&-n，删除最低有效一位",
+        "operations++，返回计数"
+      ],
+      "complexity": {
+        "time": "O(number of bits)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/greedy-lowest-set-bit-carry/Solution.java",
+        "kotlin": "solutions/greedy-lowest-set-bit-carry/Solution.kt",
+        "cpp": "solutions/greedy-lowest-set-bit-carry/solution.cpp"
+      }
+    }
+  ]
+}

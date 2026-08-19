@@ -1,0 +1,1 @@
+class Solution { public:vector<int> leftRigthDifference(vector<int>& nums){int total=accumulate(nums.begin(),nums.end(),0),left=0;vector<int> answer(nums.size());for(int i=0;i<(int)nums.size();++i){int right=total-left-nums[i];answer[i]=abs(left-right);left+=nums[i];}return answer;} };

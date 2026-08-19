@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minMaxDifference",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一一八九一映射差九万九千零九",
+      "args": [
+        11891
+      ],
+      "expected": 99009
+    },
+    {
+      "name": "九零最大九十九最小零",
+      "args": [
+        90
+      ],
+      "expected": 99
+    },
+    {
+      "name": "全九最大不变最小为零",
+      "args": [
+        999
+      ],
+      "expected": 999
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { private long count(int[] nums,long limit){long result=0;int left=0,right=nums.length-1;while(left<right){if((long)nums[left]+nums[right]<=limit){result+=right-left;left++;}else right--;}return result;}public long countFairPairs(int[] nums,int lower,int upper){Arrays.sort(nums);return count(nums,upper)-count(nums,(long)lower-1);} }

@@ -1,0 +1,1 @@
+class Solution { fun maxNumOfMarkedIndices(nums:IntArray):Int{nums.sort();var small=0;var large=(nums.size+1)/2;var pairs=0;while(small<nums.size/2&&large<nums.size){if(2L*nums[small]<=nums[large].toLong()){pairs++;small++};large++};return pairs*2} }

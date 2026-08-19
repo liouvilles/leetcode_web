@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findTheString",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "abab 的完整 LCP 矩阵",
+      "args": [
+        [
+          [
+            4,
+            0,
+            2,
+            0
+          ],
+          [
+            0,
+            3,
+            0,
+            1
+          ],
+          [
+            2,
+            0,
+            2,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": "abab"
+    },
+    {
+      "name": "两个不同字符取字典序最小的 ab",
+      "args": [
+        [
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": "ab"
+    },
+    {
+      "name": "对角长度错误的矩阵无解",
+      "args": [
+        [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": ""
+    }
+  ]
+}

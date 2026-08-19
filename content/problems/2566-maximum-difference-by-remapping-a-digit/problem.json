@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2566,
+  "slug": "maximum-difference-by-remapping-a-digit",
+  "title": "替换一个数字后的最大差值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-040",
+  "studyTags": [
+    "数学",
+    "字符串",
+    "贪心"
+  ],
+  "summary": "分别选择一个数字并把 num 中所有该数字替换为另一数字，得到最大值和最小值，求二者差。",
+  "insight": "最大化时把最高位起第一个不是九的数字全部替换为九；最小化时把原最高位数字全部替换为零，题目允许产生前导零。",
+  "pitfalls": [
+    "一次映射要替换该数字的所有出现",
+    "最大值与最小值可使用不同映射",
+    "最小结果允许前导零",
+    "全九时最大值不变"
+  ],
+  "solutions": [
+    {
+      "id": "greedy-most-significant-remapping",
+      "title": "按最高有效位贪心映射",
+      "kind": "最优",
+      "idea": "最高位差异对数值影响最大。",
+      "steps": [
+        "digits=十进制字符串",
+        "maximum：找到首个非九字符 source，全部替换为九",
+        "minimum：把 digits[0] 的所有出现替换为零",
+        "把两字符串转整数并相减"
+      ],
+      "complexity": {
+        "time": "O(number of digits)",
+        "space": "O(number of digits)"
+      },
+      "files": {
+        "java": "solutions/greedy-most-significant-remapping/Solution.java",
+        "kotlin": "solutions/greedy-most-significant-remapping/Solution.kt",
+        "cpp": "solutions/greedy-most-significant-remapping/solution.cpp"
+      }
+    }
+  ]
+}

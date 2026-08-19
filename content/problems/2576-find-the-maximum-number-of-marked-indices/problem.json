@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": 2576,
+  "slug": "find-the-maximum-number-of-marked-indices",
+  "title": "求出最多标记下标",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-040",
+  "studyTags": [
+    "数组",
+    "双指针",
+    "二分查找",
+    "贪心",
+    "排序"
+  ],
+  "summary": "选择若干互不重复的下标对，使每对较小元素的两倍不超过较大元素，求最多可标记的下标数。",
+  "insight": "排序后，小数候选只需取前半段，大数候选从后半段开始。依次尝试最小的尚未配对小数：若当前大数足够就配对，否则丢弃这个过小的大数并继续向右。该贪心为后续保留了最宽松的选择。",
+  "pitfalls": [
+    "每个下标最多使用一次",
+    "比较时用 long 防止两倍溢出",
+    "答案是配对数的两倍",
+    "奇数长度时大数区从 (n+1)/2 开始"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-two-pointer-pairing",
+      "title": "排序后双指针配对",
+      "kind": "最优",
+      "idea": "以前半段为小数、后半段为大数进行有序匹配。",
+      "steps": [
+        "排序 nums",
+        "small=0，large=(n+1)/2，pairs=0",
+        "当 small<n/2 且 large<n",
+        "若 2*nums[small]<=nums[large]，形成一对并同时右移",
+        "否则只右移 large",
+        "返回 pairs*2"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n) sorting"
+      },
+      "files": {
+        "java": "solutions/sorted-two-pointer-pairing/Solution.java",
+        "kotlin": "solutions/sorted-two-pointer-pairing/Solution.kt",
+        "cpp": "solutions/sorted-two-pointer-pairing/solution.cpp"
+      }
+    }
+  ]
+}

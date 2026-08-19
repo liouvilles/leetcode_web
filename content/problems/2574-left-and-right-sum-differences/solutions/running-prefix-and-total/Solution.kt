@@ -1,0 +1,1 @@
+class Solution { fun leftRigthDifference(nums:IntArray):IntArray{val total=nums.sum();var left=0;return IntArray(nums.size){index->val right=total-left-nums[index];val difference=kotlin.math.abs(left-right);left+=nums[index];difference}} }

@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "problemCount": 1831,
-  "solutionCount": 1858,
-  "implementationCount": 5574,
+  "problemCount": 1846,
+  "solutionCount": 1873,
+  "implementationCount": 5619,
   "problems": [
     {
       "id": 1,
@@ -27404,6 +27404,235 @@
         "哈希表",
         "排序",
         "贪心"
+      ],
+      "status": "published",
+      "batch": "batch-040",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2562,
+      "slug": "find-the-array-concatenation-value",
+      "title": "找出数组的串联值",
+      "studyTags": [
+        "数组",
+        "双指针",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-040",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2563,
+      "slug": "count-the-number-of-fair-pairs",
+      "title": "统计公平数对的数目",
+      "studyTags": [
+        "数组",
+        "排序",
+        "双指针"
+      ],
+      "status": "published",
+      "batch": "batch-040",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2564,
+      "slug": "substring-xor-queries",
+      "title": "子字符串异或查询",
+      "studyTags": [
+        "字符串",
+        "哈希表",
+        "位运算"
+      ],
+      "status": "published",
+      "batch": "batch-040",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2565,
+      "slug": "subsequence-with-the-minimum-score",
+      "title": "最少得分子序列",
+      "studyTags": [
+        "字符串",
+        "双指针",
+        "前后缀"
+      ],
+      "status": "published",
+      "batch": "batch-040",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2566,
+      "slug": "maximum-difference-by-remapping-a-digit",
+      "title": "替换一个数字后的最大差值",
+      "studyTags": [
+        "数学",
+        "字符串",
+        "贪心"
+      ],
+      "status": "published",
+      "batch": "batch-040",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2567,
+      "slug": "minimum-score-by-changing-two-elements",
+      "title": "修改两个元素的最小分数",
+      "studyTags": [
+        "数组",
+        "排序",
+        "贪心"
+      ],
+      "status": "published",
+      "batch": "batch-040",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2568,
+      "slug": "minimum-impossible-or",
+      "title": "最小无法得到的或值",
+      "studyTags": [
+        "数组",
+        "位运算",
+        "思维"
+      ],
+      "status": "published",
+      "batch": "batch-040",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2569,
+      "slug": "handling-sum-queries-after-update",
+      "title": "更新数组后处理求和查询",
+      "studyTags": [
+        "数组",
+        "线段树",
+        "懒标记"
+      ],
+      "status": "published",
+      "batch": "batch-040",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2570,
+      "slug": "merge-two-2d-arrays-by-summing-values",
+      "title": "合并两个二维数组",
+      "studyTags": [
+        "数组",
+        "双指针"
+      ],
+      "status": "published",
+      "batch": "batch-040",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2571,
+      "slug": "minimum-operations-to-reduce-an-integer-to-0",
+      "title": "将整数减少到零需要的最少操作数",
+      "studyTags": [
+        "贪心",
+        "位运算"
+      ],
+      "status": "published",
+      "batch": "batch-040",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2572,
+      "slug": "count-the-number-of-square-free-subsets",
+      "title": "无平方因子子集的数目",
+      "studyTags": [
+        "数组",
+        "数学",
+        "动态规划",
+        "位运算",
+        "状态压缩"
+      ],
+      "status": "published",
+      "batch": "batch-040",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2573,
+      "slug": "find-the-string-with-lcp",
+      "title": "找出对应 LCP 矩阵的字符串",
+      "studyTags": [
+        "数组",
+        "字符串",
+        "贪心",
+        "动态规划",
+        "矩阵"
+      ],
+      "status": "published",
+      "batch": "batch-040",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2574,
+      "slug": "left-and-right-sum-differences",
+      "title": "左右元素和的差值",
+      "studyTags": [
+        "数组",
+        "前缀和"
+      ],
+      "status": "published",
+      "batch": "batch-040",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2575,
+      "slug": "find-the-divisibility-array-of-a-string",
+      "title": "找出字符串的可整除数组",
+      "studyTags": [
+        "数组",
+        "数学",
+        "字符串",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-040",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2576,
+      "slug": "find-the-maximum-number-of-marked-indices",
+      "title": "求出最多标记下标",
+      "studyTags": [
+        "数组",
+        "双指针",
+        "二分查找",
+        "贪心",
+        "排序"
       ],
       "status": "published",
       "batch": "batch-040",

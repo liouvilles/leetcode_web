@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2570,
+  "slug": "merge-two-2d-arrays-by-summing-values",
+  "title": "合并两个二维数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-040",
+  "studyTags": [
+    "数组",
+    "双指针"
+  ],
+  "summary": "两个二维数组按唯一 id 递增排列，合并相同 id 的 value 之和，并按 id 递增返回。",
+  "insight": "像归并排序一样用两个指针比较当前 id；较小 id 直接输出，相等时输出 id 与两 value 之和。",
+  "pitfalls": [
+    "每个输入内部 id 唯一且有序",
+    "输出仍按 id 递增",
+    "相同 id 只能输出一行"
+  ],
+  "solutions": [
+    {
+      "id": "two-pointer-ordered-merge",
+      "title": "双指针有序归并",
+      "kind": "最优",
+      "idea": "线性合并两组 id-value 对。",
+      "steps": [
+        "first=second=0、answer 空",
+        "两边未结束时比较 id",
+        "较小者输出并移动对应指针；相等输出和并同时移动",
+        "追加任一数组剩余行",
+        "返回 answer 矩阵"
+      ],
+      "complexity": {
+        "time": "O(n + m)",
+        "space": "O(n + m) output"
+      },
+      "files": {
+        "java": "solutions/two-pointer-ordered-merge/Solution.java",
+        "kotlin": "solutions/two-pointer-ordered-merge/Solution.kt",
+        "cpp": "solutions/two-pointer-ordered-merge/solution.cpp"
+      }
+    }
+  ]
+}

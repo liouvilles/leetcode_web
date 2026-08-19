@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": 2572,
+  "slug": "count-the-number-of-square-free-subsets",
+  "title": "无平方因子子集的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-040",
+  "studyTags": [
+    "数组",
+    "数学",
+    "动态规划",
+    "位运算",
+    "状态压缩"
+  ],
+  "summary": "统计非空子集中元素乘积不被任何大于一的完全平方数整除的方案数，并对 10^9+7 取模。",
+  "insight": "数值只到 30，可用十个质数对应的位掩码表示其质因子。含平方质因子的数不能选择；其余数只有在质因子掩码与当前状态不相交时才能加入。数字 1 的掩码为零，会自然地让所有状态方案数翻倍。",
+  "pitfalls": [
+    "子集按下标区分，重复值仍是不同选择",
+    "含 p² 因子的单个数不能进入答案",
+    "最终要减去空集",
+    "所有计数都需取模"
+  ],
+  "solutions": [
+    {
+      "id": "prime-mask-dynamic-programming",
+      "title": "质因数掩码动态规划",
+      "kind": "最优",
+      "idea": "以已使用的质因数集合为状态逐个处理数组元素。",
+      "steps": [
+        "预设 30 以内的十个质数",
+        "为每个元素求掩码；若能被某个 p² 整除则标为不可选",
+        "dp[0]=1",
+        "对有效元素复制“不选”状态，再把与其掩码不相交的状态转移到并集",
+        "求所有状态之和并减去空集"
+      ],
+      "complexity": {
+        "time": "O(n * 2^10)",
+        "space": "O(2^10)"
+      },
+      "files": {
+        "java": "solutions/prime-mask-dynamic-programming/Solution.java",
+        "kotlin": "solutions/prime-mask-dynamic-programming/Solution.kt",
+        "cpp": "solutions/prime-mask-dynamic-programming/solution.cpp"
+      }
+    }
+  ]
+}

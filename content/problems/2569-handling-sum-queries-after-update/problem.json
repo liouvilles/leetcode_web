@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2569,
+  "slug": "handling-sum-queries-after-update",
+  "title": "更新数组后处理求和查询",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-040",
+  "studyTags": [
+    "数组",
+    "线段树",
+    "懒标记"
+  ],
+  "summary": "维护两个数组：区间翻转 nums1 的位；按 nums1[i]*p 给所有 nums2[i] 增量；或报告 nums2 总和。返回所有报告结果。",
+  "insight": "第二类查询只需要 nums1 中一的总数，无需逐项更新 nums2。用懒翻转线段树维护区间一数量；翻转节点时 ones=length-ones 并切换 lazy，nums2 仅维护一个 long 总和。",
+  "pitfalls": [
+    "区间翻转包含左右端点",
+    "连续翻转两次相互抵消",
+    "第二类查询的增量是 p*ones(nums1)",
+    "报告答案使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "lazy-flip-segment-tree",
+      "title": "懒翻转线段树",
+      "kind": "最优",
+      "idea": "线段树支持区间翻转与全局一计数。",
+      "steps": [
+        "由 nums1 构建 tree[node]=区间一数量",
+        "applyFlip：tree=length-tree、lazy 取反",
+        "update 覆盖区间时懒翻转，部分覆盖前 push 并合并子节点",
+        "sum2 初始化为 nums2 总和",
+        "query1 调 update；query2 执行 sum2+=p*tree[1]；query3 追加 sum2",
+        "返回报告数组"
+      ],
+      "complexity": {
+        "time": "O((n+q) log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/lazy-flip-segment-tree/Solution.java",
+        "kotlin": "solutions/lazy-flip-segment-tree/Solution.kt",
+        "cpp": "solutions/lazy-flip-segment-tree/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { public:int minMaxDifference(int num){string digits=to_string(num);char source='9';for(char character:digits)if(character!='9'){source=character;break;}string high=digits,low=digits;replace(high.begin(),high.end(),source,'9');replace(low.begin(),low.end(),digits[0],'0');return stoi(high)-stoi(low);} };

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumScore",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "删除 z 后 baa 是子序列",
+      "args": [
+        "abacaba",
+        "bzaa"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "没有字符匹配需删除整个目标",
+      "args": [
+        "cde",
+        "xyz"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "目标本身已经是子序列",
+      "args": [
+        "abc",
+        "abc"
+      ],
+      "expected": 0
+    }
+  ]
+}

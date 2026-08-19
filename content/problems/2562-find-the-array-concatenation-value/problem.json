@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2562,
+  "slug": "find-the-array-concatenation-value",
+  "title": "找出数组的串联值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-040",
+  "studyTags": [
+    "数组",
+    "双指针",
+    "模拟"
+  ],
+  "summary": "反复取数组当前首尾数字按十进制串联并加入答案；只剩一个数字时直接加入，求最终串联值。",
+  "insight": "双指针从两端向内移动。left<right 时把两数十进制表示拼接成一个 long，left==right 时加入中心值。",
+  "pitfalls": [
+    "串联顺序是左数在前、右数在后",
+    "奇数长度中心元素不做串联",
+    "答案使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "two-pointer-decimal-concatenation",
+      "title": "双指针十进制串联",
+      "kind": "最优",
+      "idea": "每轮同时消耗首尾元素。",
+      "steps": [
+        "left=0、right=n-1、answer=0",
+        "left<right 时把 nums[left] 与 nums[right] 的字符串拼接并转 long 加入",
+        "left==right 时加入 nums[left]",
+        "双指针收缩并返回 answer"
+      ],
+      "complexity": {
+        "time": "O(total digits)",
+        "space": "O(max digits)"
+      },
+      "files": {
+        "java": "solutions/two-pointer-decimal-concatenation/Solution.java",
+        "kotlin": "solutions/two-pointer-decimal-concatenation/Solution.kt",
+        "cpp": "solutions/two-pointer-decimal-concatenation/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findTheArrayConcVal",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "七四与五十二二串联和五百九十六",
+      "args": [
+        [
+          7,
+          52,
+          2,
+          4
+        ]
+      ],
+      "expected": 596
+    },
+    {
+      "name": "奇数数组中心十三直接加入",
+      "args": [
+        [
+          5,
+          14,
+          13,
+          8,
+          12
+        ]
+      ],
+      "expected": 673
+    },
+    {
+      "name": "单元素直接作为串联值",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2568,
+  "slug": "minimum-impossible-or",
+  "title": "最小无法得到的或值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-040",
+  "studyTags": [
+    "数组",
+    "位运算",
+    "思维"
+  ],
+  "summary": "从数组选择非空子序列并按位或，求无法得到的最小正整数。",
+  "insight": "最小缺失候选必可逐个检查一、二、四等二的幂。要得到仅含单个一位的 2^b，所选每个正数都不能含其他位，因此数组中必须直接存在 2^b；最小缺失二次幂就是答案。",
+  "pitfalls": [
+    "选择的是子序列但顺序对 OR 无影响",
+    "组合含多位数字无法消去多余位",
+    "只需检查二的幂是否存在"
+  ],
+  "solutions": [
+    {
+      "id": "first-missing-power-of-two",
+      "title": "查找首个缺失二次幂",
+      "kind": "最优",
+      "idea": "用集合检查一、二、四依次是否存在。",
+      "steps": [
+        "把 nums 放入集合",
+        "candidate=1",
+        "while set 包含 candidate，candidate <<= 1",
+        "返回 candidate"
+      ],
+      "complexity": {
+        "time": "O(n + log maxValue)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/first-missing-power-of-two/Solution.java",
+        "kotlin": "solutions/first-missing-power-of-two/Solution.kt",
+        "cpp": "solutions/first-missing-power-of-two/solution.cpp"
+      }
+    }
+  ]
+}

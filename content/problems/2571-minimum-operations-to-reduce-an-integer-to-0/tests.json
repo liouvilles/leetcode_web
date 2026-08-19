@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minOperations",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三十九通过进位与两次减法共三步",
+      "args": [
+        39
+      ],
+      "expected": 3
+    },
+    {
+      "name": "七加一后减八共两步",
+      "args": [
+        7
+      ],
+      "expected": 2
+    },
+    {
+      "name": "一直接减一一步完成",
+      "args": [
+        1
+      ],
+      "expected": 1
+    }
+  ]
+}

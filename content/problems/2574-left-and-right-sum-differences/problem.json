@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2574,
+  "slug": "left-and-right-sum-differences",
+  "title": "左右元素和的差值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-040",
+  "studyTags": [
+    "数组",
+    "前缀和"
+  ],
+  "summary": "对每个下标，计算其左侧元素和与右侧元素和之差的绝对值。",
+  "insight": "先求全部元素和并维护已扫描的左侧和；当前位置的右侧和等于 total-left-nums[i]，因此一次扫描即可产生全部答案。",
+  "pitfalls": [
+    "左右和都不包含当前位置",
+    "边界一侧为空时和为零",
+    "应先计算当前位置答案再把 nums[i] 加入 left"
+  ],
+  "solutions": [
+    {
+      "id": "running-prefix-and-total",
+      "title": "滚动前缀和与总和",
+      "kind": "最优",
+      "idea": "用总和减去左侧与当前值获得右侧和。",
+      "steps": [
+        "total 为数组总和，left=0",
+        "依次扫描 i",
+        "right=total-left-nums[i]",
+        "answer[i]=abs(left-right)",
+        "left+=nums[i]"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1) excluding output"
+      },
+      "files": {
+        "java": "solutions/running-prefix-and-total/Solution.java",
+        "kotlin": "solutions/running-prefix-and-total/Solution.kt",
+        "cpp": "solutions/running-prefix-and-total/solution.cpp"
+      }
+    }
+  ]
+}

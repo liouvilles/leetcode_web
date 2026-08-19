@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "substringXorQueries",
+  "parameterTypes": [
+    "string",
+    "intMatrix"
+  ],
+  "returnType": "intMatrix",
+  "cases": [
+    {
+      "name": "分别找到一零一与一一",
+      "args": [
+        "101101",
+        [
+          [
+            0,
+            5
+          ],
+          [
+            1,
+            2
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "name": "目标四在字符串中不存在",
+      "args": [
+        "0101",
+        [
+          [
+            12,
+            8
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          -1,
+          -1
+        ]
+      ]
+    },
+    {
+      "name": "目标零取最左单字符零",
+      "args": [
+        "0",
+        [
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    }
+  ]
+}

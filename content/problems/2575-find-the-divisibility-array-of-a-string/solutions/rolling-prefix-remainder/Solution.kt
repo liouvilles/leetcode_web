@@ -1,0 +1,1 @@
+class Solution { fun divisibilityArray(word:String,m:Int):IntArray{val answer=IntArray(word.length);var remainder=0L;for(i in word.indices){remainder=(remainder*10+(word[i]-'0'))%m;if(remainder==0L)answer[i]=1};return answer} }

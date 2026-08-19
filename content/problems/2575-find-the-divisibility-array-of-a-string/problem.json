@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2575,
+  "slug": "find-the-divisibility-array-of-a-string",
+  "title": "找出字符串的可整除数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-040",
+  "studyTags": [
+    "数组",
+    "数学",
+    "字符串",
+    "模拟"
+  ],
+  "summary": "数字字符串的每个前缀若能被 m 整除则对应位置记一，否则记零，返回全部标记。",
+  "insight": "无需构造可能溢出的前缀整数。若旧余数为 r，追加数字 d 后的新余数就是 (10r+d) mod m；滚动维护余数即可。",
+  "pitfalls": [
+    "前缀可能远超整数范围",
+    "余数乘十应使用 long",
+    "答案位置 i 对应包含 word[i] 的前缀"
+  ],
+  "solutions": [
+    {
+      "id": "rolling-prefix-remainder",
+      "title": "滚动维护前缀余数",
+      "kind": "最优",
+      "idea": "逐位利用十进制余数递推。",
+      "steps": [
+        "remainder=0",
+        "从左到右读取 digit",
+        "remainder=(remainder*10+digit)%m",
+        "若 remainder 为零则 answer[i]=1",
+        "返回标记数组"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1) excluding output"
+      },
+      "files": {
+        "java": "solutions/rolling-prefix-remainder/Solution.java",
+        "kotlin": "solutions/rolling-prefix-remainder/Solution.kt",
+        "cpp": "solutions/rolling-prefix-remainder/solution.cpp"
+      }
+    }
+  ]
+}
