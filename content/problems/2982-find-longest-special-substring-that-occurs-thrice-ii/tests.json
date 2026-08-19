@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumLength",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "长度四连续段答案为二",
+      "args": [
+        "aaaa"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "没有任何字符出现三次",
+      "args": [
+        "abcdef"
+      ],
+      "expected": -1
+    },
+    {
+      "name": "分散的三个 a 只支持长度一",
+      "args": [
+        "abcaba"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "两个长度三连续段支持长度二",
+      "args": [
+        "aaabaaa"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "长度五与四的两段共同支持长度四三次",
+      "args": [
+        "aaaaabaaaacaaa"
+      ],
+      "expected": 4
+    },
+    {
+      "name": "单个长度十连续段支持长度八三次",
+      "args": [
+        "zzzzzzzzzz"
+      ],
+      "expected": 8
+    }
+  ]
+}

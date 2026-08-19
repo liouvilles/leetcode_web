@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumOperationsToMakeEqual",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "二十六先减一再连续除五",
+      "args": [
+        26,
+        1
+      ],
+      "expected": 3
+    },
+    {
+      "name": "五十四加一后除十一和五",
+      "args": [
+        54,
+        2
+      ],
+      "expected": 4
+    },
+    {
+      "name": "目标更大时直接增加五次",
+      "args": [
+        25,
+        30
+      ],
+      "expected": 5
+    },
+    {
+      "name": "十先加一再除十一只需两步",
+      "args": [
+        10,
+        1
+      ],
+      "expected": 2
+    },
+    {
+      "name": "起点终点相同无需操作",
+      "args": [
+        7,
+        7
+      ],
+      "expected": 0
+    }
+  ]
+}

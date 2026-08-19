@@ -1,0 +1,1 @@
+class Solution { public:long long largestPerimeter(vector<int>& nums){sort(nums.begin(),nums.end());long long perimeter=accumulate(nums.begin(),nums.end(),0LL);for(int index=nums.size()-1;index>=2;--index){if(perimeter-nums[index]>nums[index])return perimeter;perimeter-=nums[index];}return -1;} };

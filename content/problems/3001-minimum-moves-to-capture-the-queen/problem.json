@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 3001,
+  "slug": "minimum-moves-to-capture-the-queen",
+  "title": "捕获皇后的最少移动次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-051",
+  "studyTags": [
+    "数学",
+    "枚举",
+    "几何"
+  ],
+  "summary": "国际象棋棋盘上有一个白车、一个白象和一个黑后；白子每步可按规则移动且不能穿过另一白子，求捕获黑后最少需要一还是两步。",
+  "insight": "若白车与皇后同行或同列且白象不在二者之间，白车一步捕获；若白象与皇后同对角线且白车不在二者之间，白象一步捕获。其余布局总能在两步内捕获。",
+  "pitfalls": [
+    "同一直线上的另一白子会阻挡",
+    "阻挡者必须严格位于攻击者与皇后之间",
+    "白象只沿四十五度对角线移动",
+    "答案只可能是一或二"
+  ],
+  "solutions": [
+    {
+      "id": "direct-line-of-sight-check",
+      "title": "一步视线判定",
+      "kind": "最优",
+      "idea": "分别检查车线和象线是否直达皇后。",
+      "steps": [
+        "定义 between 判断坐标是否严格位于两端之间",
+        "若车与皇后同行，检查象是否在中间",
+        "若车与皇后同列，检查象是否在中间",
+        "若象与皇后同对角线，检查车是否同线且在中间",
+        "任一视线无阻挡返回一，否则返回二"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/direct-line-of-sight-check/Solution.java",
+        "kotlin": "solutions/direct-line-of-sight-check/Solution.kt",
+        "cpp": "solutions/direct-line-of-sight-check/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "largestPerimeter",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "三个相等边组成周长十五的三角形",
+      "args": [
+        [
+          5,
+          5,
+          5
+        ]
+      ],
+      "expected": 15
+    },
+    {
+      "name": "丢弃五十与十二后五条边周长十二",
+      "args": [
+        [
+          1,
+          12,
+          1,
+          2,
+          5,
+          50,
+          3
+        ]
+      ],
+      "expected": 12
+    },
+    {
+      "name": "最长边五十过大无法组成多边形",
+      "args": [
+        [
+          5,
+          5,
+          50
+        ]
+      ],
+      "expected": -1
+    },
+    {
+      "name": "最长边等于其余边和时仍不合法",
+      "args": [
+        [
+          1,
+          1,
+          2
+        ]
+      ],
+      "expected": -1
+    },
+    {
+      "name": "十亿级三边周长需要六十四位整数",
+      "args": [
+        [
+          1000000000,
+          1000000000,
+          1000000000
+        ]
+      ],
+      "expected": 3000000000
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": 2981,
+  "slug": "find-longest-special-substring-that-occurs-thrice-i",
+  "title": "找出出现至少三次的最长特殊子字符串 I",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-051",
+  "studyTags": [
+    "哈希表",
+    "字符串",
+    "二分查找",
+    "计数",
+    "滑动窗口"
+  ],
+  "summary": "特殊字符串只由同一种字符组成；求在给定小写字符串中出现至少三次的最长特殊子字符串长度，重叠出现也计数，不存在则返回 -1。",
+  "insight": "对某个字符只需保留它的三个最长连续段，设长度为 a>=b>=c。三个出现位置要么全在最长段中，长度最多 a-2；要么两个在最长段、一个在次长段，长度最多 min(a-1,b)；要么分布在三个段，长度最多 c。三种情况的最大值就是该字符答案。",
+  "pitfalls": [
+    "出现次数按起始位置计数，因此同一连续段内的重叠子串要分别计算",
+    "必须是单一字符组成的特殊子串，不能跨越不同字符",
+    "连续段长度相等时也要作为不同段保留",
+    "答案候选不为正数时返回 -1",
+    "只保留一个最大连续段会漏掉跨多个段累计三次的情况"
+  ],
+  "solutions": [
+    {
+      "id": "top-three-runs-per-character",
+      "title": "每个字符保留三个最长连续段",
+      "kind": "最优",
+      "idea": "扫描连续段后用三种出现位置分布计算答案。",
+      "steps": [
+        "为二十六个字符维护降序的前三大连续段长度",
+        "线性扫描 s 的每个同字符连续段并插入对应前三大值",
+        "对每个字符令前三大长度为 a、b、c",
+        "比较 a-2、min(a-1,b)、c 三个候选",
+        "所有字符候选的最大值若小于一则返回 -1"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(26)"
+      },
+      "files": {
+        "java": "solutions/top-three-runs-per-character/Solution.java",
+        "kotlin": "solutions/top-three-runs-per-character/Solution.kt",
+        "cpp": "solutions/top-three-runs-per-character/solution.cpp"
+      }
+    }
+  ]
+}

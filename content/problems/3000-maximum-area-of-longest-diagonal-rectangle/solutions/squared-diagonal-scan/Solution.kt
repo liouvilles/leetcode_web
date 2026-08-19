@@ -1,0 +1,1 @@
+class Solution { fun areaOfMaxDiagonal(dimensions:Array<IntArray>):Int{var bestDiagonal=0;var bestArea=0;for(rectangle in dimensions){val diagonal=rectangle[0]*rectangle[0]+rectangle[1]*rectangle[1];val area=rectangle[0]*rectangle[1];if(diagonal>bestDiagonal||diagonal==bestDiagonal&&area>bestArea){bestDiagonal=diagonal;bestArea=area}};return bestArea} }

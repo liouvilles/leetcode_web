@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "id": 2983,
+  "slug": "palindrome-rearrangement-queries",
+  "title": "回文串重新排列查询",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-051",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "字符串",
+    "前缀和"
+  ],
+  "summary": "对每个独立查询，可分别重排左半段内一个区间和右半段内一个区间，判断能否把偶数长度字符串变成回文串。",
+  "insight": "把右半段反转为字符串 B，左半段记为 A，回文条件就变成 A 与 B 逐位相等。查询的两个可重排区间映射到同一坐标系后，区间并集外必须原本就匹配；第一区间的字符要先满足其不在交集部分的 B 固定字符，第二区间同理满足 A 的固定字符，最后交集两侧剩余的字符多重集必须完全相同。失配前缀和与字符计数前缀和可在每次查询中完成这些检查。",
+  "pitfalls": [
+    "右半段区间 [c,d] 反转映射后是 [n-1-d,n-1-c]",
+    "两个区间可能相离、相交、包含或完全相同，不能只分类处理某一种",
+    "区间并集外任一位置失配都无法由重排修复",
+    "一个区间的非交集位置对应另一侧固定字符，必须先从可用字符中扣除",
+    "扣除固定需求后任一字符数量不能为负，且交集两侧剩余多重集必须相等",
+    "查询互相独立，不能把上一次重排后的字符串用于下一次"
+  ],
+  "solutions": [
+    {
+      "id": "mirrored-halves-prefix-counts",
+      "title": "镜像半串与字符前缀计数",
+      "kind": "最优",
+      "idea": "把回文查询转成两个半串在可重排区间内匹配的问题。",
+      "steps": [
+        "令 A 为左半段，B 为反转后的右半段",
+        "预处理 A、B 的 26 维字符前缀计数以及逐位失配前缀和",
+        "把每个查询的右区间映射到 B 的坐标",
+        "用失配前缀和检查两个区间并集之外是否完全匹配",
+        "求两个区间交集",
+        "从 A 第一区间字符中扣除 B 在第一区间非交集位置的固定需求",
+        "从 B 第二区间字符中扣除 A 在第二区间非交集位置的固定需求",
+        "检查所有剩余数量非负且两侧逐字符相等",
+        "记录每个查询结果"
+      ],
+      "complexity": {
+        "time": "O(26(n+q))",
+        "space": "O(26n+q)"
+      },
+      "files": {
+        "java": "solutions/mirrored-halves-prefix-counts/Solution.java",
+        "kotlin": "solutions/mirrored-halves-prefix-counts/Solution.kt",
+        "cpp": "solutions/mirrored-halves-prefix-counts/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumCost",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "中位数三本身为回文且代价六",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "选择回文十一优于其他候选",
+      "args": [
+        [
+          10,
+          12,
+          13,
+          14,
+          15
+        ]
+      ],
+      "expected": 11
+    },
+    {
+      "name": "重复的回文二十二为最优目标",
+      "args": [
+        [
+          22,
+          33,
+          22,
+          33,
+          22
+        ]
+      ],
+      "expected": 22
+    },
+    {
+      "name": "输入十亿时只能选择严格更小的回文",
+      "args": [
+        [
+          1000000000
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "跨位数边界选择九百九十九",
+      "args": [
+        [
+          998,
+          1000
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

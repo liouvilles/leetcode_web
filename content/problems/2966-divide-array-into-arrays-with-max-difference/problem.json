@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2966,
+  "slug": "divide-array-into-arrays-with-max-difference",
+  "title": "划分数组并满足最大差限制",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-051",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "排序"
+  ],
+  "summary": "把长度为三的倍数的数组划分为若干个三元素数组，使每组任意两数之差不超过 k；无法完成时返回空数组。",
+  "insight": "排序后，从最小未使用元素开始，与紧随其后的两个元素成组能得到包含该最小值的最小可能极差。若这三个连续元素都超过限制，则该最小值与任何另外两数成组都会失败；否则取走它们并继续即可。",
+  "pitfalls": [
+    "每个原数组元素必须恰好使用一次",
+    "一组三个数只需检查最大值减最小值",
+    "排序后必须按连续三个元素分组",
+    "最小连续三元组不合法时不存在其他合法划分",
+    "题目允许任意答案，实现固定返回升序分组"
+  ],
+  "solutions": [
+    {
+      "id": "sort-and-take-consecutive-triples",
+      "title": "排序后连续三元组",
+      "kind": "最优",
+      "idea": "以最小极差的方式依次确定每一组。",
+      "steps": [
+        "将 nums 升序排序",
+        "每次取下标 start、start+1、start+2 的三个连续元素",
+        "若 nums[start+2]-nums[start]>k，返回空数组",
+        "否则把三者写入当前结果行",
+        "处理完所有元素后返回结果"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n) extra excluding output"
+      },
+      "files": {
+        "java": "solutions/sort-and-take-consecutive-triples/Solution.java",
+        "kotlin": "solutions/sort-and-take-consecutive-triples/Solution.kt",
+        "cpp": "solutions/sort-and-take-consecutive-triples/solution.cpp"
+      }
+    }
+  ]
+}

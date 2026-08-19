@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minOperations",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "当前异或四与目标一相差两位",
+      "args": [
+        [
+          2,
+          1,
+          3,
+          4
+        ],
+        1
+      ],
+      "expected": 2
+    },
+    {
+      "name": "当前异或已为零无需翻转",
+      "args": [
+        [
+          2,
+          0,
+          2,
+          0
+        ],
+        0
+      ],
+      "expected": 0
+    },
+    {
+      "name": "单个零变为七需要翻三位",
+      "args": [
+        [
+          0
+        ],
+        7
+      ],
+      "expected": 3
+    },
+    {
+      "name": "一二四的异或已经等于七",
+      "args": [
+        [
+          1,
+          2,
+          4
+        ],
+        7
+      ],
+      "expected": 0
+    }
+  ]
+}

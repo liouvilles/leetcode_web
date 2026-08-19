@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": 3006,
+  "slug": "find-beautiful-indices-in-the-given-array-i",
+  "title": "找出数组中的美丽下标 I",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-051",
+  "studyTags": [
+    "字符串",
+    "字符串匹配",
+    "KMP",
+    "双指针"
+  ],
+  "summary": "找出模式 a 在 s 中的所有起始下标 i，使得模式 b 至少有一个起始下标 j 满足 |i-j| 不超过 k。",
+  "insight": "分别用 KMP 线性找出 a 与 b 的所有出现位置，两组下标天然有序。扫描 a 的位置时，用指针跳过小于 i-k 的 b 位置；当前首个未跳过位置若不大于 i+k，i 就是美丽下标。",
+  "pitfalls": [
+    "模式出现允许重叠",
+    "比较的是两个模式的起始下标",
+    "距离条件包含等于 k",
+    "答案需要按升序返回",
+    "不能反复从头扫描 b 的位置"
+  ],
+  "solutions": [
+    {
+      "id": "kmp-occurrences-and-two-pointers",
+      "title": "KMP 出现位置与双指针",
+      "kind": "最优",
+      "idea": "先线性匹配两个模式，再在线性时间合并位置列表。",
+      "steps": [
+        "定义 occurrences(text,pattern) 的 KMP",
+        "构建模式前缀函数",
+        "扫描 s 并记录所有完整匹配起点",
+        "分别得到 first 与 second",
+        "用指针跳过 second 中小于 index-k 的位置",
+        "若当前 second 位置不大于 index+k 就记录 index",
+        "返回答案"
+      ],
+      "complexity": {
+        "time": "O(n+|a|+|b|)",
+        "space": "O(n+|a|+|b|)"
+      },
+      "files": {
+        "java": "solutions/kmp-occurrences-and-two-pointers/Solution.java",
+        "kotlin": "solutions/kmp-occurrences-and-two-pointers/Solution.kt",
+        "cpp": "solutions/kmp-occurrences-and-two-pointers/solution.cpp"
+      }
+    }
+  ]
+}

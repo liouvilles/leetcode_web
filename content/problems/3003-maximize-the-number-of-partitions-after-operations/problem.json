@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "id": 3003,
+  "slug": "maximize-the-number-of-partitions-after-operations",
+  "title": "执行操作后的最大分割数量",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-051",
+  "studyTags": [
+    "字符串",
+    "动态规划",
+    "位运算",
+    "前缀和",
+    "贪心"
+  ],
+  "summary": "至多把字符串一个位置改成任意小写字母，然后反复删除含不同字符不超过 k 的最长前缀；求最多能得到多少段。",
+  "insight": "原分割之前的完整段不会受位置 i 的修改影响。预处理每个起点在未修改字符串中的贪心后缀段数，以及每个位置所属原段的起点。对每个修改和字母，只需借助 26 个字符的下一出现位置求出受影响的一到两段边界，随后无缝接上预处理后缀。",
+  "pitfalls": [
+    "必须每次取最长合法前缀",
+    "修改字符可能恰好在新段的起点，因而影响连续两段",
+    "相同字符的首次出现被改掉时要寻找其下一次出现",
+    "k 等于二十六时永远只有一段",
+    "避免长度一万的递归栈"
+  ],
+  "solutions": [
+    {
+      "id": "next-occurrence-prefix-suffix-enumeration",
+      "title": "下一出现位置与前后缀枚举",
+      "kind": "最优",
+      "idea": "固定字母表下枚举修改，并在常数规模数组中选择第 k+1 个首次出现位置。",
+      "steps": [
+        "预处理 next[i][letter]",
+        "用第 k+1 小首次出现位置计算 suffixPartitions[i]",
+        "扫描原字符串记录每个位置的 segmentStart 与 prefixPartitions",
+        "枚举 changedIndex 和二十六种 replacement",
+        "调整旧字符与新字符的首次出现位置",
+        "排序二十六个首次位置得到第一条新边界",
+        "若边界落在修改位置，再同样计算受影响的第二段",
+        "拼接不受影响前缀、受影响段与 suffixPartitions",
+        "返回最大段数"
+      ],
+      "complexity": {
+        "time": "O(26²·n·log 26)",
+        "space": "O(26n)"
+      },
+      "files": {
+        "java": "solutions/next-occurrence-prefix-suffix-enumeration/Solution.java",
+        "kotlin": "solutions/next-occurrence-prefix-suffix-enumeration/Solution.kt",
+        "cpp": "solutions/next-occurrence-prefix-suffix-enumeration/solution.cpp"
+      }
+    }
+  ]
+}

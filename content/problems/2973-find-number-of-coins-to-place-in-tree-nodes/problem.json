@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "id": 2973,
+  "slug": "find-number-of-coins-to-place-in-tree-nodes",
+  "title": "树中每个节点放置的金币数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-051",
+  "studyTags": [
+    "树",
+    "深度优先搜索",
+    "动态规划",
+    "排序",
+    "树形 DP",
+    "堆（优先队列）"
+  ],
+  "summary": "以零号节点为根；每个节点的子树少于三个节点时放一枚金币，否则放置子树中三个不同节点开销的最大乘积，若该最大值为负则放零枚。",
+  "insight": "一组数的最大三数乘积只可能来自最大的三个数，或最小的两个数与最大数。因此每棵子树向父节点只需保留两小三大至多五个开销，并同时汇总子树大小。先迭代建立父子关系与根序，再逆序合并孩子摘要，既把总工作量限制在线性级别，也避免深链递归栈溢出。",
+  "pitfalls": [
+    "两个绝对值很大的负数乘以正数可能优于最大的三个数",
+    "摘要必须保留两个最小值和三个最大值，并保留重复值的节点数量",
+    "子树节点少于三时固定放一枚金币，不计算乘积",
+    "节点数至少三时最大乘积若为负要截断为零",
+    "三个开销的乘积可达 10^12，必须使用 64 位整数",
+    "两万节点可能形成长链，递归实现有栈溢出风险"
+  ],
+  "solutions": [
+    {
+      "id": "iterative-postorder-five-extremes-tree-dp",
+      "title": "迭代后序与两小三大摘要",
+      "kind": "最优",
+      "idea": "每棵子树只向上合并决定最大三数乘积所需的五个极值。",
+      "steps": [
+        "建立无向邻接表",
+        "从根零用显式栈生成 parent 与根序 order",
+        "按 order 逆序处理节点",
+        "把自身开销和每个孩子的至多五个极值加入候选，始终只保留两小三大",
+        "累加孩子子树大小",
+        "若子树小于三则答案为一",
+        "否则比较三大之积与两小一大之积，并与零取最大",
+        "返回所有节点答案"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/iterative-postorder-five-extremes-tree-dp/Solution.java",
+        "kotlin": "solutions/iterative-postorder-five-extremes-tree-dp/Solution.kt",
+        "cpp": "solutions/iterative-postorder-five-extremes-tree-dp/solution.cpp"
+      }
+    }
+  ]
+}

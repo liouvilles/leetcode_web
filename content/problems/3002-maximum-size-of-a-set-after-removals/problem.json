@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": 3002,
+  "slug": "maximum-size-of-a-set-after-removals",
+  "title": "移除元素后集合的最大大小",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-051",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "贪心"
+  ],
+  "summary": "两个长度相同且为偶数的数组各删除一半元素，把剩余元素合并成集合，求集合不同值数量的最大值。",
+  "insight": "先优先保留只出现在 nums1 或只出现在 nums2 的独有值，各自最多占 n/2 个保留位置；剩余位置再用两数组共有的不同值填充。共有值只需由任意一侧保留一次。",
+  "pitfalls": [
+    "每个数组都必须恰好删除一半",
+    "重复元素不增加集合大小",
+    "两侧独有值应优先保留",
+    "共有值最终只能贡献一次"
+  ],
+  "solutions": [
+    {
+      "id": "unique-and-common-capacity-greedy",
+      "title": "独有值优先的容量贪心",
+      "kind": "最优",
+      "idea": "按独有值和共有值划分集合后分配两侧容量。",
+      "steps": [
+        "建立 first 与 second 两个不同值集合",
+        "统计 common 交集大小",
+        "onlyFirst=first.size-common，onlySecond 类似",
+        "takeFirst=min(n/2,onlyFirst)",
+        "takeSecond=min(n/2,onlySecond)",
+        "用剩余总容量尽量容纳 common",
+        "返回三部分之和"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/unique-and-common-capacity-greedy/Solution.java",
+        "kotlin": "solutions/unique-and-common-capacity-greedy/Solution.kt",
+        "cpp": "solutions/unique-and-common-capacity-greedy/solution.cpp"
+      }
+    }
+  ]
+}

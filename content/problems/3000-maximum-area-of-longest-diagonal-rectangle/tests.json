@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "areaOfMaxDiagonal",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "八乘六的对角线更长且面积四十八",
+      "args": [
+        [
+          [
+            9,
+            3
+          ],
+          [
+            8,
+            6
+          ]
+        ]
+      ],
+      "expected": 48
+    },
+    {
+      "name": "相同对角线与面积返回十二",
+      "args": [
+        [
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            3
+          ]
+        ]
+      ],
+      "expected": 12
+    },
+    {
+      "name": "五乘五胜过二乘六",
+      "args": [
+        [
+          [
+            2,
+            6
+          ],
+          [
+            5,
+            5
+          ]
+        ]
+      ],
+      "expected": 25
+    },
+    {
+      "name": "一乘十的对角线略长于七乘七",
+      "args": [
+        [
+          [
+            1,
+            10
+          ],
+          [
+            7,
+            7
+          ]
+        ]
+      ],
+      "expected": 10
+    }
+  ]
+}

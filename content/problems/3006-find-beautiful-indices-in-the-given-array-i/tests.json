@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "beautifulIndices",
+  "parameterTypes": [
+    "string",
+    "string",
+    "string",
+    "int"
+  ],
+  "returnType": "intList",
+  "cases": [
+    {
+      "name": "两个 my 都靠近 squirrel",
+      "args": [
+        "isawsquirrelnearmysquirrelhouseohmy",
+        "my",
+        "squirrel",
+        15
+      ],
+      "expected": [
+        16,
+        33
+      ]
+    },
+    {
+      "name": "同一位置同时匹配两个模式",
+      "args": [
+        "abcd",
+        "a",
+        "a",
+        4
+      ],
+      "expected": [
+        0
+      ]
+    },
+    {
+      "name": "两个模式距离三超过阈值二",
+      "args": [
+        "abcd",
+        "a",
+        "d",
+        2
+      ],
+      "expected": []
+    },
+    {
+      "name": "重叠匹配的每个 aa 都靠近 aaa",
+      "args": [
+        "aaaaa",
+        "aa",
+        "aaa",
+        1
+      ],
+      "expected": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "name": "两次 abc 都与随后 bc 相距一",
+      "args": [
+        "abcabc",
+        "abc",
+        "bc",
+        1
+      ],
+      "expected": [
+        0,
+        3
+      ]
+    }
+  ]
+}

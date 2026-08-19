@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": 2998,
+  "slug": "minimum-number-of-operations-to-make-x-and-y-equal",
+  "title": "使 X 和 Y 相等的最少操作数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-051",
+  "studyTags": [
+    "广度优先搜索",
+    "动态规划",
+    "数学"
+  ],
+  "summary": "可对当前 x 加一、减一，或在能整除时除以五、十一；求把 x 变成 y 的最少操作数。",
+  "insight": "每种操作代价均为一，可把正整数视为无权图并做 BFS。若 x 不大于 y，除法只会远离目标，直接增加 y-x 次最优；否则直接递减给出 x-y 的上界，搜索无需超过约两倍 x。",
+  "pitfalls": [
+    "除法仅在整除时可用",
+    "增加到最近的五或十一倍数可能比只递减更优",
+    "BFS 首次到达 y 即为最短路",
+    "搜索边界要覆盖先增加再除法的方案"
+  ],
+  "solutions": [
+    {
+      "id": "bounded-breadth-first-search",
+      "title": "有界整数状态 BFS",
+      "kind": "最优",
+      "idea": "在安全的有限区间内按层枚举四种一步操作。",
+      "steps": [
+        "若 x<=y 直接返回 y-x",
+        "令 upper=2*max(x,y)+12",
+        "distance 全部置为 -1，并从 x 入队",
+        "每次扩展 value-1、value+1",
+        "若能整除五或十一，再扩展相应商",
+        "只访问一到 upper 内未访问状态",
+        "首次弹出 y 时返回距离"
+      ],
+      "complexity": {
+        "time": "O(x+y)",
+        "space": "O(x+y)"
+      },
+      "files": {
+        "java": "solutions/bounded-breadth-first-search/Solution.java",
+        "kotlin": "solutions/bounded-breadth-first-search/Solution.kt",
+        "cpp": "solutions/bounded-breadth-first-search/solution.cpp"
+      }
+    }
+  ]
+}

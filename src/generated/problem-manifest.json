@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "problemCount": 2096,
-  "solutionCount": 2123,
-  "implementationCount": 6369,
+  "problemCount": 2121,
+  "solutionCount": 2148,
+  "implementationCount": 6444,
   "problems": [
     {
       "id": 1,
@@ -31419,6 +31419,402 @@
       "batch": "batch-050",
       "solutionCount": 1,
       "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2966,
+      "slug": "divide-array-into-arrays-with-max-difference",
+      "title": "划分数组并满足最大差限制",
+      "studyTags": [
+        "数组",
+        "贪心",
+        "排序"
+      ],
+      "status": "published",
+      "batch": "batch-051",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2967,
+      "slug": "minimum-cost-to-make-array-equalindromic",
+      "title": "使数组成为等数数组的最小代价",
+      "studyTags": [
+        "数组",
+        "数学",
+        "二分查找",
+        "贪心",
+        "排序"
+      ],
+      "status": "published",
+      "batch": "batch-051",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2968,
+      "slug": "apply-operations-to-maximize-frequency-score",
+      "title": "执行操作使频率分数最大",
+      "studyTags": [
+        "数组",
+        "排序",
+        "滑动窗口",
+        "前缀和",
+        "二分查找"
+      ],
+      "status": "published",
+      "batch": "batch-051",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2970,
+      "slug": "count-the-number-of-incremovable-subarrays-i",
+      "title": "统计移除递增子数组的数目 I",
+      "studyTags": [
+        "数组",
+        "双指针",
+        "枚举",
+        "二分查找"
+      ],
+      "status": "published",
+      "batch": "batch-051",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2971,
+      "slug": "find-polygon-with-the-largest-perimeter",
+      "title": "找到最大周长的多边形",
+      "studyTags": [
+        "数组",
+        "贪心",
+        "排序",
+        "前缀和",
+        "多边形"
+      ],
+      "status": "published",
+      "batch": "batch-051",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2972,
+      "slug": "count-the-number-of-incremovable-subarrays-ii",
+      "title": "统计移除递增子数组的数目 II",
+      "studyTags": [
+        "数组",
+        "双指针",
+        "二分查找"
+      ],
+      "status": "published",
+      "batch": "batch-051",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2973,
+      "slug": "find-number-of-coins-to-place-in-tree-nodes",
+      "title": "树中每个节点放置的金币数目",
+      "studyTags": [
+        "树",
+        "深度优先搜索",
+        "动态规划",
+        "排序",
+        "树形 DP",
+        "堆（优先队列）"
+      ],
+      "status": "published",
+      "batch": "batch-051",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2974,
+      "slug": "minimum-number-game",
+      "title": "最小数字游戏",
+      "studyTags": [
+        "数组",
+        "排序",
+        "模拟",
+        "堆（优先队列）"
+      ],
+      "status": "published",
+      "batch": "batch-051",
+      "solutionCount": 1,
+      "testCount": 4,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2975,
+      "slug": "maximum-square-area-by-removing-fences-from-a-field",
+      "title": "移除栅栏得到的正方形田地的最大面积",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "枚举"
+      ],
+      "status": "published",
+      "batch": "batch-051",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2976,
+      "slug": "minimum-cost-to-convert-string-i",
+      "title": "转换字符串的最小成本 I",
+      "studyTags": [
+        "图",
+        "数组",
+        "字符串",
+        "最短路"
+      ],
+      "status": "published",
+      "batch": "batch-051",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2977,
+      "slug": "minimum-cost-to-convert-string-ii",
+      "title": "转换字符串的最小成本 II",
+      "studyTags": [
+        "图",
+        "字典树",
+        "数组",
+        "字符串",
+        "动态规划",
+        "最短路"
+      ],
+      "status": "published",
+      "batch": "batch-051",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2980,
+      "slug": "check-if-bitwise-or-has-trailing-zeros",
+      "title": "检查按位或是否存在尾随零",
+      "studyTags": [
+        "位运算",
+        "数组"
+      ],
+      "status": "published",
+      "batch": "batch-051",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2981,
+      "slug": "find-longest-special-substring-that-occurs-thrice-i",
+      "title": "找出出现至少三次的最长特殊子字符串 I",
+      "studyTags": [
+        "哈希表",
+        "字符串",
+        "二分查找",
+        "计数",
+        "滑动窗口"
+      ],
+      "status": "published",
+      "batch": "batch-051",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2982,
+      "slug": "find-longest-special-substring-that-occurs-thrice-ii",
+      "title": "找出出现至少三次的最长特殊子字符串 II",
+      "studyTags": [
+        "哈希表",
+        "字符串",
+        "二分查找",
+        "计数",
+        "滑动窗口"
+      ],
+      "status": "published",
+      "batch": "batch-051",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2983,
+      "slug": "palindrome-rearrangement-queries",
+      "title": "回文串重新排列查询",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "字符串",
+        "前缀和"
+      ],
+      "status": "published",
+      "batch": "batch-051",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2996,
+      "slug": "smallest-missing-integer-greater-than-sequential-prefix-sum",
+      "title": "大于等于顺序前缀和的最小缺失整数",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-051",
+      "solutionCount": 1,
+      "testCount": 4,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2997,
+      "slug": "minimum-number-of-operations-to-make-array-xor-equal-to-k",
+      "title": "使数组异或和等于 K 的最少操作数",
+      "studyTags": [
+        "数组",
+        "位运算"
+      ],
+      "status": "published",
+      "batch": "batch-051",
+      "solutionCount": 1,
+      "testCount": 4,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2998,
+      "slug": "minimum-number-of-operations-to-make-x-and-y-equal",
+      "title": "使 X 和 Y 相等的最少操作数",
+      "studyTags": [
+        "广度优先搜索",
+        "动态规划",
+        "数学"
+      ],
+      "status": "published",
+      "batch": "batch-051",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2999,
+      "slug": "count-the-number-of-powerful-integers",
+      "title": "统计强大整数的数目",
+      "studyTags": [
+        "数学",
+        "字符串",
+        "动态规划",
+        "数位 DP"
+      ],
+      "status": "published",
+      "batch": "batch-051",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3000,
+      "slug": "maximum-area-of-longest-diagonal-rectangle",
+      "title": "对角线最长的矩形面积",
+      "studyTags": [
+        "数组",
+        "数学"
+      ],
+      "status": "published",
+      "batch": "batch-051",
+      "solutionCount": 1,
+      "testCount": 4,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3001,
+      "slug": "minimum-moves-to-capture-the-queen",
+      "title": "捕获皇后的最少移动次数",
+      "studyTags": [
+        "数学",
+        "枚举",
+        "几何"
+      ],
+      "status": "published",
+      "batch": "batch-051",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3002,
+      "slug": "maximum-size-of-a-set-after-removals",
+      "title": "移除元素后集合的最大大小",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "贪心"
+      ],
+      "status": "published",
+      "batch": "batch-051",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3003,
+      "slug": "maximize-the-number-of-partitions-after-operations",
+      "title": "执行操作后的最大分割数量",
+      "studyTags": [
+        "字符串",
+        "动态规划",
+        "位运算",
+        "前缀和",
+        "贪心"
+      ],
+      "status": "published",
+      "batch": "batch-051",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3005,
+      "slug": "count-elements-with-maximum-frequency",
+      "title": "最大频率元素计数",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "计数"
+      ],
+      "status": "published",
+      "batch": "batch-051",
+      "solutionCount": 1,
+      "testCount": 4,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3006,
+      "slug": "find-beautiful-indices-in-the-given-array-i",
+      "title": "找出数组中的美丽下标 I",
+      "studyTags": [
+        "字符串",
+        "字符串匹配",
+        "KMP",
+        "双指针"
+      ],
+      "status": "published",
+      "batch": "batch-051",
+      "solutionCount": 1,
+      "testCount": 5,
       "qualityGate": "tested"
     }
   ]

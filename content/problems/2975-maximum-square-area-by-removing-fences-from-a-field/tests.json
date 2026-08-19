@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximizeSquareArea",
+  "parameterTypes": [
+    "int",
+    "int",
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "移除内部栅栏形成边长二的正方形",
+      "args": [
+        4,
+        3,
+        [
+          2,
+          3
+        ],
+        [
+          2
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "两个方向没有公共跨度时返回负一",
+      "args": [
+        6,
+        7,
+        [
+          2
+        ],
+        [
+          4
+        ]
+      ],
+      "expected": -1
+    },
+    {
+      "name": "移除所有内部栅栏后外围形成边长四的正方形",
+      "args": [
+        5,
+        5,
+        [
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "expected": 16
+    },
+    {
+      "name": "多个候选跨度中选择公共最大边长七",
+      "args": [
+        8,
+        9,
+        [
+          2,
+          4,
+          7
+        ],
+        [
+          3,
+          6,
+          8
+        ]
+      ],
+      "expected": 49
+    },
+    {
+      "name": "十亿坐标边界先平方再正确取模",
+      "args": [
+        1000000000,
+        1000000000,
+        [
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "expected": 64
+    }
+  ]
+}

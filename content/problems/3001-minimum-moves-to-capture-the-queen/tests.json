@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minMovesToCaptureTheQueen",
+  "parameterTypes": [
+    "int",
+    "int",
+    "int",
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "白车同行且白象未阻挡可一步捕获",
+      "args": [
+        1,
+        1,
+        3,
+        3,
+        1,
+        8
+      ],
+      "expected": 1
+    },
+    {
+      "name": "白象与皇后同对角线且白车未阻挡",
+      "args": [
+        1,
+        2,
+        3,
+        3,
+        6,
+        6
+      ],
+      "expected": 1
+    },
+    {
+      "name": "白象挡在同行白车与皇后之间",
+      "args": [
+        1,
+        1,
+        1,
+        4,
+        1,
+        8
+      ],
+      "expected": 2
+    },
+    {
+      "name": "白车挡在白象与皇后的对角线上",
+      "args": [
+        3,
+        3,
+        1,
+        1,
+        6,
+        6
+      ],
+      "expected": 2
+    },
+    {
+      "name": "两个白子都不能一步直达皇后",
+      "args": [
+        1,
+        1,
+        8,
+        8,
+        2,
+        3
+      ],
+      "expected": 2
+    }
+  ]
+}

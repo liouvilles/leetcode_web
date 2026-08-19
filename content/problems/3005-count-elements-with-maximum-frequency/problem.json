@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 3005,
+  "slug": "count-elements-with-maximum-frequency",
+  "title": "最大频率元素计数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-051",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "计数"
+  ],
+  "summary": "统计数组中所有出现频率等于全局最大频率的元素个数；相同值的每次出现都要计入。",
+  "insight": "先统计每个值的频率并找出最大频率，再把所有等于最大频率的频次相加。也可理解为最大频率乘达到该频率的不同值数量。",
+  "pitfalls": [
+    "返回的是元素出现总数而非不同值个数",
+    "可能有多个值并列最大频率",
+    "所有值互异时答案是数组长度",
+    "重复值的每个位置都要计数"
+  ],
+  "solutions": [
+    {
+      "id": "frequency-count-and-sum",
+      "title": "频率统计与并列求和",
+      "kind": "最优",
+      "idea": "两次扫描固定值域频率数组。",
+      "steps": [
+        "建立 frequency 数组并统计 nums",
+        "维护 maximumFrequency",
+        "遍历 frequency",
+        "若某个频率等于 maximumFrequency 就累加到 answer",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n+V)",
+        "space": "O(V)"
+      },
+      "files": {
+        "java": "solutions/frequency-count-and-sum/Solution.java",
+        "kotlin": "solutions/frequency-count-and-sum/Solution.kt",
+        "cpp": "solutions/frequency-count-and-sum/solution.cpp"
+      }
+    }
+  ]
+}

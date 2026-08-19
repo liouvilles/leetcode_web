@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": 2975,
+  "slug": "maximum-square-area-by-removing-fences-from-a-field",
+  "title": "移除栅栏得到的正方形田地的最大面积",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-051",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "枚举"
+  ],
+  "summary": "矩形田地内有可移除的水平与垂直栅栏，外围四条栅栏固定；求移除任意内部栅栏后可形成的最大正方形面积，不存在时返回负一，存在时对十亿零七取模。",
+  "insight": "选择任意两条保留的水平栅栏会确定一个可形成的高度，因为它们之间的栅栏都可移除；竖直方向同理。把不可移除的边界坐标 1、m 和 1、n 分别加入两组栅栏，枚举同方向任意两条栅栏的距离。两个距离集合中最大的公共值就是最大正方形边长。",
+  "pitfalls": [
+    "外围边界坐标是水平的一与 m、竖直的一与 n，而不是零",
+    "所选两条栅栏不必原本相邻，中间栅栏可以移除",
+    "正方形要求水平距离与竖直距离完全相同",
+    "没有任何公共正距离时返回 -1",
+    "边长平方可接近 10^18，要先用 long 计算再取模"
+  ],
+  "solutions": [
+    {
+      "id": "pairwise-fence-distance-intersection",
+      "title": "栅栏距离集合求交",
+      "kind": "最优",
+      "idea": "枚举两个方向的所有可形成跨度，并取最大的公共跨度。",
+      "steps": [
+        "把坐标 1 与 m 加入水平栅栏位置",
+        "把坐标 1 与 n 加入竖直栅栏位置",
+        "分别枚举同方向位置对并把距离放入集合",
+        "扫描水平距离，找同时存在于竖直集合的最大值",
+        "若不存在公共距离则返回 -1",
+        "用 long 计算最大边长平方并对 1000000007 取模"
+      ],
+      "complexity": {
+        "time": "O(h²+v²)",
+        "space": "O(h²+v²)"
+      },
+      "files": {
+        "java": "solutions/pairwise-fence-distance-intersection/Solution.java",
+        "kotlin": "solutions/pairwise-fence-distance-intersection/Solution.kt",
+        "cpp": "solutions/pairwise-fence-distance-intersection/solution.cpp"
+      }
+    }
+  ]
+}

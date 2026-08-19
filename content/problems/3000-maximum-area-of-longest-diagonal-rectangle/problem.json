@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 3000,
+  "slug": "maximum-area-of-longest-diagonal-rectangle",
+  "title": "对角线最长的矩形面积",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-051",
+  "studyTags": [
+    "数组",
+    "数学"
+  ],
+  "summary": "给出若干矩形的长宽，选择对角线最长的矩形；若对角线长度相同则选择面积最大的一个，返回其面积。",
+  "insight": "比较对角线时无需开平方，直接比较 width²+height² 可保持精确。记录目前最大的对角线平方和与对应最大面积，按题意处理并列即可。",
+  "pitfalls": [
+    "先比较对角线再比较面积",
+    "平方和相同才使用面积打破并列",
+    "不要用浮点开方",
+    "答案返回面积而非对角线"
+  ],
+  "solutions": [
+    {
+      "id": "squared-diagonal-scan",
+      "title": "对角线平方扫描",
+      "kind": "最优",
+      "idea": "一次遍历维护字典序为（对角线平方，面积）的最大矩形。",
+      "steps": [
+        "bestDiagonal=0、bestArea=0",
+        "遍历每个 [width,height]",
+        "计算 diagonal=width²+height² 与 area=width*height",
+        "若 diagonal 更大或相等且 area 更大则更新",
+        "返回 bestArea"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/squared-diagonal-scan/Solution.java",
+        "kotlin": "solutions/squared-diagonal-scan/Solution.kt",
+        "cpp": "solutions/squared-diagonal-scan/solution.cpp"
+      }
+    }
+  ]
+}

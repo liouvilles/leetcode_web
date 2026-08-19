@@ -1,0 +1,1 @@
+class Solution { public:int maxFrequencyElements(vector<int>& nums){int frequency[101]={},maximum=0,answer=0;for(int value:nums)maximum=max(maximum,++frequency[value]);for(int count:frequency)if(count==maximum)answer+=count;return answer;} };

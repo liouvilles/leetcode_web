@@ -1,0 +1,1 @@
+class Solution { public int areaOfMaxDiagonal(int[][] dimensions){int bestDiagonal=0,bestArea=0;for(int[] rectangle:dimensions){int diagonal=rectangle[0]*rectangle[0]+rectangle[1]*rectangle[1],area=rectangle[0]*rectangle[1];if(diagonal>bestDiagonal||diagonal==bestDiagonal&&area>bestArea){bestDiagonal=diagonal;bestArea=area;}}return bestArea;} }

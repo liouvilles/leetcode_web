@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numberOfPowerfulInt",
+  "parameterTypes": [
+    "long",
+    "long",
+    "int",
+    "string"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "六千以内以一二四结尾且数字至多四",
+      "args": [
+        1,
+        6000,
+        4,
+        "124"
+      ],
+      "expected": 5
+    },
+    {
+      "name": "十五到二百一十五之间有一一零和二一零",
+      "args": [
+        15,
+        215,
+        6,
+        "10"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "后缀本身已超过区间上界",
+      "args": [
+        1000,
+        2000,
+        4,
+        "3000"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "一千以内所有以一结尾的正整数",
+      "args": [
+        1,
+        1000,
+        9,
+        "1"
+      ],
+      "expected": 100
+    },
+    {
+      "name": "十的十五次方内以一结尾覆盖六十四位答案",
+      "args": [
+        1,
+        1000000000000000,
+        9,
+        "1"
+      ],
+      "expected": 100000000000000
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": 2999,
+  "slug": "count-the-number-of-powerful-integers",
+  "title": "统计强大整数的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-051",
+  "studyTags": [
+    "数学",
+    "字符串",
+    "动态规划",
+    "数位 DP"
+  ],
+  "summary": "统计闭区间 [start,finish] 中以给定字符串 s 结尾、且每一位数字都不超过 limit 的正整数数量。",
+  "insight": "用 count(bound) 统计不超过 bound 的合法数，再作前缀差。按总位数枚举，末尾位置强制填写 s，其余位置枚举不超过 limit 的数字；对与 bound 等长的情况用 tight 状态保证不越界。",
+  "pitfalls": [
+    "答案和边界需要 64 位",
+    "首位不能为零",
+    "后缀位置必须逐位固定",
+    "区间答案是 count(finish)-count(start-1)",
+    "s 可能与 bound 等长"
+  ],
+  "solutions": [
+    {
+      "id": "fixed-suffix-digit-dp",
+      "title": "固定后缀的数位 DP",
+      "kind": "最优",
+      "idea": "按位数和紧致状态统计所有合法十进制表示。",
+      "steps": [
+        "定义 count(bound)",
+        "枚举 length 从 s.length 到 bound 的位数",
+        "dp[tight] 表示已填前缀是否仍贴合 bound",
+        "普通位置枚举首位一到 limit、其余零到 limit",
+        "末尾 s.length 个位置只允许对应后缀数字",
+        "累加每种长度的两种 tight 状态",
+        "返回 count(finish)-count(start-1)"
+      ],
+      "complexity": {
+        "time": "O(log² finish·10)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/fixed-suffix-digit-dp/Solution.java",
+        "kotlin": "solutions/fixed-suffix-digit-dp/Solution.kt",
+        "cpp": "solutions/fixed-suffix-digit-dp/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": 2976,
+  "slug": "minimum-cost-to-convert-string-i",
+  "title": "转换字符串的最小成本 I",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-051",
+  "studyTags": [
+    "图",
+    "数组",
+    "字符串",
+    "最短路"
+  ],
+  "summary": "每条规则以给定成本把一个小写字母改成另一个字母，可重复应用规则；求把 source 逐位转换为 target 的最小总成本，不可能时返回负一。",
+  "insight": "把二十六个字母视作有向图节点，每条转换规则是带正权有向边；重复规则只保留最小直接成本。字符种类固定为二十六，用 Floyd 算法求任意字母对之间的最短转换成本，再逐位置累加 source 字符到 target 字符的距离即可。",
+  "pitfalls": [
+    "转换规则是有方向的，x 到 y 可行不代表 y 到 x 可行",
+    "同一对字母可能有多条规则，初始化时要保留最小成本",
+    "最便宜路径可能经过多个中间字母",
+    "相同字符无需转换，距离应初始化为零",
+    "任一位置不可达就应立即返回 -1",
+    "总成本可达 10^11 以上，距离与答案都使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "floyd-warshall-on-alphabet-graph",
+      "title": "字母图 Floyd 全源最短路",
+      "kind": "最优",
+      "idea": "在固定二十六节点的有向图上预处理所有字母对最短转换成本。",
+      "steps": [
+        "建立 26×26 距离矩阵并把对角线设为零",
+        "按规则用最小值初始化有向边",
+        "枚举中转字母执行 Floyd 松弛",
+        "逐下标读取 source 与 target 字符",
+        "若对应距离不可达则返回 -1",
+        "否则累加距离并返回总成本"
+      ],
+      "complexity": {
+        "time": "O(26³+r+n)",
+        "space": "O(26²)"
+      },
+      "files": {
+        "java": "solutions/floyd-warshall-on-alphabet-graph/Solution.java",
+        "kotlin": "solutions/floyd-warshall-on-alphabet-graph/Solution.kt",
+        "cpp": "solutions/floyd-warshall-on-alphabet-graph/solution.cpp"
+      }
+    }
+  ]
+}

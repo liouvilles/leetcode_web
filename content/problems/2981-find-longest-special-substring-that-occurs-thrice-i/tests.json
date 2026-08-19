@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumLength",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "单个长度四连续段内 aa 重叠出现三次",
+      "args": [
+        "aaaa"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "所有字符互异时不存在三次出现",
+      "args": [
+        "abcdef"
+      ],
+      "expected": -1
+    },
+    {
+      "name": "三个分离的 a 使长度一出现三次",
+      "args": [
+        "abcaba"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "两个长度三的 a 段共同提供四个 aa",
+      "args": [
+        "aaabaaa"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "单个长度六连续段的最优长度为四",
+      "args": [
+        "zzzzzz"
+      ],
+      "expected": 4
+    },
+    {
+      "name": "两个长度五的 c 段使长度四出现四次",
+      "args": [
+        "abbbcccccdddbbbccccc"
+      ],
+      "expected": 4
+    }
+  ]
+}

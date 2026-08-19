@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxFrequencyElements",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一和二并列出现两次共四个元素",
+      "args": [
+        [
+          1,
+          2,
+          2,
+          3,
+          1,
+          4
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "所有值互异且都达到最大频率",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "单一值出现三次返回三",
+      "args": [
+        [
+          7,
+          7,
+          7
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "三个值各出现两次返回六",
+      "args": [
+        [
+          1,
+          1,
+          2,
+          2,
+          3,
+          3
+        ]
+      ],
+      "expected": 6
+    }
+  ]
+}

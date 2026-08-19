@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxPartitionsAfterOperations",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "修改中间字符后可分成三段",
+      "args": [
+        "accca",
+        2
+      ],
+      "expected": 3
+    },
+    {
+      "name": "允许三种字符时修改仍只有一段",
+      "args": [
+        "aabaab",
+        3
+      ],
+      "expected": 1
+    },
+    {
+      "name": "每段只容一种字符时可得到四段",
+      "args": [
+        "xxyz",
+        1
+      ],
+      "expected": 4
+    },
+    {
+      "name": "修改中间重复字符会连续影响两段",
+      "args": [
+        "ddd",
+        1
+      ],
+      "expected": 3
+    },
+    {
+      "name": "允许全部字母时始终只有一段",
+      "args": [
+        "abcdefghijklmnopqrstuvwxyz",
+        26
+      ],
+      "expected": 1
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { fun missingInteger(nums:IntArray):Int{val values=nums.toHashSet();var sum=nums[0];var index=1;while(index<nums.size&&nums[index]==nums[index-1]+1){sum+=nums[index];index++};while(sum in values)sum++;return sum} }

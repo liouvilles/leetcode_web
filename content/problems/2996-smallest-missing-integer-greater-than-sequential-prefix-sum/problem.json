@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2996,
+  "slug": "smallest-missing-integer-greater-than-sequential-prefix-sum",
+  "title": "大于等于顺序前缀和的最小缺失整数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-051",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "模拟"
+  ],
+  "summary": "从数组开头取最长的连续递增一前缀，计算其元素和；返回不小于该和且没有出现在 nums 中的最小整数。",
+  "insight": "先沿着 nums[i]=nums[i-1]+1 的条件累加最长顺序前缀。把所有数组值放进集合后，从前缀和开始逐一递增，首个不在集合中的数就是答案。",
+  "pitfalls": [
+    "顺序前缀必须从下标零开始",
+    "相邻元素必须恰好增加一",
+    "候选值允许等于前缀和",
+    "查重范围是整个数组而非仅前缀"
+  ],
+  "solutions": [
+    {
+      "id": "sequential-prefix-sum-and-set-scan",
+      "title": "顺序前缀和与集合扫描",
+      "kind": "最优",
+      "idea": "先确定候选下界，再用集合跳过所有已出现的整数。",
+      "steps": [
+        "把 nums 的所有值加入集合",
+        "sum=nums[0]",
+        "从下标一开始，若当前值等于前一值加一就累加，否则停止",
+        "candidate=sum",
+        "当集合包含 candidate 时令其加一",
+        "返回 candidate"
+      ],
+      "complexity": {
+        "time": "O(n+answer-sum)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/sequential-prefix-sum-and-set-scan/Solution.java",
+        "kotlin": "solutions/sequential-prefix-sum-and-set-scan/Solution.kt",
+        "cpp": "solutions/sequential-prefix-sum-and-set-scan/solution.cpp"
+      }
+    }
+  ]
+}

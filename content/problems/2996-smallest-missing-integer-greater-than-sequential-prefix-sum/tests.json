@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "missingInteger",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一二三的顺序前缀和六未出现",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          2,
+          5
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "前缀和十二后连续跳过十二到十四",
+      "args": [
+        [
+          3,
+          4,
+          5,
+          1,
+          12,
+          14,
+          13
+        ]
+      ],
+      "expected": 15
+    },
+    {
+      "name": "单元素本身已出现所以返回下一数",
+      "args": [
+        [
+          5
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "顺序前缀只含首个二并跳到三",
+      "args": [
+        [
+          2,
+          4,
+          5
+        ]
+      ],
+      "expected": 3
+    }
+  ]
+}

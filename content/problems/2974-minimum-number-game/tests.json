@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numberGame",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "四个数分两轮按 Bob 与 Alice 顺序写入",
+      "args": [
+        [
+          5,
+          4,
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        3,
+        2,
+        5,
+        4
+      ]
+    },
+    {
+      "name": "两个元素交换排序后的组内顺序",
+      "args": [
+        [
+          2,
+          5
+        ]
+      ],
+      "expected": [
+        5,
+        2
+      ]
+    },
+    {
+      "name": "逆序输入先排序再逐对反转",
+      "args": [
+        [
+          4,
+          3,
+          2,
+          1
+        ]
+      ],
+      "expected": [
+        2,
+        1,
+        4,
+        3
+      ]
+    },
+    {
+      "name": "重复元素仍按相邻两两成组",
+      "args": [
+        [
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "expected": [
+        1,
+        1,
+        2,
+        2
+      ]
+    }
+  ]
+}
