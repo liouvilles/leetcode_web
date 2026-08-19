@@ -1,0 +1,1 @@
+class Solution { public:int furthestDistanceFromOrigin(string moves){int displacement=0,wildcards=0;for(char move:moves)if(move=='L')--displacement;else if(move=='R')++displacement;else ++wildcards;return abs(displacement)+wildcards;} };

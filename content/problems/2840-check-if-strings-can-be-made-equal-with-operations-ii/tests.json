@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "checkStrings",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "奇偶位置组可分别重排",
+      "args": [
+        "abcdba",
+        "cabdab"
+      ],
+      "expected": true
+    },
+    {
+      "name": "三字符奇偶组不同不可达",
+      "args": [
+        "abe",
+        "bea"
+      ],
+      "expected": false
+    },
+    {
+      "name": "偶数位置互换可从 abc 到 cba",
+      "args": [
+        "abc",
+        "cba"
+      ],
+      "expected": true
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { fun countWays(nums:List<Int>):Int{val sorted=nums.sorted();var answer=0;for(selected in 0..sorted.size)if((selected==0||sorted[selected-1]<selected)&&(selected==sorted.size||sorted[selected]>selected))answer++;return answer} }

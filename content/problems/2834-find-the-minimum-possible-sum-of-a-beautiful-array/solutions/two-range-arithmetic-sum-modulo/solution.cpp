@@ -1,0 +1,1 @@
+class Solution { public:int minimumPossibleSum(int n,int target){long long first=min(n,target/2),remaining=n-first;long long answer=first*(first+1)/2+remaining*(2LL*target+remaining-1)/2;return answer%1000000007;} };

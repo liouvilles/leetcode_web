@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isReachableAtTime",
+  "parameterTypes": [
+    "int",
+    "int",
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "棋王距离五可在六秒到达",
+      "args": [
+        2,
+        4,
+        7,
+        7,
+        6
+      ],
+      "expected": true
+    },
+    {
+      "name": "同一点一秒无法保持原地",
+      "args": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "expected": false
+    },
+    {
+      "name": "同一点两秒可往返",
+      "args": [
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "expected": true
+    }
+  ]
+}

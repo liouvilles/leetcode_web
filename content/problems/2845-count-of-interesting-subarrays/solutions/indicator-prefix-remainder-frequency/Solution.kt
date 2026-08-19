@@ -1,0 +1,1 @@
+class Solution { fun countInterestingSubarrays(nums:List<Int>,modulo:Int,k:Int):Long{val frequency=HashMap<Int,Long>();frequency[0]=1;var prefix=0;var answer=0L;for(value in nums){if(value%modulo==k)prefix++;val remainder=prefix%modulo;val needed=(remainder-k+modulo)%modulo;answer+=frequency[needed]?:0;frequency[remainder]=(frequency[remainder]?:0)+1};return answer} }

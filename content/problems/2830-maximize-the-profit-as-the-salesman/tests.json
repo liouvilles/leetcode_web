@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximizeTheProfit",
+  "parameterTypes": [
+    "int",
+    "intListMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两个不重叠报价合计三",
+      "args": [
+        5,
+        [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            2,
+            2
+          ],
+          [
+            1,
+            3,
+            2
+          ]
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "覆盖前三屋的十利润报价最优",
+      "args": [
+        5,
+        [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            2,
+            10
+          ],
+          [
+            1,
+            3,
+            2
+          ]
+        ]
+      ],
+      "expected": 10
+    },
+    {
+      "name": "首尾相邻区间可共同接受",
+      "args": [
+        5,
+        [
+          [
+            0,
+            1,
+            4
+          ],
+          [
+            2,
+            4,
+            5
+          ]
+        ]
+      ],
+      "expected": 9
+    }
+  ]
+}

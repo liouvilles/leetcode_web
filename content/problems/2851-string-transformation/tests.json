@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numberOfWays",
+  "parameterTypes": [
+    "string",
+    "string",
+    "long"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "abcd 一次旋转到 cdab 只有一种",
+      "args": [
+        "abcd",
+        "cdab",
+        1
+      ],
+      "expected": 1
+    },
+    {
+      "name": "周期串一次非零旋转仍可相等",
+      "args": [
+        "abab",
+        "abab",
+        1
+      ],
+      "expected": 1
+    },
+    {
+      "name": "四字符两次旋转回原位有三种",
+      "args": [
+        "abcd",
+        "abcd",
+        2
+      ],
+      "expected": 3
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numberOfPoints",
+  "parameterTypes": [
+    "intListMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "重叠区间覆盖一到七",
+      "args": [
+        [
+          [
+            3,
+            6
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            4,
+            7
+          ]
+        ]
+      ],
+      "expected": 7
+    },
+    {
+      "name": "两个不相交三点区间共六点",
+      "args": [
+        [
+          [
+            1,
+            3
+          ],
+          [
+            5,
+            7
+          ]
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "单点区间只覆盖一个点",
+      "args": [
+        [
+          [
+            2,
+            2
+          ]
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

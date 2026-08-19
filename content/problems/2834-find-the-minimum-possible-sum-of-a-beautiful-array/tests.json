@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumPossibleSum",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两个数避开和三最小为一三",
+      "args": [
+        2,
+        3
+      ],
+      "expected": 4
+    },
+    {
+      "name": "三个数避开和三最小和八",
+      "args": [
+        3,
+        3
+      ],
+      "expected": 8
+    },
+    {
+      "name": "目标一时单元素选择一",
+      "args": [
+        1,
+        1
+      ],
+      "expected": 1
+    }
+  ]
+}

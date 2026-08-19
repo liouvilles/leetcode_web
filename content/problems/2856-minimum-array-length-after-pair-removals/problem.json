@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2856,
+  "slug": "minimum-array-length-after-pair-removals",
+  "title": "删除数对后的最小数组长度",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-047",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "双指针",
+    "贪心",
+    "计数"
+  ],
+  "summary": "反复删除两个值不同的元素，求最终数组可能达到的最小长度。",
+  "insight": "除出现次数最多的值外，其余元素都可优先与它配对。若最大频次超过一半，会剩下 2×maxFrequency-n 个；否则能两两消除，只由总长度奇偶性决定是否剩一个。",
+  "pitfalls": [
+    "每次删除的两个值必须不同",
+    "频次相同时任选最大值即可",
+    "答案与原数组顺序无关",
+    "平衡情况下仍要保留 n 的奇偶性"
+  ],
+  "solutions": [
+    {
+      "id": "dominant-frequency-or-parity",
+      "title": "最大频次与奇偶性",
+      "kind": "最优",
+      "idea": "统计最大频次后直接判断多数元素是否必然剩余。",
+      "steps": [
+        "用哈希表统计每个值的频次",
+        "维护 maximumFrequency",
+        "dominant=2*maximumFrequency-n",
+        "返回 max(dominant,n%2)"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/dominant-frequency-or-parity/Solution.java",
+        "kotlin": "solutions/dominant-frequency-or-parity/Solution.kt",
+        "cpp": "solutions/dominant-frequency-or-parity/solution.cpp"
+      }
+    }
+  ]
+}

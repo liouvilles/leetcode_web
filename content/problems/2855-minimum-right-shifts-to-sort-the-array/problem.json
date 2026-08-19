@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2855,
+  "slug": "minimum-right-shifts-to-sort-the-array",
+  "title": "使数组成为递增数组的最少右移次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-047",
+  "studyTags": [
+    "数组",
+    "环形数组"
+  ],
+  "summary": "每次把数组最后一个元素移到开头，求使数组非递减的最少右移次数，不可能返回负一。",
+  "insight": "把数组视为环，能通过旋转排序时，环上严格下降边界至多一个。找到唯一下降边界 i 后，把 i 后面的有序后缀右移到前面，需要 n-1-i 次；已排序数组的下降边界恰在末尾，对应零次。",
+  "pitfalls": [
+    "排序要求非递减",
+    "必须检查末元素到首元素的环形边界",
+    "超过一个下降边界无解",
+    "全相等时没有下降边界"
+  ],
+  "solutions": [
+    {
+      "id": "count-circular-descents",
+      "title": "统计环形下降边界",
+      "kind": "最优",
+      "idea": "合法旋转数组在环上至多有一个严格下降点。",
+      "steps": [
+        "descents=0、boundary=-1",
+        "i 从零到 n-1",
+        "若 nums[i]>nums[(i+1)%n]，记录并计数",
+        "若计数超过一返回负一",
+        "没有下降返回零",
+        "否则返回 n-1-boundary"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/count-circular-descents/Solution.java",
+        "kotlin": "solutions/count-circular-descents/Solution.kt",
+        "cpp": "solutions/count-circular-descents/solution.cpp"
+      }
+    }
+  ]
+}

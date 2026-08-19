@@ -1,0 +1,1 @@
+class Solution { fun minLengthAfterRemovals(nums:List<Int>):Int{val frequency=HashMap<Int,Int>();var maximumFrequency=0;for(value in nums){val count=(frequency[value]?:0)+1;frequency[value]=count;maximumFrequency=maxOf(maximumFrequency,count)};return maxOf(2*maximumFrequency-nums.size,nums.size%2)} }

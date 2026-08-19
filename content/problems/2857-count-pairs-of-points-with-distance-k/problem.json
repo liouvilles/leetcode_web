@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": 2857,
+  "slug": "count-pairs-of-points-with-distance-k",
+  "title": "统计距离为 k 的点对",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-047",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "位运算",
+    "计数"
+  ],
+  "summary": "给定平面点，统计满足 (x1 XOR x2)+(y1 XOR y2)=k 的下标点对数量。",
+  "insight": "固定当前点后，把 k 拆成横坐标异或值 d 与纵坐标异或值 k-d。对应的另一个点唯一是 (x XOR d,y XOR (k-d))，枚举 d 并查询此前点频次即可。",
+  "pitfalls": [
+    "统计的是下标对，重复坐标也要计数",
+    "只查询此前点可避免重复计数",
+    "d 要枚举零到 k 且包含端点",
+    "二维坐标键需避免整数碰撞"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-xor-split-with-hash-counts",
+      "title": "枚举异或距离拆分",
+      "kind": "最优",
+      "idea": "流式维护此前坐标频次，为当前点枚举所有横纵异或贡献。",
+      "steps": [
+        "初始化坐标频次表与 answer",
+        "依次处理每个点 (x,y)",
+        "deltaX 从零到 k",
+        "deltaY=k-deltaX",
+        "查询 (x XOR deltaX,y XOR deltaY) 的此前频次并累加",
+        "把当前坐标频次加一",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(nk)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/enumerate-xor-split-with-hash-counts/Solution.java",
+        "kotlin": "solutions/enumerate-xor-split-with-hash-counts/Solution.kt",
+        "cpp": "solutions/enumerate-xor-split-with-hash-counts/solution.cpp"
+      }
+    }
+  ]
+}

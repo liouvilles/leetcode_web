@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": 2833,
+  "slug": "furthest-point-from-origin",
+  "title": "距离原点最远的点",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-047",
+  "studyTags": [
+    "字符串",
+    "计数"
+  ],
+  "summary": "移动串含 L、R 和可任选方向的下划线，求执行后距原点的最大绝对距离。",
+  "insight": "固定移动产生净位移 right-left。每个下划线都可选择沿该净位移方向继续走；若净位移为零则任选同一方向，因此最大距离是固定净位移绝对值加下划线数。",
+  "pitfalls": [
+    "下划线每次可独立选择 L 或 R",
+    "目标是最大绝对距离",
+    "固定左右移动可先相互抵消"
+  ],
+  "solutions": [
+    {
+      "id": "absolute-fixed-displacement-plus-wildcards",
+      "title": "固定净位移绝对值加通配步数",
+      "kind": "最优",
+      "idea": "所有不确定步都沿最终有利方向选择。",
+      "steps": [
+        "统计 left、right、wildcards",
+        "返回 abs(right-left)+wildcards"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/absolute-fixed-displacement-plus-wildcards/Solution.java",
+        "kotlin": "solutions/absolute-fixed-displacement-plus-wildcards/Solution.kt",
+        "cpp": "solutions/absolute-fixed-displacement-plus-wildcards/solution.cpp"
+      }
+    }
+  ]
+}

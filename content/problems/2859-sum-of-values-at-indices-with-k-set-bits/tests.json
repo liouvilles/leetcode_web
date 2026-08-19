@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sumIndicesWithKSetBits",
+  "parameterTypes": [
+    "intList",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一个置位位的下标元素和为十三",
+      "args": [
+        [
+          5,
+          10,
+          1,
+          5,
+          2
+        ],
+        1
+      ],
+      "expected": 13
+    },
+    {
+      "name": "零个置位位只选择下标零",
+      "args": [
+        [
+          5,
+          10,
+          1,
+          5,
+          2
+        ],
+        0
+      ],
+      "expected": 5
+    },
+    {
+      "name": "两个置位位只选择下标三",
+      "args": [
+        [
+          4,
+          3,
+          2,
+          1
+        ],
+        2
+      ],
+      "expected": 1
+    }
+  ]
+}

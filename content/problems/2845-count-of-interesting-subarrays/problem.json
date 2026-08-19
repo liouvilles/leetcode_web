@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": 2845,
+  "slug": "count-of-interesting-subarrays",
+  "title": "统计趣味子数组的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-047",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "前缀和"
+  ],
+  "summary": "若子数组中满足 nums[i]%modulo==k 的元素个数模 modulo 等于 k，则该子数组有趣，统计数量。",
+  "insight": "把每个元素转为零一指示值，前缀计数为 prefix。子数组条件是 (current-previous)%modulo==k，因此扫描当前前缀时查询余数为 current-k 的历史前缀频次。",
+  "pitfalls": [
+    "k 小于 modulo",
+    "前缀零余数初始出现一次",
+    "取模减法要加 modulo 防负",
+    "答案使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "indicator-prefix-remainder-frequency",
+      "title": "指示前缀余数频次",
+      "kind": "最优",
+      "idea": "把计数同余条件转为两前缀余数之差。",
+      "steps": [
+        "frequency[0]=1",
+        "prefix=0、answer=0",
+        "遍历 value，满足 value%modulo==k 时 prefix++",
+        "remainder=prefix%modulo",
+        "needed=(remainder-k+modulo)%modulo",
+        "answer+=frequency[needed]",
+        "frequency[remainder]++",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(modulo)"
+      },
+      "files": {
+        "java": "solutions/indicator-prefix-remainder-frequency/Solution.java",
+        "kotlin": "solutions/indicator-prefix-remainder-frequency/Solution.kt",
+        "cpp": "solutions/indicator-prefix-remainder-frequency/solution.cpp"
+      }
+    }
+  ]
+}

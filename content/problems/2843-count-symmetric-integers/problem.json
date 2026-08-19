@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2843,
+  "slug": "count-symmetric-integers",
+  "title": "统计对称整数的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-047",
+  "studyTags": [
+    "数学",
+    "枚举"
+  ],
+  "summary": "位数为偶数且前一半数位和等于后一半数位和的整数称为对称整数，统计区间内数量。",
+  "insight": "区间上界较小，直接枚举每个整数转成十进制字符串；奇数位跳过，分别累加两半字符数字并比较。",
+  "pitfalls": [
+    "奇数位整数一定不对称",
+    "区间左右端点包含",
+    "比较的是数位和而非数值"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-and-compare-half-digit-sums",
+      "title": "枚举比较两半数位和",
+      "kind": "最优",
+      "idea": "逐数检查偶数长度的两半数字和。",
+      "steps": [
+        "answer=0",
+        "value 从 low 到 high",
+        "转为字符串 digits",
+        "若长度为奇数跳过",
+        "累加前半与后半数位",
+        "相等时 answer++",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O((high-low) log high)",
+        "space": "O(log high)"
+      },
+      "files": {
+        "java": "solutions/enumerate-and-compare-half-digit-sums/Solution.java",
+        "kotlin": "solutions/enumerate-and-compare-half-digit-sums/Solution.kt",
+        "cpp": "solutions/enumerate-and-compare-half-digit-sums/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": 2830,
+  "slug": "maximize-the-profit-as-the-salesman",
+  "title": "销售利润最大化",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-047",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "排序"
+  ],
+  "summary": "房屋编号零到 n-1，每个报价覆盖连续区间且给定利润，接受的区间不能重叠，求最大利润。",
+  "insight": "令 dp[i] 为前 i 个房屋可得最大利润。按报价结束房屋排序并逐个结束点推进；不接受报价时继承 dp[end]，接受 [start,end] 时与此前前 start 个房屋的最优值 dp[start] 相加。",
+  "pitfalls": [
+    "报价区间左右端点都包含",
+    "两个报价不能共享房屋",
+    "dp 下标表示已处理房屋数量",
+    "同一结束点可能有多个报价"
+  ],
+  "solutions": [
+    {
+      "id": "dp-by-ending-house",
+      "title": "按结束房屋动态规划",
+      "kind": "最优",
+      "idea": "每个报价从其起点前的最优状态转移到结束点后一格。",
+      "steps": [
+        "offers 按 end 升序",
+        "dp 长度 n+1",
+        "end 从零到 n-1",
+        "先令 dp[end+1]=max(dp[end+1],dp[end])",
+        "处理所有结束于 end 的报价",
+        "用 dp[start]+gold 更新 dp[end+1]",
+        "返回 dp[n]"
+      ],
+      "complexity": {
+        "time": "O(n+q log q)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/dp-by-ending-house/Solution.java",
+        "kotlin": "solutions/dp-by-ending-house/Solution.kt",
+        "cpp": "solutions/dp-by-ending-house/solution.cpp"
+      }
+    }
+  ]
+}

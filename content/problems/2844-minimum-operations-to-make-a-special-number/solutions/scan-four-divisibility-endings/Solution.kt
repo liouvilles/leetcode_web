@@ -1,0 +1,1 @@
+class Solution { fun minimumOperations(num:String):Int{val n=num.length;var answer=if('0' in num)n-1 else n;for(ending in arrayOf("00","25","50","75")){var second=-1;for(i in n-1 downTo 0)if(num[i]==ending[1]){second=i;break};if(second==-1)continue;for(first in second-1 downTo 0)if(num[first]==ending[0]){answer=minOf(answer,n-first-2);break}};return answer} }

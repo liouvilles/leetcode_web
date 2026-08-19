@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2848,
+  "slug": "points-that-intersect-with-cars",
+  "title": "与车相交的点",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-047",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "前缀和"
+  ],
+  "summary": "每辆车覆盖整数区间 [start,end]，统计至少被一辆车覆盖的整数点数量。",
+  "insight": "坐标范围很小，直接用布尔数组标记每个区间内的点，最后统计被标记位置即可。",
+  "pitfalls": [
+    "区间左右端点都包含",
+    "重叠点只能计数一次",
+    "输入使用列表形式的区间"
+  ],
+  "solutions": [
+    {
+      "id": "mark-covered-integer-points",
+      "title": "标记所有覆盖整数点",
+      "kind": "最优",
+      "idea": "用布尔集合表达多个区间的并集。",
+      "steps": [
+        "covered 布尔数组初始化 false",
+        "遍历每个区间",
+        "point 从 start 到 end 标记 true",
+        "统计所有 true 并返回"
+      ],
+      "complexity": {
+        "time": "O(total interval lengths)",
+        "space": "O(101)"
+      },
+      "files": {
+        "java": "solutions/mark-covered-integer-points/Solution.java",
+        "kotlin": "solutions/mark-covered-integer-points/Solution.kt",
+        "cpp": "solutions/mark-covered-integer-points/solution.cpp"
+      }
+    }
+  ]
+}

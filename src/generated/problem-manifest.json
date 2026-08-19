@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "problemCount": 1996,
-  "solutionCount": 2023,
-  "implementationCount": 6069,
+  "problemCount": 2021,
+  "solutionCount": 2048,
+  "implementationCount": 6144,
   "problems": [
     {
       "id": 1,
@@ -29886,6 +29886,388 @@
       ],
       "status": "published",
       "batch": "batch-046",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2829,
+      "slug": "determine-the-minimum-sum-of-a-k-avoiding-array",
+      "title": "k-avoiding 数组的最小总和",
+      "studyTags": [
+        "数学",
+        "贪心"
+      ],
+      "status": "published",
+      "batch": "batch-047",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2830,
+      "slug": "maximize-the-profit-as-the-salesman",
+      "title": "销售利润最大化",
+      "studyTags": [
+        "数组",
+        "动态规划",
+        "排序"
+      ],
+      "status": "published",
+      "batch": "batch-047",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2831,
+      "slug": "find-the-longest-equal-subarray",
+      "title": "找出最长等值子数组",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "滑动窗口"
+      ],
+      "status": "published",
+      "batch": "batch-047",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2833,
+      "slug": "furthest-point-from-origin",
+      "title": "距离原点最远的点",
+      "studyTags": [
+        "字符串",
+        "计数"
+      ],
+      "status": "published",
+      "batch": "batch-047",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2834,
+      "slug": "find-the-minimum-possible-sum-of-a-beautiful-array",
+      "title": "找出美丽数组的最小和",
+      "studyTags": [
+        "数学",
+        "贪心"
+      ],
+      "status": "published",
+      "batch": "batch-047",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2835,
+      "slug": "minimum-operations-to-form-subsequence-with-target-sum",
+      "title": "使子序列的和等于目标的最少操作次数",
+      "studyTags": [
+        "数组",
+        "贪心",
+        "位运算"
+      ],
+      "status": "published",
+      "batch": "batch-047",
+      "solutionCount": 1,
+      "testCount": 4,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2836,
+      "slug": "maximize-value-of-function-in-a-ball-passing-game",
+      "title": "在传球游戏中最大化函数值",
+      "studyTags": [
+        "数组",
+        "动态规划",
+        "位运算",
+        "倍增"
+      ],
+      "status": "published",
+      "batch": "batch-047",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2839,
+      "slug": "check-if-strings-can-be-made-equal-with-operations-i",
+      "title": "判断两个字符串能否通过操作变相等 I",
+      "studyTags": [
+        "字符串",
+        "计数"
+      ],
+      "status": "published",
+      "batch": "batch-047",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2840,
+      "slug": "check-if-strings-can-be-made-equal-with-operations-ii",
+      "title": "判断两个字符串能否通过操作变相等 II",
+      "studyTags": [
+        "哈希表",
+        "字符串",
+        "排序"
+      ],
+      "status": "published",
+      "batch": "batch-047",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2841,
+      "slug": "maximum-sum-of-almost-unique-subarray",
+      "title": "几乎唯一子数组的最大和",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "滑动窗口"
+      ],
+      "status": "published",
+      "batch": "batch-047",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2842,
+      "slug": "count-k-subsequences-of-a-string-with-maximum-beauty",
+      "title": "统计一个字符串的 k 子序列美丽值最大的数目",
+      "studyTags": [
+        "哈希表",
+        "数学",
+        "字符串",
+        "贪心",
+        "组合数学"
+      ],
+      "status": "published",
+      "batch": "batch-047",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2843,
+      "slug": "count-symmetric-integers",
+      "title": "统计对称整数的数目",
+      "studyTags": [
+        "数学",
+        "枚举"
+      ],
+      "status": "published",
+      "batch": "batch-047",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2844,
+      "slug": "minimum-operations-to-make-a-special-number",
+      "title": "生成特殊数字的最少操作",
+      "studyTags": [
+        "数学",
+        "字符串",
+        "贪心",
+        "枚举"
+      ],
+      "status": "published",
+      "batch": "batch-047",
+      "solutionCount": 1,
+      "testCount": 4,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2845,
+      "slug": "count-of-interesting-subarrays",
+      "title": "统计趣味子数组的数目",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "前缀和"
+      ],
+      "status": "published",
+      "batch": "batch-047",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2846,
+      "slug": "minimum-edge-weight-equilibrium-queries-in-a-tree",
+      "title": "边权重均衡查询的最小操作次数",
+      "studyTags": [
+        "数组",
+        "树",
+        "LCA",
+        "倍增",
+        "前缀计数"
+      ],
+      "status": "published",
+      "batch": "batch-047",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2848,
+      "slug": "points-that-intersect-with-cars",
+      "title": "与车相交的点",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "前缀和"
+      ],
+      "status": "published",
+      "batch": "batch-047",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2849,
+      "slug": "determine-if-a-cell-is-reachable-at-a-given-time",
+      "title": "判断能否在给定时间到达单元格",
+      "studyTags": [
+        "数学",
+        "几何"
+      ],
+      "status": "published",
+      "batch": "batch-047",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2850,
+      "slug": "minimum-moves-to-spread-stones-over-grid",
+      "title": "将石头分散到网格图的最少移动次数",
+      "studyTags": [
+        "数组",
+        "动态规划",
+        "回溯",
+        "状态压缩",
+        "矩阵"
+      ],
+      "status": "published",
+      "batch": "batch-047",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2851,
+      "slug": "string-transformation",
+      "title": "字符串转换",
+      "studyTags": [
+        "数学",
+        "字符串",
+        "动态规划",
+        "字符串匹配",
+        "矩阵快速幂"
+      ],
+      "status": "published",
+      "batch": "batch-047",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2855,
+      "slug": "minimum-right-shifts-to-sort-the-array",
+      "title": "使数组成为递增数组的最少右移次数",
+      "studyTags": [
+        "数组",
+        "环形数组"
+      ],
+      "status": "published",
+      "batch": "batch-047",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2856,
+      "slug": "minimum-array-length-after-pair-removals",
+      "title": "删除数对后的最小数组长度",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "双指针",
+        "贪心",
+        "计数"
+      ],
+      "status": "published",
+      "batch": "batch-047",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2857,
+      "slug": "count-pairs-of-points-with-distance-k",
+      "title": "统计距离为 k 的点对",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "位运算",
+        "计数"
+      ],
+      "status": "published",
+      "batch": "batch-047",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2858,
+      "slug": "minimum-edge-reversals-so-every-node-is-reachable",
+      "title": "可以到达每一个节点的最少边反转次数",
+      "studyTags": [
+        "树",
+        "深度优先搜索",
+        "广度优先搜索",
+        "动态规划",
+        "换根"
+      ],
+      "status": "published",
+      "batch": "batch-047",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2859,
+      "slug": "sum-of-values-at-indices-with-k-set-bits",
+      "title": "计算 K 置位下标对应元素的和",
+      "studyTags": [
+        "数组",
+        "位运算"
+      ],
+      "status": "published",
+      "batch": "batch-047",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2860,
+      "slug": "happy-students",
+      "title": "让所有学生保持开心的分组方法数",
+      "studyTags": [
+        "数组",
+        "排序",
+        "枚举"
+      ],
+      "status": "published",
+      "batch": "batch-047",
       "solutionCount": 1,
       "testCount": 3,
       "qualityGate": "tested"

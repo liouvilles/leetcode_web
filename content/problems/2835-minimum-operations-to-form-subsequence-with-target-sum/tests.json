@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minOperations",
+  "parameterTypes": [
+    "intList",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "拆八一次得到所需四",
+      "args": [
+        [
+          1,
+          2,
+          8
+        ],
+        7
+      ],
+      "expected": 1
+    },
+    {
+      "name": "已有低位和四只需把三十二拆到八",
+      "args": [
+        [
+          1,
+          32,
+          1,
+          2
+        ],
+        12
+      ],
+      "expected": 2
+    },
+    {
+      "name": "总和不足目标时无解",
+      "args": [
+        [
+          1,
+          1,
+          1
+        ],
+        4
+      ],
+      "expected": -1
+    },
+    {
+      "name": "已有一二四无需拆分",
+      "args": [
+        [
+          1,
+          2,
+          4
+        ],
+        7
+      ],
+      "expected": 0
+    }
+  ]
+}

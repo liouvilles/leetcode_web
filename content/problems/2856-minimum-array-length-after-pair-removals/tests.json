@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minLengthAfterRemovals",
+  "parameterTypes": [
+    "intList"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四个不同元素可全部配对删除",
+      "args": [
+        [
+          1,
+          3,
+          4,
+          9
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "四个一占多数最终剩两个",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "三个不同元素最终剩一个",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

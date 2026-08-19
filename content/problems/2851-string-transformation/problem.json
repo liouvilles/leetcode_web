@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": 2851,
+  "slug": "string-transformation",
+  "title": "字符串转换",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-047",
+  "studyTags": [
+    "数学",
+    "字符串",
+    "动态规划",
+    "字符串匹配",
+    "矩阵快速幂"
+  ],
+  "summary": "每次选择非空真后缀移到字符串开头，统计恰好 k 次操作后从 s 变成 t 的方案数并取模。",
+  "insight": "把长度 n 的每个旋转偏移看作状态，每次可从当前偏移走到任一不同偏移。对起始偏移零的方案数 A 与任一特定非零偏移的方案数 B，有 A′=(n-1)B、B′=A+(n-2)B，可用二乘二矩阵快速幂。再乘 t 对应的旋转偏移数量。",
+  "pitfalls": [
+    "周期字符串可能有多个偏移都等于 t",
+    "操作不能保持当前偏移",
+    "k 可很大要矩阵快速幂",
+    "s==t 时目标偏移集合包含零"
+  ],
+  "solutions": [
+    {
+      "id": "rotation-match-count-and-two-state-matrix",
+      "title": "旋转匹配数加二状态矩阵",
+      "kind": "最优",
+      "idea": "KMP 统计目标旋转偏移，再快速幂计算完全图游走数。",
+      "steps": [
+        "用 KMP 在 s+s 去掉末字符中统计等于 t 的 n 个旋转",
+        "建立转移矩阵 [[0,n-1],[1,n-2]]",
+        "矩阵快速幂到 k",
+        "same=矩阵[0][0]、other=矩阵[1][0]",
+        "若 s==t，答案 same+(matches-1)*other",
+        "否则答案 matches*other",
+        "结果取模"
+      ],
+      "complexity": {
+        "time": "O(n+log k)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/rotation-match-count-and-two-state-matrix/Solution.java",
+        "kotlin": "solutions/rotation-match-count-and-two-state-matrix/Solution.kt",
+        "cpp": "solutions/rotation-match-count-and-two-state-matrix/solution.cpp"
+      }
+    }
+  ]
+}

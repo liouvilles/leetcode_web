@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2849,
+  "slug": "determine-if-a-cell-is-reachable-at-a-given-time",
+  "title": "判断能否在给定时间到达单元格",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-047",
+  "studyTags": [
+    "数学",
+    "几何"
+  ],
+  "summary": "每秒可向八个相邻方向移动一格，判断能否恰好在 t 秒从起点到终点。",
+  "insight": "八方向移动的最短时间是横纵坐标差绝对值的最大值。若时间更多，可通过往返或绕行消耗；唯一例外是起终点相同且 t=1，一步后无法留在原格。",
+  "pitfalls": [
+    "允许对角移动",
+    "要求恰好 t 秒而非至多",
+    "原地零秒可达",
+    "同点一秒不可达但两秒可往返"
+  ],
+  "solutions": [
+    {
+      "id": "chebyshev-distance-with-one-second-exception",
+      "title": "切比雪夫距离与一秒特例",
+      "kind": "最优",
+      "idea": "最短棋王距离不超过 t 即可，排除同点一秒。",
+      "steps": [
+        "distance=max(abs(sx-fx),abs(sy-fy))",
+        "若 distance==0 且 t==1 返回 false",
+        "否则返回 distance<=t"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/chebyshev-distance-with-one-second-exception/Solution.java",
+        "kotlin": "solutions/chebyshev-distance-with-one-second-exception/Solution.kt",
+        "cpp": "solutions/chebyshev-distance-with-one-second-exception/solution.cpp"
+      }
+    }
+  ]
+}

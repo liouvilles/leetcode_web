@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2834,
+  "slug": "find-the-minimum-possible-sum-of-a-beautiful-array",
+  "title": "找出美丽数组的最小和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-047",
+  "studyTags": [
+    "数学",
+    "贪心"
+  ],
+  "summary": "构造 n 个互不相同正整数，使任意两个元素和不等于 target，求最小总和并取模。",
+  "insight": "最小选择同样由一到 floor(target/2) 的前段，以及避开互补区间后从 target 开始的连续后段组成。n 和 target 很大，直接用两段等差数列公式并取模。",
+  "pitfalls": [
+    "target/2 在 target 为偶数时可选一次",
+    "被排除的是前段各数的互补数",
+    "后段从 target 开始",
+    "中间乘法使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "two-range-arithmetic-sum-modulo",
+      "title": "两段等差数列取模",
+      "kind": "最优",
+      "idea": "计算最小可选集合的封闭公式。",
+      "steps": [
+        "first=min(n,target/2)",
+        "remaining=n-first",
+        "sumSmall=first*(first+1)/2",
+        "sumLarge=remaining*(2*target+remaining-1)/2",
+        "两段和对十亿零七取模"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/two-range-arithmetic-sum-modulo/Solution.java",
+        "kotlin": "solutions/two-range-arithmetic-sum-modulo/Solution.kt",
+        "cpp": "solutions/two-range-arithmetic-sum-modulo/solution.cpp"
+      }
+    }
+  ]
+}

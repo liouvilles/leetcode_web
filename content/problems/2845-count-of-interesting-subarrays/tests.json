@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countInterestingSubarrays",
+  "parameterTypes": [
+    "intList",
+    "int",
+    "int"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "只有三为奇数的三个前缀子数组",
+      "args": [
+        [
+          3,
+          2,
+          4
+        ],
+        2,
+        1
+      ],
+      "expected": 3
+    },
+    {
+      "name": "计数模三为零的子数组有两个",
+      "args": [
+        [
+          3,
+          1,
+          9,
+          6
+        ],
+        3,
+        0
+      ],
+      "expected": 2
+    },
+    {
+      "name": "没有余数四元素时无法达到计数四",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        5,
+        4
+      ],
+      "expected": 0
+    }
+  ]
+}

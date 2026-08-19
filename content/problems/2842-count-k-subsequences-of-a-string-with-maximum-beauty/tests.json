@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countKSubsequencesWithMaxBeauty",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "频次二的 c 与两个频次一字符组合共四种",
+      "args": [
+        "bcca",
+        2
+      ],
+      "expected": 4
+    },
+    {
+      "name": "四种字符全部选择且 b 有两个位置",
+      "args": [
+        "abbcd",
+        4
+      ],
+      "expected": 2
+    },
+    {
+      "name": "字符种类不足 k 返回零",
+      "args": [
+        "abc",
+        4
+      ],
+      "expected": 0
+    }
+  ]
+}

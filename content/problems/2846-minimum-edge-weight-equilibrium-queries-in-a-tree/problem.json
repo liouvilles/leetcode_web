@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": 2846,
+  "slug": "minimum-edge-weight-equilibrium-queries-in-a-tree",
+  "title": "边权重均衡查询的最小操作次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-047",
+  "studyTags": [
+    "数组",
+    "树",
+    "LCA",
+    "倍增",
+    "前缀计数"
+  ],
+  "summary": "树边权一到二十六，每个查询可修改路径边权，求让路径所有边权相同的最少修改次数。",
+  "insight": "答案是路径边数减去路径上出现最多的权重次数。根化树后保存每个节点根路径的二十六维权重前缀计数，并用倍增求 LCA；u、v 路径某权重次数由两个前缀减两倍 LCA 前缀得到。",
+  "pitfalls": [
+    "查询路径不含 LCA 上方边",
+    "边权下标要减一",
+    "路径长度由深度计算",
+    "LCA 与前缀表可复用所有查询"
+  ],
+  "solutions": [
+    {
+      "id": "lca-and-root-path-weight-prefix",
+      "title": "LCA 加根路径边权前缀",
+      "kind": "最优",
+      "idea": "每次查询常数二十六维统计路径众数。",
+      "steps": [
+        "构建无向邻接表",
+        "从根零 BFS 得到 depth、直接父节点和 prefix[node][26]",
+        "构建父节点倍增表",
+        "每个查询求 ancestor=LCA(u,v)",
+        "length=depth[u]+depth[v]-2*depth[ancestor]",
+        "枚举权重计算路径频次并取 maximum",
+        "answer=length-maximum"
+      ],
+      "complexity": {
+        "time": "O((n+q) log n+26q)",
+        "space": "O(n log n+26n)"
+      },
+      "files": {
+        "java": "solutions/lca-and-root-path-weight-prefix/Solution.java",
+        "kotlin": "solutions/lca-and-root-path-weight-prefix/Solution.kt",
+        "cpp": "solutions/lca-and-root-path-weight-prefix/solution.cpp"
+      }
+    }
+  ]
+}

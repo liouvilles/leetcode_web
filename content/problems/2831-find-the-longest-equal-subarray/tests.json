@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "longestEqualSubarray",
+  "parameterTypes": [
+    "intList",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "删除三个以内可保留三个三",
+      "args": [
+        [
+          1,
+          3,
+          2,
+          3,
+          1,
+          3
+        ],
+        3
+      ],
+      "expected": 3
+    },
+    {
+      "name": "删除中间两个二保留四个一",
+      "args": [
+        [
+          1,
+          1,
+          2,
+          2,
+          1,
+          1
+        ],
+        2
+      ],
+      "expected": 4
+    },
+    {
+      "name": "不删除时离散相同值不能连接",
+      "args": [
+        [
+          1,
+          2,
+          1
+        ],
+        0
+      ],
+      "expected": 1
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countSymmetricIntegers",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一到一百包含九个双位重复数",
+      "args": [
+        1,
+        100
+      ],
+      "expected": 9
+    },
+    {
+      "name": "一二零零到一二三零有四个对称数",
+      "args": [
+        1200,
+        1230
+      ],
+      "expected": 4
+    },
+    {
+      "name": "一位整数没有对称数",
+      "args": [
+        1,
+        9
+      ],
+      "expected": 0
+    }
+  ]
+}

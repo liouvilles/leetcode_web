@@ -1,0 +1,1 @@
+class Solution { public int minimumRightShifts(List<Integer> nums){int descents=0,boundary=-1,n=nums.size();for(int i=0;i<n;i++)if(nums.get(i)>nums.get((i+1)%n)){descents++;boundary=i;}if(descents>1)return -1;return descents==0?0:n-1-boundary;} }

@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumOperations",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "删除末尾四七保留结尾五零",
+      "args": [
+        "2245047"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "一百已经能被二十五整除",
+      "args": [
+        "100"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "七一三四五保留七五需删三位",
+      "args": [
+        "71345"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "十保留单个零只删一位",
+      "args": [
+        "10"
+      ],
+      "expected": 1
+    }
+  ]
+}

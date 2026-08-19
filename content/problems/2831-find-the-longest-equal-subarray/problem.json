@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2831,
+  "slug": "find-the-longest-equal-subarray",
+  "title": "找出最长等值子数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-047",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "滑动窗口"
+  ],
+  "summary": "最多删除 k 个元素后，求数组中可形成的最长连续等值子数组长度。",
+  "insight": "对每个值只看其出现下标列表。保留从 positions[left] 到 positions[right] 的这些相同值时，需要删除的夹杂元素数为位置跨度减去保留元素间距；用滑动窗口维持该数不超过 k。",
+  "pitfalls": [
+    "答案是保留的相同元素数量",
+    "删除只需发生在首末保留位置之间",
+    "缺口数为 pos[right]-pos[left]-(right-left)",
+    "不同值可独立处理"
+  ],
+  "solutions": [
+    {
+      "id": "position-lists-sliding-window",
+      "title": "出现位置列表滑动窗口",
+      "kind": "最优",
+      "idea": "在同值下标序列中控制需要删除的缺口数量。",
+      "steps": [
+        "按 value 收集递增出现下标",
+        "对每个 positions 列表 left=0",
+        "右移 right",
+        "当 positions[right]-positions[left]-(right-left)>k 时 left++",
+        "用 right-left+1 更新答案"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/position-lists-sliding-window/Solution.java",
+        "kotlin": "solutions/position-lists-sliding-window/Solution.kt",
+        "cpp": "solutions/position-lists-sliding-window/solution.cpp"
+      }
+    }
+  ]
+}

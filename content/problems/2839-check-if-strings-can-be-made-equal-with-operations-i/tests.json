@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "canBeEqual",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "零二与一三分别交换得到 cdab",
+      "args": [
+        "abcd",
+        "cdab"
+      ],
+      "expected": true
+    },
+    {
+      "name": "奇偶组字符不同无法得到 dacb",
+      "args": [
+        "abcd",
+        "dacb"
+      ],
+      "expected": false
+    },
+    {
+      "name": "只交换偶数位置得到 cbad",
+      "args": [
+        "abcd",
+        "cbad"
+      ],
+      "expected": true
+    }
+  ]
+}

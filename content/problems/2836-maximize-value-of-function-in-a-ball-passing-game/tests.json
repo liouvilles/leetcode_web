@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getMaxFunctionValue",
+  "parameterTypes": [
+    "intList",
+    "long"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "三节点环传四次起点二得六",
+      "args": [
+        [
+          2,
+          0,
+          1
+        ],
+        4
+      ],
+      "expected": 6
+    },
+    {
+      "name": "从四开始走三步编号和十",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          2,
+          3
+        ],
+        3
+      ],
+      "expected": 10
+    },
+    {
+      "name": "零次传球只取最大起点编号",
+      "args": [
+        [
+          1,
+          0
+        ],
+        0
+      ],
+      "expected": 1
+    }
+  ]
+}

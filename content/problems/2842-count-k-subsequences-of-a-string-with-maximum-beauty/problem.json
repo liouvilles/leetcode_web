@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": 2842,
+  "slug": "count-k-subsequences-of-a-string-with-maximum-beauty",
+  "title": "统计一个字符串的 k 子序列美丽值最大的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-047",
+  "studyTags": [
+    "哈希表",
+    "数学",
+    "字符串",
+    "贪心",
+    "组合数学"
+  ],
+  "summary": "选择 k 个互不相同字符组成子序列，美丽值为所选字符在原串中的频次和，统计美丽值最大的子序列数量并取模。",
+  "insight": "最大美丽值必须选择频次最高的 k 种字符。高于第 k 大阈值的字符全部必选；等于阈值的字符中任选剩余种数。每种选中字符还可从其所有出现位置任选一个，因此方案数是频次乘积再乘并列组合数。",
+  "pitfalls": [
+    "子序列中的字符必须互不相同",
+    "字符种类不足 k 时返回零",
+    "阈值频次可能有多种字符并列",
+    "每种字符贡献其出现次数种位置选择"
+  ],
+  "solutions": [
+    {
+      "id": "frequency-threshold-product-and-combination",
+      "title": "频次阈值乘积与并列组合",
+      "kind": "最优",
+      "idea": "选择所有高频字符并在临界频次组中组合。",
+      "steps": [
+        "统计二十六个字符频次并降序取正值",
+        "若种类数少于 k 返回零",
+        "threshold=第 k 大频次",
+        "统计 greater 与 equal 字符数",
+        "result 乘所有大于 threshold 的频次",
+        "needed=k-greater",
+        "再乘 threshold^needed 与 C(equal,needed)",
+        "结果取模"
+      ],
+      "complexity": {
+        "time": "O(n+26 log 26)",
+        "space": "O(26)"
+      },
+      "files": {
+        "java": "solutions/frequency-threshold-product-and-combination/Solution.java",
+        "kotlin": "solutions/frequency-threshold-product-and-combination/Solution.kt",
+        "cpp": "solutions/frequency-threshold-product-and-combination/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "furthestDistanceFromOrigin",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "固定移动抵消后三个通配步",
+      "args": [
+        "L_RL__R"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "净向左一步加四个通配步",
+      "args": [
+        "_R__LL_"
+      ],
+      "expected": 5
+    },
+    {
+      "name": "七个通配步可全部同向",
+      "args": [
+        "_______"
+      ],
+      "expected": 7
+    }
+  ]
+}

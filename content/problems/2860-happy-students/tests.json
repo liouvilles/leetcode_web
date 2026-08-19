@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countWays",
+  "parameterTypes": [
+    "intList"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两个一可选零人或两人",
+      "args": [
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "两个零只有全选合法",
+      "args": [
+        [
+          0,
+          0
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "三个二可选零人或三人",
+      "args": [
+        [
+          2,
+          2,
+          2
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

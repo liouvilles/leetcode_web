@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": 2835,
+  "slug": "minimum-operations-to-form-subsequence-with-target-sum",
+  "title": "使子序列的和等于目标的最少操作次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-047",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "位运算"
+  ],
+  "summary": "数组元素均为二的幂，每次可把一个数拆成两个相等的一半，求能选出和为 target 的子序列所需最少拆分数。",
+  "insight": "按二进制位从低到高满足 target。当前位需要但无可用幂时，从最近的更高位取一个并逐层拆下来，距离就是新增操作数；当前位多余的两个幂可免费视为一个更高位容量。",
+  "pitfalls": [
+    "数组总和小于 target 时直接无解",
+    "必须从最近有库存的高位向下拆",
+    "每次拆分只下降一个二进制位",
+    "处理完当前位后合并多余成对库存"
+  ],
+  "solutions": [
+    {
+      "id": "bit-count-greedy-split-nearest-higher",
+      "title": "位计数贪心拆最近高位",
+      "kind": "最优",
+      "idea": "从低位开始保证已处理 target 位精确满足。",
+      "steps": [
+        "统计每个二次幂位的数量与总和",
+        "总和小于 target 返回负一",
+        "bit 从零到三十",
+        "若 target 需要该位且 count[bit] 为零，向上找最近库存",
+        "逐层拆分并累计操作数",
+        "消费一个当前位幂",
+        "把剩余当前位每两个合并计入下一位",
+        "返回操作数"
+      ],
+      "complexity": {
+        "time": "O(31^2+n)",
+        "space": "O(31)"
+      },
+      "files": {
+        "java": "solutions/bit-count-greedy-split-nearest-higher/Solution.java",
+        "kotlin": "solutions/bit-count-greedy-split-nearest-higher/Solution.kt",
+        "cpp": "solutions/bit-count-greedy-split-nearest-higher/solution.cpp"
+      }
+    }
+  ]
+}

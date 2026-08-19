@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumRightShifts",
+  "parameterTypes": [
+    "intList"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三四五一二右移两次有序",
+      "args": [
+        [
+          3,
+          4,
+          5,
+          1,
+          2
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "已经有序无需右移",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "两个环形下降边界无法排序",
+      "args": [
+        [
+          2,
+          1,
+          4
+        ]
+      ],
+      "expected": -1
+    }
+  ]
+}

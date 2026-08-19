@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2859,
+  "slug": "sum-of-values-at-indices-with-k-set-bits",
+  "title": "计算 K 置位下标对应元素的和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-047",
+  "studyTags": [
+    "数组",
+    "位运算"
+  ],
+  "summary": "把数组下标写成二进制，累加恰好有 k 个置位位的下标所对应的元素。",
+  "insight": "逐个枚举下标并使用整数置位计数即可；判断对象是下标而不是元素值。",
+  "pitfalls": [
+    "二进制置位数计算下标",
+    "下标从零开始",
+    "下标零有零个置位位",
+    "返回元素值之和"
+  ],
+  "solutions": [
+    {
+      "id": "scan-indices-and-count-bits",
+      "title": "扫描下标并统计置位数",
+      "kind": "最优",
+      "idea": "直接检查每个合法下标。",
+      "steps": [
+        "answer 初始化零",
+        "index 遍历数组下标",
+        "若 bitCount(index)==k，累加 nums[index]",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/scan-indices-and-count-bits/Solution.java",
+        "kotlin": "solutions/scan-indices-and-count-bits/Solution.kt",
+        "cpp": "solutions/scan-indices-and-count-bits/solution.cpp"
+      }
+    }
+  ]
+}

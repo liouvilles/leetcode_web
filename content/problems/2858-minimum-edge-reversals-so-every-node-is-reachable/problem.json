@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": 2858,
+  "slug": "minimum-edge-reversals-so-every-node-is-reachable",
+  "title": "可以到达每一个节点的最少边反转次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-047",
+  "studyTags": [
+    "树",
+    "深度优先搜索",
+    "广度优先搜索",
+    "动态规划",
+    "换根"
+  ],
+  "summary": "给定一棵有向树，分别以每个节点为起点，求反转最少多少条边才能到达所有节点。",
+  "insight": "先把节点零作为根：沿原方向的边代价为零，逆方向为一，根答案是所有树边代价之和。根跨过一条边移到相邻节点时，只有这条边的需求改变：原来顺向则答案加一，原来逆向则减一。",
+  "pitfalls": [
+    "输入边方向只影响代价，遍历时要建立双向邻接",
+    "初始答案是从根零向外走所需的反转数",
+    "换根时只调整父子间这一条边",
+    "树无环但遍历仍要记录父节点"
+  ],
+  "solutions": [
+    {
+      "id": "root-once-and-reroot-costs",
+      "title": "一次定根后换根",
+      "kind": "最优",
+      "idea": "记录从父节点走向子节点是否需要反转，再在线性遍历中推导所有根答案。",
+      "steps": [
+        "对原边 u→v 加邻接 (u,v,0) 与 (v,u,1)",
+        "从零遍历并记录 parent、edgeCost 与顺序",
+        "累加 edgeCost 得到 answer[0]",
+        "按遍历顺序处理每个非根节点",
+        "若父到子原本顺向，换根答案加一；否则减一",
+        "返回答案数组"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/root-once-and-reroot-costs/Solution.java",
+        "kotlin": "solutions/root-once-and-reroot-costs/Solution.kt",
+        "cpp": "solutions/root-once-and-reroot-costs/solution.cpp"
+      }
+    }
+  ]
+}
