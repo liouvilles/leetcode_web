@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumScore",
+  "parameterTypes": [
+    "intList",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "九可用于两次得到八十一",
+      "args": [
+        [
+          8,
+          3,
+          9,
+          3,
+          8
+        ],
+        2
+      ],
+      "expected": 81
+    },
+    {
+      "name": "三个最大乘数积为四千七百八十八",
+      "args": [
+        [
+          19,
+          12,
+          14,
+          6,
+          10,
+          18
+        ],
+        3
+      ],
+      "expected": 4788
+    },
+    {
+      "name": "单元素单次操作得到二",
+      "args": [
+        [
+          2
+        ],
+        1
+      ],
+      "expected": 2
+    }
+  ]
+}

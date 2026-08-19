@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "canSplitArray",
+  "parameterTypes": [
+    "intList",
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "相邻两个二形成可保留核心",
+      "args": [
+        [
+          2,
+          2,
+          1
+        ],
+        4
+      ],
+      "expected": true
+    },
+    {
+      "name": "没有相邻对达到五则不可行",
+      "args": [
+        [
+          2,
+          1,
+          3
+        ],
+        5
+      ],
+      "expected": false
+    },
+    {
+      "name": "长度二不受元素和限制",
+      "args": [
+        [
+          1,
+          1
+        ],
+        100
+      ],
+      "expected": true
+    }
+  ]
+}

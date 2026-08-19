@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minAbsoluteDifference",
+  "parameterTypes": [
+    "intList",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "下标零三的相同四使差为零",
+      "args": [
+        [
+          4,
+          3,
+          2,
+          4
+        ],
+        2
+      ],
+      "expected": 0
+    },
+    {
+      "name": "相邻三与二产生最小差一",
+      "args": [
+        [
+          5,
+          3,
+          2,
+          10,
+          15
+        ],
+        1
+      ],
+      "expected": 1
+    },
+    {
+      "name": "距离三时只有首尾可配对",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        3
+      ],
+      "expected": 3
+    }
+  ]
+}

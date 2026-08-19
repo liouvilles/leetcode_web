@@ -1,0 +1,1 @@
+class Solution { fun maxArrayValue(nums:IntArray):Long{var current=nums.last().toLong();for(i in nums.lastIndex-1 downTo 0)current=if(nums[i]<=current)current+nums[i] else nums[i].toLong();return current} }

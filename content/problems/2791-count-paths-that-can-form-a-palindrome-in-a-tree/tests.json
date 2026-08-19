@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countPalindromePaths",
+  "parameterTypes": [
+    "intList",
+    "string"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "六节点树共有八条可重排回文路径",
+      "args": [
+        [
+          -1,
+          0,
+          0,
+          1,
+          1,
+          2
+        ],
+        "acaabc"
+      ],
+      "expected": 8
+    },
+    {
+      "name": "四条同字母边使所有节点对合法",
+      "args": [
+        [
+          -1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "aaaaa"
+      ],
+      "expected": 10
+    },
+    {
+      "name": "单节点没有节点对路径",
+      "args": [
+        [
+          -1
+        ],
+        "a"
+      ],
+      "expected": 0
+    }
+  ]
+}

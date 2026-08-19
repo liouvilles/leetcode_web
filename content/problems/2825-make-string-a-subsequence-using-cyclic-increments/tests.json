@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "canMakeSubsequence",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "c 增长为 d 后匹配 ad",
+      "args": [
+        "abc",
+        "ad"
+      ],
+      "expected": true
+    },
+    {
+      "name": "z 到 a 与 c 到 d 都可循环",
+      "args": [
+        "zc",
+        "ad"
+      ],
+      "expected": true
+    },
+    {
+      "name": "a b 一次增长无法得到 d",
+      "args": [
+        "ab",
+        "d"
+      ],
+      "expected": false
+    }
+  ]
+}

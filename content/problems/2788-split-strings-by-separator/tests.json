@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "splitWordsBySeparator",
+  "parameterTypes": [
+    "stringList",
+    "char"
+  ],
+  "returnType": "stringList",
+  "cases": [
+    {
+      "name": "点号拆分六个单词",
+      "args": [
+        [
+          "one.two.three",
+          "four.five",
+          "six"
+        ],
+        "."
+      ],
+      "expected": [
+        "one",
+        "two",
+        "three",
+        "four",
+        "five",
+        "six"
+      ]
+    },
+    {
+      "name": "忽略美元符号产生的首尾空串",
+      "args": [
+        [
+          "$easy$",
+          "$problem$"
+        ],
+        "$"
+      ],
+      "expected": [
+        "easy",
+        "problem"
+      ]
+    },
+    {
+      "name": "只有分隔符时结果为空",
+      "args": [
+        [
+          "|||"
+        ],
+        "|"
+      ],
+      "expected": []
+    }
+  ]
+}

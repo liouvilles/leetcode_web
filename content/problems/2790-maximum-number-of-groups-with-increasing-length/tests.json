@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxIncreasingGroups",
+  "parameterTypes": [
+    "intList"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一二五可组成三个递增长度组",
+      "args": [
+        [
+          1,
+          2,
+          5
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "一二二总容量不足三组",
+      "args": [
+        [
+          2,
+          1,
+          2
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "两个一只能组成一个组",
+      "args": [
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

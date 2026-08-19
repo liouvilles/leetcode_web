@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": 2809,
+  "slug": "minimum-time-to-make-array-sum-at-most-x",
+  "title": "使数组和小于等于 x 的最少时间",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-046",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "排序",
+    "背包"
+  ],
+  "summary": "每秒 nums1 全部增加对应 nums2，随后可把一个位置设为零，求使 nums1 总和不超过 x 的最少秒数。",
+  "insight": "假设共用 t 秒并选择 t 个不同位置归零。把位置按 nums2 升序后，最优让增长快的项更晚归零。dp[j] 维护选择 j 项时可消除的最大总贡献，选当前项为第 j 个时增加 nums1[i]+j*nums2[i]。",
+  "pitfalls": [
+    "零秒时先检查原数组和",
+    "同一位置重复归零不优于选择不同位置",
+    "排序依据是 nums2",
+    "状态与总和使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "sort-growth-and-knapsack-removed-contribution",
+      "title": "按增长率排序的选择 DP",
+      "kind": "最优",
+      "idea": "最大化 t 次归零能从自然增长总和中消除的贡献。",
+      "steps": [
+        "把 nums1、nums2 配成 pair 并按 nums2 升序",
+        "base=sum(nums1)、growth=sum(nums2)",
+        "dp[j] 表示选 j 项最大消除量",
+        "遍历 pair，j 倒序更新 dp[j]=max(dp[j],dp[j-1]+a+j*b)",
+        "枚举 t=0..n，检查 base+t*growth-dp[t]<=x",
+        "首个满足返回，否则负一"
+      ],
+      "complexity": {
+        "time": "O(n^2)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/sort-growth-and-knapsack-removed-contribution/Solution.java",
+        "kotlin": "solutions/sort-growth-and-knapsack-removed-contribution/Solution.kt",
+        "cpp": "solutions/sort-growth-and-knapsack-removed-contribution/solution.cpp"
+      }
+    }
+  ]
+}

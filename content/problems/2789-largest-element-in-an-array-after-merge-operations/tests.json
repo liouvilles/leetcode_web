@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxArrayValue",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "连续吸收得到二十一",
+      "args": [
+        [
+          2,
+          3,
+          7,
+          9,
+          3
+        ]
+      ],
+      "expected": 21
+    },
+    {
+      "name": "从右侧开始可合并全部元素",
+      "args": [
+        [
+          5,
+          3,
+          3
+        ]
+      ],
+      "expected": 11
+    },
+    {
+      "name": "左侧十无法并入右侧三",
+      "args": [
+        [
+          10,
+          1,
+          2
+        ]
+      ],
+      "expected": 10
+    }
+  ]
+}

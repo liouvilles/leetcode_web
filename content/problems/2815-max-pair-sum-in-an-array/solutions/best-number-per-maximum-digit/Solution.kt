@@ -1,0 +1,1 @@
+class Solution { fun maxSum(nums:IntArray):Int{fun maximumDigit(input:Int):Int{var value=input;var result=0;while(value>0){result=maxOf(result,value%10);value/=10};return result};val best=IntArray(10){-1};var answer=-1;for(value in nums){val digit=maximumDigit(value);if(best[digit]!=-1)answer=maxOf(answer,best[digit]+value);best[digit]=maxOf(best[digit],value)};return answer} }

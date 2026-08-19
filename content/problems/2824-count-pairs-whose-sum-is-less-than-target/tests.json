@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countPairs",
+  "parameterTypes": [
+    "intList",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "目标二时有三个合法下标对",
+      "args": [
+        [
+          -1,
+          1,
+          2,
+          3,
+          1
+        ],
+        2
+      ],
+      "expected": 3
+    },
+    {
+      "name": "负目标与混合数字共有十对",
+      "args": [
+        [
+          -6,
+          2,
+          5,
+          -2,
+          -7,
+          -1,
+          3
+        ],
+        -2
+      ],
+      "expected": 10
+    },
+    {
+      "name": "所有正数和都不小于零",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        0
+      ],
+      "expected": 0
+    }
+  ]
+}

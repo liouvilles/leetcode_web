@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumSeconds",
+  "parameterTypes": [
+    "intList"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "交替一二只需一秒",
+      "args": [
+        [
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "任一候选值最大环距为四",
+      "args": [
+        [
+          2,
+          1,
+          3,
+          3,
+          2
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "已经全部相等无需传播",
+      "args": [
+        [
+          5,
+          5,
+          5
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "problemCount": 1971,
-  "solutionCount": 1998,
-  "implementationCount": 5994,
+  "problemCount": 1996,
+  "solutionCount": 2023,
+  "implementationCount": 6069,
   "problems": [
     {
       "id": 1,
@@ -29510,6 +29510,382 @@
       ],
       "status": "published",
       "batch": "batch-045",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2788,
+      "slug": "split-strings-by-separator",
+      "title": "按分隔符拆分字符串",
+      "studyTags": [
+        "数组",
+        "字符串",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-046",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2789,
+      "slug": "largest-element-in-an-array-after-merge-operations",
+      "title": "合并后数组中的最大元素",
+      "studyTags": [
+        "数组",
+        "贪心"
+      ],
+      "status": "published",
+      "batch": "batch-046",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2790,
+      "slug": "maximum-number-of-groups-with-increasing-length",
+      "title": "长度递增组的最大数目",
+      "studyTags": [
+        "数组",
+        "数学",
+        "贪心",
+        "排序"
+      ],
+      "status": "published",
+      "batch": "batch-046",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2791,
+      "slug": "count-paths-that-can-form-a-palindrome-in-a-tree",
+      "title": "树中可以形成回文的路径数",
+      "studyTags": [
+        "哈希表",
+        "位运算",
+        "树",
+        "前缀状态"
+      ],
+      "status": "published",
+      "batch": "batch-046",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2798,
+      "slug": "number-of-employees-who-met-the-target",
+      "title": "满足目标工作时长的员工数目",
+      "studyTags": [
+        "数组",
+        "计数"
+      ],
+      "status": "published",
+      "batch": "batch-046",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2799,
+      "slug": "count-complete-subarrays-in-an-array",
+      "title": "统计完全子数组的数目",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "滑动窗口"
+      ],
+      "status": "published",
+      "batch": "batch-046",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2800,
+      "slug": "shortest-string-that-contains-three-strings",
+      "title": "包含三个字符串的最短字符串",
+      "studyTags": [
+        "字符串",
+        "贪心",
+        "枚举"
+      ],
+      "status": "published",
+      "batch": "batch-046",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2801,
+      "slug": "count-stepping-numbers-in-range",
+      "title": "统计范围内的步进数字数目",
+      "studyTags": [
+        "字符串",
+        "动态规划",
+        "数位 DP"
+      ],
+      "status": "published",
+      "batch": "batch-046",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2806,
+      "slug": "account-balance-after-rounded-purchase",
+      "title": "取整购买后的账户余额",
+      "studyTags": [
+        "数学"
+      ],
+      "status": "published",
+      "batch": "batch-046",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2807,
+      "slug": "insert-greatest-common-divisors-in-linked-list",
+      "title": "在链表中插入最大公约数",
+      "studyTags": [
+        "链表",
+        "数学",
+        "数论"
+      ],
+      "status": "published",
+      "batch": "batch-046",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2808,
+      "slug": "minimum-seconds-to-equalize-a-circular-array",
+      "title": "使循环数组所有元素相等的最少秒数",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "环形数组"
+      ],
+      "status": "published",
+      "batch": "batch-046",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2809,
+      "slug": "minimum-time-to-make-array-sum-at-most-x",
+      "title": "使数组和小于等于 x 的最少时间",
+      "studyTags": [
+        "数组",
+        "动态规划",
+        "排序",
+        "背包"
+      ],
+      "status": "published",
+      "batch": "batch-046",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2810,
+      "slug": "faulty-keyboard",
+      "title": "故障键盘",
+      "studyTags": [
+        "字符串",
+        "模拟",
+        "双端队列"
+      ],
+      "status": "published",
+      "batch": "batch-046",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2811,
+      "slug": "check-if-it-is-possible-to-split-array",
+      "title": "判断是否能拆分数组",
+      "studyTags": [
+        "数组",
+        "贪心",
+        "动态规划"
+      ],
+      "status": "published",
+      "batch": "batch-046",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2812,
+      "slug": "find-the-safest-path-in-a-grid",
+      "title": "找出最安全路径",
+      "studyTags": [
+        "数组",
+        "广度优先搜索",
+        "堆",
+        "矩阵",
+        "最宽路径"
+      ],
+      "status": "published",
+      "batch": "batch-046",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2813,
+      "slug": "maximum-elegance-of-a-k-length-subsequence",
+      "title": "子序列最大优雅度",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "贪心",
+        "排序",
+        "堆"
+      ],
+      "status": "published",
+      "batch": "batch-046",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2815,
+      "slug": "max-pair-sum-in-an-array",
+      "title": "数组中的最大数对和",
+      "studyTags": [
+        "数组",
+        "哈希表"
+      ],
+      "status": "published",
+      "batch": "batch-046",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2816,
+      "slug": "double-a-number-represented-as-a-linked-list",
+      "title": "翻倍以链表形式表示的数字",
+      "studyTags": [
+        "链表",
+        "数学"
+      ],
+      "status": "published",
+      "batch": "batch-046",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2817,
+      "slug": "minimum-absolute-difference-between-elements-with-constraint",
+      "title": "限制条件下元素之间的最小绝对差",
+      "studyTags": [
+        "数组",
+        "二分查找",
+        "有序集合"
+      ],
+      "status": "published",
+      "batch": "batch-046",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2818,
+      "slug": "apply-operations-to-maximize-score",
+      "title": "操作使得分最大",
+      "studyTags": [
+        "数组",
+        "数学",
+        "贪心",
+        "排序",
+        "单调栈",
+        "数论"
+      ],
+      "status": "published",
+      "batch": "batch-046",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2824,
+      "slug": "count-pairs-whose-sum-is-less-than-target",
+      "title": "统计和小于目标的下标对数目",
+      "studyTags": [
+        "数组",
+        "双指针",
+        "排序"
+      ],
+      "status": "published",
+      "batch": "batch-046",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2825,
+      "slug": "make-string-a-subsequence-using-cyclic-increments",
+      "title": "循环增长使字符串成为子序列",
+      "studyTags": [
+        "双指针",
+        "字符串"
+      ],
+      "status": "published",
+      "batch": "batch-046",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2826,
+      "slug": "sorting-three-groups",
+      "title": "将三个组排序",
+      "studyTags": [
+        "数组",
+        "动态规划"
+      ],
+      "status": "published",
+      "batch": "batch-046",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2827,
+      "slug": "number-of-beautiful-integers-in-the-range",
+      "title": "范围中美丽整数的数目",
+      "studyTags": [
+        "数学",
+        "动态规划",
+        "数位 DP"
+      ],
+      "status": "published",
+      "batch": "batch-046",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2828,
+      "slug": "check-if-a-string-is-an-acronym-of-words",
+      "title": "判别首字母缩略词",
+      "studyTags": [
+        "数组",
+        "字符串"
+      ],
+      "status": "published",
+      "batch": "batch-046",
       "solutionCount": 1,
       "testCount": 3,
       "qualityGate": "tested"

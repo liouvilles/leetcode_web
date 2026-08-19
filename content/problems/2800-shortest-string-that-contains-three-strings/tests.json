@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumString",
+  "parameterTypes": [
+    "string",
+    "string",
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "无重叠单字符按字典序排列",
+      "args": [
+        "a",
+        "b",
+        "c"
+      ],
+      "expected": "abc"
+    },
+    {
+      "name": "第三个字符串包含前两个",
+      "args": [
+        "ab",
+        "ba",
+        "aba"
+      ],
+      "expected": "aba"
+    },
+    {
+      "name": "三个长度三字符串最短字典序超串",
+      "args": [
+        "aab",
+        "aba",
+        "baa"
+      ],
+      "expected": "aabaa"
+    }
+  ]
+}

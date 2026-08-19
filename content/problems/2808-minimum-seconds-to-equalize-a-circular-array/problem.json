@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2808,
+  "slug": "minimum-seconds-to-equalize-a-circular-array",
+  "title": "使循环数组所有元素相等的最少秒数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-046",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "环形数组"
+  ],
+  "summary": "每秒每个位置可保持原值或复制相邻位置的值，求让循环数组所有元素相等的最少秒数。",
+  "insight": "最终值一定可取数组中已有值。对某个候选值，其出现位置会同时向两侧传播；相邻出现位置的环形距离为 gap 时，中间区域最多需要 floor(gap/2) 秒覆盖。取该值最大 gap 的一半，再对所有值取最小。",
+  "pitfalls": [
+    "首尾位置在环上相邻",
+    "单次传播可同时向两侧进行",
+    "要检查最后出现位置到首次位置加 n 的环形间距",
+    "答案对候选最终值取最小"
+  ],
+  "solutions": [
+    {
+      "id": "maximum-cyclic-gap-per-value",
+      "title": "按值统计最大环形间距",
+      "kind": "最优",
+      "idea": "每个候选值的完成时间由最稀疏区间决定。",
+      "steps": [
+        "把每个值的出现下标按扫描顺序存入列表",
+        "对每个位置列表",
+        "计算相邻下标差的最大值",
+        "再计算 first+n-last 的环形差",
+        "该值耗时为 maximumGap/2",
+        "返回所有值耗时最小值"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/maximum-cyclic-gap-per-value/Solution.java",
+        "kotlin": "solutions/maximum-cyclic-gap-per-value/Solution.kt",
+        "cpp": "solutions/maximum-cyclic-gap-per-value/solution.cpp"
+      }
+    }
+  ]
+}

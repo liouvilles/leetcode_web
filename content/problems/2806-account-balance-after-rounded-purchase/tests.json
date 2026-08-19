@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "accountBalanceAfterPurchase",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "九取整为十余额九十",
+      "args": [
+        9
+      ],
+      "expected": 90
+    },
+    {
+      "name": "十五向上取整为二十",
+      "args": [
+        15
+      ],
+      "expected": 80
+    },
+    {
+      "name": "零购买保持全部余额",
+      "args": [
+        0
+      ],
+      "expected": 100
+    }
+  ]
+}

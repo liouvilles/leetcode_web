@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": 2807,
+  "slug": "insert-greatest-common-divisors-in-linked-list",
+  "title": "在链表中插入最大公约数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-046",
+  "studyTags": [
+    "链表",
+    "数学",
+    "数论"
+  ],
+  "summary": "在链表每对相邻原节点之间插入一个值为两者最大公约数的新节点。",
+  "insight": "保存当前原节点的 next，计算两值最大公约数并插入新节点，然后直接跳到保存的下一个原节点，避免把刚插入节点再次参与处理。",
+  "pitfalls": [
+    "只处理原链表相邻节点",
+    "单节点链表无需修改",
+    "插入后要跳过新节点",
+    "欧几里得算法求最大公约数"
+  ],
+  "solutions": [
+    {
+      "id": "single-pass-insert-between-original-nodes",
+      "title": "单次扫描原节点间插入",
+      "kind": "最优",
+      "idea": "保存原 next 后重接新节点。",
+      "steps": [
+        "node=head",
+        "当 node.next 非空",
+        "next=node.next",
+        "创建 gcd(node.val,next.val) 节点并令其 next=next",
+        "node.next 指向新节点",
+        "node=next",
+        "返回 head"
+      ],
+      "complexity": {
+        "time": "O(n log V)",
+        "space": "O(n) inserted nodes"
+      },
+      "files": {
+        "java": "solutions/single-pass-insert-between-original-nodes/Solution.java",
+        "kotlin": "solutions/single-pass-insert-between-original-nodes/Solution.kt",
+        "cpp": "solutions/single-pass-insert-between-original-nodes/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numberOfEmployeesWhoMetTarget",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "五人中三人达到二小时",
+      "args": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        2
+      ],
+      "expected": 3
+    },
+    {
+      "name": "等于目标的员工也计入",
+      "args": [
+        [
+          5,
+          1,
+          5
+        ],
+        5
+      ],
+      "expected": 2
+    },
+    {
+      "name": "无人达到高目标",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        4
+      ],
+      "expected": 0
+    }
+  ]
+}

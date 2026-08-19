@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2816,
+  "slug": "double-a-number-represented-as-a-linked-list",
+  "title": "翻倍以链表形式表示的数字",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-046",
+  "studyTags": [
+    "链表",
+    "数学"
+  ],
+  "summary": "链表按最高位到最低位表示非负整数，原地返回其两倍对应链表。",
+  "insight": "先反转链表，从原最低位开始按乘二和进位逐节点更新；最高位处理后若仍有进位就在反转链表尾部追加，最后再次反转恢复高位在前。",
+  "pitfalls": [
+    "进位从右向左传播",
+    "结果可能新增最高位",
+    "节点值修改后仍要保存 next 进行扫描",
+    "零翻倍仍为零"
+  ],
+  "solutions": [
+    {
+      "id": "reverse-double-with-carry-reverse-back",
+      "title": "反转后逐位乘二再复原",
+      "kind": "最优",
+      "idea": "把高位在前问题转为标准低位优先乘法。",
+      "steps": [
+        "反转 head",
+        "carry=0，扫描反转链表",
+        "value=node.val*2+carry，写回 value%10，carry=value/10",
+        "记录尾节点",
+        "若 carry 非零在尾部追加",
+        "再次反转并返回"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/reverse-double-with-carry-reverse-back/Solution.java",
+        "kotlin": "solutions/reverse-double-with-carry-reverse-back/Solution.kt",
+        "cpp": "solutions/reverse-double-with-carry-reverse-back/solution.cpp"
+      }
+    }
+  ]
+}

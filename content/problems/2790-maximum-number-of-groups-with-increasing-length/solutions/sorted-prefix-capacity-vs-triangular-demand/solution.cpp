@@ -1,0 +1,1 @@
+class Solution { public:int maxIncreasingGroups(vector<int>& usageLimits){sort(usageLimits.begin(),usageLimits.end());long long total=0;int groups=0;for(int limit:usageLimits){total+=limit;long long next=groups+1;if(total>=next*(next+1)/2)++groups;}return groups;} };

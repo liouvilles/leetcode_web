@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": 2818,
+  "slug": "apply-operations-to-maximize-score",
+  "title": "操作使得分最大",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-046",
+  "studyTags": [
+    "数组",
+    "数学",
+    "贪心",
+    "排序",
+    "单调栈",
+    "数论"
+  ],
+  "summary": "每次选择未选过的子数组，按质数分数最高且并列下标最小的元素乘入得分，最多执行 k 次，求最大得分并取模。",
+  "insight": "先求每个数不同质因数个数。单调栈找左侧最近质数分数大于等于当前的位置和右侧最近严格大于当前的位置，由并列选左规则可得当前元素主导的子数组数。再按元素值降序贪心使用这些次数。",
+  "pitfalls": [
+    "质数分数统计不同质因数",
+    "左边界阻挡条件是大于等于，右边界是严格大于",
+    "每个元素可贡献的操作次数可能达 n²",
+    "模幂指数与剩余 k 使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "prime-score-boundaries-and-value-greedy",
+      "title": "质数分数边界加数值降序贪心",
+      "kind": "最优",
+      "idea": "先计算每个下标可被选择的子数组数量，再优先乘最大值。",
+      "steps": [
+        "筛出每个值的不同质因数个数",
+        "单调栈求 previous score>=current",
+        "反向单调栈求 next score>current",
+        "ways=(i-left)*(right-i)",
+        "下标按 nums 值降序",
+        "依次使用 min(k,ways) 次并乘模幂",
+        "k 用完返回结果"
+      ],
+      "complexity": {
+        "time": "O(M log log M+n log n)",
+        "space": "O(M+n)"
+      },
+      "files": {
+        "java": "solutions/prime-score-boundaries-and-value-greedy/Solution.java",
+        "kotlin": "solutions/prime-score-boundaries-and-value-greedy/Solution.kt",
+        "cpp": "solutions/prime-score-boundaries-and-value-greedy/solution.cpp"
+      }
+    }
+  ]
+}

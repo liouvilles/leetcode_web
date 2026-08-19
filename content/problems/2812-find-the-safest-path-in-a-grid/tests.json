@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumSafenessFactor",
+  "parameterTypes": [
+    "intListMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "起点终点都有小偷安全系数为零",
+      "args": [
+        [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "绕远离右上角小偷取得安全系数二",
+      "args": [
+        [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "中心小偷使任一路径最小距离为一",
+      "args": [
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": 2813,
+  "slug": "maximum-elegance-of-a-k-length-subsequence",
+  "title": "子序列最大优雅度",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-046",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "贪心",
+    "排序",
+    "堆"
+  ],
+  "summary": "从物品中选恰好 k 个，优雅度为利润和加不同类别数的平方，求最大优雅度。",
+  "insight": "先按利润降序选前 k 个，得到最大初始利润和；同类别的重复选择把利润放入小根堆。继续扫描较低利润物品，遇到新类别时可用它替换最小重复利润，使类别数加一，并在每次替换后更新优雅度。",
+  "pitfalls": [
+    "必须恰好选择 k 个",
+    "只可替换已选重复类别物品",
+    "重复利润堆要弹出最小值",
+    "利润和与平方使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "profit-sort-replace-smallest-duplicate",
+      "title": "利润排序替换最小重复项",
+      "kind": "最优",
+      "idea": "在利润损失最小的前提下逐步增加类别数。",
+      "steps": [
+        "items 按 profit 降序",
+        "选前 k 项并累计 sum",
+        "首次类别加入集合，重复类别利润加入小根堆",
+        "计算初始 sum+distinct^2",
+        "扫描剩余物品，若类别新且堆非空",
+        "弹出最小重复利润并换入当前物品",
+        "更新类别数和答案"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/profit-sort-replace-smallest-duplicate/Solution.java",
+        "kotlin": "solutions/profit-sort-replace-smallest-duplicate/Solution.kt",
+        "cpp": "solutions/profit-sort-replace-smallest-duplicate/solution.cpp"
+      }
+    }
+  ]
+}

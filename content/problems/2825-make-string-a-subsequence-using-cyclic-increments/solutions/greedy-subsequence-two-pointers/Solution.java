@@ -1,0 +1,1 @@
+class Solution { public boolean canMakeSubsequence(String str1,String str2){int target=0;for(int i=0;i<str1.length()&&target<str2.length();i++){char source=str1.charAt(i),wanted=str2.charAt(target);if(source==wanted||(source-'a'+1)%26==wanted-'a')target++;}return target==str2.length();} }

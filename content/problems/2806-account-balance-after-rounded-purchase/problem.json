@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": 2806,
+  "slug": "account-balance-after-rounded-purchase",
+  "title": "取整购买后的账户余额",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-046",
+  "studyTags": [
+    "数学"
+  ],
+  "summary": "初始余额一百，把购买金额四舍五入到最近的十的倍数后扣除，求剩余余额。",
+  "insight": "非负整数四舍五入到十位可用 (amount+5)/10*10，恰好五时向上取整；余额是一百减该值。",
+  "pitfalls": [
+    "个位五要向上取整",
+    "购买金额范围不超过一百",
+    "零购买保持余额一百"
+  ],
+  "solutions": [
+    {
+      "id": "integer-round-to-nearest-ten",
+      "title": "整数公式取整到十位",
+      "kind": "最优",
+      "idea": "加五后整除十实现标准四舍五入。",
+      "steps": [
+        "rounded=(purchaseAmount+5)/10*10",
+        "返回 100-rounded"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/integer-round-to-nearest-ten/Solution.java",
+        "kotlin": "solutions/integer-round-to-nearest-ten/Solution.kt",
+        "cpp": "solutions/integer-round-to-nearest-ten/solution.cpp"
+      }
+    }
+  ]
+}

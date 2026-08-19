@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numberOfBeautifulIntegers",
+  "parameterTypes": [
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "十到二十中十二十八美丽且被三整除",
+      "args": [
+        10,
+        20,
+        3
+      ],
+      "expected": 2
+    },
+    {
+      "name": "一到十中只有十奇偶数位平衡",
+      "args": [
+        1,
+        10,
+        1
+      ],
+      "expected": 1
+    },
+    {
+      "name": "一百以内九的两位倍数共有九个",
+      "args": [
+        1,
+        100,
+        9
+      ],
+      "expected": 9
+    }
+  ]
+}

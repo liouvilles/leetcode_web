@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": 2788,
+  "slug": "split-strings-by-separator",
+  "title": "按分隔符拆分字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-046",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "模拟"
+  ],
+  "summary": "按指定字符拆分字符串列表中的每个字符串，按原顺序返回所有非空片段。",
+  "insight": "逐个扫描每个字符串，把分隔符或字符串末尾视作片段终点；仅当终点严格大于起点时加入结果，从而自然忽略连续分隔符产生的空串。",
+  "pitfalls": [
+    "结果要保持字符串及片段原顺序",
+    "空片段不能加入答案",
+    "分隔符可能位于首尾",
+    "分隔符是字符而不是正则表达式"
+  ],
+  "solutions": [
+    {
+      "id": "manual-scan-nonempty-segments",
+      "title": "手动扫描非空片段",
+      "kind": "最优",
+      "idea": "用起点和终点下标避免正则拆分细节。",
+      "steps": [
+        "answer 初始化为空",
+        "遍历每个 word",
+        "start=0，end 从零扫描到 word.length",
+        "遇到末尾或 separator 时",
+        "若 end>start 加入 substring(start,end)",
+        "start=end+1",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(total characters)",
+        "space": "O(total output)"
+      },
+      "files": {
+        "java": "solutions/manual-scan-nonempty-segments/Solution.java",
+        "kotlin": "solutions/manual-scan-nonempty-segments/Solution.kt",
+        "cpp": "solutions/manual-scan-nonempty-segments/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isAcronym",
+  "parameterTypes": [
+    "stringList",
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "alice bob charlie 缩写 abc",
+      "args": [
+        [
+          "alice",
+          "bob",
+          "charlie"
+        ],
+        "abc"
+      ],
+      "expected": true
+    },
+    {
+      "name": "首字符不匹配返回 false",
+      "args": [
+        [
+          "an",
+          "apple"
+        ],
+        "a"
+      ],
+      "expected": false
+    },
+    {
+      "name": "六个单词首字符全部匹配",
+      "args": [
+        [
+          "never",
+          "gonna",
+          "give",
+          "up",
+          "on",
+          "you"
+        ],
+        "ngguoy"
+      ],
+      "expected": true
+    }
+  ]
+}

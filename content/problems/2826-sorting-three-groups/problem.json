@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2826,
+  "slug": "sorting-three-groups",
+  "title": "将三个组排序",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-046",
+  "studyTags": [
+    "数组",
+    "动态规划"
+  ],
+  "summary": "列表元素只含一二三，可修改任意元素，求让列表非递减的最少修改次数。",
+  "insight": "维护当前前缀以一、二、三结尾的最小修改数。新位置选择一只能接在一状态后；选择二可接一或二；选择三可接任意状态，再加当前值是否需要修改的代价。",
+  "pitfalls": [
+    "结果允许只出现部分组",
+    "非递减可包含相等值",
+    "三个新状态必须同时由旧状态计算",
+    "修改代价是零或一"
+  ],
+  "solutions": [
+    {
+      "id": "three-ending-group-dp",
+      "title": "三个结尾组状态 DP",
+      "kind": "最优",
+      "idea": "按最终当前位置取值一二三做常数状态转移。",
+      "steps": [
+        "one=two=three=0",
+        "遍历 value",
+        "nextOne=one+(value!=1)",
+        "nextTwo=min(one,two)+(value!=2)",
+        "nextThree=min(one,two,three)+(value!=3)",
+        "同步更新三个状态",
+        "返回三者最小值"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/three-ending-group-dp/Solution.java",
+        "kotlin": "solutions/three-ending-group-dp/Solution.kt",
+        "cpp": "solutions/three-ending-group-dp/solution.cpp"
+      }
+    }
+  ]
+}

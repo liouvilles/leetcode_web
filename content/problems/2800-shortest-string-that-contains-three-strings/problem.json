@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2800,
+  "slug": "shortest-string-that-contains-three-strings",
+  "title": "包含三个字符串的最短字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-046",
+  "studyTags": [
+    "字符串",
+    "贪心",
+    "枚举"
+  ],
+  "summary": "构造同时包含 a、b、c 为子串的最短字符串；长度相同时返回字典序最小者。",
+  "insight": "只有三个字符串，可枚举六种先后顺序。固定顺序后，每次若存在包含关系直接保留包含者，否则使用前串后缀与后串前缀的最大重叠合并；比较六个候选的长度和字典序。",
+  "pitfalls": [
+    "某字符串可能已包含另一个",
+    "两个方向的包含关系都要处理",
+    "固定顺序应取最大首尾重叠",
+    "最短长度相同时比较字典序"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-six-orders-and-max-overlaps",
+      "title": "枚举排列与最大重叠合并",
+      "kind": "最优",
+      "idea": "三字符串所有相对先后仅有六种。",
+      "steps": [
+        "定义 merge(first,second)",
+        "若一方包含另一方返回包含者",
+        "否则从最大 overlap 向下寻找 suffix-prefix 相等",
+        "枚举三下标的六种排列",
+        "按顺序合并两次",
+        "选长度最小、再字典序最小候选"
+      ],
+      "complexity": {
+        "time": "O(L^2)",
+        "space": "O(L)"
+      },
+      "files": {
+        "java": "solutions/enumerate-six-orders-and-max-overlaps/Solution.java",
+        "kotlin": "solutions/enumerate-six-orders-and-max-overlaps/Solution.kt",
+        "cpp": "solutions/enumerate-six-orders-and-max-overlaps/solution.cpp"
+      }
+    }
+  ]
+}

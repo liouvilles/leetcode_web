@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2801,
+  "slug": "count-stepping-numbers-in-range",
+  "title": "统计范围内的步进数字数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-046",
+  "studyTags": [
+    "字符串",
+    "动态规划",
+    "数位 DP"
+  ],
+  "summary": "若十进制相邻数字绝对差都为一，则为步进数字；统计字符串闭区间 low 到 high 内的步进数字数并取模。",
+  "insight": "用数位 DP 统计零到上界的步进数字。状态只需位置、上一有效数字（十表示尚未开始）和是否贴紧上界；前导零不参与相邻差。闭区间可用 count(high)-count(low)+isStepping(low)。",
+  "pitfalls": [
+    "上下界可能很长，不能转整数",
+    "前导零不能作为真实数字参与差值",
+    "单个数字天然是步进数字",
+    "闭区间要补回 low 本身"
+  ],
+  "solutions": [
+    {
+      "id": "digit-dp-with-previous-digit",
+      "title": "带上一数字的数位 DP",
+      "kind": "最优",
+      "idea": "枚举每位并限制已开始后的相邻差。",
+      "steps": [
+        "countUpTo(bound) 设置 digits 与 memo",
+        "dfs(pos,previous,tight)",
+        "previous=10 时零继续作为前导零，非零可自由开始",
+        "开始后仅允许与 previous 差一的 digit",
+        "非 tight 状态记忆化并取模",
+        "返回两个上界计数差加 low 合法性"
+      ],
+      "complexity": {
+        "time": "O(L*11*10)",
+        "space": "O(L*11)"
+      },
+      "files": {
+        "java": "solutions/digit-dp-with-previous-digit/Solution.java",
+        "kotlin": "solutions/digit-dp-with-previous-digit/Solution.kt",
+        "cpp": "solutions/digit-dp-with-previous-digit/solution.cpp"
+      }
+    }
+  ]
+}

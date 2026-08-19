@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2817,
+  "slug": "minimum-absolute-difference-between-elements-with-constraint",
+  "title": "限制条件下元素之间的最小绝对差",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-046",
+  "studyTags": [
+    "数组",
+    "二分查找",
+    "有序集合"
+  ],
+  "summary": "在整数列表中选择下标差至少为 x 的两个元素，求它们数值绝对差的最小值。",
+  "insight": "把右下标从 x 向右扫描，并把所有下标不超过 right-x 的值加入有序集合。集合中的每个值都满足距离约束；只需查询当前值的前驱与后继即可得到最近数值。",
+  "pitfalls": [
+    "约束是下标绝对差至少 x",
+    "x 为零时答案可为零",
+    "有序集合要在查询前加入 right-x",
+    "只需检查 floor 与 ceiling"
+  ],
+  "solutions": [
+    {
+      "id": "ordered-set-of-distance-eligible-values",
+      "title": "有序集合维护距离合格值",
+      "kind": "最优",
+      "idea": "把下标约束转为随右端点扩大的候选集合。",
+      "steps": [
+        "answer=最大整数、set 为空",
+        "right 从 x 到 n-1",
+        "加入 nums[right-x]",
+        "查询 floor(nums[right]) 与 ceiling(nums[right])",
+        "用两侧差更新 answer",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/ordered-set-of-distance-eligible-values/Solution.java",
+        "kotlin": "solutions/ordered-set-of-distance-eligible-values/Solution.kt",
+        "cpp": "solutions/ordered-set-of-distance-eligible-values/solution.cpp"
+      }
+    }
+  ]
+}

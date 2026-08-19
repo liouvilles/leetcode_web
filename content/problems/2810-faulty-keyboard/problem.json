@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2810,
+  "slug": "faulty-keyboard",
+  "title": "故障键盘",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-046",
+  "studyTags": [
+    "字符串",
+    "模拟",
+    "双端队列"
+  ],
+  "summary": "输入字符 i 时会反转当前屏幕字符串，其他字符正常追加，求最终屏幕内容。",
+  "insight": "用双端队列和方向标记延迟实际反转。方向正常时新字符放队尾，反向时放队首；遇到 i 只翻转方向。最后按方向从相应一端输出。",
+  "pitfalls": [
+    "字符 i 不会显示在屏幕上",
+    "每个 i 都切换一次方向",
+    "连续两个 i 相互抵消",
+    "最终输出方向可能仍为反向"
+  ],
+  "solutions": [
+    {
+      "id": "deque-with-lazy-reversal-flag",
+      "title": "双端队列延迟反转",
+      "kind": "最优",
+      "idea": "方向标记把每次 O(n) 反转降为常数。",
+      "steps": [
+        "deque 为空、reversed=false",
+        "遍历 s",
+        "遇到 i 切换 reversed",
+        "其他字符在正常方向加队尾，反向加队首",
+        "正常方向从前到后输出，反向从后到前输出"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/deque-with-lazy-reversal-flag/Solution.java",
+        "kotlin": "solutions/deque-with-lazy-reversal-flag/Solution.kt",
+        "cpp": "solutions/deque-with-lazy-reversal-flag/solution.cpp"
+      }
+    }
+  ]
+}

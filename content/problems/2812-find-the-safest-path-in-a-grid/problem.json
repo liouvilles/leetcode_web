@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": 2812,
+  "slug": "find-the-safest-path-in-a-grid",
+  "title": "找出最安全路径",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-046",
+  "studyTags": [
+    "数组",
+    "广度优先搜索",
+    "堆",
+    "矩阵",
+    "最宽路径"
+  ],
+  "summary": "网格中一表示小偷，路径安全系数是沿途格到最近小偷曼哈顿距离的最小值，求左上到右下路径的最大安全系数。",
+  "insight": "先从所有小偷同时进行 BFS，得到每格到最近小偷距离。随后把距离当节点容量，从起点运行最大堆版最宽路径：到邻格的候选安全系数是当前值与邻格距离的较小者，并最大化它。",
+  "pitfalls": [
+    "起点终点也计入路径最小距离",
+    "距离要用所有小偷多源 BFS",
+    "路径只能上下左右移动",
+    "优先队列按当前安全系数降序"
+  ],
+  "solutions": [
+    {
+      "id": "multi-source-distance-then-widest-path",
+      "title": "多源 BFS 加最大瓶颈路径",
+      "kind": "最优",
+      "idea": "先构造安全距离场，再用最大堆最大化路径瓶颈。",
+      "steps": [
+        "所有小偷入 BFS 队列并令距离零",
+        "多源 BFS 填充 distance",
+        "best 全负一，起点 best=distance[0][0]",
+        "最大堆弹出当前安全系数最高格",
+        "邻格 candidate=min(current,distance[next])",
+        "candidate 更优则更新并入堆",
+        "到达右下时返回当前值"
+      ],
+      "complexity": {
+        "time": "O(n^2 log n)",
+        "space": "O(n^2)"
+      },
+      "files": {
+        "java": "solutions/multi-source-distance-then-widest-path/Solution.java",
+        "kotlin": "solutions/multi-source-distance-then-widest-path/Solution.kt",
+        "cpp": "solutions/multi-source-distance-then-widest-path/solution.cpp"
+      }
+    }
+  ]
+}

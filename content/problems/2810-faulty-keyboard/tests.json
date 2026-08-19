@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "finalString",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "string 中一次故障得到 rtsng",
+      "args": [
+        "string"
+      ],
+      "expected": "rtsng"
+    },
+    {
+      "name": "连续两个 i 抵消且控制键不显示",
+      "args": [
+        "poiinter"
+      ],
+      "expected": "ponter"
+    },
+    {
+      "name": "没有 i 时保持原串",
+      "args": [
+        "abc"
+      ],
+      "expected": "abc"
+    }
+  ]
+}

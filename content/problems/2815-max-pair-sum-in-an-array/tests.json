@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxSum",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "七一与一七最大数位同为七",
+      "args": [
+        [
+          51,
+          71,
+          17,
+          24,
+          42
+        ]
+      ],
+      "expected": 88
+    },
+    {
+      "name": "所有最大数位不同则无数对",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": -1
+    },
+    {
+      "name": "八与二八最大数位同为八",
+      "args": [
+        [
+          8,
+          75,
+          28,
+          35
+        ]
+      ],
+      "expected": 36
+    }
+  ]
+}

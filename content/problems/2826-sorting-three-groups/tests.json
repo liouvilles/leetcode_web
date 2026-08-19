@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumOperations",
+  "parameterTypes": [
+    "intList"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "二一三二一最少修改三次",
+      "args": [
+        [
+          2,
+          1,
+          3,
+          2,
+          1
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "混合六项最少修改两次",
+      "args": [
+        [
+          1,
+          3,
+          2,
+          1,
+          3,
+          3
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "已经一二三有序无需修改",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

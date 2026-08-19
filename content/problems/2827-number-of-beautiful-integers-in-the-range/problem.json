@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": 2827,
+  "slug": "number-of-beautiful-integers-in-the-range",
+  "title": "范围中美丽整数的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-046",
+  "studyTags": [
+    "数学",
+    "动态规划",
+    "数位 DP"
+  ],
+  "summary": "若正整数奇数数位与偶数数位数量相等且能被 k 整除，则为美丽整数；统计闭区间 low 到 high 内的数量。",
+  "insight": "用数位 DP 统计不超过 bound 的数。状态为位置、偶数位数减奇数位数的 balance、当前模 k 余数、是否已开始以及是否贴紧；前导零不计作偶数位。区间答案为两个上界计数之差。",
+  "pitfalls": [
+    "数字零的数位在开始后属于偶数",
+    "前导零不参与奇偶数量",
+    "最终 balance 必须为零且余数为零",
+    "左右端点都包含"
+  ],
+  "solutions": [
+    {
+      "id": "digit-dp-balance-and-remainder",
+      "title": "数位奇偶平衡与余数 DP",
+      "kind": "最优",
+      "idea": "同时跟踪已选数字的奇偶位差和模 k 余数。",
+      "steps": [
+        "countUpTo(bound<=0) 返回零",
+        "把 bound 转 digits，清空非贴紧 memo",
+        "dfs(pos,balance,remainder,started,tight)",
+        "未开始且 digit=0 时保持状态",
+        "开始后偶数 balance+1、奇数 balance-1，并更新余数",
+        "末尾要求 started、balance=0、remainder=0",
+        "返回 count(high)-count(low-1)"
+      ],
+      "complexity": {
+        "time": "O(L^2*k*10)",
+        "space": "O(L^2*k)"
+      },
+      "files": {
+        "java": "solutions/digit-dp-balance-and-remainder/Solution.java",
+        "kotlin": "solutions/digit-dp-balance-and-remainder/Solution.kt",
+        "cpp": "solutions/digit-dp-balance-and-remainder/solution.cpp"
+      }
+    }
+  ]
+}

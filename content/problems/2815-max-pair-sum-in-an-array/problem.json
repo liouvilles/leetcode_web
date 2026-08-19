@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2815,
+  "slug": "max-pair-sum-in-an-array",
+  "title": "数组中的最大数对和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-046",
+  "studyTags": [
+    "数组",
+    "哈希表"
+  ],
+  "summary": "找两个不同元素，使它们各自十进制最大数位相同，并最大化两数之和；不存在返回负一。",
+  "insight": "最大数位只有零到九十种状态。扫描元素时，按其最大数位保存此前最大的元素；若该桶已有值就尝试更新数对和，再用当前值更新桶。",
+  "pitfalls": [
+    "比较的是每个数内部的最大数位",
+    "两个元素下标必须不同",
+    "每个桶只需保留最大历史值",
+    "无合法数对返回负一"
+  ],
+  "solutions": [
+    {
+      "id": "best-number-per-maximum-digit",
+      "title": "按最大数位保留最大元素",
+      "kind": "最优",
+      "idea": "十个桶即可在线形成最佳数对。",
+      "steps": [
+        "best[0..9] 初始化负一",
+        "遍历 value 并求其 maximumDigit",
+        "若 best[digit] 已存在，更新 answer",
+        "best[digit]=max(best[digit],value)",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n log V)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/best-number-per-maximum-digit/Solution.java",
+        "kotlin": "solutions/best-number-per-maximum-digit/Solution.kt",
+        "cpp": "solutions/best-number-per-maximum-digit/solution.cpp"
+      }
+    }
+  ]
+}

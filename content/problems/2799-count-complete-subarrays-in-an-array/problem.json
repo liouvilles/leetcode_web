@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2799,
+  "slug": "count-complete-subarrays-in-an-array",
+  "title": "统计完全子数组的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-046",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "滑动窗口"
+  ],
+  "summary": "若子数组包含的不同元素集合与整个数组相同，则称为完全子数组，统计其数量。",
+  "insight": "先求全数组不同值数 k。右端点递增时维护窗口频次；一旦窗口含齐 k 种，就不断右移左端直到刚失去一种。此时所有起点小于当前 left 的子数组都完整，所以该右端点贡献 left 个。",
+  "pitfalls": [
+    "完整性只比较不同值集合",
+    "同一值多次出现要维护频次",
+    "收缩到窗口刚好不完整",
+    "答案按所有右端点贡献累加"
+  ],
+  "solutions": [
+    {
+      "id": "shrink-past-complete-window",
+      "title": "收缩越过完整窗口",
+      "kind": "最优",
+      "idea": "维护最小不完整左边界并计数更早起点。",
+      "steps": [
+        "计算 required 为全数组不同值数",
+        "frequency 为空、left=0、distinct=0",
+        "右移 right 并加入 nums[right]",
+        "当 distinct==required 时移出 nums[left] 并递增 left，直到少一种",
+        "answer+=left",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(k)"
+      },
+      "files": {
+        "java": "solutions/shrink-past-complete-window/Solution.java",
+        "kotlin": "solutions/shrink-past-complete-window/Solution.kt",
+        "cpp": "solutions/shrink-past-complete-window/solution.cpp"
+      }
+    }
+  ]
+}

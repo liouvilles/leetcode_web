@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2798,
+  "slug": "number-of-employees-who-met-the-target",
+  "title": "满足目标工作时长的员工数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-046",
+  "studyTags": [
+    "数组",
+    "计数"
+  ],
+  "summary": "统计工作时长大于或等于 target 的员工数量。",
+  "insight": "每位员工独立判断，线性扫描并计数即可。",
+  "pitfalls": [
+    "等于目标也算满足",
+    "返回员工数量而非时长和"
+  ],
+  "solutions": [
+    {
+      "id": "count-hours-at-least-target",
+      "title": "计数达到目标的时长",
+      "kind": "最优",
+      "idea": "遍历数组并统计 hours>=target。",
+      "steps": [
+        "answer=0",
+        "遍历每个 hours 值",
+        "若 value>=target，answer++",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/count-hours-at-least-target/Solution.java",
+        "kotlin": "solutions/count-hours-at-least-target/Solution.kt",
+        "cpp": "solutions/count-hours-at-least-target/solution.cpp"
+      }
+    }
+  ]
+}

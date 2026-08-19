@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "insertGreatestCommonDivisors",
+  "parameterTypes": [
+    "listNode"
+  ],
+  "returnType": "listNode",
+  "cases": [
+    {
+      "name": "四个节点间依次插入六二一",
+      "args": [
+        [
+          18,
+          6,
+          10,
+          3
+        ]
+      ],
+      "expected": [
+        18,
+        6,
+        6,
+        2,
+        10,
+        1,
+        3
+      ]
+    },
+    {
+      "name": "单节点无需插入",
+      "args": [
+        [
+          7
+        ]
+      ],
+      "expected": [
+        7
+      ]
+    },
+    {
+      "name": "五和十之间插入五",
+      "args": [
+        [
+          5,
+          10
+        ]
+      ],
+      "expected": [
+        5,
+        5,
+        10
+      ]
+    }
+  ]
+}

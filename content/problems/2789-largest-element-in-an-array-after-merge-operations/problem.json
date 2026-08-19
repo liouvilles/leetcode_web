@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2789,
+  "slug": "largest-element-in-an-array-after-merge-operations",
+  "title": "合并后数组中的最大元素",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-046",
+  "studyTags": [
+    "数组",
+    "贪心"
+  ],
+  "summary": "可把相邻且左值不大于右值的两个元素替换为它们之和，求最终可能出现的最大元素。",
+  "insight": "从右向左维护当前已合并后缀的和。若左值不大于当前和，就一定可以把它并入并让结果更大；否则无法跨过该左值，只能把它作为新的后缀值。这个维护值单调变大，最终即答案。",
+  "pitfalls": [
+    "合并条件比较左元素与右侧当前合并值",
+    "必须从右向左贪心",
+    "合并和使用 long",
+    "元素均为正数保证维护值不下降"
+  ],
+  "solutions": [
+    {
+      "id": "right-to-left-greedy-merge",
+      "title": "从右向左贪心合并",
+      "kind": "最优",
+      "idea": "尽可能吸收每个不大于当前后缀和的左元素。",
+      "steps": [
+        "current=最后一个元素",
+        "i 从 n-2 递减到零",
+        "若 nums[i]<=current，current+=nums[i]",
+        "否则 current=nums[i]",
+        "返回 current"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/right-to-left-greedy-merge/Solution.java",
+        "kotlin": "solutions/right-to-left-greedy-merge/Solution.kt",
+        "cpp": "solutions/right-to-left-greedy-merge/solution.cpp"
+      }
+    }
+  ]
+}

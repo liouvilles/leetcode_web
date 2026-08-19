@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumTime",
+  "parameterTypes": [
+    "intList",
+    "intList",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "增长率不同需要三秒",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3
+        ],
+        4
+      ],
+      "expected": 3
+    },
+    {
+      "name": "相同高增长率无法降到四",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          3,
+          3,
+          3
+        ],
+        4
+      ],
+      "expected": -1
+    },
+    {
+      "name": "原数组和已满足时为零秒",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3
+        ],
+        6
+      ],
+      "expected": 0
+    }
+  ]
+}

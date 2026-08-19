@@ -1,0 +1,1 @@
+class Solution { public:int minAbsoluteDifference(vector<int>& nums,int x){set<int> values;int answer=INT_MAX;for(int right=x;right<(int)nums.size();++right){int value=nums[right];values.insert(nums[right-x]);auto it=values.lower_bound(value);if(it!=values.end())answer=min(answer,*it-value);if(it!=values.begin())answer=min(answer,value-*prev(it));}return answer;} };

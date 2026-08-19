@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countSteppingNumbers",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一到十一共有十个步进数",
+      "args": [
+        "1",
+        "11"
+      ],
+      "expected": 10
+    },
+    {
+      "name": "九十到一百零一只有九十八与一百零一",
+      "args": [
+        "90",
+        "101"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "一位数一到九全部合法",
+      "args": [
+        "1",
+        "9"
+      ],
+      "expected": 9
+    }
+  ]
+}
