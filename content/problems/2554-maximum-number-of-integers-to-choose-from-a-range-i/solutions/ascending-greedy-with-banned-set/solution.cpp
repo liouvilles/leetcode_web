@@ -1,0 +1,1 @@
+class Solution { public:int maxCount(vector<int>& banned,int n,int maxSum){unordered_set<int> blocked(banned.begin(),banned.end());int sum=0,count=0;for(int value=1;value<=n;++value)if(!blocked.count(value)){if(sum+value>maxSum)break;sum+=value;++count;}return count;} };

@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minCost",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "交换二和一成本一",
+      "args": [
+        [
+          4,
+          2,
+          2,
+          2
+        ],
+        [
+          1,
+          4,
+          1,
+          2
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "总频次含奇数无法均分",
+      "args": [
+        [
+          2,
+          3,
+          4,
+          1
+        ],
+        [
+          3,
+          2,
+          5,
+          1
+        ]
+      ],
+      "expected": -1
+    },
+    {
+      "name": "部分水果借全局最小值中转",
+      "args": [
+        [
+          10,
+          10,
+          20,
+          20
+        ],
+        [
+          1,
+          1,
+          30,
+          30
+        ]
+      ],
+      "expected": 3
+    }
+  ]
+}

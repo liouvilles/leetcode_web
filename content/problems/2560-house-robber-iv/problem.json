@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2560,
+  "slug": "house-robber-iv",
+  "title": "打家劫舍 IV",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-040",
+  "studyTags": [
+    "数组",
+    "二分查找",
+    "贪心"
+  ],
+  "summary": "从数组选择至少 k 个不相邻元素，能力值为所选元素最大值，求可能的最小能力值。",
+  "insight": "给定能力上限 x，可从左到右贪心选择每个 nums[i]<=x 的房屋并跳过相邻房；这种方式选择数量最多。能否选到 k 间关于 x 单调，可二分最小可行值。",
+  "pitfalls": [
+    "选择数量至少为 k",
+    "相邻下标不能同时选择",
+    "贪心命中房屋后要跳过下一间",
+    "二分的是数值阈值"
+  ],
+  "solutions": [
+    {
+      "id": "binary-search-capability",
+      "title": "二分能力阈值与不相邻贪心",
+      "kind": "最优",
+      "idea": "线性 check 判断阈值下最多能偷多少间。",
+      "steps": [
+        "left=min(nums)、right=max(nums)",
+        "check(limit)：i 从零扫描，nums[i]<=limit 时 count++ 且 i+=2，否则 i++",
+        "count>=k 表示可行",
+        "二分最小可行 limit 并返回"
+      ],
+      "complexity": {
+        "time": "O(n log valueRange)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/binary-search-capability/Solution.java",
+        "kotlin": "solutions/binary-search-capability/Solution.kt",
+        "cpp": "solutions/binary-search-capability/solution.cpp"
+      }
+    }
+  ]
+}

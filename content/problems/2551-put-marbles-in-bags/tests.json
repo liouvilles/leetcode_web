@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "putMarbles",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "一个切口最大八最小四差四",
+      "args": [
+        [
+          1,
+          3,
+          5,
+          1
+        ],
+        2
+      ],
+      "expected": 4
+    },
+    {
+      "name": "两颗珠子各自成袋差为零",
+      "args": [
+        [
+          1,
+          3
+        ],
+        2
+      ],
+      "expected": 0
+    },
+    {
+      "name": "四颗珠子选择两个切口差四",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        3
+      ],
+      "expected": 4
+    }
+  ]
+}

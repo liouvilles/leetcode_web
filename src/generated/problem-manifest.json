@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "problemCount": 1821,
-  "solutionCount": 1848,
-  "implementationCount": 5544,
+  "problemCount": 1831,
+  "solutionCount": 1858,
+  "implementationCount": 5574,
   "problems": [
     {
       "id": 1,
@@ -27256,6 +27256,157 @@
       ],
       "status": "published",
       "batch": "batch-039",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2551,
+      "slug": "put-marbles-in-bags",
+      "title": "将珠子放入背包中",
+      "studyTags": [
+        "数组",
+        "贪心",
+        "排序"
+      ],
+      "status": "published",
+      "batch": "batch-040",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2552,
+      "slug": "count-increasing-quadruplets",
+      "title": "统计上升四元组",
+      "studyTags": [
+        "数组",
+        "动态规划",
+        "枚举"
+      ],
+      "status": "published",
+      "batch": "batch-040",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2553,
+      "slug": "separate-the-digits-in-an-array",
+      "title": "分割数组中数字的数位",
+      "studyTags": [
+        "数组",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-040",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2554,
+      "slug": "maximum-number-of-integers-to-choose-from-a-range-i",
+      "title": "从一个范围内选择最多整数 I",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "贪心"
+      ],
+      "status": "published",
+      "batch": "batch-040",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2555,
+      "slug": "maximize-win-from-two-segments",
+      "title": "两个线段获得的最多奖品",
+      "studyTags": [
+        "数组",
+        "滑动窗口",
+        "前缀最优"
+      ],
+      "status": "published",
+      "batch": "batch-040",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2556,
+      "slug": "disconnect-path-in-a-binary-matrix-by-at-most-one-flip",
+      "title": "二进制矩阵中翻转至多一次使路径不连通",
+      "studyTags": [
+        "数组",
+        "矩阵",
+        "深度优先搜索",
+        "图论"
+      ],
+      "status": "published",
+      "batch": "batch-040",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2558,
+      "slug": "take-gifts-from-the-richest-pile",
+      "title": "从数量最多的堆取走礼物",
+      "studyTags": [
+        "数组",
+        "堆",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-040",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2559,
+      "slug": "count-vowel-strings-in-ranges",
+      "title": "统计范围内的元音字符串数",
+      "studyTags": [
+        "数组",
+        "字符串",
+        "前缀和"
+      ],
+      "status": "published",
+      "batch": "batch-040",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2560,
+      "slug": "house-robber-iv",
+      "title": "打家劫舍 IV",
+      "studyTags": [
+        "数组",
+        "二分查找",
+        "贪心"
+      ],
+      "status": "published",
+      "batch": "batch-040",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2561,
+      "slug": "rearranging-fruits",
+      "title": "重排水果",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "排序",
+        "贪心"
+      ],
+      "status": "published",
+      "batch": "batch-040",
       "solutionCount": 1,
       "testCount": 3,
       "qualityGate": "tested"

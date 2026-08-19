@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxCount",
+  "parameterTypes": [
+    "intArray",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "选择二和三共两个整数",
+      "args": [
+        [
+          1,
+          6,
+          5
+        ],
+        5,
+        6
+      ],
+      "expected": 2
+    },
+    {
+      "name": "无禁用且预算六可选一二三",
+      "args": [
+        [],
+        3,
+        6
+      ],
+      "expected": 3
+    },
+    {
+      "name": "禁用二后选择一和三",
+      "args": [
+        [
+          2
+        ],
+        4,
+        5
+      ],
+      "expected": 2
+    }
+  ]
+}

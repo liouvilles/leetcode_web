@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": 2561,
+  "slug": "rearranging-fruits",
+  "title": "重排水果",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-040",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "排序",
+    "贪心"
+  ],
+  "summary": "两个篮子可交换任意一对水果，交换成本为两水果较小值；求使两篮子多重集合相同的最小成本，不可能返回负一。",
+  "insight": "合并频次为奇数的水果无法均分。对每个值取两篮子频次差的一半形成各自多余列表，第一列表升序、第二列表降序配对。每对可直接交换，或借全局最小水果做两次中转，成本取 min(min(a,b),2*globalMin)。",
+  "pitfalls": [
+    "总频次为奇数立即无解",
+    "差额只需取一半加入交换列表",
+    "相反顺序配对使直接交换成本最小",
+    "全局最小值可能来自任一篮子"
+  ],
+  "solutions": [
+    {
+      "id": "pair-surpluses-with-global-minimum-detour",
+      "title": "配对多余水果与最小值中转",
+      "kind": "最优",
+      "idea": "先平衡多重集合差额，再逐对选择更便宜交换方式。",
+      "steps": [
+        "统计 basket1-basket2 的 frequencyDifference，并求 globalMinimum",
+        "任一 difference 为奇数返回 -1",
+        "difference>0 时加入 firstExtras difference/2 次，<0 加入 secondExtras -difference/2 次",
+        "firstExtras 升序、secondExtras 降序",
+        "每对累加 min(min(first,second),2*globalMinimum)",
+        "返回 cost"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/pair-surpluses-with-global-minimum-detour/Solution.java",
+        "kotlin": "solutions/pair-surpluses-with-global-minimum-detour/Solution.kt",
+        "cpp": "solutions/pair-surpluses-with-global-minimum-detour/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2551,
+  "slug": "put-marbles-in-bags",
+  "title": "将珠子放入背包中",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-040",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "排序"
+  ],
+  "summary": "按原顺序把珠子分成 k 个非空连续袋，每袋代价为首尾珠子重量之和，求所有分法最大总分与最小总分之差。",
+  "insight": "首珠和尾珠对所有分法固定。每个相邻切口 i 额外贡献 weights[i]+weights[i+1]，只需分别选择 k-1 个最大与最小切口贡献并求差。",
+  "pitfalls": [
+    "必须保持珠子顺序",
+    "恰好使用 k 个袋子即选择 k-1 个切口",
+    "答案使用 long",
+    "首尾固定贡献在差值中抵消"
+  ],
+  "solutions": [
+    {
+      "id": "sort-adjacent-boundary-sums",
+      "title": "排序相邻边界和",
+      "kind": "最优",
+      "idea": "把连续分段问题转成独立选择切口。",
+      "steps": [
+        "计算 n-1 个 boundary[i]=weights[i]+weights[i+1]",
+        "排序 boundary",
+        "answer=0",
+        "对 i=0..k-2 累加 boundary[n-2-i]-boundary[i]",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/sort-adjacent-boundary-sums/Solution.java",
+        "kotlin": "solutions/sort-adjacent-boundary-sums/Solution.kt",
+        "cpp": "solutions/sort-adjacent-boundary-sums/solution.cpp"
+      }
+    }
+  ]
+}

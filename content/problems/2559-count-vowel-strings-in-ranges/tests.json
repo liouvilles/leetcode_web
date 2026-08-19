@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "vowelStrings",
+  "parameterTypes": [
+    "stringArray",
+    "intMatrix"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "三个区间查询元音字符串数量",
+      "args": [
+        [
+          "aba",
+          "bcb",
+          "ece",
+          "aa",
+          "e"
+        ],
+        [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        2,
+        3,
+        0
+      ]
+    },
+    {
+      "name": "全部单词首尾为元音",
+      "args": [
+        [
+          "a",
+          "ee",
+          "io"
+        ],
+        [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        3,
+        1
+      ]
+    },
+    {
+      "name": "没有元音字符串",
+      "args": [
+        [
+          "bc",
+          "dog"
+        ],
+        [
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        0
+      ]
+    }
+  ]
+}

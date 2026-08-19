@@ -1,0 +1,1 @@
+class Solution { fun pickGifts(gifts:IntArray,kValue:Int):Long{val heap=java.util.PriorityQueue<Int>(reverseOrder());for(gift in gifts)heap.offer(gift);var k=kValue;while(k-->0)heap.offer(kotlin.math.sqrt(heap.poll().toDouble()).toInt());return heap.sumOf{it.toLong()}} }

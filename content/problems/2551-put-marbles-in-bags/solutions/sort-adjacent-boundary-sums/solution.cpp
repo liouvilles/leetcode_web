@@ -1,0 +1,1 @@
+class Solution { public:long long putMarbles(vector<int>& weights,int k){vector<int> boundaries;for(int i=0;i+1<(int)weights.size();++i)boundaries.push_back(weights[i]+weights[i+1]);sort(boundaries.begin(),boundaries.end());long long answer=0;for(int i=0;i<k-1;++i)answer+=boundaries[boundaries.size()-1-i]-boundaries[i];return answer;} };

@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minCapability",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "选择二和五能力为五",
+      "args": [
+        [
+          2,
+          3,
+          5,
+          9
+        ],
+        2
+      ],
+      "expected": 5
+    },
+    {
+      "name": "选择首尾两个二以内房屋",
+      "args": [
+        [
+          2,
+          7,
+          9,
+          3,
+          1
+        ],
+        2
+      ],
+      "expected": 2
+    },
+    {
+      "name": "单房屋能力等于其金额",
+      "args": [
+        [
+          10
+        ],
+        1
+      ],
+      "expected": 10
+    }
+  ]
+}

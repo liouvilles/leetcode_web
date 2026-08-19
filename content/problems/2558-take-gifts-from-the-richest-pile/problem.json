@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2558,
+  "slug": "take-gifts-from-the-richest-pile",
+  "title": "从数量最多的堆取走礼物",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-040",
+  "studyTags": [
+    "数组",
+    "堆",
+    "模拟"
+  ],
+  "summary": "每秒选择礼物最多的一堆，把它替换为原数量平方根的向下取整，执行 k 秒后返回剩余礼物总数。",
+  "insight": "每轮必须取当前最大堆，用最大堆动态维护；弹出最大值、放回 floor(sqrt(value))。",
+  "pitfalls": [
+    "平方根向下取整",
+    "必须执行 k 次",
+    "最终总和使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "maximum-heap-simulation",
+      "title": "最大堆模拟每秒操作",
+      "kind": "最优",
+      "idea": "堆顶始终是当前最富礼物堆。",
+      "steps": [
+        "把 gifts 加入最大堆",
+        "重复 k 次弹出 value",
+        "压入 floor(sqrt(value))",
+        "遍历堆求和并返回"
+      ],
+      "complexity": {
+        "time": "O((n+k) log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/maximum-heap-simulation/Solution.java",
+        "kotlin": "solutions/maximum-heap-simulation/Solution.kt",
+        "cpp": "solutions/maximum-heap-simulation/solution.cpp"
+      }
+    }
+  ]
+}

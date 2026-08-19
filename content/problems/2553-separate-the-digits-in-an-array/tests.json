@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "separateDigits",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "四个两位数依次展开",
+      "args": [
+        [
+          13,
+          25,
+          83,
+          77
+        ]
+      ],
+      "expected": [
+        1,
+        3,
+        2,
+        5,
+        8,
+        3,
+        7,
+        7
+      ]
+    },
+    {
+      "name": "单数位元素保持原样",
+      "args": [
+        [
+          7,
+          1,
+          3,
+          9
+        ]
+      ],
+      "expected": [
+        7,
+        1,
+        3,
+        9
+      ]
+    },
+    {
+      "name": "十展开时保留零",
+      "args": [
+        [
+          10
+        ]
+      ],
+      "expected": [
+        1,
+        0
+      ]
+    }
+  ]
+}

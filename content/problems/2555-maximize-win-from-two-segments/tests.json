@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximizeWin",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两个长度二线段覆盖全部七个奖品",
+      "args": [
+        [
+          1,
+          1,
+          2,
+          2,
+          3,
+          3,
+          5
+        ],
+        2
+      ],
+      "expected": 7
+    },
+    {
+      "name": "长度零两个线段最多覆盖两个坐标",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        0
+      ],
+      "expected": 2
+    },
+    {
+      "name": "三个远离坐标只能覆盖其中两个",
+      "args": [
+        [
+          1,
+          10,
+          20
+        ],
+        5
+      ],
+      "expected": 2
+    }
+  ]
+}

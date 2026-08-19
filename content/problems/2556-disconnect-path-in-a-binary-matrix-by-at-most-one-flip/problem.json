@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2556,
+  "slug": "disconnect-path-in-a-binary-matrix-by-at-most-one-flip",
+  "title": "二进制矩阵中翻转至多一次使路径不连通",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-040",
+  "studyTags": [
+    "数组",
+    "矩阵",
+    "深度优先搜索",
+    "图论"
+  ],
+  "summary": "矩阵中只能经过一，且只能向右或向下从左上走到右下；问翻转至多一个非端点的一为零后能否让路径不存在。",
+  "insight": "若存在两条内部顶点互不相交的单调路径，翻一个点无法同时阻断；否则第一条路径上存在割点。先用 DFS 找到并移除一条路径（探索到的死路本就不属于任何完整路径），恢复两端后再查一次，若无第二条路径即可断开。",
+  "pitfalls": [
+    "不能翻转起点和终点",
+    "原本就不连通时答案为 true",
+    "DFS 找到第一条路径后要恢复两个端点",
+    "只能向右和向下移动"
+  ],
+  "solutions": [
+    {
+      "id": "remove-one-path-and-search-again",
+      "title": "移除一条路径后再次搜索",
+      "kind": "最优",
+      "idea": "用两次可达性判断检测是否有两条内部点不交路径。",
+      "steps": [
+        "定义 dfs：越界或零返回 false，到终点返回 true；否则把当前格置零并递归向下或向右",
+        "第一次 dfs 从起点执行并移除一条可达路径",
+        "把 grid[0][0] 与终点恢复为一",
+        "第二次 dfs 若找不到路径返回 true，否则 false"
+      ],
+      "complexity": {
+        "time": "O(rows * cols)",
+        "space": "O(rows + cols) recursion"
+      },
+      "files": {
+        "java": "solutions/remove-one-path-and-search-again/Solution.java",
+        "kotlin": "solutions/remove-one-path-and-search-again/Solution.kt",
+        "cpp": "solutions/remove-one-path-and-search-again/solution.cpp"
+      }
+    }
+  ]
+}

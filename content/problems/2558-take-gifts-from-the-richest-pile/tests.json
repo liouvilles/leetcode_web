@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "pickGifts",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "官方四次操作后剩余二十九",
+      "args": [
+        [
+          25,
+          64,
+          9,
+          4,
+          100
+        ],
+        4
+      ],
+      "expected": 29
+    },
+    {
+      "name": "全一礼物堆操作后不变",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        4
+      ],
+      "expected": 4
+    },
+    {
+      "name": "十六连续开方两次剩二",
+      "args": [
+        [
+          16
+        ],
+        2
+      ],
+      "expected": 2
+    }
+  ]
+}
