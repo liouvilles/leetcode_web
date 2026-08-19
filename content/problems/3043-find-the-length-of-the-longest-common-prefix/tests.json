@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "longestCommonPrefix",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一十和一百分别匹配一千的前三种前缀",
+      "args": [
+        [
+          1,
+          10,
+          100
+        ],
+        [
+          1000
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "两个数组首位完全不同",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          4,
+          4,
+          4
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "两个一二三开头数字共享三位",
+      "args": [
+        [
+          12345,
+          999
+        ],
+        [
+          12399,
+          12300
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "十与一共享单个首位数字",
+      "args": [
+        [
+          10
+        ],
+        [
+          1
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "八位数字共享前四位九",
+      "args": [
+        [
+          99999999
+        ],
+        [
+          99991234
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "多个候选中选择三位前缀五六七",
+      "args": [
+        [
+          56789,
+          56
+        ],
+        [
+          567
+        ]
+      ],
+      "expected": 3
+    }
+  ]
+}

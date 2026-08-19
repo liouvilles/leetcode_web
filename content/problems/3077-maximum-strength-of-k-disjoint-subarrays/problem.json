@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": 3077,
+  "slug": "maximum-strength-of-k-disjoint-subarrays",
+  "title": "K 个不相交子数组的最大能量值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-053",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "前缀和"
+  ],
+  "summary": "按顺序选择恰好 k 个非空不相交子数组，第 i 个子数组和乘以符号交替且绝对值递减的系数，求总能量最大值。",
+  "insight": "第 part 个子数组的固定系数为正负交替的 k-part+1。扫描数组前缀时，bestEnding 表示当前第 part 段必须在当前位置结尾的最大值，它可以延长上一位置的当前段，也可以从完成 part-1 段的前缀后新开一段。",
+  "pitfalls": [
+    "必须选择恰好 k 个非空子数组",
+    "子数组按位置顺序编号且互不重叠",
+    "偶数编号子数组的系数为负",
+    "相邻但不重叠的子数组合法",
+    "数值、系数与总答案都必须使用 64 位整数"
+  ],
+  "solutions": [
+    {
+      "id": "rolling-dp-by-segments-and-prefix",
+      "title": "按段数与前缀滚动 DP",
+      "kind": "最优",
+      "idea": "逐段计算在每个前缀内完成所需子数组的最大能量。",
+      "steps": [
+        "previous 初始化为选择零段时任意前缀能量为零",
+        "从 part=1 到 k 依次处理每个子数组",
+        "计算当前段的带符号系数",
+        "current 填充为负无穷",
+        "扫描可作为当前段结尾的位置",
+        "bestEnding 在延长当前段与从 previous 新开一段间取最大",
+        "current 同时保留不使用当前位置的前缀最优值",
+        "滚动数组并返回 previous[n]"
+      ],
+      "complexity": {
+        "time": "O(nk)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/rolling-dp-by-segments-and-prefix/Solution.java",
+        "kotlin": "solutions/rolling-dp-by-segments-and-prefix/Solution.kt",
+        "cpp": "solutions/rolling-dp-by-segments-and-prefix/solution.cpp"
+      }
+    }
+  ]
+}

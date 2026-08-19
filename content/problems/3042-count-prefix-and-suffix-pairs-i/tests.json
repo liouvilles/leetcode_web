@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countPrefixSuffixPairs",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "官方示例包含四个合法下标对",
+      "args": [
+        [
+          "a",
+          "aba",
+          "ababa",
+          "aa"
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "两组互不相关的前后缀对",
+      "args": [
+        [
+          "pa",
+          "papa",
+          "ma",
+          "mama"
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "较长单词不能成为较短单词的边界",
+      "args": [
+        [
+          "abab",
+          "ab"
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "重复单字母与双字母形成三个下标对",
+      "args": [
+        [
+          "a",
+          "a",
+          "aa"
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "相同单词及两个前后缀关系均计数",
+      "args": [
+        [
+          "ab",
+          "ab",
+          "abab",
+          "cab"
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "单个单词没有可配对下标",
+      "args": [
+        [
+          "leetcode"
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

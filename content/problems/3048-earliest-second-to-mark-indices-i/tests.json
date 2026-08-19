@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "earliestSecondToMarkIndices",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "官方示例需要八秒完成减一与三次标记",
+      "args": [
+        [
+          2,
+          2,
+          0
+        ],
+        [
+          2,
+          2,
+          2,
+          2,
+          3,
+          2,
+          2,
+          1
+        ]
+      ],
+      "expected": 8
+    },
+    {
+      "name": "不同截止时间下第六秒可以全部标记",
+      "args": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          1,
+          1,
+          2,
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "下标从未出现在变更序列中无法标记",
+      "args": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          2,
+          2
+        ]
+      ],
+      "expected": -1
+    },
+    {
+      "name": "单个一先减一再于第二秒标记",
+      "args": [
+        [
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "全零数组仍需为两个下标各用一秒标记",
+      "args": [
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

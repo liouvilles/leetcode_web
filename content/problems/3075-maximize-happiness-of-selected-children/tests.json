@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumHappinessSum",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "选择三和二时第二个贡献减一",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        2
+      ],
+      "expected": 4
+    },
+    {
+      "name": "四个单位幸福值选择两个只有首个贡献",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        2
+      ],
+      "expected": 1
+    },
+    {
+      "name": "只选择一个孩子取最大幸福值",
+      "args": [
+        [
+          2,
+          3,
+          4,
+          5
+        ],
+        1
+      ],
+      "expected": 5
+    },
+    {
+      "name": "三个一亿幸福值答案接近三亿",
+      "args": [
+        [
+          100000000,
+          100000000,
+          100000000
+        ],
+        3
+      ],
+      "expected": 299999997
+    },
+    {
+      "name": "后两个孩子幸福值衰减到零",
+      "args": [
+        [
+          5,
+          1,
+          1
+        ],
+        3
+      ],
+      "expected": 5
+    },
+    {
+      "name": "前两大幸福值依次贡献十和八",
+      "args": [
+        [
+          10,
+          9,
+          8
+        ],
+        2
+      ],
+      "expected": 18
+    }
+  ]
+}

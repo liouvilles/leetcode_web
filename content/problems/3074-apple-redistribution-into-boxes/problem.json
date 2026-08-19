@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 3074,
+  "slug": "apple-redistribution-into-boxes",
+  "title": "重新分装苹果",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-053",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "排序"
+  ],
+  "summary": "苹果可从原包装任意重新分配到给定容量的箱子中，求装下全部苹果所需的最少箱子数。",
+  "insight": "重新分装后只关心苹果总数和所选箱子的总容量。为最小化箱子数量，应始终优先选择容量最大的箱子，直到累计容量覆盖苹果总数。",
+  "pitfalls": [
+    "apple 表示每包装苹果数而不是箱子容量",
+    "苹果可以跨包装任意重分配",
+    "只需总容量不小于苹果总数",
+    "容量应按从大到小选择",
+    "题目保证一定能装下全部苹果"
+  ],
+  "solutions": [
+    {
+      "id": "take-largest-capacities-first",
+      "title": "优先选择最大容量",
+      "kind": "最优",
+      "idea": "汇总苹果并贪心累加最大箱子容量。",
+      "steps": [
+        "求 apple 的元素总和 remaining",
+        "升序排序 capacity",
+        "从最大容量开始遍历",
+        "每选一个箱子就从 remaining 减去其容量",
+        "remaining 不大于零时返回已选箱子数"
+      ],
+      "complexity": {
+        "time": "O(n+m log m)",
+        "space": "O(log m) 排序栈"
+      },
+      "files": {
+        "java": "solutions/take-largest-capacities-first/Solution.java",
+        "kotlin": "solutions/take-largest-capacities-first/Solution.kt",
+        "cpp": "solutions/take-largest-capacities-first/solution.cpp"
+      }
+    }
+  ]
+}

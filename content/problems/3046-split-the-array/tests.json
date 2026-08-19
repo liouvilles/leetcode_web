@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isPossibleToSplit",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "成对元素分别放入两组且单次元素平分",
+      "args": [
+        [
+          1,
+          1,
+          2,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "同一值出现四次无法拆分",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "两个不同元素各放一组",
+      "args": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "两个相同元素可各放一份",
+      "args": [
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "两个值都出现两次可分别放置",
+      "args": [
+        [
+          1,
+          1,
+          2,
+          2
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "值一出现三次即使其他值可分也无解",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          2,
+          2,
+          3
+        ]
+      ],
+      "expected": false
+    }
+  ]
+}

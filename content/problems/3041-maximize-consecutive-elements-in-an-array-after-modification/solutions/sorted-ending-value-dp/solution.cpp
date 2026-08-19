@@ -1,0 +1,1 @@
+class Solution { public:int maxSelectedElements(vector<int>& nums){sort(nums.begin(),nums.end());vector<int> dp(nums.back()+2);int answer=0;for(int value:nums){dp[value+1]=max(dp[value+1],dp[value]+1);dp[value]=max(dp[value],dp[value-1]+1);answer=max({answer,dp[value],dp[value+1]});}return answer;} };

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": 3069,
+  "slug": "distribute-elements-into-two-arrays-i",
+  "title": "将元素分配到两个数组中 I",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-053",
+  "studyTags": [
+    "数组",
+    "模拟"
+  ],
+  "summary": "以 nums[0] 和 nums[1] 分别初始化两个数组；之后比较两数组末尾元素，把当前值追加到末尾值更大的数组，最后连接两数组。",
+  "insight": "规则只依赖两个数组当前的最后一个元素，不需要保存额外状态。用两个顺序容器模拟追加，处理完后按 arr1、arr2 的顺序写入答案。",
+  "pitfalls": [
+    "前两个元素分别进入不同数组",
+    "比较的是末尾元素而不是最大元素",
+    "若 arr1 末尾不大于 arr2 末尾则进入 arr2",
+    "最终结果是 arr1 后接 arr2",
+    "官方约束保证 nums 中元素互不相同"
+  ],
+  "solutions": [
+    {
+      "id": "simulate-two-array-tails",
+      "title": "模拟两个数组的末尾",
+      "kind": "最优",
+      "idea": "按定义维护两个数组并在最后连接。",
+      "steps": [
+        "用 nums[0] 初始化 first",
+        "用 nums[1] 初始化 second",
+        "从 nums[2] 开始遍历",
+        "比较 first 与 second 的末尾元素",
+        "把当前元素追加到末尾更大的数组",
+        "依次复制 first 和 second 到结果",
+        "返回结果"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/simulate-two-array-tails/Solution.java",
+        "kotlin": "solutions/simulate-two-array-tails/Solution.kt",
+        "cpp": "solutions/simulate-two-array-tails/solution.cpp"
+      }
+    }
+  ]
+}

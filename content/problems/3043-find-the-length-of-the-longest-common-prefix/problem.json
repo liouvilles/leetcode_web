@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": 3043,
+  "slug": "find-the-length-of-the-longest-common-prefix",
+  "title": "最长公共前缀的长度",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-053",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "字符串"
+  ],
+  "summary": "在两个正整数数组中各选一个数，求所有数对的十进制表示所能拥有的最长公共前缀长度。",
+  "insight": "不断除以十会依次删掉一个整数的最右数字，因此能枚举它的全部非空前缀。先把 arr1 所有数字前缀放入哈希集合，再对 arr2 的每个数字从完整值向短前缀查找；首次命中的就是该数字能得到的最长公共前缀。",
+  "pitfalls": [
+    "比较的是十进制数字前缀，而不是二进制位或数值大小",
+    "两个元素必须分别来自不同数组",
+    "正整数没有前导零，可以直接用整数保存前缀",
+    "没有任何首位相同的数对时返回零",
+    "删除前缀的最后一位应做整数除十"
+  ],
+  "solutions": [
+    {
+      "id": "numeric-prefix-hash-set",
+      "title": "数字前缀哈希集合",
+      "kind": "最优",
+      "idea": "收集第一数组全部前缀，再从长到短查询第二数组前缀。",
+      "steps": [
+        "创建空哈希集合 prefixes",
+        "对 arr1 每个值反复加入当前值并除以十",
+        "遍历 arr2 的每个值并计算其十进制位数",
+        "从完整值开始查 prefixes",
+        "未命中就除以十并把长度减一",
+        "首次命中时用当前长度更新答案并停止处理该值",
+        "返回最大长度"
+      ],
+      "complexity": {
+        "time": "O(D₁+D₂)",
+        "space": "O(D₁)"
+      },
+      "files": {
+        "java": "solutions/numeric-prefix-hash-set/Solution.java",
+        "kotlin": "solutions/numeric-prefix-hash-set/Solution.kt",
+        "cpp": "solutions/numeric-prefix-hash-set/solution.cpp"
+      }
+    }
+  ]
+}

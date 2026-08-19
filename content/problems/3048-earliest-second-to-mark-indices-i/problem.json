@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": 3048,
+  "slug": "earliest-second-to-mark-indices-i",
+  "title": "标记所有下标的最早秒数 I",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-053",
+  "studyTags": [
+    "数组",
+    "二分查找",
+    "贪心"
+  ],
+  "summary": "每秒可以把任意数组元素减一，或在 changeIndices 指定的元素已经为零时标记该下标；求标记全部下标所需的最早秒数。",
+  "insight": "能在前 t 秒完成具有单调性，因此二分答案。固定前缀后，把每个下标安排在它最后一次出现时标记最有利，因为这样留给减一操作的时间最多。按时间扫描：非最后出现的秒可作为一次减一操作；到某下标的最后出现时，必须从此前积累的空闲秒中支付 nums[i] 次减一，再用当前秒标记。任一支付失败或某下标未出现，则该前缀不可行。",
+  "pitfalls": [
+    "changeIndices 使用一开始下标，代码中要减一",
+    "每个下标必须单独占用一秒执行标记",
+    "标记前对应数值必须已经恰好减到零",
+    "同一下标应选择前缀内最后一次出现作为标记时刻",
+    "减一操作可作用于任意下标，因此只需维护可用操作秒数",
+    "nums[i] 可达十亿，不能真的逐次模拟减法",
+    "可行性随前缀长度单调，二分失败上界应返回 -1"
+  ],
+  "solutions": [
+    {
+      "id": "binary-search-last-occurrence-greedy",
+      "title": "二分答案与最后出现时刻贪心",
+      "kind": "最优",
+      "idea": "二分最短前缀，并在线性扫描中验证各个标记截止时间。",
+      "steps": [
+        "在 1..m 上二分候选秒数，并设置 m+1 为不可行哨兵",
+        "记录候选前缀中每个下标的最后出现位置",
+        "若有下标从未出现，立即判定不可行",
+        "从前向后扫描候选前缀",
+        "非最后出现的秒令 available 加一",
+        "最后出现时检查 available 是否至少为 nums[index]",
+        "支付这些减一操作后，用当前秒标记该下标",
+        "根据可行性收缩二分区间，最终超过 m 则返回 -1"
+      ],
+      "complexity": {
+        "time": "O((n+m) log m)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/binary-search-last-occurrence-greedy/Solution.java",
+        "kotlin": "solutions/binary-search-last-occurrence-greedy/Solution.kt",
+        "cpp": "solutions/binary-search-last-occurrence-greedy/solution.cpp"
+      }
+    }
+  ]
+}

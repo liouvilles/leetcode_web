@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "shortestSubstrings",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "stringArray",
+  "cases": [
+    {
+      "name": "示例同时覆盖字典序选择与不存在候选",
+      "args": [
+        [
+          "cab",
+          "ad",
+          "bad",
+          "c"
+        ]
+      ],
+      "expected": [
+        "ab",
+        "",
+        "ba",
+        ""
+      ]
+    },
+    {
+      "name": "前两个字符串均被第三个完整覆盖",
+      "args": [
+        [
+          "abc",
+          "bcd",
+          "abcd"
+        ]
+      ],
+      "expected": [
+        "",
+        "",
+        "abcd"
+      ]
+    },
+    {
+      "name": "较长重复字符串只有完整串唯一",
+      "args": [
+        [
+          "aaa",
+          "aa"
+        ]
+      ],
+      "expected": [
+        "aaa",
+        ""
+      ]
+    },
+    {
+      "name": "两个不同单字符各自唯一",
+      "args": [
+        [
+          "z",
+          "a"
+        ]
+      ],
+      "expected": [
+        "z",
+        "a"
+      ]
+    },
+    {
+      "name": "互不相交字符串各取字典序最小单字符",
+      "args": [
+        [
+          "ab",
+          "cd",
+          "ef"
+        ]
+      ],
+      "expected": [
+        "a",
+        "c",
+        "e"
+      ]
+    },
+    {
+      "name": "两个完全相同字符串都没有唯一子串",
+      "args": [
+        [
+          "abc",
+          "abc"
+        ]
+      ],
+      "expected": [
+        "",
+        ""
+      ]
+    }
+  ]
+}

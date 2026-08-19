@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": 3076,
+  "slug": "shortest-uncommon-substring-in-an-array",
+  "title": "数组中的最短非公共子字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-053",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "字典树",
+    "枚举"
+  ],
+  "summary": "对每个字符串寻找不作为其他任何字符串子串出现的最短非空子串；长度相同取字典序最小，不存在则返回空串。",
+  "insight": "把每个字符串的所有子串插入同一棵字典树，并在每个节点记录该子串出现于多少个不同输入字符串。第二次枚举某字符串的子串时，所有者数量为一就表示它只属于当前字符串。",
+  "pitfalls": [
+    "同一子串在同一字符串内出现多次只能贡献一个所有者",
+    "只要求不出现在其他字符串中",
+    "先最短再按字典序选择",
+    "不存在候选时返回空字符串",
+    "重复输入字符串会让其所有子串都不唯一"
+  ],
+  "solutions": [
+    {
+      "id": "substring-trie-owner-counting",
+      "title": "子串字典树与所有者计数",
+      "kind": "最优",
+      "idea": "在共享字典树上统计每个子串属于多少个不同字符串。",
+      "steps": [
+        "建立字典树根节点",
+        "对每个字符串和每个起点向后扩展子串",
+        "创建或复用对应字典树节点",
+        "借助 lastOwner 保证同一字符串只增加一次 owners",
+        "再次枚举每个字符串的所有子串",
+        "从 owners 为一的候选中按长度和字典序取最优",
+        "返回答案数组"
+      ],
+      "complexity": {
+        "time": "O(nL³)",
+        "space": "O(nL²)"
+      },
+      "files": {
+        "java": "solutions/substring-trie-owner-counting/Solution.java",
+        "kotlin": "solutions/substring-trie-owner-counting/Solution.kt",
+        "cpp": "solutions/substring-trie-owner-counting/solution.cpp"
+      }
+    }
+  ]
+}

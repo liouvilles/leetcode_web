@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": 3036,
+  "slug": "number-of-subarrays-that-match-a-pattern-ii",
+  "title": "匹配模式数组的子数组数目 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-053",
+  "studyTags": [
+    "数组",
+    "字符串匹配",
+    "KMP"
+  ],
+  "summary": "把 nums 中每对相邻元素的大小关系编码为 -1、0、1，统计其中有多少个连续片段与给定 pattern 完全相同。",
+  "insight": "长度 m+1 的原数组子数组是否匹配，只由其中 m 对相邻元素的比较结果决定。因此先把 nums 转成长度 n-1 的关系序列，原问题就成为在整数序列中统计 pattern 的出现次数；KMP 能保留重叠匹配并在线性时间完成统计。",
+  "pitfalls": [
+    "比较结果必须规范为 -1、0、1，不能直接存相邻元素之差",
+    "一个长度 m 的关系匹配对应一个长度 m+1 的 nums 子数组",
+    "匹配成功后要回退到前缀函数指定位置，否则会漏掉重叠匹配",
+    "n 可达一百万，不能逐个起点比较整个 pattern",
+    "pattern 保证非空且长度小于 nums.length"
+  ],
+  "solutions": [
+    {
+      "id": "kmp-on-adjacent-comparisons",
+      "title": "相邻关系序列上的 KMP",
+      "kind": "最优",
+      "idea": "一边生成 nums 的相邻比较结果，一边用 pattern 的前缀函数完成匹配。",
+      "steps": [
+        "为 pattern 构造前缀函数 prefix",
+        "从 nums 下标一开始扫描，把 nums[i] 与 nums[i-1] 的关系编码为 -1、0 或 1",
+        "当当前关系与 pattern[matched] 不同，沿 prefix 连续回退",
+        "相同时增加 matched",
+        "matched 等于 pattern 长度时计入一次答案，再回退以保留重叠匹配",
+        "扫描结束后返回答案"
+      ],
+      "complexity": {
+        "time": "O(n+m)",
+        "space": "O(m)"
+      },
+      "files": {
+        "java": "solutions/kmp-on-adjacent-comparisons/Solution.java",
+        "kotlin": "solutions/kmp-on-adjacent-comparisons/Solution.kt",
+        "cpp": "solutions/kmp-on-adjacent-comparisons/solution.cpp"
+      }
+    }
+  ]
+}

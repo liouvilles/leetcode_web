@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": 3071,
+  "slug": "minimum-operations-to-write-the-letter-y-on-a-grid",
+  "title": "在矩阵上写出字母 Y 所需的最少操作次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-053",
+  "studyTags": [
+    "数组",
+    "矩阵",
+    "计数",
+    "枚举"
+  ],
+  "summary": "奇数阶矩阵只含 0、1、2；要让字母 Y 覆盖格使用同一数值、其余格使用另一个不同数值，求最少改单元格次数。",
+  "insight": "每个格子只属于 Y 或非 Y 两类。分别统计两类中三种数值的频次，再枚举 Y 使用的值和背景使用的不同值，保留频次之和最大的一组即可。",
+  "pitfalls": [
+    "Y 的上半部分包含两条对角线直到中心",
+    "中心以下只包含中间列",
+    "Y 与背景必须使用不同数值",
+    "每次操作可把一个格改成 0、1、2 中任意值",
+    "只需枚举六种有序配色"
+  ],
+  "solutions": [
+    {
+      "id": "count-y-and-background-colors",
+      "title": "统计 Y 与背景颜色",
+      "kind": "最优",
+      "idea": "将格子按是否属于 Y 分组计数并枚举两组的不同目标值。",
+      "steps": [
+        "计算中心下标 middle",
+        "遍历所有格子判断是否属于 Y",
+        "分别累计 yCount 与 backgroundCount",
+        "枚举 Y 的目标值",
+        "枚举与它不同的背景目标值",
+        "总格数减去两类可保留格数得到修改次数",
+        "返回最小修改次数"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/count-y-and-background-colors/Solution.java",
+        "kotlin": "solutions/count-y-and-background-colors/Solution.kt",
+        "cpp": "solutions/count-y-and-background-colors/solution.cpp"
+      }
+    }
+  ]
+}

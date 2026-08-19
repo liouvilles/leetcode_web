@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "lastNonEmptyString",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "最高频的 b 与 a 按最后出现顺序留下",
+      "args": [
+        "aabcbbca"
+      ],
+      "expected": "ba"
+    },
+    {
+      "name": "所有字符只出现一次时保留整个字符串",
+      "args": [
+        "abcd"
+      ],
+      "expected": "abcd"
+    },
+    {
+      "name": "单一字符重复后最后只剩一个",
+      "args": [
+        "zzzz"
+      ],
+      "expected": "z"
+    },
+    {
+      "name": "只有 d 达到最大频率",
+      "args": [
+        "abbcccdddd"
+      ],
+      "expected": "d"
+    },
+    {
+      "name": "三种字符并列最大频率且顺序不变",
+      "args": [
+        "aabbcc"
+      ],
+      "expected": "abc"
+    },
+    {
+      "name": "并列最高频字符按最后位置得到 ba",
+      "args": [
+        "bbbaaac"
+      ],
+      "expected": "ba"
+    }
+  ]
+}

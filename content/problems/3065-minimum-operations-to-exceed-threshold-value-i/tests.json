@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minOperations",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "删除三个低于十的元素",
+      "args": [
+        [
+          2,
+          11,
+          10,
+          1,
+          3
+        ],
+        10
+      ],
+      "expected": 3
+    },
+    {
+      "name": "所有元素已经达到阈值无需操作",
+      "args": [
+        [
+          1,
+          1,
+          2,
+          4,
+          9
+        ],
+        1
+      ],
+      "expected": 0
+    },
+    {
+      "name": "只保留唯一达到九的元素",
+      "args": [
+        [
+          1,
+          1,
+          2,
+          4,
+          9
+        ],
+        9
+      ],
+      "expected": 4
+    },
+    {
+      "name": "等于阈值的两个元素都应保留",
+      "args": [
+        [
+          10,
+          9,
+          10
+        ],
+        10
+      ],
+      "expected": 1
+    },
+    {
+      "name": "十亿阈值下仅删除较小元素",
+      "args": [
+        [
+          1,
+          1000000000
+        ],
+        1000000000
+      ],
+      "expected": 1
+    }
+  ]
+}

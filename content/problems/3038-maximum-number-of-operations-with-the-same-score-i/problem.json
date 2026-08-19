@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 3038,
+  "slug": "maximum-number-of-operations-with-the-same-score-i",
+  "title": "相同分数的最大操作数目 I",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-053",
+  "studyTags": [
+    "数组",
+    "模拟"
+  ],
+  "summary": "每次只能删除当前数组最前面的两个元素；在所有操作的元素和都相同的前提下，求最多能连续执行多少次。",
+  "insight": "第一次操作不可避免地删除 nums[0] 与 nums[1]，所以它唯一确定后续操作必须保持的目标分数。之后原数组中的元素仍按顺序每两个一组被删除，只需从左到右扫描，遇到第一组分数不同的位置立即停止。",
+  "pitfalls": [
+    "第一次操作总能执行且决定唯一目标分数",
+    "每次删除后新的前两个元素对应原数组中下一对尚未处理的元素",
+    "遇到首个分数不同的元素对后不能跳过它继续操作",
+    "数组长度为奇数时最后一个元素无法组成操作",
+    "本题不允许从末尾或两端删除元素"
+  ],
+  "solutions": [
+    {
+      "id": "scan-fixed-adjacent-pairs",
+      "title": "扫描固定相邻元素对",
+      "kind": "最优",
+      "idea": "用首对元素和作为目标，依次验证后续互不重叠的相邻元素对。",
+      "steps": [
+        "令 target=nums[0]+nums[1]",
+        "令 answer=0",
+        "按下标 0、2、4 等枚举仍有两个元素的相邻对",
+        "若当前元素对之和不等于 target，结束扫描",
+        "否则增加 answer",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/scan-fixed-adjacent-pairs/Solution.java",
+        "kotlin": "solutions/scan-fixed-adjacent-pairs/Solution.kt",
+        "cpp": "solutions/scan-fixed-adjacent-pairs/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxOperations",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "前两对元素之和都为五",
+      "args": [
+        [
+          3,
+          2,
+          1,
+          4,
+          5
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "第二对分数不同所以只能操作一次",
+      "args": [
+        [
+          3,
+          2,
+          6,
+          1,
+          4
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "第三对分数改变时在两次后停止",
+      "args": [
+        [
+          1,
+          5,
+          3,
+          3,
+          4,
+          1,
+          3,
+          2,
+          2,
+          3
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "两个元素恰好执行一次操作",
+      "args": [
+        [
+          5,
+          3
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "六个相同元素可组成三次同分操作",
+      "args": [
+        [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "expected": 3
+    }
+  ]
+}

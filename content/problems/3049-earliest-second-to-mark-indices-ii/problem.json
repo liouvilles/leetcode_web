@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "id": 3049,
+  "slug": "earliest-second-to-mark-indices-ii",
+  "title": "标记所有下标的最早秒数 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-053",
+  "studyTags": [
+    "贪心",
+    "数组",
+    "二分查找",
+    "堆（优先队列）"
+  ],
+  "summary": "每秒可将任意元素减一、把 changeIndices 指定元素改为任意非负数，或标记任意值为零的下标；求标记全部下标的最早秒数。",
+  "insight": "二分前缀长度。若不用快速置零，第 i 个下标需要 nums[i] 次减一和一次标记，总操作数为 sum(nums)+n；在某次指定操作中把 nums[i]>1 直接置零，再另用一秒标记，可节省 nums[i]-1 秒。固定前缀时只需考虑每个下标的第一次出现，因为越早置零越容易给后续标记留位置。倒序扫描并维护可作为标记的空闲秒：有空闲就选当前置零；没有时，可用收益更大的当前候选替换堆中收益最小的较晚置零方案，替换会释放一个净空闲秒。最终用基础操作数减去所选收益判断能否装入前缀。",
+  "pitfalls": [
+    "本题的标记操作可以选择任意为零的下标，不受当秒 changeIndices 限制",
+    "快速置零与标记是两个不同操作，至少占用两秒且置零必须更早",
+    "nums 为零或一时快速置零没有正收益，不应入堆",
+    "同一元素只需考虑前缀内第一次出现作为快速置零时刻",
+    "倒序选择一次快速置零必须消耗一个更晚的空闲秒用于标记",
+    "空闲不足时替换较晚的小收益方案会净释放一个空闲秒",
+    "基础操作数可能超过 32 位，求和与节省量必须用 64 位",
+    "可行性随前缀长度单调，可用二分查找最早答案"
+  ],
+  "solutions": [
+    {
+      "id": "binary-search-reverse-heap-greedy",
+      "title": "二分答案与倒序最小堆贪心",
+      "kind": "最优",
+      "idea": "对每个前缀最大化合法快速置零方案带来的总节省。",
+      "steps": [
+        "计算不用快速置零时的基础操作数 sum(nums)+n",
+        "二分候选前缀长度 seconds",
+        "求每个下标在该前缀中的第一次出现位置",
+        "倒序扫描前缀，普通秒累积为 available",
+        "遇到 nums[index]>1 的第一次出现时尝试把它选为快速置零",
+        "若 available>0，则消耗一个更晚秒用于标记并把收益加入小根堆",
+        "若没有空闲且当前值大于堆顶，则撤销堆顶方案、净释放一个空闲秒并选择当前方案",
+        "否则把当前秒当作普通空闲秒",
+        "若基础操作数减总节省不超过 seconds，则前缀可行",
+        "二分得到最短可行前缀，不存在则返回 -1"
+      ],
+      "complexity": {
+        "time": "O((n+m log n) log m)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/binary-search-reverse-heap-greedy/Solution.java",
+        "kotlin": "solutions/binary-search-reverse-heap-greedy/Solution.kt",
+        "cpp": "solutions/binary-search-reverse-heap-greedy/solution.cpp"
+      }
+    }
+  ]
+}

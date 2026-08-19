@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": 3044,
+  "slug": "most-frequent-prime",
+  "title": "出现频率最高的质数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-053",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "数学",
+    "计数",
+    "枚举",
+    "矩阵",
+    "数论"
+  ],
+  "summary": "从矩阵任一单元格沿八个方向连续读取数字，统计所有大于十的质数，返回出现次数最多且并列时最大的质数。",
+  "insight": "矩阵每边至多六格，从每个起点沿八个方向走到边界即可完整枚举所有合法数字。每延伸一格就在末尾追加该位；对大于十的值用缓存过的试除法判质并累计频次，同时按频次优先、数值次优更新答案。",
+  "pitfalls": [
+    "方向选定后必须一直直行，途中不能转向",
+    "每个起点和方向生成的每个长度至少为二的数字都要统计",
+    "只统计严格大于十的质数，单个数字即使是质数也不计",
+    "相同数从不同起点、方向或不同路径长度生成时都分别计数",
+    "最高频次并列时返回数值更大的质数",
+    "八个方向包含水平、垂直和两条对角线的正反方向"
+  ],
+  "solutions": [
+    {
+      "id": "eight-direction-enumeration-with-prime-cache",
+      "title": "八方向枚举与质数缓存",
+      "kind": "最优",
+      "idea": "枚举所有直线路径前缀，并缓存每个整数的质数判定。",
+      "steps": [
+        "定义八组行列增量",
+        "建立 frequency 与 primeCache 哈希表",
+        "枚举每个起点和每个方向",
+        "沿该方向逐格把 digit 追加到 value",
+        "value>10 时查询或计算其质数性",
+        "若为质数则增加频次",
+        "按更高频次或同频更大数更新答案",
+        "没有合法质数时保留并返回 -1"
+      ],
+      "complexity": {
+        "time": "O(mnL√V)",
+        "space": "O(U)"
+      },
+      "files": {
+        "java": "solutions/eight-direction-enumeration-with-prime-cache/Solution.java",
+        "kotlin": "solutions/eight-direction-enumeration-with-prime-cache/Solution.kt",
+        "cpp": "solutions/eight-direction-enumeration-with-prime-cache/solution.cpp"
+      }
+    }
+  ]
+}

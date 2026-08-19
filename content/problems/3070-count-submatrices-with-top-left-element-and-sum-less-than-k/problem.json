@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": 3070,
+  "slug": "count-submatrices-with-top-left-element-and-sum-less-than-k",
+  "title": "元素和小于等于 k 的子矩阵的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-053",
+  "studyTags": [
+    "数组",
+    "矩阵",
+    "前缀和"
+  ],
+  "summary": "统计以 grid[0][0] 为左上角、元素和不超过 k 的非空子矩阵数目。",
+  "insight": "每个候选子矩阵由右下角唯一确定。逐行累加每列从第零行到当前行的列和，再对这些列和做横向前缀，就能用 O(n) 额外空间得到所有右下角对应的矩形和。",
+  "pitfalls": [
+    "所有子矩阵都必须包含左上角 grid[0][0]",
+    "条件是元素和小于等于 k",
+    "网格元素非负但无需提前停止扫描",
+    "行列规模都可到一千",
+    "前缀和使用 long 更稳妥"
+  ],
+  "solutions": [
+    {
+      "id": "rolling-column-prefix-sums",
+      "title": "滚动列和与横向前缀",
+      "kind": "最优",
+      "idea": "用一维列和依次计算每个右下角对应的二维前缀和。",
+      "steps": [
+        "建立长度为列数的 columnSums",
+        "逐行扫描网格",
+        "把当前格加入对应 columnSums",
+        "在当前行从左到右累计 columnSums",
+        "累计值就是以当前格为右下角的子矩阵和",
+        "若累计值不超过 k 则答案加一",
+        "返回答案"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/rolling-column-prefix-sums/Solution.java",
+        "kotlin": "solutions/rolling-column-prefix-sums/Solution.kt",
+        "cpp": "solutions/rolling-column-prefix-sums/solution.cpp"
+      }
+    }
+  ]
+}

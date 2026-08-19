@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 3042,
+  "slug": "count-prefix-and-suffix-pairs-i",
+  "title": "统计前后缀下标对 I",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-053",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "字符串匹配"
+  ],
+  "summary": "统计下标对 i<j，使 words[i] 同时是 words[j] 的前缀和后缀。",
+  "insight": "题目规模很小，可以直接枚举所有有序下标对。对每个 i<j，先确认较短单词长度不超过较长单词，再分别比较开头和结尾；两处都完全相同才计入答案。",
+  "pitfalls": [
+    "只统计 i<j，不能把顺序相反的下标对重复计入",
+    "候选前后缀可能与目标单词等长，此时两者必须完全相同",
+    "较长的 words[i] 不可能成为较短 words[j] 的前缀或后缀",
+    "同一个下标不能和自身配对"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-pairs-and-compare-borders",
+      "title": "枚举下标对并比较首尾",
+      "kind": "最优",
+      "idea": "逐对调用前缀与后缀比较。",
+      "steps": [
+        "初始化 answer=0",
+        "枚举 i 从零到 n-1",
+        "枚举 j 从 i+1 到 n-1",
+        "若 words[j] 同时以 words[i] 开头和结尾，则 answer 加一",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n²L)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/enumerate-pairs-and-compare-borders/Solution.java",
+        "kotlin": "solutions/enumerate-pairs-and-compare-borders/Solution.kt",
+        "cpp": "solutions/enumerate-pairs-and-compare-borders/solution.cpp"
+      }
+    }
+  ]
+}

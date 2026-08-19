@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 3075,
+  "slug": "maximize-happiness-of-selected-children",
+  "title": "幸福值最大化的选择方案",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-053",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "排序"
+  ],
+  "summary": "选择一个孩子后，所有尚未选择孩子的幸福值都减少一但不会低于零；恰好选择 k 个孩子，最大化所选时幸福值之和。",
+  "insight": "第 i 次选择时，所有仍未选择孩子都统一减少了 i。按初始幸福值从大到小选择能让每一步的基础值最大，因此第 i 个贡献为 max(0, sorted[i]-i)。",
+  "pitfalls": [
+    "每次选择后只减少尚未选择的孩子",
+    "幸福值不会降到零以下",
+    "必须恰好选择 k 个孩子",
+    "贡献随选择序号递减",
+    "答案可能超过 32 位整数"
+  ],
+  "solutions": [
+    {
+      "id": "descending-happiness-greedy",
+      "title": "幸福值降序贪心",
+      "kind": "最优",
+      "idea": "优先选择初始幸福值最大的孩子并扣除已发生的轮数。",
+      "steps": [
+        "升序排序 happiness",
+        "从最大元素开始选择",
+        "第 selected 次选择的实际贡献为 value-selected",
+        "贡献小于零时按零计算",
+        "累加前 k 个贡献并返回"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n) 排序栈"
+      },
+      "files": {
+        "java": "solutions/descending-happiness-greedy/Solution.java",
+        "kotlin": "solutions/descending-happiness-greedy/Solution.kt",
+        "cpp": "solutions/descending-happiness-greedy/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { fun minOperations(nums:IntArray,k:Int):Int{val heap=java.util.PriorityQueue<Long>();for(value in nums)heap.add(value.toLong());var operations=0;while(heap.peek()<k.toLong()){val first=heap.poll();val second=heap.poll();heap.add(first*2+second);operations++};return operations} }

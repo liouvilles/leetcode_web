@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countSubmatrices",
+  "parameterTypes": [
+    "intMatrix",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "六个候选中四个前缀矩形和不超过十八",
+      "args": [
+        [
+          [
+            7,
+            6,
+            3
+          ],
+          [
+            6,
+            6,
+            1
+          ]
+        ],
+        18
+      ],
+      "expected": 4
+    },
+    {
+      "name": "三乘三网格共有六个合格前缀矩形",
+      "args": [
+        [
+          [
+            7,
+            2,
+            9
+          ],
+          [
+            1,
+            5,
+            0
+          ],
+          [
+            2,
+            6,
+            6
+          ]
+        ],
+        20
+      ],
+      "expected": 6
+    },
+    {
+      "name": "单个零元素小于阈值",
+      "args": [
+        [
+          [
+            0
+          ]
+        ],
+        1
+      ],
+      "expected": 1
+    },
+    {
+      "name": "唯一元素超过阈值时答案为零",
+      "args": [
+        [
+          [
+            5
+          ]
+        ],
+        4
+      ],
+      "expected": 0
+    },
+    {
+      "name": "右下角完整矩阵和恰好等于阈值",
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        10
+      ],
+      "expected": 4
+    }
+  ]
+}

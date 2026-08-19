@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "id": 3045,
+  "slug": "count-prefix-and-suffix-pairs-ii",
+  "title": "统计前后缀下标对 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-053",
+  "studyTags": [
+    "字典树",
+    "数组",
+    "字符串",
+    "字符串匹配",
+    "哈希表"
+  ],
+  "summary": "在所有字符串总长度至多五十万时，统计下标对 i<j，使 words[i] 同时为 words[j] 的前缀和后缀。",
+  "insight": "把单词从外向内编码为字符对序列：(首字符,末字符)、(次字符,倒数第二字符)，依此类推。若旧单词长度为 d，它同时是新单词的前后缀，当且仅当旧单词的整条字符对路径与新单词路径的前 d 层相同。按输入顺序查询并插入字符对字典树，在新单词经过的每个节点累加此前恰在此结束的单词数。",
+  "pitfalls": [
+    "必须只统计当前下标之前的单词，所以每个单词应先查询路径再增加终点计数",
+    "字典树边由一对字符共同确定，不能只保存前缀字符",
+    "较短单词对应路径上的终止节点，查询时每一层都要累加而非只看末层",
+    "相同单词的多个历史副本要按出现次数全部计入",
+    "总答案可能超过 int，Java 和 Kotlin 返回 Long、C++ 返回 long long",
+    "直接为每个节点分配六百七十六个孩子会浪费大量内存，可用全局哈希边表"
+  ],
+  "solutions": [
+    {
+      "id": "paired-character-trie",
+      "title": "字符对字典树",
+      "kind": "最优",
+      "idea": "按首尾字符对构造字典树并统计历史终点。",
+      "steps": [
+        "预估总字符数并创建 terminal 数组",
+        "根节点编号为零，用哈希表保存 parent 与字符对到 child 的边",
+        "按输入顺序处理每个 word",
+        "从两端同步取字符并编码为零到六百七十五的 pair",
+        "沿已有边前进，缺边时创建新节点",
+        "到达每一层后把 terminal[node] 加入答案",
+        "走完整个单词后增加 terminal[node]",
+        "返回长整数答案"
+      ],
+      "complexity": {
+        "time": "O(S)",
+        "space": "O(S)"
+      },
+      "files": {
+        "java": "solutions/paired-character-trie/Solution.java",
+        "kotlin": "solutions/paired-character-trie/Solution.kt",
+        "cpp": "solutions/paired-character-trie/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxSelectedElements",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三个一与二经过修改组成一二三",
+      "args": [
+        [
+          2,
+          1,
+          5,
+          1,
+          1
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "元素间隔过大时最多选择一个",
+      "args": [
+        [
+          1,
+          4,
+          7,
+          10
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "四个相同元素最多贡献两个连续值",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "重复的二配合相邻元素组成长度四序列",
+      "args": [
+        [
+          1,
+          2,
+          2,
+          3
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "两端重复值能形成长度四的连续序列",
+      "args": [
+        [
+          3,
+          3,
+          4,
+          5,
+          5
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "单元素数组答案为一",
+      "args": [
+        [
+          8
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

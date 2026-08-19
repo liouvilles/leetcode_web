@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "problemCount": 2146,
-  "solutionCount": 2173,
-  "implementationCount": 6519,
+  "problemCount": 2171,
+  "solutionCount": 2198,
+  "implementationCount": 6594,
   "problems": [
     {
       "id": 1,
@@ -32195,6 +32195,392 @@
       ],
       "status": "published",
       "batch": "batch-052",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3036,
+      "slug": "number-of-subarrays-that-match-a-pattern-ii",
+      "title": "匹配模式数组的子数组数目 II",
+      "studyTags": [
+        "数组",
+        "字符串匹配",
+        "KMP"
+      ],
+      "status": "published",
+      "batch": "batch-053",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3038,
+      "slug": "maximum-number-of-operations-with-the-same-score-i",
+      "title": "相同分数的最大操作数目 I",
+      "studyTags": [
+        "数组",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-053",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3039,
+      "slug": "apply-operations-to-make-string-empty",
+      "title": "进行操作使字符串为空",
+      "studyTags": [
+        "字符串",
+        "哈希表",
+        "计数"
+      ],
+      "status": "published",
+      "batch": "batch-053",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3040,
+      "slug": "maximum-number-of-operations-with-the-same-score-ii",
+      "title": "相同分数的最大操作数目 II",
+      "studyTags": [
+        "数组",
+        "动态规划",
+        "区间动态规划"
+      ],
+      "status": "published",
+      "batch": "batch-053",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3041,
+      "slug": "maximize-consecutive-elements-in-an-array-after-modification",
+      "title": "修改数组后最大化数组中的连续元素数目",
+      "studyTags": [
+        "数组",
+        "动态规划",
+        "排序"
+      ],
+      "status": "published",
+      "batch": "batch-053",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3042,
+      "slug": "count-prefix-and-suffix-pairs-i",
+      "title": "统计前后缀下标对 I",
+      "studyTags": [
+        "数组",
+        "字符串",
+        "字符串匹配"
+      ],
+      "status": "published",
+      "batch": "batch-053",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3043,
+      "slug": "find-the-length-of-the-longest-common-prefix",
+      "title": "最长公共前缀的长度",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "字符串"
+      ],
+      "status": "published",
+      "batch": "batch-053",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3044,
+      "slug": "most-frequent-prime",
+      "title": "出现频率最高的质数",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "数学",
+        "计数",
+        "枚举",
+        "矩阵",
+        "数论"
+      ],
+      "status": "published",
+      "batch": "batch-053",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3045,
+      "slug": "count-prefix-and-suffix-pairs-ii",
+      "title": "统计前后缀下标对 II",
+      "studyTags": [
+        "字典树",
+        "数组",
+        "字符串",
+        "字符串匹配",
+        "哈希表"
+      ],
+      "status": "published",
+      "batch": "batch-053",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3046,
+      "slug": "split-the-array",
+      "title": "分割数组",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "计数"
+      ],
+      "status": "published",
+      "batch": "batch-053",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3047,
+      "slug": "find-the-largest-area-of-square-inside-two-rectangles",
+      "title": "求交集区域内的最大正方形面积",
+      "studyTags": [
+        "几何",
+        "数组",
+        "数学",
+        "枚举"
+      ],
+      "status": "published",
+      "batch": "batch-053",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3048,
+      "slug": "earliest-second-to-mark-indices-i",
+      "title": "标记所有下标的最早秒数 I",
+      "studyTags": [
+        "数组",
+        "二分查找",
+        "贪心"
+      ],
+      "status": "published",
+      "batch": "batch-053",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3049,
+      "slug": "earliest-second-to-mark-indices-ii",
+      "title": "标记所有下标的最早秒数 II",
+      "studyTags": [
+        "贪心",
+        "数组",
+        "二分查找",
+        "堆（优先队列）"
+      ],
+      "status": "published",
+      "batch": "batch-053",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3065,
+      "slug": "minimum-operations-to-exceed-threshold-value-i",
+      "title": "超过阈值的最少操作数 I",
+      "studyTags": [
+        "数组",
+        "计数"
+      ],
+      "status": "published",
+      "batch": "batch-053",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3066,
+      "slug": "minimum-operations-to-exceed-threshold-value-ii",
+      "title": "超过阈值的最少操作数 II",
+      "studyTags": [
+        "数组",
+        "模拟",
+        "堆（优先队列）"
+      ],
+      "status": "published",
+      "batch": "batch-053",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3067,
+      "slug": "count-pairs-of-connectable-servers-in-a-weighted-tree-network",
+      "title": "在带权树网络中统计可连接服务器对数目",
+      "studyTags": [
+        "树",
+        "深度优先搜索",
+        "枚举",
+        "距离"
+      ],
+      "status": "published",
+      "batch": "batch-053",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3068,
+      "slug": "find-the-maximum-sum-of-node-values",
+      "title": "最大节点价值之和",
+      "studyTags": [
+        "数组",
+        "树",
+        "动态规划",
+        "贪心",
+        "位运算"
+      ],
+      "status": "published",
+      "batch": "batch-053",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3069,
+      "slug": "distribute-elements-into-two-arrays-i",
+      "title": "将元素分配到两个数组中 I",
+      "studyTags": [
+        "数组",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-053",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3070,
+      "slug": "count-submatrices-with-top-left-element-and-sum-less-than-k",
+      "title": "元素和小于等于 k 的子矩阵的数目",
+      "studyTags": [
+        "数组",
+        "矩阵",
+        "前缀和"
+      ],
+      "status": "published",
+      "batch": "batch-053",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3071,
+      "slug": "minimum-operations-to-write-the-letter-y-on-a-grid",
+      "title": "在矩阵上写出字母 Y 所需的最少操作次数",
+      "studyTags": [
+        "数组",
+        "矩阵",
+        "计数",
+        "枚举"
+      ],
+      "status": "published",
+      "batch": "batch-053",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3072,
+      "slug": "distribute-elements-into-two-arrays-ii",
+      "title": "将元素分配到两个数组中 II",
+      "studyTags": [
+        "数组",
+        "树状数组",
+        "离散化",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-053",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3074,
+      "slug": "apple-redistribution-into-boxes",
+      "title": "重新分装苹果",
+      "studyTags": [
+        "数组",
+        "贪心",
+        "排序"
+      ],
+      "status": "published",
+      "batch": "batch-053",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3075,
+      "slug": "maximize-happiness-of-selected-children",
+      "title": "幸福值最大化的选择方案",
+      "studyTags": [
+        "数组",
+        "贪心",
+        "排序"
+      ],
+      "status": "published",
+      "batch": "batch-053",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3076,
+      "slug": "shortest-uncommon-substring-in-an-array",
+      "title": "数组中的最短非公共子字符串",
+      "studyTags": [
+        "数组",
+        "字符串",
+        "字典树",
+        "枚举"
+      ],
+      "status": "published",
+      "batch": "batch-053",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3077,
+      "slug": "maximum-strength-of-k-disjoint-subarrays",
+      "title": "K 个不相交子数组的最大能量值",
+      "studyTags": [
+        "数组",
+        "动态规划",
+        "前缀和"
+      ],
+      "status": "published",
+      "batch": "batch-053",
       "solutionCount": 1,
       "testCount": 6,
       "qualityGate": "tested"

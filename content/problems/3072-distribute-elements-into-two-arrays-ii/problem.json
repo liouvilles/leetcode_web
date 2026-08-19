@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": 3072,
+  "slug": "distribute-elements-into-two-arrays-ii",
+  "title": "将元素分配到两个数组中 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-053",
+  "studyTags": [
+    "数组",
+    "树状数组",
+    "离散化",
+    "模拟"
+  ],
+  "summary": "以 nums 前两个元素初始化两个数组；之后优先把当前值放入含有更多严格大于它的元素的数组，次数相同则放入更短的数组，仍相同则放入第一个数组，最后连接两数组。",
+  "insight": "分配决策需要动态查询每个数组中严格大于当前值的元素数。先对 nums 离散化，再为两个数组各维护一棵树状数组；已加入数减去不大于当前值的前缀频次即可得到 greaterCount。",
+  "pitfalls": [
+    "greaterCount 只统计严格大于当前值的元素",
+    "greaterCount 相同时先比较数组长度",
+    "长度也相同时选择 arr1",
+    "最终返回 arr1 后接 arr2",
+    "nums 可重复且值可达十亿，需要离散化"
+  ],
+  "solutions": [
+    {
+      "id": "coordinate-compression-and-two-fenwick-trees",
+      "title": "离散化与两棵树状数组",
+      "kind": "最优",
+      "idea": "用树状数组在线维护两个结果数组的值频率与严格较大元素数。",
+      "steps": [
+        "复制并排序 nums 作为离散化坐标",
+        "分别建立 first、second 与对应树状数组",
+        "把前两个元素加入各自数组和树状数组",
+        "查询两个数组中严格大于当前值的数量",
+        "按 greaterCount、长度、arr1 优先级决定目标数组",
+        "同步追加元素并更新对应树状数组",
+        "连接并返回两个数组"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/coordinate-compression-and-two-fenwick-trees/Solution.java",
+        "kotlin": "solutions/coordinate-compression-and-two-fenwick-trees/Solution.kt",
+        "cpp": "solutions/coordinate-compression-and-two-fenwick-trees/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { fun longestCommonPrefix(arr1:IntArray,arr2:IntArray):Int{val prefixes=HashSet<Int>();for(number in arr1){var value=number;while(value>0){prefixes.add(value);value/=10}};var answer=0;for(number in arr2){var value=number;var length=number.toString().length;while(value>0&&length>answer){if(value in prefixes){answer=length;break};value/=10;length--}};return answer} }

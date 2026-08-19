@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countPrefixSuffixPairs",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "官方示例包含四个合法下标对",
+      "args": [
+        [
+          "a",
+          "aba",
+          "ababa",
+          "aa"
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "两组互不相关的前后缀对",
+      "args": [
+        [
+          "pa",
+          "papa",
+          "ma",
+          "mama"
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "较长单词不能成为较短单词的边界",
+      "args": [
+        [
+          "abab",
+          "ab"
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "三个相同单字母产生三个历史下标对",
+      "args": [
+        [
+          "a",
+          "a",
+          "a"
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "重复字母链中任意较短词都是前后缀",
+      "args": [
+        [
+          "a",
+          "aa",
+          "aaa",
+          "aaaa"
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "相同 ab 与 aba 到 ababa 分别形成一对",
+      "args": [
+        [
+          "ab",
+          "aba",
+          "ababa",
+          "ab"
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

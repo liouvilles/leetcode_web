@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumBoxes",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "六个苹果选择两个最大箱子即可",
+      "args": [
+        [
+          1,
+          3,
+          2
+        ],
+        [
+          4,
+          3,
+          1,
+          5,
+          2
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "十五个苹果需要使用全部四个箱子",
+      "args": [
+        [
+          5,
+          5,
+          5
+        ],
+        [
+          2,
+          4,
+          2,
+          7
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "单个大箱子覆盖两包装苹果",
+      "args": [
+        [
+          3,
+          2
+        ],
+        [
+          10,
+          1
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "两个单位箱子缺一不可",
+      "args": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "未排序容量中一个容量二的箱子足够",
+      "args": [
+        [
+          2
+        ],
+        [
+          1,
+          2,
+          1
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}
