@@ -1,0 +1,1 @@
+class Solution { public long repairCars(int[] ranks,int cars){long left=0,right=(long)Arrays.stream(ranks).min().getAsInt()*cars*cars;while(left<right){long middle=left+(right-left)/2,total=0;for(int rank:ranks){total+=(long)Math.sqrt(middle/rank);if(total>=cars)break;}if(total>=cars)right=middle;else left=middle+1;}return left;} }

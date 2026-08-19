@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findMinimumTime",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三个任务可共享两个运行时刻",
+      "args": [
+        [
+          [
+            2,
+            3,
+            1
+          ],
+          [
+            4,
+            5,
+            1
+          ],
+          [
+            1,
+            5,
+            2
+          ]
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "部分重叠任务最少运行四次",
+      "args": [
+        [
+          [
+            1,
+            3,
+            2
+          ],
+          [
+            2,
+            5,
+            3
+          ],
+          [
+            5,
+            6,
+            2
+          ]
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "同一区间较长任务覆盖较短任务",
+      "args": [
+        [
+          [
+            1,
+            2,
+            1
+          ],
+          [
+            1,
+            2,
+            2
+          ]
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

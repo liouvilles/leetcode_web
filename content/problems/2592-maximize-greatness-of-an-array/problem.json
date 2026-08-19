@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2592,
+  "slug": "maximize-greatness-of-an-array",
+  "title": "最大化数组的伟大值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-041",
+  "studyTags": [
+    "数组",
+    "双指针",
+    "贪心",
+    "排序"
+  ],
+  "summary": "重排 nums 得到 perm，伟大值为满足 perm[i]>nums[i] 的下标数，求最大伟大值。",
+  "insight": "排序后把原数组中最小的尚未匹配元素，与严格大于它的最小可用元素配对。若当前大元素不够大就向右寻找；每次成功使用最小合格值，为后续保留更大的值。",
+  "pitfalls": [
+    "比较必须严格大于",
+    "重复值不能互相贡献",
+    "同一个元素只能配对一次"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-greedy-matching",
+      "title": "排序双指针贪心匹配",
+      "kind": "最优",
+      "idea": "最大化小元素与较大元素的一一匹配数。",
+      "steps": [
+        "排序 nums",
+        "small=large=answer=0",
+        "large 扫描所有元素",
+        "若 nums[large]>nums[small]，配对成功并增加 small、answer",
+        "无论是否成功都继续移动 large",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n) sorting"
+      },
+      "files": {
+        "java": "solutions/sorted-greedy-matching/Solution.java",
+        "kotlin": "solutions/sorted-greedy-matching/Solution.kt",
+        "cpp": "solutions/sorted-greedy-matching/solution.cpp"
+      }
+    }
+  ]
+}

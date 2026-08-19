@@ -1,0 +1,1 @@
+class Solution { fun splitNum(num:Int):Int{val digits=num.toString().map{it-'0'}.sorted();var first=0;var second=0;for(i in digits.indices)if(i%2==0)first=first*10+digits[i] else second=second*10+digits[i];return first+second} }

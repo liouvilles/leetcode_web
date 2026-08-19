@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "evenOddBit",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "十七的一都在偶数位",
+      "args": [
+        17
+      ],
+      "expected": [
+        2,
+        0
+      ]
+    },
+    {
+      "name": "二的一位在奇数位",
+      "args": [
+        2
+      ],
+      "expected": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "十的两个一都在奇数位",
+      "args": [
+        10
+      ],
+      "expected": [
+        0,
+        2
+      ]
+    }
+  ]
+}

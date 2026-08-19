@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2583,
+  "slug": "kth-largest-sum-in-a-binary-tree",
+  "title": "二叉树中的第 K 大层和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-041",
+  "studyTags": [
+    "树",
+    "广度优先搜索",
+    "堆（优先队列）",
+    "二叉树"
+  ],
+  "summary": "计算二叉树每一层的节点值之和，返回第 k 大层和；层数不足 k 时返回负一。",
+  "insight": "层序遍历能逐层得到 long 类型层和。只需保留最大的 k 个层和：放入小根堆，超过 k 个就弹出最小值；遍历结束时堆顶即第 k 大。",
+  "pitfalls": [
+    "层和可能超过 int",
+    "同值层和按不同层分别计数",
+    "层数小于 k 返回 -1"
+  ],
+  "solutions": [
+    {
+      "id": "level-order-top-k-min-heap",
+      "title": "层序遍历与前 K 大小根堆",
+      "kind": "最优",
+      "idea": "逐层求和并维护固定大小的堆。",
+      "steps": [
+        "队列加入根节点",
+        "每轮固定当前队列长度并累加该层节点值，同时加入子节点",
+        "层和加入小根堆，堆大小超过 k 就弹出",
+        "结束后若堆不足 k 返回 -1，否则返回堆顶"
+      ],
+      "complexity": {
+        "time": "O(n log k)",
+        "space": "O(width + k)"
+      },
+      "files": {
+        "java": "solutions/level-order-top-k-min-heap/Solution.java",
+        "kotlin": "solutions/level-order-top-k-min-heap/Solution.kt",
+        "cpp": "solutions/level-order-top-k-min-heap/solution.cpp"
+      }
+    }
+  ]
+}

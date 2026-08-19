@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2595,
+  "slug": "number-of-even-and-odd-bits",
+  "title": "奇偶位数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-041",
+  "studyTags": [
+    "位运算"
+  ],
+  "summary": "统计正整数二进制表示中，偶数下标位和奇数下标位上的一各有多少个，下标从最低位零开始。",
+  "insight": "从最低位逐位右移，位置奇偶与当前下标奇偶一致；若最低位为一，就增加对应类别的计数。",
+  "pitfalls": [
+    "最低有效位下标为零，属于偶数位",
+    "只统计值为一的位",
+    "返回顺序是偶数位计数、奇数位计数"
+  ],
+  "solutions": [
+    {
+      "id": "scan-bits-by-position-parity",
+      "title": "逐位扫描并按位置奇偶计数",
+      "kind": "最优",
+      "idea": "右移 n 同时递增位下标。",
+      "steps": [
+        "answer=[0,0]，position=0",
+        "while n>0",
+        "若 n&1 为一，answer[position&1]++",
+        "n 右移一位、position++",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(log n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/scan-bits-by-position-parity/Solution.java",
+        "kotlin": "solutions/scan-bits-by-position-parity/Solution.kt",
+        "cpp": "solutions/scan-bits-by-position-parity/solution.cpp"
+      }
+    }
+  ]
+}

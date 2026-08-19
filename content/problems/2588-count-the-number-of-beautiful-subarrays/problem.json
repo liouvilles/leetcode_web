@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2588,
+  "slug": "count-the-number-of-beautiful-subarrays",
+  "title": "统计美丽子数组数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-041",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "位运算",
+    "前缀异或"
+  ],
+  "summary": "统计能够通过成对消除相同二进制位操作把所有元素变成零的连续子数组数量。",
+  "insight": "每次操作同时消除两个相同位，因此每一位的一数量都必须为偶数，这恰好等价于子数组异或和为零。两个相等的前缀异或之间区间异或为零，用频次表在线计数即可。",
+  "pitfalls": [
+    "空前缀异或零要预先计数一次",
+    "答案可能超过 int",
+    "相同前缀每次贡献此前出现次数"
+  ],
+  "solutions": [
+    {
+      "id": "prefix-xor-frequency",
+      "title": "前缀异或频次计数",
+      "kind": "最优",
+      "idea": "统计相同前缀异或值的有序位置对。",
+      "steps": [
+        "frequency[0]=1，prefix=0，answer=0",
+        "依次执行 prefix^=nums[i]",
+        "answer+=frequency[prefix]",
+        "frequency[prefix]++",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/prefix-xor-frequency/Solution.java",
+        "kotlin": "solutions/prefix-xor-frequency/Solution.kt",
+        "cpp": "solutions/prefix-xor-frequency/solution.cpp"
+      }
+    }
+  ]
+}

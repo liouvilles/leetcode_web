@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "beautifulSubsets",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "二四六有四个美丽子集",
+      "args": [
+        [
+          2,
+          4,
+          6
+        ],
+        2
+      ],
+      "expected": 4
+    },
+    {
+      "name": "单元素只有一个非空子集",
+      "args": [
+        [
+          1
+        ],
+        1
+      ],
+      "expected": 1
+    },
+    {
+      "name": "两个一按下标区分且不能与二共存",
+      "args": [
+        [
+          1,
+          1,
+          2
+        ],
+        1
+      ],
+      "expected": 4
+    }
+  ]
+}

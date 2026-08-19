@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "vowelStrings",
+  "parameterTypes": [
+    "stringArray",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "are 与 u 都符合",
+      "args": [
+        [
+          "are",
+          "amy",
+          "u"
+        ],
+        0,
+        2
+      ],
+      "expected": 2
+    },
+    {
+      "name": "中间范围有三个元音字符串",
+      "args": [
+        [
+          "hey",
+          "aeo",
+          "mu",
+          "ooo",
+          "artro"
+        ],
+        1,
+        4
+      ],
+      "expected": 3
+    },
+    {
+      "name": "单个辅音字符串不计数",
+      "args": [
+        [
+          "b"
+        ],
+        0,
+        0
+      ],
+      "expected": 0
+    }
+  ]
+}

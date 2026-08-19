@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": 2584,
+  "slug": "split-the-array-to-make-coprime-products",
+  "title": "分割数组使乘积互质",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-041",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "数学",
+    "数论",
+    "质因数分解"
+  ],
+  "summary": "在某个下标后把数组分成两个非空部分，要求左右所有元素乘积互质，返回最小合法下标或负一。",
+  "insight": "左右乘积互质等价于没有质因数同时出现在分割线两侧。先记录每个质因数最后出现的位置；扫描左侧时维护所有已出现质因数的最远末次位置 boundary，只有 i 达到 boundary 时，左侧涉及的质因数才全部封闭。",
+  "pitfalls": [
+    "只需记录每个数的不同质因数",
+    "分割点最大为 n-2",
+    "数字一没有质因数，不扩大边界",
+    "链式跨越会持续推远 boundary"
+  ],
+  "solutions": [
+    {
+      "id": "prime-last-occurrence-boundary",
+      "title": "质因数末次位置边界",
+      "kind": "最优",
+      "idea": "用质因数区间的最远右端判断合法切分。",
+      "steps": [
+        "分解每个 nums[i]，记录每个质因数的最后下标",
+        "boundary=0",
+        "i 从零扫描到 n-2，把 nums[i] 的各质因数 last 合并进 boundary",
+        "若 i==boundary，返回 i",
+        "没有找到则返回 -1"
+      ],
+      "complexity": {
+        "time": "O(n sqrt(max(nums)))",
+        "space": "O(total distinct prime factors)"
+      },
+      "files": {
+        "java": "solutions/prime-last-occurrence-boundary/Solution.java",
+        "kotlin": "solutions/prime-last-occurrence-boundary/Solution.kt",
+        "cpp": "solutions/prime-last-occurrence-boundary/solution.cpp"
+      }
+    }
+  ]
+}

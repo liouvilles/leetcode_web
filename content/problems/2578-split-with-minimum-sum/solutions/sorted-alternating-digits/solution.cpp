@@ -1,0 +1,1 @@
+class Solution { public:int splitNum(int num){string digits=to_string(num);sort(digits.begin(),digits.end());int first=0,second=0;for(int i=0;i<(int)digits.size();++i)if(i%2==0)first=first*10+digits[i]-'0';else second=second*10+digits[i]-'0';return first+second;} };

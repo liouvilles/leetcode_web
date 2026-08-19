@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2598,
+  "slug": "smallest-missing-non-negative-integer-after-operations",
+  "title": "执行操作后的最大 MEX",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-041",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "数学",
+    "贪心"
+  ],
+  "summary": "可对每个数组元素任意次加上或减去 value，求经过操作后数组能达到的最大 MEX。",
+  "insight": "一个数经过操作后只能变成与它模 value 同余的整数。要依次构造 0、1、2……，目标 x 只需消耗一个余数为 x mod value 的元素；按目标递增贪心消耗，首个没有可用余数的位置就是最大 MEX。",
+  "pitfalls": [
+    "负数取模要归一化到 [0,value)",
+    "每个数组元素只能用于一个目标值",
+    "答案最多为数组长度"
+  ],
+  "solutions": [
+    {
+      "id": "residue-frequency-greedy",
+      "title": "余数频次贪心构造连续整数",
+      "kind": "最优",
+      "idea": "按 MEX 顺序消耗对应同余类。",
+      "steps": [
+        "统计每个 nums[i] 的规范化余数频次",
+        "candidate 从零递增",
+        "residue=candidate%value",
+        "若该余数频次为零，返回 candidate",
+        "否则频次减一并继续"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(value)"
+      },
+      "files": {
+        "java": "solutions/residue-frequency-greedy/Solution.java",
+        "kotlin": "solutions/residue-frequency-greedy/Solution.kt",
+        "cpp": "solutions/residue-frequency-greedy/solution.cpp"
+      }
+    }
+  ]
+}

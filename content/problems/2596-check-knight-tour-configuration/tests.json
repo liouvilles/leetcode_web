@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "checkValidGrid",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "五乘五合法骑士巡视",
+      "args": [
+        [
+          [
+            0,
+            11,
+            16,
+            5,
+            20
+          ],
+          [
+            17,
+            4,
+            19,
+            10,
+            15
+          ],
+          [
+            12,
+            1,
+            8,
+            21,
+            6
+          ],
+          [
+            3,
+            18,
+            23,
+            14,
+            9
+          ],
+          [
+            24,
+            13,
+            2,
+            7,
+            22
+          ]
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "三乘三序列含非法移动",
+      "args": [
+        [
+          [
+            0,
+            3,
+            6
+          ],
+          [
+            5,
+            8,
+            1
+          ],
+          [
+            2,
+            7,
+            4
+          ]
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "单格棋盘自然合法",
+      "args": [
+        [
+          [
+            0
+          ]
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

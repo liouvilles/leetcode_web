@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "primeSubOperation",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "四九六十可分别减质数变递增",
+      "args": [
+        [
+          4,
+          9,
+          6,
+          10
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "本身递增也可选择合适减法",
+      "args": [
+        [
+          6,
+          8,
+          11,
+          12
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "末尾三无法大于此前结果",
+      "args": [
+        [
+          5,
+          8,
+          3
+        ]
+      ],
+      "expected": false
+    }
+  ]
+}

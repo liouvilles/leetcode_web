@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2600,
+  "slug": "k-items-with-the-maximum-sum",
+  "title": "K 件物品的最大和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-041",
+  "studyTags": [
+    "数学",
+    "贪心"
+  ],
+  "summary": "若干物品的值分别为一、零、负一，恰好选择 k 件，求最大可能总和。",
+  "insight": "显然应按值从大到小选择：先取一，再取零，剩余名额只能取负一。直接分段扣减 k 即可。",
+  "pitfalls": [
+    "必须恰好选择 k 件",
+    "零只占名额不改变和",
+    "题目保证物品总数至少为 k"
+  ],
+  "solutions": [
+    {
+      "id": "take-values-descending",
+      "title": "按物品值降序选择",
+      "kind": "最优",
+      "idea": "依次消耗一、零、负一三类库存。",
+      "steps": [
+        "ones=min(k,numOnes)，answer=ones，k-=ones",
+        "zeros=min(k,numZeros)，k-=zeros",
+        "剩余 k 个都是负一，answer-=k",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/take-values-descending/Solution.java",
+        "kotlin": "solutions/take-values-descending/Solution.kt",
+        "cpp": "solutions/take-values-descending/solution.cpp"
+      }
+    }
+  ]
+}

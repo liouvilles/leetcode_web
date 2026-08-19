@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minOperations",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "longList",
+  "cases": [
+    {
+      "name": "两个查询的距离和分别为十四与十",
+      "args": [
+        [
+          3,
+          1,
+          6,
+          8
+        ],
+        [
+          1,
+          5
+        ]
+      ],
+      "expected": [
+        14,
+        10
+      ]
+    },
+    {
+      "name": "目标十大于所有元素时距离和二十",
+      "args": [
+        [
+          2,
+          9,
+          6,
+          3
+        ],
+        [
+          10
+        ]
+      ],
+      "expected": [
+        20
+      ]
+    },
+    {
+      "name": "单元素两个查询",
+      "args": [
+        [
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": [
+        0,
+        1
+      ]
+    }
+  ]
+}

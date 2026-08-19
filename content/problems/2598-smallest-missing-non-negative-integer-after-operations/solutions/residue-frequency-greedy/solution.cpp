@@ -1,0 +1,1 @@
+class Solution { public:int findSmallestInteger(vector<int>& nums,int value){vector<int> count(value);for(int number:nums)++count[(number%value+value)%value];for(int candidate=0;;++candidate){int residue=candidate%value;if(!count[residue])return candidate;--count[residue];}} };

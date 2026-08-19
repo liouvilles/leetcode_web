@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "waysToReachTarget",
+  "parameterTypes": [
+    "int",
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "六分由三类题组成共有七种",
+      "args": [
+        6,
+        [
+          [
+            6,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ]
+      ],
+      "expected": 7
+    },
+    {
+      "name": "五分有四种题型数量组合",
+      "args": [
+        5,
+        [
+          [
+            50,
+            1
+          ],
+          [
+            50,
+            2
+          ],
+          [
+            50,
+            5
+          ]
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "达到最大十八分只有一种选法",
+      "args": [
+        18,
+        [
+          [
+            6,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

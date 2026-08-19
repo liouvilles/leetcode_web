@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxScore",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "降序后前六个前缀为正",
+      "args": [
+        [
+          2,
+          -1,
+          0,
+          1,
+          -3,
+          3,
+          -3
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "最大元素为零也没有正前缀",
+      "args": [
+        [
+          -2,
+          -3,
+          0
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "两个正数均计分",
+      "args": [
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

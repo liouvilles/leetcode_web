@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": 2601,
+  "slug": "prime-subtraction-operation",
+  "title": "质数减法运算",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-041",
+  "studyTags": [
+    "数组",
+    "数学",
+    "二分查找",
+    "贪心",
+    "数论"
+  ],
+  "summary": "每个下标至多一次减去一个严格小于当前值的质数，判断能否让数组严格递增。",
+  "insight": "从左到右固定前一个结果 previous。当前值应尽可能小以给后续留空间，因此减去严格小于 nums[i]-previous 的最大质数；这样结果仍大于 previous，且任何其他可行选择都不会更优。",
+  "pitfalls": [
+    "也可以不执行减法",
+    "所减质数必须严格小于原值",
+    "结果序列要求严格递增",
+    "质数必须小于 nums[i]-previous 而不能等于"
+  ],
+  "solutions": [
+    {
+      "id": "sieve-and-largest-valid-prime-greedy",
+      "title": "筛质数并贪心减最大可行质数",
+      "kind": "最优",
+      "idea": "让每个当前位置取可行的最小结果。",
+      "steps": [
+        "筛出不超过 max(nums) 的所有质数",
+        "previous=0",
+        "对每个 value，若 value<=previous 返回 false",
+        "limit=value-previous，二分找严格小于 limit 的最大质数",
+        "若存在则 current=value-prime，否则 current=value",
+        "previous=current，全部处理后返回 true"
+      ],
+      "complexity": {
+        "time": "O(M log log M + n log π(M))",
+        "space": "O(M)"
+      },
+      "files": {
+        "java": "solutions/sieve-and-largest-valid-prime-greedy/Solution.java",
+        "kotlin": "solutions/sieve-and-largest-valid-prime-greedy/Solution.kt",
+        "cpp": "solutions/sieve-and-largest-valid-prime-greedy/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximizeGreatness",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "含重复值数组最多四个位置变大",
+      "args": [
+        [
+          1,
+          3,
+          5,
+          2,
+          1,
+          3,
+          1
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "严格递增四元素可匹配三个",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "全相等无法贡献",
+      "args": [
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

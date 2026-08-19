@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "repairCars",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "四位机械工十辆车最少十六分钟",
+      "args": [
+        [
+          4,
+          2,
+          3,
+          1
+        ],
+        10
+      ],
+      "expected": 16
+    },
+    {
+      "name": "三位机械工六辆车最少十六分钟",
+      "args": [
+        [
+          5,
+          1,
+          8
+        ],
+        6
+      ],
+      "expected": 16
+    },
+    {
+      "name": "单个三级机械工修两辆需十二分钟",
+      "args": [
+        [
+          3
+        ],
+        2
+      ],
+      "expected": 12
+    }
+  ]
+}

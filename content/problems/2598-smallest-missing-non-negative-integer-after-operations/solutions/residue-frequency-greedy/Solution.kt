@@ -1,0 +1,1 @@
+class Solution { fun findSmallestInteger(nums:IntArray,value:Int):Int{val count=IntArray(value);for(number in nums)count[(number%value+value)%value]++;var candidate=0;while(true){val residue=candidate%value;if(count[residue]==0)return candidate;count[residue]--;candidate++}} }

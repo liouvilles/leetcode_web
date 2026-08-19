@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": 2581,
+  "slug": "count-number-of-possible-root-nodes",
+  "title": "统计可能的树根数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-041",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "树",
+    "深度优先搜索",
+    "换根动态规划"
+  ],
+  "summary": "无根树上给出若干对父子关系猜测，统计作为根时至少有 k 个猜测正确的节点数。",
+  "insight": "先以零为根确定所有边方向并统计正确猜测。把根从父节点 u 移到相邻子节点 v 时，只有边 u-v 的方向改变：猜测 u→v 若存在就少一个，v→u 若存在就多一个。沿树传播即可在线性时间得到每个根的分数。",
+  "pitfalls": [
+    "同一猜测不会重复但两个相反方向都可能出现",
+    "换根只影响跨过的那一条边",
+    "用 long 编码有向节点对避免碰撞",
+    "迭代遍历可避免深树递归栈溢出"
+  ],
+  "solutions": [
+    {
+      "id": "iterative-reroot-counting",
+      "title": "迭代换根计数",
+      "kind": "最优",
+      "idea": "先求根零分数，再用单边增减公式传播。",
+      "steps": [
+        "构建无向邻接表并把 guesses 编码进哈希集合",
+        "从节点零迭代遍历，记录 parent 与父先于子的 order",
+        "按 parent→child 是否在集合中求根零的正确数",
+        "按 order 换根：score[child]=score[parent]-has(parent,child)+has(child,parent)",
+        "统计 score>=k 的节点"
+      ],
+      "complexity": {
+        "time": "O(n + guesses.length)",
+        "space": "O(n + guesses.length)"
+      },
+      "files": {
+        "java": "solutions/iterative-reroot-counting/Solution.java",
+        "kotlin": "solutions/iterative-reroot-counting/Solution.kt",
+        "cpp": "solutions/iterative-reroot-counting/solution.cpp"
+      }
+    }
+  ]
+}

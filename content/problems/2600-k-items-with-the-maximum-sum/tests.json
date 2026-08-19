@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "kItemsWithMaximumSum",
+  "parameterTypes": [
+    "int",
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "只需选择两个一",
+      "args": [
+        3,
+        2,
+        0,
+        2
+      ],
+      "expected": 2
+    },
+    {
+      "name": "三个一和一个零总和为三",
+      "args": [
+        3,
+        2,
+        0,
+        4
+      ],
+      "expected": 3
+    },
+    {
+      "name": "用完一和零后必须选择负一",
+      "args": [
+        3,
+        1,
+        2,
+        5
+      ],
+      "expected": 2
+    }
+  ]
+}

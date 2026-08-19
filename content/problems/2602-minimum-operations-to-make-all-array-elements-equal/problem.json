@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2602,
+  "slug": "minimum-operations-to-make-all-array-elements-equal",
+  "title": "使数组元素全部相等的最少操作次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-041",
+  "studyTags": [
+    "数组",
+    "二分查找",
+    "排序",
+    "前缀和"
+  ],
+  "summary": "每次查询给定目标值 q，每次操作可把任一数组元素加一或减一，返回把所有元素变为 q 的最少操作数。",
+  "insight": "排序并建立前缀和。二分找到第一个不小于 q 的位置 i：左侧提升到 q 的代价是 q*i-prefix[i]，右侧降低到 q 的代价是 prefix[n]-prefix[i]-q*(n-i)。",
+  "pitfalls": [
+    "每个查询相互独立",
+    "总操作数使用 long",
+    "二分分界应是第一个 >=q 的位置"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-prefix-sums-per-query",
+      "title": "排序、前缀和与逐查询二分",
+      "kind": "最优",
+      "idea": "把绝对值距离按目标左右两侧分别求和。",
+      "steps": [
+        "排序 nums",
+        "prefix[i+1]=prefix[i]+nums[i]",
+        "对 query 二分 lower_bound 得 index",
+        "leftCost=query*index-prefix[index]",
+        "rightCost=prefix[n]-prefix[index]-query*(n-index)",
+        "把两部分之和加入答案"
+      ],
+      "complexity": {
+        "time": "O(n log n + q log n)",
+        "space": "O(n + q)"
+      },
+      "files": {
+        "java": "solutions/sorted-prefix-sums-per-query/Solution.java",
+        "kotlin": "solutions/sorted-prefix-sums-per-query/Solution.kt",
+        "cpp": "solutions/sorted-prefix-sums-per-query/solution.cpp"
+      }
+    }
+  ]
+}

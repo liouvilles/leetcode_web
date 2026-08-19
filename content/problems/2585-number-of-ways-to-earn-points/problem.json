@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2585,
+  "slug": "number-of-ways-to-earn-points",
+  "title": "获得分数的方法数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-041",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "多重背包"
+  ],
+  "summary": "每种题目有给定数量和分值，选择若干道使总分恰为 target，统计选择数量组合的方案数。",
+  "insight": "这是按题型分组的多重背包。dp[score] 表示处理完此前题型得到该分数的方案数；对当前类型枚举选择零到 count 道，写入新数组，确保同一题型不会被重复跨轮使用。",
+  "pitfalls": [
+    "同一题型内只区分选择数量，不区分具体题目",
+    "每轮必须从旧 dp 转移到新 dp",
+    "结果对 10^9+7 取模"
+  ],
+  "solutions": [
+    {
+      "id": "grouped-bounded-knapsack",
+      "title": "分组多重背包",
+      "kind": "最优",
+      "idea": "逐题型枚举该类型选择数量。",
+      "steps": [
+        "dp[0]=1",
+        "对每个 [count,marks] 创建 next",
+        "枚举旧 score 与 take=0..count，若新分数不超过 target 就累加",
+        "dp=next",
+        "返回 dp[target]"
+      ],
+      "complexity": {
+        "time": "O(types * target * maxCount)",
+        "space": "O(target)"
+      },
+      "files": {
+        "java": "solutions/grouped-bounded-knapsack/Solution.java",
+        "kotlin": "solutions/grouped-bounded-knapsack/Solution.kt",
+        "cpp": "solutions/grouped-bounded-knapsack/solution.cpp"
+      }
+    }
+  ]
+}

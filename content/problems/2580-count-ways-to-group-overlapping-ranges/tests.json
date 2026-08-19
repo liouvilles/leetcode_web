@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countWays",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两个相交区间只有两种整体选择",
+      "args": [
+        [
+          [
+            6,
+            10
+          ],
+          [
+            5,
+            15
+          ]
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "链式相交与独立区间形成两个分量",
+      "args": [
+        [
+          [
+            1,
+            3
+          ],
+          [
+            10,
+            20
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            4,
+            8
+          ]
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "三个独立单点区间",
+      "args": [
+        [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            3
+          ]
+        ]
+      ],
+      "expected": 8
+    }
+  ]
+}

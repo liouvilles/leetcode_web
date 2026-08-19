@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findScore",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "经典数组最终分数为七",
+      "args": [
+        [
+          2,
+          1,
+          3,
+          4,
+          5,
+          2
+        ]
+      ],
+      "expected": 7
+    },
+    {
+      "name": "多次标记后分数为五",
+      "args": [
+        [
+          2,
+          3,
+          5,
+          1,
+          3,
+          2
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "单元素直接计分",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

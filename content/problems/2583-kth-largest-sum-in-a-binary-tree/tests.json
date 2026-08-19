@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "kthLargestLevelSum",
+  "parameterTypes": [
+    "treeNode",
+    "int"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "四层树第二大层和为十三",
+      "args": [
+        [
+          5,
+          8,
+          9,
+          2,
+          1,
+          3,
+          7,
+          4,
+          6
+        ],
+        2
+      ],
+      "expected": 13
+    },
+    {
+      "name": "偏斜树最大层和为三",
+      "args": [
+        [
+          1,
+          2,
+          null,
+          3
+        ],
+        1
+      ],
+      "expected": 3
+    },
+    {
+      "name": "层数不足二返回负一",
+      "args": [
+        [
+          1
+        ],
+        2
+      ],
+      "expected": -1
+    }
+  ]
+}

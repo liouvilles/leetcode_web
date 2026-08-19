@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2578,
+  "slug": "split-with-minimum-sum",
+  "title": "最小和分割",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-041",
+  "studyTags": [
+    "数学",
+    "贪心",
+    "排序"
+  ],
+  "summary": "重新排列一个正整数的全部十进制数字并分成两个新整数，求两数之和的最小值。",
+  "insight": "高位权重最大，应把较小数字优先放到高位；同时让两个数的位数尽量平衡。将数字升序排列后交替追加到两个数，正好同时满足这两个条件。",
+  "pitfalls": [
+    "所有数字都必须使用一次",
+    "前导零不影响数值",
+    "交替分配可让位数差至多一"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-alternating-digits",
+      "title": "排序后交替分配数字",
+      "kind": "最优",
+      "idea": "把升序数字轮流追加到两个结果数。",
+      "steps": [
+        "提取 num 的每一位",
+        "升序排序所有数字",
+        "偶数位置追加到 first，奇数位置追加到 second",
+        "返回 first+second"
+      ],
+      "complexity": {
+        "time": "O(d log d)",
+        "space": "O(d)"
+      },
+      "files": {
+        "java": "solutions/sorted-alternating-digits/Solution.java",
+        "kotlin": "solutions/sorted-alternating-digits/Solution.kt",
+        "cpp": "solutions/sorted-alternating-digits/solution.cpp"
+      }
+    }
+  ]
+}

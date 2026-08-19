@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findValidSplit",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "前三个数与后缀乘积互质",
+      "args": [
+        [
+          4,
+          7,
+          8,
+          15,
+          3,
+          5
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "质因数跨越所有切分线",
+      "args": [
+        [
+          4,
+          7,
+          15,
+          8,
+          3,
+          5
+        ]
+      ],
+      "expected": -1
+    },
+    {
+      "name": "两个一可在零处分割",
+      "args": [
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

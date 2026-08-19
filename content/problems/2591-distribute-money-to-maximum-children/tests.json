@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "distMoney",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "二十美元三人最多一个得八",
+      "args": [
+        20,
+        3
+      ],
+      "expected": 1
+    },
+    {
+      "name": "十六美元两人都得八",
+      "args": [
+        16,
+        2
+      ],
+      "expected": 2
+    },
+    {
+      "name": "两美元两人各得一美元",
+      "args": [
+        2,
+        2
+      ],
+      "expected": 0
+    }
+  ]
+}

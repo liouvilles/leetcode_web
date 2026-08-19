@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findSmallestInteger",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "模五余数可连续构造到四",
+      "args": [
+        [
+          1,
+          -10,
+          7,
+          13,
+          6,
+          8
+        ],
+        5
+      ],
+      "expected": 4
+    },
+    {
+      "name": "同一数组模七时只能构造零和一",
+      "args": [
+        [
+          1,
+          -10,
+          7,
+          13,
+          6,
+          8
+        ],
+        7
+      ],
+      "expected": 2
+    },
+    {
+      "name": "负数余数归一化后构造到二",
+      "args": [
+        [
+          -1,
+          -2,
+          -3
+        ],
+        2
+      ],
+      "expected": 2
+    }
+  ]
+}

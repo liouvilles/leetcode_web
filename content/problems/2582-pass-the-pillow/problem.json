@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2582,
+  "slug": "pass-the-pillow",
+  "title": "递枕头",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-041",
+  "studyTags": [
+    "数学",
+    "模拟"
+  ],
+  "summary": "n 个人排成一列，每秒把枕头传给相邻的人，到端点后反向，求 time 秒后持有者编号。",
+  "insight": "单向走到另一端需要 n-1 秒。用 time 除以 n-1 得到已经完成的单程次数，其奇偶决定当前方向；余数就是从当前端点走出的距离。",
+  "pitfalls": [
+    "人员编号从一开始",
+    "到端点后下一秒才反向移动",
+    "完整往返周期为 2(n-1)"
+  ],
+  "solutions": [
+    {
+      "id": "trip-parity-arithmetic",
+      "title": "单程次数奇偶计算",
+      "kind": "最优",
+      "idea": "按完成单程次数决定从左端或右端计算位置。",
+      "steps": [
+        "length=n-1",
+        "trips=time/length，offset=time%length",
+        "trips 为偶数返回 1+offset",
+        "trips 为奇数返回 n-offset"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/trip-parity-arithmetic/Solution.java",
+        "kotlin": "solutions/trip-parity-arithmetic/Solution.kt",
+        "cpp": "solutions/trip-parity-arithmetic/solution.cpp"
+      }
+    }
+  ]
+}

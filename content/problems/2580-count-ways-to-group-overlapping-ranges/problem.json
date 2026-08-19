@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2580,
+  "slug": "count-ways-to-group-overlapping-ranges",
+  "title": "统计将重叠区间合并成组的方案数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-041",
+  "studyTags": [
+    "数组",
+    "排序"
+  ],
+  "summary": "把所有区间分到两个组，要求任意两个相交区间必须在同一组，统计合法分组方案数。",
+  "insight": "相交关系的每个连通分量必须整体选择一个组。排序后合并所有直接或链式相交的区间即可得到分量数 c，每个分量有两个独立选择，答案为 2^c。",
+  "pitfalls": [
+    "端点相等也算相交",
+    "链式重叠属于同一分量",
+    "结果对 10^9+7 取模"
+  ],
+  "solutions": [
+    {
+      "id": "merge-components-and-power-two",
+      "title": "合并重叠分量并计算二次幂",
+      "kind": "最优",
+      "idea": "排序扫描统计互不相交的区间簇。",
+      "steps": [
+        "按起点升序排序 ranges",
+        "components=0，扫描每个区间",
+        "若当前起点大于已合并终点，开始新分量",
+        "否则扩展当前分量终点",
+        "返回 2^components mod MOD"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n) sorting"
+      },
+      "files": {
+        "java": "solutions/merge-components-and-power-two/Solution.java",
+        "kotlin": "solutions/merge-components-and-power-two/Solution.kt",
+        "cpp": "solutions/merge-components-and-power-two/solution.cpp"
+      }
+    }
+  ]
+}

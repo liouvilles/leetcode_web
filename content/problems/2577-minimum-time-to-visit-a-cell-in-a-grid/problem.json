@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": 2577,
+  "slug": "minimum-time-to-visit-a-cell-in-a-grid",
+  "title": "在网格图中访问一个格子的最少时间",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-041",
+  "studyTags": [
+    "数组",
+    "图论",
+    "堆（优先队列）",
+    "矩阵",
+    "最短路"
+  ],
+  "summary": "从左上角出发，每秒必须移动到相邻格；只有当前时间达到格子的开放时间才能进入，求到右下角的最早时刻。",
+  "insight": "离开起点后可沿刚走过的边来回移动，以两秒为单位等待。因此从时刻 t 走向门槛 g 的最早到达时刻，是不小于 g 且与 t+1 同奇偶性的数。边的有效代价依赖当前时刻但保持先进先出，可用 Dijkstra。起点若在第一秒没有可达邻居则无法开始等待。",
+  "pitfalls": [
+    "不能原地等待",
+    "若起点所有邻居开放时间都大于一要立即返回 -1",
+    "跨过门槛时要按奇偶性补一秒",
+    "距离出堆后过期状态应跳过"
+  ],
+  "solutions": [
+    {
+      "id": "dijkstra-with-parity-waiting",
+      "title": "带奇偶等待的 Dijkstra",
+      "kind": "最优",
+      "idea": "把每个格子视为节点，按最早可进入时间松弛相邻节点。",
+      "steps": [
+        "特判单格网格与起点在第一秒无法离开的情况",
+        "dist[0][0]=0，将起点加入最小堆",
+        "弹出当前最早格子，枚举四邻",
+        "candidate=t+1；若小于邻格门槛，则提升到门槛以上且保持 candidate 的奇偶性",
+        "用 candidate 松弛距离并入堆",
+        "首次弹出终点时返回时间"
+      ],
+      "complexity": {
+        "time": "O(mn log(mn))",
+        "space": "O(mn)"
+      },
+      "files": {
+        "java": "solutions/dijkstra-with-parity-waiting/Solution.java",
+        "kotlin": "solutions/dijkstra-with-parity-waiting/Solution.kt",
+        "cpp": "solutions/dijkstra-with-parity-waiting/solution.cpp"
+      }
+    }
+  ]
+}

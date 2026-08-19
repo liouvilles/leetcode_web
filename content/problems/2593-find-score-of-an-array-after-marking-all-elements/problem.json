@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2593,
+  "slug": "find-score-of-an-array-after-marking-all-elements",
+  "title": "标记所有元素后数组的分数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-041",
+  "studyTags": [
+    "数组",
+    "排序",
+    "模拟"
+  ],
+  "summary": "反复选择尚未标记的最小元素（同值取最小下标）加入分数，并标记它及相邻元素，求最终分数。",
+  "insight": "选择优先级只由原始值和下标决定，不会动态变化。预先把所有下标按 (nums[i],i) 排序，依次跳过已标记位置；遇到未标记位置就执行一次题目操作。",
+  "pitfalls": [
+    "同值元素必须优先较小下标",
+    "相邻元素即使已标记也不影响本次选择",
+    "分数使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "sort-indices-and-simulate",
+      "title": "排序下标后模拟标记",
+      "kind": "最优",
+      "idea": "固定全局选择顺序并用布尔数组维护标记。",
+      "steps": [
+        "构造下标 0..n-1",
+        "按元素值、下标依次升序排序",
+        "扫描下标，已标记则跳过",
+        "否则累加 nums[index]，并标记 index-1、index、index+1 的有效位置",
+        "返回分数"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/sort-indices-and-simulate/Solution.java",
+        "kotlin": "solutions/sort-indices-and-simulate/Solution.kt",
+        "cpp": "solutions/sort-indices-and-simulate/solution.cpp"
+      }
+    }
+  ]
+}

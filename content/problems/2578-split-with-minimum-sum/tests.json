@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "splitNum",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四位数字分为二十四与三十五",
+      "args": [
+        4325
+      ],
+      "expected": 59
+    },
+    {
+      "name": "三位数字分为六十八与七",
+      "args": [
+        687
+      ],
+      "expected": 75
+    },
+    {
+      "name": "多个零作为前导位",
+      "args": [
+        1000
+      ],
+      "expected": 1
+    }
+  ]
+}

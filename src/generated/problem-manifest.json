@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "problemCount": 1846,
-  "solutionCount": 1873,
-  "implementationCount": 5619,
+  "problemCount": 1871,
+  "solutionCount": 1898,
+  "implementationCount": 5694,
   "problems": [
     {
       "id": 1,
@@ -27636,6 +27636,388 @@
       ],
       "status": "published",
       "batch": "batch-040",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2577,
+      "slug": "minimum-time-to-visit-a-cell-in-a-grid",
+      "title": "在网格图中访问一个格子的最少时间",
+      "studyTags": [
+        "数组",
+        "图论",
+        "堆（优先队列）",
+        "矩阵",
+        "最短路"
+      ],
+      "status": "published",
+      "batch": "batch-041",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2578,
+      "slug": "split-with-minimum-sum",
+      "title": "最小和分割",
+      "studyTags": [
+        "数学",
+        "贪心",
+        "排序"
+      ],
+      "status": "published",
+      "batch": "batch-041",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2579,
+      "slug": "count-total-number-of-colored-cells",
+      "title": "统计染色格子数",
+      "studyTags": [
+        "数学"
+      ],
+      "status": "published",
+      "batch": "batch-041",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2580,
+      "slug": "count-ways-to-group-overlapping-ranges",
+      "title": "统计将重叠区间合并成组的方案数",
+      "studyTags": [
+        "数组",
+        "排序"
+      ],
+      "status": "published",
+      "batch": "batch-041",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2581,
+      "slug": "count-number-of-possible-root-nodes",
+      "title": "统计可能的树根数目",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "树",
+        "深度优先搜索",
+        "换根动态规划"
+      ],
+      "status": "published",
+      "batch": "batch-041",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2582,
+      "slug": "pass-the-pillow",
+      "title": "递枕头",
+      "studyTags": [
+        "数学",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-041",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2583,
+      "slug": "kth-largest-sum-in-a-binary-tree",
+      "title": "二叉树中的第 K 大层和",
+      "studyTags": [
+        "树",
+        "广度优先搜索",
+        "堆（优先队列）",
+        "二叉树"
+      ],
+      "status": "published",
+      "batch": "batch-041",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2584,
+      "slug": "split-the-array-to-make-coprime-products",
+      "title": "分割数组使乘积互质",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "数学",
+        "数论",
+        "质因数分解"
+      ],
+      "status": "published",
+      "batch": "batch-041",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2585,
+      "slug": "number-of-ways-to-earn-points",
+      "title": "获得分数的方法数",
+      "studyTags": [
+        "数组",
+        "动态规划",
+        "多重背包"
+      ],
+      "status": "published",
+      "batch": "batch-041",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2586,
+      "slug": "count-the-number-of-vowel-strings-in-range",
+      "title": "统计范围内的元音字符串数",
+      "studyTags": [
+        "数组",
+        "字符串",
+        "计数"
+      ],
+      "status": "published",
+      "batch": "batch-041",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2587,
+      "slug": "rearrange-array-to-maximize-prefix-score",
+      "title": "重排数组以得到最大前缀分数",
+      "studyTags": [
+        "数组",
+        "贪心",
+        "排序",
+        "前缀和"
+      ],
+      "status": "published",
+      "batch": "batch-041",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2588,
+      "slug": "count-the-number-of-beautiful-subarrays",
+      "title": "统计美丽子数组数目",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "位运算",
+        "前缀异或"
+      ],
+      "status": "published",
+      "batch": "batch-041",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2589,
+      "slug": "minimum-time-to-complete-all-tasks",
+      "title": "完成所有任务的最少时间",
+      "studyTags": [
+        "数组",
+        "贪心",
+        "排序"
+      ],
+      "status": "published",
+      "batch": "batch-041",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2591,
+      "slug": "distribute-money-to-maximum-children",
+      "title": "将钱分给最多的儿童",
+      "studyTags": [
+        "数学",
+        "贪心"
+      ],
+      "status": "published",
+      "batch": "batch-041",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2592,
+      "slug": "maximize-greatness-of-an-array",
+      "title": "最大化数组的伟大值",
+      "studyTags": [
+        "数组",
+        "双指针",
+        "贪心",
+        "排序"
+      ],
+      "status": "published",
+      "batch": "batch-041",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2593,
+      "slug": "find-score-of-an-array-after-marking-all-elements",
+      "title": "标记所有元素后数组的分数",
+      "studyTags": [
+        "数组",
+        "排序",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-041",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2594,
+      "slug": "minimum-time-to-repair-cars",
+      "title": "修车的最少时间",
+      "studyTags": [
+        "数组",
+        "二分查找"
+      ],
+      "status": "published",
+      "batch": "batch-041",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2595,
+      "slug": "number-of-even-and-odd-bits",
+      "title": "奇偶位数",
+      "studyTags": [
+        "位运算"
+      ],
+      "status": "published",
+      "batch": "batch-041",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2596,
+      "slug": "check-knight-tour-configuration",
+      "title": "检查骑士巡视方案",
+      "studyTags": [
+        "数组",
+        "矩阵",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-041",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2597,
+      "slug": "the-number-of-beautiful-subsets",
+      "title": "美丽子集的数目",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "回溯",
+        "排序"
+      ],
+      "status": "published",
+      "batch": "batch-041",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2598,
+      "slug": "smallest-missing-non-negative-integer-after-operations",
+      "title": "执行操作后的最大 MEX",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "数学",
+        "贪心"
+      ],
+      "status": "published",
+      "batch": "batch-041",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2600,
+      "slug": "k-items-with-the-maximum-sum",
+      "title": "K 件物品的最大和",
+      "studyTags": [
+        "数学",
+        "贪心"
+      ],
+      "status": "published",
+      "batch": "batch-041",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2601,
+      "slug": "prime-subtraction-operation",
+      "title": "质数减法运算",
+      "studyTags": [
+        "数组",
+        "数学",
+        "二分查找",
+        "贪心",
+        "数论"
+      ],
+      "status": "published",
+      "batch": "batch-041",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2602,
+      "slug": "minimum-operations-to-make-all-array-elements-equal",
+      "title": "使数组元素全部相等的最少操作次数",
+      "studyTags": [
+        "数组",
+        "二分查找",
+        "排序",
+        "前缀和"
+      ],
+      "status": "published",
+      "batch": "batch-041",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2603,
+      "slug": "collect-coins-in-a-tree",
+      "title": "收集树中金币",
+      "studyTags": [
+        "数组",
+        "树",
+        "图论",
+        "拓扑排序"
+      ],
+      "status": "published",
+      "batch": "batch-041",
       "solutionCount": 1,
       "testCount": 3,
       "qualityGate": "tested"

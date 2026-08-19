@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2589,
+  "slug": "minimum-time-to-complete-all-tasks",
+  "title": "完成所有任务的最少时间",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-041",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "排序"
+  ],
+  "summary": "每个任务在闭区间 [start,end] 内需要电脑运行 duration 个整数时刻，电脑同时运行可服务所有覆盖该时刻的任务，求最少运行时刻数。",
+  "insight": "按结束时间升序处理。此前选择不变时，当前任务若仍缺运行时刻，应从它的结束位置向左选择最晚的空闲时刻；越晚的选择越可能同时服务后续任务，交换论证保证贪心最优。",
+  "pitfalls": [
+    "任务区间包含两个端点",
+    "已有运行时刻要先计入当前任务",
+    "补点时只选择尚未运行的时刻",
+    "相同时刻可同时满足多个任务"
+  ],
+  "solutions": [
+    {
+      "id": "sort-by-end-and-fill-latest",
+      "title": "按结束时间排序并从后补点",
+      "kind": "最优",
+      "idea": "让新增运行时刻尽量靠右以复用给后续任务。",
+      "steps": [
+        "按 end 升序排序 tasks",
+        "维护 selected[time] 与 answer",
+        "对每个任务统计 [start,end] 已选时刻数",
+        "还缺 need 个时，从 end 向 start 扫描，遇未选时刻就选中",
+        "累加并返回总选择数"
+      ],
+      "complexity": {
+        "time": "O(nT)",
+        "space": "O(T)"
+      },
+      "files": {
+        "java": "solutions/sort-by-end-and-fill-latest/Solution.java",
+        "kotlin": "solutions/sort-by-end-and-fill-latest/Solution.kt",
+        "cpp": "solutions/sort-by-end-and-fill-latest/solution.cpp"
+      }
+    }
+  ]
+}

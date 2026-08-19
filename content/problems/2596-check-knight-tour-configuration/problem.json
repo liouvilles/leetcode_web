@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2596,
+  "slug": "check-knight-tour-configuration",
+  "title": "检查骑士巡视方案",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-041",
+  "studyTags": [
+    "数组",
+    "矩阵",
+    "模拟"
+  ],
+  "summary": "n×n 棋盘中每个数字表示骑士到达该格的次序，判断是否为从左上角开始且覆盖全盘的合法骑士巡视。",
+  "insight": "把每个步骤值映射到坐标，随后只需验证 step-1 到 step 的坐标差是否为 (1,2) 或 (2,1)。同时检查零确实位于左上角。",
+  "pitfalls": [
+    "巡视必须从左上角的步骤零开始",
+    "骑士移动的两个坐标绝对差乘积为二且不相等",
+    "要按步骤值而不是棋盘扫描顺序检查"
+  ],
+  "solutions": [
+    {
+      "id": "map-steps-to-positions",
+      "title": "映射步骤坐标后检查相邻移动",
+      "kind": "最优",
+      "idea": "将访问序号转换为按时间排列的坐标序列。",
+      "steps": [
+        "若 grid[0][0]!=0 返回 false",
+        "扫描棋盘，把每个 step 的 row、col 记录下来",
+        "从 step=1 到 n²-1",
+        "计算与上一步的绝对行列差",
+        "若不是一和二的组合返回 false，否则最终返回 true"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/map-steps-to-positions/Solution.java",
+        "kotlin": "solutions/map-steps-to-positions/Solution.kt",
+        "cpp": "solutions/map-steps-to-positions/solution.cpp"
+      }
+    }
+  ]
+}

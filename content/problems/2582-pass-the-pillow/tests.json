@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "passThePillow",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四人五秒时回到二号",
+      "args": [
+        4,
+        5
+      ],
+      "expected": 2
+    },
+    {
+      "name": "三人两秒到达三号",
+      "args": [
+        3,
+        2
+      ],
+      "expected": 3
+    },
+    {
+      "name": "五人完成一次往返回到一号",
+      "args": [
+        5,
+        8
+      ],
+      "expected": 1
+    }
+  ]
+}
