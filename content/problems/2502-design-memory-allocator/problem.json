@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2502,
+  "slug": "design-memory-allocator",
+  "title": "设计内存分配器",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-038",
+  "studyTags": [
+    "数组",
+    "设计",
+    "模拟"
+  ],
+  "summary": "设计长度为 n 的内存，支持为 mID 分配最左侧连续 size 个空闲单元，以及释放该 mID 占用的全部单元并返回释放数量。",
+  "insight": "约束允许直接用数组模拟。allocate 扫描连续零段并填入 mID；free 扫描全数组把等于 mID 的位置清零。",
+  "pitfalls": [
+    "分配必须选择最左侧可用块",
+    "同一 mID 可拥有多个不连续块",
+    "释放要清除该 mID 的所有块",
+    "分配失败不能修改内存"
+  ],
+  "solutions": [
+    {
+      "id": "linear-memory-simulation",
+      "title": "线性数组模拟",
+      "kind": "最优",
+      "idea": "以零表示空闲、正整数表示所属 mID。",
+      "steps": [
+        "构造 int[n] memory",
+        "allocate 扫描连续空闲长度，首次达到 size 时填充该区间并返回起点",
+        "扫描结束未找到返回 -1",
+        "freeMemory 扫描 memory，命中 mID 时置零并计数"
+      ],
+      "complexity": {
+        "time": "O(n) per operation",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/linear-memory-simulation/Solution.java",
+        "kotlin": "solutions/linear-memory-simulation/Solution.kt",
+        "cpp": "solutions/linear-memory-simulation/solution.cpp"
+      }
+    }
+  ]
+}

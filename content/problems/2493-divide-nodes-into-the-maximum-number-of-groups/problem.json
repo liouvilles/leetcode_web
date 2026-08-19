@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2493,
+  "slug": "divide-nodes-into-the-maximum-number-of-groups",
+  "title": "将节点分成尽可能多的组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-038",
+  "studyTags": [
+    "图论",
+    "广度优先搜索",
+    "二分图"
+  ],
+  "summary": "把无向图节点分到编号连续的若干组，每条边两端组号差恰为一，求所有连通分量可使用组数之和；不可行返回负一。",
+  "insight": "存在合法分组当且仅当每个连通分量是二分图。对一个二分连通分量，从任意起点按 BFS 距离分层都合法，最大组数等于该分量直径加一；枚举起点取最大层数。",
+  "pitfalls": [
+    "不同连通分量的组数可以相加",
+    "奇环直接导致无解",
+    "每个起点 BFS 的最大距离要加一"
+  ],
+  "solutions": [
+    {
+      "id": "bipartite-components-and-all-source-bfs",
+      "title": "二分图检查与逐源 BFS",
+      "kind": "最优",
+      "idea": "对每个分量检查染色并枚举 BFS 起点求最大层数。",
+      "steps": [
+        "建无向图",
+        "对每个未染色节点 BFS 二染色并收集当前 component；遇同色边返回 -1",
+        "对 component 中每个 start 做 BFS，计算最远距离+1",
+        "把当前分量的最大层数加到答案",
+        "返回所有分量之和"
+      ],
+      "complexity": {
+        "time": "O(n * (n + edges))",
+        "space": "O(n + edges)"
+      },
+      "files": {
+        "java": "solutions/bipartite-components-and-all-source-bfs/Solution.java",
+        "kotlin": "solutions/bipartite-components-and-all-source-bfs/Solution.kt",
+        "cpp": "solutions/bipartite-components-and-all-source-bfs/solution.cpp"
+      }
+    }
+  ]
+}

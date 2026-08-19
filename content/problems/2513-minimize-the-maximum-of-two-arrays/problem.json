@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2513,
+  "slug": "minimize-the-maximum-of-two-arrays",
+  "title": "最小化两个数组中的最大值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-038",
+  "studyTags": [
+    "数学",
+    "二分查找",
+    "容斥原理"
+  ],
+  "summary": "构造两个互不相交的正整数集合，大小分别为 uniqueCnt1、uniqueCnt2；第一组元素不能被 divisor1 整除，第二组不能被 divisor2 整除，求可能的最小最大元素。",
+  "insight": "对候选上界 x，第一组可用数有 x-floor(x/divisor1)，第二组类似；两组并集可用数是除去同时被两除数整除的数，即 x-floor(x/lcm)。三个数量条件同时满足即存在分配，可二分最小 x。",
+  "pitfalls": [
+    "两个数组之间也不能有重复元素",
+    "总可用数要排除 divisor1 与 divisor2 的公倍数",
+    "LCM 与中间计算使用 long",
+    "可行性关于上界单调"
+  ],
+  "solutions": [
+    {
+      "id": "binary-search-with-three-capacity-conditions",
+      "title": "三个容量条件二分答案",
+      "kind": "最优",
+      "idea": "用容斥与 Hall 条件判断上界是否可行。",
+      "steps": [
+        "计算 lcm(divisor1,divisor2)",
+        "check(x)：x-x/divisor1>=cnt1，x-x/divisor2>=cnt2，x-x/lcm>=cnt1+cnt2",
+        "在 [1,2e9] 二分最小满足 check 的 x",
+        "返回 left"
+      ],
+      "complexity": {
+        "time": "O(log 2e9)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/binary-search-with-three-capacity-conditions/Solution.java",
+        "kotlin": "solutions/binary-search-with-three-capacity-conditions/Solution.kt",
+        "cpp": "solutions/binary-search-with-three-capacity-conditions/solution.cpp"
+      }
+    }
+  ]
+}

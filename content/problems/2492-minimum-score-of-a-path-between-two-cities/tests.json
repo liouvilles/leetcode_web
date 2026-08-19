@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minScore",
+  "parameterTypes": [
+    "int",
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "绕行可利用权重五的道路",
+      "args": [
+        4,
+        [
+          [
+            1,
+            2,
+            9
+          ],
+          [
+            2,
+            3,
+            6
+          ],
+          [
+            2,
+            4,
+            5
+          ],
+          [
+            1,
+            4,
+            7
+          ]
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "连通分量最小边权为二",
+      "args": [
+        4,
+        [
+          [
+            1,
+            2,
+            2
+          ],
+          [
+            1,
+            3,
+            4
+          ],
+          [
+            3,
+            4,
+            7
+          ]
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "两个城市只有一条道路",
+      "args": [
+        2,
+        [
+          [
+            1,
+            2,
+            10
+          ]
+        ]
+      ],
+      "expected": 10
+    }
+  ]
+}

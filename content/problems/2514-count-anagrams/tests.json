@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countAnagrams",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "too 三种排列乘 hot 六种排列",
+      "args": [
+        "too hot"
+      ],
+      "expected": 18
+    },
+    {
+      "name": "两个相同字母只有一种排列",
+      "args": [
+        "aa"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "两个 abc 单词各六种排列",
+      "args": [
+        "abc abc"
+      ],
+      "expected": 36
+    }
+  ]
+}

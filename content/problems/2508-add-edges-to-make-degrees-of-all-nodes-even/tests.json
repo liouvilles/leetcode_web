@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isPossible",
+  "parameterTypes": [
+    "int",
+    "intListMatrix"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "两个奇点可直接补边",
+      "args": [
+        5,
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            5
+          ]
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "四个奇点可交叉配成两条新边",
+      "args": [
+        4,
+        [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "完全图四个奇点间不存在可添加边",
+      "args": [
+        4,
+        [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      ],
+      "expected": false
+    }
+  ]
+}

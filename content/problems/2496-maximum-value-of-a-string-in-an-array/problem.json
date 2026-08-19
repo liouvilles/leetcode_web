@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2496,
+  "slug": "maximum-value-of-a-string-in-an-array",
+  "title": "数组中字符串的最大值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-038",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "模拟"
+  ],
+  "summary": "字符串仅含数字时价值为其十进制整数值，否则价值为字符串长度，求数组中最大价值。",
+  "insight": "逐个字符串判断是否全部为数字；数字串直接解析，含字母串取长度，维护最大值。",
+  "pitfalls": [
+    "前导零不影响数字值",
+    "只要含一个字母就按整个字符串长度",
+    "字符串非空"
+  ],
+  "solutions": [
+    {
+      "id": "classify-and-evaluate-strings",
+      "title": "分类计算字符串价值",
+      "kind": "最优",
+      "idea": "一次扫描每个字符串的所有字符。",
+      "steps": [
+        "answer=0",
+        "对每个 word 判断所有字符是否为数字",
+        "若全数字取 Integer.parseInt(word)，否则取 word.length",
+        "更新最大值并返回"
+      ],
+      "complexity": {
+        "time": "O(total characters)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/classify-and-evaluate-strings/Solution.java",
+        "kotlin": "solutions/classify-and-evaluate-strings/Solution.kt",
+        "cpp": "solutions/classify-and-evaluate-strings/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2512,
+  "slug": "reward-top-k-students",
+  "title": "奖励最顶尖的 K 名学生",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-038",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "字符串",
+    "排序"
+  ],
+  "summary": "报告中每个正面词得三分、负面词扣一分，按总分降序且学号升序选出前 k 名学生。",
+  "insight": "把正负词分别放入哈希集合，逐报告按空格分词累加得分，再排序 [score 降序,id 升序]。",
+  "pitfalls": [
+    "报告与 student_id 按相同下标对应",
+    "未出现在词表中的词得零分",
+    "同分时较小学号优先"
+  ],
+  "solutions": [
+    {
+      "id": "score-and-sort-students",
+      "title": "哈希集合评分后排序",
+      "kind": "最优",
+      "idea": "构造学生 [score,id] 列表并按题意排序。",
+      "steps": [
+        "建立 positiveSet 与 negativeSet",
+        "遍历每份 report 的 words，正面加三、负面减一",
+        "保存 [score,studentId]",
+        "按 score 降序、id 升序排序",
+        "取前 k 个 id 返回"
+      ],
+      "complexity": {
+        "time": "O(total report characters + n log n)",
+        "space": "O(vocabulary + n)"
+      },
+      "files": {
+        "java": "solutions/score-and-sort-students/Solution.java",
+        "kotlin": "solutions/score-and-sort-students/Solution.kt",
+        "cpp": "solutions/score-and-sort-students/solution.cpp"
+      }
+    }
+  ]
+}

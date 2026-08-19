@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "captureForts",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "反向移动可占领四个空地",
+      "args": [
+        [
+          1,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "相邻敌我城堡中间没有空地",
+      "args": [
+        [
+          0,
+          0,
+          1,
+          -1
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "一个空地夹在敌我城堡之间",
+      "args": [
+        [
+          1,
+          0,
+          -1
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

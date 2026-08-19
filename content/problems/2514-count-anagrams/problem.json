@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2514,
+  "slug": "count-anagrams",
+  "title": "统计同位异构字符串数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-038",
+  "studyTags": [
+    "字符串",
+    "组合数学",
+    "计数",
+    "费马小定理"
+  ],
+  "summary": "可独立重排句子中每个单词的字母，空格位置不变，统计能得到的不同句子数量并取模。",
+  "insight": "长度为 L、各字符频次为 c 的单词有 L!/product(c!) 种排列。各单词选择独立，将这些多重集合排列数相乘；模质数下用快速幂求阶乘逆元。",
+  "pitfalls": [
+    "相同字母造成的排列要去重",
+    "单词之间不能交换字符",
+    "答案和中间乘积都要取模"
+  ],
+  "solutions": [
+    {
+      "id": "multiset-permutations-with-modular-inverses",
+      "title": "多重集合排列数与模逆元",
+      "kind": "最优",
+      "idea": "预处理阶乘并逐词除去重复字符阶乘。",
+      "steps": [
+        "预处理 factorial[0..s.length]",
+        "按空格拆分 words",
+        "ways=factorial[word.length]，统计 26 个字母频次",
+        "对每个 count 乘 factorial[count]^(MOD-2) mod MOD",
+        "answer=answer*ways mod MOD，返回 answer"
+      ],
+      "complexity": {
+        "time": "O(sentence length * log MOD)",
+        "space": "O(sentence length)"
+      },
+      "files": {
+        "java": "solutions/multiset-permutations-with-modular-inverses/Solution.java",
+        "kotlin": "solutions/multiset-permutations-with-modular-inverses/Solution.kt",
+        "cpp": "solutions/multiset-permutations-with-modular-inverses/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2490,
+  "slug": "circular-sentence",
+  "title": "回环句",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-038",
+  "studyTags": [
+    "字符串",
+    "模拟"
+  ],
+  "summary": "句子由单空格分隔的单词组成；若每个单词末字符等于下一单词首字符，且最后单词末字符等于首单词首字符，则称为回环句。",
+  "insight": "无需真正切分单词。首尾字符负责闭环；每个空格两侧恰是相邻单词的末字符和首字符，只需检查这些边界。",
+  "pitfalls": [
+    "还要检查最后单词到第一个单词",
+    "句中只有一个单词时仍需首尾相等",
+    "输入保证单词间恰有一个空格"
+  ],
+  "solutions": [
+    {
+      "id": "scan-word-boundaries",
+      "title": "扫描空格边界",
+      "kind": "最优",
+      "idea": "直接在原字符串检查所有相邻单词接口。",
+      "steps": [
+        "若 sentence[0] != sentence[last] 返回 false",
+        "扫描每个空格下标 i",
+        "若 sentence[i-1] != sentence[i+1] 返回 false",
+        "全部通过返回 true"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/scan-word-boundaries/Solution.java",
+        "kotlin": "solutions/scan-word-boundaries/Solution.kt",
+        "cpp": "solutions/scan-word-boundaries/solution.cpp"
+      }
+    }
+  ]
+}

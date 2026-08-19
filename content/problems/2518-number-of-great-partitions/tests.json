@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countPartitions",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "总和十且两组至少四共有六种",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        4
+      ],
+      "expected": 6
+    },
+    {
+      "name": "三个三无法让两组都至少四",
+      "args": [
+        [
+          3,
+          3,
+          3
+        ],
+        4
+      ],
+      "expected": 0
+    },
+    {
+      "name": "两个一分到不同组有两种",
+      "args": [
+        [
+          1,
+          1
+        ],
+        1
+      ],
+      "expected": 2
+    }
+  ]
+}

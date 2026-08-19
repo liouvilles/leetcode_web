@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "cycleLengthQueries",
+  "parameterTypes": [
+    "int",
+    "intMatrix"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "官方三个不同公共祖先查询",
+      "args": [
+        3,
+        [
+          [
+            5,
+            3
+          ],
+          [
+            4,
+            7
+          ],
+          [
+            2,
+            3
+          ]
+        ]
+      ],
+      "expected": [
+        4,
+        5,
+        3
+      ]
+    },
+    {
+      "name": "父子与跨根节点查询",
+      "args": [
+        2,
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ]
+      ],
+      "expected": [
+        2,
+        3
+      ]
+    },
+    {
+      "name": "兄弟节点路径加新边成三环",
+      "args": [
+        4,
+        [
+          [
+            8,
+            9
+          ]
+        ]
+      ],
+      "expected": [
+        3
+      ]
+    }
+  ]
+}

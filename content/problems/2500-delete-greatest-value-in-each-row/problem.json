@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2500,
+  "slug": "delete-greatest-value-in-each-row",
+  "title": "删除每行中的最大值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-038",
+  "studyTags": [
+    "数组",
+    "矩阵",
+    "排序",
+    "模拟"
+  ],
+  "summary": "每轮删除矩阵每行的一个最大值，并把本轮被删值中的最大者加入答案，直到矩阵为空。",
+  "insight": "先独立排序每一行。每轮各行删除的同一排名元素位于相同列，因此答案等于排序后每一列的列最大值之和。",
+  "pitfalls": [
+    "每行都要在每轮删除一个值",
+    "同一行最大值并列任选结果不变",
+    "累加的是每轮跨行最大值"
+  ],
+  "solutions": [
+    {
+      "id": "sort-rows-and-sum-column-maxima",
+      "title": "逐行排序后求列最大值",
+      "kind": "最优",
+      "idea": "把动态删除转化为固定排名扫描。",
+      "steps": [
+        "排序每一行升序",
+        "对每个 column 初始化 maximum=0",
+        "扫描所有行更新该列最大值",
+        "把 maximum 加入答案并返回"
+      ],
+      "complexity": {
+        "time": "O(rows * cols log cols)",
+        "space": "O(log cols) sorting"
+      },
+      "files": {
+        "java": "solutions/sort-rows-and-sum-column-maxima/Solution.java",
+        "kotlin": "solutions/sort-rows-and-sum-column-maxima/Solution.kt",
+        "cpp": "solutions/sort-rows-and-sum-column-maxima/solution.cpp"
+      }
+    }
+  ]
+}

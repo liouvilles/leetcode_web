@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "smallestValue",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "十五依次变八六五",
+      "args": [
+        15
+      ],
+      "expected": 5
+    },
+    {
+      "name": "质数三已经稳定",
+      "args": [
+        3
+      ],
+      "expected": 3
+    },
+    {
+      "name": "十二的质因数和为七",
+      "args": [
+        12
+      ],
+      "expected": 7
+    }
+  ]
+}

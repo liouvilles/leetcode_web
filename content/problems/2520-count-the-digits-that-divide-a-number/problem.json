@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2520,
+  "slug": "count-the-digits-that-divide-a-number",
+  "title": "统计能整除数字的位数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-038",
+  "studyTags": [
+    "数学",
+    "模拟"
+  ],
+  "summary": "统计十进制整数 num 的各个数位中有多少位能整除 num。",
+  "insight": "保留原数用于取模，用副本逐位除以十提取末位；每个非零 digit 满足 num%digit==0 时计数。",
+  "pitfalls": [
+    "相同数字位按出现次数分别计数",
+    "整除判断使用原始 num",
+    "若考虑零位必须跳过以免除零"
+  ],
+  "solutions": [
+    {
+      "id": "decimal-digit-scan",
+      "title": "逐十进制位检查整除",
+      "kind": "最优",
+      "idea": "一次提取所有数位。",
+      "steps": [
+        "value=num、answer=0",
+        "while value>0：digit=value%10",
+        "digit!=0 且 num%digit==0 时 answer++",
+        "value/=10，最后返回 answer"
+      ],
+      "complexity": {
+        "time": "O(number of digits)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/decimal-digit-scan/Solution.java",
+        "kotlin": "solutions/decimal-digit-scan/Solution.kt",
+        "cpp": "solutions/decimal-digit-scan/solution.cpp"
+      }
+    }
+  ]
+}

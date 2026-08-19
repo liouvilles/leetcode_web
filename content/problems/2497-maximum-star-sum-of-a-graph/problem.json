@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2497,
+  "slug": "maximum-star-sum-of-a-graph",
+  "title": "图中最大星和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-038",
+  "studyTags": [
+    "图论",
+    "贪心",
+    "堆"
+  ],
+  "summary": "星由一个中心及至多 k 个与中心相邻的节点组成，星和为所选节点值之和，求最大星和。",
+  "insight": "对固定中心，负值邻居只会降低答案，应选择最多 k 个正值邻居中的最大者。每个中心用容量 k 的小根堆维护这些邻居即可。",
+  "pitfalls": [
+    "可以选择少于 k 个邻居",
+    "中心自身必须计入",
+    "负值邻居不应选择",
+    "同一条边要为两个端点分别更新候选"
+  ],
+  "solutions": [
+    {
+      "id": "top-k-positive-neighbor-heaps",
+      "title": "每个节点维护前 K 个正邻居",
+      "kind": "最优",
+      "idea": "容量 k 的小根堆保存每个中心的最优邻居集合。",
+      "steps": [
+        "为每个节点创建小根堆",
+        "遍历边：若另一端值为正，加入当前端堆；超过 k 弹出最小值，反向同理",
+        "对每个中心把自身值与堆中值求和",
+        "返回最大星和"
+      ],
+      "complexity": {
+        "time": "O(edges log k + n*k)",
+        "space": "O(n*k)"
+      },
+      "files": {
+        "java": "solutions/top-k-positive-neighbor-heaps/Solution.java",
+        "kotlin": "solutions/top-k-positive-neighbor-heaps/Solution.kt",
+        "cpp": "solutions/top-k-positive-neighbor-heaps/solution.cpp"
+      }
+    }
+  ]
+}

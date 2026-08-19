@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "problemCount": 1771,
-  "solutionCount": 1798,
-  "implementationCount": 5394,
+  "problemCount": 1796,
+  "solutionCount": 1823,
+  "implementationCount": 5469,
   "problems": [
     {
       "id": 1,
@@ -26502,6 +26502,385 @@
       ],
       "status": "published",
       "batch": "batch-037",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2490,
+      "slug": "circular-sentence",
+      "title": "回环句",
+      "studyTags": [
+        "字符串",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-038",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2491,
+      "slug": "divide-players-into-teams-of-equal-skill",
+      "title": "划分技能点相等的团队",
+      "studyTags": [
+        "数组",
+        "排序",
+        "双指针"
+      ],
+      "status": "published",
+      "batch": "batch-038",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2492,
+      "slug": "minimum-score-of-a-path-between-two-cities",
+      "title": "两个城市间路径的最小分数",
+      "studyTags": [
+        "图论",
+        "广度优先搜索",
+        "连通分量"
+      ],
+      "status": "published",
+      "batch": "batch-038",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2493,
+      "slug": "divide-nodes-into-the-maximum-number-of-groups",
+      "title": "将节点分成尽可能多的组",
+      "studyTags": [
+        "图论",
+        "广度优先搜索",
+        "二分图"
+      ],
+      "status": "published",
+      "batch": "batch-038",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2496,
+      "slug": "maximum-value-of-a-string-in-an-array",
+      "title": "数组中字符串的最大值",
+      "studyTags": [
+        "数组",
+        "字符串",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-038",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2497,
+      "slug": "maximum-star-sum-of-a-graph",
+      "title": "图中最大星和",
+      "studyTags": [
+        "图论",
+        "贪心",
+        "堆"
+      ],
+      "status": "published",
+      "batch": "batch-038",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2498,
+      "slug": "frog-jump-ii",
+      "title": "青蛙过河 II",
+      "studyTags": [
+        "数组",
+        "贪心"
+      ],
+      "status": "published",
+      "batch": "batch-038",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2499,
+      "slug": "minimum-total-cost-to-make-arrays-unequal",
+      "title": "让数组不相等的最小总代价",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "贪心",
+        "计数"
+      ],
+      "status": "published",
+      "batch": "batch-038",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2500,
+      "slug": "delete-greatest-value-in-each-row",
+      "title": "删除每行中的最大值",
+      "studyTags": [
+        "数组",
+        "矩阵",
+        "排序",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-038",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2501,
+      "slug": "longest-square-streak-in-an-array",
+      "title": "数组中最长的方波",
+      "studyTags": [
+        "数组",
+        "排序",
+        "动态规划",
+        "哈希表"
+      ],
+      "status": "published",
+      "batch": "batch-038",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2502,
+      "slug": "design-memory-allocator",
+      "title": "设计内存分配器",
+      "studyTags": [
+        "数组",
+        "设计",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-038",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2503,
+      "slug": "maximum-number-of-points-from-grid-queries",
+      "title": "矩阵查询可获得的最大分数",
+      "studyTags": [
+        "数组",
+        "矩阵",
+        "排序",
+        "堆",
+        "广度优先搜索"
+      ],
+      "status": "published",
+      "batch": "batch-038",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2506,
+      "slug": "count-pairs-of-similar-strings",
+      "title": "统计相似字符串对的数目",
+      "studyTags": [
+        "数组",
+        "字符串",
+        "位运算",
+        "哈希表"
+      ],
+      "status": "published",
+      "batch": "batch-038",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2507,
+      "slug": "smallest-value-after-replacing-with-sum-of-prime-factors",
+      "title": "使用质因数之和替换后的最小值",
+      "studyTags": [
+        "数学",
+        "模拟",
+        "质因数分解"
+      ],
+      "status": "published",
+      "batch": "batch-038",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2508,
+      "slug": "add-edges-to-make-degrees-of-all-nodes-even",
+      "title": "添加边使所有节点度数都为偶数",
+      "studyTags": [
+        "图论",
+        "哈希表",
+        "度数"
+      ],
+      "status": "published",
+      "batch": "batch-038",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2509,
+      "slug": "cycle-length-queries-in-a-tree",
+      "title": "查询树中环的长度",
+      "studyTags": [
+        "树",
+        "二叉树",
+        "最近公共祖先"
+      ],
+      "status": "published",
+      "batch": "batch-038",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2511,
+      "slug": "maximum-enemy-forts-that-can-be-captured",
+      "title": "最多可以摧毁的敌人城堡数目",
+      "studyTags": [
+        "数组",
+        "双指针"
+      ],
+      "status": "published",
+      "batch": "batch-038",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2512,
+      "slug": "reward-top-k-students",
+      "title": "奖励最顶尖的 K 名学生",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "字符串",
+        "排序"
+      ],
+      "status": "published",
+      "batch": "batch-038",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2513,
+      "slug": "minimize-the-maximum-of-two-arrays",
+      "title": "最小化两个数组中的最大值",
+      "studyTags": [
+        "数学",
+        "二分查找",
+        "容斥原理"
+      ],
+      "status": "published",
+      "batch": "batch-038",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2514,
+      "slug": "count-anagrams",
+      "title": "统计同位异构字符串数目",
+      "studyTags": [
+        "字符串",
+        "组合数学",
+        "计数",
+        "费马小定理"
+      ],
+      "status": "published",
+      "batch": "batch-038",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2515,
+      "slug": "shortest-distance-to-target-string-in-a-circular-array",
+      "title": "到目标字符串的最短距离",
+      "studyTags": [
+        "数组",
+        "字符串",
+        "环形数组"
+      ],
+      "status": "published",
+      "batch": "batch-038",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2516,
+      "slug": "take-k-of-each-character-from-left-and-right",
+      "title": "每种字符至少取 K 个",
+      "studyTags": [
+        "字符串",
+        "滑动窗口"
+      ],
+      "status": "published",
+      "batch": "batch-038",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2517,
+      "slug": "maximum-tastiness-of-candy-basket",
+      "title": "礼盒的最大甜蜜度",
+      "studyTags": [
+        "数组",
+        "排序",
+        "二分查找",
+        "贪心"
+      ],
+      "status": "published",
+      "batch": "batch-038",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2518,
+      "slug": "number-of-great-partitions",
+      "title": "好分区的数目",
+      "studyTags": [
+        "数组",
+        "动态规划",
+        "背包"
+      ],
+      "status": "published",
+      "batch": "batch-038",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2520,
+      "slug": "count-the-digits-that-divide-a-number",
+      "title": "统计能整除数字的位数",
+      "studyTags": [
+        "数学",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-038",
       "solutionCount": 1,
       "testCount": 3,
       "qualityGate": "tested"

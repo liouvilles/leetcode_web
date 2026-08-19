@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxPoints",
+  "parameterTypes": [
+    "intMatrix",
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "乱序查询恢复原顺序",
+      "args": [
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            2,
+            5,
+            7
+          ],
+          [
+            3,
+            5,
+            1
+          ]
+        ],
+        [
+          5,
+          6,
+          2
+        ]
+      ],
+      "expected": [
+        5,
+        8,
+        1
+      ]
+    },
+    {
+      "name": "阈值低于起点得零高于全部得六",
+      "args": [
+        [
+          [
+            5,
+            2,
+            1
+          ],
+          [
+            1,
+            1,
+            2
+          ]
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "expected": [
+        0,
+        6
+      ]
+    },
+    {
+      "name": "单格矩阵严格小于阈值才计分",
+      "args": [
+        [
+          [
+            1
+          ]
+        ],
+        [
+          1,
+          2,
+          100
+        ]
+      ],
+      "expected": [
+        0,
+        1,
+        1
+      ]
+    }
+  ]
+}

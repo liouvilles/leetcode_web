@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "closetTarget",
+  "parameterTypes": [
+    "stringArray",
+    "string",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "向左一步到最近 hello",
+      "args": [
+        [
+          "hello",
+          "i",
+          "am",
+          "leetcode",
+          "hello"
+        ],
+        "hello",
+        1
+      ],
+      "expected": 1
+    },
+    {
+      "name": "数组中不存在目标",
+      "args": [
+        [
+          "a",
+          "b",
+          "c"
+        ],
+        "d",
+        0
+      ],
+      "expected": -1
+    },
+    {
+      "name": "两个方向都一步可到目标",
+      "args": [
+        [
+          "a",
+          "b",
+          "a"
+        ],
+        "a",
+        1
+      ],
+      "expected": 1
+    }
+  ]
+}

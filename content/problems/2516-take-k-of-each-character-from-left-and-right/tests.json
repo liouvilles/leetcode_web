@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "takeCharacters",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "官方示例最少从两端取八个字符",
+      "args": [
+        "aabaaaacaabc",
+        2
+      ],
+      "expected": 8
+    },
+    {
+      "name": "缺少 b 和 c 无法各取一个",
+      "args": [
+        "a",
+        1
+      ],
+      "expected": -1
+    },
+    {
+      "name": "三个字符各取一个必须全部拿走",
+      "args": [
+        "abc",
+        1
+      ],
+      "expected": 3
+    }
+  ]
+}

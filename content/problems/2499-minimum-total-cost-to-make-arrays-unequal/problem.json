@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2499,
+  "slug": "minimum-total-cost-to-make-arrays-unequal",
+  "title": "让数组不相等的最小总代价",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-038",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "贪心",
+    "计数"
+  ],
+  "summary": "可交换 nums1 的两个下标，代价为下标之和；求使每个位置 nums1[i] 都不等于 nums2[i] 的最小总代价，不可能返回负一。",
+  "insight": "所有当前相等的冲突下标都必须参与，先把它们及下标和纳入。若某个值在冲突中超过一半，就必须额外选取 nums1、nums2 两侧都不含该主导值的非冲突下标，直到主导值不再过半。按下标递增选取保证代价最小。",
+  "pitfalls": [
+    "代价是下标而非数组值",
+    "冲突中的最高频值决定是否要补下标",
+    "补充下标两侧都不能是主导值",
+    "无法补足时返回负一"
+  ],
+  "solutions": [
+    {
+      "id": "dominant-conflict-greedy",
+      "title": "主导冲突值贪心补位",
+      "kind": "最优",
+      "idea": "先选所有必选冲突，再用最小安全下标平衡主导值。",
+      "steps": [
+        "扫描 nums1[i]==nums2[i] 的位置：累加 i、计数 selected，并统计各值频次与 dominant",
+        "若 2*dominantCount<=selected 已可重排",
+        "否则按 i 从小到大找非冲突且 nums1[i]、nums2[i] 都不等于 dominant 的位置",
+        "每选一个累加 i、selected++，直到 dominant 不过半",
+        "仍过半返回 -1，否则返回成本"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(number of values)"
+      },
+      "files": {
+        "java": "solutions/dominant-conflict-greedy/Solution.java",
+        "kotlin": "solutions/dominant-conflict-greedy/Solution.kt",
+        "cpp": "solutions/dominant-conflict-greedy/solution.cpp"
+      }
+    }
+  ]
+}

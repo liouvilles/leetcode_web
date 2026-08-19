@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2516,
+  "slug": "take-k-of-each-character-from-left-and-right",
+  "title": "每种字符至少取 K 个",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-038",
+  "studyTags": [
+    "字符串",
+    "滑动窗口"
+  ],
+  "summary": "每分钟只能从字符串左端或右端取一个字符，求取得至少 k 个 a、b、c 的最少分钟数，不可能返回负一。",
+  "insight": "从两端取走的字符等价于保留一个连续中间子串。要让取走数满足要求，保留窗口中每种字符最多为 total[char]-k；找满足上限的最长窗口，答案为 n-windowLength。",
+  "pitfalls": [
+    "k 为零时答案为零",
+    "任一字符总数不足 k 时无解",
+    "窗口约束是每种字符各自的上限"
+  ],
+  "solutions": [
+    {
+      "id": "longest-middle-window-with-count-limits",
+      "title": "最长可保留中间滑窗",
+      "kind": "最优",
+      "idea": "把最少取字符转化为最大保留子串。",
+      "steps": [
+        "统计 total[3]，若任一小于 k 返回 -1",
+        "limit[char]=total[char]-k",
+        "右指针扩展窗口并增加 window 计数",
+        "若新字符计数超过对应 limit，移动 left 缩窗直到合法",
+        "记录最大窗口长度，返回 n-maximum"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/longest-middle-window-with-count-limits/Solution.java",
+        "kotlin": "solutions/longest-middle-window-with-count-limits/Solution.kt",
+        "cpp": "solutions/longest-middle-window-with-count-limits/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumValue",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "字母串长度五为最大值",
+      "args": [
+        [
+          "alic3",
+          "bob",
+          "3",
+          "4",
+          "00000"
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "不同前导零数字值都为一",
+      "args": [
+        [
+          "1",
+          "01",
+          "001",
+          "0001"
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "五位数字大于字母串长度",
+      "args": [
+        [
+          "abc",
+          "12345"
+        ]
+      ],
+      "expected": 12345
+    }
+  ]
+}

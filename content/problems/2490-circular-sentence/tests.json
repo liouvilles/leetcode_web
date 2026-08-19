@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isCircularSentence",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "多个单词边界全部首尾衔接",
+      "args": [
+        "leetcode exercises sound delightful"
+      ],
+      "expected": true
+    },
+    {
+      "name": "单词自身首尾相同",
+      "args": [
+        "eetcode"
+      ],
+      "expected": true
+    },
+    {
+      "name": "首尾及内部边界不满足",
+      "args": [
+        "Leetcode is cool"
+      ],
+      "expected": false
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "similarPairs",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两个字符集合组各贡献一对",
+      "args": [
+        [
+          "aba",
+          "aabb",
+          "abcd",
+          "bac",
+          "aabc"
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "三个字符串集合相同共有三对",
+      "args": [
+        [
+          "aabb",
+          "ab",
+          "ba"
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "字符集合完全不同没有相似对",
+      "args": [
+        [
+          "abc",
+          "def"
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

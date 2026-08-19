@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2491,
+  "slug": "divide-players-into-teams-of-equal-skill",
+  "title": "划分技能点相等的团队",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-038",
+  "studyTags": [
+    "数组",
+    "排序",
+    "双指针"
+  ],
+  "summary": "把偶数名玩家两两组队，要求每队技能和相同；可行时返回所有队技能乘积之和，否则返回负一。",
+  "insight": "排序后，为让每对和相等，最小值只能与最大值配对；依次配对两端并验证目标和即可。",
+  "pitfalls": [
+    "每名玩家必须恰好出现一次",
+    "答案可能超过 int",
+    "任何一对技能和不等即无解"
+  ],
+  "solutions": [
+    {
+      "id": "sort-and-pair-extremes",
+      "title": "排序后两端配对",
+      "kind": "最优",
+      "idea": "极值配对唯一决定每队的目标技能和。",
+      "steps": [
+        "排序 skill",
+        "target=skill[0]+skill[n-1]",
+        "双指针向内移动，检查每对之和是否为 target",
+        "累加两数乘积到 long；失败返回 -1"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n) sorting"
+      },
+      "files": {
+        "java": "solutions/sort-and-pair-extremes/Solution.java",
+        "kotlin": "solutions/sort-and-pair-extremes/Solution.kt",
+        "cpp": "solutions/sort-and-pair-extremes/solution.cpp"
+      }
+    }
+  ]
+}

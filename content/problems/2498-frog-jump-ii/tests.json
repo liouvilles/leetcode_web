@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxJump",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "交替路线最大跳跃五",
+      "args": [
+        [
+          0,
+          2,
+          5,
+          6,
+          7
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "三块石头一程必须跨越全程",
+      "args": [
+        [
+          0,
+          3,
+          9
+        ]
+      ],
+      "expected": 9
+    },
+    {
+      "name": "等距石头最大跳跃二",
+      "args": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

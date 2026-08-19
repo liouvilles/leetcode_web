@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "longestSquareStreak",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "二到四到十六形成长度三",
+      "args": [
+        [
+          4,
+          3,
+          6,
+          16,
+          8,
+          2
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "没有平方衔接返回负一",
+      "args": [
+        [
+          2,
+          3,
+          5,
+          6,
+          7
+        ]
+      ],
+      "expected": -1
+    },
+    {
+      "name": "二和四形成长度二",
+      "args": [
+        [
+          2,
+          4
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

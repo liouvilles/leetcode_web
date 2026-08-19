@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimizeSet",
+  "parameterTypes": [
+    "int",
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "第一组一个第二组三个最小上界四",
+      "args": [
+        2,
+        7,
+        1,
+        3
+      ],
+      "expected": 4
+    },
+    {
+      "name": "三以内可分配两数与一数",
+      "args": [
+        3,
+        5,
+        2,
+        1
+      ],
+      "expected": 3
+    },
+    {
+      "name": "八个奇数要求上界至少十五",
+      "args": [
+        2,
+        4,
+        8,
+        2
+      ],
+      "expected": 15
+    }
+  ]
+}

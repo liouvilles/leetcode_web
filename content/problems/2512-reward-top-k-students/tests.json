@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "topStudents",
+  "parameterTypes": [
+    "stringArray",
+    "stringArray",
+    "stringArray",
+    "intArray",
+    "int"
+  ],
+  "returnType": "intList",
+  "cases": [
+    {
+      "name": "同分时学号一排在学号二之前",
+      "args": [
+        [
+          "smart",
+          "brilliant",
+          "studious"
+        ],
+        [
+          "not"
+        ],
+        [
+          "this student is studious",
+          "the student is smart"
+        ],
+        [
+          1,
+          2
+        ],
+        2
+      ],
+      "expected": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "按六分二分负一分排序",
+      "args": [
+        [
+          "good"
+        ],
+        [
+          "bad"
+        ],
+        [
+          "good good",
+          "good bad",
+          "bad"
+        ],
+        [
+          3,
+          1,
+          2
+        ],
+        2
+      ],
+      "expected": [
+        3,
+        1
+      ]
+    },
+    {
+      "name": "零分平局选择较小学号",
+      "args": [
+        [
+          "great"
+        ],
+        [
+          "poor"
+        ],
+        [
+          "neutral",
+          "neutral"
+        ],
+        [
+          5,
+          2
+        ],
+        1
+      ],
+      "expected": [
+        2
+      ]
+    }
+  ]
+}

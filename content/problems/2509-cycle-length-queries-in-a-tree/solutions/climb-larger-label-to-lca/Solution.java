@@ -1,0 +1,1 @@
+class Solution { public int[] cycleLengthQueries(int n,int[][] queries){int[] answer=new int[queries.length];for(int i=0;i<queries.length;i++){int first=queries[i][0],second=queries[i][1],length=1;while(first!=second){if(first>second)first/=2;else second/=2;length++;}answer[i]=length;}return answer;} }

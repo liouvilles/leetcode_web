@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2518,
+  "slug": "number-of-great-partitions",
+  "title": "好分区的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-038",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "背包"
+  ],
+  "summary": "把数组每个元素分配到两个有标号的组，要求两组元素和都至少为 k，统计好分区数量并取模。",
+  "insight": "总共有 2^n 种分配。若总和至少 2k，则“两组都小于 k”不可能同时发生；统计一个指定组子集和小于 k 的坏分配数 bad，利用对称性从总数减去 2*bad。bad 用 0/1 背包计数。",
+  "pitfalls": [
+    "两个组有标号，交换后通常是不同分区",
+    "总和小于 2k 时直接为零",
+    "背包必须倒序更新避免重复使用元素",
+    "模减法要处理负数"
+  ],
+  "solutions": [
+    {
+      "id": "count-small-subsets-and-complement",
+      "title": "计数小和子集后取补集",
+      "kind": "最优",
+      "idea": "只维护小于 k 的子集和以节省空间。",
+      "steps": [
+        "若 nums 总和<2k 返回0",
+        "dp[0]=1",
+        "对每个 value，从 k-1 倒序到 value 更新 dp[sum]+=dp[sum-value]",
+        "bad=sum(dp[0..k-1])",
+        "total=2^n mod MOD，返回 (total-2*bad) 的非负模值"
+      ],
+      "complexity": {
+        "time": "O(n*k)",
+        "space": "O(k)"
+      },
+      "files": {
+        "java": "solutions/count-small-subsets-and-complement/Solution.java",
+        "kotlin": "solutions/count-small-subsets-and-complement/Solution.kt",
+        "cpp": "solutions/count-small-subsets-and-complement/solution.cpp"
+      }
+    }
+  ]
+}

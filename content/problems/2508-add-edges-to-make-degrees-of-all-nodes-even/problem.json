@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2508,
+  "slug": "add-edges-to-make-degrees-of-all-nodes-even",
+  "title": "添加边使所有节点度数都为偶数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-038",
+  "studyTags": [
+    "图论",
+    "哈希表",
+    "度数"
+  ],
+  "summary": "简单无向图中最多添加两条不存在的边，问能否让所有节点度数变为偶数。",
+  "insight": "添加一条边只翻转两个端点的度数奇偶性，所以奇度节点数只能是 0、2 或 4。两个奇点可直接相连或借一个共同中间点；四个奇点只需检查三种两两配对是否都为非边。",
+  "pitfalls": [
+    "不能添加自环或已有边",
+    "奇度节点超过四必定无解",
+    "借中间点时它与两个奇点都必须尚未相连",
+    "四奇点共有三种配对方式"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-odd-vertex-pairings",
+      "title": "枚举奇度节点配对",
+      "kind": "最优",
+      "idea": "奇点很少，可常数次检查缺失边。",
+      "steps": [
+        "建立每个节点的邻接集合并收集 odd",
+        "odd 为空返回 true，数量非 2/4 返回 false",
+        "两个奇点 a,b：若 a-b 不存在返回 true；否则枚举第三点 c 检查 a-c、b-c 都不存在",
+        "四奇点检查 (a,b)(c,d)、(a,c)(b,d)、(a,d)(b,c) 任一配对",
+        "返回判断结果"
+      ],
+      "complexity": {
+        "time": "O(n + edges)",
+        "space": "O(n + edges)"
+      },
+      "files": {
+        "java": "solutions/enumerate-odd-vertex-pairings/Solution.java",
+        "kotlin": "solutions/enumerate-odd-vertex-pairings/Solution.kt",
+        "cpp": "solutions/enumerate-odd-vertex-pairings/solution.cpp"
+      }
+    }
+  ]
+}

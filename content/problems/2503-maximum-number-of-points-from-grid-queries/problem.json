@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": 2503,
+  "slug": "maximum-number-of-points-from-grid-queries",
+  "title": "矩阵查询可获得的最大分数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-038",
+  "studyTags": [
+    "数组",
+    "矩阵",
+    "排序",
+    "堆",
+    "广度优先搜索"
+  ],
+  "summary": "每个查询从左上角出发，只能进入值严格小于 query 的格子；每个首次访问格子得一分，返回各查询最大得分。",
+  "insight": "按 query 升序离线处理。用按格子值排序的小根堆维护已与左上角连通的边界；弹出所有值小于当前查询的格子并扩展邻居，累计弹出数就是答案。",
+  "pitfalls": [
+    "格子值必须严格小于查询",
+    "答案要恢复查询原顺序",
+    "邻居入堆时立即标记避免重复",
+    "左上角不满足阈值时得分为零"
+  ],
+  "solutions": [
+    {
+      "id": "offline-queries-with-frontier-heap",
+      "title": "离线查询与边界小根堆",
+      "kind": "最优",
+      "idea": "查询阈值增大时复用已扩展的可达区域。",
+      "steps": [
+        "把 [query,index] 按 query 升序排序",
+        "左上角加入按 grid value 排序的堆并标记",
+        "对每个 query，反复弹出 value<query 的边界格，count++ 并把未访问邻居入堆",
+        "answer[原下标]=count",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O((rows*cols + q) log(rows*cols + q))",
+        "space": "O(rows*cols + q)"
+      },
+      "files": {
+        "java": "solutions/offline-queries-with-frontier-heap/Solution.java",
+        "kotlin": "solutions/offline-queries-with-frontier-heap/Solution.kt",
+        "cpp": "solutions/offline-queries-with-frontier-heap/solution.cpp"
+      }
+    }
+  ]
+}

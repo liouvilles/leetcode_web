@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2515,
+  "slug": "shortest-distance-to-target-string-in-a-circular-array",
+  "title": "到目标字符串的最短距离",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-038",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "环形数组"
+  ],
+  "summary": "在环形字符串数组中从 startIndex 出发，每步可向前或向后移动一格，求到任一 target 位置的最少步数，不存在返回负一。",
+  "insight": "枚举所有等于 target 的下标 i，普通距离为 abs(i-start)，环形另一方向距离为 n-abs，取二者较小值并更新全局最小。",
+  "pitfalls": [
+    "可以沿两个方向移动",
+    "目标可能出现多次",
+    "起点已是目标时答案为零",
+    "不存在时返回负一"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-target-circular-distance",
+      "title": "枚举目标位置计算环形距离",
+      "kind": "最优",
+      "idea": "每个目标位置常数时间求最短环距。",
+      "steps": [
+        "answer 初始化为 n+1",
+        "扫描 words 的每个下标 i",
+        "若 words[i]==target，difference=abs(i-startIndex)，更新 min(difference,n-difference)",
+        "扫描后 answer 未更新则返回 -1，否则返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/enumerate-target-circular-distance/Solution.java",
+        "kotlin": "solutions/enumerate-target-circular-distance/Solution.kt",
+        "cpp": "solutions/enumerate-target-circular-distance/solution.cpp"
+      }
+    }
+  ]
+}

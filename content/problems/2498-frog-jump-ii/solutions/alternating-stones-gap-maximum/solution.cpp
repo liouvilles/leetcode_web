@@ -1,0 +1,1 @@
+class Solution { public:int maxJump(vector<int>& stones){if(stones.size()==2)return stones[1]-stones[0];int answer=stones[1]-stones[0];for(int i=2;i<(int)stones.size();++i)answer=max(answer,stones[i]-stones[i-2]);return answer;} };

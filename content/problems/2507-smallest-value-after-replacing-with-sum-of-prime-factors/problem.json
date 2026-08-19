@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2507,
+  "slug": "smallest-value-after-replacing-with-sum-of-prime-factors",
+  "title": "使用质因数之和替换后的最小值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-038",
+  "studyTags": [
+    "数学",
+    "模拟",
+    "质因数分解"
+  ],
+  "summary": "可反复把 n 替换为其所有质因数（按重数）的和，求过程中能达到的最小值。",
+  "insight": "对合数，质因数和不会大于原值；不断替换直到新值等于当前值，此时通常已到质数或稳定点，后续不会再变化。",
+  "pitfalls": [
+    "质因数按重数累计",
+    "质数的因数和等于自身",
+    "每轮必须对当前值重新分解"
+  ],
+  "solutions": [
+    {
+      "id": "repeat-prime-factor-sum",
+      "title": "重复质因数分解直到稳定",
+      "kind": "最优",
+      "idea": "每轮试除求带重数的质因数和。",
+      "steps": [
+        "定义 factorSum(value)：从 divisor=2 试除，反复整除并累加 divisor，最后剩余大于一则累加",
+        "计算 next=factorSum(n)",
+        "next==n 时返回 n，否则令 n=next 继续"
+      ],
+      "complexity": {
+        "time": "O(iterations * sqrt(n))",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/repeat-prime-factor-sum/Solution.java",
+        "kotlin": "solutions/repeat-prime-factor-sum/Solution.kt",
+        "cpp": "solutions/repeat-prime-factor-sum/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "deleteGreatestValue",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两行三轮结果为八",
+      "args": [
+        [
+          [
+            1,
+            2,
+            4
+          ],
+          [
+            3,
+            3,
+            1
+          ]
+        ]
+      ],
+      "expected": 8
+    },
+    {
+      "name": "单元素矩阵直接返回该值",
+      "args": [
+        [
+          [
+            10
+          ]
+        ]
+      ],
+      "expected": 10
+    },
+    {
+      "name": "两行排序后列最大值和为七",
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      ],
+      "expected": 7
+    }
+  ]
+}

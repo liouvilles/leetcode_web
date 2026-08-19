@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2492,
+  "slug": "minimum-score-of-a-path-between-two-cities",
+  "title": "两个城市间路径的最小分数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-038",
+  "studyTags": [
+    "图论",
+    "广度优先搜索",
+    "连通分量"
+  ],
+  "summary": "无向带权图中路径分数定义为路径上最小边权；路径允许重复经过城市和道路，求城市一到城市 n 的最小可能分数。",
+  "insight": "由于允许绕行，城市一所在连通分量中的任意边都可以被插入一条从一到 n 的行走路线；答案就是该连通分量的最小边权。",
+  "pitfalls": [
+    "目标是最小化路径上的最小边而非最短路",
+    "路径允许重复节点",
+    "只统计城市一所在连通分量"
+  ],
+  "solutions": [
+    {
+      "id": "component-bfs-minimum-edge",
+      "title": "遍历连通分量取最小边",
+      "kind": "最优",
+      "idea": "BFS 访问所有从城市一可达的城市和边。",
+      "steps": [
+        "建无向邻接表 [neighbor,distance]",
+        "从城市一入队并标记",
+        "弹出节点时用其所有边权更新 answer",
+        "未访问邻居入队",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n + roads)",
+        "space": "O(n + roads)"
+      },
+      "files": {
+        "java": "solutions/component-bfs-minimum-edge/Solution.java",
+        "kotlin": "solutions/component-bfs-minimum-edge/Solution.kt",
+        "cpp": "solutions/component-bfs-minimum-edge/solution.cpp"
+      }
+    }
+  ]
+}

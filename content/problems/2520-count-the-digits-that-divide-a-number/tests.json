@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countDigits",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "七能整除自身",
+      "args": [
+        7
+      ],
+      "expected": 1
+    },
+    {
+      "name": "一二一中两个一可整除",
+      "args": [
+        121
+      ],
+      "expected": 2
+    },
+    {
+      "name": "一二四八四个位都可整除",
+      "args": [
+        1248
+      ],
+      "expected": 4
+    }
+  ]
+}

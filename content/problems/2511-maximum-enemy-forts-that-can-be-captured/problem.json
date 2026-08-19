@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2511,
+  "slug": "maximum-enemy-forts-that-can-be-captured",
+  "title": "最多可以摧毁的敌人城堡数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-038",
+  "studyTags": [
+    "数组",
+    "双指针"
+  ],
+  "summary": "数组中 1 是己方城堡、负一是敌方城堡、零是空地；可从一方城堡沿连续空地移动到另一方城堡并占领沿途，求最多可占领的空地数。",
+  "insight": "合法区间的两个非零端点必须符号相反，中间自然全是零。扫描相邻的非零位置，符号不同则用下标差减一更新答案。",
+  "pitfalls": [
+    "端点必须一个一、一个负一，方向不限",
+    "两个端点之间不能出现其他城堡",
+    "统计的是中间零的数量"
+  ],
+  "solutions": [
+    {
+      "id": "scan-consecutive-nonzero-boundaries",
+      "title": "扫描相邻非零边界",
+      "kind": "最优",
+      "idea": "只保留上一个非零位置即可。",
+      "steps": [
+        "previous=-1、answer=0",
+        "扫描 forts，遇零跳过",
+        "若 previous 有效且 forts[previous]!=forts[i]，更新 i-previous-1",
+        "令 previous=i",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/scan-consecutive-nonzero-boundaries/Solution.java",
+        "kotlin": "solutions/scan-consecutive-nonzero-boundaries/Solution.kt",
+        "cpp": "solutions/scan-consecutive-nonzero-boundaries/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2517,
+  "slug": "maximum-tastiness-of-candy-basket",
+  "title": "礼盒的最大甜蜜度",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-038",
+  "studyTags": [
+    "数组",
+    "排序",
+    "二分查找",
+    "贪心"
+  ],
+  "summary": "从价格数组选 k 颗糖，礼盒甜蜜度为任意两颗价格差绝对值的最小值，求可达到的最大甜蜜度。",
+  "insight": "排序后给定最小间距 d，可以贪心先选最便宜糖，再选每个与上次价格至少相差 d 的最早糖；若能选满 k，则 d 可行。可行性随 d 单调，二分最大值。",
+  "pitfalls": [
+    "价格可重复所以答案可能为零",
+    "要最大化的是所有两两差中的最小值",
+    "可行性贪心应选择最早满足间距的糖"
+  ],
+  "solutions": [
+    {
+      "id": "binary-search-minimum-gap",
+      "title": "二分最小价格间距",
+      "kind": "最优",
+      "idea": "排序后贪心验证候选甜蜜度。",
+      "steps": [
+        "排序 price",
+        "二分区间 [0,(max-min)/(k-1)]",
+        "check(distance)：从 price[0] 开始，遇到与 last 差至少 distance 的价格就选择",
+        "若选择数达到 k 则 distance 可行，向上收缩二分",
+        "返回最大可行距离"
+      ],
+      "complexity": {
+        "time": "O(n log priceRange + n log n)",
+        "space": "O(log n) sorting"
+      },
+      "files": {
+        "java": "solutions/binary-search-minimum-gap/Solution.java",
+        "kotlin": "solutions/binary-search-minimum-gap/Solution.kt",
+        "cpp": "solutions/binary-search-minimum-gap/solution.cpp"
+      }
+    }
+  ]
+}
