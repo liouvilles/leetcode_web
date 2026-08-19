@@ -1,0 +1,1 @@
+class Solution { fun minOperationsToMakeMedianK(nums:IntArray,k:Int):Long{nums.sort();val middle=nums.size/2;var answer=0L;for(index in 0..middle)if(nums[index]>k)answer+=nums[index].toLong()-k;for(index in middle until nums.size)if(nums[index]<k)answer+=k.toLong()-nums[index];return answer} }

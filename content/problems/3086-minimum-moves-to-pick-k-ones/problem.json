@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": 3086,
+  "slug": "minimum-moves-to-pick-k-ones",
+  "title": "拾起 K 个 1 需要的最少行动次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-054",
+  "studyTags": [
+    "贪心",
+    "数组",
+    "前缀和",
+    "滑动窗口"
+  ],
+  "summary": "Alice 可任选固定位置站立，通过移动原有的 1 或至多 maxChanges 次把其他零变成 1，求恰好拾取 k 个 1 的最少行动数。",
+  "insight": "把原有 1 移到 Alice 处的代价是下标距离；新造一个 1 可在相邻位置完成“变一再移入”，固定花两步。原数组中只有站立点及其左右邻位至多三个连续 1 的边际代价小于两步。若这些廉价 1 加允许变化已足够，就直接组合；否则最优会用满变化次数，剩余 k-maxChanges 个原有 1 必为位置序列中的连续窗口，其到同一位置的距离和在中位数处最小。",
+  "pitfalls": [
+    "Alice 开始站在 1 上时会免费拾取且该位置变为零",
+    "一次变化只负责造出 1，仍需一次相邻交换才能拾取，因此通常成本为二",
+    "局部廉价原有 1 最多取连续段中的三个，不能把更长连续段误算成每个只花一步",
+    "选择若干原有 1 时最优站立点是它们位置的中位数",
+    "最优原有 1 在排序后形成连续窗口",
+    "距离和及最终答案必须使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "cheap-local-ones-and-median-windows",
+      "title": "局部廉价 1 与中位数窗口",
+      "kind": "最优",
+      "idea": "先处理至多三个局部廉价 1；不足时用满变化并计算原有 1 窗口的中位数距离。",
+      "steps": [
+        "扫描 nums，记录所有 1 的位置及最长连续 1 段",
+        "令 cheap=min(k,3,最长连续段)",
+        "若 cheap+maxChanges≥k，返回 max(0,cheap-1)+2*(k-cheap)",
+        "否则必须使用全部 maxChanges 次变化，并令 required=k-maxChanges",
+        "为 1 的位置数组建立前缀和",
+        "枚举长度 required 的连续位置窗口",
+        "用前缀和计算窗口内所有位置到中位数的距离和",
+        "取最小距离并加 2*maxChanges 后返回"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/cheap-local-ones-and-median-windows/Solution.java",
+        "kotlin": "solutions/cheap-local-ones-and-median-windows/Solution.kt",
+        "cpp": "solutions/cheap-local-ones-and-median-windows/solution.cpp"
+      }
+    }
+  ]
+}

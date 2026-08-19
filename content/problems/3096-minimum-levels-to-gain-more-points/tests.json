@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumLevels",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "第一关后前段得分已经严格更高",
+      "args": [
+        [
+          1,
+          0,
+          1,
+          0
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "五个得分关卡需完成前三关才能领先",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "两个失分关卡只能形成平局",
+      "args": [
+        [
+          0,
+          0
+        ]
+      ],
+      "expected": -1
+    },
+    {
+      "name": "直到最后一个合法分割点也无法领先",
+      "args": [
+        [
+          0,
+          1,
+          1
+        ]
+      ],
+      "expected": -1
+    },
+    {
+      "name": "第三关后首次严格超过后段得分",
+      "args": [
+        [
+          0,
+          1,
+          1,
+          1,
+          0
+        ]
+      ],
+      "expected": 3
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": 3102,
+  "slug": "minimize-manhattan-distances",
+  "title": "最小化曼哈顿距离",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-054",
+  "studyTags": [
+    "数组",
+    "数学",
+    "几何",
+    "极值"
+  ],
+  "summary": "从平面点集中恰好移除一个点，使剩余任意两点曼哈顿距离的最大值尽可能小，返回该最小最大距离。",
+  "insight": "曼哈顿直径等于 max(max(x+y)-min(x+y), max(x-y)-min(x-y))。只有当前四个变换极值点的移除可能缩小直径；枚举这些至多四个下标并重算剩余极值即可在线性时间完成。",
+  "pitfalls": [
+    "必须恰好移除一个点",
+    "曼哈顿距离用 x+y 与 x-y 两个方向刻画",
+    "极值可能由多个重复点共同取得",
+    "移除非极值点不会改变当前直径",
+    "坐标变换仍在 32 位有符号整数范围内"
+  ],
+  "solutions": [
+    {
+      "id": "try-four-transformed-extreme-points",
+      "title": "枚举四个变换极值点",
+      "kind": "最优",
+      "idea": "只尝试删除 x+y 与 x-y 的最小或最大值所在点。",
+      "steps": [
+        "扫描所有点记录 x+y 的最小与最大下标",
+        "同时记录 x-y 的最小与最大下标",
+        "把四个下标作为候选删除点",
+        "对每个候选重新扫描其余点的两个变换范围",
+        "取两个范围的最大值作为删除后的直径",
+        "返回所有候选直径的最小值"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/try-four-transformed-extreme-points/Solution.java",
+        "kotlin": "solutions/try-four-transformed-extreme-points/Solution.kt",
+        "cpp": "solutions/try-four-transformed-extreme-points/solution.cpp"
+      }
+    }
+  ]
+}

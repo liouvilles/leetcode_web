@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumSubarrayLength",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "单个二已经达到阈值",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        2
+      ],
+      "expected": 1
+    },
+    {
+      "name": "三个元素共同提供达到十的二进制位",
+      "args": [
+        [
+          2,
+          1,
+          8
+        ],
+        10
+      ],
+      "expected": 3
+    },
+    {
+      "name": "阈值为零时仍选择一个元素",
+      "args": [
+        [
+          1,
+          2
+        ],
+        0
+      ],
+      "expected": 1
+    },
+    {
+      "name": "总或值小于十六时不存在答案",
+      "args": [
+        [
+          1,
+          2,
+          4
+        ],
+        16
+      ],
+      "expected": -1
+    },
+    {
+      "name": "删除左端后仍需正确保留重复位",
+      "args": [
+        [
+          1,
+          2,
+          1,
+          4
+        ],
+        7
+      ],
+      "expected": 3
+    },
+    {
+      "name": "十亿范围内的两个高位合并达到阈值",
+      "args": [
+        [
+          536870912,
+          268435456,
+          1
+        ],
+        805306368
+      ],
+      "expected": 2
+    }
+  ]
+}

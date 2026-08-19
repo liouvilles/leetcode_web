@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": 3092,
+  "slug": "most-frequent-ids",
+  "title": "最高频率的 ID",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-054",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "堆（优先队列）",
+    "有序集合"
+  ],
+  "summary": "依次对指定 ID 的出现次数增加或减少 freq[i]，每次更新后返回当前所有 ID 中的最高出现频率。",
+  "insight": "哈希表可以在常数期望时间内维护每个 ID 的最新频率，但还需要快速取得全局最大值。每次更新后把新的 (频率,ID) 放入大根堆；旧堆项不必立即删除，查询堆顶时若其频率与哈希表中的最新值不同，就把它惰性弹出。首个有效堆顶就是当前最高频率。",
+  "pitfalls": [
+    "freq[i] 可以为负数，但题目保证累计频率不会变成负数",
+    "同一 ID 的旧频率会残留在堆中，读取答案前必须持续清理失效堆顶",
+    "频率降为零时仍要记录并压入零频率堆项，以便空集合状态返回零",
+    "累计频率最多可达 10^10，哈希表、堆和答案都必须使用 64 位整数",
+    "堆按频率降序即可，频率相同时 ID 的顺序不影响答案"
+  ],
+  "solutions": [
+    {
+      "id": "lazy-max-heap-with-frequency-map",
+      "title": "频率表与惰性删除大根堆",
+      "kind": "最优",
+      "idea": "每次保存最新频率快照，并在堆顶按哈希表校验其是否过期。",
+      "steps": [
+        "创建 ID 到当前频率的哈希表",
+        "创建按频率降序排列的大根堆",
+        "依次处理 nums[i] 与 freq[i]",
+        "计算该 ID 的新频率并写回哈希表",
+        "把 (新频率,ID) 压入堆",
+        "当堆顶频率不等于该 ID 的最新频率时弹出堆顶",
+        "把有效堆顶频率写入 answer[i]",
+        "返回答案数组"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/lazy-max-heap-with-frequency-map/Solution.java",
+        "kotlin": "solutions/lazy-max-heap-with-frequency-map/Solution.kt",
+        "cpp": "solutions/lazy-max-heap-with-frequency-map/solution.cpp"
+      }
+    }
+  ]
+}

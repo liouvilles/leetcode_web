@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": 3097,
+  "slug": "shortest-subarray-with-or-at-least-k-ii",
+  "title": "或值至少为 K 的最短子数组 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-054",
+  "studyTags": [
+    "位运算",
+    "数组",
+    "滑动窗口"
+  ],
+  "summary": "在最多二十万个非负整数中，寻找按位或结果至少为 k 的最短非空连续子数组，不存在则返回 -1。",
+  "insight": "窗口右端扩张时按位或单调不减，达到阈值后应尽量移动左端。为支持删除，用三十一项计数记录窗口内每一位出现于多少个元素；移除左端值时，只有计数降为零的位才从窗口或值中消失。每个元素最多进出窗口一次，每次只检查固定数量的二进制位。",
+  "pitfalls": [
+    "二十万规模不能枚举所有子数组",
+    "按位或不可直接通过异或撤销左端元素",
+    "相同二进制位可能由多个窗口元素提供，必须维护出现计数",
+    "阈值为零时答案是一个元素而不是空子数组",
+    "收缩时必须保持窗口非空，避免 k=0 时越界",
+    "所有元素的总或值仍小于 k 时返回 -1",
+    "数值不超过十亿，检查第零到第三十位即可"
+  ],
+  "solutions": [
+    {
+      "id": "linear-sliding-window-with-bit-counters",
+      "title": "位计数线性滑动窗口",
+      "kind": "最优",
+      "idea": "扩张右端并在满足阈值时收缩左端，以固定三十一位计数维护窗口或值。",
+      "steps": [
+        "初始化三十一位计数、left、currentOr 与哨兵答案",
+        "依次把 nums[right] 的置位加入计数并写入 currentOr",
+        "当窗口非空且 currentOr>=k 时更新最短长度",
+        "删除 nums[left] 对各个位计数的贡献",
+        "某个位计数变为零时从 currentOr 清除该位",
+        "递增 left 并继续收缩",
+        "所有右端处理完成后返回最短长度或 -1"
+      ],
+      "complexity": {
+        "time": "O(31n)",
+        "space": "O(31)"
+      },
+      "files": {
+        "java": "solutions/linear-sliding-window-with-bit-counters/Solution.java",
+        "kotlin": "solutions/linear-sliding-window-with-bit-counters/Solution.kt",
+        "cpp": "solutions/linear-sliding-window-with-bit-counters/solution.cpp"
+      }
+    }
+  ]
+}

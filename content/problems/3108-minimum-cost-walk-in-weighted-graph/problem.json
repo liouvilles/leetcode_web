@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": 3108,
+  "slug": "minimum-cost-walk-in-weighted-graph",
+  "title": "带权图里旅途的最小代价",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-054",
+  "studyTags": [
+    "数组",
+    "图",
+    "并查集",
+    "位运算"
+  ],
+  "summary": "无向图中一次旅途可重复经过顶点和边，其代价是沿途所有边权的按位与；对每个不同端点查询求最小代价，不可达返回负一。",
+  "insight": "同一连通分量内可以从起点绕行覆盖分量中的所有边，再到达终点；重复边不会改变按位与。因此任意可达的不同端点对的最小代价都等于该连通分量全部边权的按位与。",
+  "pitfalls": [
+    "walk 允许重复顶点和边",
+    "按位与加入更多边只会清除比特",
+    "同一分量内所有查询答案相同",
+    "不同连通分量之间返回 -1",
+    "边权可以为零且可能有重边"
+  ],
+  "solutions": [
+    {
+      "id": "union-find-component-edge-and",
+      "title": "并查集合并分量边权",
+      "kind": "最优",
+      "idea": "先确定连通分量，再计算每个分量全部边权的按位与。",
+      "steps": [
+        "初始化并查集",
+        "遍历所有边并合并两个端点",
+        "componentCost 以 -1 初始化",
+        "再次遍历边，把边权按位与到最终根的 componentCost",
+        "逐个处理查询",
+        "根不同则写 -1",
+        "根相同则写该分量的 componentCost"
+      ],
+      "complexity": {
+        "time": "O((n+m+q) α(n))",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/union-find-component-edge-and/Solution.java",
+        "kotlin": "solutions/union-find-component-edge-and/Solution.kt",
+        "cpp": "solutions/union-find-component-edge-and/solution.cpp"
+      }
+    }
+  ]
+}

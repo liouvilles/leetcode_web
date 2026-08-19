@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 3099,
+  "slug": "harshad-number",
+  "title": "哈沙德数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-054",
+  "studyTags": [
+    "数学",
+    "模拟"
+  ],
+  "summary": "若正整数 x 能被其十进制各位数字之和整除，则返回该数字和；否则返回负一。",
+  "insight": "保留原数用于整除判断，同时反复取个位并去掉个位即可得到数字和。x 至少为一，因此数字和不会为零。",
+  "pitfalls": [
+    "整除的是原始 x",
+    "返回值是数字和而不是 x",
+    "非哈沙德数返回 -1",
+    "x=100 的数字和为一"
+  ],
+  "solutions": [
+    {
+      "id": "digit-sum-and-divisibility-check",
+      "title": "数位和与整除判断",
+      "kind": "最优",
+      "idea": "线性提取十进制数位后检查原数取模。",
+      "steps": [
+        "保存 original=x",
+        "初始化 digitSum=0",
+        "循环累加 x%10",
+        "令 x/=10 去掉最低位",
+        "若 original%digitSum 为零则返回 digitSum",
+        "否则返回 -1"
+      ],
+      "complexity": {
+        "time": "O(log x)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/digit-sum-and-divisibility-check/Solution.java",
+        "kotlin": "solutions/digit-sum-and-divisibility-check/Solution.kt",
+        "cpp": "solutions/digit-sum-and-divisibility-check/solution.cpp"
+      }
+    }
+  ]
+}

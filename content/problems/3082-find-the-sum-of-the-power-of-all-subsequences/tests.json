@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sumOfPower",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一二三的所有外层子序列贡献六",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        3
+      ],
+      "expected": 6
+    },
+    {
+      "name": "两个三分别与二组成目标子序列",
+      "args": [
+        [
+          2,
+          3,
+          3
+        ],
+        5
+      ],
+      "expected": 4
+    },
+    {
+      "name": "所有元素总和仍小于目标时答案为零",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        7
+      ],
+      "expected": 0
+    },
+    {
+      "name": "单个目标元素只贡献一次",
+      "args": [
+        [
+          3
+        ],
+        3
+      ],
+      "expected": 1
+    },
+    {
+      "name": "三个一中每对目标子序列贡献两次",
+      "args": [
+        [
+          1,
+          1,
+          1
+        ],
+        2
+      ],
+      "expected": 6
+    },
+    {
+      "name": "大于目标的元素只扩展已有外层选择",
+      "args": [
+        [
+          1,
+          2,
+          4
+        ],
+        3
+      ],
+      "expected": 2
+    }
+  ]
+}

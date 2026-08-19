@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "stringIndices",
+  "parameterTypes": [
+    "stringArray",
+    "stringArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "官方示例的所有查询都选择最短 bcd",
+      "args": [
+        [
+          "abcd",
+          "bcd",
+          "xbcd"
+        ],
+        [
+          "cd",
+          "bcd",
+          "xyz"
+        ]
+      ],
+      "expected": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "优先最长后缀再以容器长度打破平局",
+      "args": [
+        [
+          "abcd",
+          "zzcd",
+          "xxbcd",
+          "cd"
+        ],
+        [
+          "yycd",
+          "kbcd",
+          "nomatch"
+        ]
+      ],
+      "expected": [
+        3,
+        0,
+        3
+      ]
+    },
+    {
+      "name": "容器长度相同且后缀相同时选择较小下标",
+      "args": [
+        [
+          "aaab",
+          "zzab"
+        ],
+        [
+          "xxab",
+          "q"
+        ]
+      ],
+      "expected": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "不同查询分别走到三层两层与一层后缀",
+      "args": [
+        [
+          "abcd",
+          "bcd",
+          "cd"
+        ],
+        [
+          "xbcd",
+          "zzcd",
+          "d"
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        2
+      ]
+    },
+    {
+      "name": "无公共后缀与完整单词后缀均正确选择",
+      "args": [
+        [
+          "cat",
+          "dog",
+          "bird"
+        ],
+        [
+          "fish",
+          "hotdog",
+          "copycat"
+        ]
+      ],
+      "expected": [
+        0,
+        1,
+        0
+      ]
+    }
+  ]
+}

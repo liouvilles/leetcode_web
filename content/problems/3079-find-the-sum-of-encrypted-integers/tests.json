@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sumOfEncryptedInt",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一位数加密后保持不变",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "两位数分别变为十一二十二和三十三",
+      "args": [
+        [
+          10,
+          21,
+          31
+        ]
+      ],
+      "expected": 66
+    },
+    {
+      "name": "五二三与二一三分别加密为五五五和三三三",
+      "args": [
+        [
+          523,
+          213
+        ]
+      ],
+      "expected": 888
+    },
+    {
+      "name": "一千的四个数位都替换为一",
+      "args": [
+        [
+          1000
+        ]
+      ],
+      "expected": 1111
+    },
+    {
+      "name": "三个九与一的加密值之和为一千",
+      "args": [
+        [
+          999,
+          1
+        ]
+      ],
+      "expected": 1000
+    }
+  ]
+}

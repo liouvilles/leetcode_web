@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 3090,
+  "slug": "maximum-length-substring-with-two-occurrences",
+  "title": "每个字符最多出现两次的最长子字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-054",
+  "studyTags": [
+    "哈希表",
+    "字符串",
+    "滑动窗口"
+  ],
+  "summary": "求最长连续子字符串，使其中每个字符的出现次数都不超过两次。",
+  "insight": "右端字符加入窗口后，只有它的频次可能从二变成三。此时持续右移左端并扣减频次，直到该字符重新至多出现两次；恢复合法后用当前窗口长度更新答案。",
+  "pitfalls": [
+    "要求的是连续子字符串而不是子序列",
+    "限制对窗口中的每一种字符分别生效",
+    "字符恰好出现两次仍然合法",
+    "左端收缩时必须同步减少离开字符的频次"
+  ],
+  "solutions": [
+    {
+      "id": "sliding-window-frequency-limit",
+      "title": "频次上限滑动窗口",
+      "kind": "最优",
+      "idea": "维护所有字符频次均不超过二的最大窗口。",
+      "steps": [
+        "创建二十六个字符频次数组",
+        "令 left=0、answer=0",
+        "右移 right 并增加 s[right] 频次",
+        "当新字符频次大于二时移动 left 并扣减离开字符",
+        "此时窗口重新合法，用长度更新 answer",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(26)"
+      },
+      "files": {
+        "java": "solutions/sliding-window-frequency-limit/Solution.java",
+        "kotlin": "solutions/sliding-window-frequency-limit/Solution.kt",
+        "cpp": "solutions/sliding-window-frequency-limit/solution.cpp"
+      }
+    }
+  ]
+}

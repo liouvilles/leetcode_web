@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumLengthSubstring",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三个连续 b 迫使窗口收缩到长度四",
+      "args": [
+        "bcbbbcba"
+      ],
+      "expected": 4
+    },
+    {
+      "name": "四个相同字符最长只能保留两个",
+      "args": [
+        "aaaa"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "所有字符不同则完整字符串合法",
+      "args": [
+        "abcdef"
+      ],
+      "expected": 6
+    },
+    {
+      "name": "重复块两侧最长合法窗口为四",
+      "args": [
+        "aabbaa"
+      ],
+      "expected": 4
+    },
+    {
+      "name": "第三个 c 到来前可保留长度五",
+      "args": [
+        "abaccc"
+      ],
+      "expected": 5
+    },
+    {
+      "name": "交替字符各取两次得到长度四",
+      "args": [
+        "abababab"
+      ],
+      "expected": 4
+    }
+  ]
+}

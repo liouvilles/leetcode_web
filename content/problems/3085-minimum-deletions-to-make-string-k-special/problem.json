@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": 3085,
+  "slug": "minimum-deletions-to-make-string-k-special",
+  "title": "成为 K 特殊字符串需要删除的最少字符数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-054",
+  "studyTags": [
+    "贪心",
+    "哈希表",
+    "字符串",
+    "计数",
+    "排序"
+  ],
+  "summary": "删除尽量少的字符，使最终字符串中任意两种仍出现字符的频次差不超过 k。",
+  "insight": "枚举最终保留字符的最小频次 lower。原频次低于 lower 的字符无法通过删除增大，只能全部删掉；频次高于 lower+k 的字符则只需删到上界。最优解的 lower 总能取某个原有正频次，因此枚举至多二十六种候选并计算代价即可。",
+  "pitfalls": [
+    "已经被全部删除的字符不参与最终频次差比较",
+    "低于目标下界的字符必须整类删除",
+    "高于上界的字符只删去超出部分",
+    "k 为零时所有保留字符的频次必须相等",
+    "不能把零频次当作目标下界，否则会错误限制仍出现的字符"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-final-minimum-frequency",
+      "title": "枚举最终最小频次",
+      "kind": "最优",
+      "idea": "对每个原有正频次作为下界计算必要删除数。",
+      "steps": [
+        "统计二十六个字母频次",
+        "初始化答案为 word.length",
+        "枚举每个正频次 lower",
+        "遍历所有正频次 count",
+        "count<lower 时把该字符全部删除",
+        "count>lower+k 时删去 count-(lower+k)",
+        "用总代价更新答案",
+        "返回最小值"
+      ],
+      "complexity": {
+        "time": "O(n+26²)",
+        "space": "O(26)"
+      },
+      "files": {
+        "java": "solutions/enumerate-final-minimum-frequency/Solution.java",
+        "kotlin": "solutions/enumerate-final-minimum-frequency/Solution.kt",
+        "cpp": "solutions/enumerate-final-minimum-frequency/solution.cpp"
+      }
+    }
+  ]
+}

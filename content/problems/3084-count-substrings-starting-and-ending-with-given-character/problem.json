@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 3084,
+  "slug": "count-substrings-starting-and-ending-with-given-character",
+  "title": "统计以给定字符开头和结尾的子字符串总数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-054",
+  "studyTags": [
+    "数学",
+    "字符串",
+    "计数"
+  ],
+  "summary": "统计字符串中以给定字符 c 开头且以 c 结尾的非空子字符串数量。",
+  "insight": "一个合法子字符串由它作为开头和结尾的两次 c 出现位置唯一确定，并允许两端是同一个位置。若 c 共出现 m 次，就是从这些位置中选择 i≤j 的方案数，即 m 个单字符方案加上两两不同位置的组合，共 m(m+1)/2。",
+  "pitfalls": [
+    "单个字符 c 本身也是合法子字符串",
+    "统计的是按位置区分的子字符串，不需要对子串内容去重",
+    "没有出现 c 时答案为零",
+    "出现次数可达十万，组合数超过 int，必须使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "count-occurrences-and-combinations",
+      "title": "出现次数与组合计数",
+      "kind": "最优",
+      "idea": "把每个合法子字符串映射为一对 c 的出现位置。",
+      "steps": [
+        "遍历 s 统计 c 的出现次数 count",
+        "每个出现位置可独自作为长度一子字符串",
+        "任意两个不同出现位置唯一确定一个更长子字符串",
+        "返回 count*(count+1)/2"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/count-occurrences-and-combinations/Solution.java",
+        "kotlin": "solutions/count-occurrences-and-combinations/Solution.kt",
+        "cpp": "solutions/count-occurrences-and-combinations/solution.cpp"
+      }
+    }
+  ]
+}

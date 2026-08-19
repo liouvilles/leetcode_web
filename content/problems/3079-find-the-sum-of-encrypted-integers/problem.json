@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": 3079,
+  "slug": "find-the-sum-of-encrypted-integers",
+  "title": "求出加密整数的和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-054",
+  "studyTags": [
+    "数组",
+    "数学",
+    "模拟"
+  ],
+  "summary": "一个正整数的加密结果会把它的每一位都替换为原数中的最大数位；求数组中所有整数加密后的总和。",
+  "insight": "扫描一个数的十进制位时，可以同时求出最大数位，并用 place=place*10+1 构造与原数位数相同的全一整数。二者相乘就是每一位均为最大数位的加密结果，无需字符串转换。",
+  "pitfalls": [
+    "加密后保留原整数的十进制位数，包括原数中的零位",
+    "要取整个整数的最大数位，而不是逐位独立处理",
+    "数值一千有四位，加密后可能变成一千一百一十一",
+    "输入均为正整数，因此数位扫描至少执行一次",
+    "题目约束下所有加密值之和可以用 int 保存"
+  ],
+  "solutions": [
+    {
+      "id": "scan-digits-and-build-repunits",
+      "title": "扫描数位并构造全一整数",
+      "kind": "最优",
+      "idea": "逐个整数求最大数位和相同位数的全一整数，再累加二者乘积。",
+      "steps": [
+        "初始化总和 answer=0",
+        "对每个 number 保存待扫描副本 value",
+        "循环取 value 的个位并更新 maximum",
+        "每处理一位就令 place=place*10+1",
+        "扫描结束后 maximum*place 即为加密值",
+        "把加密值加入 answer",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(所有数字的十进制位数之和)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/scan-digits-and-build-repunits/Solution.java",
+        "kotlin": "solutions/scan-digits-and-build-repunits/Solution.kt",
+        "cpp": "solutions/scan-digits-and-build-repunits/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxBottlesDrunk",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "十三瓶从门槛六开始可再换两瓶",
+      "args": [
+        13,
+        6
+      ],
+      "expected": 15
+    },
+    {
+      "name": "十瓶从门槛三开始可再换三瓶",
+      "args": [
+        10,
+        3
+      ],
+      "expected": 13
+    },
+    {
+      "name": "一瓶且初始门槛一时可额外换一瓶",
+      "args": [
+        1,
+        1
+      ],
+      "expected": 2
+    },
+    {
+      "name": "空瓶不足初始门槛时不能兑换",
+      "args": [
+        5,
+        10
+      ],
+      "expected": 5
+    },
+    {
+      "name": "一百瓶从门槛一开始共喝一百一十四瓶",
+      "args": [
+        100,
+        1
+      ],
+      "expected": 114
+    },
+    {
+      "name": "两个空瓶按门槛二恰好换一次",
+      "args": [
+        2,
+        2
+      ],
+      "expected": 3
+    }
+  ]
+}

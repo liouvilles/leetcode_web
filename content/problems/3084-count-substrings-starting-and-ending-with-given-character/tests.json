@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countSubstrings",
+  "parameterTypes": [
+    "string",
+    "char"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "三个 a 产生六个首尾位置组合",
+      "args": [
+        "abada",
+        "a"
+      ],
+      "expected": 6
+    },
+    {
+      "name": "三个 z 的所有子字符串都合法",
+      "args": [
+        "zzz",
+        "z"
+      ],
+      "expected": 6
+    },
+    {
+      "name": "给定字符没有出现",
+      "args": [
+        "leetcode",
+        "x"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "给定字符只出现一次",
+      "args": [
+        "abc",
+        "b"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "四次出现对应十种位置组合",
+      "args": [
+        "cacacca",
+        "c"
+      ],
+      "expected": 10
+    },
+    {
+      "name": "单字符字符串形成一个合法子串",
+      "args": [
+        "q",
+        "q"
+      ],
+      "expected": 1
+    }
+  ]
+}

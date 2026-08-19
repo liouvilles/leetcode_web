@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": 3098,
+  "slug": "find-the-sum-of-subsequence-powers",
+  "title": "求出所有子序列的能量和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-054",
+  "studyTags": [
+    "数组",
+    "排序",
+    "动态规划",
+    "枚举"
+  ],
+  "summary": "长度为 k 的子序列能量等于其中任意两元素绝对差的最小值；求 nums 所有长度 k 子序列的能量和并取模。",
+  "insight": "排序后，子序列的最小两两差一定出现在相邻选中元素之间。对每个可能的正差 d，动态规划统计相邻差都至少为 d 的长度 k 子序列数 F(d)；能量恰为 d 的数量是 F(d) 减去下一个更大候选差的 F。",
+  "pitfalls": [
+    "子序列保留选择顺序但排序不改变元素组合",
+    "最小两两差可化为排序后相邻选中元素的最小差",
+    "重复元素产生零能量且无需贡献答案",
+    "不同候选差必须去重并升序处理",
+    "计数和贡献都要持续对 1e9+7 取模"
+  ],
+  "solutions": [
+    {
+      "id": "threshold-counting-dp-over-distinct-differences",
+      "title": "候选差阈值计数 DP",
+      "kind": "最优",
+      "idea": "统计能量至少为每个候选差的子序列数，再相邻做差得到精确分布。",
+      "steps": [
+        "排序 nums",
+        "收集所有正的两两差并去重升序",
+        "对每个差 d 计算 F(d)",
+        "DP 的 previous[i] 表示固定长度且以 i 结尾的方案数",
+        "用前缀和与单调指针找到所有可接在 i 前的元素",
+        "用 F(d)-F(next d) 得到能量恰为 d 的方案数",
+        "累加 d 乘方案数并取模"
+      ],
+      "complexity": {
+        "time": "O(n³k)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/threshold-counting-dp-over-distinct-differences/Solution.java",
+        "kotlin": "solutions/threshold-counting-dp-over-distinct-differences/Solution.kt",
+        "cpp": "solutions/threshold-counting-dp-over-distinct-differences/solution.cpp"
+      }
+    }
+  ]
+}

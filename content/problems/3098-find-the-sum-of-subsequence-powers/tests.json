@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sumOfPowers",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四个连续数的四个三元素子序列能量均为一",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        3
+      ],
+      "expected": 4
+    },
+    {
+      "name": "两个重复元素的唯一子序列能量为零",
+      "args": [
+        [
+          2,
+          2
+        ],
+        2
+      ],
+      "expected": 0
+    },
+    {
+      "name": "三个数所有二元素子序列差值和为十",
+      "args": [
+        [
+          4,
+          3,
+          -1
+        ],
+        2
+      ],
+      "expected": 10
+    },
+    {
+      "name": "重复一与三形成两个差二的子序列",
+      "args": [
+        [
+          1,
+          1,
+          3
+        ],
+        2
+      ],
+      "expected": 4
+    },
+    {
+      "name": "选择全部元素时能量为最小相邻差四",
+      "args": [
+        [
+          1,
+          5,
+          9
+        ],
+        3
+      ],
+      "expected": 4
+    },
+    {
+      "name": "两端极值的能量为二亿",
+      "args": [
+        [
+          -100000000,
+          100000000
+        ],
+        2
+      ],
+      "expected": 200000000
+    }
+  ]
+}

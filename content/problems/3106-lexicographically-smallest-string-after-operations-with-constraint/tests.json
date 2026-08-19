@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getSmallestString",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "三个预算依次把 zbb 变成 aaa",
+      "args": [
+        "zbbz",
+        3
+      ],
+      "expected": "aaaz"
+    },
+    {
+      "name": "先环绕把 x 变 a 再把下一 x 前移一",
+      "args": [
+        "xaxcd",
+        4
+      ],
+      "expected": "aawcd"
+    },
+    {
+      "name": "零预算保持原字符串",
+      "args": [
+        "lol",
+        0
+      ],
+      "expected": "lol"
+    },
+    {
+      "name": "充足预算把所有字符变成 a",
+      "args": [
+        "abc",
+        100
+      ],
+      "expected": "aaa"
+    },
+    {
+      "name": "n 到 a 需十三步而十二步只能到 b",
+      "args": [
+        "n",
+        12
+      ],
+      "expected": "b"
+    },
+    {
+      "name": "y 的一步预算向前变成 x",
+      "args": [
+        "y",
+        1
+      ],
+      "expected": "x"
+    }
+  ]
+}

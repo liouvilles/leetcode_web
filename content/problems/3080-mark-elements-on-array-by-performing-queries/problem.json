@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": 3080,
+  "slug": "mark-elements-on-array-by-performing-queries",
+  "title": "执行操作标记数组中的元素",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-054",
+  "studyTags": [
+    "数组",
+    "排序",
+    "模拟",
+    "双指针"
+  ],
+  "summary": "依次处理查询：先标记指定下标，再标记至多 k 个值最小的未标记元素，值相同时优先较小下标；返回每次查询后未标记元素之和。",
+  "insight": "所有查询选择最小元素时使用同一套“数值、下标”顺序，因此只需预先把全部下标按这个顺序排序。用单调指针跳过已标记下标，每个下标至多被指针访问一次；同时维护未标记元素总和，每次新标记一个元素就减去它。",
+  "pitfalls": [
+    "每次查询要先尝试标记指定下标，再选择 k 个最小元素",
+    "指定下标已经标记时不能重复扣减其值",
+    "相同数值必须优先标记下标较小者",
+    "k 超过剩余元素数时要把所有剩余元素标记",
+    "排序指针可能遇到被指定操作提前标记的下标，必须跳过",
+    "未标记元素总和最大可达一百亿，必须使用 64 位整数"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-indices-and-monotone-pointer",
+      "title": "排序下标与单调指针",
+      "kind": "最优",
+      "idea": "预排序全局标记优先级，并用指针和布尔数组模拟所有查询。",
+      "steps": [
+        "计算 nums 的 64 位总和 remaining",
+        "建立下标数组 order，并按 nums[index]、index 升序排序",
+        "建立 marked 数组与指向 order 开头的 pointer",
+        "处理查询时，若指定下标未标记则标记并从 remaining 扣除其值",
+        "重复至多 k 次：先让 pointer 跳过已标记下标",
+        "若仍有未标记下标，标记 order[pointer]、扣减其值并移动指针",
+        "记录当前 remaining",
+        "返回所有查询后的总和数组"
+      ],
+      "complexity": {
+        "time": "O(n log n+m+n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/sorted-indices-and-monotone-pointer/Solution.java",
+        "kotlin": "solutions/sorted-indices-and-monotone-pointer/Solution.kt",
+        "cpp": "solutions/sorted-indices-and-monotone-pointer/solution.cpp"
+      }
+    }
+  ]
+}

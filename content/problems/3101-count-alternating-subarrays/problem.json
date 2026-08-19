@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": 3101,
+  "slug": "count-alternating-subarrays",
+  "title": "交替子数组计数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-054",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "计数"
+  ],
+  "summary": "二进制数组的交替子数组要求所有相邻元素不同；统计全部非空交替子数组。",
+  "insight": "令 ending 表示以当前位置结尾的交替子数组数量。若当前值与前一值不同，所有此前结尾方案都能延长并加上单元素方案，ending 加一；否则只能重新从单元素开始。",
+  "pitfalls": [
+    "单元素子数组总是交替",
+    "相邻相等会把当前连续长度重置为一",
+    "不同交替区间的贡献可逐位置累加",
+    "长度十万的答案会超过 32 位"
+  ],
+  "solutions": [
+    {
+      "id": "alternating-run-ending-count",
+      "title": "交替连续段结尾计数",
+      "kind": "最优",
+      "idea": "累计每个位置可作为右端点的交替子数组数量。",
+      "steps": [
+        "ending=1 处理首元素",
+        "answer 初始化为一",
+        "从第二个元素开始扫描",
+        "相邻不同则 ending++",
+        "相邻相同则 ending=1",
+        "把 ending 加入 answer",
+        "返回 64 位答案"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/alternating-run-ending-count/Solution.java",
+        "kotlin": "solutions/alternating-run-ending-count/Solution.kt",
+        "cpp": "solutions/alternating-run-ending-count/solution.cpp"
+      }
+    }
+  ]
+}

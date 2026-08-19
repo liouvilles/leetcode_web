@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "scoreOfString",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "hello 的相邻字符差总和为十三",
+      "args": [
+        "hello"
+      ],
+      "expected": 13
+    },
+    {
+      "name": "zaz 两次跨越二十五总分五十",
+      "args": [
+        "zaz"
+      ],
+      "expected": 50
+    },
+    {
+      "name": "两个相同字符得分为零",
+      "args": [
+        "aa"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "连续字母 abc 得分为二",
+      "args": [
+        "abc"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "azby 的三段字符差总和七十二",
+      "args": [
+        "azby"
+      ],
+      "expected": 72
+    }
+  ]
+}

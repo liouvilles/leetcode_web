@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumSubarrayLength",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "单个二已经达到阈值",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        2
+      ],
+      "expected": 1
+    },
+    {
+      "name": "必须合并三个元素才能使或值达到十",
+      "args": [
+        [
+          2,
+          1,
+          8
+        ],
+        10
+      ],
+      "expected": 3
+    },
+    {
+      "name": "阈值为零时最短非空子数组长度为一",
+      "args": [
+        [
+          1,
+          2
+        ],
+        0
+      ],
+      "expected": 1
+    },
+    {
+      "name": "所有元素的或值仍不足时返回负一",
+      "args": [
+        [
+          1,
+          1,
+          1
+        ],
+        8
+      ],
+      "expected": -1
+    },
+    {
+      "name": "左右两个长度三窗口都能达到七",
+      "args": [
+        [
+          1,
+          2,
+          1,
+          4
+        ],
+        7
+      ],
+      "expected": 3
+    }
+  ]
+}

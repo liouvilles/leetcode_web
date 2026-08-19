@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 3105,
+  "slug": "longest-strictly-increasing-or-strictly-decreasing-subarray",
+  "title": "最长的严格递增或递减子数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-054",
+  "studyTags": [
+    "数组",
+    "动态规划"
+  ],
+  "summary": "求 nums 中严格递增或严格递减的连续非空子数组的最大长度。",
+  "insight": "扫描到当前位置时，只需维护以它结尾的严格递增长度和严格递减长度。根据与前一元素的大小关系延长对应方向，另一个方向重置为一；相等时两者都重置。",
+  "pitfalls": [
+    "要求连续子数组而不是子序列",
+    "递增和递减都必须严格",
+    "相等元素会同时打断两个方向",
+    "单元素答案为一"
+  ],
+  "solutions": [
+    {
+      "id": "track-increasing-and-decreasing-runs",
+      "title": "维护双向单调连续段",
+      "kind": "最优",
+      "idea": "在线更新以每个位置结尾的递增与递减子数组长度。",
+      "steps": [
+        "increasing=decreasing=answer=1",
+        "从第二个元素开始扫描",
+        "当前值更大时延长 increasing 并重置 decreasing",
+        "当前值更小时延长 decreasing 并重置 increasing",
+        "相等时两者都重置为一",
+        "用两者更新 answer",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/track-increasing-and-decreasing-runs/Solution.java",
+        "kotlin": "solutions/track-increasing-and-decreasing-runs/Solution.kt",
+        "cpp": "solutions/track-increasing-and-decreasing-runs/solution.cpp"
+      }
+    }
+  ]
+}

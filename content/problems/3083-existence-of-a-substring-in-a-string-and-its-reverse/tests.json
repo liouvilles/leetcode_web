@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isSubstringPresent",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "重复的 ee 在原串与反转串中都出现",
+      "args": [
+        "leetcode"
+      ],
+      "expected": true
+    },
+    {
+      "name": "回文串包含多组互为反向的相邻对",
+      "args": [
+        "abcba"
+      ],
+      "expected": true
+    },
+    {
+      "name": "没有反向相邻对时返回假",
+      "args": [
+        "abcd"
+      ],
+      "expected": false
+    },
+    {
+      "name": "单个相同字符对与自身反向一致",
+      "args": [
+        "aa"
+      ],
+      "expected": true
+    },
+    {
+      "name": "长度一字符串不存在长度二子串",
+      "args": [
+        "a"
+      ],
+      "expected": false
+    },
+    {
+      "name": "三个不同相邻对均没有反向对应",
+      "args": [
+        "abca"
+      ],
+      "expected": false
+    }
+  ]
+}

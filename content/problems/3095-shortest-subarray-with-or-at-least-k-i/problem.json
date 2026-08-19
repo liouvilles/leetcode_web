@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": 3095,
+  "slug": "shortest-subarray-with-or-at-least-k-i",
+  "title": "或值至少为 K 的最短子数组 I",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-054",
+  "studyTags": [
+    "位运算",
+    "数组",
+    "滑动窗口"
+  ],
+  "summary": "寻找按位或结果大于等于 k 的最短非空连续子数组，不存在则返回 -1。",
+  "insight": "向窗口右侧加入元素时按位或只会增加，可以在达到 k 后不断收缩左端。由于按位或没有直接的逆运算，为每一位维护窗口内含该位的元素个数；删除左端元素后，只有计数降为零的位才从当前或值中清除。这样左右指针都只前进一次。",
+  "pitfalls": [
+    "子数组必须非空，k=0 时答案仍是 1",
+    "数值比较要求当前或值大于等于 k，而不是必须等于 k",
+    "删除元素时不能用异或撤销按位或",
+    "某一位只有在窗口中的出现计数降为零时才能清除",
+    "收缩循环要检查 left<=right，避免 k=0 时继续处理空窗口",
+    "不存在满足条件的窗口时返回 -1"
+  ],
+  "solutions": [
+    {
+      "id": "sliding-window-with-bit-counts",
+      "title": "位计数支持删除的滑动窗口",
+      "kind": "最优",
+      "idea": "用每一位的出现次数维护可扩张、可收缩的窗口或值。",
+      "steps": [
+        "创建三十一位计数数组 bitCount",
+        "令 left=0、currentOr=0、answer=n+1",
+        "右指针依次加入 nums[right] 并更新相关位计数与 currentOr",
+        "当窗口非空且 currentOr>=k 时记录长度",
+        "从位计数中删除 nums[left]",
+        "计数变零的位从 currentOr 清除",
+        "left 加一后继续尝试收缩",
+        "最终未更新答案则返回 -1"
+      ],
+      "complexity": {
+        "time": "O(31n)",
+        "space": "O(31)"
+      },
+      "files": {
+        "java": "solutions/sliding-window-with-bit-counts/Solution.java",
+        "kotlin": "solutions/sliding-window-with-bit-counts/Solution.kt",
+        "cpp": "solutions/sliding-window-with-bit-counts/solution.cpp"
+      }
+    }
+  ]
+}

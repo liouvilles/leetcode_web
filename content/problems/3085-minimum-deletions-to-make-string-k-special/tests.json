@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumDeletions",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "零容差时删除三个字符平衡频次",
+      "args": [
+        "aabcaba",
+        0
+      ],
+      "expected": 3
+    },
+    {
+      "name": "容差二时删除一个 a 与一个 d",
+      "args": [
+        "dabdcbdcdcd",
+        2
+      ],
+      "expected": 2
+    },
+    {
+      "name": "删除唯一的 b 后只保留六个 a",
+      "args": [
+        "aaabaaa",
+        2
+      ],
+      "expected": 1
+    },
+    {
+      "name": "单一字符天然满足零容差",
+      "args": [
+        "aaaa",
+        0
+      ],
+      "expected": 0
+    },
+    {
+      "name": "三个字符频次相同无需删除",
+      "args": [
+        "aabbcc",
+        0
+      ],
+      "expected": 0
+    },
+    {
+      "name": "频次二三四在容差一时删除一个字符",
+      "args": [
+        "aaabbbbcc",
+        1
+      ],
+      "expected": 1
+    }
+  ]
+}

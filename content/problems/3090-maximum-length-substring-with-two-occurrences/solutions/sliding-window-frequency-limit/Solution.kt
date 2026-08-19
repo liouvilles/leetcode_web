@@ -1,0 +1,1 @@
+class Solution { fun maximumLengthSubstring(s:String):Int{val frequency=IntArray(26);var left=0;var answer=0;for(right in s.indices){val letter=s[right]-'a';frequency[letter]++;while(frequency[letter]>2)frequency[s[left++]-'a']--;answer=maxOf(answer,right-left+1)};return answer} }

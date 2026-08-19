@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimizeStringValue",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "三个问号用最小的三个不同字母",
+      "args": [
+        "???"
+      ],
+      "expected": "abc"
+    },
+    {
+      "name": "已有两个 a 时选择 b 与 c",
+      "args": [
+        "a?a?"
+      ],
+      "expected": "abac"
+    },
+    {
+      "name": "没有问号时原字符串保持不变",
+      "args": [
+        "leetcode"
+      ],
+      "expected": "leetcode"
+    },
+    {
+      "name": "已有 b 时两个问号选择 a 与 c",
+      "args": [
+        "b??"
+      ],
+      "expected": "bac"
+    },
+    {
+      "name": "二十七个问号均衡为两个 a 和其余各一个",
+      "args": [
+        "???????????????????????????"
+      ],
+      "expected": "aabcdefghijklmnopqrstuvwxyz"
+    },
+    {
+      "name": "两个 z 使问号优先选择 a 与 b",
+      "args": [
+        "z??z"
+      ],
+      "expected": "zabz"
+    }
+  ]
+}

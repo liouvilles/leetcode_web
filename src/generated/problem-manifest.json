@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "problemCount": 2171,
-  "solutionCount": 2198,
-  "implementationCount": 6594,
+  "problemCount": 2196,
+  "solutionCount": 2223,
+  "implementationCount": 6669,
   "problems": [
     {
       "id": 1,
@@ -32583,6 +32583,385 @@
       "batch": "batch-053",
       "solutionCount": 1,
       "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3079,
+      "slug": "find-the-sum-of-encrypted-integers",
+      "title": "求出加密整数的和",
+      "studyTags": [
+        "数组",
+        "数学",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-054",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3080,
+      "slug": "mark-elements-on-array-by-performing-queries",
+      "title": "执行操作标记数组中的元素",
+      "studyTags": [
+        "数组",
+        "排序",
+        "模拟",
+        "双指针"
+      ],
+      "status": "published",
+      "batch": "batch-054",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3081,
+      "slug": "replace-question-marks-in-string-to-minimize-its-value",
+      "title": "替换字符串中的问号使分数最小",
+      "studyTags": [
+        "贪心",
+        "字符串",
+        "计数",
+        "排序",
+        "堆（优先队列）"
+      ],
+      "status": "published",
+      "batch": "batch-054",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3082,
+      "slug": "find-the-sum-of-the-power-of-all-subsequences",
+      "title": "求出所有子序列的能量和",
+      "studyTags": [
+        "数组",
+        "动态规划",
+        "组合计数"
+      ],
+      "status": "published",
+      "batch": "batch-054",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3083,
+      "slug": "existence-of-a-substring-in-a-string-and-its-reverse",
+      "title": "字符串及其反转中是否存在同一子字符串",
+      "studyTags": [
+        "哈希表",
+        "字符串",
+        "枚举"
+      ],
+      "status": "published",
+      "batch": "batch-054",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3084,
+      "slug": "count-substrings-starting-and-ending-with-given-character",
+      "title": "统计以给定字符开头和结尾的子字符串总数",
+      "studyTags": [
+        "数学",
+        "字符串",
+        "计数"
+      ],
+      "status": "published",
+      "batch": "batch-054",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3085,
+      "slug": "minimum-deletions-to-make-string-k-special",
+      "title": "成为 K 特殊字符串需要删除的最少字符数",
+      "studyTags": [
+        "贪心",
+        "哈希表",
+        "字符串",
+        "计数",
+        "排序"
+      ],
+      "status": "published",
+      "batch": "batch-054",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3086,
+      "slug": "minimum-moves-to-pick-k-ones",
+      "title": "拾起 K 个 1 需要的最少行动次数",
+      "studyTags": [
+        "贪心",
+        "数组",
+        "前缀和",
+        "滑动窗口"
+      ],
+      "status": "published",
+      "batch": "batch-054",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3090,
+      "slug": "maximum-length-substring-with-two-occurrences",
+      "title": "每个字符最多出现两次的最长子字符串",
+      "studyTags": [
+        "哈希表",
+        "字符串",
+        "滑动窗口"
+      ],
+      "status": "published",
+      "batch": "batch-054",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3091,
+      "slug": "apply-operations-to-make-sum-of-array-greater-than-or-equal-to-k",
+      "title": "执行操作使数据元素之和大于等于 K",
+      "studyTags": [
+        "贪心",
+        "数学",
+        "枚举"
+      ],
+      "status": "published",
+      "batch": "batch-054",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3092,
+      "slug": "most-frequent-ids",
+      "title": "最高频率的 ID",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "堆（优先队列）",
+        "有序集合"
+      ],
+      "status": "published",
+      "batch": "batch-054",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3093,
+      "slug": "longest-common-suffix-queries",
+      "title": "最长公共后缀查询",
+      "studyTags": [
+        "字典树",
+        "数组",
+        "字符串"
+      ],
+      "status": "published",
+      "batch": "batch-054",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3095,
+      "slug": "shortest-subarray-with-or-at-least-k-i",
+      "title": "或值至少为 K 的最短子数组 I",
+      "studyTags": [
+        "位运算",
+        "数组",
+        "滑动窗口"
+      ],
+      "status": "published",
+      "batch": "batch-054",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3096,
+      "slug": "minimum-levels-to-gain-more-points",
+      "title": "得到更多分数的最少关卡数目",
+      "studyTags": [
+        "数组",
+        "前缀和"
+      ],
+      "status": "published",
+      "batch": "batch-054",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3097,
+      "slug": "shortest-subarray-with-or-at-least-k-ii",
+      "title": "或值至少为 K 的最短子数组 II",
+      "studyTags": [
+        "位运算",
+        "数组",
+        "滑动窗口"
+      ],
+      "status": "published",
+      "batch": "batch-054",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3098,
+      "slug": "find-the-sum-of-subsequence-powers",
+      "title": "求出所有子序列的能量和",
+      "studyTags": [
+        "数组",
+        "排序",
+        "动态规划",
+        "枚举"
+      ],
+      "status": "published",
+      "batch": "batch-054",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3099,
+      "slug": "harshad-number",
+      "title": "哈沙德数",
+      "studyTags": [
+        "数学",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-054",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3100,
+      "slug": "water-bottles-ii",
+      "title": "换水问题 II",
+      "studyTags": [
+        "数学",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-054",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3101,
+      "slug": "count-alternating-subarrays",
+      "title": "交替子数组计数",
+      "studyTags": [
+        "数组",
+        "动态规划",
+        "计数"
+      ],
+      "status": "published",
+      "batch": "batch-054",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3102,
+      "slug": "minimize-manhattan-distances",
+      "title": "最小化曼哈顿距离",
+      "studyTags": [
+        "数组",
+        "数学",
+        "几何",
+        "极值"
+      ],
+      "status": "published",
+      "batch": "batch-054",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3105,
+      "slug": "longest-strictly-increasing-or-strictly-decreasing-subarray",
+      "title": "最长的严格递增或递减子数组",
+      "studyTags": [
+        "数组",
+        "动态规划"
+      ],
+      "status": "published",
+      "batch": "batch-054",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3106,
+      "slug": "lexicographically-smallest-string-after-operations-with-constraint",
+      "title": "满足距离约束且字典序最小的字符串",
+      "studyTags": [
+        "字符串",
+        "贪心"
+      ],
+      "status": "published",
+      "batch": "batch-054",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3107,
+      "slug": "minimum-operations-to-make-median-of-array-equal-to-k",
+      "title": "使数组中位数等于 K 的最少操作数",
+      "studyTags": [
+        "数组",
+        "贪心",
+        "排序"
+      ],
+      "status": "published",
+      "batch": "batch-054",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3108,
+      "slug": "minimum-cost-walk-in-weighted-graph",
+      "title": "带权图里旅途的最小代价",
+      "studyTags": [
+        "数组",
+        "图",
+        "并查集",
+        "位运算"
+      ],
+      "status": "published",
+      "batch": "batch-054",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3110,
+      "slug": "score-of-a-string",
+      "title": "字符串的分数",
+      "studyTags": [
+        "字符串",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-054",
+      "solutionCount": 1,
+      "testCount": 5,
       "qualityGate": "tested"
     }
   ]

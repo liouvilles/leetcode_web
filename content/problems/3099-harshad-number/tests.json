@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sumOfTheDigitsOfHarshadNumber",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "十八能被数位和九整除",
+      "args": [
+        18
+      ],
+      "expected": 9
+    },
+    {
+      "name": "二十三不能被数位和五整除",
+      "args": [
+        23
+      ],
+      "expected": -1
+    },
+    {
+      "name": "一百的数位和为一",
+      "args": [
+        100
+      ],
+      "expected": 1
+    },
+    {
+      "name": "一是最小哈沙德数",
+      "args": [
+        1
+      ],
+      "expected": 1
+    },
+    {
+      "name": "十一不能被二整除",
+      "args": [
+        11
+      ],
+      "expected": -1
+    }
+  ]
+}
