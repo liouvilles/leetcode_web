@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "bestClosingTime",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "平局时取较早的第二小时",
+      "args": [
+        "YYNY"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "全程无顾客应立即关门",
+      "args": [
+        "NNNNN"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "每小时有顾客应最后关门",
+      "args": [
+        "YYYY"
+      ],
+      "expected": 4
+    }
+  ]
+}

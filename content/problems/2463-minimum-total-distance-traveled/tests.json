@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumTotalDistance",
+  "parameterTypes": [
+    "intList",
+    "intMatrix"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "三个机器人分配到两工厂总距离四",
+      "args": [
+        [
+          0,
+          4,
+          6
+        ],
+        [
+          [
+            2,
+            2
+          ],
+          [
+            6,
+            2
+          ]
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "两侧工厂各维修一个机器人",
+      "args": [
+        [
+          1,
+          -1
+        ],
+        [
+          [
+            -2,
+            1
+          ],
+          [
+            2,
+            1
+          ]
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "单机器人移动五格",
+      "args": [
+        [
+          -5
+        ],
+        [
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": 5
+    }
+  ]
+}

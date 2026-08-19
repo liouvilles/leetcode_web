@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "distinctAverages",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三次配对产生两种平均值",
+      "args": [
+        [
+          4,
+          1,
+          4,
+          0,
+          3,
+          5
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "两个元素只有一种平均值",
+      "args": [
+        [
+          1,
+          100
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "四个连续数两端和相同",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

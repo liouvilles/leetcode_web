@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "splitMessage",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "stringArray",
+  "cases": [
+    {
+      "name": "六字符恰分成两份",
+      "args": [
+        "abcdef",
+        8
+      ],
+      "expected": [
+        "abc<1/2>",
+        "def<2/2>"
+      ]
+    },
+    {
+      "name": "一份恰好容纳三字符",
+      "args": [
+        "abc",
+        8
+      ],
+      "expected": [
+        "abc<1/1>"
+      ]
+    },
+    {
+      "name": "限制等于后缀长度时无解",
+      "args": [
+        "abc",
+        5
+      ],
+      "expected": []
+    }
+  ]
+}

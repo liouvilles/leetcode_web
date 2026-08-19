@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "appendCharacters",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "已匹配 co 后需追加四字符",
+      "args": [
+        "coaching",
+        "coding"
+      ],
+      "expected": 4
+    },
+    {
+      "name": "目标单字符已经是子序列",
+      "args": [
+        "abcde",
+        "a"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "没有字符匹配需追加全部目标",
+      "args": [
+        "z",
+        "abc"
+      ],
+      "expected": 3
+    }
+  ]
+}

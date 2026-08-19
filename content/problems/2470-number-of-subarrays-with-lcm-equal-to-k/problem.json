@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2470,
+  "slug": "number-of-subarrays-with-lcm-equal-to-k",
+  "title": "最小公倍数为 K 的子数组数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-037",
+  "studyTags": [
+    "数组",
+    "数学",
+    "数论"
+  ],
+  "summary": "统计最小公倍数恰等于 k 的连续非空子数组数量。",
+  "insight": "固定左端点向右扩展并维护当前 LCM。LCM 只会保持或增大；一旦它不再是 k 的约数，继续加入元素也不可能回到 k，可立即停止。",
+  "pitfalls": [
+    "子数组必须连续",
+    "更新 LCM 时先除 gcd 避免无谓放大",
+    "当前 LCM 不整除 k 后可以剪枝"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-left-with-rolling-lcm",
+      "title": "枚举左端点并滚动计算 LCM",
+      "kind": "最优",
+      "idea": "利用整除关系提前终止每次右扩。",
+      "steps": [
+        "对每个 left 初始化 lcm=1",
+        "right 从 left 右移，lcm=lcm/gcd(lcm,nums[right])*nums[right]",
+        "若 k%lcm!=0 则 break",
+        "若 lcm==k 则答案加一"
+      ],
+      "complexity": {
+        "time": "O(n² log value)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/enumerate-left-with-rolling-lcm/Solution.java",
+        "kotlin": "solutions/enumerate-left-with-rolling-lcm/Solution.kt",
+        "cpp": "solutions/enumerate-left-with-rolling-lcm/solution.cpp"
+      }
+    }
+  ]
+}

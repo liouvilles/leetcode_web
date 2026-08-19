@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2468,
+  "slug": "split-message-based-on-limit",
+  "title": "根据限制分割消息",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-037",
+  "studyTags": [
+    "字符串",
+    "枚举",
+    "模拟"
+  ],
+  "summary": "把消息分成若干部分，每部分追加形如 <a/b> 的编号后缀；除最后部分外长度必须等于 limit，求部分数最少的合法分割。",
+  "insight": "枚举总份数 b。所有后缀总长度可由 sum(digits(a)) 加上每份固定的尖括号、斜杠和 digits(b) 计算，从而判断总内容容量是否足够；首次可行的 b 即最少份数。",
+  "pitfalls": [
+    "后缀本身计入 limit",
+    "a 或 b 跨十进制位时后缀长度改变",
+    "每一部分都必须至少承载一个消息字符"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-part-count-by-capacity",
+      "title": "枚举份数并计算总容量",
+      "kind": "最优",
+      "idea": "先找最小可行份数，再按各后缀剩余容量切片。",
+      "steps": [
+        "维护 prefixDigits=sum(digits(1..parts))",
+        "对 parts 从一枚举到 message.length",
+        "若最长后缀仍能留一个字符，且 parts*limit-prefixDigits-parts*(3+digits(parts)) 不小于消息长度，则可行",
+        "逐份生成 suffix，取至多 limit-suffix.length 个字符拼接"
+      ],
+      "complexity": {
+        "time": "O(message length)",
+        "space": "O(number of parts)"
+      },
+      "files": {
+        "java": "solutions/enumerate-part-count-by-capacity/Solution.java",
+        "kotlin": "solutions/enumerate-part-count-by-capacity/Solution.kt",
+        "cpp": "solutions/enumerate-part-count-by-capacity/solution.cpp"
+      }
+    }
+  ]
+}

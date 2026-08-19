@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "mostProfitablePath",
+  "parameterTypes": [
+    "intMatrix",
+    "int",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "官方分支树最大净收入六",
+      "args": [
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        3,
+        [
+          -2,
+          4,
+          2,
+          -4,
+          6
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "Bob 先到唯一叶节点",
+      "args": [
+        [
+          [
+            0,
+            1
+          ]
+        ],
+        1,
+        [
+          -7280,
+          2350
+        ]
+      ],
+      "expected": -7280
+    },
+    {
+      "name": "Alice 选择不在 Bob 路线的高收益叶子",
+      "args": [
+        [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        1,
+        [
+          4,
+          2,
+          6
+        ]
+      ],
+      "expected": 10
+    }
+  ]
+}

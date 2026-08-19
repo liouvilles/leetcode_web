@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2465,
+  "slug": "number-of-distinct-averages",
+  "title": "不同的平均值数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-037",
+  "studyTags": [
+    "数组",
+    "排序",
+    "双指针",
+    "哈希表"
+  ],
+  "summary": "反复删除当前最小值与最大值并记录二者平均值，求出现过多少种不同平均值。",
+  "insight": "平均值是否相同只取决于两数之和，排序后用双指针配对两端，把每对之和放入集合即可避免浮点数。",
+  "pitfalls": [
+    "每轮必须配对当前最小与最大",
+    "比较和即可无需除以二",
+    "数组长度保证为偶数"
+  ],
+  "solutions": [
+    {
+      "id": "sort-pair-sums",
+      "title": "排序后记录两端和",
+      "kind": "最优",
+      "idea": "以整数和代表平均值。",
+      "steps": [
+        "排序 nums",
+        "left=0、right=n-1",
+        "把 nums[left]+nums[right] 加入集合并收缩双指针",
+        "返回集合大小"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/sort-pair-sums/Solution.java",
+        "kotlin": "solutions/sort-pair-sums/Solution.kt",
+        "cpp": "solutions/sort-pair-sums/solution.cpp"
+      }
+    }
+  ]
+}

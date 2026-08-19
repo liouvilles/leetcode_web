@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2462,
+  "slug": "total-cost-to-hire-k-workers",
+  "title": "雇佣 K 位工人的总代价",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-037",
+  "studyTags": [
+    "数组",
+    "双指针",
+    "堆"
+  ],
+  "summary": "每轮从当前最左 candidates 人和最右 candidates 人中按代价、再按下标最小者雇佣，求 k 轮总代价。",
+  "insight": "左右各用一个按 [cost,index] 排序的小根堆，仅在对应一侧有人被取走时补入下一个尚未入堆的人，即可精确模拟候选窗口。",
+  "pitfalls": [
+    "候选区重叠时同一人只能入堆一次",
+    "代价相同按原下标较小者",
+    "总成本使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "two-candidate-min-heaps",
+      "title": "左右候选双小根堆",
+      "kind": "最优",
+      "idea": "双指针控制尚未进入候选区的区间。",
+      "steps": [
+        "把左侧至多 candidates 人加入 leftHeap",
+        "从右侧且未与左侧重叠的位置加入 rightHeap",
+        "重复 k 次，比较两个堆顶的 cost 与 index，弹出较小者",
+        "从被弹出的一侧补入一个新候选并累加成本"
+      ],
+      "complexity": {
+        "time": "O((k + candidates) log candidates)",
+        "space": "O(candidates)"
+      },
+      "files": {
+        "java": "solutions/two-candidate-min-heaps/Solution.java",
+        "kotlin": "solutions/two-candidate-min-heaps/Solution.kt",
+        "cpp": "solutions/two-candidate-min-heaps/solution.cpp"
+      }
+    }
+  ]
+}

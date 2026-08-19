@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumFuelCost",
+  "parameterTypes": [
+    "intMatrix",
+    "int"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "三座城市分别直达首都",
+      "args": [
+        [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ]
+        ],
+        5
+      ],
+      "expected": 3
+    },
+    {
+      "name": "官方多层树两座车总油耗七",
+      "args": [
+        [
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            4,
+            6
+          ]
+        ],
+        2
+      ],
+      "expected": 7
+    },
+    {
+      "name": "只有首都无需油耗",
+      "args": [
+        [],
+        1
+      ],
+      "expected": 0
+    }
+  ]
+}

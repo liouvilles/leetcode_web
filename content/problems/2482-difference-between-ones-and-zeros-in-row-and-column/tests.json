@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "onesMinusZeros",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "intMatrix",
+  "cases": [
+    {
+      "name": "三乘三混合矩阵",
+      "args": [
+        [
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          0,
+          4
+        ],
+        [
+          0,
+          0,
+          4
+        ],
+        [
+          -2,
+          -2,
+          2
+        ]
+      ]
+    },
+    {
+      "name": "全一矩阵每格差值为五",
+      "args": [
+        [
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          5,
+          5,
+          5
+        ],
+        [
+          5,
+          5,
+          5
+        ]
+      ]
+    },
+    {
+      "name": "单个零贡献负二",
+      "args": [
+        [
+          [
+            0
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          -2
+        ]
+      ]
+    }
+  ]
+}

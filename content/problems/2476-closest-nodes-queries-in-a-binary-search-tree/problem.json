@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2476,
+  "slug": "closest-nodes-queries-in-a-binary-search-tree",
+  "title": "二叉搜索树最近节点查询",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-037",
+  "studyTags": [
+    "二叉搜索树",
+    "中序遍历",
+    "二分查找"
+  ],
+  "summary": "对每个查询值，返回 BST 中不大于它的最大节点值与不小于它的最小节点值，不存在的位置返回负一。",
+  "insight": "BST 中序遍历得到严格递增数组。每个查询用 lower_bound 找第一个不小于 query 的位置，该位置给上界，其前一位置或自身给下界。",
+  "pitfalls": [
+    "查询值存在时上下界都等于它",
+    "lower_bound 位于首尾之外时要返回负一",
+    "按查询原顺序输出"
+  ],
+  "solutions": [
+    {
+      "id": "inorder-and-lower-bound",
+      "title": "中序有序数组加二分",
+      "kind": "最优",
+      "idea": "一次展开 BST，随后独立二分每个查询。",
+      "steps": [
+        "中序 DFS 收集 sorted",
+        "对 query 二分第一个 sorted[index]>=query",
+        "upper 为 index 有效时的值",
+        "lower 在相等时也是该值，否则取 index-1；越界为 -1",
+        "追加 [lower,upper]"
+      ],
+      "complexity": {
+        "time": "O(n + q log n)",
+        "space": "O(n + tree height)"
+      },
+      "files": {
+        "java": "solutions/inorder-and-lower-bound/Solution.java",
+        "kotlin": "solutions/inorder-and-lower-bound/Solution.kt",
+        "cpp": "solutions/inorder-and-lower-bound/solution.cpp"
+      }
+    }
+  ]
+}

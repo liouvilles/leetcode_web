@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2467,
+  "slug": "most-profitable-path-in-a-tree",
+  "title": "树上最大得分和路径",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-037",
+  "studyTags": [
+    "树",
+    "图论",
+    "深度优先搜索"
+  ],
+  "summary": "Alice 从根走向叶，Bob 从指定节点走向根；节点金额由先到、同时到或后到决定，求 Alice 可获得的最大净收入。",
+  "insight": "Bob 的路线唯一。先求根到所有节点的父节点和深度，再沿 Bob 到根的路径按双方到达时刻把金额改成全额、对半或零，最后求根到叶的最大路径和。",
+  "pitfalls": [
+    "负金额也按同样规则处理",
+    "同时到达时整数金额除以二",
+    "Alice 必须走到叶节点，不能因后续为负而提前停下"
+  ],
+  "solutions": [
+    {
+      "id": "adjust-bob-path-then-tree-dp",
+      "title": "修正 Bob 路径后树形动态规划",
+      "kind": "最优",
+      "idea": "把双人时序转化为单人根到叶最大和。",
+      "steps": [
+        "DFS/BFS 从根记录 parent 与 depth",
+        "从 bob 沿 parent 走到根，time 从零递增：Bob 早到置零、同时到减半",
+        "DFS 根到叶，返回当前金额加所有子路径中的最大值",
+        "根的唯一相邻节点仍不是叶，除非整棵树只有根"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/adjust-bob-path-then-tree-dp/Solution.java",
+        "kotlin": "solutions/adjust-bob-path-then-tree-dp/Solution.kt",
+        "cpp": "solutions/adjust-bob-path-then-tree-dp/solution.cpp"
+      }
+    }
+  ]
+}

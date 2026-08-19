@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2478,
+  "slug": "number-of-beautiful-partitions",
+  "title": "完美分割的方案数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-037",
+  "studyTags": [
+    "字符串",
+    "动态规划",
+    "前缀和"
+  ],
+  "summary": "把数字字符串恰分成 k 段，每段长度至少 minLength，且首位是质数数字、末位是非质数数字，统计方案数并取模。",
+  "insight": "合法切点必须位于“非质数数字之后、质数数字之前”（首尾另算）。逐段 DP 时扫描右端点，用滚动前缀和汇总所有距离当前端点至少 minLength 的上一层合法切点。",
+  "pitfalls": [
+    "质数数字只有 2、3、5、7",
+    "必须恰好分成 k 段",
+    "首字符和末字符不满足条件时直接无解",
+    "切点距离要满足最小段长"
+  ],
+  "solutions": [
+    {
+      "id": "partition-dp-with-running-prefix",
+      "title": "分段动态规划与滚动前缀和",
+      "kind": "最优",
+      "idea": "dp[position] 表示前若干段恰在 position 结束的方案数。",
+      "steps": [
+        "先检查首位为质数且末位非质数",
+        "dp[0]=1",
+        "重复 k 轮：扫描 end=1..n，把 start=end-minLength 对应的上一层 dp 加入 running",
+        "若 end 是合法切点，则 next[end]=running",
+        "最终返回 dp[n]"
+      ],
+      "complexity": {
+        "time": "O(k * n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/partition-dp-with-running-prefix/Solution.java",
+        "kotlin": "solutions/partition-dp-with-running-prefix/Solution.kt",
+        "cpp": "solutions/partition-dp-with-running-prefix/solution.cpp"
+      }
+    }
+  ]
+}

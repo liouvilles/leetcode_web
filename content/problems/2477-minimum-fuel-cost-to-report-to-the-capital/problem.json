@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2477,
+  "slug": "minimum-fuel-cost-to-report-to-the-capital",
+  "title": "到达首都的最少油耗",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-037",
+  "studyTags": [
+    "树",
+    "图论",
+    "后序遍历"
+  ],
+  "summary": "树上每座非首都城市有一名代表，车有 seats 个座位；代表可沿途拼车，求所有人到节点零的最少总油耗。",
+  "insight": "每条通向父节点的边都必须运送该子树的全部代表，所需车辆数最少为 ceil(subtreePeople/seats)，且各边贡献独立。后序汇总子树人数即可。",
+  "pitfalls": [
+    "首都本身的人不需要移动",
+    "每经过一条边每辆车消耗一升",
+    "答案可能超过 int",
+    "深链使用迭代遍历可避免递归栈溢出"
+  ],
+  "solutions": [
+    {
+      "id": "iterative-postorder-subtree-count",
+      "title": "迭代后序汇总子树人数",
+      "kind": "最优",
+      "idea": "先定根记录父子顺序，再逆序计算每条父边油耗。",
+      "steps": [
+        "建无向邻接表",
+        "从零迭代遍历，记录 parent 和 order",
+        "每个节点 people 初始为一",
+        "逆序处理除根外节点：fuel+=(people+seats-1)/seats，并把 people 加到父节点",
+        "返回 fuel"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/iterative-postorder-subtree-count/Solution.java",
+        "kotlin": "solutions/iterative-postorder-subtree-count/Solution.kt",
+        "cpp": "solutions/iterative-postorder-subtree-count/solution.cpp"
+      }
+    }
+  ]
+}

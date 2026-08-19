@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2475,
+  "slug": "number-of-unequal-triplets-in-array",
+  "title": "数组中不等三元组的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-037",
+  "studyTags": [
+    "数组",
+    "排序",
+    "计数"
+  ],
+  "summary": "统计下标 i<j<k 且对应三个值两两不同的三元组数量。",
+  "insight": "排序后相同值形成连续组。把某组作为三元组的中间值，左侧任取一个较小值、组内任取一个当前值、右侧任取一个较大值，贡献为 left*groupSize*right。",
+  "pitfalls": [
+    "要求三个值两两不同",
+    "同值组要整体处理",
+    "每个三元组恰由其中间大小的值组计数一次"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-value-groups",
+      "title": "排序后按值分组计数",
+      "kind": "最优",
+      "idea": "枚举中间值组一次计算所有组合。",
+      "steps": [
+        "排序 nums",
+        "用 i、j 找到每个相同值区间 [i,j)",
+        "贡献 i*(j-i)*(n-j)",
+        "令 i=j 继续直到数组末尾"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/sorted-value-groups/Solution.java",
+        "kotlin": "solutions/sorted-value-groups/Solution.kt",
+        "cpp": "solutions/sorted-value-groups/solution.cpp"
+      }
+    }
+  ]
+}

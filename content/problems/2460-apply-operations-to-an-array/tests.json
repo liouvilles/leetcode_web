@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "applyOperations",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "连续执行后稳定移零",
+      "args": [
+        [
+          1,
+          2,
+          2,
+          1,
+          1,
+          0
+        ]
+      ],
+      "expected": [
+        1,
+        4,
+        2,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "开头零移动到末尾",
+      "args": [
+        [
+          0,
+          1
+        ]
+      ],
+      "expected": [
+        1,
+        0
+      ]
+    },
+    {
+      "name": "四个一分成两个二",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": [
+        2,
+        2,
+        0,
+        0
+      ]
+    }
+  ]
+}

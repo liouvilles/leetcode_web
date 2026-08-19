@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countGoodStrings",
+  "parameterTypes": [
+    "int",
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "长度三的全部二进制串",
+      "args": [
+        3,
+        3,
+        1,
+        1
+      ],
+      "expected": 8
+    },
+    {
+      "name": "长度二到三的五种构造",
+      "args": [
+        2,
+        3,
+        1,
+        2
+      ],
+      "expected": 5
+    },
+    {
+      "name": "长度一时零块和一块各一种",
+      "args": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "expected": 2
+    }
+  ]
+}

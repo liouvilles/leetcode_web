@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2484,
+  "slug": "count-palindromic-subsequences",
+  "title": "统计回文子序列数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-037",
+  "studyTags": [
+    "字符串",
+    "动态规划",
+    "前后缀计数"
+  ],
+  "summary": "统计数字字符串中长度恰为五的回文子序列数量，结果对 1e9+7 取模。",
+  "insight": "以每个位置作为中间字符。长度五回文形如 a,b,*,b,a；左侧需要数对 (a,b)，右侧需要反向数对 (b,a)。扫描中点并动态维护左右两边 10×10 的有序数对计数即可。",
+  "pitfalls": [
+    "统计的是子序列而非子串",
+    "中间字符取值不影响配对",
+    "右侧数对要按 b,a 的反向顺序匹配",
+    "乘法与计数使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "bidirectional-digit-pair-counts",
+      "title": "左右数字数对计数",
+      "kind": "最优",
+      "idea": "移动中点时先从右侧删除当前字符，再计数，最后把它加入左侧。",
+      "steps": [
+        "预扫描整个字符串建立 suffixSingles 与 suffixPairs",
+        "枚举 middle，先从右侧单字符计数删除当前数字，并删除所有以当前位置开头的右侧数对",
+        "累加 leftPairs[a][b]*suffixPairs[b][a]",
+        "把当前数字作为第二位加入 leftPairs，再加入 leftSingles",
+        "全程取模并返回"
+      ],
+      "complexity": {
+        "time": "O(100 * n)",
+        "space": "O(100)"
+      },
+      "files": {
+        "java": "solutions/bidirectional-digit-pair-counts/Solution.java",
+        "kotlin": "solutions/bidirectional-digit-pair-counts/Solution.kt",
+        "cpp": "solutions/bidirectional-digit-pair-counts/solution.cpp"
+      }
+    }
+  ]
+}

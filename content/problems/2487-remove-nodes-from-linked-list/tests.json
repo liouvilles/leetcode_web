@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "removeNodes",
+  "parameterTypes": [
+    "listNode"
+  ],
+  "returnType": "listNode",
+  "cases": [
+    {
+      "name": "删除右侧存在更大值的三个节点",
+      "args": [
+        [
+          5,
+          2,
+          13,
+          3,
+          8
+        ]
+      ],
+      "expected": [
+        13,
+        8
+      ]
+    },
+    {
+      "name": "相等值全部保留",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "严格递增链表只保留末节点",
+      "args": [
+        [
+          10,
+          20,
+          30
+        ]
+      ],
+      "expected": [
+        30
+      ]
+    }
+  ]
+}

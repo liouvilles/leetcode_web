@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2485,
+  "slug": "find-the-pivot-integer",
+  "title": "找出中枢整数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-037",
+  "studyTags": [
+    "数学",
+    "前缀和"
+  ],
+  "summary": "在 1 到 n 中寻找整数 x，使 1 到 x 的和等于 x 到 n 的和；不存在返回负一。",
+  "insight": "由 x(x+1)/2 = n(n+1)/2 - x(x-1)/2 可化简为 x²=n(n+1)/2，因此只需判断总和是否为完全平方数。",
+  "pitfalls": [
+    "x 在等式两边都被计入",
+    "平方根取整后还要回代验证",
+    "n=1 时答案是一"
+  ],
+  "solutions": [
+    {
+      "id": "perfect-square-total-sum",
+      "title": "总和完全平方判断",
+      "kind": "最优",
+      "idea": "用代数式消去两个前缀和。",
+      "steps": [
+        "计算 total=n*(n+1)/2",
+        "root=floor(sqrt(total))",
+        "若 root*root==total 返回 root，否则返回 -1"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/perfect-square-total-sum/Solution.java",
+        "kotlin": "solutions/perfect-square-total-sum/Solution.kt",
+        "cpp": "solutions/perfect-square-total-sum/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2481,
+  "slug": "minimum-cuts-to-divide-a-circle",
+  "title": "分割圆的最少切割次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-037",
+  "studyTags": [
+    "数学",
+    "几何"
+  ],
+  "summary": "用直线切割把圆分成 n 个面积相等的部分，求最少切割次数。",
+  "insight": "n 为偶数时，每条经过圆心的直线同时产生两个相对扇区，只需 n/2 刀；n 为奇数时无法两两共用直径边界，需要从圆心引出 n 条半径切线。n=1 无需切割。",
+  "pitfalls": [
+    "一块时答案为零",
+    "偶数与奇数公式不同",
+    "切割线必须是直线段但可从圆心到圆周"
+  ],
+  "solutions": [
+    {
+      "id": "parity-formula",
+      "title": "按奇偶性直接计算",
+      "kind": "最优",
+      "idea": "由扇区边界能否组成直径判断。",
+      "steps": [
+        "n==1 返回0",
+        "n 为偶数返回 n/2",
+        "n 为奇数返回 n"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/parity-formula/Solution.java",
+        "kotlin": "solutions/parity-formula/Solution.kt",
+        "cpp": "solutions/parity-formula/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2488,
+  "slug": "count-subarrays-with-median-k",
+  "title": "统计中位数为 K 的子数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-037",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "前缀和"
+  ],
+  "summary": "数组元素互不相同且包含 k，统计中位数为 k 的连续子数组；偶数长度中位数取排序后左中间元素。",
+  "insight": "合法子数组必须包含 k。把大于 k 记 +1、小于 k 记 -1，则总平衡值为零时 k 是奇数长度中位数，为一时 k 是偶数长度的左中位数。以 k 为界匹配左右平衡值即可。",
+  "pitfalls": [
+    "只统计包含 k 的子数组",
+    "偶数长度要求 greater-less=1 而非负一",
+    "左侧空区间的平衡值零也要计入"
+  ],
+  "solutions": [
+    {
+      "id": "balance-prefix-around-k",
+      "title": "围绕 K 匹配左右平衡值",
+      "kind": "最优",
+      "idea": "分别枚举 k 左右边界，用哈希表配对总平衡零或一。",
+      "steps": [
+        "找到 k 的下标 pivot",
+        "frequency[0]=1，从 pivot-1 向左累计 greater 为 +1、less 为 -1 并计数",
+        "从 pivot 向右累计 rightBalance",
+        "每个右端点加入 frequency[-rightBalance] 与 frequency[1-rightBalance]",
+        "返回总数"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/balance-prefix-around-k/Solution.java",
+        "kotlin": "solutions/balance-prefix-around-k/Solution.kt",
+        "cpp": "solutions/balance-prefix-around-k/solution.cpp"
+      }
+    }
+  ]
+}

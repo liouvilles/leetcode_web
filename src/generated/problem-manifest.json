@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "problemCount": 1746,
-  "solutionCount": 1773,
-  "implementationCount": 5319,
+  "problemCount": 1771,
+  "solutionCount": 1798,
+  "implementationCount": 5394,
   "problems": [
     {
       "id": 1,
@@ -26129,6 +26129,379 @@
       ],
       "status": "published",
       "batch": "batch-036",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2458,
+      "slug": "height-of-binary-tree-after-subtree-removal-queries",
+      "title": "移除子树后的二叉树高度",
+      "studyTags": [
+        "树",
+        "深度优先搜索",
+        "换根动态规划"
+      ],
+      "status": "published",
+      "batch": "batch-037",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2460,
+      "slug": "apply-operations-to-an-array",
+      "title": "对数组执行操作",
+      "studyTags": [
+        "数组",
+        "双指针",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-037",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2461,
+      "slug": "maximum-sum-of-distinct-subarrays-with-length-k",
+      "title": "长度为 K 子数组中的最大和",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "滑动窗口"
+      ],
+      "status": "published",
+      "batch": "batch-037",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2462,
+      "slug": "total-cost-to-hire-k-workers",
+      "title": "雇佣 K 位工人的总代价",
+      "studyTags": [
+        "数组",
+        "双指针",
+        "堆"
+      ],
+      "status": "published",
+      "batch": "batch-037",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2463,
+      "slug": "minimum-total-distance-traveled",
+      "title": "最小移动总距离",
+      "studyTags": [
+        "数组",
+        "排序",
+        "动态规划"
+      ],
+      "status": "published",
+      "batch": "batch-037",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2465,
+      "slug": "number-of-distinct-averages",
+      "title": "不同的平均值数目",
+      "studyTags": [
+        "数组",
+        "排序",
+        "双指针",
+        "哈希表"
+      ],
+      "status": "published",
+      "batch": "batch-037",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2466,
+      "slug": "count-ways-to-build-good-strings",
+      "title": "统计构造好字符串的方案数",
+      "studyTags": [
+        "动态规划",
+        "计数"
+      ],
+      "status": "published",
+      "batch": "batch-037",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2467,
+      "slug": "most-profitable-path-in-a-tree",
+      "title": "树上最大得分和路径",
+      "studyTags": [
+        "树",
+        "图论",
+        "深度优先搜索"
+      ],
+      "status": "published",
+      "batch": "batch-037",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2468,
+      "slug": "split-message-based-on-limit",
+      "title": "根据限制分割消息",
+      "studyTags": [
+        "字符串",
+        "枚举",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-037",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2469,
+      "slug": "convert-the-temperature",
+      "title": "温度转换",
+      "studyTags": [
+        "数学",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-037",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2470,
+      "slug": "number-of-subarrays-with-lcm-equal-to-k",
+      "title": "最小公倍数为 K 的子数组数目",
+      "studyTags": [
+        "数组",
+        "数学",
+        "数论"
+      ],
+      "status": "published",
+      "batch": "batch-037",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2471,
+      "slug": "minimum-number-of-operations-to-sort-a-binary-tree-by-level",
+      "title": "逐层排序二叉树所需的最少操作数目",
+      "studyTags": [
+        "树",
+        "广度优先搜索",
+        "排序",
+        "置换环"
+      ],
+      "status": "published",
+      "batch": "batch-037",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2472,
+      "slug": "maximum-number-of-non-overlapping-palindrome-substrings",
+      "title": "不重叠回文子字符串的最大数目",
+      "studyTags": [
+        "字符串",
+        "动态规划",
+        "回文"
+      ],
+      "status": "published",
+      "batch": "batch-037",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2475,
+      "slug": "number-of-unequal-triplets-in-array",
+      "title": "数组中不等三元组的数目",
+      "studyTags": [
+        "数组",
+        "排序",
+        "计数"
+      ],
+      "status": "published",
+      "batch": "batch-037",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2476,
+      "slug": "closest-nodes-queries-in-a-binary-search-tree",
+      "title": "二叉搜索树最近节点查询",
+      "studyTags": [
+        "二叉搜索树",
+        "中序遍历",
+        "二分查找"
+      ],
+      "status": "published",
+      "batch": "batch-037",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2477,
+      "slug": "minimum-fuel-cost-to-report-to-the-capital",
+      "title": "到达首都的最少油耗",
+      "studyTags": [
+        "树",
+        "图论",
+        "后序遍历"
+      ],
+      "status": "published",
+      "batch": "batch-037",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2478,
+      "slug": "number-of-beautiful-partitions",
+      "title": "完美分割的方案数",
+      "studyTags": [
+        "字符串",
+        "动态规划",
+        "前缀和"
+      ],
+      "status": "published",
+      "batch": "batch-037",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2481,
+      "slug": "minimum-cuts-to-divide-a-circle",
+      "title": "分割圆的最少切割次数",
+      "studyTags": [
+        "数学",
+        "几何"
+      ],
+      "status": "published",
+      "batch": "batch-037",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2482,
+      "slug": "difference-between-ones-and-zeros-in-row-and-column",
+      "title": "行和列中一和零的差值",
+      "studyTags": [
+        "数组",
+        "矩阵",
+        "计数"
+      ],
+      "status": "published",
+      "batch": "batch-037",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2483,
+      "slug": "minimum-penalty-for-a-shop",
+      "title": "商店的最少代价",
+      "studyTags": [
+        "字符串",
+        "前缀和",
+        "枚举"
+      ],
+      "status": "published",
+      "batch": "batch-037",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2484,
+      "slug": "count-palindromic-subsequences",
+      "title": "统计回文子序列数目",
+      "studyTags": [
+        "字符串",
+        "动态规划",
+        "前后缀计数"
+      ],
+      "status": "published",
+      "batch": "batch-037",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2485,
+      "slug": "find-the-pivot-integer",
+      "title": "找出中枢整数",
+      "studyTags": [
+        "数学",
+        "前缀和"
+      ],
+      "status": "published",
+      "batch": "batch-037",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2486,
+      "slug": "append-characters-to-string-to-make-subsequence",
+      "title": "追加字符以获得子序列",
+      "studyTags": [
+        "字符串",
+        "双指针",
+        "贪心"
+      ],
+      "status": "published",
+      "batch": "batch-037",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2487,
+      "slug": "remove-nodes-from-linked-list",
+      "title": "从链表中移除节点",
+      "studyTags": [
+        "链表",
+        "单调栈",
+        "反转链表"
+      ],
+      "status": "published",
+      "batch": "batch-037",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2488,
+      "slug": "count-subarrays-with-median-k",
+      "title": "统计中位数为 K 的子数组",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "前缀和"
+      ],
+      "status": "published",
+      "batch": "batch-037",
       "solutionCount": 1,
       "testCount": 3,
       "qualityGate": "tested"

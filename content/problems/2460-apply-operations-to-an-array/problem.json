@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2460,
+  "slug": "apply-operations-to-an-array",
+  "title": "对数组执行操作",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-037",
+  "studyTags": [
+    "数组",
+    "双指针",
+    "模拟"
+  ],
+  "summary": "从左向右把相邻相等元素的前者翻倍、后者置零，随后把所有零稳定移动到末尾。",
+  "insight": "先严格按题意完成相邻操作，再用写指针稳定收集非零值；剩余位置天然填零。",
+  "pitfalls": [
+    "操作必须按下标从左到右",
+    "置零会影响下一次相邻比较",
+    "非零元素相对顺序不能改变"
+  ],
+  "solutions": [
+    {
+      "id": "simulate-then-compact",
+      "title": "顺序模拟后压缩",
+      "kind": "最优",
+      "idea": "分两趟分别完成操作与稳定移零。",
+      "steps": [
+        "扫描 i=0..n-2，相邻相等时 nums[i]*=2、nums[i+1]=0",
+        "write 从零开始，把所有非零值写到前部",
+        "把 write 之后位置填零并返回"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/simulate-then-compact/Solution.java",
+        "kotlin": "solutions/simulate-then-compact/Solution.kt",
+        "cpp": "solutions/simulate-then-compact/solution.cpp"
+      }
+    }
+  ]
+}

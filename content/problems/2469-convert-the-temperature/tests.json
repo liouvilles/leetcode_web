@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "convertTemperature",
+  "parameterTypes": [
+    "double"
+  ],
+  "returnType": "doubleArray",
+  "cases": [
+    {
+      "name": "三十六点五摄氏度",
+      "args": [
+        36.5
+      ],
+      "expected": [
+        309.65,
+        97.7
+      ]
+    },
+    {
+      "name": "一百二十二点一一摄氏度",
+      "args": [
+        122.11
+      ],
+      "expected": [
+        395.26,
+        251.798
+      ]
+    },
+    {
+      "name": "零摄氏度",
+      "args": [
+        0
+      ],
+      "expected": [
+        273.15,
+        32
+      ]
+    }
+  ]
+}

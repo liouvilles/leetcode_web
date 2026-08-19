@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numberOfCuts",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四等分只需两条直径",
+      "args": [
+        4
+      ],
+      "expected": 2
+    },
+    {
+      "name": "三等分需要三条半径",
+      "args": [
+        3
+      ],
+      "expected": 3
+    },
+    {
+      "name": "一整块无需切割",
+      "args": [
+        1
+      ],
+      "expected": 0
+    }
+  ]
+}

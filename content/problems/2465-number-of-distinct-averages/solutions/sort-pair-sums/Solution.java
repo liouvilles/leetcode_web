@@ -1,0 +1,1 @@
+class Solution { public int distinctAverages(int[] nums){Arrays.sort(nums);Set<Integer> sums=new HashSet<>();for(int left=0,right=nums.length-1;left<right;left++,right--)sums.add(nums[left]+nums[right]);return sums.size();} }

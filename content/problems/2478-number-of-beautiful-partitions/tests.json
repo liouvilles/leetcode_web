@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "beautifulPartitions",
+  "parameterTypes": [
+    "string",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "最小段长二共有三种分割",
+      "args": [
+        "23542185131",
+        3,
+        2
+      ],
+      "expected": 3
+    },
+    {
+      "name": "最小段长三只剩一种分割",
+      "args": [
+        "23542185131",
+        3,
+        3
+      ],
+      "expected": 1
+    },
+    {
+      "name": "三个合法段的切点唯一",
+      "args": [
+        "3312958",
+        3,
+        1
+      ],
+      "expected": 1
+    }
+  ]
+}

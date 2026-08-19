@@ -1,0 +1,1 @@
+class Solution { public:int bestClosingTime(string customers){int penalty=count(customers.begin(),customers.end(),'Y'),bestPenalty=penalty,bestHour=0;for(int i=0;i<(int)customers.size();++i){penalty+=customers[i]=='Y'?-1:1;if(penalty<bestPenalty){bestPenalty=penalty;bestHour=i+1;}}return bestHour;} };

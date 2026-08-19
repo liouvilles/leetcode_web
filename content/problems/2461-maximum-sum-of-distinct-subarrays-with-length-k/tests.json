@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumSubarraySum",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "最大互异窗口和十五",
+      "args": [
+        [
+          1,
+          5,
+          4,
+          2,
+          9,
+          9,
+          9
+        ],
+        3
+      ],
+      "expected": 15
+    },
+    {
+      "name": "没有互异窗口返回零",
+      "args": [
+        [
+          4,
+          4,
+          4
+        ],
+        3
+      ],
+      "expected": 0
+    },
+    {
+      "name": "递增数组末窗口最大",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        2
+      ],
+      "expected": 7
+    }
+  ]
+}

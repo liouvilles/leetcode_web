@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "subarrayLCM",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "官方示例共有四个子数组",
+      "args": [
+        [
+          3,
+          6,
+          2,
+          7,
+          1
+        ],
+        6
+      ],
+      "expected": 4
+    },
+    {
+      "name": "单元素不等于目标",
+      "args": [
+        [
+          3
+        ],
+        2
+      ],
+      "expected": 0
+    },
+    {
+      "name": "两个连续区间最小公倍数为十二",
+      "args": [
+        [
+          2,
+          3,
+          4
+        ],
+        12
+      ],
+      "expected": 2
+    }
+  ]
+}

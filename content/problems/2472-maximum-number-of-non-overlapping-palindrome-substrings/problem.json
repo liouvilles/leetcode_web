@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2472,
+  "slug": "maximum-number-of-non-overlapping-palindrome-substrings",
+  "title": "不重叠回文子字符串的最大数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-037",
+  "studyTags": [
+    "字符串",
+    "动态规划",
+    "回文"
+  ],
+  "summary": "从字符串中选择尽量多的不重叠回文子串，且每个长度至少为 k。",
+  "insight": "任何长度至少 k 的回文都包含一个同中心、长度为 k 或 k+1 的回文，选更短者不会减少前后可用空间。因此只需在前缀 DP 中检查这两种长度。",
+  "pitfalls": [
+    "子串不能重叠",
+    "长度大于 k 的奇偶性可能要求检查 k+1",
+    "dp 下标表示前缀长度而非字符下标"
+  ],
+  "solutions": [
+    {
+      "id": "palindrome-table-and-prefix-dp",
+      "title": "回文表与前缀动态规划",
+      "kind": "最优",
+      "idea": "预处理回文后只考察 k 和 k+1 两种候选长度。",
+      "steps": [
+        "从右向左填 palindrome[left][right]",
+        "dp[i] 表示前 i 个字符最多选择数",
+        "默认 dp[end+1]=dp[end]",
+        "若以 end 结尾的长度 k 或 k+1 子串为回文，用 dp[start]+1 更新",
+        "返回 dp[n]"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/palindrome-table-and-prefix-dp/Solution.java",
+        "kotlin": "solutions/palindrome-table-and-prefix-dp/Solution.kt",
+        "cpp": "solutions/palindrome-table-and-prefix-dp/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "pivotInteger",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一到八的中枢为六",
+      "args": [
+        8
+      ],
+      "expected": 6
+    },
+    {
+      "name": "一的中枢是自身",
+      "args": [
+        1
+      ],
+      "expected": 1
+    },
+    {
+      "name": "一到四不存在中枢",
+      "args": [
+        4
+      ],
+      "expected": -1
+    }
+  ]
+}

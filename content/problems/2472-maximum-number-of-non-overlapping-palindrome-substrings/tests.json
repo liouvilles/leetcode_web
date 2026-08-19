@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxPalindromes",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "可选两个不重叠回文",
+      "args": [
+        "abaccdbbd",
+        3
+      ],
+      "expected": 2
+    },
+    {
+      "name": "不存在长度至少二的回文",
+      "args": [
+        "adbcda",
+        2
+      ],
+      "expected": 0
+    },
+    {
+      "name": "两端各选一个双字符回文",
+      "args": [
+        "aabaa",
+        2
+      ],
+      "expected": 2
+    }
+  ]
+}

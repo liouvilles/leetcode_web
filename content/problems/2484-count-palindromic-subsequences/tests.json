@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countPalindromes",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "官方示例有两个五位回文子序列",
+      "args": [
+        "103301"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "七个零任选五个共有二十一种",
+      "args": [
+        "0000000"
+      ],
+      "expected": 21
+    },
+    {
+      "name": "字符串本身构成唯一回文",
+      "args": [
+        "12321"
+      ],
+      "expected": 1
+    }
+  ]
+}

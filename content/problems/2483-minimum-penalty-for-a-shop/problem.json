@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2483,
+  "slug": "minimum-penalty-for-a-shop",
+  "title": "商店的最少代价",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-037",
+  "studyTags": [
+    "字符串",
+    "前缀和",
+    "枚举"
+  ],
+  "summary": "顾客记录中 Y 表示该小时有顾客。商店在第 j 小时关门的代价为营业时段内 N 的数量加关门后 Y 的数量，求代价最小时最早的 j。",
+  "insight": "先把关门时间零的代价设为所有 Y 数量。关门时间每右移一小时，跨过 Y 会让代价减一，跨过 N 会让代价加一；扫描所有时刻维护最小值。",
+  "pitfalls": [
+    "关门时间范围是 0 到 n",
+    "平局必须取最早时间",
+    "第 j 小时关门意味着下标 j 起不营业"
+  ],
+  "solutions": [
+    {
+      "id": "rolling-penalty-scan",
+      "title": "滚动更新关门代价",
+      "kind": "最优",
+      "idea": "从 j=0 顺次移动到 j=n。",
+      "steps": [
+        "penalty 初始化为 customers 中 Y 数量",
+        "bestPenalty=penalty、bestHour=0",
+        "依次跨过字符：Y 则 penalty--，N 则 penalty++",
+        "仅当 penalty 严格更小时更新 bestHour=i+1",
+        "返回 bestHour"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/rolling-penalty-scan/Solution.java",
+        "kotlin": "solutions/rolling-penalty-scan/Solution.kt",
+        "cpp": "solutions/rolling-penalty-scan/solution.cpp"
+      }
+    }
+  ]
+}

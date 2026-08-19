@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "treeQueries",
+  "parameterTypes": [
+    "treeNode",
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "移除右侧高子树后高度为二",
+      "args": [
+        [
+          1,
+          3,
+          4,
+          2,
+          null,
+          6,
+          5,
+          null,
+          null,
+          null,
+          null,
+          null,
+          7
+        ],
+        [
+          4
+        ]
+      ],
+      "expected": [
+        2
+      ]
+    },
+    {
+      "name": "官方多查询示例",
+      "args": [
+        [
+          5,
+          8,
+          9,
+          2,
+          1,
+          3,
+          7,
+          4,
+          6
+        ],
+        [
+          3,
+          2,
+          4,
+          8
+        ]
+      ],
+      "expected": [
+        3,
+        2,
+        3,
+        2
+      ]
+    },
+    {
+      "name": "完全二叉树移除任一非根子树高度不变",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": [
+        2,
+        2,
+        2
+      ]
+    }
+  ]
+}

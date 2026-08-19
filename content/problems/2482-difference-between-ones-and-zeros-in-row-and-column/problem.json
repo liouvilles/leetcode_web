@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2482,
+  "slug": "difference-between-ones-and-zeros-in-row-and-column",
+  "title": "行和列中一和零的差值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-037",
+  "studyTags": [
+    "数组",
+    "矩阵",
+    "计数"
+  ],
+  "summary": "对每个矩阵位置计算该行一的数量加该列一的数量，减去该行零与该列零的数量。",
+  "insight": "预处理每行、每列的一数量。零数量可由行列长度相减，因此 diff[i][j]=2*(rowOnes[i]+colOnes[j])-rows-cols。",
+  "pitfalls": [
+    "行长度是列数、列长度是行数",
+    "结果允许为负",
+    "每个位置无需重复扫描整行整列"
+  ],
+  "solutions": [
+    {
+      "id": "row-column-one-counts",
+      "title": "预处理行列一的数量",
+      "kind": "最优",
+      "idea": "两趟扫描完成所有位置。",
+      "steps": [
+        "统计 rowOnes 与 colOnes",
+        "创建同尺寸 answer",
+        "对每格写入 2*(rowOnes+colOnes)-rows-cols",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(rows * cols)",
+        "space": "O(rows + cols) excluding output"
+      },
+      "files": {
+        "java": "solutions/row-column-one-counts/Solution.java",
+        "kotlin": "solutions/row-column-one-counts/Solution.kt",
+        "cpp": "solutions/row-column-one-counts/solution.cpp"
+      }
+    }
+  ]
+}

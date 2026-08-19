@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "unequalTriplets",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "官方示例三个不等三元组",
+      "args": [
+        [
+          4,
+          4,
+          2,
+          4,
+          3
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "所有值相同没有合法三元组",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "四个值互异任选三个",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": 4
+    }
+  ]
+}
