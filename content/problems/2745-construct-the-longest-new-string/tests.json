@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "longestString",
+  "parameterTypes": [
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "二和五最多使用五个同类块再加 AB",
+      "args": [
+        2,
+        5,
+        1
+      ],
+      "expected": 12
+    },
+    {
+      "name": "三二交替并使用两个 AB",
+      "args": [
+        3,
+        2,
+        2
+      ],
+      "expected": 14
+    },
+    {
+      "name": "只有三个 AB 全部可用",
+      "args": [
+        0,
+        0,
+        3
+      ],
+      "expected": 6
+    }
+  ]
+}

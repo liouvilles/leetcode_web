@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "specialPerm",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "二三必须由六连接产生两个排列",
+      "args": [
+        [
+          2,
+          3,
+          6
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "一作为四和三之间的连接",
+      "args": [
+        [
+          1,
+          4,
+          3
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "单元素只有一个排列",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

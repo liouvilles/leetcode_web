@@ -1,0 +1,1 @@
+class Solution { fun longestSemiRepetitiveSubstring(s:String):Int{var left=0;var lastRepeat=-1;var answer=1;for(right in 1 until s.length){if(s[right]==s[right-1]){if(lastRepeat>=left)left=lastRepeat;lastRepeat=right};answer=maxOf(answer,right-left+1)};return answer} }

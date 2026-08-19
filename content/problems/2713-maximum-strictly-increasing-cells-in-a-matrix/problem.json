@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2713,
+  "slug": "maximum-strictly-increasing-cells-in-a-matrix",
+  "title": "矩阵中严格递增的单元格数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-044",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "排序",
+    "矩阵"
+  ],
+  "summary": "从矩阵任意格出发，每步可在同一行或列移动到更大的值，求最多访问多少格。",
+  "insight": "按值从小到大处理格子，某格最长链只依赖该行和该列中更小值的最优链。相同值之间不能互相转移，因此同值组必须先统一计算候选值，再统一更新行列最优值。",
+  "pitfalls": [
+    "移动目标必须严格更大",
+    "同值格必须分组延迟更新",
+    "可在同行或同列跨越任意距离",
+    "答案至少为一"
+  ],
+  "solutions": [
+    {
+      "id": "sort-by-value-with-row-column-dp",
+      "title": "排序加行列动态规划",
+      "kind": "最优",
+      "idea": "维护每行与每列以更小值结尾的最长链。",
+      "steps": [
+        "把所有格子编码为 value,row,col 并按 value 排序",
+        "取出一组相同 value 的格子",
+        "候选长度为 1+max(rowBest[row],colBest[col])",
+        "同值组候选全部算完后再更新 rowBest 与 colBest",
+        "记录全局最大值"
+      ],
+      "complexity": {
+        "time": "O(mn log(mn))",
+        "space": "O(mn+m+n)"
+      },
+      "files": {
+        "java": "solutions/sort-by-value-with-row-column-dp/Solution.java",
+        "kotlin": "solutions/sort-by-value-with-row-column-dp/Solution.kt",
+        "cpp": "solutions/sort-by-value-with-row-column-dp/solution.cpp"
+      }
+    }
+  ]
+}

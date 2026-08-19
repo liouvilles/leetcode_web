@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "semiOrderedPermutation",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一左移一步且四右移一步",
+      "args": [
+        [
+          2,
+          1,
+          4,
+          3
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "一越过最大值产生交叉修正",
+      "args": [
+        [
+          2,
+          4,
+          1,
+          3
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "端点已经就位",
+      "args": [
+        [
+          1,
+          3,
+          4,
+          2,
+          5
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

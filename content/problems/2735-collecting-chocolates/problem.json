@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2735,
+  "slug": "collecting-chocolates",
+  "title": "收集巧克力",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-044",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "枚举"
+  ],
+  "summary": "每种巧克力有购买成本，也可付固定费用让所有类型循环变化，求收集全部类型的最小总成本。",
+  "insight": "枚举总共执行 k 次类型变化。对每个目标类型，维护零到 k 次变化中能转成它的巧克力最低购买成本；这些最低成本之和加上 k*x 就是该 k 的最优方案。",
+  "pitfalls": [
+    "可执行零次变化",
+    "每个目标类型独立选择购买时机",
+    "方向对应循环下标 i-k",
+    "总成本使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-rotations-and-maintain-minimum-costs",
+      "title": "枚举旋转次数维护逐类最小值",
+      "kind": "最优",
+      "idea": "逐步扩展每种类型可选择的来源。",
+      "steps": [
+        "best 复制 nums，answer 为其总和",
+        "k 从一到 n-1",
+        "对每个类型 i，用 nums[(i-k+n)%n] 更新 best[i]",
+        "计算 sum(best)+k*x",
+        "用该值更新 answer"
+      ],
+      "complexity": {
+        "time": "O(n^2)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/enumerate-rotations-and-maintain-minimum-costs/Solution.java",
+        "kotlin": "solutions/enumerate-rotations-and-maintain-minimum-costs/Solution.kt",
+        "cpp": "solutions/enumerate-rotations-and-maintain-minimum-costs/solution.cpp"
+      }
+    }
+  ]
+}

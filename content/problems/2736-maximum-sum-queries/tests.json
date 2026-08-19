@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumSumQueries",
+  "parameterTypes": [
+    "intArray",
+    "intArray",
+    "intMatrix"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "三个阈值查询分别返回六十七",
+      "args": [
+        [
+          4,
+          3,
+          1,
+          2
+        ],
+        [
+          2,
+          4,
+          9,
+          5
+        ],
+        [
+          [
+            4,
+            1
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            5
+          ]
+        ]
+      ],
+      "expected": [
+        6,
+        10,
+        7
+      ]
+    },
+    {
+      "name": "同一最大点满足三个查询",
+      "args": [
+        [
+          3,
+          2,
+          5
+        ],
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          [
+            4,
+            4
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        9,
+        9,
+        9
+      ]
+    },
+    {
+      "name": "第一维没有合格点",
+      "args": [
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          [
+            3,
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        -1
+      ]
+    }
+  ]
+}

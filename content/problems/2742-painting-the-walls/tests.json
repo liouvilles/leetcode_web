@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "paintWalls",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "选择成本一和二覆盖全部墙",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          2
+        ],
+        [
+          1,
+          2,
+          3,
+          2
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "选择两个最低成本工人",
+      "args": [
+        [
+          2,
+          3,
+          4,
+          2
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "单墙必须付费完成",
+      "args": [
+        [
+          5
+        ],
+        [
+          0
+        ]
+      ],
+      "expected": 5
+    }
+  ]
+}

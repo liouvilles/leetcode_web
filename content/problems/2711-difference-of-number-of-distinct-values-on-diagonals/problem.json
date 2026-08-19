@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2711,
+  "slug": "difference-of-number-of-distinct-values-on-diagonals",
+  "title": "对角线上不同值的数量差",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-044",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "矩阵"
+  ],
+  "summary": "对每个格子，计算其左上对角线（不含自身）不同值数与右下对角线不同值数之差的绝对值。",
+  "insight": "矩阵规模允许对每个格子沿两个方向独立扫描，用两个集合去重并取大小差；实现直接且不会混入当前位置。",
+  "pitfalls": [
+    "两侧对角线都不包含当前格",
+    "只沿左上和右下方向",
+    "空对角线不同值数为零"
+  ],
+  "solutions": [
+    {
+      "id": "scan-both-diagonal-sides-per-cell",
+      "title": "逐格扫描对角线两侧",
+      "kind": "最优",
+      "idea": "为每个位置建立两个临时去重集合。",
+      "steps": [
+        "answer 与 grid 同尺寸",
+        "对每个 row,col",
+        "沿 row-1,col-1 收集 topLeft 集合",
+        "沿 row+1,col+1 收集 bottomRight 集合",
+        "answer=abs(size difference)",
+        "返回矩阵"
+      ],
+      "complexity": {
+        "time": "O(mn min(m,n))",
+        "space": "O(min(m,n))"
+      },
+      "files": {
+        "java": "solutions/scan-both-diagonal-sides-per-cell/Solution.java",
+        "kotlin": "solutions/scan-both-diagonal-sides-per-cell/Solution.kt",
+        "cpp": "solutions/scan-both-diagonal-sides-per-cell/solution.cpp"
+      }
+    }
+  ]
+}

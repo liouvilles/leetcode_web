@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2730,
+  "slug": "find-the-longest-semi-repetitive-substring",
+  "title": "找到最长的半重复子字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-044",
+  "studyTags": [
+    "字符串",
+    "滑动窗口"
+  ],
+  "summary": "求最长连续子串，使其中至多只有一对相邻字符相同。",
+  "insight": "窗口中只需记录最近一对相等相邻字符的右端点。出现第二对时，把左边界移到上一对的右端点，恰好排除上一对但保留尽可能长的窗口。",
+  "pitfalls": [
+    "统计的是相邻相同对而非重复字符种类",
+    "连续三个相同字符包含两对",
+    "左边界移动到旧相等对的右端点",
+    "单字符答案为一"
+  ],
+  "solutions": [
+    {
+      "id": "sliding-window-with-last-equal-pair",
+      "title": "记录上一对相邻相等位置",
+      "kind": "最优",
+      "idea": "维护最多含一对相邻相等字符的窗口。",
+      "steps": [
+        "left=0、lastRepeat=-1",
+        "right 从一向右扫描",
+        "若 s[right]==s[right-1] 且窗口已有一对，left=lastRepeat",
+        "把 lastRepeat 更新为 right",
+        "用 right-left+1 更新答案"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/sliding-window-with-last-equal-pair/Solution.java",
+        "kotlin": "solutions/sliding-window-with-last-equal-pair/Solution.kt",
+        "cpp": "solutions/sliding-window-with-last-equal-pair/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "problemCount": 1921,
-  "solutionCount": 1948,
-  "implementationCount": 5844,
+  "problemCount": 1946,
+  "solutionCount": 1973,
+  "implementationCount": 5919,
   "problems": [
     {
       "id": 1,
@@ -28765,6 +28765,375 @@
       ],
       "status": "published",
       "batch": "batch-043",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2708,
+      "slug": "maximum-strength-of-a-group",
+      "title": "一个小组的最大实力值",
+      "studyTags": [
+        "数组",
+        "贪心",
+        "排序"
+      ],
+      "status": "published",
+      "batch": "batch-044",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2709,
+      "slug": "greatest-common-divisor-traversal",
+      "title": "最大公约数遍历",
+      "studyTags": [
+        "数组",
+        "并查集",
+        "数论",
+        "质因数分解"
+      ],
+      "status": "published",
+      "batch": "batch-044",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2710,
+      "slug": "remove-trailing-zeros-from-a-string",
+      "title": "移除字符串中的尾随零",
+      "studyTags": [
+        "字符串"
+      ],
+      "status": "published",
+      "batch": "batch-044",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2711,
+      "slug": "difference-of-number-of-distinct-values-on-diagonals",
+      "title": "对角线上不同值的数量差",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "矩阵"
+      ],
+      "status": "published",
+      "batch": "batch-044",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2712,
+      "slug": "minimum-cost-to-make-all-characters-equal",
+      "title": "使所有字符相等的最小成本",
+      "studyTags": [
+        "字符串",
+        "动态规划",
+        "贪心"
+      ],
+      "status": "published",
+      "batch": "batch-044",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2713,
+      "slug": "maximum-strictly-increasing-cells-in-a-matrix",
+      "title": "矩阵中严格递增的单元格数",
+      "studyTags": [
+        "数组",
+        "动态规划",
+        "排序",
+        "矩阵"
+      ],
+      "status": "published",
+      "batch": "batch-044",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2716,
+      "slug": "minimize-string-length",
+      "title": "最小化字符串长度",
+      "studyTags": [
+        "字符串",
+        "哈希表"
+      ],
+      "status": "published",
+      "batch": "batch-044",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2717,
+      "slug": "semi-ordered-permutation",
+      "title": "半有序排列",
+      "studyTags": [
+        "数组",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-044",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2718,
+      "slug": "sum-of-matrix-after-queries",
+      "title": "查询后矩阵的和",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "逆序处理",
+        "矩阵"
+      ],
+      "status": "published",
+      "batch": "batch-044",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2719,
+      "slug": "count-of-integers",
+      "title": "统计整数数目",
+      "studyTags": [
+        "字符串",
+        "动态规划",
+        "数位 DP"
+      ],
+      "status": "published",
+      "batch": "batch-044",
+      "solutionCount": 1,
+      "testCount": 4,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2729,
+      "slug": "check-if-the-number-is-fascinating",
+      "title": "判断一个数是否迷人",
+      "studyTags": [
+        "哈希表",
+        "数学"
+      ],
+      "status": "published",
+      "batch": "batch-044",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2730,
+      "slug": "find-the-longest-semi-repetitive-substring",
+      "title": "找到最长的半重复子字符串",
+      "studyTags": [
+        "字符串",
+        "滑动窗口"
+      ],
+      "status": "published",
+      "batch": "batch-044",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2731,
+      "slug": "movement-of-robots",
+      "title": "移动机器人",
+      "studyTags": [
+        "数组",
+        "排序",
+        "前缀和"
+      ],
+      "status": "published",
+      "batch": "batch-044",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2732,
+      "slug": "find-a-good-subset-of-the-matrix",
+      "title": "找到矩阵中的好子集",
+      "studyTags": [
+        "数组",
+        "位运算",
+        "哈希表",
+        "矩阵"
+      ],
+      "status": "published",
+      "batch": "batch-044",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2733,
+      "slug": "neither-minimum-nor-maximum",
+      "title": "既不是最小值也不是最大值",
+      "studyTags": [
+        "数组",
+        "排序"
+      ],
+      "status": "published",
+      "batch": "batch-044",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2734,
+      "slug": "lexicographically-smallest-string-after-substring-operation",
+      "title": "执行子串操作后的字典序最小字符串",
+      "studyTags": [
+        "字符串",
+        "贪心"
+      ],
+      "status": "published",
+      "batch": "batch-044",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2735,
+      "slug": "collecting-chocolates",
+      "title": "收集巧克力",
+      "studyTags": [
+        "数组",
+        "动态规划",
+        "枚举"
+      ],
+      "status": "published",
+      "batch": "batch-044",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2736,
+      "slug": "maximum-sum-queries",
+      "title": "最大和查询",
+      "studyTags": [
+        "数组",
+        "排序",
+        "离线查询",
+        "树状数组"
+      ],
+      "status": "published",
+      "batch": "batch-044",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2739,
+      "slug": "total-distance-traveled",
+      "title": "总行驶距离",
+      "studyTags": [
+        "数学",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-044",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2740,
+      "slug": "find-the-value-of-the-partition",
+      "title": "找出分区值",
+      "studyTags": [
+        "数组",
+        "排序"
+      ],
+      "status": "published",
+      "batch": "batch-044",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2741,
+      "slug": "special-permutations",
+      "title": "特别的排列",
+      "studyTags": [
+        "数组",
+        "动态规划",
+        "状态压缩"
+      ],
+      "status": "published",
+      "batch": "batch-044",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2742,
+      "slug": "painting-the-walls",
+      "title": "给墙壁刷油漆",
+      "studyTags": [
+        "数组",
+        "动态规划",
+        "背包"
+      ],
+      "status": "published",
+      "batch": "batch-044",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2744,
+      "slug": "find-maximum-number-of-string-pairs",
+      "title": "最大字符串配对数目",
+      "studyTags": [
+        "数组",
+        "字符串",
+        "哈希表"
+      ],
+      "status": "published",
+      "batch": "batch-044",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2745,
+      "slug": "construct-the-longest-new-string",
+      "title": "构造最长的新字符串",
+      "studyTags": [
+        "贪心",
+        "计数"
+      ],
+      "status": "published",
+      "batch": "batch-044",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2746,
+      "slug": "decremental-string-concatenation",
+      "title": "字符串连接删减字母",
+      "studyTags": [
+        "数组",
+        "字符串",
+        "动态规划"
+      ],
+      "status": "published",
+      "batch": "batch-044",
       "solutionCount": 1,
       "testCount": 3,
       "qualityGate": "tested"

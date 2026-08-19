@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": 2732,
+  "slug": "find-a-good-subset-of-the-matrix",
+  "title": "找到矩阵中的好子集",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-044",
+  "studyTags": [
+    "数组",
+    "位运算",
+    "哈希表",
+    "矩阵"
+  ],
+  "summary": "在二进制矩阵中寻找非空行下标集合，使每列的一数量不超过所选行数的一半；不存在则返回空。",
+  "insight": "列数很小，可把每行编码为位掩码。全零行本身就是好集合；否则只需寻找两行掩码按位与为零，它们在任一列至多有一个一。题目结构保证若存在好集合，就存在上述一行或两行解。",
+  "pitfalls": [
+    "返回的是行下标而非行内容",
+    "单行解必须是全零行",
+    "两行掩码必须按位与为零",
+    "返回的两个下标按升序排列"
+  ],
+  "solutions": [
+    {
+      "id": "row-bitmasks-and-disjoint-pair",
+      "title": "行掩码寻找不相交对",
+      "kind": "最优",
+      "idea": "只保留每种行掩码的首个下标并枚举掩码对。",
+      "steps": [
+        "把每行各列的零一编码成 mask",
+        "若 mask 为零立即返回该行",
+        "first[mask] 记录首次下标",
+        "枚举均存在的不同掩码 a,b",
+        "若 (a&b)==0，返回对应下标升序",
+        "没有则返回空列表"
+      ],
+      "complexity": {
+        "time": "O(m*2^n+n*m)",
+        "space": "O(2^n)"
+      },
+      "files": {
+        "java": "solutions/row-bitmasks-and-disjoint-pair/Solution.java",
+        "kotlin": "solutions/row-bitmasks-and-disjoint-pair/Solution.kt",
+        "cpp": "solutions/row-bitmasks-and-disjoint-pair/solution.cpp"
+      }
+    }
+  ]
+}

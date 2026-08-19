@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "matrixSumQueries",
+  "parameterTypes": [
+    "int",
+    "intMatrix"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "行列覆盖后的矩阵和二十三",
+      "args": [
+        3,
+        [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            2,
+            2
+          ],
+          [
+            0,
+            2,
+            3
+          ],
+          [
+            1,
+            0,
+            4
+          ]
+        ]
+      ],
+      "expected": 23
+    },
+    {
+      "name": "单次整行赋值",
+      "args": [
+        2,
+        [
+          [
+            0,
+            0,
+            5
+          ]
+        ]
+      ],
+      "expected": 10
+    },
+    {
+      "name": "后一条行查询覆盖列查询",
+      "args": [
+        1,
+        [
+          [
+            1,
+            0,
+            7
+          ],
+          [
+            0,
+            0,
+            3
+          ]
+        ]
+      ],
+      "expected": 3
+    }
+  ]
+}

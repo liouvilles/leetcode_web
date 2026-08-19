@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2745,
+  "slug": "construct-the-longest-new-string",
+  "title": "构造最长的新字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-044",
+  "studyTags": [
+    "贪心",
+    "计数"
+  ],
+  "summary": "有若干 AA、BB、AB 字符串，选择并拼接且不能出现 AAA 或 BBB，求最长长度。",
+  "insight": "AA 与 BB 块必须交替使用，数量差最多一，因此可使用两倍的较少者再加一个较多者。AB 块可以全部安全插入或连续拼接，不改变 AA、BB 的平衡限制；每个块贡献两个字符。",
+  "pitfalls": [
+    "计数单位是长度二的块",
+    "AA 与 BB 最多相差一个使用量",
+    "所有 AB 都可以使用",
+    "答案最后乘二"
+  ],
+  "solutions": [
+    {
+      "id": "balance-aa-bb-and-use-all-ab",
+      "title": "平衡 AA 与 BB 并全取 AB",
+      "kind": "最优",
+      "idea": "先计算最多可用的块数再乘二。",
+      "steps": [
+        "paired=min(x,y)",
+        "AA 与 BB 共可用 2*paired 个",
+        "若 x 与 y 不等可再用较多的一块",
+        "加入全部 z 个 AB 块",
+        "块数乘二返回"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/balance-aa-bb-and-use-all-ab/Solution.java",
+        "kotlin": "solutions/balance-aa-bb-and-use-all-ab/Solution.kt",
+        "cpp": "solutions/balance-aa-bb-and-use-all-ab/solution.cpp"
+      }
+    }
+  ]
+}

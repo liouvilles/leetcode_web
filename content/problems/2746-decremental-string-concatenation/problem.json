@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2746,
+  "slug": "decremental-string-concatenation",
+  "title": "字符串连接删减字母",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-044",
+  "studyTags": [
+    "数组",
+    "字符串",
+    "动态规划"
+  ],
+  "summary": "按给定顺序处理单词，每个新词可放在当前字符串前或后，连接处相同字符可重叠一个，求最终最短长度。",
+  "insight": "后续决策只关心当前字符串的首字符、尾字符和最短长度。对每个新词分别尝试追加与前置，连接边界字符相同时少增加一位，形成二十六乘二十六的动态规划。",
+  "pitfalls": [
+    "单词处理顺序不能改变",
+    "每个新词只能放在整体前端或后端",
+    "重叠只发生在一个连接边界字符",
+    "状态保存首尾字符而非完整字符串"
+  ],
+  "solutions": [
+    {
+      "id": "dp-by-current-first-and-last-character",
+      "title": "按当前首尾字符动态规划",
+      "kind": "最优",
+      "idea": "每个单词用前置和追加两种方式转移首尾状态。",
+      "steps": [
+        "dp[word0.first][word0.last]=word0.length",
+        "依次处理后续单词，建立全无穷 next",
+        "对每个可达 first,last 状态",
+        "追加：增加 len-(last==word.first)，新尾为 word.last",
+        "前置：增加 len-(word.last==first)，新首为 word.first",
+        "取 next 全状态最小值"
+      ],
+      "complexity": {
+        "time": "O(n*26^2)",
+        "space": "O(26^2)"
+      },
+      "files": {
+        "java": "solutions/dp-by-current-first-and-last-character/Solution.java",
+        "kotlin": "solutions/dp-by-current-first-and-last-character/Solution.kt",
+        "cpp": "solutions/dp-by-current-first-and-last-character/solution.cpp"
+      }
+    }
+  ]
+}

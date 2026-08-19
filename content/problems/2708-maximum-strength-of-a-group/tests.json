@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxStrength",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "排除负一后最大乘积一千三百五十",
+      "args": [
+        [
+          3,
+          -1,
+          -5,
+          2,
+          5,
+          -9
+        ]
+      ],
+      "expected": 1350
+    },
+    {
+      "name": "三个负数排除最接近零者得到二十",
+      "args": [
+        [
+          -4,
+          -5,
+          -4
+        ]
+      ],
+      "expected": 20
+    },
+    {
+      "name": "零优于只能单选的负一",
+      "args": [
+        [
+          0,
+          -1
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

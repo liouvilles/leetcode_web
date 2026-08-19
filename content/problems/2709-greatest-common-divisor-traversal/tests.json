@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "canTraverseAllPairs",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "二三通过六连通",
+      "args": [
+        [
+          2,
+          3,
+          6
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "五与三九分量不连通",
+      "args": [
+        [
+          3,
+          9,
+          5
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "四三十二八可传递连通",
+      "args": [
+        [
+          4,
+          3,
+          12,
+          8
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

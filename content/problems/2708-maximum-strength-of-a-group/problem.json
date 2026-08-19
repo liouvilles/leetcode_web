@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2708,
+  "slug": "maximum-strength-of-a-group",
+  "title": "一个小组的最大实力值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-044",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "排序"
+  ],
+  "summary": "从整数数组选择非空子序列，小组实力为所选元素乘积，求最大可能实力。",
+  "insight": "所有正数都应选择；负数应成对选择，若负数个数为奇数就排除绝对值最小（最接近零）的那个。若最终没有选择任何数，则有零时选零，否则只能选唯一负数。",
+  "pitfalls": [
+    "子序列必须非空",
+    "零不提升正乘积但可优于单个负数",
+    "负数为奇数个时排除最接近零者",
+    "答案使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "multiply-useful-values-and-drop-one-negative",
+      "title": "选择正数和偶数个负数",
+      "kind": "最优",
+      "idea": "排序后排除奇数负数中最大的负数。",
+      "steps": [
+        "排序 nums",
+        "统计负数个数、是否有零",
+        "product=1、chosen=0",
+        "遍历：正数全部乘入；负数若不是需要排除的最后一个负数则乘入",
+        "chosen>0 返回 product；否则有零返回零；否则返回数组最大值"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n) sorting"
+      },
+      "files": {
+        "java": "solutions/multiply-useful-values-and-drop-one-negative/Solution.java",
+        "kotlin": "solutions/multiply-useful-values-and-drop-one-negative/Solution.kt",
+        "cpp": "solutions/multiply-useful-values-and-drop-one-negative/solution.cpp"
+      }
+    }
+  ]
+}

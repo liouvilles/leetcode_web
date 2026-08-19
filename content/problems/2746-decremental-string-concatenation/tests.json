@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimizeConcatenatedLength",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三个单词连续重叠两次",
+      "args": [
+        [
+          "aa",
+          "ab",
+          "bc"
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "末尾字符与单字母重叠",
+      "args": [
+        [
+          "ab",
+          "b"
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "三个长词各重叠一个字符",
+      "args": [
+        [
+          "abc",
+          "cde",
+          "efa"
+        ]
+      ],
+      "expected": 7
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimizedStringLength",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三个字符各保留一个",
+      "args": [
+        "aaabc"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "三个不同字符",
+      "args": [
+        "cbbd"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "四种字符混合重复",
+      "args": [
+        "baadccab"
+      ],
+      "expected": 4
+    }
+  ]
+}

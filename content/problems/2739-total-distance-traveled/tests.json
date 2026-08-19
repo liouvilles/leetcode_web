@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "distanceTraveled",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "五升触发一次转油",
+      "args": [
+        5,
+        10
+      ],
+      "expected": 60
+    },
+    {
+      "name": "不足五升不转油",
+      "args": [
+        1,
+        2
+      ],
+      "expected": 10
+    },
+    {
+      "name": "九升可连续触发两次",
+      "args": [
+        9,
+        2
+      ],
+      "expected": 110
+    }
+  ]
+}

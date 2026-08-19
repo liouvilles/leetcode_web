@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "differenceOfDistinctValues",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "intMatrix",
+  "cases": [
+    {
+      "name": "三乘三矩阵各位置对角差",
+      "args": [
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            3,
+            1,
+            5
+          ],
+          [
+            3,
+            2,
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "全一二乘二矩阵",
+      "args": [
+        [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "单格两侧都为空",
+      "args": [
+        [
+          [
+            5
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          0
+        ]
+      ]
+    }
+  ]
+}

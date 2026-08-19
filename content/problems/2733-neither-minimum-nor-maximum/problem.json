@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2733,
+  "slug": "neither-minimum-nor-maximum",
+  "title": "既不是最小值也不是最大值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-044",
+  "studyTags": [
+    "数组",
+    "排序"
+  ],
+  "summary": "从互不相同的整数数组中找出一个既不是最小值也不是最大值的元素，不存在则返回负一。",
+  "insight": "少于三个元素必然无解；其余情况排序后第二个元素严格大于最小值且小于最大值，直接返回即可。",
+  "pitfalls": [
+    "数组元素互不相同",
+    "任意合法元素都可返回",
+    "长度小于三时返回负一"
+  ],
+  "solutions": [
+    {
+      "id": "sort-and-take-second",
+      "title": "排序取第二个值",
+      "kind": "最优",
+      "idea": "第二小元素在长度至少三时一定合法。",
+      "steps": [
+        "若长度小于三返回负一",
+        "升序排序 nums",
+        "返回 nums[1]"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n) sorting"
+      },
+      "files": {
+        "java": "solutions/sort-and-take-second/Solution.java",
+        "kotlin": "solutions/sort-and-take-second/Solution.kt",
+        "cpp": "solutions/sort-and-take-second/solution.cpp"
+      }
+    }
+  ]
+}

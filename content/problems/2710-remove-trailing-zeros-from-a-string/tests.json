@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "removeTrailingZeros",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "删除末尾两个零并保留内部零",
+      "args": [
+        "51230100"
+      ],
+      "expected": "512301"
+    },
+    {
+      "name": "没有尾零保持不变",
+      "args": [
+        "123"
+      ],
+      "expected": "123"
+    },
+    {
+      "name": "十删除一个零得到一",
+      "args": [
+        "10"
+      ],
+      "expected": "1"
+    }
+  ]
+}

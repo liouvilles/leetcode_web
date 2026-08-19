@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isFascinating",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "一九二拼接覆盖一到九",
+      "args": [
+        192
+      ],
+      "expected": true
+    },
+    {
+      "name": "一百产生零和重复",
+      "args": [
+        100
+      ],
+      "expected": false
+    },
+    {
+      "name": "二七三也是迷人数",
+      "args": [
+        273
+      ],
+      "expected": true
+    }
+  ]
+}

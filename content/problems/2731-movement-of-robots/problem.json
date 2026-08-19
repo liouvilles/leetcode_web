@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2731,
+  "slug": "movement-of-robots",
+  "title": "移动机器人",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-044",
+  "studyTags": [
+    "数组",
+    "排序",
+    "前缀和"
+  ],
+  "summary": "机器人按方向移动指定距离，碰撞时交换方向，求最终所有机器人对之间距离之和并取模。",
+  "insight": "相同机器人碰撞后交换方向，与两个机器人直接穿过彼此的最终位置集合完全相同。因此先独立计算每个终点，排序后用前缀和在线性时间累加与前面所有终点的距离。",
+  "pitfalls": [
+    "碰撞不必逐时刻模拟",
+    "终点与前缀和使用 long",
+    "排序后当前位置减前面位置的差非负",
+    "最终答案对十亿零七取模"
+  ],
+  "solutions": [
+    {
+      "id": "pass-through-and-sorted-prefix-sum",
+      "title": "穿透等价加排序前缀和",
+      "kind": "最优",
+      "idea": "忽略身份计算终点集合，再累加有序位置两两差。",
+      "steps": [
+        "按 L 或 R 计算 nums[i]-d 或 nums[i]+d",
+        "排序所有 long 终点",
+        "维护 prefix 表示此前位置和",
+        "第 i 个位置贡献 position*i-prefix",
+        "贡献累加取模并更新 prefix"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/pass-through-and-sorted-prefix-sum/Solution.java",
+        "kotlin": "solutions/pass-through-and-sorted-prefix-sum/Solution.kt",
+        "cpp": "solutions/pass-through-and-sorted-prefix-sum/solution.cpp"
+      }
+    }
+  ]
+}

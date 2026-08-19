@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2729,
+  "slug": "check-if-the-number-is-fascinating",
+  "title": "判断一个数是否迷人",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-044",
+  "studyTags": [
+    "哈希表",
+    "数学"
+  ],
+  "summary": "拼接 n、2n、3n，判断所得字符串是否恰好包含数字一到九各一次且不含零。",
+  "insight": "直接构造三个倍数的十进制拼接结果，用布尔数组检查长度、零和重复数字；九位且每位都是不重复的非零数字时就必然覆盖一到九。",
+  "pitfalls": [
+    "数字零不允许出现",
+    "任意数字重复都应返回 false",
+    "拼接结果必须恰好九位"
+  ],
+  "solutions": [
+    {
+      "id": "concatenate-and-check-digits",
+      "title": "拼接并检查数字",
+      "kind": "最优",
+      "idea": "用长度十的布尔数组验证九个位置。",
+      "steps": [
+        "拼接 n、2n、3n",
+        "若长度不为九返回 false",
+        "遍历字符；若为零或已出现则返回 false",
+        "全部通过返回 true"
+      ],
+      "complexity": {
+        "time": "O(log n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/concatenate-and-check-digits/Solution.java",
+        "kotlin": "solutions/concatenate-and-check-digits/Solution.kt",
+        "cpp": "solutions/concatenate-and-check-digits/solution.cpp"
+      }
+    }
+  ]
+}

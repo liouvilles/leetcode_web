@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sumDistance",
+  "parameterTypes": [
+    "intArray",
+    "string",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三个机器人终点距离和八",
+      "args": [
+        [
+          -2,
+          0,
+          2
+        ],
+        "RLL",
+        3
+      ],
+      "expected": 8
+    },
+    {
+      "name": "相向运动可视作穿过距离五",
+      "args": [
+        [
+          1,
+          0
+        ],
+        "RL",
+        2
+      ],
+      "expected": 5
+    },
+    {
+      "name": "单个机器人没有成对距离",
+      "args": [
+        [
+          0
+        ],
+        "R",
+        10
+      ],
+      "expected": 0
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "longestSemiRepetitiveSubstring",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "五二二三可组成长度四窗口",
+      "args": [
+        "52233"
+      ],
+      "expected": 4
+    },
+    {
+      "name": "没有相邻重复时取全串",
+      "args": [
+        "5494"
+      ],
+      "expected": 4
+    },
+    {
+      "name": "全一只能保留两个",
+      "args": [
+        "1111111"
+      ],
+      "expected": 2
+    }
+  ]
+}

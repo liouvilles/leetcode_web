@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2709,
+  "slug": "greatest-common-divisor-traversal",
+  "title": "最大公约数遍历",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-044",
+  "studyTags": [
+    "数组",
+    "并查集",
+    "数论",
+    "质因数分解"
+  ],
+  "summary": "数组下标构成图，当两个数最大公约数大于一时可相互移动，判断任意下标对之间是否都可达。",
+  "insight": "两个数共享任一质因数就应连通。用最小质因数筛分解每个数，并用 map 记录某质因数首次出现的下标；后续含同一质因数的下标与其并查集合并。最终所有下标同属一组即成立。",
+  "pitfalls": [
+    "数组长度一时即使值为一也成立",
+    "长度大于一且含一必不连通",
+    "每个质因数对同一个数只处理一次",
+    "连接可通过多个不同质因数传递"
+  ],
+  "solutions": [
+    {
+      "id": "prime-factor-union-find",
+      "title": "质因数并查集",
+      "kind": "最优",
+      "idea": "以质因数作为不同下标之间的连接媒介。",
+      "steps": [
+        "n==1 返回 true；若含一返回 false",
+        "筛出 2..maxValue 的最小质因数 spf",
+        "parent 初始化自身，owner 映射质因数到首个下标",
+        "逐数分解：对每个 prime，与 owner[prime] 合并或登记；除尽该 prime",
+        "检查所有下标根与零相同"
+      ],
+      "complexity": {
+        "time": "O(M log log M + n log M)",
+        "space": "O(M+n)"
+      },
+      "files": {
+        "java": "solutions/prime-factor-union-find/Solution.java",
+        "kotlin": "solutions/prime-factor-union-find/Solution.kt",
+        "cpp": "solutions/prime-factor-union-find/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumCost",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "中间单个边界代价二",
+      "args": [
+        "0011"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "交替六字符各边界代价和九",
+      "args": [
+        "010101"
+      ],
+      "expected": 9
+    },
+    {
+      "name": "单字符无需操作",
+      "args": [
+        "0"
+      ],
+      "expected": 0
+    }
+  ]
+}

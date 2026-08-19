@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2719,
+  "slug": "count-of-integers",
+  "title": "统计整数数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-044",
+  "studyTags": [
+    "字符串",
+    "动态规划",
+    "数位 DP"
+  ],
+  "summary": "统计闭区间 num1 到 num2 中，十进制数位和位于指定范围的整数个数，结果取模。",
+  "insight": "用数位 DP 计算从零到某上界的合法数量，状态是当前位置、当前数位和以及前缀是否贴紧上界。区间答案可写为 count(num2)-count(num1)+num1是否合法，避免对超长十进制字符串做减一。",
+  "pitfalls": [
+    "上下界以字符串给出",
+    "闭区间需要把 num1 本身补回来",
+    "非贴紧状态才可复用记忆",
+    "每一步都要取模并在数位和超过上限时剪枝"
+  ],
+  "solutions": [
+    {
+      "id": "digit-dp-up-to-bound",
+      "title": "上界数位动态规划",
+      "kind": "最优",
+      "idea": "分别统计两个上界并用闭区间公式相减。",
+      "steps": [
+        "设置 minSum 与 maxSum",
+        "countUpTo(bound) 从最高位递归",
+        "状态 pos,sum,tight；非 tight 状态记忆化",
+        "枚举当前位零到 limit，超过 maxSum 剪枝",
+        "返回 count(num2)-count(num1)+valid(num1) 并取模"
+      ],
+      "complexity": {
+        "time": "O(L*maxSum*10)",
+        "space": "O(L*maxSum)"
+      },
+      "files": {
+        "java": "solutions/digit-dp-up-to-bound/Solution.java",
+        "kotlin": "solutions/digit-dp-up-to-bound/Solution.kt",
+        "cpp": "solutions/digit-dp-up-to-bound/solution.cpp"
+      }
+    }
+  ]
+}

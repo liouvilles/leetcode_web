@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2740,
+  "slug": "find-the-value-of-the-partition",
+  "title": "找出分区值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-044",
+  "studyTags": [
+    "数组",
+    "排序"
+  ],
+  "summary": "把数组分成非空两组，最小化第一组最大值与第二组最小值之差，求该最小差值。",
+  "insight": "最优分界一定可以放在排序后的两个相邻元素之间；非相邻元素之间还夹着更小或相等的相邻差。因此排序后取最小相邻差即可。",
+  "pitfalls": [
+    "两组都必须非空",
+    "题目要最小化跨组边界差",
+    "只需检查排序后的相邻元素"
+  ],
+  "solutions": [
+    {
+      "id": "sort-and-minimum-adjacent-gap",
+      "title": "排序取最小相邻差",
+      "kind": "最优",
+      "idea": "枚举有序数组的所有合法分界。",
+      "steps": [
+        "升序排序 nums",
+        "answer 初始化为最大整数",
+        "从一开始遍历",
+        "用 nums[i]-nums[i-1] 更新最小值",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n) sorting"
+      },
+      "files": {
+        "java": "solutions/sort-and-minimum-adjacent-gap/Solution.java",
+        "kotlin": "solutions/sort-and-minimum-adjacent-gap/Solution.kt",
+        "cpp": "solutions/sort-and-minimum-adjacent-gap/solution.cpp"
+      }
+    }
+  ]
+}

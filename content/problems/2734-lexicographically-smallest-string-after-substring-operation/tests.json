@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "smallestString",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "减少开头非 a 段",
+      "args": [
+        "cbabc"
+      ],
+      "expected": "baabc"
+    },
+    {
+      "name": "保留前导 a 后减少到末尾",
+      "args": [
+        "acbbc"
+      ],
+      "expected": "abaab"
+    },
+    {
+      "name": "全 a 时只改最后一位",
+      "args": [
+        "aaaa"
+      ],
+      "expected": "aaaz"
+    }
+  ]
+}

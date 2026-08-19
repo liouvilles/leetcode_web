@@ -1,0 +1,1 @@
+class Solution { public:bool isFascinating(int n){string value=to_string(n)+to_string(2*n)+to_string(3*n);if(value.size()!=9)return false;bool seen[10]={};for(char ch:value){int digit=ch-'0';if(!digit||seen[digit])return false;seen[digit]=true;}return true;} };

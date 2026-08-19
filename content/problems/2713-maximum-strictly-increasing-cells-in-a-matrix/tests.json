@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxIncreasingCells",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "重复三不能同值转移",
+      "args": [
+        [
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "全相等只能访问一个格",
+      "args": [
+        [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "跨行列形成四格递增链",
+      "args": [
+        [
+          [
+            3,
+            1,
+            6
+          ],
+          [
+            -9,
+            5,
+            7
+          ]
+        ]
+      ],
+      "expected": 4
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { public:int semiOrderedPermutation(vector<int>& nums){int posOne=0,posMax=0,n=nums.size();for(int i=0;i<n;++i){if(nums[i]==1)posOne=i;if(nums[i]==n)posMax=i;}return posOne+n-1-posMax-(posOne>posMax);} };

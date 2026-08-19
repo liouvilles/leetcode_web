@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": 2710,
+  "slug": "remove-trailing-zeros-from-a-string",
+  "title": "移除字符串中的尾随零",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-044",
+  "studyTags": [
+    "字符串"
+  ],
+  "summary": "给定表示正整数的十进制字符串，删除末尾所有连续零并返回结果。",
+  "insight": "从末尾向左找到第一个非零字符，截取到该位置即可；正整数保证至少存在一个非零字符。",
+  "pitfalls": [
+    "只删除末尾连续零，内部零保留",
+    "没有尾零时返回原串",
+    "结果不会为空"
+  ],
+  "solutions": [
+    {
+      "id": "scan-last-nonzero",
+      "title": "寻找最后一个非零字符",
+      "kind": "最优",
+      "idea": "向左跳过尾部零后截取前缀。",
+      "steps": [
+        "end=num.length-1",
+        "while num[end]==0，end--",
+        "返回 substring(0,end+1)"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n) output"
+      },
+      "files": {
+        "java": "solutions/scan-last-nonzero/Solution.java",
+        "kotlin": "solutions/scan-last-nonzero/Solution.kt",
+        "cpp": "solutions/scan-last-nonzero/solution.cpp"
+      }
+    }
+  ]
+}

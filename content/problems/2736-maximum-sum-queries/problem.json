@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": 2736,
+  "slug": "maximum-sum-queries",
+  "title": "最大和查询",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-044",
+  "studyTags": [
+    "数组",
+    "排序",
+    "离线查询",
+    "树状数组"
+  ],
+  "summary": "给定点对 nums1[i]、nums2[i]，每个查询要求两坐标分别不小于 x、y 的点中最大坐标和，不存在返回负一。",
+  "insight": "按第一坐标降序离线处理查询和点，处理到阈值 x 时，树状数组中恰好包含所有第一坐标合格的点。把第二坐标反向排名，查询 b>=y 就转成树状数组前缀最大值。",
+  "pitfalls": [
+    "查询是两个坐标同时满足",
+    "点与查询都按第一维降序",
+    "第二维排名要反向以支持后缀条件",
+    "没有候选点时返回负一而非零"
+  ],
+  "solutions": [
+    {
+      "id": "offline-sort-with-fenwick-maximum",
+      "title": "离线排序加最大值树状数组",
+      "kind": "最优",
+      "idea": "按第一维扫入点，按第二维查询已加入点的最大坐标和。",
+      "steps": [
+        "nums2 排序作为坐标压缩数组",
+        "点下标按 nums1 降序，查询下标按 x 降序",
+        "扫描查询前加入所有 nums1>=x 的点",
+        "点的反向排名为 n-lowerBound(nums2,b)，树状数组更新最大和",
+        "查询 y 对应前缀 n-lowerBound(nums2,y)",
+        "前缀最大值为零时写负一"
+      ],
+      "complexity": {
+        "time": "O((n+q) log n)",
+        "space": "O(n+q)"
+      },
+      "files": {
+        "java": "solutions/offline-sort-with-fenwick-maximum/Solution.java",
+        "kotlin": "solutions/offline-sort-with-fenwick-maximum/Solution.kt",
+        "cpp": "solutions/offline-sort-with-fenwick-maximum/solution.cpp"
+      }
+    }
+  ]
+}

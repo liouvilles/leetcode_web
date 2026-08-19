@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2741,
+  "slug": "special-permutations",
+  "title": "特别的排列",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-044",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "状态压缩"
+  ],
+  "summary": "统计数组的排列数，使每对相邻元素中一个能整除另一个，答案取模。",
+  "insight": "用位掩码记录已使用下标，并记录排列末尾下标。只有新元素与末尾满足任一方向整除时才能追加；相同 mask、last 的剩余方案完全相同，可记忆化。",
+  "pitfalls": [
+    "两个整除方向满足任一即可",
+    "状态按下标而不是数值",
+    "每次累加都要取模",
+    "单元素数组有一个排列"
+  ],
+  "solutions": [
+    {
+      "id": "bitmask-dp-by-last-index",
+      "title": "末尾下标状态压缩 DP",
+      "kind": "最优",
+      "idea": "枚举每个起点并记忆后续合法追加数。",
+      "steps": [
+        "memo[mask][last] 初始化为未计算",
+        "若 mask 已包含全部元素返回一",
+        "枚举未使用 next",
+        "若 nums[last] 与 nums[next] 可整除，递归新状态",
+        "对每个起点 dfs(1<<start,start) 求和取模"
+      ],
+      "complexity": {
+        "time": "O(n^2*2^n)",
+        "space": "O(n*2^n)"
+      },
+      "files": {
+        "java": "solutions/bitmask-dp-by-last-index/Solution.java",
+        "kotlin": "solutions/bitmask-dp-by-last-index/Solution.kt",
+        "cpp": "solutions/bitmask-dp-by-last-index/solution.cpp"
+      }
+    }
+  ]
+}

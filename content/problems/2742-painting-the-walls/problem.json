@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2742,
+  "slug": "painting-the-walls",
+  "title": "给墙壁刷油漆",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-044",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "背包"
+  ],
+  "summary": "付费油漆工刷一面墙需 cost[i] 且占用 time[i]，其工作时免费工每单位时间刷一面，求刷完所有墙的最低付费。",
+  "insight": "选择一面付费墙就能覆盖它自身以及免费工在这段时间刷的 time[i] 面墙，等价于花 cost[i] 获得 time[i]+1 的覆盖量。转化为覆盖至少 n 的零一背包并最小化成本。",
+  "pitfalls": [
+    "每个付费工选择至多一次",
+    "覆盖量要包含付费工刷的墙本身",
+    "覆盖超过 n 时截断到 n",
+    "背包容量必须倒序更新"
+  ],
+  "solutions": [
+    {
+      "id": "zero-one-knapsack-by-covered-walls",
+      "title": "按覆盖墙数做零一背包",
+      "kind": "最优",
+      "idea": "把每个付费选择视为带成本的覆盖容量。",
+      "steps": [
+        "dp[0]=0，其余为无穷",
+        "遍历每面墙 i",
+        "covered 从 n-1 倒序到零",
+        "next=min(n,covered+time[i]+1)",
+        "dp[next]=min(dp[next],dp[covered]+cost[i])",
+        "返回 dp[n]"
+      ],
+      "complexity": {
+        "time": "O(n^2)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/zero-one-knapsack-by-covered-walls/Solution.java",
+        "kotlin": "solutions/zero-one-knapsack-by-covered-walls/Solution.kt",
+        "cpp": "solutions/zero-one-knapsack-by-covered-walls/solution.cpp"
+      }
+    }
+  ]
+}

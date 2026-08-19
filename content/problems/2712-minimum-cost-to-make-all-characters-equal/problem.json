@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2712,
+  "slug": "minimum-cost-to-make-all-characters-equal",
+  "title": "使所有字符相等的最小成本",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-044",
+  "studyTags": [
+    "字符串",
+    "动态规划",
+    "贪心"
+  ],
+  "summary": "二进制字符串可选择前缀或后缀翻转，代价分别为其长度，求把所有字符变相同的最小总成本。",
+  "insight": "每个相邻字符不同的边界最终必须被奇数次翻转跨越。对位于 i-1 与 i 间的边界，可用长度 i 的前缀翻转或长度 n-i 的后缀翻转消除，选择较小代价；各边界贡献可相加。",
+  "pitfalls": [
+    "最终全零或全一都允许",
+    "只有字符变化的边界产生费用",
+    "答案可能超过 int"
+  ],
+  "solutions": [
+    {
+      "id": "sum-minimum-cost-at-each-transition",
+      "title": "累加每个变化边界的最小翻转代价",
+      "kind": "最优",
+      "idea": "对每个相邻不同位置独立选择较短一侧。",
+      "steps": [
+        "answer=0",
+        "i 从一到 n-1",
+        "若 s[i]!=s[i-1]，answer+=min(i,n-i)",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/sum-minimum-cost-at-each-transition/Solution.java",
+        "kotlin": "solutions/sum-minimum-cost-at-each-transition/Solution.kt",
+        "cpp": "solutions/sum-minimum-cost-at-each-transition/solution.cpp"
+      }
+    }
+  ]
+}

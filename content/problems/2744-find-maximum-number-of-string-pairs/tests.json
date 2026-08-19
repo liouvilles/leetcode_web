@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumNumberOfStringPairs",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "cd-dc 与 ac-ca 两对",
+      "args": [
+        [
+          "cd",
+          "ac",
+          "dc",
+          "ca",
+          "zz"
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "ab-ba 一对",
+      "args": [
+        [
+          "ab",
+          "ba",
+          "cc"
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "单个回文串不能自配对",
+      "args": [
+        [
+          "aa"
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

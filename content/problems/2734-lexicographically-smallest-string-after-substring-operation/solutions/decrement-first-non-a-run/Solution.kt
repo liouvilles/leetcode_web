@@ -1,0 +1,1 @@
+class Solution { fun smallestString(s:String):String{val chars=s.toCharArray();var index=0;while(index<chars.size&&chars[index]=='a')index++;if(index==chars.size)chars[chars.lastIndex]='z' else while(index<chars.size&&chars[index]!='a'){chars[index]=(chars[index].code-1).toChar();index++};return String(chars)} }

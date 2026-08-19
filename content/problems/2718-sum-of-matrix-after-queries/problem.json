@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2718,
+  "slug": "sum-of-matrix-after-queries",
+  "title": "查询后矩阵的和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-044",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "逆序处理",
+    "矩阵"
+  ],
+  "summary": "零矩阵依次执行整行或整列赋值，求全部查询完成后的元素总和。",
+  "insight": "从后向前看，一行或一列第一次遇到的赋值就是它最终生效的赋值。新确定一行时，只有尚未确定的列会贡献；列同理，因此无需构造矩阵。",
+  "pitfalls": [
+    "查询是赋值而非累加",
+    "必须逆序处理",
+    "已确定行列的交叉格不能重复计算",
+    "总和使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "reverse-queries-and-count-unfixed-lines",
+      "title": "逆序确定行列",
+      "kind": "最优",
+      "idea": "记录已经由更晚查询确定的行列数量。",
+      "steps": [
+        "seenRow、seenCol 初始为空",
+        "queries 从后向前遍历",
+        "若是未见行，加入 value*(n-usedCols) 并标记",
+        "若是未见列，加入 value*(n-usedRows) 并标记",
+        "返回总和"
+      ],
+      "complexity": {
+        "time": "O(q+n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/reverse-queries-and-count-unfixed-lines/Solution.java",
+        "kotlin": "solutions/reverse-queries-and-count-unfixed-lines/Solution.kt",
+        "cpp": "solutions/reverse-queries-and-count-unfixed-lines/solution.cpp"
+      }
+    }
+  ]
+}

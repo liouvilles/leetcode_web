@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "count",
+  "parameterTypes": [
+    "string",
+    "string",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一到十二中数位和一至八",
+      "args": [
+        "1",
+        "12",
+        1,
+        8
+      ],
+      "expected": 11
+    },
+    {
+      "name": "一到五全部合法",
+      "args": [
+        "1",
+        "5",
+        1,
+        5
+      ],
+      "expected": 5
+    },
+    {
+      "name": "端点十本身合法",
+      "args": [
+        "10",
+        "10",
+        1,
+        1
+      ],
+      "expected": 1
+    },
+    {
+      "name": "一百以内数位和为一",
+      "args": [
+        "1",
+        "100",
+        1,
+        1
+      ],
+      "expected": 3
+    }
+  ]
+}
