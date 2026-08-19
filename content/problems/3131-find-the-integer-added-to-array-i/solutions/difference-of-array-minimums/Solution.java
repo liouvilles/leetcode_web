@@ -1,0 +1,1 @@
+class Solution { public int addedInteger(int[] nums1,int[] nums2){int firstMinimum=nums1[0],secondMinimum=nums2[0];for(int value:nums1)firstMinimum=Math.min(firstMinimum,value);for(int value:nums2)secondMinimum=Math.min(secondMinimum,value);return secondMinimum-firstMinimum;} }

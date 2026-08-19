@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 3131,
+  "slug": "find-the-integer-added-to-array-i",
+  "title": "找出与数组相加的整数 I",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-055",
+  "studyTags": [
+    "数组",
+    "数学"
+  ],
+  "summary": "两个等长数组作为多重集合相等，且 nums1 的每个元素统一加上整数 x 后得到 nums2；求 x。",
+  "insight": "统一平移会让数组的最小值也恰好平移 x。既然题目保证存在合法答案，nums2 的最小值减去 nums1 的最小值就是唯一的 x，无需排序或逐元素配对。",
+  "pitfalls": [
+    "数组相等按元素及出现次数判断，不要求原顺序一致",
+    "x 可以为负数或零",
+    "必须分别求两个数组的全局最小值",
+    "题目保证合法 x 存在，因此不需要再次验证整个多重集合",
+    "数值与差值都在 int 范围内"
+  ],
+  "solutions": [
+    {
+      "id": "difference-of-array-minimums",
+      "title": "两个数组最小值之差",
+      "kind": "最优",
+      "idea": "利用统一平移保持最小元素对应关系，直接计算两个最小值之差。",
+      "steps": [
+        "初始化 firstMinimum 与 secondMinimum",
+        "扫描 nums1 更新 firstMinimum",
+        "扫描 nums2 更新 secondMinimum",
+        "返回 secondMinimum-firstMinimum"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/difference-of-array-minimums/Solution.java",
+        "kotlin": "solutions/difference-of-array-minimums/Solution.kt",
+        "cpp": "solutions/difference-of-array-minimums/solution.cpp"
+      }
+    }
+  ]
+}

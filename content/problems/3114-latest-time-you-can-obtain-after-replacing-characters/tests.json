@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findLatestTime",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "一开头的未知位最大只能填一",
+      "args": [
+        "1?:?4"
+      ],
+      "expected": "11:54"
+    },
+    {
+      "name": "零开头时小时个位可填九",
+      "args": [
+        "0?:5?"
+      ],
+      "expected": "09:59"
+    },
+    {
+      "name": "所有数位未知时得到最晚十一点五十九分",
+      "args": [
+        "??:??"
+      ],
+      "expected": "11:59"
+    },
+    {
+      "name": "小时个位为九迫使十位填零",
+      "args": [
+        "?9:??"
+      ],
+      "expected": "09:59"
+    },
+    {
+      "name": "没有问号时保持原时间",
+      "args": [
+        "11:59"
+      ],
+      "expected": "11:59"
+    },
+    {
+      "name": "分钟两个问号分别填五和九",
+      "args": [
+        "10:??"
+      ],
+      "expected": "10:59"
+    }
+  ]
+}

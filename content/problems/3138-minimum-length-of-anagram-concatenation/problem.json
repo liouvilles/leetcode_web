@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": 3138,
+  "slug": "minimum-length-of-anagram-concatenation",
+  "title": "同位字符串连接的最小长度",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-055",
+  "studyTags": [
+    "哈希表",
+    "字符串",
+    "计数",
+    "枚举"
+  ],
+  "summary": "寻找最短的正整数长度，使字符串能按该长度切成若干块，且所有块互为字母重排；返回这个块长度。",
+  "insight": "合法块长必须整除字符串总长度。按长度从小到大枚举这些因子，统计第一块的二十六个字母频次，再逐块比较相同频次数组；首个全部一致的长度就是最小答案。整串长度一定合法，因此枚举必然能返回。",
+  "pitfalls": [
+    "比较的是字符多重集合，不要求每块字符顺序相同",
+    "块必须连续且等长，所以候选长度必须是 n 的因子",
+    "要按长度升序寻找第一个合法因子",
+    "每个新块的频次数组都必须清零",
+    "单字符或整串本身总是提供一个合法答案"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-divisor-lengths-and-counts",
+      "title": "枚举因子块长并比较频次",
+      "kind": "最优",
+      "idea": "对每个可整除总长的候选块长逐块检查二十六维计数。",
+      "steps": [
+        "从 length=1 到 n 递增枚举",
+        "跳过不能整除 n 的长度",
+        "统计首个长度 length 块的字符频次 target",
+        "依次统计后续每个块的频次 current",
+        "若任一 current 与 target 不同则候选失败",
+        "第一个全部相同的 length 立即返回",
+        "兜底返回 n"
+      ],
+      "complexity": {
+        "time": "O(n·τ(n))",
+        "space": "O(26)"
+      },
+      "files": {
+        "java": "solutions/enumerate-divisor-lengths-and-counts/Solution.java",
+        "kotlin": "solutions/enumerate-divisor-lengths-and-counts/Solution.kt",
+        "cpp": "solutions/enumerate-divisor-lengths-and-counts/solution.cpp"
+      }
+    }
+  ]
+}

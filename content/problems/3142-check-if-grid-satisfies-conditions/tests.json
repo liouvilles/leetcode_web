@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "satisfiesConditions",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "每列恒定且相邻列不同",
+      "args": [
+        [
+          [
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "第一列竖直方向出现不同值",
+      "args": [
+        [
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ]
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "相邻两列取值相同违反水平条件",
+      "args": [
+        [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "一乘一矩阵没有相邻约束",
+      "args": [
+        [
+          [
+            7
+          ]
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "单列所有值相等即可满足条件",
+      "args": [
+        [
+          [
+            3
+          ],
+          [
+            3
+          ],
+          [
+            3
+          ]
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

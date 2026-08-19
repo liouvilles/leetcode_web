@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numberOfSubarrays",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "两个相邻三额外形成一个合法子数组",
+      "args": [
+        [
+          1,
+          4,
+          3,
+          3,
+          2
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "三个相同元素的所有六个子数组都合法",
+      "args": [
+        [
+          3,
+          3,
+          3
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "单元素数组只有一个子数组",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "严格递减时只有单元素子数组合法",
+      "args": [
+        [
+          5,
+          4,
+          3,
+          2
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "多个二未被更大元素分隔时形成三组端点配对",
+      "args": [
+        [
+          2,
+          1,
+          2,
+          2
+        ]
+      ],
+      "expected": 7
+    },
+    {
+      "name": "四个相同元素产生十个合法子数组",
+      "args": [
+        [
+          7,
+          7,
+          7,
+          7
+        ]
+      ],
+      "expected": 10
+    }
+  ]
+}

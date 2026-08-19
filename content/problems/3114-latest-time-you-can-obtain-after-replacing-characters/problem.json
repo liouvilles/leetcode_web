@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": 3114,
+  "slug": "latest-time-you-can-obtain-after-replacing-characters",
+  "title": "替换字符可以得到的最晚时间",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-055",
+  "studyTags": [
+    "字符串",
+    "贪心",
+    "枚举"
+  ],
+  "summary": "把十二小时制时间字符串 HH:MM 中的问号替换为数字，使结果位于 00:00 到 11:59，并返回可以得到的最晚时间。",
+  "insight": "时间越晚就应让更高位尽量大。小时十位能取一的前提是小时个位未知或不超过一；确定十位后，未知个位在十位为一时取一，否则取九。分钟十位和个位彼此无额外联动，分别取五和九即可。",
+  "pitfalls": [
+    "本题十二小时制的小时范围是 00 到 11，不是 01 到 12",
+    "小时两位要联合判断，不能无条件把第一个问号替换成一",
+    "分钟十位最大只能为五",
+    "已有数字不能修改",
+    "输入保证至少存在一种合法替换方案"
+  ],
+  "solutions": [
+    {
+      "id": "greedy-fill-from-most-significant-digit",
+      "title": "按高位贪心填充",
+      "kind": "最优",
+      "idea": "从小时高位到分钟低位依次选择仍能保持合法的最大数字。",
+      "steps": [
+        "把字符串转为可修改字符数组",
+        "若小时十位未知，在个位未知或不超过一时填一，否则填零",
+        "若小时个位未知，十位为一时填一，否则填九",
+        "若分钟十位未知则填五",
+        "若分钟个位未知则填九",
+        "返回结果字符串"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/greedy-fill-from-most-significant-digit/Solution.java",
+        "kotlin": "solutions/greedy-fill-from-most-significant-digit/Solution.kt",
+        "cpp": "solutions/greedy-fill-from-most-significant-digit/solution.cpp"
+      }
+    }
+  ]
+}

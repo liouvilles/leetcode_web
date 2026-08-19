@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "medianOfUniquenessArray",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三个不同元素的较小中位数为一",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "重复三四的五元素数组中位数为二",
+      "args": [
+        [
+          3,
+          4,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "四三五四的唯一性中位数为二",
+      "args": [
+        [
+          4,
+          3,
+          5,
+          4
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "所有元素相同时每个子数组唯一性都为一",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "四个互异元素的十项唯一性较小中位数为二",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "两个不同元素的三项唯一性中位数为一",
+      "args": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

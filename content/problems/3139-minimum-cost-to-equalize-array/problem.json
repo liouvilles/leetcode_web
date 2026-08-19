@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": 3139,
+  "slug": "minimum-cost-to-equalize-array",
+  "title": "使数组中所有元素相等的最小开销",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-055",
+  "studyTags": [
+    "贪心",
+    "数组",
+    "枚举",
+    "数学"
+  ],
+  "summary": "可以用 cost1 把一个元素加一，或用 cost2 把两个不同元素各加一；求把数组全部变成相等值的最小开销并对十亿零七取模。",
+  "insight": "固定最终目标 T 后，各元素缺口之和为 total，最大缺口来自原最小值。一次双增必须配对两个不同元素，因此最多可执行 min(total/2,total-maxDeficit) 次；双增更便宜时应把该数量用满。若双增不便宜或元素不足三个，目标取原最大值即可。其余情况下，目标增加时的成本在“最大缺口仍无法完全配对”区域线性变化，分界点满足 (n-2)T≥sum-2min；越过分界后只剩总缺口奇偶性的影响，所以只需检查原最大值附近和分界点附近的常数个目标。",
+  "pitfalls": [
+    "所有操作只能增加元素，最终目标不能小于原最大值",
+    "双增操作的两个下标必须不同",
+    "可配对次数不仅受 total/2 限制，也受其余缺口 total-maxDeficit 限制",
+    "cost2 不小于两次 cost1 时不应使用双增",
+    "n 不超过二时提高目标无法改善原最大值处的单点缺口",
+    "奇数个元素时把目标提高一可能消除一个昂贵单增，必须检查 max+1",
+    "应先用 long 比较完整成本，最后才对十亿零七取模"
+  ],
+  "solutions": [
+    {
+      "id": "constant-candidate-target-evaluation",
+      "title": "常数候选目标与最大配对贪心",
+      "kind": "最优",
+      "idea": "对原最大值和缺口平衡分界附近的目标计算精确最小成本。",
+      "steps": [
+        "统计 n、sum、minimum、maximum",
+        "若 n<=2 或 cost2>=2*cost1，返回补到 maximum 的全单增成本",
+        "定义 cost(T)：计算 total=n*T-sum 与 maxDeficit=T-minimum",
+        "双增次数取 min(total/2,total-maxDeficit)",
+        "剩余 total-2*pairs 次使用单增",
+        "计算 balance=ceil((sum-2*minimum)/(n-2))",
+        "检查 maximum 到 maximum+3",
+        "检查 balance-3 到 balance+3 中不小于 maximum 的目标",
+        "取完整 long 成本最小值",
+        "最后对十亿零七取模返回"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/constant-candidate-target-evaluation/Solution.java",
+        "kotlin": "solutions/constant-candidate-target-evaluation/Solution.kt",
+        "cpp": "solutions/constant-candidate-target-evaluation/solution.cpp"
+      }
+    }
+  ]
+}

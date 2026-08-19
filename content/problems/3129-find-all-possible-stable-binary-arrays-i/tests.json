@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numberOfStableArrays",
+  "parameterTypes": [
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一个零一个一有两种排列",
+      "args": [
+        1,
+        1,
+        2
+      ],
+      "expected": 2
+    },
+    {
+      "name": "相同数字不可相邻时只有一零一零一",
+      "args": [
+        1,
+        2,
+        1
+      ],
+      "expected": 1
+    },
+    {
+      "name": "三个零三个一且段长至多二共有十四种",
+      "args": [
+        3,
+        3,
+        2
+      ],
+      "expected": 14
+    },
+    {
+      "name": "严格交替的两个零两个一只有两种",
+      "args": [
+        2,
+        2,
+        1
+      ],
+      "expected": 2
+    },
+    {
+      "name": "四个零三个一且段长至多二共有十八种",
+      "args": [
+        4,
+        3,
+        2
+      ],
+      "expected": 18
+    },
+    {
+      "name": "上界规模且限制二百时等价于任意排列",
+      "args": [
+        200,
+        200,
+        200
+      ],
+      "expected": 587893473
+    }
+  ]
+}

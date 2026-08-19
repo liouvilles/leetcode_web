@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "problemCount": 2196,
-  "solutionCount": 2223,
-  "implementationCount": 6669,
+  "problemCount": 2221,
+  "solutionCount": 2248,
+  "implementationCount": 6744,
   "problems": [
     {
       "id": 1,
@@ -32960,6 +32960,390 @@
       ],
       "status": "published",
       "batch": "batch-054",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3111,
+      "slug": "minimum-rectangles-to-cover-points",
+      "title": "覆盖所有点的最少矩形数目",
+      "studyTags": [
+        "贪心",
+        "数组",
+        "排序"
+      ],
+      "status": "published",
+      "batch": "batch-055",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3112,
+      "slug": "minimum-time-to-visit-disappearing-nodes",
+      "title": "访问消失节点的最少时间",
+      "studyTags": [
+        "图",
+        "最短路",
+        "Dijkstra",
+        "堆（优先队列）"
+      ],
+      "status": "published",
+      "batch": "batch-055",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3113,
+      "slug": "find-the-number-of-subarrays-where-boundary-elements-are-maximum",
+      "title": "边界元素是最大值的子数组数目",
+      "studyTags": [
+        "数组",
+        "栈",
+        "单调栈",
+        "计数"
+      ],
+      "status": "published",
+      "batch": "batch-055",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3114,
+      "slug": "latest-time-you-can-obtain-after-replacing-characters",
+      "title": "替换字符可以得到的最晚时间",
+      "studyTags": [
+        "字符串",
+        "贪心",
+        "枚举"
+      ],
+      "status": "published",
+      "batch": "batch-055",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3115,
+      "slug": "maximum-prime-difference",
+      "title": "质数的最大距离",
+      "studyTags": [
+        "数组",
+        "数学",
+        "数论",
+        "质数"
+      ],
+      "status": "published",
+      "batch": "batch-055",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3116,
+      "slug": "kth-smallest-amount-with-single-denomination-combination",
+      "title": "单面值组合的第 K 小金额",
+      "studyTags": [
+        "位运算",
+        "数组",
+        "数学",
+        "二分查找",
+        "组合数学",
+        "数论"
+      ],
+      "status": "published",
+      "batch": "batch-055",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3117,
+      "slug": "minimum-sum-of-values-by-dividing-array",
+      "title": "划分数组得到最小的值之和",
+      "studyTags": [
+        "位运算",
+        "数组",
+        "动态规划",
+        "哈希表"
+      ],
+      "status": "published",
+      "batch": "batch-055",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3120,
+      "slug": "count-the-number-of-special-characters-i",
+      "title": "统计特殊字母的数量 I",
+      "studyTags": [
+        "哈希表",
+        "字符串"
+      ],
+      "status": "published",
+      "batch": "batch-055",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3121,
+      "slug": "count-the-number-of-special-characters-ii",
+      "title": "统计特殊字母的数量 II",
+      "studyTags": [
+        "哈希表",
+        "字符串"
+      ],
+      "status": "published",
+      "batch": "batch-055",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3122,
+      "slug": "minimum-number-of-operations-to-satisfy-conditions",
+      "title": "使矩阵满足条件的最少操作次数",
+      "studyTags": [
+        "数组",
+        "动态规划",
+        "矩阵"
+      ],
+      "status": "published",
+      "batch": "batch-055",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3123,
+      "slug": "find-edges-in-shortest-paths",
+      "title": "最短路径中的边",
+      "studyTags": [
+        "图",
+        "最短路",
+        "堆（优先队列）",
+        "Dijkstra"
+      ],
+      "status": "published",
+      "batch": "batch-055",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3127,
+      "slug": "make-a-square-with-the-same-color",
+      "title": "构造相同颜色的正方形",
+      "studyTags": [
+        "数组",
+        "枚举",
+        "矩阵"
+      ],
+      "status": "published",
+      "batch": "batch-055",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3128,
+      "slug": "right-triangles",
+      "title": "直角三角形",
+      "studyTags": [
+        "数组",
+        "数学",
+        "组合数学",
+        "计数"
+      ],
+      "status": "published",
+      "batch": "batch-055",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3129,
+      "slug": "find-all-possible-stable-binary-arrays-i",
+      "title": "找出所有稳定的二进制数组 I",
+      "studyTags": [
+        "动态规划",
+        "前缀和",
+        "组合计数"
+      ],
+      "status": "published",
+      "batch": "batch-055",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3130,
+      "slug": "find-all-possible-stable-binary-arrays-ii",
+      "title": "找出所有稳定的二进制数组 II",
+      "studyTags": [
+        "动态规划",
+        "前缀和",
+        "组合计数"
+      ],
+      "status": "published",
+      "batch": "batch-055",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3131,
+      "slug": "find-the-integer-added-to-array-i",
+      "title": "找出与数组相加的整数 I",
+      "studyTags": [
+        "数组",
+        "数学"
+      ],
+      "status": "published",
+      "batch": "batch-055",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3132,
+      "slug": "find-the-integer-added-to-array-ii",
+      "title": "找出与数组相加的整数 II",
+      "studyTags": [
+        "数组",
+        "双指针",
+        "枚举",
+        "排序"
+      ],
+      "status": "published",
+      "batch": "batch-055",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3133,
+      "slug": "minimum-array-end",
+      "title": "数组最后一个元素的最小值",
+      "studyTags": [
+        "位运算",
+        "数学"
+      ],
+      "status": "published",
+      "batch": "batch-055",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3134,
+      "slug": "find-the-median-of-the-uniqueness-array",
+      "title": "找出唯一性数组的中位数",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "二分查找",
+        "滑动窗口"
+      ],
+      "status": "published",
+      "batch": "batch-055",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3136,
+      "slug": "valid-word",
+      "title": "有效单词",
+      "studyTags": [
+        "字符串",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-055",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3137,
+      "slug": "minimum-number-of-operations-to-make-word-k-periodic",
+      "title": "K 周期字符串需要的最少操作次数",
+      "studyTags": [
+        "哈希表",
+        "字符串",
+        "计数"
+      ],
+      "status": "published",
+      "batch": "batch-055",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3138,
+      "slug": "minimum-length-of-anagram-concatenation",
+      "title": "同位字符串连接的最小长度",
+      "studyTags": [
+        "哈希表",
+        "字符串",
+        "计数",
+        "枚举"
+      ],
+      "status": "published",
+      "batch": "batch-055",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3139,
+      "slug": "minimum-cost-to-equalize-array",
+      "title": "使数组中所有元素相等的最小开销",
+      "studyTags": [
+        "贪心",
+        "数组",
+        "枚举",
+        "数学"
+      ],
+      "status": "published",
+      "batch": "batch-055",
+      "solutionCount": 1,
+      "testCount": 6,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3142,
+      "slug": "check-if-grid-satisfies-conditions",
+      "title": "判断矩阵是否满足条件",
+      "studyTags": [
+        "数组",
+        "矩阵"
+      ],
+      "status": "published",
+      "batch": "batch-055",
+      "solutionCount": 1,
+      "testCount": 5,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 3143,
+      "slug": "maximum-points-inside-the-square",
+      "title": "正方形中的最多点数",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "字符串",
+        "几何",
+        "计数"
+      ],
+      "status": "published",
+      "batch": "batch-055",
       "solutionCount": 1,
       "testCount": 5,
       "qualityGate": "tested"

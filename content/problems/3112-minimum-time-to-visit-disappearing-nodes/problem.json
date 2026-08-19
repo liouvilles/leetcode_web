@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": 3112,
+  "slug": "minimum-time-to-visit-disappearing-nodes",
+  "title": "访问消失节点的最少时间",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-055",
+  "studyTags": [
+    "图",
+    "最短路",
+    "Dijkstra",
+    "堆（优先队列）"
+  ],
+  "summary": "在带非负权的无向图中从节点零出发，节点 i 在 disappear[i] 时刻及以后不能访问；返回到每个节点的最短合法到达时间，不可达则为负一。",
+  "insight": "边权均为正，最短到达时间仍满足 Dijkstra 的贪心性质。唯一新增的限制是在松弛边时，候选到达时间必须严格小于目标节点的消失时间；不满足的路径及其所有更慢替代路径都无需入队。",
+  "pitfalls": [
+    "到达时间必须严格小于 disappear[i]，恰好相等也不可访问",
+    "图可能不连通且两个节点间可能有多条边",
+    "起点在时刻零已经到达，题目保证它的消失时间至少为一",
+    "优先队列可能包含旧距离，弹出后要跳过失效状态",
+    "使用 long 计算候选路径长度，再按题目范围转换为 int 答案"
+  ],
+  "solutions": [
+    {
+      "id": "dijkstra-with-disappear-deadlines",
+      "title": "带消失截止时间的 Dijkstra",
+      "kind": "最优",
+      "idea": "在标准 Dijkstra 松弛条件中加入到达时间早于节点消失时间的限制。",
+      "steps": [
+        "建立带权无向邻接表",
+        "把所有距离初始化为无穷并令 distance[0]=0",
+        "把起点加入按到达时间排序的小根堆",
+        "反复弹出最早状态并跳过旧距离",
+        "枚举相邻边得到 candidate=time+weight",
+        "只有 candidate 更短且 candidate<disappear[next] 时才更新并入队",
+        "把仍为无穷的节点写为负一，其余距离转为整数",
+        "返回答案"
+      ],
+      "complexity": {
+        "time": "O((n+m) log n)",
+        "space": "O(n+m)"
+      },
+      "files": {
+        "java": "solutions/dijkstra-with-disappear-deadlines/Solution.java",
+        "kotlin": "solutions/dijkstra-with-disappear-deadlines/Solution.kt",
+        "cpp": "solutions/dijkstra-with-disappear-deadlines/solution.cpp"
+      }
+    }
+  ]
+}

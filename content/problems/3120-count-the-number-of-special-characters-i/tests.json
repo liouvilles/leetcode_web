@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numberOfSpecialChars",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "a b c 三个字母均有大小写",
+      "args": [
+        "aaAbcBC"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "只有小写字母没有特殊字母",
+      "args": [
+        "abc"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "忽略顺序后只有 b 同时有两种形式",
+      "args": [
+        "abBCab"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "一个字母的大小写各出现一次",
+      "args": [
+        "aA"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "大写先出现仍在第一题中计为特殊",
+      "args": [
+        "AaBb"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "重复大小写 z 只计一个字母种类",
+      "args": [
+        "zzZZx"
+      ],
+      "expected": 1
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "canMakeSquare",
+  "parameterTypes": [
+    "charMatrix"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "右上二乘二只含一个黑格可修改完成",
+      "args": [
+        [
+          [
+            "B",
+            "W",
+            "B"
+          ],
+          [
+            "B",
+            "W",
+            "W"
+          ],
+          [
+            "B",
+            "W",
+            "B"
+          ]
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "棋盘格的每个二乘二都恰有两种颜色各两格",
+      "args": [
+        [
+          [
+            "B",
+            "W",
+            "B"
+          ],
+          [
+            "W",
+            "B",
+            "W"
+          ],
+          [
+            "B",
+            "W",
+            "B"
+          ]
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "全白网格无需修改就有同色方块",
+      "args": [
+        [
+          [
+            "W",
+            "W",
+            "W"
+          ],
+          [
+            "W",
+            "W",
+            "W"
+          ],
+          [
+            "W",
+            "W",
+            "W"
+          ]
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "横向色带令每个二乘二均为两黑两白",
+      "args": [
+        [
+          [
+            "B",
+            "B",
+            "B"
+          ],
+          [
+            "W",
+            "W",
+            "W"
+          ],
+          [
+            "B",
+            "B",
+            "B"
+          ]
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "左上二乘二已经全部为黑色",
+      "args": [
+        [
+          [
+            "B",
+            "B",
+            "W"
+          ],
+          [
+            "B",
+            "B",
+            "W"
+          ],
+          [
+            "W",
+            "W",
+            "B"
+          ]
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": 3143,
+  "slug": "maximum-points-inside-the-square",
+  "title": "正方形中的最多点数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-055",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "字符串",
+    "几何",
+    "计数"
+  ],
+  "summary": "选择一个以原点为中心、边平行于坐标轴的正方形，使内部及边界上的点标签互不相同，求最多能包含多少个点。",
+  "insight": "点 (x,y) 进入半边长为 R 的正方形当且仅当切比雪夫半径 max(|x|,|y|)≤R。对每个标签找到第二小半径；一旦 R 达到它，该标签就出现重复，因此所有标签第二小半径的最小值 forbidden 是第一个非法边界。选择略小于 forbidden 的正方形最优，答案就是半径严格小于 forbidden 的点数。",
+  "pitfalls": [
+    "正方形包含边界，所以半径等于禁止边界的点也不能计入",
+    "每个标签只需关注第二小半径，它决定首次产生重复的时刻",
+    "不同标签的禁止边界取全局最小值",
+    "两个同标签点半径相等时，第二小值也应保留这个相等半径",
+    "没有任何重复标签时禁止边界为无穷，可包含全部点",
+    "坐标绝对值最大十亿，int 范围仍安全"
+  ],
+  "solutions": [
+    {
+      "id": "second-radius-per-label-boundary",
+      "title": "每标签第二半径的禁止边界",
+      "kind": "最优",
+      "idea": "用每个标签的两个最小切比雪夫半径确定最大合法正方形。",
+      "steps": [
+        "创建二十六个最小半径 first 与次小半径 second",
+        "遍历每个点计算 radius=max(abs(x),abs(y))",
+        "按标签更新 first、second，保留相等半径",
+        "令 forbidden 为所有 second 的最小值",
+        "再次遍历点并统计 radius<forbidden 的数量",
+        "返回计数"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(26)"
+      },
+      "files": {
+        "java": "solutions/second-radius-per-label-boundary/Solution.java",
+        "kotlin": "solutions/second-radius-per-label-boundary/Solution.kt",
+        "cpp": "solutions/second-radius-per-label-boundary/solution.cpp"
+      }
+    }
+  ]
+}

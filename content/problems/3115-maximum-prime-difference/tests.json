@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumPrimeDifference",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "最左二与最右三的下标距离为三",
+      "args": [
+        [
+          4,
+          2,
+          9,
+          5,
+          3
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "只有一个质数时可与自身配对",
+      "args": [
+        [
+          4,
+          8,
+          2,
+          8
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "数组两端都是质数时距离为三",
+      "args": [
+        [
+          2,
+          4,
+          6,
+          7
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "单元素质数数组距离为零",
+      "args": [
+        [
+          2
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "一和合数均被跳过只保留五与十一",
+      "args": [
+        [
+          1,
+          4,
+          5,
+          6,
+          11,
+          1
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

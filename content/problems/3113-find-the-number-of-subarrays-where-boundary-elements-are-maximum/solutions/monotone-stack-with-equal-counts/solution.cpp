@@ -1,0 +1,1 @@
+class Solution { public:long long numberOfSubarrays(vector<int>& nums){vector<pair<int,int>> stack;long long answer=0;for(int value:nums){while(!stack.empty()&&stack.back().first<value)stack.pop_back();if(stack.empty()||stack.back().first>value){stack.push_back({value,1});++answer;}else{answer+=stack.back().second+1LL;++stack.back().second;}}return answer;} };

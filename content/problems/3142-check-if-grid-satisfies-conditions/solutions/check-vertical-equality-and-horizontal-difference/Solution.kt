@@ -1,0 +1,1 @@
+class Solution { fun satisfiesConditions(grid:Array<IntArray>):Boolean{for(row in grid.indices)for(col in grid[0].indices){if(row>0&&grid[row][col]!=grid[row-1][col])return false;if(col>0&&grid[row][col]==grid[row][col-1])return false};return true} }

@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isValid",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "数字与大小写字母同时满足所有条件",
+      "args": [
+        "234Adas"
+      ],
+      "expected": true
+    },
+    {
+      "name": "长度不足三且缺少元音",
+      "args": [
+        "b3"
+      ],
+      "expected": false
+    },
+    {
+      "name": "非法美元符号使字符串无效",
+      "args": [
+        "a3$e"
+      ],
+      "expected": false
+    },
+    {
+      "name": "一个元音一个辅音和数字即可有效",
+      "args": [
+        "a1b"
+      ],
+      "expected": true
+    },
+    {
+      "name": "只有数字时缺少元音与辅音",
+      "args": [
+        "123"
+      ],
+      "expected": false
+    },
+    {
+      "name": "只有大写元音时缺少辅音",
+      "args": [
+        "AEI"
+      ],
+      "expected": false
+    }
+  ]
+}

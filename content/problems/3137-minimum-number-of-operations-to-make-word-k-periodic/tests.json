@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumOperationsToMakeKPeriodic",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "两个 leet 块使 code 只需替换一次",
+      "args": [
+        "leetcodeleet",
+        4
+      ],
+      "expected": 1
+    },
+    {
+      "name": "五个两字符块最高频次为二",
+      "args": [
+        "leetcoleet",
+        2
+      ],
+      "expected": 3
+    },
+    {
+      "name": "三个 abc 块已经周期一致",
+      "args": [
+        "abcabcabc",
+        3
+      ],
+      "expected": 0
+    },
+    {
+      "name": "四个不同块需替换其中三个",
+      "args": [
+        "abcdefgh",
+        2
+      ],
+      "expected": 3
+    },
+    {
+      "name": "长度一分块全部相同时无需操作",
+      "args": [
+        "aaaaaa",
+        1
+      ],
+      "expected": 0
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": 3133,
+  "slug": "minimum-array-end",
+  "title": "数组最后一个元素的最小值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-055",
+  "studyTags": [
+    "位运算",
+    "数学"
+  ],
+  "summary": "构造长度为 n 的严格递增正整数数组，使所有元素按位与为 x；求最后一个元素能达到的最小值。",
+  "insight": "所有数组元素都必须包含 x 的每个置位，而 x 的零位可以自由变化。按数值升序枚举所有满足 value&x=x 的数时，恰好相当于把序号的二进制位从低到高依次填入 x 的各个零位。x 本身是第一个数，因此把 n-1 的位填入即可得到第 n 个也就是最小末项。",
+  "pitfalls": [
+    "应使用 n-1，因为 x 本身对应序号零",
+    "x 中已经为一的位必须始终保留",
+    "只在 x 的零位中依次放入 n-1 的二进制位",
+    "结果可能超过 32 位，移位与答案必须使用 long",
+    "填位顺序必须从低位到高位才能保证所得数最小"
+  ],
+  "solutions": [
+    {
+      "id": "deposit-rank-bits-into-zero-bits",
+      "title": "把序号位填入 x 的零位",
+      "kind": "最优",
+      "idea": "将 n-1 视作压缩位串，依次映射到 x 从低到高的空位。",
+      "steps": [
+        "令 remaining=n-1，answer=x",
+        "从目标位 bit=0 开始扫描",
+        "若 x 的当前位为零，就读取 remaining 的最低位",
+        "该位为一时在 answer 中设置目标位",
+        "每使用一个 x 的零位就把 remaining 右移一位",
+        "继续扫描直到 remaining 为零",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(log n+log x)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/deposit-rank-bits-into-zero-bits/Solution.java",
+        "kotlin": "solutions/deposit-rank-bits-into-zero-bits/Solution.kt",
+        "cpp": "solutions/deposit-rank-bits-into-zero-bits/solution.cpp"
+      }
+    }
+  ]
+}

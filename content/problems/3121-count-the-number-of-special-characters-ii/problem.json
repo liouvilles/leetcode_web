@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": 3121,
+  "slug": "count-the-number-of-special-characters-ii",
+  "title": "统计特殊字母的数量 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-055",
+  "studyTags": [
+    "哈希表",
+    "字符串"
+  ],
+  "summary": "统计同时出现大小写形式，且该字母每个小写字符都位于其第一个大写字符之前的字母种数。",
+  "insight": "对每个字母记录最后一次小写出现位置与第一次大写出现位置。它是特殊字母当且仅当两种形式都存在，且 lastLowercase < firstUppercase；该不等式恰好保证没有任何小写形式落在第一个大写之后。",
+  "pitfalls": [
+    "必须同时存在至少一个小写和一个大写形式",
+    "条件涉及所有小写字符，因此要看最后一次小写位置",
+    "大写首次出现之后再出现任何小写都会使该字母无效",
+    "不同字母独立判断",
+    "与第一题不同，大小写顺序会影响答案"
+  ],
+  "solutions": [
+    {
+      "id": "last-lowercase-and-first-uppercase",
+      "title": "最后小写与最早大写位置",
+      "kind": "最优",
+      "idea": "记录两个边界位置并逐字母比较。",
+      "steps": [
+        "lastLowercase 初始化为 -1",
+        "firstUppercase 初始化为 word.length",
+        "扫描每个位置",
+        "小写时覆盖对应 lastLowercase",
+        "大写时只更新对应 firstUppercase 的较小值",
+        "若两种形式存在且最后小写早于最早大写则计数",
+        "返回答案"
+      ],
+      "complexity": {
+        "time": "O(n+26)",
+        "space": "O(26)"
+      },
+      "files": {
+        "java": "solutions/last-lowercase-and-first-uppercase/Solution.java",
+        "kotlin": "solutions/last-lowercase-and-first-uppercase/Solution.kt",
+        "cpp": "solutions/last-lowercase-and-first-uppercase/solution.cpp"
+      }
+    }
+  ]
+}

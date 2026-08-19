@@ -1,0 +1,1 @@
+class Solution { public:int minRectanglesToCoverPoints(vector<vector<int>>& points,int w){sort(points.begin(),points.end(),[](const auto& a,const auto& b){return a[0]<b[0];});int answer=0,index=0;while(index<(int)points.size()){long long right=(long long)points[index][0]+w;++answer;while(index<(int)points.size()&&points[index][0]<=right)++index;}return answer;} };

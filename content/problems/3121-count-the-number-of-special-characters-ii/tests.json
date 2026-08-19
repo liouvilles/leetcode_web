@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "numberOfSpecialChars",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三个字母的小写均早于首次大写",
+      "args": [
+        "aaAbcBC"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "没有大写形式时答案为零",
+      "args": [
+        "abc"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "大写之后仍有小写使所有候选失效",
+      "args": [
+        "AbBCab"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "单个小写位于大写之前",
+      "args": [
+        "aA"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "大写先于小写不满足顺序条件",
+      "args": [
+        "Aa"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "a 与 z 的全部小写均先于大写",
+      "args": [
+        "aaAAzZ"
+      ],
+      "expected": 2
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minAnagramLength",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "ab 与 ba 互为同位字符串所以最短长度为二",
+      "args": [
+        "abba"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "四个不同字符只能把整串作为一个块",
+      "args": [
+        "cdef"
+      ],
+      "expected": 4
+    },
+    {
+      "name": "所有字符相同可拆成单字符块",
+      "args": [
+        "aaaa"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "两个 abc 块的最小同位长度为三",
+      "args": [
+        "abcabc"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "aabb 与 abab 互为同位字符串",
+      "args": [
+        "aabbabab"
+      ],
+      "expected": 4
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findKthSmallest",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "三六九的前三个不同倍数为三六九",
+      "args": [
+        [
+          3,
+          6,
+          9
+        ],
+        3
+      ],
+      "expected": 9
+    },
+    {
+      "name": "二与五合并后的第七个金额为十二",
+      "args": [
+        [
+          5,
+          2
+        ],
+        7
+      ],
+      "expected": 12
+    },
+    {
+      "name": "单面额第五码是三十五",
+      "args": [
+        [
+          7
+        ],
+        5
+      ],
+      "expected": 35
+    },
+    {
+      "name": "二与三的最小可制造金额为二",
+      "args": [
+        [
+          2,
+          3
+        ],
+        1
+      ],
+      "expected": 2
+    },
+    {
+      "name": "互相整除面额的并集等同二的倍数",
+      "args": [
+        [
+          2,
+          4,
+          8
+        ],
+        10
+      ],
+      "expected": 20
+    },
+    {
+      "name": "最大 k 与面额二十五产生五百亿答案",
+      "args": [
+        [
+          25
+        ],
+        2000000000
+      ],
+      "expected": 50000000000
+    }
+  ]
+}

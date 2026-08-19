@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "addedInteger",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "无序数组统一加三后相等",
+      "args": [
+        [
+          2,
+          6,
+          4
+        ],
+        [
+          9,
+          7,
+          5
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "单元素从十减到五",
+      "args": [
+        [
+          10
+        ],
+        [
+          5
+        ]
+      ],
+      "expected": -5
+    },
+    {
+      "name": "两个数组相同时增加量为零",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "重复元素统一减少四",
+      "args": [
+        [
+          5,
+          5,
+          7
+        ],
+        [
+          1,
+          3,
+          1
+        ]
+      ],
+      "expected": -4
+    },
+    {
+      "name": "包含零的数组统一增加十",
+      "args": [
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          12,
+          10,
+          12
+        ]
+      ],
+      "expected": 10
+    }
+  ]
+}

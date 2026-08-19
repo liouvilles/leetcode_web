@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": 3130,
+  "slug": "find-all-possible-stable-binary-arrays-ii",
+  "title": "找出所有稳定的二进制数组 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-055",
+  "studyTags": [
+    "动态规划",
+    "前缀和",
+    "组合计数"
+  ],
+  "summary": "在 zero、one 均可达一千时，统计由指定数量零和一组成且所有同值连续段长度至多 limit 的二进制数组数，对十亿零七取模。",
+  "insight": "用 endZero[i][j] 与 endOne[i][j] 区分最后一位。向任意使用 i-1 个零的合法数组追加零，得到所有以零结尾的候选；唯一新增的非法情况是尾部恰有 limit+1 个零，它们与使用 i-limit-1 个零、j 个一且以一结尾的数组一一对应。总和减去这个窗口外边界，就能在 O(zero·one) 时间完成转移；一结尾状态对称。",
+  "pitfalls": [
+    "二代数据规模要求 O(zero·one)，不能再枚举每个尾段长度",
+    "纯同值前缀的初始化只覆盖长度一到 limit",
+    "转移减掉的是刚越过长度上限的尾段方案",
+    "所有加减都要在模意义下规范为非负数",
+    "最终答案需要合并以零和以一结尾的两类数组",
+    "二维数组约两百万个整数状态，能够满足一千规模"
+  ],
+  "solutions": [
+    {
+      "id": "quadratic-ending-state-dp",
+      "title": "二维结尾状态差分 DP",
+      "kind": "最优",
+      "idea": "以常数时间滑动每个结尾位的合法尾段窗口。",
+      "steps": [
+        "分配 (zero+1)×(one+1) 的两个状态表",
+        "初始化合法纯零与纯一数组",
+        "双层循环枚举已用零和一的数量",
+        "由上一零数量的两个结尾状态求 endZero",
+        "减去尾部超过 limit 个零的边界状态",
+        "由上一一数量的两个结尾状态求 endOne",
+        "减去尾部超过 limit 个一的边界状态",
+        "对每次结果规范取模",
+        "返回 endZero[zero][one]+endOne[zero][one]"
+      ],
+      "complexity": {
+        "time": "O(zero·one)",
+        "space": "O(zero·one)"
+      },
+      "files": {
+        "java": "solutions/quadratic-ending-state-dp/Solution.java",
+        "kotlin": "solutions/quadratic-ending-state-dp/Solution.kt",
+        "cpp": "solutions/quadratic-ending-state-dp/solution.cpp"
+      }
+    }
+  ]
+}

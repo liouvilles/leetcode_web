@@ -1,0 +1,1 @@
+class Solution { public:long long minEnd(int n,int x){long long remaining=n-1LL,answer=x;int bit=0;while(remaining){long long mask=1LL<<bit;if((answer&mask)==0){if(remaining&1)answer|=mask;remaining>>=1;}++bit;}return answer;} };

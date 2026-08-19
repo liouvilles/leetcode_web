@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": 3113,
+  "slug": "find-the-number-of-subarrays-where-boundary-elements-are-maximum",
+  "title": "边界元素是最大值的子数组数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-055",
+  "studyTags": [
+    "数组",
+    "栈",
+    "单调栈",
+    "计数"
+  ],
+  "summary": "统计所有非空子数组，使其首元素和尾元素都等于该子数组的最大值。",
+  "insight": "合法的非单元素子数组两端必须相等，且中间不能出现更大的数。从左到右扫描时，用单调不增栈保留可能作为左端点的数值；遇到更大值就弹出所有较小候选。若栈顶与当前值相等，栈顶累计的每个同值位置都能与当前点形成合法子数组，再加上当前单元素子数组。",
+  "pitfalls": [
+    "每个单元素子数组都满足条件",
+    "非单元素合法子数组的两个边界值必须相等",
+    "遇到更大的当前值时，所有更小候选都会被永久阻断",
+    "相同值不能弹出，需要累计其尚未被更大值隔断的出现次数",
+    "答案最大为 n(n+1)/2，必须使用 64 位整数"
+  ],
+  "solutions": [
+    {
+      "id": "monotone-stack-with-equal-counts",
+      "title": "单调栈累计同值端点",
+      "kind": "最优",
+      "idea": "维护单调不增的数值栈和每个栈顶值可配对的出现次数。",
+      "steps": [
+        "初始化空栈和 64 位答案",
+        "依次扫描 value",
+        "弹出所有小于 value 的栈顶，因为它们被当前更大值阻断",
+        "若栈为空或栈顶大于 value，压入 value 及计数一，并为单元素贡献一",
+        "若栈顶等于 value，当前点可与栈顶记录的每个旧位置配对",
+        "把旧位置数量加上单元素方案计入答案，并增加栈顶计数",
+        "返回答案"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/monotone-stack-with-equal-counts/Solution.java",
+        "kotlin": "solutions/monotone-stack-with-equal-counts/Solution.kt",
+        "cpp": "solutions/monotone-stack-with-equal-counts/solution.cpp"
+      }
+    }
+  ]
+}

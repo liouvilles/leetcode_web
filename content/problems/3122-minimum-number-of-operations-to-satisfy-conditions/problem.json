@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": 3122,
+  "slug": "minimum-number-of-operations-to-satisfy-conditions",
+  "title": "使矩阵满足条件的最少操作次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-055",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "矩阵"
+  ],
+  "summary": "每次可把任一格改成任意非负整数；要求每列所有值相等且相邻列取值不同，求最少修改次数。",
+  "insight": "最终每一列只需选择一个统一数字，原网格取值都在零到九；选择其他数字成本为整列行数，不会优于某个零到九且不同于前列的数字。统计每列各数字频次后，以 dp[digit] 表示当前列统一为 digit 的最小总代价，并从上一列所有不同 digit 转移。",
+  "pitfalls": [
+    "竖直相邻相等意味着整列最终必须统一",
+    "水平相邻不等只约束相邻两列的统一值",
+    "修改一个格子无论改成什么非负整数都只算一次",
+    "当前列改成 digit 的成本是行数减去该 digit 原有频次",
+    "单列矩阵没有水平不同约束"
+  ],
+  "solutions": [
+    {
+      "id": "column-digit-dynamic-programming",
+      "title": "列数字动态规划",
+      "kind": "最优",
+      "idea": "按列选择零到九的统一值并禁止连续重复。",
+      "steps": [
+        "统计第一列零到九的频次并初始化修改成本 previous",
+        "从第二列开始逐列处理",
+        "统计当前列每个数字出现次数",
+        "枚举当前统一数字 digit",
+        "从上一列所有不同 previousDigit 的状态取最小值",
+        "加上 rows-count[digit] 得到 current[digit]",
+        "滚动 previous 并在末列取十个状态最小值"
+      ],
+      "complexity": {
+        "time": "O(rows·cols+100·cols)",
+        "space": "O(10)"
+      },
+      "files": {
+        "java": "solutions/column-digit-dynamic-programming/Solution.java",
+        "kotlin": "solutions/column-digit-dynamic-programming/Solution.kt",
+        "cpp": "solutions/column-digit-dynamic-programming/solution.cpp"
+      }
+    }
+  ]
+}

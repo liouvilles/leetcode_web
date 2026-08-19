@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minEnd",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "把二的二进制位填入四的低位得到六",
+      "args": [
+        3,
+        4
+      ],
+      "expected": 6
+    },
+    {
+      "name": "七的低三位已满所以下一个数为十五",
+      "args": [
+        2,
+        7
+      ],
+      "expected": 15
+    },
+    {
+      "name": "长度一时最后一个元素就是 x",
+      "args": [
+        1,
+        5
+      ],
+      "expected": 5
+    },
+    {
+      "name": "第四个包含最低位一的数为七",
+      "args": [
+        4,
+        1
+      ],
+      "expected": 7
+    },
+    {
+      "name": "第十个包含最低位一的数为十九",
+      "args": [
+        10,
+        1
+      ],
+      "expected": 19
+    }
+  ]
+}

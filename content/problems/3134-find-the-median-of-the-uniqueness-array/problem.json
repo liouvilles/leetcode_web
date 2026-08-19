@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": 3134,
+  "slug": "find-the-median-of-the-uniqueness-array",
+  "title": "找出唯一性数组的中位数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-055",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "二分查找",
+    "滑动窗口"
+  ],
+  "summary": "把 nums 所有非空子数组的不同元素数量排序形成唯一性数组，返回其中位数；长度为偶数时取两个中间值中较小者。",
+  "insight": "设 C(d) 为不同元素数不超过 d 的子数组数量，它随 d 单调不减，可以用滑动窗口在线性时间计算。唯一性数组共有 n(n+1)/2 项，其较小中位数是第 (total+1)/2 小；二分最小的 d 使 C(d) 达到该排名即可。",
+  "pitfalls": [
+    "统计对象是所有非空连续子数组",
+    "偶数长度时选择较小中位数，对应一开始排名 (total+1)/2",
+    "子数组总数与累计计数可能超过 int，必须使用 long",
+    "滑窗中某个值频率降为零时不同元素数才减少",
+    "二分条件是至多 d 个不同元素的子数组数是否达到目标排名",
+    "nums[i] 最大十万，可直接使用频率数组"
+  ],
+  "solutions": [
+    {
+      "id": "binary-search-distinct-limit-with-window",
+      "title": "二分不同数上限与滑动窗口计数",
+      "kind": "最优",
+      "idea": "二分中位数候选，并用双指针统计不同元素数至多为候选值的子数组。",
+      "steps": [
+        "计算 total=n(n+1)/2 与目标排名 target=(total+1)/2",
+        "在一到 n 之间二分不同元素上限 limit",
+        "建立频率数组并令窗口左端 left=0",
+        "向右扩展窗口并维护 distinct",
+        "当 distinct>limit 时收缩左端直到重新合法",
+        "每个右端贡献 right-left+1 个合法子数组",
+        "若合法数量达到 target 就缩小上界，否则增大下界",
+        "返回最小可行 limit"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(V)"
+      },
+      "files": {
+        "java": "solutions/binary-search-distinct-limit-with-window/Solution.java",
+        "kotlin": "solutions/binary-search-distinct-limit-with-window/Solution.kt",
+        "cpp": "solutions/binary-search-distinct-limit-with-window/solution.cpp"
+      }
+    }
+  ]
+}

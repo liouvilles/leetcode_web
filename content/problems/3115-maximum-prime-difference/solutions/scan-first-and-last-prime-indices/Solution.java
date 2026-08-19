@@ -1,0 +1,1 @@
+class Solution { private boolean isPrime(int value){if(value<2)return false;for(int divisor=2;divisor*divisor<=value;divisor++)if(value%divisor==0)return false;return true;}public int maximumPrimeDifference(int[] nums){int first=-1,last=-1;for(int index=0;index<nums.length;index++)if(isPrime(nums[index])){if(first<0)first=index;last=index;}return last-first;} }

@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumAddedInteger",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "删除四与八后其余元素统一减少二",
+      "args": [
+        [
+          4,
+          20,
+          16,
+          12,
+          8
+        ],
+        [
+          14,
+          18,
+          10
+        ]
+      ],
+      "expected": -2
+    },
+    {
+      "name": "删除两个三并把两个五增加二",
+      "args": [
+        [
+          3,
+          5,
+          5,
+          3
+        ],
+        [
+          7,
+          7
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "三个元素只保留最大值可得到最小增加量",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          5
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "删除两个较小值后统一减少二十九",
+      "args": [
+        [
+          10,
+          20,
+          30,
+          40
+        ],
+        [
+          1,
+          11
+        ]
+      ],
+      "expected": -29
+    },
+    {
+      "name": "保留三个五并统一增加二",
+      "args": [
+        [
+          0,
+          0,
+          5,
+          5,
+          5
+        ],
+        [
+          7,
+          7,
+          7
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

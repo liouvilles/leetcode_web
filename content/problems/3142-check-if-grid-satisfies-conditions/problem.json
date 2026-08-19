@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 3142,
+  "slug": "check-if-grid-satisfies-conditions",
+  "title": "判断矩阵是否满足条件",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-055",
+  "studyTags": [
+    "数组",
+    "矩阵"
+  ],
+  "summary": "判断整数矩阵是否满足：每个单元格与正下方单元格相等，并且与右侧单元格不相等。",
+  "insight": "条件完全由相邻单元格决定。逐格检查：存在上方邻居时当前值必须与上方相同，存在左侧邻居时当前值必须与左侧不同；全部通过即说明每列内部恒定且任意相邻列取值不同。",
+  "pitfalls": [
+    "竖直相邻要求相等，水平相邻要求不相等，方向不能写反",
+    "边界上不存在的邻居无需检查",
+    "只需比较相邻列，不要求所有非相邻列也不同",
+    "单行或单列矩阵同样适用",
+    "一乘一矩阵天然满足条件"
+  ],
+  "solutions": [
+    {
+      "id": "check-vertical-equality-and-horizontal-difference",
+      "title": "检查竖相等与横不等",
+      "kind": "最优",
+      "idea": "一次遍历验证每个存在的上方和左侧邻居关系。",
+      "steps": [
+        "枚举每个 row、col",
+        "若 row>0 且当前值不等于上方值，返回 false",
+        "若 col>0 且当前值等于左侧值，返回 false",
+        "全部单元格通过后返回 true"
+      ],
+      "complexity": {
+        "time": "O(nm)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/check-vertical-equality-and-horizontal-difference/Solution.java",
+        "kotlin": "solutions/check-vertical-equality-and-horizontal-difference/Solution.kt",
+        "cpp": "solutions/check-vertical-equality-and-horizontal-difference/solution.cpp"
+      }
+    }
+  ]
+}

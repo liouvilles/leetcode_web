@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "id": 3116,
+  "slug": "kth-smallest-amount-with-single-denomination-combination",
+  "title": "单面值组合的第 K 小金额",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-055",
+  "studyTags": [
+    "位运算",
+    "数组",
+    "数学",
+    "二分查找",
+    "组合数学",
+    "数论"
+  ],
+  "summary": "每种硬币可单独使用任意枚，但不同面额不能混用；求所有至少能由一种面额整除的正金额中第 k 小的数。",
+  "insight": "答案不超过最小面额乘 k，可以在该范围二分。对候选金额 limit，用容斥原理统计能被至少一种面额整除的数：每个非空面额子集贡献 limit/lcm，子集大小为奇数时加、偶数时减。计数达到 k 时继续缩小右边界。",
+  "pitfalls": [
+    "可制造金额是各面额正倍数的并集，重复金额只计一次",
+    "不能把不同面额硬币混合求和",
+    "容斥交集对应面额的最小公倍数",
+    "最小公倍数超过 limit 时该子集贡献为零，可提前停止",
+    "k 与答案乘积可超过 int，边界、计数和最小公倍数都要用 long",
+    "coins 含互相整除的面额时容斥仍需正确处理重复覆盖"
+  ],
+  "solutions": [
+    {
+      "id": "binary-search-with-inclusion-exclusion",
+      "title": "二分答案与容斥计数",
+      "kind": "最优",
+      "idea": "二分最小满足可制造金额数量不少于 k 的数。",
+      "steps": [
+        "令 low=1、high=min(coins)*k",
+        "二分计算 middle",
+        "枚举所有非空面额子集",
+        "逐项用 gcd 更新子集 lcm，超过 middle 时跳过",
+        "按子集奇偶性累加或扣减 middle/lcm",
+        "若计数至少为 k 则收缩 high，否则提高 low",
+        "low==high 时返回答案"
+      ],
+      "complexity": {
+        "time": "O(2^c·c·log(k·minCoin))",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/binary-search-with-inclusion-exclusion/Solution.java",
+        "kotlin": "solutions/binary-search-with-inclusion-exclusion/Solution.kt",
+        "cpp": "solutions/binary-search-with-inclusion-exclusion/solution.cpp"
+      }
+    }
+  ]
+}

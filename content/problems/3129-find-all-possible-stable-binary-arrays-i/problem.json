@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": 3129,
+  "slug": "find-all-possible-stable-binary-arrays-i",
+  "title": "找出所有稳定的二进制数组 I",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-055",
+  "studyTags": [
+    "动态规划",
+    "前缀和",
+    "组合计数"
+  ],
+  "summary": "统计恰含 zero 个零与 one 个一、且任意长度超过 limit 的连续子数组都同时包含零和一的二进制数组数量，并对十亿零七取模。",
+  "insight": "稳定条件等价于任意连续相同数字段的长度不超过 limit。令 endZero[i][j]、endOne[i][j] 分别表示使用 i 个零和 j 个一且以零或一结尾的方案数。给所有旧方案末尾追加零得到 endZero，但其中末尾形成 limit+1 个零的无效方案恰对应更早的 endOne[i-limit-1][j]，减去即可；一的转移完全对称。",
+  "pitfalls": [
+    "题意等价于零段和一段的长度都不能超过 limit",
+    "两个状态必须区分最后一个数字",
+    "纯零或纯一前缀只有长度不超过 limit 时才有一种方案",
+    "减去超长尾段后要加模数再取模，避免负数",
+    "endZero 的转移只减去以一结尾的边界方案，不能减去所有更小状态",
+    "zero 与 one 都可达二百，指数枚举不可行"
+  ],
+  "solutions": [
+    {
+      "id": "ending-bit-dp-with-window-subtraction",
+      "title": "按结尾位分类的窗口减法 DP",
+      "kind": "最优",
+      "idea": "从追加一位的全部方案中减去刚形成超长同值尾段的方案。",
+      "steps": [
+        "创建 endZero 与 endOne 二维数组",
+        "初始化 endZero[i][0]=1，其中 1<=i<=min(zero,limit)",
+        "初始化 endOne[0][j]=1，其中 1<=j<=min(one,limit)",
+        "按 i、j 从一开始枚举",
+        "endZero[i][j] 先取上一层两种结尾方案之和",
+        "i>limit 时减去 endOne[i-limit-1][j]",
+        "endOne[i][j] 对称地由左侧两种结尾方案求和",
+        "j>limit 时减去 endZero[i][j-limit-1]",
+        "返回两个终止状态之和并取模"
+      ],
+      "complexity": {
+        "time": "O(zero·one)",
+        "space": "O(zero·one)"
+      },
+      "files": {
+        "java": "solutions/ending-bit-dp-with-window-subtraction/Solution.java",
+        "kotlin": "solutions/ending-bit-dp-with-window-subtraction/Solution.kt",
+        "cpp": "solutions/ending-bit-dp-with-window-subtraction/solution.cpp"
+      }
+    }
+  ]
+}
