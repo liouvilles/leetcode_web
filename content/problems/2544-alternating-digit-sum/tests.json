@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "alternateDigitSum",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "五减二加一等于四",
+      "args": [
+        521
+      ],
+      "expected": 4
+    },
+    {
+      "name": "三个一交替和为一",
+      "args": [
+        111
+      ],
+      "expected": 1
+    },
+    {
+      "name": "八八六九九六交替和为零",
+      "args": [
+        886996
+      ],
+      "expected": 0
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2527,
+  "slug": "find-xor-beauty-of-array",
+  "title": "查询数组异或美丽值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-039",
+  "studyTags": [
+    "数组",
+    "数学",
+    "位运算"
+  ],
+  "summary": "对所有三元下标 (i,j,k) 形成 (nums[i] OR nums[j]) AND nums[k]，再把全部结果异或，求最终异或美丽值。",
+  "insight": "逐位分析出现次数后，来自不同三元组的重复贡献成对抵消，最终每一位保留当且仅当该位在 nums 全体异或中为一；答案等于所有元素的异或。",
+  "pitfalls": [
+    "三元下标允许重复",
+    "异或中的偶数次相同位会抵消",
+    "无需枚举 O(n³) 三元组"
+  ],
+  "solutions": [
+    {
+      "id": "xor-all-elements",
+      "title": "异或全部元素",
+      "kind": "最优",
+      "idea": "利用按位贡献奇偶性化简表达式。",
+      "steps": [
+        "answer=0",
+        "依次 answer ^= nums[i]",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/xor-all-elements/Solution.java",
+        "kotlin": "solutions/xor-all-elements/Solution.kt",
+        "cpp": "solutions/xor-all-elements/solution.cpp"
+      }
+    }
+  ]
+}

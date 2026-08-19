@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxPower",
+  "parameterTypes": [
+    "intArray",
+    "int",
+    "int"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "新增两站可把最小电量提升到五",
+      "args": [
+        [
+          1,
+          2,
+          4,
+          5,
+          0
+        ],
+        1,
+        2
+      ],
+      "expected": 5
+    },
+    {
+      "name": "半径零且三站不足以同时提升四城",
+      "args": [
+        [
+          4,
+          4,
+          4,
+          4
+        ],
+        0,
+        3
+      ],
+      "expected": 4
+    },
+    {
+      "name": "单城市新增五站后电量为五",
+      "args": [
+        [
+          0
+        ],
+        0,
+        5
+      ],
+      "expected": 5
+    }
+  ]
+}

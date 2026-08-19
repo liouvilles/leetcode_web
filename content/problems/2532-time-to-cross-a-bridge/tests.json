@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findCrossingTime",
+  "parameterTypes": [
+    "int",
+    "int",
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "单箱由最低效工人搬回耗时六",
+      "args": [
+        1,
+        3,
+        [
+          [
+            1,
+            1,
+            2,
+            1
+          ],
+          [
+            1,
+            1,
+            3,
+            1
+          ],
+          [
+            1,
+            1,
+            4,
+            1
+          ]
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "官方两工人三箱复杂调度",
+      "args": [
+        3,
+        2,
+        [
+          [
+            1,
+            9,
+            1,
+            8
+          ],
+          [
+            10,
+            10,
+            10,
+            10
+          ]
+        ]
+      ],
+      "expected": 50
+    },
+    {
+      "name": "单工人往返搬两个箱子",
+      "args": [
+        2,
+        1,
+        [
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": 7
+    }
+  ]
+}

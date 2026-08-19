@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2542,
+  "slug": "maximum-subsequence-score",
+  "title": "最大子序列的分数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-039",
+  "studyTags": [
+    "数组",
+    "排序",
+    "贪心",
+    "堆"
+  ],
+  "summary": "选择恰好 k 个下标，分数为所选 nums1 之和乘所选 nums2 的最小值，求最大分数。",
+  "insight": "按 nums2 降序枚举当前最小值。处理到某下标时，已见元素的 nums2 都不小于当前值，只需在它们的 nums1 中保留最大的 k 个；用小根堆维护并计算候选分数。",
+  "pitfalls": [
+    "两个数组必须选择同一组下标",
+    "乘积使用 long",
+    "堆超过 k 时弹出最小 nums1",
+    "只有堆大小达到 k 才能计算分数"
+  ],
+  "solutions": [
+    {
+      "id": "sort-by-second-and-top-k-first-values",
+      "title": "按第二数组降序并维护前 K 大",
+      "kind": "最优",
+      "idea": "把最小 nums2 固定后优化 nums1 总和。",
+      "steps": [
+        "创建 indices 并按 nums2[index] 降序排序",
+        "sum=0、小根堆空",
+        "依次把 nums1[index] 加入 sum 和堆，堆超过 k 时弹最小并从 sum 减去",
+        "堆大小为 k 时 answer=max(answer,sum*nums2[index])",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n log n + n log k)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/sort-by-second-and-top-k-first-values/Solution.java",
+        "kotlin": "solutions/sort-by-second-and-top-k-first-values/Solution.kt",
+        "cpp": "solutions/sort-by-second-and-top-k-first-values/solution.cpp"
+      }
+    }
+  ]
+}

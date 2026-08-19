@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxOutput",
+  "parameterTypes": [
+    "int",
+    "intMatrix",
+    "intArray"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "官方分支树最大输出二十四",
+      "args": [
+        6,
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            3,
+            5
+          ]
+        ],
+        [
+          9,
+          8,
+          7,
+          6,
+          10,
+          5
+        ]
+      ],
+      "expected": 24
+    },
+    {
+      "name": "三节点链路径和减端点为二",
+      "args": [
+        3,
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "两节点从低价端出发输出五",
+      "args": [
+        2,
+        [
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          5,
+          1
+        ]
+      ],
+      "expected": 5
+    }
+  ]
+}

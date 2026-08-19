@@ -1,0 +1,1 @@
+class Solution { public int distinctPrimeFactors(int[] nums){Set<Integer> factors=new HashSet<>();for(int input:nums){int value=input;for(int divisor=2;divisor*divisor<=value;divisor++)if(value%divisor==0){factors.add(divisor);while(value%divisor==0)value/=divisor;}if(value>1)factors.add(value);}return factors.size();} }

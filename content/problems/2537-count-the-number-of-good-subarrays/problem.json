@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2537,
+  "slug": "count-the-number-of-good-subarrays",
+  "title": "统计好子数组的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-039",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "滑动窗口"
+  ],
+  "summary": "若子数组中相等元素下标对至少有 k 对，则为好子数组；统计所有连续好子数组数量。",
+  "insight": "右端加入值 x 时新增 frequency[x] 个相等对。窗口一旦达到 k 对，固定当前左端的所有更右结尾都合法，可加 n-right；随后移除左端并继续收缩寻找下一个合法左端。",
+  "pitfalls": [
+    "相等对数量可能很大要用 long",
+    "加入值前的频次就是新增对数",
+    "移除值后要减去剩余同值个数"
+  ],
+  "solutions": [
+    {
+      "id": "pair-count-sliding-window",
+      "title": "维护相等对数的滑动窗口",
+      "kind": "最优",
+      "idea": "双指针枚举每个最小合法右端。",
+      "steps": [
+        "frequency map、pairs=0、left=0",
+        "右扩 value：pairs+=frequency[value]，再 frequency++",
+        "while pairs>=k：answer+=n-right；移除 nums[left]，频次减一后 pairs-=新频次，left++",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/pair-count-sliding-window/Solution.java",
+        "kotlin": "solutions/pair-count-sliding-window/Solution.kt",
+        "cpp": "solutions/pair-count-sliding-window/solution.cpp"
+      }
+    }
+  ]
+}

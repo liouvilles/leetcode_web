@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "rangeAddQueries",
+  "parameterTypes": [
+    "int",
+    "intMatrix"
+  ],
+  "returnType": "intMatrix",
+  "cases": [
+    {
+      "name": "两个重叠查询中心为二",
+      "args": [
+        3,
+        [
+          [
+            1,
+            1,
+            2,
+            2
+          ],
+          [
+            0,
+            0,
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          2,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "没有查询返回全零矩阵",
+      "args": [
+        2,
+        []
+      ],
+      "expected": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "单格被更新两次",
+      "args": [
+        1,
+        [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          2
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getCommon",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "最小公共值为二",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "多个公共值取最小的三",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          6
+        ],
+        [
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "没有公共值返回负一",
+      "args": [
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "expected": -1
+    }
+  ]
+}

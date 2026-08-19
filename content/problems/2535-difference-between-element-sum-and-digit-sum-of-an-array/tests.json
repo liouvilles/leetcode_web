@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "differenceOfSum",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "元素和二十五数字和十六差九",
+      "args": [
+        [
+          1,
+          15,
+          6,
+          3
+        ]
+      ],
+      "expected": 9
+    },
+    {
+      "name": "所有单数字时两和相等",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "十和二十的差为二十七",
+      "args": [
+        [
+          10,
+          20
+        ]
+      ],
+      "expected": 27
+    }
+  ]
+}

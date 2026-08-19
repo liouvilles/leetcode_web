@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "closestPrimes",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "十到十九中十一十三最接近",
+      "args": [
+        10,
+        19
+      ],
+      "expected": [
+        11,
+        13
+      ]
+    },
+    {
+      "name": "四到六只有质数五",
+      "args": [
+        4,
+        6
+      ],
+      "expected": [
+        -1,
+        -1
+      ]
+    },
+    {
+      "name": "二和三构成相邻质数对",
+      "args": [
+        2,
+        3
+      ],
+      "expected": [
+        2,
+        3
+      ]
+    }
+  ]
+}

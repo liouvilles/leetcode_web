@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2550,
+  "slug": "count-collisions-of-monkeys-on-a-polygon",
+  "title": "猴子碰撞的方法数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-039",
+  "studyTags": [
+    "数学",
+    "快速幂"
+  ],
+  "summary": "n 只猴子位于正 n 边形顶点，同时选择顺时针或逆时针跳到相邻顶点，统计至少发生一次碰撞的移动方案数并取模。",
+  "insight": "总方案数为 2^n。只有全部顺时针和全部逆时针两种方案不会碰撞，其余方案在方向交界处必有猴子迎面交换到同一边界目标，因此答案为 2^n-2。",
+  "pitfalls": [
+    "n 很大需快速幂",
+    "模减二后要保持非负",
+    "两种同向方案都不碰撞"
+  ],
+  "solutions": [
+    {
+      "id": "modular-power-minus-two",
+      "title": "快速幂计算二的 N 次方减二",
+      "kind": "最优",
+      "idea": "二进制快速幂处理大指数。",
+      "steps": [
+        "base=2、result=1",
+        "按 n 的二进制位快速幂并取模",
+        "返回 (result-2+MOD)%MOD"
+      ],
+      "complexity": {
+        "time": "O(log n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/modular-power-minus-two/Solution.java",
+        "kotlin": "solutions/modular-power-minus-two/Solution.kt",
+        "cpp": "solutions/modular-power-minus-two/solution.cpp"
+      }
+    }
+  ]
+}

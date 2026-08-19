@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2547,
+  "slug": "minimum-cost-to-split-an-array",
+  "title": "拆分数组的最小代价",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-039",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "动态规划",
+    "计数"
+  ],
+  "summary": "把数组拆成若干连续子数组，每段代价为 k 加该段修剪后长度；修剪会删除只出现一次的元素，求总最小代价。",
+  "insight": "dp[i] 表示前 i 个元素的最小代价。固定每段左端点，向右扩展并维护频次与 trimmed：某值第二次出现时它的两个出现都计入修剪长度，之后每多一次再加一；用 dp[left]+k+trimmed 更新 dp[right+1]。",
+  "pitfalls": [
+    "第二次出现时修剪长度一次增加二",
+    "第三次及以后每次增加一",
+    "值域包含 n，频次数组需开 n+1",
+    "各段都要付固定成本 k"
+  ],
+  "solutions": [
+    {
+      "id": "quadratic-prefix-dp",
+      "title": "二次前缀动态规划",
+      "kind": "最优",
+      "idea": "枚举最后一段的左右边界并增量计算代价。",
+      "steps": [
+        "dp[0]=0，其余无穷",
+        "对 left=0..n-1 创建长度 n+1 的空频次、trimmed=0",
+        "right 从 left 右扩：更新 count；count==2 时 trimmed+=2，count>2 时 trimmed++",
+        "dp[right+1]=min(dp[right+1],dp[left]+k+trimmed)",
+        "返回 dp[n]"
+      ],
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/quadratic-prefix-dp/Solution.java",
+        "kotlin": "solutions/quadratic-prefix-dp/Solution.kt",
+        "cpp": "solutions/quadratic-prefix-dp/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2523,
+  "slug": "closest-prime-numbers-in-range",
+  "title": "范围内最接近的两个质数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-039",
+  "studyTags": [
+    "数学",
+    "数论",
+    "埃氏筛"
+  ],
+  "summary": "在闭区间 [left,right] 内寻找差值最小的两个质数，返回较小者在前；不足两个质数返回 [-1,-1]。",
+  "insight": "筛出 right 以内所有质数后按升序扫描区间，只需比较相邻质数；任何非相邻质数的差都不会更小。",
+  "pitfalls": [
+    "一不是质数",
+    "平局取数值更小的一对",
+    "区间内不足两个质数时返回负一对"
+  ],
+  "solutions": [
+    {
+      "id": "sieve-and-adjacent-primes",
+      "title": "筛法后比较相邻质数",
+      "kind": "最优",
+      "idea": "一次筛法得到区间内升序质数。",
+      "steps": [
+        "建立 prime[0..right] 并把零一标 false",
+        "埃氏筛从 p=2 到 sqrt(right)，从 p*p 标记倍数",
+        "扫描 left..right，维护 previous prime",
+        "用当前与 previous 的差更新最优对",
+        "返回 best 或 [-1,-1]"
+      ],
+      "complexity": {
+        "time": "O(right log log right)",
+        "space": "O(right)"
+      },
+      "files": {
+        "java": "solutions/sieve-and-adjacent-primes/Solution.java",
+        "kotlin": "solutions/sieve-and-adjacent-primes/Solution.kt",
+        "cpp": "solutions/sieve-and-adjacent-primes/solution.cpp"
+      }
+    }
+  ]
+}

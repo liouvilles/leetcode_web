@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isItPossible",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "交换 c 与 a 后两边各三种字符",
+      "args": [
+        "abcc",
+        "aab"
+      ],
+      "expected": true
+    },
+    {
+      "name": "两个单词不同字符数无法通过一次交换相等",
+      "args": [
+        "ac",
+        "b"
+      ],
+      "expected": false
+    },
+    {
+      "name": "两边已有五种字符交换后仍可相等",
+      "args": [
+        "abcde",
+        "fghij"
+      ],
+      "expected": true
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxKelements",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "五个十各取一次得五十",
+      "args": [
+        [
+          10,
+          10,
+          10,
+          10,
+          10
+        ],
+        5
+      ],
+      "expected": 50
+    },
+    {
+      "name": "十变四后再次取四再取三",
+      "args": [
+        [
+          1,
+          10,
+          3,
+          3,
+          3
+        ],
+        3
+      ],
+      "expected": 17
+    },
+    {
+      "name": "一替换后仍为一",
+      "args": [
+        [
+          1
+        ],
+        3
+      ],
+      "expected": 3
+    }
+  ]
+}

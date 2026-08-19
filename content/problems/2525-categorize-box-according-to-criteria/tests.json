@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "categorizeBox",
+  "parameterTypes": [
+    "int",
+    "int",
+    "int",
+    "int"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "质量达标但尺寸体积不笨重",
+      "args": [
+        1000,
+        35,
+        700,
+        300
+      ],
+      "expected": "Heavy"
+    },
+    {
+      "name": "两个条件都不满足",
+      "args": [
+        200,
+        50,
+        800,
+        50
+      ],
+      "expected": "Neither"
+    },
+    {
+      "name": "尺寸与质量同时达标",
+      "args": [
+        10000,
+        1,
+        1,
+        100
+      ],
+      "expected": "Both"
+    }
+  ]
+}

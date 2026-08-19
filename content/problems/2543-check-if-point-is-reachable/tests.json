@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isReachable",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "六和九公约数三不可达",
+      "args": [
+        6,
+        9
+      ],
+      "expected": false
+    },
+    {
+      "name": "四和七互质可达",
+      "args": [
+        4,
+        7
+      ],
+      "expected": true
+    },
+    {
+      "name": "八和十二公约数四可达",
+      "args": [
+        8,
+        12
+      ],
+      "expected": true
+    }
+  ]
+}

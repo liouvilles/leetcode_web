@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "mode": "design",
+  "className": "DataStream",
+  "constructorTypes": [
+    "int",
+    "int"
+  ],
+  "cases": [
+    {
+      "name": "连续三个四后成立且其他值清零",
+      "constructorArgs": [
+        4,
+        3
+      ],
+      "calls": [
+        {
+          "method": "consec",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            4
+          ],
+          "returnType": "boolean",
+          "expected": false
+        },
+        {
+          "method": "consec",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            4
+          ],
+          "returnType": "boolean",
+          "expected": false
+        },
+        {
+          "method": "consec",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            4
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "consec",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            3
+          ],
+          "returnType": "boolean",
+          "expected": false
+        },
+        {
+          "method": "consec",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            4
+          ],
+          "returnType": "boolean",
+          "expected": false
+        }
+      ]
+    },
+    {
+      "name": "阈值一时命中立即成立",
+      "constructorArgs": [
+        1,
+        1
+      ],
+      "calls": [
+        {
+          "method": "consec",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            1
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "consec",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            2
+          ],
+          "returnType": "boolean",
+          "expected": false
+        }
+      ]
+    },
+    {
+      "name": "超过阈值后保持成立",
+      "constructorArgs": [
+        5,
+        2
+      ],
+      "calls": [
+        {
+          "method": "consec",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            5
+          ],
+          "returnType": "boolean",
+          "expected": false
+        },
+        {
+          "method": "consec",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            5
+          ],
+          "returnType": "boolean",
+          "expected": true
+        },
+        {
+          "method": "consec",
+          "parameterTypes": [
+            "int"
+          ],
+          "args": [
+            5
+          ],
+          "returnType": "boolean",
+          "expected": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2540,
+  "slug": "minimum-common-value",
+  "title": "最小公共值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-039",
+  "studyTags": [
+    "数组",
+    "双指针"
+  ],
+  "summary": "给定两个严格递增数组，返回二者共有的最小整数，不存在返回负一。",
+  "insight": "两个指针从数组头开始；相等时就是最小公共值，否则移动当前值较小的一侧以追赶另一侧。",
+  "pitfalls": [
+    "数组严格递增",
+    "要返回最小公共值",
+    "任一指针到末尾即无解"
+  ],
+  "solutions": [
+    {
+      "id": "two-pointer-merge-scan",
+      "title": "双指针归并扫描",
+      "kind": "最优",
+      "idea": "利用有序性跳过不可能匹配的小值。",
+      "steps": [
+        "first=second=0",
+        "两值相等立即返回",
+        "nums1[first]<nums2[second] 时 first++，否则 second++",
+        "循环结束返回 -1"
+      ],
+      "complexity": {
+        "time": "O(n + m)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/two-pointer-merge-scan/Solution.java",
+        "kotlin": "solutions/two-pointer-merge-scan/Solution.kt",
+        "cpp": "solutions/two-pointer-merge-scan/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2541,
+  "slug": "minimum-operations-to-make-array-equal-ii",
+  "title": "使数组相等的最小操作次数 II",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-039",
+  "studyTags": [
+    "数组",
+    "数学",
+    "贪心"
+  ],
+  "summary": "一次操作选择两个不同下标，把 nums1 一处加 k、另一处减 k；求变成 nums2 的最少操作次数，不可能返回负一。",
+  "insight": "每次操作转移一个单位 k，总和保持不变。每个位置差值必须是 k 的倍数，且所有正差单位与负差单位总量相等；最少操作数就是正差单位总和。k=0 时数组不能发生变化。",
+  "pitfalls": [
+    "操作保持 nums1 总和",
+    "每个差值都必须整除 k",
+    "答案可能超过 int",
+    "k 为零需单独处理"
+  ],
+  "solutions": [
+    {
+      "id": "balance-transfer-units",
+      "title": "统计可转移的 K 单位",
+      "kind": "最优",
+      "idea": "验证整除与收支平衡。",
+      "steps": [
+        "k==0 时直接比较两数组是否完全相同",
+        "positive=negative=0",
+        "对 diff=nums1[i]-nums2[i]，若 diff%k!=0 返回 -1",
+        "diff>0 累加 diff/k 到 positive，否则累加 -diff/k 到 negative",
+        "两者相等返回 positive，否则 -1"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/balance-transfer-units/Solution.java",
+        "kotlin": "solutions/balance-transfer-units/Solution.kt",
+        "cpp": "solutions/balance-transfer-units/solution.cpp"
+      }
+    }
+  ]
+}

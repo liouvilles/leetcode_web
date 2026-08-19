@@ -1,0 +1,1 @@
+class Solution { fun getCommon(nums1:IntArray,nums2:IntArray):Int{var first=0;var second=0;while(first<nums1.size&&second<nums2.size){if(nums1[first]==nums2[second])return nums1[first];if(nums1[first]<nums2[second])first++ else second++};return -1} }

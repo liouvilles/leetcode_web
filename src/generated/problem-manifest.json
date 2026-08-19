@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "problemCount": 1796,
-  "solutionCount": 1823,
-  "implementationCount": 5469,
+  "problemCount": 1821,
+  "solutionCount": 1848,
+  "implementationCount": 5544,
   "problems": [
     {
       "id": 1,
@@ -26881,6 +26881,381 @@
       ],
       "status": "published",
       "batch": "batch-038",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2521,
+      "slug": "distinct-prime-factors-of-product-of-array",
+      "title": "数组乘积中的不同质因数数目",
+      "studyTags": [
+        "数组",
+        "数学",
+        "质因数分解",
+        "哈希表"
+      ],
+      "status": "published",
+      "batch": "batch-039",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2522,
+      "slug": "partition-string-into-substrings-with-values-at-most-k",
+      "title": "将字符串分割成值不超过 K 的子字符串",
+      "studyTags": [
+        "字符串",
+        "贪心"
+      ],
+      "status": "published",
+      "batch": "batch-039",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2523,
+      "slug": "closest-prime-numbers-in-range",
+      "title": "范围内最接近的两个质数",
+      "studyTags": [
+        "数学",
+        "数论",
+        "埃氏筛"
+      ],
+      "status": "published",
+      "batch": "batch-039",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2525,
+      "slug": "categorize-box-according-to-criteria",
+      "title": "根据规则将箱子分类",
+      "studyTags": [
+        "数学",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-039",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2526,
+      "slug": "find-consecutive-integers-from-a-data-stream",
+      "title": "找到数据流中的连续整数",
+      "studyTags": [
+        "设计",
+        "数据流",
+        "计数"
+      ],
+      "status": "published",
+      "batch": "batch-039",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2527,
+      "slug": "find-xor-beauty-of-array",
+      "title": "查询数组异或美丽值",
+      "studyTags": [
+        "数组",
+        "数学",
+        "位运算"
+      ],
+      "status": "published",
+      "batch": "batch-039",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2528,
+      "slug": "maximize-the-minimum-powered-city",
+      "title": "最大化城市的最小电量",
+      "studyTags": [
+        "数组",
+        "二分查找",
+        "贪心",
+        "差分数组"
+      ],
+      "status": "published",
+      "batch": "batch-039",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2529,
+      "slug": "maximum-count-of-positive-integer-and-negative-integer",
+      "title": "正整数和负整数的最大计数",
+      "studyTags": [
+        "数组",
+        "计数"
+      ],
+      "status": "published",
+      "batch": "batch-039",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2530,
+      "slug": "maximal-score-after-applying-k-operations",
+      "title": "执行 K 次操作后的最大分数",
+      "studyTags": [
+        "数组",
+        "贪心",
+        "堆"
+      ],
+      "status": "published",
+      "batch": "batch-039",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2531,
+      "slug": "make-number-of-distinct-characters-equal",
+      "title": "使字符串中不同字符的数目相等",
+      "studyTags": [
+        "字符串",
+        "哈希表",
+        "计数",
+        "枚举"
+      ],
+      "status": "published",
+      "batch": "batch-039",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2532,
+      "slug": "time-to-cross-a-bridge",
+      "title": "过桥的时间",
+      "studyTags": [
+        "数组",
+        "堆",
+        "模拟",
+        "事件调度"
+      ],
+      "status": "published",
+      "batch": "batch-039",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2535,
+      "slug": "difference-between-element-sum-and-digit-sum-of-an-array",
+      "title": "数组元素和与数字和的绝对差",
+      "studyTags": [
+        "数组",
+        "数学",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-039",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2536,
+      "slug": "increment-submatrices-by-one",
+      "title": "子矩阵元素加一",
+      "studyTags": [
+        "数组",
+        "矩阵",
+        "二维差分",
+        "前缀和"
+      ],
+      "status": "published",
+      "batch": "batch-039",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2537,
+      "slug": "count-the-number-of-good-subarrays",
+      "title": "统计好子数组的数目",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "滑动窗口"
+      ],
+      "status": "published",
+      "batch": "batch-039",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2538,
+      "slug": "difference-between-maximum-and-minimum-price-sum",
+      "title": "最大价值和与最小价值和的差值",
+      "studyTags": [
+        "树",
+        "动态规划",
+        "树形 DP"
+      ],
+      "status": "published",
+      "batch": "batch-039",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2540,
+      "slug": "minimum-common-value",
+      "title": "最小公共值",
+      "studyTags": [
+        "数组",
+        "双指针"
+      ],
+      "status": "published",
+      "batch": "batch-039",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2541,
+      "slug": "minimum-operations-to-make-array-equal-ii",
+      "title": "使数组相等的最小操作次数 II",
+      "studyTags": [
+        "数组",
+        "数学",
+        "贪心"
+      ],
+      "status": "published",
+      "batch": "batch-039",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2542,
+      "slug": "maximum-subsequence-score",
+      "title": "最大子序列的分数",
+      "studyTags": [
+        "数组",
+        "排序",
+        "贪心",
+        "堆"
+      ],
+      "status": "published",
+      "batch": "batch-039",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2543,
+      "slug": "check-if-point-is-reachable",
+      "title": "判断一个点是否可以到达",
+      "studyTags": [
+        "数学",
+        "数论",
+        "最大公约数"
+      ],
+      "status": "published",
+      "batch": "batch-039",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2544,
+      "slug": "alternating-digit-sum",
+      "title": "交替数字和",
+      "studyTags": [
+        "数学",
+        "字符串",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-039",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2545,
+      "slug": "sort-the-students-by-their-kth-score",
+      "title": "根据第 K 场考试的分数排序",
+      "studyTags": [
+        "数组",
+        "矩阵",
+        "排序"
+      ],
+      "status": "published",
+      "batch": "batch-039",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2546,
+      "slug": "apply-bitwise-operations-to-make-strings-equal",
+      "title": "执行逐位运算使字符串相等",
+      "studyTags": [
+        "字符串",
+        "位运算"
+      ],
+      "status": "published",
+      "batch": "batch-039",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2547,
+      "slug": "minimum-cost-to-split-an-array",
+      "title": "拆分数组的最小代价",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "动态规划",
+        "计数"
+      ],
+      "status": "published",
+      "batch": "batch-039",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2549,
+      "slug": "count-distinct-numbers-on-board",
+      "title": "统计桌面上的不同数字",
+      "studyTags": [
+        "数学",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-039",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2550,
+      "slug": "count-collisions-of-monkeys-on-a-polygon",
+      "title": "猴子碰撞的方法数",
+      "studyTags": [
+        "数学",
+        "快速幂"
+      ],
+      "status": "published",
+      "batch": "batch-039",
       "solutionCount": 1,
       "testCount": 3,
       "qualityGate": "tested"

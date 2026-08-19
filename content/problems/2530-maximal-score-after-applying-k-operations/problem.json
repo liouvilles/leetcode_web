@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2530,
+  "slug": "maximal-score-after-applying-k-operations",
+  "title": "执行 K 次操作后的最大分数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-039",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "堆"
+  ],
+  "summary": "每轮选择一个数组值 x 加入分数，再把该值替换为 ceil(x/3)，执行 k 轮，求最大总分。",
+  "insight": "每轮替换只影响被选元素且未来值单调不增，因此当前选择最大值总不劣；用最大堆重复取最大并放回 ceil(x/3)。",
+  "pitfalls": [
+    "必须执行恰好 k 轮",
+    "向上取整可写成 (x+2)/3",
+    "答案使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "repeated-maximum-heap",
+      "title": "最大堆逐轮贪心",
+      "kind": "最优",
+      "idea": "维护所有当前可选值。",
+      "steps": [
+        "把 nums 全部加入最大堆",
+        "重复 k 次：poll 最大 value",
+        "score+=value",
+        "offer((value+2)/3)",
+        "返回 score"
+      ],
+      "complexity": {
+        "time": "O((n+k) log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/repeated-maximum-heap/Solution.java",
+        "kotlin": "solutions/repeated-maximum-heap/Solution.kt",
+        "cpp": "solutions/repeated-maximum-heap/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2545,
+  "slug": "sort-the-students-by-their-kth-score",
+  "title": "根据第 K 场考试的分数排序",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-039",
+  "studyTags": [
+    "数组",
+    "矩阵",
+    "排序"
+  ],
+  "summary": "矩阵每行是一名学生的各科分数，按第 k 列分数从高到低重新排列学生行。",
+  "insight": "直接把每一行视为排序元素，比较器读取 row[k] 并降序排序；各学生该科分数互不相同。",
+  "pitfalls": [
+    "k 是零基列下标",
+    "要移动整行而非仅排序第 k 列",
+    "排序方向为降序"
+  ],
+  "solutions": [
+    {
+      "id": "sort-rows-by-column",
+      "title": "按指定列降序排列行",
+      "kind": "最优",
+      "idea": "使用行比较器完成。",
+      "steps": [
+        "对 score 调用排序",
+        "比较两行时比较 second[k] 与 first[k]",
+        "返回 score"
+      ],
+      "complexity": {
+        "time": "O(rows log rows)",
+        "space": "O(log rows) sorting"
+      },
+      "files": {
+        "java": "solutions/sort-rows-by-column/Solution.java",
+        "kotlin": "solutions/sort-rows-by-column/Solution.kt",
+        "cpp": "solutions/sort-rows-by-column/solution.cpp"
+      }
+    }
+  ]
+}

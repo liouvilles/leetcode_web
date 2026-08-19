@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2535,
+  "slug": "difference-between-element-sum-and-digit-sum-of-an-array",
+  "title": "数组元素和与数字和的绝对差",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-039",
+  "studyTags": [
+    "数组",
+    "数学",
+    "模拟"
+  ],
+  "summary": "求数组元素之和与所有元素十进制数位之和的绝对差。",
+  "insight": "扫描每个值时加入元素和，并用副本逐位取模十累计数位和，最后取差的绝对值。",
+  "pitfalls": [
+    "数字和包含每个元素的每一位",
+    "提取数位时不能破坏用于元素和的原值"
+  ],
+  "solutions": [
+    {
+      "id": "sum-elements-and-digits",
+      "title": "同时累计元素和与数位和",
+      "kind": "最优",
+      "idea": "一次扫描完成两个和。",
+      "steps": [
+        "elementSum=digitSum=0",
+        "对 value：elementSum+=value",
+        "用 copy=value 循环 digitSum+=copy%10、copy/=10",
+        "返回 abs(elementSum-digitSum)"
+      ],
+      "complexity": {
+        "time": "O(total digits)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/sum-elements-and-digits/Solution.java",
+        "kotlin": "solutions/sum-elements-and-digits/Solution.kt",
+        "cpp": "solutions/sum-elements-and-digits/solution.cpp"
+      }
+    }
+  ]
+}

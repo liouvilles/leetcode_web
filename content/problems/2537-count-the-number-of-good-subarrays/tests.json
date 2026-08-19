@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countGood",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "五个一只有完整数组达到十对",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        10
+      ],
+      "expected": 1
+    },
+    {
+      "name": "官方混合数组共有四个好子数组",
+      "args": [
+        [
+          3,
+          1,
+          4,
+          3,
+          2,
+          2,
+          4
+        ],
+        2
+      ],
+      "expected": 4
+    },
+    {
+      "name": "互异数组没有相等对",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        1
+      ],
+      "expected": 0
+    }
+  ]
+}

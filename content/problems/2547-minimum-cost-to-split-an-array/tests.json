@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minCost",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "官方七元素示例最小代价八",
+      "args": [
+        [
+          1,
+          2,
+          1,
+          2,
+          1,
+          3,
+          3
+        ],
+        2
+      ],
+      "expected": 8
+    },
+    {
+      "name": "拆成三个无重复段代价六",
+      "args": [
+        [
+          1,
+          2,
+          1,
+          2,
+          1
+        ],
+        2
+      ],
+      "expected": 6
+    },
+    {
+      "name": "全异数组整段代价为五",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        5
+      ],
+      "expected": 5
+    }
+  ]
+}

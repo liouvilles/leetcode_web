@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": 2543,
+  "slug": "check-if-point-is-reachable",
+  "title": "判断一个点是否可以到达",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-039",
+  "studyTags": [
+    "数学",
+    "数论",
+    "最大公约数"
+  ],
+  "summary": "从 (1,1) 出发，每步可把一个坐标加上另一个坐标，或把一个坐标乘二，判断能否到达 (targetX,targetY)。",
+  "insight": "加法操作不改变两坐标最大公约数，翻倍只会给公约数增加因子二。从 (1,1) 出发，可达点的 gcd 因而只能是二的幂；反向使用欧几里得式减法可证明该条件也充分。",
+  "pitfalls": [
+    "只需检查最大公约数而非两个坐标各自",
+    "一也是二的零次幂",
+    "用位运算判断正整数是否为二的幂"
+  ],
+  "solutions": [
+    {
+      "id": "gcd-is-power-of-two",
+      "title": "最大公约数是否为二的幂",
+      "kind": "最优",
+      "idea": "把操作不变量化为常数时间位判断。",
+      "steps": [
+        "计算 divisor=gcd(targetX,targetY)",
+        "返回 (divisor & (divisor-1))==0"
+      ],
+      "complexity": {
+        "time": "O(log min(x,y))",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/gcd-is-power-of-two/Solution.java",
+        "kotlin": "solutions/gcd-is-power-of-two/Solution.kt",
+        "cpp": "solutions/gcd-is-power-of-two/solution.cpp"
+      }
+    }
+  ]
+}

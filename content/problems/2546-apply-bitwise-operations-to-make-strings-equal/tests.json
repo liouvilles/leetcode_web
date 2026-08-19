@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "makeStringsEqual",
+  "parameterTypes": [
+    "string",
+    "string"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "两串都含一可以互相转换",
+      "args": [
+        "1010",
+        "0110"
+      ],
+      "expected": true
+    },
+    {
+      "name": "含一字符串不能变成全零",
+      "args": [
+        "11",
+        "00"
+      ],
+      "expected": false
+    },
+    {
+      "name": "两个全零字符串已经相等",
+      "args": [
+        "00",
+        "00"
+      ],
+      "expected": true
+    }
+  ]
+}

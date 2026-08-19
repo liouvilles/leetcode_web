@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minOperations",
+  "parameterTypes": [
+    "intArray",
+    "intArray",
+    "int"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "转移两个三单位共需两次",
+      "args": [
+        [
+          4,
+          3,
+          1,
+          4
+        ],
+        [
+          1,
+          3,
+          7,
+          1
+        ],
+        3
+      ],
+      "expected": 2
+    },
+    {
+      "name": "数组总差不守恒无法完成",
+      "args": [
+        [
+          3,
+          8,
+          5,
+          2
+        ],
+        [
+          2,
+          4,
+          1,
+          6
+        ],
+        1
+      ],
+      "expected": -1
+    },
+    {
+      "name": "步长零且数组相同无需操作",
+      "args": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        0
+      ],
+      "expected": 0
+    }
+  ]
+}

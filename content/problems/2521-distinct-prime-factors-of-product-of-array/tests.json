@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "distinctPrimeFactors",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "乘积含二三五七四种质因数",
+      "args": [
+        [
+          2,
+          4,
+          3,
+          7,
+          10,
+          6
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "二的幂只有质因数二",
+      "args": [
+        [
+          2,
+          4,
+          8,
+          16
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "六十十五合并为三种质因数",
+      "args": [
+        [
+          6,
+          10,
+          15
+        ]
+      ],
+      "expected": 3
+    }
+  ]
+}

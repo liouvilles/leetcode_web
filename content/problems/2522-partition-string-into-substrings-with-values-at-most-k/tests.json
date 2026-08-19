@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimumPartition",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "最长合法前缀贪心分成四段",
+      "args": [
+        "165462",
+        60
+      ],
+      "expected": 4
+    },
+    {
+      "name": "单个数字八已超过五",
+      "args": [
+        "238182",
+        5
+      ],
+      "expected": -1
+    },
+    {
+      "name": "整个字符串不超过上限只需一段",
+      "args": [
+        "123",
+        123
+      ],
+      "expected": 1
+    }
+  ]
+}

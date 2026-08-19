@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2525,
+  "slug": "categorize-box-according-to-criteria",
+  "title": "根据规则将箱子分类",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-039",
+  "studyTags": [
+    "数学",
+    "模拟"
+  ],
+  "summary": "箱子任一尺寸至少一万或体积至少十亿时为 Bulky，质量至少一百时为 Heavy；按两个条件返回 Both、Bulky、Heavy 或 Neither。",
+  "insight": "分别用布尔变量计算体积/尺寸条件与质量条件，再按四种组合映射字符串。体积需用 long。",
+  "pitfalls": [
+    "任一尺寸达到阈值即笨重",
+    "体积乘法使用长整数",
+    "阈值均包含等号"
+  ],
+  "solutions": [
+    {
+      "id": "evaluate-two-flags",
+      "title": "计算笨重与沉重两个标记",
+      "kind": "最优",
+      "idea": "按两个独立条件组合分类。",
+      "steps": [
+        "bulky = 任一尺寸>=10000 或 volume>=1e9",
+        "heavy = mass>=100",
+        "bulky&&heavy 返回 Both",
+        "仅 bulky 返回 Bulky，仅 heavy 返回 Heavy，否则 Neither"
+      ],
+      "complexity": {
+        "time": "O(1)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/evaluate-two-flags/Solution.java",
+        "kotlin": "solutions/evaluate-two-flags/Solution.kt",
+        "cpp": "solutions/evaluate-two-flags/solution.cpp"
+      }
+    }
+  ]
+}

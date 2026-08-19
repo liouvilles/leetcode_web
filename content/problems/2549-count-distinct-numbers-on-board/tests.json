@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "distinctIntegers",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "五最终留下二到五四个数",
+      "args": [
+        5
+      ],
+      "expected": 4
+    },
+    {
+      "name": "三最终有二和三",
+      "args": [
+        3
+      ],
+      "expected": 2
+    },
+    {
+      "name": "一只有初始自身",
+      "args": [
+        1
+      ],
+      "expected": 1
+    }
+  ]
+}

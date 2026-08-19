@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2544,
+  "slug": "alternating-digit-sum",
+  "title": "交替数字和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-039",
+  "studyTags": [
+    "数学",
+    "字符串",
+    "模拟"
+  ],
+  "summary": "从整数最高位开始给各位依次赋正、负、正、负符号，返回带符号数位和。",
+  "insight": "转成字符串即可按最高位到最低位扫描，用下标奇偶决定加减，避免先反转数位。",
+  "pitfalls": [
+    "最高位符号为正",
+    "零基偶数下标加、奇数下标减"
+  ],
+  "solutions": [
+    {
+      "id": "left-to-right-sign-alternation",
+      "title": "从最高位起交替加减",
+      "kind": "最优",
+      "idea": "字符串顺序与题目符号顺序一致。",
+      "steps": [
+        "digits=String.valueOf(n)",
+        "answer=0",
+        "对 i：digit=digits[i]-0，i 偶数加否则减",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(number of digits)",
+        "space": "O(number of digits)"
+      },
+      "files": {
+        "java": "solutions/left-to-right-sign-alternation/Solution.java",
+        "kotlin": "solutions/left-to-right-sign-alternation/Solution.kt",
+        "cpp": "solutions/left-to-right-sign-alternation/solution.cpp"
+      }
+    }
+  ]
+}

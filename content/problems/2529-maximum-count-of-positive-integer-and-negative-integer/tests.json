@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumCount",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三个正数多于三个负数平局为三",
+      "args": [
+        [
+          -2,
+          -1,
+          -1,
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "三个负数多于两个正数",
+      "args": [
+        [
+          -3,
+          -2,
+          -1,
+          0,
+          0,
+          1,
+          2
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "全零时计数为零",
+      "args": [
+        [
+          0,
+          0
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

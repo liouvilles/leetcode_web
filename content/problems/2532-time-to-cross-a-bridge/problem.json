@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": 2532,
+  "slug": "time-to-cross-a-bridge",
+  "title": "过桥的时间",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-039",
+  "studyTags": [
+    "数组",
+    "堆",
+    "模拟",
+    "事件调度"
+  ],
+  "summary": "k 名工人通过单向互斥桥把 n 个箱子从右仓搬到左仓；按效率低者和编号大者优先的规则调度，求最后一个箱子过桥到左侧的时间。",
+  "insight": "维护左右两侧等待工人的优先队列，以及正在左侧放箱、右侧取箱工人的完成时间小根堆。每个时刻先释放已完工作业，桥上优先让右侧带箱工人回来，否则派左侧工人；无人可过桥时跳到最近完成事件。",
+  "pitfalls": [
+    "右侧等待工人的过桥优先级高于左侧",
+    "效率以 leftToRight+rightToLeft 越大越优先",
+    "派工人去右侧时就消耗一个待搬箱子",
+    "答案在最后箱子过桥后即可，不必等其放置完成"
+  ],
+  "solutions": [
+    {
+      "id": "four-heaps-event-simulation",
+      "title": "四堆事件模拟",
+      "kind": "最优",
+      "idea": "等待堆按低效率优先，作业堆按完成时刻优先。",
+      "steps": [
+        "waitLeft 初始放入所有工人，waitRight 空；workLeft/workRight 为完成事件堆",
+        "循环直到没有未派箱子且右侧无等待或取箱工人",
+        "把完成时间<=current 的 work 工人移入对应 wait",
+        "waitRight 非空时最高优先工人回左，current+=rightToLeft，并进入 workLeft",
+        "否则 boxes>0 且 waitLeft 非空时派工人去右，current+=leftToRight、boxes--，进入 workRight",
+        "否则 current 跳到两侧最近完成时间；返回 current"
+      ],
+      "complexity": {
+        "time": "O((n+k) log k)",
+        "space": "O(k)"
+      },
+      "files": {
+        "java": "solutions/four-heaps-event-simulation/Solution.java",
+        "kotlin": "solutions/four-heaps-event-simulation/Solution.kt",
+        "cpp": "solutions/four-heaps-event-simulation/solution.cpp"
+      }
+    }
+  ]
+}

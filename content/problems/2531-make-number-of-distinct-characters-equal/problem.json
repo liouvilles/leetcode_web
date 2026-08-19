@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2531,
+  "slug": "make-number-of-distinct-characters-equal",
+  "title": "使字符串中不同字符的数目相等",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-039",
+  "studyTags": [
+    "字符串",
+    "哈希表",
+    "计数",
+    "枚举"
+  ],
+  "summary": "必须从 word1 与 word2 各选一个字符并交换，问能否让两字符串的不同字符数量相等。",
+  "insight": "字符集只有 26 个，可枚举 word1 中存在的字符 i 与 word2 中存在的字符 j。i==j 时计数不变；否则根据被移除字符是否只出现一次、被加入字符是否原本不存在，常数时间计算交换后的不同数。",
+  "pitfalls": [
+    "必须进行一次交换",
+    "可交换相同字符",
+    "移除最后一次出现才会减少不同数",
+    "加入原本不存在的字符才会增加不同数"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-character-pairs",
+      "title": "枚举交换字符对",
+      "kind": "最优",
+      "idea": "最多检查 26×26 种交换。",
+      "steps": [
+        "统计 first[26]、second[26] 与 distinct1、distinct2",
+        "枚举 first[i]>0、second[j]>0",
+        "i==j 时若 distinct1==distinct2 返回 true",
+        "否则 new1=distinct1-(first[i]==1)+ (first[j]==0)，new2 对称",
+        "new1==new2 时返回 true，最终 false"
+      ],
+      "complexity": {
+        "time": "O(|word1| + |word2| + 26²)",
+        "space": "O(26)"
+      },
+      "files": {
+        "java": "solutions/enumerate-character-pairs/Solution.java",
+        "kotlin": "solutions/enumerate-character-pairs/Solution.kt",
+        "cpp": "solutions/enumerate-character-pairs/solution.cpp"
+      }
+    }
+  ]
+}

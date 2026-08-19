@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2538,
+  "slug": "difference-between-maximum-and-minimum-price-sum",
+  "title": "最大价值和与最小价值和的差值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-039",
+  "studyTags": [
+    "树",
+    "动态规划",
+    "树形 DP"
+  ],
+  "summary": "树节点有正价格，从任一起点到任一终点的简单路径价格和为价值；对每个起点取最大与最小价值差，求全局最大输出。",
+  "insight": "因价格为正，固定起点的最小路径就是只取起点，目标等价于某条路径总和减去其中一个端点价格。后序 DP 为每个节点维护向下路径的最大完整和 full，以及去掉远端端点价格的最大和 excluded；合并不同子树时更新全局答案。",
+  "pitfalls": [
+    "路径允许终点等于起点",
+    "减去的是某个路径端点价格",
+    "合并子节点前要用尚未纳入该子树的当前最优值",
+    "深树使用迭代后序避免栈溢出"
+  ],
+  "solutions": [
+    {
+      "id": "iterative-tree-dp-with-excluded-endpoint",
+      "title": "迭代树形 DP 与端点排除状态",
+      "kind": "最优",
+      "idea": "每个状态描述从当前节点向其已处理子树延伸的最佳路径。",
+      "steps": [
+        "从节点零迭代定根，记录 parent 与 order",
+        "逆序处理节点，full=price[node]、excluded=0",
+        "对每个子节点：answer=max(answer,full+excluded[child],excluded+full[child])",
+        "再更新 full=max(full,price[node]+full[child])、excluded=max(excluded,price[node]+excluded[child])",
+        "保存状态并返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/iterative-tree-dp-with-excluded-endpoint/Solution.java",
+        "kotlin": "solutions/iterative-tree-dp-with-excluded-endpoint/Solution.kt",
+        "cpp": "solutions/iterative-tree-dp-with-excluded-endpoint/solution.cpp"
+      }
+    }
+  ]
+}

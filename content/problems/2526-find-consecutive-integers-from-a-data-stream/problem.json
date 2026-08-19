@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2526,
+  "slug": "find-consecutive-integers-from-a-data-stream",
+  "title": "找到数据流中的连续整数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-039",
+  "studyTags": [
+    "设计",
+    "数据流",
+    "计数"
+  ],
+  "summary": "设计数据流，consec(num) 返回截至当前是否连续出现了至少 k 个等于指定 value 的整数。",
+  "insight": "只需维护当前结尾连续 value 的长度 streak；新数等于 value 时加一，否则清零，判断 streak>=k。",
+  "pitfalls": [
+    "判断的是以当前元素结尾的连续段",
+    "遇到任意其他值要清零",
+    "超过 k 后继续出现 value 仍返回 true"
+  ],
+  "solutions": [
+    {
+      "id": "ending-streak-counter",
+      "title": "结尾连续段计数器",
+      "kind": "最优",
+      "idea": "常数空间维护当前连续次数。",
+      "steps": [
+        "构造保存 value、k，streak=0",
+        "consec(num)：num==value 则 streak++，否则 streak=0",
+        "返回 streak>=k"
+      ],
+      "complexity": {
+        "time": "O(1) per call",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/ending-streak-counter/Solution.java",
+        "kotlin": "solutions/ending-streak-counter/Solution.kt",
+        "cpp": "solutions/ending-streak-counter/solution.cpp"
+      }
+    }
+  ]
+}

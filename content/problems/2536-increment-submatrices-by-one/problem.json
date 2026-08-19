@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2536,
+  "slug": "increment-submatrices-by-one",
+  "title": "子矩阵元素加一",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-039",
+  "studyTags": [
+    "数组",
+    "矩阵",
+    "二维差分",
+    "前缀和"
+  ],
+  "summary": "初始 n×n 零矩阵，每个查询把闭区间矩形 [row1,col1] 到 [row2,col2] 全部加一，返回最终矩阵。",
+  "insight": "用二维差分对每个矩形只修改四个角，再计算二维前缀和恢复每个格子的累计增量。",
+  "pitfalls": [
+    "查询右下边界是包含的",
+    "差分数组开到 n+1 便于处理 row2+1、col2+1",
+    "恢复时要减去重复计算的左上前缀"
+  ],
+  "solutions": [
+    {
+      "id": "two-dimensional-difference",
+      "title": "二维差分与前缀和",
+      "kind": "最优",
+      "idea": "矩形更新常数时间、最终统一恢复。",
+      "steps": [
+        "创建 difference[n+1][n+1]",
+        "每个查询执行 diff[r1][c1]++、diff[r2+1][c1]--、diff[r1][c2+1]--、diff[r2+1][c2+1]++",
+        "遍历 n×n，answer[r][c]=diff[r][c]+上+左-左上",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n² + queries)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/two-dimensional-difference/Solution.java",
+        "kotlin": "solutions/two-dimensional-difference/Solution.kt",
+        "cpp": "solutions/two-dimensional-difference/solution.cpp"
+      }
+    }
+  ]
+}
