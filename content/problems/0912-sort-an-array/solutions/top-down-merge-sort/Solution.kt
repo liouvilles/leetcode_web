@@ -1,1 +1,19 @@
-class Solution { private lateinit var temporary:IntArray;fun sortArray(nums:IntArray):IntArray{temporary=IntArray(nums.size);sort(nums,0,nums.lastIndex);return nums};private fun sort(nums:IntArray,left:Int,right:Int){if(left>=right)return;val middle=left+(right-left)/2;sort(nums,left,middle);sort(nums,middle+1,right);var i=left;var j=middle+1;var write=left;while(i<=middle||j<=right)temporary[write++]=if(j>right||i<=middle&&nums[i]<=nums[j])nums[i++] else nums[j++];for(index in left..right)nums[index]=temporary[index]} }
+class Solution {
+    private lateinit var temporary:IntArray;
+    fun sortArray(nums:IntArray):IntArray{
+        temporary=IntArray(nums.size);
+        sort(nums,0,nums.lastIndex);
+        return nums
+    };
+    private fun sort(nums:IntArray,left:Int,right:Int){
+        if(left>=right)return;
+        val middle=left+(right-left)/2;
+        sort(nums,left,middle);
+        sort(nums,middle+1,right);
+        var i=left;
+        var j=middle+1;
+        var write=left;
+        while(i<=middle||j<=right)temporary[write++]=if(j>right||i<=middle&&nums[i]<=nums[j])nums[i++] else nums[j++];
+        for(index in left..right)nums[index]=temporary[index]
+    }
+}

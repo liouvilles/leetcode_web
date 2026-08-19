@@ -1,1 +1,8 @@
-class Solution { public:int minimumOperationsToMakeKPeriodic(string word,int k){unordered_map<string,int> frequency;int maximum=0;for(int start=0;start<(int)word.size();start+=k)maximum=max(maximum,++frequency[word.substr(start,k)]);return word.size()/k-maximum;} };
+class Solution {
+    public:int minimumOperationsToMakeKPeriodic(string word,int k){
+        unordered_map<string,int> frequency;
+        int maximum=0;
+        for(int start=0;start<(int)word.size();start+=k)maximum=max(maximum,++frequency[word.substr(start,k)]);
+        return word.size()/k-maximum;
+    }
+};

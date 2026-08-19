@@ -1,1 +1,11 @@
-class Solution { public:int getCommon(vector<int>& nums1,vector<int>& nums2){int first=0,second=0;while(first<(int)nums1.size()&&second<(int)nums2.size()){if(nums1[first]==nums2[second])return nums1[first];if(nums1[first]<nums2[second])++first;else ++second;}return -1;} };
+class Solution {
+    public:int getCommon(vector<int>& nums1,vector<int>& nums2){
+        int first=0,second=0;
+        while(first<(int)nums1.size()&&second<(int)nums2.size()){
+            if(nums1[first]==nums2[second])return nums1[first];
+            if(nums1[first]<nums2[second])++first;
+            else ++second;
+        }
+        return -1;
+    }
+};

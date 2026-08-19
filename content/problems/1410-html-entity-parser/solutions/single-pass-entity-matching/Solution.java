@@ -1,1 +1,21 @@
-class Solution { public String entityParser(String text){String[] entities={"&quot;","&apos;","&amp;","&gt;","&lt;","&frasl;"},values={"\"","'","&",">","<","/"};StringBuilder answer=new StringBuilder();for(int i=0;i<text.length();){boolean matched=false;if(text.charAt(i)=='&')for(int j=0;j<entities.length;j++)if(text.startsWith(entities[j],i)){answer.append(values[j]);i+=entities[j].length();matched=true;break;}if(!matched)answer.append(text.charAt(i++));}return answer.toString();} }
+class Solution {
+    public String entityParser(String text){
+        String[] entities={
+            "&quot;","&apos;","&amp;","&gt;","&lt;","&frasl;"
+        },values={
+            "\"","'","&",">","<","/"
+        };
+        StringBuilder answer=new StringBuilder();
+        for(int i=0;i<text.length();){
+            boolean matched=false;
+            if(text.charAt(i)=='&')for(int j=0;j<entities.length;j++)if(text.startsWith(entities[j],i)){
+                answer.append(values[j]);
+                i+=entities[j].length();
+                matched=true;
+                break;
+            }
+            if(!matched)answer.append(text.charAt(i++));
+        }
+        return answer.toString();
+    }
+}

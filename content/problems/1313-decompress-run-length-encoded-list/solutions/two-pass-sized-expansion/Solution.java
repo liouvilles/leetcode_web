@@ -1,1 +1,10 @@
-class Solution { public int[] decompressRLElist(int[] nums){int length=0;for(int i=0;i<nums.length;i+=2)length+=nums[i];int[] answer=new int[length];int write=0;for(int i=0;i<nums.length;i+=2)for(int count=0;count<nums[i];count++)answer[write++]=nums[i+1];return answer;} }
+class Solution {
+    public int[] decompressRLElist(int[] nums){
+        int length=0;
+        for(int i=0;i<nums.length;i+=2)length+=nums[i];
+        int[] answer=new int[length];
+        int write=0;
+        for(int i=0;i<nums.length;i+=2)for(int count=0;count<nums[i];count++)answer[write++]=nums[i+1];
+        return answer;
+    }
+}

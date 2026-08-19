@@ -1,1 +1,15 @@
-class Solution { fun maxDivScore(nums:IntArray,divisors:IntArray):Int{var bestScore=-1;var answer=Int.MAX_VALUE;for(divisor in divisors){var score=0;for(value in nums)if(value%divisor==0)score++;if(score>bestScore||score==bestScore&&divisor<answer){bestScore=score;answer=divisor}};return answer} }
+class Solution {
+    fun maxDivScore(nums:IntArray,divisors:IntArray):Int{
+        var bestScore=-1;
+        var answer=Int.MAX_VALUE;
+        for(divisor in divisors){
+            var score=0;
+            for(value in nums)if(value%divisor==0)score++;
+            if(score>bestScore||score==bestScore&&divisor<answer){
+                bestScore=score;
+                answer=divisor
+            }
+        };
+        return answer
+    }
+}

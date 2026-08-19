@@ -1,1 +1,15 @@
-class Solution { public:int longestSubsequence(string s,int k){long long value=0,power=1;int length=0;for(int i=s.size()-1;i>=0;--i){if(s[i]=='0')++length;else if(value+power<=k){value+=power;++length;}if(power<=k)power*=2;}return length;} };
+class Solution {
+    public:int longestSubsequence(string s,int k){
+        long long value=0,power=1;
+        int length=0;
+        for(int i=s.size()-1;i>=0;--i){
+            if(s[i]=='0')++length;
+            else if(value+power<=k){
+                value+=power;
+                ++length;
+            }
+            if(power<=k)power*=2;
+        }
+        return length;
+    }
+};

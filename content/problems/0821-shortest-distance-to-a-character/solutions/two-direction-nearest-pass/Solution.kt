@@ -1,1 +1,17 @@
-class Solution { fun shortestToChar(s:String,c:Char):IntArray{val n=s.length;var previous=-n;val answer=IntArray(n);for(i in 0 until n){if(s[i]==c)previous=i;answer[i]=i-previous};var next=2*n;for(i in n-1 downTo 0){if(s[i]==c)next=i;answer[i]=minOf(answer[i],next-i)};return answer} }
+class Solution {
+    fun shortestToChar(s:String,c:Char):IntArray{
+        val n=s.length;
+        var previous=-n;
+        val answer=IntArray(n);
+        for(i in 0 until n){
+            if(s[i]==c)previous=i;
+            answer[i]=i-previous
+        };
+        var next=2*n;
+        for(i in n-1 downTo 0){
+            if(s[i]==c)next=i;
+            answer[i]=minOf(answer[i],next-i)
+        };
+        return answer
+    }
+}

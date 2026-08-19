@@ -1,1 +1,10 @@
-class Solution { public String largestTimeFromDigits(int[] arr){int best=-1;for(int i=0;i<4;i++)for(int j=0;j<4;j++)if(j!=i)for(int k=0;k<4;k++)if(k!=i&&k!=j)for(int l=0;l<4;l++)if(l!=i&&l!=j&&l!=k){int hour=10*arr[i]+arr[j],minute=10*arr[k]+arr[l];if(hour<24&&minute<60)best=Math.max(best,hour*60+minute);}return best<0?"":String.format("%02d:%02d",best/60,best%60);} }
+class Solution {
+    public String largestTimeFromDigits(int[] arr){
+        int best=-1;
+        for(int i=0;i<4;i++)for(int j=0;j<4;j++)if(j!=i)for(int k=0;k<4;k++)if(k!=i&&k!=j)for(int l=0;l<4;l++)if(l!=i&&l!=j&&l!=k){
+            int hour=10*arr[i]+arr[j],minute=10*arr[k]+arr[l];
+            if(hour<24&&minute<60)best=Math.max(best,hour*60+minute);
+        }
+        return best<0?"":String.format("%02d:%02d",best/60,best%60);
+    }
+}

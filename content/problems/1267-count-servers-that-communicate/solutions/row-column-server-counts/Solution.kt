@@ -1,1 +1,15 @@
-class Solution { fun countServers(grid:Array<IntArray>):Int{val rows=grid.size;val columns=grid[0].size;val rowCount=IntArray(rows);val columnCount=IntArray(columns);for(r in 0 until rows)for(c in 0 until columns)if(grid[r][c]==1){rowCount[r]++;columnCount[c]++};var answer=0;for(r in 0 until rows)for(c in 0 until columns)if(grid[r][c]==1&&(rowCount[r]>1||columnCount[c]>1))answer++;return answer} }
+class Solution {
+    fun countServers(grid:Array<IntArray>):Int{
+        val rows=grid.size;
+        val columns=grid[0].size;
+        val rowCount=IntArray(rows);
+        val columnCount=IntArray(columns);
+        for(r in 0 until rows)for(c in 0 until columns)if(grid[r][c]==1){
+            rowCount[r]++;
+            columnCount[c]++
+        };
+        var answer=0;
+        for(r in 0 until rows)for(c in 0 until columns)if(grid[r][c]==1&&(rowCount[r]>1||columnCount[c]>1))answer++;
+        return answer
+    }
+}

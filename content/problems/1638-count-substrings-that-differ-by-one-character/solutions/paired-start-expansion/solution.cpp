@@ -1,1 +1,14 @@
-class Solution { public: int countSubstrings(string s,string t){int answer=0;for(int first=0;first<(int)s.size();++first)for(int second=0;second<(int)t.size();++second){int mismatch=0;for(int offset=0;first+offset<(int)s.size()&&second+offset<(int)t.size();++offset){mismatch+=s[first+offset]!=t[second+offset];if(mismatch==1)++answer;else if(mismatch>1)break;}}return answer;} };
+class Solution {
+    public: int countSubstrings(string s,string t){
+        int answer=0;
+        for(int first=0;first<(int)s.size();++first)for(int second=0;second<(int)t.size();++second){
+            int mismatch=0;
+            for(int offset=0;first+offset<(int)s.size()&&second+offset<(int)t.size();++offset){
+                mismatch+=s[first+offset]!=t[second+offset];
+                if(mismatch==1)++answer;
+                else if(mismatch>1)break;
+            }
+        }
+        return answer;
+    }
+};

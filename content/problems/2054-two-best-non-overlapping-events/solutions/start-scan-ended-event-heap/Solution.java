@@ -1,1 +1,15 @@
-class Solution { public int maxTwoEvents(int[][] events){Arrays.sort(events,Comparator.comparingInt(a->a[0]));PriorityQueue<int[]> heap=new PriorityQueue<>(Comparator.comparingInt(a->a[0]));int bestEnded=0,answer=0;for(int[] event:events){while(!heap.isEmpty()&&heap.peek()[0]<event[0])bestEnded=Math.max(bestEnded,heap.poll()[1]);answer=Math.max(answer,bestEnded+event[2]);heap.offer(new int[]{event[1],event[2]});}return answer;} }
+class Solution {
+    public int maxTwoEvents(int[][] events){
+        Arrays.sort(events,Comparator.comparingInt(a->a[0]));
+        PriorityQueue<int[]> heap=new PriorityQueue<>(Comparator.comparingInt(a->a[0]));
+        int bestEnded=0,answer=0;
+        for(int[] event:events){
+            while(!heap.isEmpty()&&heap.peek()[0]<event[0])bestEnded=Math.max(bestEnded,heap.poll()[1]);
+            answer=Math.max(answer,bestEnded+event[2]);
+            heap.offer(new int[]{
+                event[1],event[2]
+            });
+        }
+        return answer;
+    }
+}

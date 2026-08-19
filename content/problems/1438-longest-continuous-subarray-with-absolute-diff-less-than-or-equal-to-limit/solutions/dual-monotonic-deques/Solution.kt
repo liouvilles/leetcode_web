@@ -1,1 +1,21 @@
-class Solution { fun longestSubarray(nums:IntArray,limit:Int):Int{val maximum=java.util.ArrayDeque<Int>();val minimum=java.util.ArrayDeque<Int>();var left=0;var answer=0;for(right in nums.indices){while(maximum.isNotEmpty()&&nums[maximum.peekLast()]<nums[right])maximum.removeLast();while(minimum.isNotEmpty()&&nums[minimum.peekLast()]>nums[right])minimum.removeLast();maximum.addLast(right);minimum.addLast(right);while(nums[maximum.peekFirst()]-nums[minimum.peekFirst()]>limit){if(maximum.peekFirst()==left)maximum.removeFirst();if(minimum.peekFirst()==left)minimum.removeFirst();left++};answer=maxOf(answer,right-left+1)};return answer} }
+class Solution {
+    fun longestSubarray(nums:IntArray,limit:Int):Int{
+        val maximum=java.util.ArrayDeque<Int>();
+        val minimum=java.util.ArrayDeque<Int>();
+        var left=0;
+        var answer=0;
+        for(right in nums.indices){
+            while(maximum.isNotEmpty()&&nums[maximum.peekLast()]<nums[right])maximum.removeLast();
+            while(minimum.isNotEmpty()&&nums[minimum.peekLast()]>nums[right])minimum.removeLast();
+            maximum.addLast(right);
+            minimum.addLast(right);
+            while(nums[maximum.peekFirst()]-nums[minimum.peekFirst()]>limit){
+                if(maximum.peekFirst()==left)maximum.removeFirst();
+                if(minimum.peekFirst()==left)minimum.removeFirst();
+                left++
+            };
+            answer=maxOf(answer,right-left+1)
+        };
+        return answer
+    }
+}

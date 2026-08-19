@@ -1,1 +1,43 @@
-class Solution { private fun isPrime(value:Int):Boolean{if(value<2)return false;if(value%2==0)return value==2;var divisor=3;while(divisor*divisor<=value){if(value%divisor==0)return false;divisor+=2};return true}fun mostFrequentPrime(mat:Array<IntArray>):Int{val directions=intArrayOf(-1,0,1);val frequency=HashMap<Int,Int>();val primeCache=HashMap<Int,Boolean>();val rows=mat.size;val cols=mat[0].size;var answer=-1;var bestCount=0;for(startRow in 0 until rows)for(startCol in 0 until cols)for(rowStep in directions)for(colStep in directions){if(rowStep==0&&colStep==0)continue;var row=startRow;var col=startCol;var value=0;while(row in 0 until rows&&col in 0 until cols){value=value*10+mat[row][col];if(value>10&&primeCache.getOrPut(value){isPrime(value)}){val count=(frequency[value]?:0)+1;frequency[value]=count;if(count>bestCount||count==bestCount&&value>answer){bestCount=count;answer=value}};row+=rowStep;col+=colStep}};return answer} }
+class Solution {
+    private fun isPrime(value:Int):Boolean{
+        if(value<2)return false;
+        if(value%2==0)return value==2;
+        var divisor=3;
+        while(divisor*divisor<=value){
+            if(value%divisor==0)return false;
+            divisor+=2
+        };
+        return true
+    }
+    fun mostFrequentPrime(mat:Array<IntArray>):Int{
+        val directions=intArrayOf(-1,0,1);
+        val frequency=HashMap<Int,Int>();
+        val primeCache=HashMap<Int,Boolean>();
+        val rows=mat.size;
+        val cols=mat[0].size;
+        var answer=-1;
+        var bestCount=0;
+        for(startRow in 0 until rows)for(startCol in 0 until cols)for(rowStep in directions)for(colStep in directions){
+            if(rowStep==0&&colStep==0)continue;
+            var row=startRow;
+            var col=startCol;
+            var value=0;
+            while(row in 0 until rows&&col in 0 until cols){
+                value=value*10+mat[row][col];
+                if(value>10&&primeCache.getOrPut(value){
+                    isPrime(value)
+                }){
+                    val count=(frequency[value]?:0)+1;
+                    frequency[value]=count;
+                    if(count>bestCount||count==bestCount&&value>answer){
+                        bestCount=count;
+                        answer=value
+                    }
+                };
+                row+=rowStep;
+                col+=colStep
+            }
+        };
+        return answer
+    }
+}

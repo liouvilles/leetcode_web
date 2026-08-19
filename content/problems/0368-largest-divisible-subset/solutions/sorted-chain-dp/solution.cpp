@@ -1,1 +1,19 @@
-class Solution { public: vector<int> largestDivisibleSubset(vector<int>& nums){sort(nums.begin(),nums.end());int n=nums.size();vector<int> length(n,1),previous(n,-1);int best=0;for(int i=0;i<n;++i){for(int j=0;j<i;++j)if(nums[i]%nums[j]==0&&length[j]+1>length[i]){length[i]=length[j]+1;previous[i]=j;}if(length[i]>length[best])best=i;}vector<int> answer;for(int index=best;index!=-1;index=previous[index])answer.push_back(nums[index]);reverse(answer.begin(),answer.end());return answer;} };
+class Solution {
+    public: vector<int> largestDivisibleSubset(vector<int>& nums){
+        sort(nums.begin(),nums.end());
+        int n=nums.size();
+        vector<int> length(n,1),previous(n,-1);
+        int best=0;
+        for(int i=0;i<n;++i){
+            for(int j=0;j<i;++j)if(nums[i]%nums[j]==0&&length[j]+1>length[i]){
+                length[i]=length[j]+1;
+                previous[i]=j;
+            }
+            if(length[i]>length[best])best=i;
+        }
+        vector<int> answer;
+        for(int index=best;index!=-1;index=previous[index])answer.push_back(nums[index]);
+        reverse(answer.begin(),answer.end());
+        return answer;
+    }
+};

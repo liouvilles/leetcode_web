@@ -1,1 +1,10 @@
-class Solution { public: int pivotIndex(vector<int>& nums){int total=accumulate(nums.begin(),nums.end(),0),left=0;for(int index=0;index<(int)nums.size();++index){if(left==total-left-nums[index])return index;left+=nums[index];}return -1;} };
+class Solution {
+    public: int pivotIndex(vector<int>& nums){
+        int total=accumulate(nums.begin(),nums.end(),0),left=0;
+        for(int index=0;index<(int)nums.size();++index){
+            if(left==total-left-nums[index])return index;
+            left+=nums[index];
+        }
+        return -1;
+    }
+};

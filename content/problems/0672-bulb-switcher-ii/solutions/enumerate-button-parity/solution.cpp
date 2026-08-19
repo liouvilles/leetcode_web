@@ -1,1 +1,21 @@
-class Solution { public: int flipLights(int n,int presses){set<int> states;int lamps=min(n,6);for(int mask=0;mask<16;++mask){int used=__builtin_popcount(mask);if(used>presses||(presses-used)%2)continue;int state=0;for(int index=1;index<=lamps;++index){bool on=true;if(mask&1)on=!on;if((mask&2)&&index%2==0)on=!on;if((mask&4)&&index%2==1)on=!on;if((mask&8)&&(index-1)%3==0)on=!on;if(on)state|=1<<(index-1);}states.insert(state);}return states.size();} };
+class Solution {
+    public: int flipLights(int n,int presses){
+        set<int> states;
+        int lamps=min(n,6);
+        for(int mask=0;mask<16;++mask){
+            int used=__builtin_popcount(mask);
+            if(used>presses||(presses-used)%2)continue;
+            int state=0;
+            for(int index=1;index<=lamps;++index){
+                bool on=true;
+                if(mask&1)on=!on;
+                if((mask&2)&&index%2==0)on=!on;
+                if((mask&4)&&index%2==1)on=!on;
+                if((mask&8)&&(index-1)%3==0)on=!on;
+                if(on)state|=1<<(index-1);
+            }
+            states.insert(state);
+        }
+        return states.size();
+    }
+};

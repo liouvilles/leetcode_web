@@ -1,1 +1,23 @@
-class Solution { vector<int> sums(vector<int>& nums,int start,int length){vector<int> values(1<<length);for(int mask=1;mask<(1<<length);++mask){int bit=__builtin_ctz(mask);values[mask]=values[mask^(1<<bit)]+nums[start+bit];}return values;}public:int minAbsDifference(vector<int>& nums,int goal){int middle=nums.size()/2;auto left=sums(nums,0,middle),right=sums(nums,middle,nums.size()-middle);sort(right.begin(),right.end());int answer=abs(goal);for(int value:left){int target=goal-value;auto it=lower_bound(right.begin(),right.end(),target);if(it!=right.end())answer=min(answer,abs(value+*it-goal));if(it!=right.begin())answer=min(answer,abs(value+*prev(it)-goal));}return answer;} };
+class Solution {
+    vector<int> sums(vector<int>& nums,int start,int length){
+        vector<int> values(1<<length);
+        for(int mask=1;mask<(1<<length);++mask){
+            int bit=__builtin_ctz(mask);
+            values[mask]=values[mask^(1<<bit)]+nums[start+bit];
+        }
+        return values;
+    }
+    public:int minAbsDifference(vector<int>& nums,int goal){
+        int middle=nums.size()/2;
+        auto left=sums(nums,0,middle),right=sums(nums,middle,nums.size()-middle);
+        sort(right.begin(),right.end());
+        int answer=abs(goal);
+        for(int value:left){
+            int target=goal-value;
+            auto it=lower_bound(right.begin(),right.end(),target);
+            if(it!=right.end())answer=min(answer,abs(value+*it-goal));
+            if(it!=right.begin())answer=min(answer,abs(value+*prev(it)-goal));
+        }
+        return answer;
+    }
+};

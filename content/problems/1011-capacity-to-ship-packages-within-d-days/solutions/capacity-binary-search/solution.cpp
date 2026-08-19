@@ -1,1 +1,18 @@
-class Solution { public: int shipWithinDays(vector<int>& weights,int days){int left=*max_element(weights.begin(),weights.end()),right=accumulate(weights.begin(),weights.end(),0);while(left<right){int capacity=left+(right-left)/2,needed=1,load=0;for(int weight:weights){if(load+weight>capacity){++needed;load=0;}load+=weight;}if(needed<=days)right=capacity;else left=capacity+1;}return left;} };
+class Solution {
+    public: int shipWithinDays(vector<int>& weights,int days){
+        int left=*max_element(weights.begin(),weights.end()),right=accumulate(weights.begin(),weights.end(),0);
+        while(left<right){
+            int capacity=left+(right-left)/2,needed=1,load=0;
+            for(int weight:weights){
+                if(load+weight>capacity){
+                    ++needed;
+                    load=0;
+                }
+                load+=weight;
+            }
+            if(needed<=days)right=capacity;
+            else left=capacity+1;
+        }
+        return left;
+    }
+};

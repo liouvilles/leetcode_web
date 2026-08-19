@@ -1,1 +1,16 @@
-class Solution { fun customSortString(order:String,s:String):String{val frequency=IntArray(26);for(c in s)frequency[c-'a']++;val answer=StringBuilder();for(c in order)while(frequency[c-'a']>0){answer.append(c);frequency[c-'a']--};for(i in 0 until 26)while(frequency[i]>0){answer.append(('a'.code+i).toChar());frequency[i]--};return answer.toString()} }
+class Solution {
+    fun customSortString(order:String,s:String):String{
+        val frequency=IntArray(26);
+        for(c in s)frequency[c-'a']++;
+        val answer=StringBuilder();
+        for(c in order)while(frequency[c-'a']>0){
+            answer.append(c);
+            frequency[c-'a']--
+        };
+        for(i in 0 until 26)while(frequency[i]>0){
+            answer.append(('a'.code+i).toChar());
+            frequency[i]--
+        };
+        return answer.toString()
+    }
+}

@@ -1,1 +1,36 @@
-class Solution { public: int nearestExit(vector<vector<char>>& maze,vector<int>& entrance){int rows=maze.size(),cols=maze[0].size();queue<array<int,3>> pending;pending.push({entrance[0],entrance[1],0});maze[entrance[0]][entrance[1]]='+';int directions[4][2]={{1,0},{-1,0},{0,1},{0,-1}};while(!pending.empty()){auto [row,col,distance]=pending.front();pending.pop();if(distance&&(row==0||row==rows-1||col==0||col==cols-1))return distance;for(auto& direction:directions){int nextRow=row+direction[0],nextCol=col+direction[1];if(nextRow>=0&&nextRow<rows&&nextCol>=0&&nextCol<cols&&maze[nextRow][nextCol]=='.'){maze[nextRow][nextCol]='+';pending.push({nextRow,nextCol,distance+1});}}}return -1;} };
+class Solution {
+    public: int nearestExit(vector<vector<char>>& maze,vector<int>& entrance){
+        int rows=maze.size(),cols=maze[0].size();
+        queue<array<int,3>> pending;
+        pending.push({
+            entrance[0],entrance[1],0
+        });
+        maze[entrance[0]][entrance[1]]='+';
+        int directions[4][2]={
+            {
+                1,0
+            },{
+                -1,0
+            },{
+                0,1
+            },{
+                0,-1
+            }
+        };
+        while(!pending.empty()){
+            auto [row,col,distance]=pending.front();
+            pending.pop();
+            if(distance&&(row==0||row==rows-1||col==0||col==cols-1))return distance;
+            for(auto& direction:directions){
+                int nextRow=row+direction[0],nextCol=col+direction[1];
+                if(nextRow>=0&&nextRow<rows&&nextCol>=0&&nextCol<cols&&maze[nextRow][nextCol]=='.'){
+                    maze[nextRow][nextCol]='+';
+                    pending.push({
+                        nextRow,nextCol,distance+1
+                    });
+                }
+            }
+        }
+        return -1;
+    }
+};

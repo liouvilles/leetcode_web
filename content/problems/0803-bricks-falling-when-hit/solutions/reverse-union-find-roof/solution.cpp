@@ -1,1 +1,50 @@
-class Solution { struct DSU{vector<int> parent,size;DSU(int n):parent(n),size(n,1){iota(parent.begin(),parent.end(),0);}int find(int x){return parent[x]==x?x:parent[x]=find(parent[x]);}void unite(int a,int b){a=find(a);b=find(b);if(a==b)return;if(size[a]<size[b])swap(a,b);parent[b]=a;size[a]+=size[b];}int componentSize(int x){return size[find(x)];}};public:vector<int> hitBricks(vector<vector<int>>& grid,vector<vector<int>>& hits){int rows=grid.size(),columns=grid[0].size(),roof=rows*columns;auto state=grid;for(auto& hit:hits)--state[hit[0]][hit[1]];DSU dsu(roof+1);for(int r=0;r<rows;++r)for(int c=0;c<columns;++c)if(state[r][c]==1){int id=r*columns+c;if(r==0)dsu.unite(id,roof);if(r&&state[r-1][c]==1)dsu.unite(id,id-columns);if(c&&state[r][c-1]==1)dsu.unite(id,id-1);}vector<int> answer(hits.size());int directions[5]={-1,0,1,0,-1};for(int i=hits.size()-1;i>=0;--i){int r=hits[i][0],c=hits[i][1];if(++state[r][c]!=1)continue;int before=dsu.componentSize(roof),id=r*columns+c;if(r==0)dsu.unite(id,roof);for(int d=0;d<4;++d){int nr=r+directions[d],nc=c+directions[d+1];if(nr>=0&&nr<rows&&nc>=0&&nc<columns&&state[nr][nc]==1)dsu.unite(id,nr*columns+nc);}answer[i]=max(0,dsu.componentSize(roof)-before-1);}return answer;} };
+class Solution {
+    struct DSU{
+        vector<int> parent,size;
+        DSU(int n):parent(n),size(n,1){
+            iota(parent.begin(),parent.end(),0);
+        }
+        int find(int x){
+            return parent[x]==x?x:parent[x]=find(parent[x]);
+        }
+        void unite(int a,int b){
+            a=find(a);
+            b=find(b);
+            if(a==b)return;
+            if(size[a]<size[b])swap(a,b);
+            parent[b]=a;
+            size[a]+=size[b];
+        }
+        int componentSize(int x){
+            return size[find(x)];
+        }
+    };
+    public:vector<int> hitBricks(vector<vector<int>>& grid,vector<vector<int>>& hits){
+        int rows=grid.size(),columns=grid[0].size(),roof=rows*columns;
+        auto state=grid;
+        for(auto& hit:hits)--state[hit[0]][hit[1]];
+        DSU dsu(roof+1);
+        for(int r=0;r<rows;++r)for(int c=0;c<columns;++c)if(state[r][c]==1){
+            int id=r*columns+c;
+            if(r==0)dsu.unite(id,roof);
+            if(r&&state[r-1][c]==1)dsu.unite(id,id-columns);
+            if(c&&state[r][c-1]==1)dsu.unite(id,id-1);
+        }
+        vector<int> answer(hits.size());
+        int directions[5]={
+            -1,0,1,0,-1
+        };
+        for(int i=hits.size()-1;i>=0;--i){
+            int r=hits[i][0],c=hits[i][1];
+            if(++state[r][c]!=1)continue;
+            int before=dsu.componentSize(roof),id=r*columns+c;
+            if(r==0)dsu.unite(id,roof);
+            for(int d=0;d<4;++d){
+                int nr=r+directions[d],nc=c+directions[d+1];
+                if(nr>=0&&nr<rows&&nc>=0&&nc<columns&&state[nr][nc]==1)dsu.unite(id,nr*columns+nc);
+            }
+            answer[i]=max(0,dsu.componentSize(roof)-before-1);
+        }
+        return answer;
+    }
+};

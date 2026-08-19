@@ -1,1 +1,25 @@
-class Solution { fun judgePoint24(cards:IntArray):Boolean{return search(cards.map{it.toDouble()})};private fun search(values:List<Double>):Boolean{if(values.size==1)return kotlin.math.abs(values[0]-24)<1e-6;for(i in values.indices)for(j in i+1 until values.size){val a=values[i];val b=values[j];val rest=values.filterIndexed{index,_->index!=i&&index!=j}.toMutableList();val candidates=doubleArrayOf(a+b,a-b,b-a,a*b,a/b,b/a);for(operation in candidates.indices){if(operation==4&&kotlin.math.abs(b)<1e-9||operation==5&&kotlin.math.abs(a)<1e-9)continue;rest.add(candidates[operation]);if(search(rest))return true;rest.removeAt(rest.lastIndex)}};return false} }
+class Solution {
+    fun judgePoint24(cards:IntArray):Boolean{
+        return search(cards.map{
+            it.toDouble()
+        })
+    };
+    private fun search(values:List<Double>):Boolean{
+        if(values.size==1)return kotlin.math.abs(values[0]-24)<1e-6;
+        for(i in values.indices)for(j in i+1 until values.size){
+            val a=values[i];
+            val b=values[j];
+            val rest=values.filterIndexed{
+                index,_->index!=i&&index!=j
+            }.toMutableList();
+            val candidates=doubleArrayOf(a+b,a-b,b-a,a*b,a/b,b/a);
+            for(operation in candidates.indices){
+                if(operation==4&&kotlin.math.abs(b)<1e-9||operation==5&&kotlin.math.abs(a)<1e-9)continue;
+                rest.add(candidates[operation]);
+                if(search(rest))return true;
+                rest.removeAt(rest.lastIndex)
+            }
+        };
+        return false
+    }
+}

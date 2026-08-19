@@ -1,1 +1,17 @@
-class Solution { public List<Boolean> checkArithmeticSubarrays(int[] nums,int[] l,int[] r){List<Boolean> answer=new ArrayList<>();for(int query=0;query<l.length;query++){int[] values=Arrays.copyOfRange(nums,l[query],r[query]+1);Arrays.sort(values);boolean valid=true;int difference=values[1]-values[0];for(int i=2;i<values.length;i++)if(values[i]-values[i-1]!=difference){valid=false;break;}answer.add(valid);}return answer;} }
+class Solution {
+    public List<Boolean> checkArithmeticSubarrays(int[] nums,int[] l,int[] r){
+        List<Boolean> answer=new ArrayList<>();
+        for(int query=0;query<l.length;query++){
+            int[] values=Arrays.copyOfRange(nums,l[query],r[query]+1);
+            Arrays.sort(values);
+            boolean valid=true;
+            int difference=values[1]-values[0];
+            for(int i=2;i<values.length;i++)if(values[i]-values[i-1]!=difference){
+                valid=false;
+                break;
+            }
+            answer.add(valid);
+        }
+        return answer;
+    }
+}

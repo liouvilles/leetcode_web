@@ -1,1 +1,16 @@
-class Solution { fun maximumCandies(candies:IntArray,k:Long):Int{var left=0;var right=candies.maxOrNull()!!;while(left<right){val middle=left+(right-left+1)/2;var pieces=0L;for(value in candies){pieces+=value/middle;if(pieces>=k)break};if(pieces>=k)left=middle else right=middle-1};return left} }
+class Solution {
+    fun maximumCandies(candies:IntArray,k:Long):Int{
+        var left=0;
+        var right=candies.maxOrNull()!!;
+        while(left<right){
+            val middle=left+(right-left+1)/2;
+            var pieces=0L;
+            for(value in candies){
+                pieces+=value/middle;
+                if(pieces>=k)break
+            };
+            if(pieces>=k)left=middle else right=middle-1
+        };
+        return left
+    }
+}

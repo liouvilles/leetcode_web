@@ -1,1 +1,33 @@
-class Solution { static constexpr long long MOD=1000000007;long long power(long long base,int exponent){long long answer=1;while(exponent--)answer=answer*base%MOD;return answer;}long long combination(int n,int r){r=min(r,n-r);long long answer=1;for(int i=1;i<=r;++i)answer=answer*(n-r+i)/i;return answer;}public:int countKSubsequencesWithMaxBeauty(string s,int k){int frequency[26]={};for(char ch:s)++frequency[ch-'a'];vector<int> values;for(int value:frequency)if(value)values.push_back(value);sort(values.rbegin(),values.rend());if((int)values.size()<k)return 0;int threshold=values[k-1],greater=0,equal=0;long long answer=1;for(int value:frequency)if(value>threshold){answer=answer*value%MOD;++greater;}else if(value==threshold)++equal;int needed=k-greater;answer=answer*power(threshold,needed)%MOD;answer=answer*(combination(equal,needed)%MOD)%MOD;return answer;} };
+class Solution {
+    static constexpr long long MOD=1000000007;
+    long long power(long long base,int exponent){
+        long long answer=1;
+        while(exponent--)answer=answer*base%MOD;
+        return answer;
+    }
+    long long combination(int n,int r){
+        r=min(r,n-r);
+        long long answer=1;
+        for(int i=1;i<=r;++i)answer=answer*(n-r+i)/i;
+        return answer;
+    }
+    public:int countKSubsequencesWithMaxBeauty(string s,int k){
+        int frequency[26]={
+        };
+        for(char ch:s)++frequency[ch-'a'];
+        vector<int> values;
+        for(int value:frequency)if(value)values.push_back(value);
+        sort(values.rbegin(),values.rend());
+        if((int)values.size()<k)return 0;
+        int threshold=values[k-1],greater=0,equal=0;
+        long long answer=1;
+        for(int value:frequency)if(value>threshold){
+            answer=answer*value%MOD;
+            ++greater;
+        }else if(value==threshold)++equal;
+        int needed=k-greater;
+        answer=answer*power(threshold,needed)%MOD;
+        answer=answer*(combination(equal,needed)%MOD)%MOD;
+        return answer;
+    }
+};

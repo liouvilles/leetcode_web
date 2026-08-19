@@ -1,1 +1,13 @@
-class Solution { public int earliestFullBloom(int[] plantTime,int[] growTime){Integer[] order=new Integer[plantTime.length];for(int i=0;i<order.length;i++)order[i]=i;Arrays.sort(order,(a,b)->Integer.compare(growTime[b],growTime[a]));int elapsed=0,answer=0;for(int index:order){elapsed+=plantTime[index];answer=Math.max(answer,elapsed+growTime[index]);}return answer;} }
+class Solution {
+    public int earliestFullBloom(int[] plantTime,int[] growTime){
+        Integer[] order=new Integer[plantTime.length];
+        for(int i=0;i<order.length;i++)order[i]=i;
+        Arrays.sort(order,(a,b)->Integer.compare(growTime[b],growTime[a]));
+        int elapsed=0,answer=0;
+        for(int index:order){
+            elapsed+=plantTime[index];
+            answer=Math.max(answer,elapsed+growTime[index]);
+        }
+        return answer;
+    }
+}

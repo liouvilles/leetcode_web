@@ -1,1 +1,17 @@
-class Solution { public String reverseVowels(String s){char[] chars=s.toCharArray();int left=0,right=chars.length-1;while(left<right){while(left<right&&!isVowel(chars[left]))left++;while(left<right&&!isVowel(chars[right]))right--;char value=chars[left];chars[left++]=chars[right];chars[right--]=value;}return new String(chars);}private boolean isVowel(char c){return "aeiouAEIOU".indexOf(c)>=0;} }
+class Solution {
+    public String reverseVowels(String s){
+        char[] chars=s.toCharArray();
+        int left=0,right=chars.length-1;
+        while(left<right){
+            while(left<right&&!isVowel(chars[left]))left++;
+            while(left<right&&!isVowel(chars[right]))right--;
+            char value=chars[left];
+            chars[left++]=chars[right];
+            chars[right--]=value;
+        }
+        return new String(chars);
+    }
+    private boolean isVowel(char c){
+        return "aeiouAEIOU".indexOf(c)>=0;
+    }
+}

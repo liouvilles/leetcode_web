@@ -1,1 +1,25 @@
-class Solution { public: int smallestChair(vector<vector<int>>& times,int targetFriend){vector<array<int,3>> events;for(int i=0;i<(int)times.size();++i)events.push_back({times[i][0],times[i][1],i});sort(events.begin(),events.end());priority_queue<int,vector<int>,greater<int>> available;for(int i=0;i<(int)times.size();++i)available.push(i);priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>> busy;for(auto event:events){while(!busy.empty()&&busy.top().first<=event[0]){available.push(busy.top().second);busy.pop();}int chair=available.top();available.pop();if(event[2]==targetFriend)return chair;busy.push({event[1],chair});}return -1;} };
+class Solution {
+    public: int smallestChair(vector<vector<int>>& times,int targetFriend){
+        vector<array<int,3>> events;
+        for(int i=0;i<(int)times.size();++i)events.push_back({
+            times[i][0],times[i][1],i
+        });
+        sort(events.begin(),events.end());
+        priority_queue<int,vector<int>,greater<int>> available;
+        for(int i=0;i<(int)times.size();++i)available.push(i);
+        priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>> busy;
+        for(auto event:events){
+            while(!busy.empty()&&busy.top().first<=event[0]){
+                available.push(busy.top().second);
+                busy.pop();
+            }
+            int chair=available.top();
+            available.pop();
+            if(event[2]==targetFriend)return chair;
+            busy.push({
+                event[1],chair
+            });
+        }
+        return -1;
+    }
+};

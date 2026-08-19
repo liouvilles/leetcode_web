@@ -1,1 +1,12 @@
-class Solution { public long maxScore(int[] nums,int x){long negative=Long.MIN_VALUE/4;long even=nums[0]%2==0?nums[0]:negative,odd=nums[0]%2==1?nums[0]:negative;for(int i=1;i<nums.length;i++){long value=nums[i];if(value%2==0)even=Math.max(even+value,odd+value-x);else odd=Math.max(odd+value,even+value-x);}return Math.max(even,odd);} }
+class Solution {
+    public long maxScore(int[] nums,int x){
+        long negative=Long.MIN_VALUE/4;
+        long even=nums[0]%2==0?nums[0]:negative,odd=nums[0]%2==1?nums[0]:negative;
+        for(int i=1;i<nums.length;i++){
+            long value=nums[i];
+            if(value%2==0)even=Math.max(even+value,odd+value-x);
+            else odd=Math.max(odd+value,even+value-x);
+        }
+        return Math.max(even,odd);
+    }
+}

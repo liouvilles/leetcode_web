@@ -1,1 +1,56 @@
-class Solution { private static class Window { final int need;final TreeMap<Integer,Integer> small=new TreeMap<>(),large=new TreeMap<>();int smallSize=0;long sum=0;Window(int need){this.need=need;}void insert(TreeMap<Integer,Integer> map,int value){map.put(value,map.getOrDefault(value,0)+1);}void erase(TreeMap<Integer,Integer> map,int value){int count=map.get(value);if(count==1)map.remove(value);else map.put(value,count-1);}void add(int value){insert(small,value);smallSize++;sum+=value;if(smallSize>need){int moved=small.lastKey();erase(small,moved);smallSize--;sum-=moved;insert(large,moved);}}void remove(int value){if(small.containsKey(value)){erase(small,value);smallSize--;sum-=value;}else erase(large,value);if(smallSize<need&&!large.isEmpty()){int moved=large.firstKey();erase(large,moved);insert(small,moved);smallSize++;sum+=moved;}}}public long minimumCost(int[] nums,int k,int dist){Window window=new Window(k-1);for(int index=1;index<=dist+1;index++)window.add(nums[index]);long answer=nums[0]+window.sum;for(int right=dist+2;right<nums.length;right++){window.remove(nums[right-dist-1]);window.add(nums[right]);answer=Math.min(answer,nums[0]+window.sum);}return answer;} }
+class Solution {
+    private static class Window {
+        final int need;
+        final TreeMap<Integer,Integer> small=new TreeMap<>(),large=new TreeMap<>();
+        int smallSize=0;
+        long sum=0;
+        Window(int need){
+            this.need=need;
+        }
+        void insert(TreeMap<Integer,Integer> map,int value){
+            map.put(value,map.getOrDefault(value,0)+1);
+        }
+        void erase(TreeMap<Integer,Integer> map,int value){
+            int count=map.get(value);
+            if(count==1)map.remove(value);
+            else map.put(value,count-1);
+        }
+        void add(int value){
+            insert(small,value);
+            smallSize++;
+            sum+=value;
+            if(smallSize>need){
+                int moved=small.lastKey();
+                erase(small,moved);
+                smallSize--;
+                sum-=moved;
+                insert(large,moved);
+            }
+        }
+        void remove(int value){
+            if(small.containsKey(value)){
+                erase(small,value);
+                smallSize--;
+                sum-=value;
+            }else erase(large,value);
+            if(smallSize<need&&!large.isEmpty()){
+                int moved=large.firstKey();
+                erase(large,moved);
+                insert(small,moved);
+                smallSize++;
+                sum+=moved;
+            }
+        }
+    }
+    public long minimumCost(int[] nums,int k,int dist){
+        Window window=new Window(k-1);
+        for(int index=1;index<=dist+1;index++)window.add(nums[index]);
+        long answer=nums[0]+window.sum;
+        for(int right=dist+2;right<nums.length;right++){
+            window.remove(nums[right-dist-1]);
+            window.add(nums[right]);
+            answer=Math.min(answer,nums[0]+window.sum);
+        }
+        return answer;
+    }
+}

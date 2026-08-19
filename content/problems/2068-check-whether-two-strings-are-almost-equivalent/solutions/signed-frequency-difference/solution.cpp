@@ -1,1 +1,10 @@
-class Solution { public: bool checkAlmostEquivalent(string word1,string word2){int difference[26]={};for(char value:word1)++difference[value-'a'];for(char value:word2)--difference[value-'a'];for(int value:difference)if(abs(value)>3)return false;return true;} };
+class Solution {
+    public: bool checkAlmostEquivalent(string word1,string word2){
+        int difference[26]={
+        };
+        for(char value:word1)++difference[value-'a'];
+        for(char value:word2)--difference[value-'a'];
+        for(int value:difference)if(abs(value)>3)return false;
+        return true;
+    }
+};

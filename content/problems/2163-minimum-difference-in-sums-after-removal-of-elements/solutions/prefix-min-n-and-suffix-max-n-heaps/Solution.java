@@ -1,1 +1,25 @@
-class Solution { public long minimumDifference(int[] nums){int n=nums.length/3,length=nums.length;long[] prefix=new long[length],suffix=new long[length];PriorityQueue<Integer> left=new PriorityQueue<>(Comparator.reverseOrder());long sum=0;for(int i=0;i<2*n;i++){left.offer(nums[i]);sum+=nums[i];if(left.size()>n)sum-=left.poll();if(left.size()==n)prefix[i]=sum;}PriorityQueue<Integer> right=new PriorityQueue<>();sum=0;for(int i=length-1;i>=n;i--){right.offer(nums[i]);sum+=nums[i];if(right.size()>n)sum-=right.poll();if(right.size()==n)suffix[i]=sum;}long answer=Long.MAX_VALUE;for(int i=n-1;i<2*n;i++)answer=Math.min(answer,prefix[i]-suffix[i+1]);return answer;} }
+class Solution {
+    public long minimumDifference(int[] nums){
+        int n=nums.length/3,length=nums.length;
+        long[] prefix=new long[length],suffix=new long[length];
+        PriorityQueue<Integer> left=new PriorityQueue<>(Comparator.reverseOrder());
+        long sum=0;
+        for(int i=0;i<2*n;i++){
+            left.offer(nums[i]);
+            sum+=nums[i];
+            if(left.size()>n)sum-=left.poll();
+            if(left.size()==n)prefix[i]=sum;
+        }
+        PriorityQueue<Integer> right=new PriorityQueue<>();
+        sum=0;
+        for(int i=length-1;i>=n;i--){
+            right.offer(nums[i]);
+            sum+=nums[i];
+            if(right.size()>n)sum-=right.poll();
+            if(right.size()==n)suffix[i]=sum;
+        }
+        long answer=Long.MAX_VALUE;
+        for(int i=n-1;i<2*n;i++)answer=Math.min(answer,prefix[i]-suffix[i+1]);
+        return answer;
+    }
+}

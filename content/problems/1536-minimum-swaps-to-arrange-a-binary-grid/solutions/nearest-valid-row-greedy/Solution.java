@@ -1,1 +1,21 @@
-class Solution { public int minSwaps(int[][] grid){int n=grid.length;int[] zeros=new int[n];for(int row=0;row<n;row++)for(int col=n-1;col>=0&&grid[row][col]==0;col--)zeros[row]++;int answer=0;for(int i=0;i<n;i++){int row=i,need=n-1-i;while(row<n&&zeros[row]<need)row++;if(row==n)return -1;answer+=row-i;while(row>i){int temporary=zeros[row];zeros[row]=zeros[row-1];zeros[row-1]=temporary;row--;}}return answer;} }
+class Solution {
+    public int minSwaps(int[][] grid){
+        int n=grid.length;
+        int[] zeros=new int[n];
+        for(int row=0;row<n;row++)for(int col=n-1;col>=0&&grid[row][col]==0;col--)zeros[row]++;
+        int answer=0;
+        for(int i=0;i<n;i++){
+            int row=i,need=n-1-i;
+            while(row<n&&zeros[row]<need)row++;
+            if(row==n)return -1;
+            answer+=row-i;
+            while(row>i){
+                int temporary=zeros[row];
+                zeros[row]=zeros[row-1];
+                zeros[row-1]=temporary;
+                row--;
+            }
+        }
+        return answer;
+    }
+}

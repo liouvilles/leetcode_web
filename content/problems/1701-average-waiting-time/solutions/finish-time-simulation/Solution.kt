@@ -1,1 +1,11 @@
-class Solution { fun averageWaitingTime(customers:Array<IntArray>):Double{var finish=0L;var totalWait=0L;for(customer in customers){finish=maxOf(finish,customer[0].toLong())+customer[1];totalWait+=finish-customer[0]};return totalWait.toDouble()/customers.size} }
+class Solution {
+    fun averageWaitingTime(customers:Array<IntArray>):Double{
+        var finish=0L;
+        var totalWait=0L;
+        for(customer in customers){
+            finish=maxOf(finish,customer[0].toLong())+customer[1];
+            totalWait+=finish-customer[0]
+        };
+        return totalWait.toDouble()/customers.size
+    }
+}

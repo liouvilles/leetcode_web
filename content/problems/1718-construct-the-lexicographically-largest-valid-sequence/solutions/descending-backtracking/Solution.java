@@ -1,1 +1,27 @@
-class Solution { private int n;private int[] sequence;private boolean[] used;private boolean dfs(int index){while(index<sequence.length&&sequence[index]!=0)index++;if(index==sequence.length)return true;for(int value=n;value>=1;value--){if(used[value])continue;int second=value==1?index:index+value;if(second>=sequence.length||sequence[second]!=0)continue;sequence[index]=sequence[second]=value;used[value]=true;if(dfs(index+1))return true;used[value]=false;sequence[index]=sequence[second]=0;}return false;}public int[] constructDistancedSequence(int n){this.n=n;sequence=new int[2*n-1];used=new boolean[n+1];dfs(0);return sequence;} }
+class Solution {
+    private int n;
+    private int[] sequence;
+    private boolean[] used;
+    private boolean dfs(int index){
+        while(index<sequence.length&&sequence[index]!=0)index++;
+        if(index==sequence.length)return true;
+        for(int value=n;value>=1;value--){
+            if(used[value])continue;
+            int second=value==1?index:index+value;
+            if(second>=sequence.length||sequence[second]!=0)continue;
+            sequence[index]=sequence[second]=value;
+            used[value]=true;
+            if(dfs(index+1))return true;
+            used[value]=false;
+            sequence[index]=sequence[second]=0;
+        }
+        return false;
+    }
+    public int[] constructDistancedSequence(int n){
+        this.n=n;
+        sequence=new int[2*n-1];
+        used=new boolean[n+1];
+        dfs(0);
+        return sequence;
+    }
+}

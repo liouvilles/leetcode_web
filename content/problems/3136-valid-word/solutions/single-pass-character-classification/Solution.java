@@ -1,1 +1,16 @@
-class Solution { public boolean isValid(String word){if(word.length()<3)return false;boolean hasVowel=false,hasConsonant=false;for(char character:word.toCharArray()){boolean lower=character>='a'&&character<='z',upper=character>='A'&&character<='Z',digit=character>='0'&&character<='9';if(!lower&&!upper&&!digit)return false;if(lower||upper){char letter=Character.toLowerCase(character);if("aeiou".indexOf(letter)>=0)hasVowel=true;else hasConsonant=true;}}return hasVowel&&hasConsonant;} }
+class Solution {
+    public boolean isValid(String word){
+        if(word.length()<3)return false;
+        boolean hasVowel=false,hasConsonant=false;
+        for(char character:word.toCharArray()){
+            boolean lower=character>='a'&&character<='z',upper=character>='A'&&character<='Z',digit=character>='0'&&character<='9';
+            if(!lower&&!upper&&!digit)return false;
+            if(lower||upper){
+                char letter=Character.toLowerCase(character);
+                if("aeiou".indexOf(letter)>=0)hasVowel=true;
+                else hasConsonant=true;
+            }
+        }
+        return hasVowel&&hasConsonant;
+    }
+}

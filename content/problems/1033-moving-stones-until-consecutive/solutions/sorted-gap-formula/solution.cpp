@@ -1,1 +1,12 @@
-class Solution { public: vector<int> numMovesStones(int a,int b,int c){vector<int> values{a,b,c};sort(values.begin(),values.end());int maximum=values[2]-values[0]-2,minimum=values[1]-values[0]==1&&values[2]-values[1]==1?0:values[1]-values[0]<=2||values[2]-values[1]<=2?1:2;return {minimum,maximum};} };
+class Solution {
+    public: vector<int> numMovesStones(int a,int b,int c){
+        vector<int> values{
+            a,b,c
+        };
+        sort(values.begin(),values.end());
+        int maximum=values[2]-values[0]-2,minimum=values[1]-values[0]==1&&values[2]-values[1]==1?0:values[1]-values[0]<=2||values[2]-values[1]<=2?1:2;
+        return {
+            minimum,maximum
+        };
+    }
+};

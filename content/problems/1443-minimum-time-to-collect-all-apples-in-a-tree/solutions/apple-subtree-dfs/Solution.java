@@ -1,1 +1,19 @@
-class Solution { private int dfs(int node,int parent,List<Integer>[] graph,List<Boolean> hasApple){int cost=0;for(int child:graph[node])if(child!=parent){int childCost=dfs(child,node,graph,hasApple);if(childCost>0||hasApple.get(child))cost+=childCost+2;}return cost;}public int minTime(int n,int[][] edges,List<Boolean> hasApple){List<Integer>[] graph=new List[n];for(int i=0;i<n;i++)graph[i]=new ArrayList<>();for(int[] edge:edges){graph[edge[0]].add(edge[1]);graph[edge[1]].add(edge[0]);}return dfs(0,-1,graph,hasApple);} }
+class Solution {
+    private int dfs(int node,int parent,List<Integer>[] graph,List<Boolean> hasApple){
+        int cost=0;
+        for(int child:graph[node])if(child!=parent){
+            int childCost=dfs(child,node,graph,hasApple);
+            if(childCost>0||hasApple.get(child))cost+=childCost+2;
+        }
+        return cost;
+    }
+    public int minTime(int n,int[][] edges,List<Boolean> hasApple){
+        List<Integer>[] graph=new List[n];
+        for(int i=0;i<n;i++)graph[i]=new ArrayList<>();
+        for(int[] edge:edges){
+            graph[edge[0]].add(edge[1]);
+            graph[edge[1]].add(edge[0]);
+        }
+        return dfs(0,-1,graph,hasApple);
+    }
+}

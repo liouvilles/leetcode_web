@@ -1,1 +1,13 @@
-class Solution { public: string reformat(string text){string letters,digits;for(char value:text)(isdigit(value)?digits:letters)+=value;if(abs((int)letters.size()-(int)digits.size())>1)return "";string first=letters.size()>=digits.size()?letters:digits,second=letters.size()>=digits.size()?digits:letters,answer;for(int i=0;i<(int)first.size();++i){answer+=first[i];if(i<(int)second.size())answer+=second[i];}return answer;} };
+class Solution {
+    public: string reformat(string text){
+        string letters,digits;
+        for(char value:text)(isdigit(value)?digits:letters)+=value;
+        if(abs((int)letters.size()-(int)digits.size())>1)return "";
+        string first=letters.size()>=digits.size()?letters:digits,second=letters.size()>=digits.size()?digits:letters,answer;
+        for(int i=0;i<(int)first.size();++i){
+            answer+=first[i];
+            if(i<(int)second.size())answer+=second[i];
+        }
+        return answer;
+    }
+};

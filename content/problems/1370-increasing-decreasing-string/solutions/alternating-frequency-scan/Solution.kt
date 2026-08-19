@@ -1,1 +1,18 @@
-class Solution { fun sortString(text:String):String{val count=IntArray(26);for(value in text)count[value-'a']++;val answer=StringBuilder();while(answer.length<text.length){for(i in 0..25)if(count[i]>0){answer.append(('a'.code+i).toChar());count[i]--};for(i in 25 downTo 0)if(count[i]>0){answer.append(('a'.code+i).toChar());count[i]--}};return answer.toString()} }
+class Solution {
+    fun sortString(text:String):String{
+        val count=IntArray(26);
+        for(value in text)count[value-'a']++;
+        val answer=StringBuilder();
+        while(answer.length<text.length){
+            for(i in 0..25)if(count[i]>0){
+                answer.append(('a'.code+i).toChar());
+                count[i]--
+            };
+            for(i in 25 downTo 0)if(count[i]>0){
+                answer.append(('a'.code+i).toChar());
+                count[i]--
+            }
+        };
+        return answer.toString()
+    }
+}

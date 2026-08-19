@@ -1,1 +1,16 @@
-class Solution { public:int numberOfPairs(vector<vector<int>>& points){sort(points.begin(),points.end(),[](const auto& first,const auto& second){return first[0]!=second[0]?first[0]<second[0]:first[1]>second[1];});int answer=0;for(int alice=0;alice<(int)points.size();++alice){int lowestVisible=INT_MIN;for(int bob=alice+1;bob<(int)points.size();++bob)if(points[bob][1]<=points[alice][1]&&points[bob][1]>lowestVisible){++answer;lowestVisible=points[bob][1];}}return answer;} };
+class Solution {
+    public:int numberOfPairs(vector<vector<int>>& points){
+        sort(points.begin(),points.end(),[](const auto& first,const auto& second){
+            return first[0]!=second[0]?first[0]<second[0]:first[1]>second[1];
+        });
+        int answer=0;
+        for(int alice=0;alice<(int)points.size();++alice){
+            int lowestVisible=INT_MIN;
+            for(int bob=alice+1;bob<(int)points.size();++bob)if(points[bob][1]<=points[alice][1]&&points[bob][1]>lowestVisible){
+                ++answer;
+                lowestVisible=points[bob][1];
+            }
+        }
+        return answer;
+    }
+};

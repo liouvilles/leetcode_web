@@ -1,1 +1,16 @@
-class Solution { bool valid(int value){int remaining=value;while(remaining){int digit=remaining%10;if(digit==0||value%digit)return false;remaining/=10;}return true;}public:vector<int> selfDividingNumbers(int left,int right){vector<int> answer;for(int value=left;value<=right;++value)if(valid(value))answer.push_back(value);return answer;} };
+class Solution {
+    bool valid(int value){
+        int remaining=value;
+        while(remaining){
+            int digit=remaining%10;
+            if(digit==0||value%digit)return false;
+            remaining/=10;
+        }
+        return true;
+    }
+    public:vector<int> selfDividingNumbers(int left,int right){
+        vector<int> answer;
+        for(int value=left;value<=right;++value)if(valid(value))answer.push_back(value);
+        return answer;
+    }
+};

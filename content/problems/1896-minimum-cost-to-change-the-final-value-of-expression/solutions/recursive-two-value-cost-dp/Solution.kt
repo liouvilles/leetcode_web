@@ -1,1 +1,37 @@
-class Solution { private lateinit var expression:String;private var position=0;private fun combine(left:IntArray,right:IntArray,operator:Char):IntArray{val result=intArrayOf(1_000_000,1_000_000);for(a in 0..1)for(b in 0..1)for(used in charArrayOf('&','|')){val value=if(used=='&')a and b else a or b;result[value]=minOf(result[value],left[a]+right[b]+if(used==operator)0 else 1)};return result};private fun atom():IntArray{val current=expression[position];if(current=='('){position++;val value=parse();position++;return value};position++;return if(current=='0')intArrayOf(0,1) else intArrayOf(1,0)};private fun parse():IntArray{var value=atom();while(position<expression.length&&expression[position]!=')'){val operator=expression[position++];value=combine(value,atom(),operator)};return value};fun minOperationsToFlip(expression:String):Int{this.expression=expression;position=0;val cost=parse();return if(cost[0]==0)cost[1] else cost[0]} }
+class Solution {
+    private lateinit var expression:String;
+    private var position=0;
+    private fun combine(left:IntArray,right:IntArray,operator:Char):IntArray{
+        val result=intArrayOf(1_000_000,1_000_000);
+        for(a in 0..1)for(b in 0..1)for(used in charArrayOf('&','|')){
+            val value=if(used=='&')a and b else a or b;
+            result[value]=minOf(result[value],left[a]+right[b]+if(used==operator)0 else 1)
+        };
+        return result
+    };
+    private fun atom():IntArray{
+        val current=expression[position];
+        if(current=='('){
+            position++;
+            val value=parse();
+            position++;
+            return value
+        };
+        position++;
+        return if(current=='0')intArrayOf(0,1) else intArrayOf(1,0)
+    };
+    private fun parse():IntArray{
+        var value=atom();
+        while(position<expression.length&&expression[position]!=')'){
+            val operator=expression[position++];
+            value=combine(value,atom(),operator)
+        };
+        return value
+    };
+    fun minOperationsToFlip(expression:String):Int{
+        this.expression=expression;
+        position=0;
+        val cost=parse();
+        return if(cost[0]==0)cost[1] else cost[0]
+    }
+}

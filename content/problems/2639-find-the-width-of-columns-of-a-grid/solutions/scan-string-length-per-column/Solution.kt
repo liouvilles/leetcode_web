@@ -1,1 +1,7 @@
-class Solution { fun findColumnWidth(grid:Array<IntArray>):IntArray{val answer=IntArray(grid[0].size);for(row in grid)for(col in row.indices)answer[col]=maxOf(answer[col],row[col].toString().length);return answer} }
+class Solution {
+    fun findColumnWidth(grid:Array<IntArray>):IntArray{
+        val answer=IntArray(grid[0].size);
+        for(row in grid)for(col in row.indices)answer[col]=maxOf(answer[col],row[col].toString().length);
+        return answer
+    }
+}

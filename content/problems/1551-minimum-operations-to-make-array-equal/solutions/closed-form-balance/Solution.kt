@@ -1,1 +1,3 @@
-class Solution { fun minOperations(n:Int):Int=n*n/4 }
+class Solution {
+    fun minOperations(n:Int):Int=n*n/4
+}

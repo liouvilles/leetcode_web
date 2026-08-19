@@ -1,1 +1,32 @@
-class Solution { vector<vector<int>> children;vector<int> nums;vector<bool> visited,seen;void add(int node){if(visited[node])return;visited[node]=true;if(nums[node]<(int)seen.size())seen[nums[node]]=true;for(int child:children[node])add(child);}public: vector<int> smallestMissingValueSubtree(vector<int>& parents,vector<int>& values){int n=parents.size(),one=-1,maximum=1;nums=values;children.resize(n);for(int i=0;i<n;++i){if(i)children[parents[i]].push_back(i);if(nums[i]==1)one=i;maximum=max(maximum,nums[i]);}vector<int> answer(n,1);if(one<0)return answer;visited.assign(n,false);seen.assign(maximum+n+2,false);int missing=1;for(int node=one;node!=-1;node=parents[node]){add(node);while(seen[missing])++missing;answer[node]=missing;}return answer;} };
+class Solution {
+    vector<vector<int>> children;
+    vector<int> nums;
+    vector<bool> visited,seen;
+    void add(int node){
+        if(visited[node])return;
+        visited[node]=true;
+        if(nums[node]<(int)seen.size())seen[nums[node]]=true;
+        for(int child:children[node])add(child);
+    }
+    public: vector<int> smallestMissingValueSubtree(vector<int>& parents,vector<int>& values){
+        int n=parents.size(),one=-1,maximum=1;
+        nums=values;
+        children.resize(n);
+        for(int i=0;i<n;++i){
+            if(i)children[parents[i]].push_back(i);
+            if(nums[i]==1)one=i;
+            maximum=max(maximum,nums[i]);
+        }
+        vector<int> answer(n,1);
+        if(one<0)return answer;
+        visited.assign(n,false);
+        seen.assign(maximum+n+2,false);
+        int missing=1;
+        for(int node=one;node!=-1;node=parents[node]){
+            add(node);
+            while(seen[missing])++missing;
+            answer[node]=missing;
+        }
+        return answer;
+    }
+};

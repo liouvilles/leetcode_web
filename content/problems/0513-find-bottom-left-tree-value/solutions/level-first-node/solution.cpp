@@ -1,1 +1,18 @@
-class Solution { public: int findBottomLeftValue(TreeNode* root){queue<TreeNode*> nodes;nodes.push(root);int answer=root->val;while(!nodes.empty()){int size=nodes.size();answer=nodes.front()->val;while(size--){TreeNode* node=nodes.front();nodes.pop();if(node->left)nodes.push(node->left);if(node->right)nodes.push(node->right);}}return answer;} };
+class Solution {
+    public: int findBottomLeftValue(TreeNode* root){
+        queue<TreeNode*> nodes;
+        nodes.push(root);
+        int answer=root->val;
+        while(!nodes.empty()){
+            int size=nodes.size();
+            answer=nodes.front()->val;
+            while(size--){
+                TreeNode* node=nodes.front();
+                nodes.pop();
+                if(node->left)nodes.push(node->left);
+                if(node->right)nodes.push(node->right);
+            }
+        }
+        return answer;
+    }
+};

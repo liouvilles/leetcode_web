@@ -1,1 +1,59 @@
-class Solution { private static final long MOD=1000000007;private long[][] multiply(long[][] a,long[][] b){long[][] c=new long[2][2];for(int i=0;i<2;i++)for(int j=0;j<2;j++)for(int p=0;p<2;p++)c[i][j]=(c[i][j]+a[i][p]*b[p][j])%MOD;return c;}private long[][] power(long exponent,int n){long[][] result={{1,0},{0,1}},base={{0,n-1},{1,n-2}};while(exponent>0){if((exponent&1)==1)result=multiply(result,base);base=multiply(base,base);exponent>>=1;}return result;}private int rotationMatches(String s,String t){int n=t.length();int[] lps=new int[n];for(int i=1,length=0;i<n;)if(t.charAt(i)==t.charAt(length))lps[i++]=++length;else if(length>0)length=lps[length-1];else i++;String text=s+s.substring(0,n-1);int matches=0;for(int i=0,j=0;i<text.length();){if(text.charAt(i)==t.charAt(j)){i++;j++;if(j==n){matches++;j=lps[j-1];}}else if(j>0)j=lps[j-1];else i++;}return matches;}public int numberOfWays(String s,String t,long k){int n=s.length();if(n==1)return s.equals(t)&&k==0?1:0;int matches=rotationMatches(s,t);long[][] matrix=power(k,n);long same=matrix[0][0],other=matrix[1][0];long answer=s.equals(t)?same+(matches-1L)*other:(long)matches*other;return (int)(answer%MOD);} }
+class Solution {
+    private static final long MOD=1000000007;
+    private long[][] multiply(long[][] a,long[][] b){
+        long[][] c=new long[2][2];
+        for(int i=0;i<2;i++)for(int j=0;j<2;j++)for(int p=0;p<2;p++)c[i][j]=(c[i][j]+a[i][p]*b[p][j])%MOD;
+        return c;
+    }
+    private long[][] power(long exponent,int n){
+        long[][] result={
+            {
+                1,0
+            },{
+                0,1
+            }
+        },base={
+            {
+                0,n-1
+            },{
+                1,n-2
+            }
+        };
+        while(exponent>0){
+            if((exponent&1)==1)result=multiply(result,base);
+            base=multiply(base,base);
+            exponent>>=1;
+        }
+        return result;
+    }
+    private int rotationMatches(String s,String t){
+        int n=t.length();
+        int[] lps=new int[n];
+        for(int i=1,length=0;i<n;)if(t.charAt(i)==t.charAt(length))lps[i++]=++length;
+        else if(length>0)length=lps[length-1];
+        else i++;
+        String text=s+s.substring(0,n-1);
+        int matches=0;
+        for(int i=0,j=0;i<text.length();){
+            if(text.charAt(i)==t.charAt(j)){
+                i++;
+                j++;
+                if(j==n){
+                    matches++;
+                    j=lps[j-1];
+                }
+            }else if(j>0)j=lps[j-1];
+            else i++;
+        }
+        return matches;
+    }
+    public int numberOfWays(String s,String t,long k){
+        int n=s.length();
+        if(n==1)return s.equals(t)&&k==0?1:0;
+        int matches=rotationMatches(s,t);
+        long[][] matrix=power(k,n);
+        long same=matrix[0][0],other=matrix[1][0];
+        long answer=s.equals(t)?same+(matches-1L)*other:(long)matches*other;
+        return (int)(answer%MOD);
+    }
+}

@@ -1,1 +1,12 @@
-class Solution { public: int surfaceArea(vector<vector<int>>& grid){int answer=0;for(int r=0;r<(int)grid.size();++r)for(int c=0;c<(int)grid[0].size();++c){int height=grid[r][c];if(height)answer+=4*height+2;if(r)answer-=2*min(height,grid[r-1][c]);if(c)answer-=2*min(height,grid[r][c-1]);}return answer;} };
+class Solution {
+    public: int surfaceArea(vector<vector<int>>& grid){
+        int answer=0;
+        for(int r=0;r<(int)grid.size();++r)for(int c=0;c<(int)grid[0].size();++c){
+            int height=grid[r][c];
+            if(height)answer+=4*height+2;
+            if(r)answer-=2*min(height,grid[r-1][c]);
+            if(c)answer-=2*min(height,grid[r][c-1]);
+        }
+        return answer;
+    }
+};

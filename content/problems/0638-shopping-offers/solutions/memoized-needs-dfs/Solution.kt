@@ -1,1 +1,32 @@
-class Solution { private lateinit var price:List<Int>;private lateinit var special:List<List<Int>>;private val memo=hashMapOf<List<Int>,Int>();fun shoppingOffers(price:List<Int>,special:List<List<Int>>,needs:List<Int>):Int{this.price=price;this.special=special;return dfs(needs)};private fun dfs(needs:List<Int>):Int{memo[needs]?.let{return it};var best=needs.indices.sumOf{needs[it]*price[it]};for(offer in special){val next=mutableListOf<Int>();var valid=true;for(i in needs.indices){if(offer[i]>needs[i]){valid=false;break};next.add(needs[i]-offer[i])};if(valid)best=minOf(best,offer[needs.size]+dfs(next))};memo[needs.toList()]=best;return best} }
+class Solution {
+    private lateinit var price:List<Int>;
+    private lateinit var special:List<List<Int>>;
+    private val memo=hashMapOf<List<Int>,Int>();
+    fun shoppingOffers(price:List<Int>,special:List<List<Int>>,needs:List<Int>):Int{
+        this.price=price;
+        this.special=special;
+        return dfs(needs)
+    };
+    private fun dfs(needs:List<Int>):Int{
+        memo[needs]?.let{
+            return it
+        };
+        var best=needs.indices.sumOf{
+            needs[it]*price[it]
+        };
+        for(offer in special){
+            val next=mutableListOf<Int>();
+            var valid=true;
+            for(i in needs.indices){
+                if(offer[i]>needs[i]){
+                    valid=false;
+                    break
+                };
+                next.add(needs[i]-offer[i])
+            };
+            if(valid)best=minOf(best,offer[needs.size]+dfs(next))
+        };
+        memo[needs.toList()]=best;
+        return best
+    }
+}

@@ -1,1 +1,14 @@
-class Solution { public:int longestValidSubstring(string word,vector<string>& forbidden){unordered_set<string> banned(forbidden.begin(),forbidden.end());int left=0,answer=0;for(int right=0;right<(int)word.size();++right){for(int start=right;start>=max(left,right-9);--start)if(banned.count(word.substr(start,right-start+1))){left=start+1;break;}answer=max(answer,right-left+1);}return answer;} };
+class Solution {
+    public:int longestValidSubstring(string word,vector<string>& forbidden){
+        unordered_set<string> banned(forbidden.begin(),forbidden.end());
+        int left=0,answer=0;
+        for(int right=0;right<(int)word.size();++right){
+            for(int start=right;start>=max(left,right-9);--start)if(banned.count(word.substr(start,right-start+1))){
+                left=start+1;
+                break;
+            }
+            answer=max(answer,right-left+1);
+        }
+        return answer;
+    }
+};

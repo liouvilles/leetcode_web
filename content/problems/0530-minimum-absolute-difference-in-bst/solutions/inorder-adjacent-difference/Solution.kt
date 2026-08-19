@@ -1,1 +1,17 @@
-class Solution { fun getMinimumDifference(root:TreeNode?):Int{var previous:Int?=null;var best=Int.MAX_VALUE;fun inorder(node:TreeNode?){if(node==null)return;inorder(node.left);previous?.let{best=minOf(best,node.`val`-it)};previous=node.`val`;inorder(node.right)};inorder(root);return best} }
+class Solution {
+    fun getMinimumDifference(root:TreeNode?):Int{
+        var previous:Int?=null;
+        var best=Int.MAX_VALUE;
+        fun inorder(node:TreeNode?){
+            if(node==null)return;
+            inorder(node.left);
+            previous?.let{
+                best=minOf(best,node.`val`-it)
+            };
+            previous=node.`val`;
+            inorder(node.right)
+        };
+        inorder(root);
+        return best
+    }
+}

@@ -1,1 +1,18 @@
-class Solution { public int longestAwesome(String text){int[] earliest=new int[1<<10];Arrays.fill(earliest,-2);earliest[0]=-1;int mask=0,answer=0;for(int i=0;i<text.length();i++){mask^=1<<(text.charAt(i)-'0');if(earliest[mask]!=-2)answer=Math.max(answer,i-earliest[mask]);for(int digit=0;digit<10;digit++){int other=mask^(1<<digit);if(earliest[other]!=-2)answer=Math.max(answer,i-earliest[other]);}if(earliest[mask]==-2)earliest[mask]=i;}return answer;} }
+class Solution {
+    public int longestAwesome(String text){
+        int[] earliest=new int[1<<10];
+        Arrays.fill(earliest,-2);
+        earliest[0]=-1;
+        int mask=0,answer=0;
+        for(int i=0;i<text.length();i++){
+            mask^=1<<(text.charAt(i)-'0');
+            if(earliest[mask]!=-2)answer=Math.max(answer,i-earliest[mask]);
+            for(int digit=0;digit<10;digit++){
+                int other=mask^(1<<digit);
+                if(earliest[other]!=-2)answer=Math.max(answer,i-earliest[other]);
+            }
+            if(earliest[mask]==-2)earliest[mask]=i;
+        }
+        return answer;
+    }
+}

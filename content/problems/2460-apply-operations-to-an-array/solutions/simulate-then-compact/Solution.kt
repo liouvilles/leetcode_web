@@ -1,1 +1,12 @@
-class Solution { fun applyOperations(nums:IntArray):IntArray{for(i in 0 until nums.lastIndex)if(nums[i]==nums[i+1]){nums[i]*=2;nums[i+1]=0};var write=0;for(value in nums)if(value!=0)nums[write++]=value;while(write<nums.size)nums[write++]=0;return nums} }
+class Solution {
+    fun applyOperations(nums:IntArray):IntArray{
+        for(i in 0 until nums.lastIndex)if(nums[i]==nums[i+1]){
+            nums[i]*=2;
+            nums[i+1]=0
+        };
+        var write=0;
+        for(value in nums)if(value!=0)nums[write++]=value;
+        while(write<nums.size)nums[write++]=0;
+        return nums
+    }
+}

@@ -1,1 +1,18 @@
-class Solution { fun findSubsequences(nums:IntArray):List<List<Int>>{val answer=mutableListOf<List<Int>>();val path=mutableListOf<Int>();fun dfs(start:Int){if(path.size>=2)answer.add(path.toList());val used=hashSetOf<Int>();for(i in start until nums.size){if((path.isNotEmpty()&&nums[i]<path.last())||!used.add(nums[i]))continue;path.add(nums[i]);dfs(i+1);path.removeAt(path.lastIndex)}};dfs(0);return answer} }
+class Solution {
+    fun findSubsequences(nums:IntArray):List<List<Int>>{
+        val answer=mutableListOf<List<Int>>();
+        val path=mutableListOf<Int>();
+        fun dfs(start:Int){
+            if(path.size>=2)answer.add(path.toList());
+            val used=hashSetOf<Int>();
+            for(i in start until nums.size){
+                if((path.isNotEmpty()&&nums[i]<path.last())||!used.add(nums[i]))continue;
+                path.add(nums[i]);
+                dfs(i+1);
+                path.removeAt(path.lastIndex)
+            }
+        };
+        dfs(0);
+        return answer
+    }
+}

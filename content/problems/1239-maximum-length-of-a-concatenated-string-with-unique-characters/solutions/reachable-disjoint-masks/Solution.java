@@ -1,1 +1,27 @@
-class Solution { public int maxLength(List<String> arr){List<Integer> states=new ArrayList<>();states.add(0);int answer=0;for(String word:arr){int mask=0;boolean valid=true;for(char ch:word.toCharArray()){int bit=1<<(ch-'a');if((mask&bit)!=0){valid=false;break;}mask|=bit;}if(!valid)continue;int size=states.size();for(int i=0;i<size;i++)if((states.get(i)&mask)==0){int combined=states.get(i)|mask;states.add(combined);answer=Math.max(answer,Integer.bitCount(combined));}}return answer;} }
+class Solution {
+    public int maxLength(List<String> arr){
+        List<Integer> states=new ArrayList<>();
+        states.add(0);
+        int answer=0;
+        for(String word:arr){
+            int mask=0;
+            boolean valid=true;
+            for(char ch:word.toCharArray()){
+                int bit=1<<(ch-'a');
+                if((mask&bit)!=0){
+                    valid=false;
+                    break;
+                }
+                mask|=bit;
+            }
+            if(!valid)continue;
+            int size=states.size();
+            for(int i=0;i<size;i++)if((states.get(i)&mask)==0){
+                int combined=states.get(i)|mask;
+                states.add(combined);
+                answer=Math.max(answer,Integer.bitCount(combined));
+            }
+        }
+        return answer;
+    }
+}

@@ -1,1 +1,12 @@
-class Solution { fun sumSubseqWidths(nums:IntArray):Int{nums.sort();val mod=1000000007L;val powers=LongArray(nums.size);powers[0]=1;for(i in 1 until nums.size)powers[i]=powers[i-1]*2%mod;var answer=0L;for(i in nums.indices)answer=(answer+nums[i]*(powers[i]-powers[nums.lastIndex-i]))%mod;return((answer+mod)%mod).toInt()} }
+class Solution {
+    fun sumSubseqWidths(nums:IntArray):Int{
+        nums.sort();
+        val mod=1000000007L;
+        val powers=LongArray(nums.size);
+        powers[0]=1;
+        for(i in 1 until nums.size)powers[i]=powers[i-1]*2%mod;
+        var answer=0L;
+        for(i in nums.indices)answer=(answer+nums[i]*(powers[i]-powers[nums.lastIndex-i]))%mod;
+        return((answer+mod)%mod).toInt()
+    }
+}

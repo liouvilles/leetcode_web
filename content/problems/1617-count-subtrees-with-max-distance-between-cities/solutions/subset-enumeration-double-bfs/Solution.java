@@ -1,1 +1,42 @@
-class Solution { private int[] bfs(int start,int mask,List<Integer>[] graph){Queue<Integer> queue=new ArrayDeque<>();int[] distance=new int[graph.length];Arrays.fill(distance,-1);queue.offer(start);distance[start]=0;int farthest=start,count=0;while(!queue.isEmpty()){int node=queue.poll();count++;if(distance[node]>distance[farthest])farthest=node;for(int next:graph[node])if((mask&(1<<next))!=0&&distance[next]<0){distance[next]=distance[node]+1;queue.offer(next);}}return new int[]{farthest,distance[farthest],count};}public int[] countSubgraphsForEachDiameter(int n,int[][] edges){List<Integer>[] graph=new List[n];for(int i=0;i<n;i++)graph[i]=new ArrayList<>();for(int[] edge:edges){int a=edge[0]-1,b=edge[1]-1;graph[a].add(b);graph[b].add(a);}int[] answer=new int[n-1];for(int mask=1;mask<(1<<n);mask++){int size=Integer.bitCount(mask);if(size<2)continue;int start=Integer.numberOfTrailingZeros(mask);int[] first=bfs(start,mask,graph);if(first[2]!=size)continue;int diameter=bfs(first[0],mask,graph)[1];answer[diameter-1]++;}return answer;} }
+class Solution {
+    private int[] bfs(int start,int mask,List<Integer>[] graph){
+        Queue<Integer> queue=new ArrayDeque<>();
+        int[] distance=new int[graph.length];
+        Arrays.fill(distance,-1);
+        queue.offer(start);
+        distance[start]=0;
+        int farthest=start,count=0;
+        while(!queue.isEmpty()){
+            int node=queue.poll();
+            count++;
+            if(distance[node]>distance[farthest])farthest=node;
+            for(int next:graph[node])if((mask&(1<<next))!=0&&distance[next]<0){
+                distance[next]=distance[node]+1;
+                queue.offer(next);
+            }
+        }
+        return new int[]{
+            farthest,distance[farthest],count
+        };
+    }
+    public int[] countSubgraphsForEachDiameter(int n,int[][] edges){
+        List<Integer>[] graph=new List[n];
+        for(int i=0;i<n;i++)graph[i]=new ArrayList<>();
+        for(int[] edge:edges){
+            int a=edge[0]-1,b=edge[1]-1;
+            graph[a].add(b);
+            graph[b].add(a);
+        }
+        int[] answer=new int[n-1];
+        for(int mask=1;mask<(1<<n);mask++){
+            int size=Integer.bitCount(mask);
+            if(size<2)continue;
+            int start=Integer.numberOfTrailingZeros(mask);
+            int[] first=bfs(start,mask,graph);
+            if(first[2]!=size)continue;
+            int diameter=bfs(first[0],mask,graph)[1];
+            answer[diameter-1]++;
+        }
+        return answer;
+    }
+}

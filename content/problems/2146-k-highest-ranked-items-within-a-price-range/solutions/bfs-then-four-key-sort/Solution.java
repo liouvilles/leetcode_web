@@ -1,1 +1,46 @@
-class Solution { public List<List<Integer>> highestRankedKItems(int[][] grid,int[] pricing,int[] start,int k){int rows=grid.length,columns=grid[0].length;boolean[][] seen=new boolean[rows][columns];Queue<int[]> queue=new ArrayDeque<>();queue.offer(new int[]{start[0],start[1],0});seen[start[0]][start[1]]=true;List<int[]> items=new ArrayList<>();int[][] directions={{1,0},{-1,0},{0,1},{0,-1}};while(!queue.isEmpty()){int[] state=queue.poll();int value=grid[state[0]][state[1]];if(value>1&&value>=pricing[0]&&value<=pricing[1])items.add(new int[]{state[2],value,state[0],state[1]});for(int[] direction:directions){int r=state[0]+direction[0],c=state[1]+direction[1];if(r>=0&&r<rows&&c>=0&&c<columns&&!seen[r][c]&&grid[r][c]!=0){seen[r][c]=true;queue.offer(new int[]{r,c,state[2]+1});}}}items.sort((a,b)->{for(int i=0;i<4;i++)if(a[i]!=b[i])return Integer.compare(a[i],b[i]);return 0;});List<List<Integer>> answer=new ArrayList<>();for(int i=0;i<Math.min(k,items.size());i++)answer.add(Arrays.asList(items.get(i)[2],items.get(i)[3]));return answer;} }
+class Solution {
+    public List<List<Integer>> highestRankedKItems(int[][] grid,int[] pricing,int[] start,int k){
+        int rows=grid.length,columns=grid[0].length;
+        boolean[][] seen=new boolean[rows][columns];
+        Queue<int[]> queue=new ArrayDeque<>();
+        queue.offer(new int[]{
+            start[0],start[1],0
+        });
+        seen[start[0]][start[1]]=true;
+        List<int[]> items=new ArrayList<>();
+        int[][] directions={
+            {
+                1,0
+            },{
+                -1,0
+            },{
+                0,1
+            },{
+                0,-1
+            }
+        };
+        while(!queue.isEmpty()){
+            int[] state=queue.poll();
+            int value=grid[state[0]][state[1]];
+            if(value>1&&value>=pricing[0]&&value<=pricing[1])items.add(new int[]{
+                state[2],value,state[0],state[1]
+            });
+            for(int[] direction:directions){
+                int r=state[0]+direction[0],c=state[1]+direction[1];
+                if(r>=0&&r<rows&&c>=0&&c<columns&&!seen[r][c]&&grid[r][c]!=0){
+                    seen[r][c]=true;
+                    queue.offer(new int[]{
+                        r,c,state[2]+1
+                    });
+                }
+            }
+        }
+        items.sort((a,b)->{
+            for(int i=0;i<4;i++)if(a[i]!=b[i])return Integer.compare(a[i],b[i]);
+            return 0;
+        });
+        List<List<Integer>> answer=new ArrayList<>();
+        for(int i=0;i<Math.min(k,items.size());i++)answer.add(Arrays.asList(items.get(i)[2],items.get(i)[3]));
+        return answer;
+    }
+}

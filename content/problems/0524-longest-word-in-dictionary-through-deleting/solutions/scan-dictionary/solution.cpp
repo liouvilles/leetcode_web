@@ -1,1 +1,12 @@
-class Solution { bool subsequence(const string& word,const string& s){int index=0;for(char c:s)if(index<(int)word.size()&&word[index]==c)++index;return index==(int)word.size();}public:string findLongestWord(string s,vector<string>& dictionary){string best;for(string& word:dictionary)if(subsequence(word,s)&&(word.size()>best.size()||word.size()==best.size()&&word<best))best=word;return best;} };
+class Solution {
+    bool subsequence(const string& word,const string& s){
+        int index=0;
+        for(char c:s)if(index<(int)word.size()&&word[index]==c)++index;
+        return index==(int)word.size();
+    }
+    public:string findLongestWord(string s,vector<string>& dictionary){
+        string best;
+        for(string& word:dictionary)if(subsequence(word,s)&&(word.size()>best.size()||word.size()==best.size()&&word<best))best=word;
+        return best;
+    }
+};

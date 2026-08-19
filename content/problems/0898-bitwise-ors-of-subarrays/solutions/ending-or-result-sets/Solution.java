@@ -1,1 +1,13 @@
-class Solution { public int subarrayBitwiseORs(int[] arr){Set<Integer> current=new HashSet<>(),all=new HashSet<>();for(int value:arr){Set<Integer> next=new HashSet<>();next.add(value);for(int result:current)next.add(result|value);current=next;all.addAll(current);}return all.size();} }
+class Solution {
+    public int subarrayBitwiseORs(int[] arr){
+        Set<Integer> current=new HashSet<>(),all=new HashSet<>();
+        for(int value:arr){
+            Set<Integer> next=new HashSet<>();
+            next.add(value);
+            for(int result:current)next.add(result|value);
+            current=next;
+            all.addAll(current);
+        }
+        return all.size();
+    }
+}

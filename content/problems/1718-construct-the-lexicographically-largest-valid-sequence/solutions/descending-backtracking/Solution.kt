@@ -1,1 +1,30 @@
-class Solution { private var n=0;private lateinit var sequence:IntArray;private lateinit var used:BooleanArray;private fun dfs(indexValue:Int):Boolean{var index=indexValue;while(index<sequence.size&&sequence[index]!=0)index++;if(index==sequence.size)return true;for(value in n downTo 1){if(used[value])continue;val second=if(value==1)index else index+value;if(second>=sequence.size||sequence[second]!=0)continue;sequence[index]=value;sequence[second]=value;used[value]=true;if(dfs(index+1))return true;used[value]=false;sequence[index]=0;sequence[second]=0};return false};fun constructDistancedSequence(n:Int):IntArray{this.n=n;sequence=IntArray(2*n-1);used=BooleanArray(n+1);dfs(0);return sequence} }
+class Solution {
+    private var n=0;
+    private lateinit var sequence:IntArray;
+    private lateinit var used:BooleanArray;
+    private fun dfs(indexValue:Int):Boolean{
+        var index=indexValue;
+        while(index<sequence.size&&sequence[index]!=0)index++;
+        if(index==sequence.size)return true;
+        for(value in n downTo 1){
+            if(used[value])continue;
+            val second=if(value==1)index else index+value;
+            if(second>=sequence.size||sequence[second]!=0)continue;
+            sequence[index]=value;
+            sequence[second]=value;
+            used[value]=true;
+            if(dfs(index+1))return true;
+            used[value]=false;
+            sequence[index]=0;
+            sequence[second]=0
+        };
+        return false
+    };
+    fun constructDistancedSequence(n:Int):IntArray{
+        this.n=n;
+        sequence=IntArray(2*n-1);
+        used=BooleanArray(n+1);
+        dfs(0);
+        return sequence
+    }
+}

@@ -1,1 +1,13 @@
-class Solution { fun eraseOverlapIntervals(intervals:Array<IntArray>):Int{intervals.sortWith(Comparator.comparingInt{it[1]});var end=Int.MIN_VALUE;var removed=0;for(interval in intervals){if(interval[0]>=end)end=interval[1] else removed++};return removed} }
+class Solution {
+    fun eraseOverlapIntervals(intervals:Array<IntArray>):Int{
+        intervals.sortWith(Comparator.comparingInt{
+            it[1]
+        });
+        var end=Int.MIN_VALUE;
+        var removed=0;
+        for(interval in intervals){
+            if(interval[0]>=end)end=interval[1] else removed++
+        };
+        return removed
+    }
+}

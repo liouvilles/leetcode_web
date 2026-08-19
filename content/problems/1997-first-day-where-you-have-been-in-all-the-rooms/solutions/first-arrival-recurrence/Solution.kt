@@ -1,1 +1,8 @@
-class Solution { fun firstDayBeenInAllRooms(nextVisit:IntArray):Int{val mod=1_000_000_007L;val dp=LongArray(nextVisit.size);for(i in 1 until dp.size)dp[i]=(2*dp[i-1]-dp[nextVisit[i-1]]+2+mod)%mod;return dp.last().toInt()} }
+class Solution {
+    fun firstDayBeenInAllRooms(nextVisit:IntArray):Int{
+        val mod=1_000_000_007L;
+        val dp=LongArray(nextVisit.size);
+        for(i in 1 until dp.size)dp[i]=(2*dp[i-1]-dp[nextVisit[i-1]]+2+mod)%mod;
+        return dp.last().toInt()
+    }
+}

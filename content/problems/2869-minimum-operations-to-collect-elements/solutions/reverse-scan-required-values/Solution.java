@@ -1,1 +1,15 @@
-class Solution { public int minOperations(List<Integer> nums,int k){boolean[] collected=new boolean[k+1];int missing=k;for(int i=nums.size()-1;i>=0;i--){int value=nums.get(i);if(value<=k&&!collected[value]){collected[value]=true;missing--;}if(missing==0)return nums.size()-i;}return nums.size();} }
+class Solution {
+    public int minOperations(List<Integer> nums,int k){
+        boolean[] collected=new boolean[k+1];
+        int missing=k;
+        for(int i=nums.size()-1;i>=0;i--){
+            int value=nums.get(i);
+            if(value<=k&&!collected[value]){
+                collected[value]=true;
+                missing--;
+            }
+            if(missing==0)return nums.size()-i;
+        }
+        return nums.size();
+    }
+}

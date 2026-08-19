@@ -1,1 +1,37 @@
-class Solution { fun isValid(code:String):Boolean{val stack=java.util.ArrayDeque<String>();var root=false;var index=0;while(index<code.length){if(index>0&&stack.isEmpty())return false;if(code.startsWith("<![CDATA[",index)){if(stack.isEmpty())return false;val end=code.indexOf("]]>",index+9);if(end<0)return false;index=end+3}else if(code.startsWith("</",index)){val end=code.indexOf('>',index+2);if(end<0)return false;val name=code.substring(index+2,end);if(!validName(name)||stack.isEmpty()||stack.removeLast()!=name)return false;index=end+1}else if(code[index]=='<'){val end=code.indexOf('>',index+1);if(end<0)return false;val name=code.substring(index+1,end);if(!validName(name))return false;stack.addLast(name);root=true;index=end+1}else{if(stack.isEmpty())return false;index++}};return root&&stack.isEmpty()};private fun validName(name:String)=name.length in 1..9&&name.all{it in 'A'..'Z'} }
+class Solution {
+    fun isValid(code:String):Boolean{
+        val stack=java.util.ArrayDeque<String>();
+        var root=false;
+        var index=0;
+        while(index<code.length){
+            if(index>0&&stack.isEmpty())return false;
+            if(code.startsWith("<![CDATA[",index)){
+                if(stack.isEmpty())return false;
+                val end=code.indexOf("]]>",index+9);
+                if(end<0)return false;
+                index=end+3
+            }else if(code.startsWith("</",index)){
+                val end=code.indexOf('>',index+2);
+                if(end<0)return false;
+                val name=code.substring(index+2,end);
+                if(!validName(name)||stack.isEmpty()||stack.removeLast()!=name)return false;
+                index=end+1
+            }else if(code[index]=='<'){
+                val end=code.indexOf('>',index+1);
+                if(end<0)return false;
+                val name=code.substring(index+1,end);
+                if(!validName(name))return false;
+                stack.addLast(name);
+                root=true;
+                index=end+1
+            }else{
+                if(stack.isEmpty())return false;
+                index++
+            }
+        };
+        return root&&stack.isEmpty()
+    };
+    private fun validName(name:String)=name.length in 1..9&&name.all{
+        it in 'A'..'Z'
+    }
+}

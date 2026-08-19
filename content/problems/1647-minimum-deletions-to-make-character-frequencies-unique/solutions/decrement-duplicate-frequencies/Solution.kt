@@ -1,1 +1,17 @@
-class Solution { fun minDeletions(text:String):Int{val frequency=IntArray(26);for(letter in text)frequency[letter-'a']++;val used=mutableSetOf<Int>();var deletions=0;for(original in frequency){var count=original;while(count>0&&count in used){count--;deletions++};if(count>0)used.add(count)};return deletions} }
+class Solution {
+    fun minDeletions(text:String):Int{
+        val frequency=IntArray(26);
+        for(letter in text)frequency[letter-'a']++;
+        val used=mutableSetOf<Int>();
+        var deletions=0;
+        for(original in frequency){
+            var count=original;
+            while(count>0&&count in used){
+                count--;
+                deletions++
+            };
+            if(count>0)used.add(count)
+        };
+        return deletions
+    }
+}

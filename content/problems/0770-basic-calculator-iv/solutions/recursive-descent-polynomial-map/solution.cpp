@@ -1,1 +1,106 @@
-class Solution { string text;int index;unordered_map<string,int> values;using Poly=map<string,int>;Poly parseExpression(){Poly result=parseTerm();while(true){skip();if(index==(int)text.size()||(text[index]!='+'&&text[index]!='-'))return result;char operation=text[index++];result=add(result,parseTerm(),operation=='+'?1:-1);}}Poly parseTerm(){Poly result=parseFactor();while(true){skip();if(index==(int)text.size()||text[index]!='*')return result;++index;result=multiply(result,parseFactor());}}Poly parseFactor(){skip();if(text[index]=='('){++index;Poly result=parseExpression();skip();++index;return result;}int start=index;if(isdigit(text[index])){while(index<(int)text.size()&&isdigit(text[index]))++index;return {{"",stoi(text.substr(start,index-start))}};}while(index<(int)text.size()&&isalpha(text[index]))++index;string variable=text.substr(start,index-start);return values.count(variable)?Poly{{"",values[variable]}}:Poly{{variable,1}};}void skip(){while(index<(int)text.size()&&text[index]==' ')++index;}Poly add(Poly a,const Poly& b,int sign){for(auto& [key,value]:b)a[key]+=sign*value;return a;}Poly multiply(const Poly& a,const Poly& b){Poly result;for(auto& [x,cx]:a)for(auto& [y,cy]:b)result[mergeKey(x,y)]+=cx*cy;return result;}string mergeKey(const string& a,const string& b){vector<string> variables;auto collect=[&](const string& key){string variable;for(char c:key){if(c=='*'){variables.push_back(variable);variable.clear();}else variable+=c;}if(!variable.empty())variables.push_back(variable);};collect(a);collect(b);sort(variables.begin(),variables.end());string result;for(string& variable:variables){if(!result.empty())result+='*';result+=variable;}return result;}int degree(const string& key){return key.empty()?0:count(key.begin(),key.end(),'*')+1;}public:vector<string> basicCalculatorIV(string expression,vector<string>& evalvars,vector<int>& evalints){text=expression;index=0;values.clear();for(int i=0;i<(int)evalvars.size();++i)values[evalvars[i]]=evalints[i];Poly polynomial=parseExpression();vector<string> keys;for(auto& [key,value]:polynomial)if(value)keys.push_back(key);sort(keys.begin(),keys.end(),[&](const string& a,const string& b){int da=degree(a),db=degree(b);return da!=db?da>db:a<b;});vector<string> answer;for(string& key:keys)answer.push_back(to_string(polynomial[key])+(key.empty()?"":"*"+key));return answer;} };
+class Solution {
+    string text;
+    int index;
+    unordered_map<string,int> values;
+    using Poly=map<string,int>;
+    Poly parseExpression(){
+        Poly result=parseTerm();
+        while(true){
+            skip();
+            if(index==(int)text.size()||(text[index]!='+'&&text[index]!='-'))return result;
+            char operation=text[index++];
+            result=add(result,parseTerm(),operation=='+'?1:-1);
+        }
+    }
+    Poly parseTerm(){
+        Poly result=parseFactor();
+        while(true){
+            skip();
+            if(index==(int)text.size()||text[index]!='*')return result;
+            ++index;
+            result=multiply(result,parseFactor());
+        }
+    }
+    Poly parseFactor(){
+        skip();
+        if(text[index]=='('){
+            ++index;
+            Poly result=parseExpression();
+            skip();
+            ++index;
+            return result;
+        }
+        int start=index;
+        if(isdigit(text[index])){
+            while(index<(int)text.size()&&isdigit(text[index]))++index;
+            return {
+                {
+                    "",stoi(text.substr(start,index-start))
+                }
+            };
+        }while(index<(int)text.size()&&isalpha(text[index]))++index;
+        string variable=text.substr(start,index-start);
+        return values.count(variable)?Poly{
+            {
+                "",values[variable]
+            }
+        }:Poly{
+            {
+                variable,1
+            }
+        };
+    }
+    void skip(){
+        while(index<(int)text.size()&&text[index]==' ')++index;
+    }
+    Poly add(Poly a,const Poly& b,int sign){
+        for(auto& [key,value]:b)a[key]+=sign*value;
+        return a;
+    }
+    Poly multiply(const Poly& a,const Poly& b){
+        Poly result;
+        for(auto& [x,cx]:a)for(auto& [y,cy]:b)result[mergeKey(x,y)]+=cx*cy;
+        return result;
+    }
+    string mergeKey(const string& a,const string& b){
+        vector<string> variables;
+        auto collect=[&](const string& key){
+            string variable;
+            for(char c:key){
+                if(c=='*'){
+                    variables.push_back(variable);
+                    variable.clear();
+                }else variable+=c;
+            }
+            if(!variable.empty())variables.push_back(variable);
+        };
+        collect(a);
+        collect(b);
+        sort(variables.begin(),variables.end());
+        string result;
+        for(string& variable:variables){
+            if(!result.empty())result+='*';
+            result+=variable;
+        }
+        return result;
+    }
+    int degree(const string& key){
+        return key.empty()?0:count(key.begin(),key.end(),'*')+1;
+    }
+    public:vector<string> basicCalculatorIV(string expression,vector<string>& evalvars,vector<int>& evalints){
+        text=expression;
+        index=0;
+        values.clear();
+        for(int i=0;i<(int)evalvars.size();++i)values[evalvars[i]]=evalints[i];
+        Poly polynomial=parseExpression();
+        vector<string> keys;
+        for(auto& [key,value]:polynomial)if(value)keys.push_back(key);
+        sort(keys.begin(),keys.end(),[&](const string& a,const string& b){
+            int da=degree(a),db=degree(b);
+            return da!=db?da>db:a<b;
+        });
+        vector<string> answer;
+        for(string& key:keys)answer.push_back(to_string(polynomial[key])+(key.empty()?"":"*"+key));
+        return answer;
+    }
+};

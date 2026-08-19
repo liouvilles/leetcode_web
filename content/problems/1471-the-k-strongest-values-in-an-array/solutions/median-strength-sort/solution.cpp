@@ -1,1 +1,12 @@
-class Solution { public: vector<int> getStrongest(vector<int>& arr,int k){sort(arr.begin(),arr.end());int median=arr[(arr.size()-1)/2];sort(arr.begin(),arr.end(),[&](int a,int b){int first=abs(a-median),second=abs(b-median);return first==second?a>b:first>second;});arr.resize(k);return arr;} };
+class Solution {
+    public: vector<int> getStrongest(vector<int>& arr,int k){
+        sort(arr.begin(),arr.end());
+        int median=arr[(arr.size()-1)/2];
+        sort(arr.begin(),arr.end(),[&](int a,int b){
+            int first=abs(a-median),second=abs(b-median);
+            return first==second?a>b:first>second;
+        });
+        arr.resize(k);
+        return arr;
+    }
+};

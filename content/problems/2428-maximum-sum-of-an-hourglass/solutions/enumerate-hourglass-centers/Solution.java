@@ -1,1 +1,10 @@
-class Solution { public int maxSum(int[][] grid){int answer=0;for(int row=0;row+2<grid.length;row++)for(int column=0;column+2<grid[0].length;column++){int sum=grid[row][column]+grid[row][column+1]+grid[row][column+2]+grid[row+1][column+1]+grid[row+2][column]+grid[row+2][column+1]+grid[row+2][column+2];answer=Math.max(answer,sum);}return answer;} }
+class Solution {
+    public int maxSum(int[][] grid){
+        int answer=0;
+        for(int row=0;row+2<grid.length;row++)for(int column=0;column+2<grid[0].length;column++){
+            int sum=grid[row][column]+grid[row][column+1]+grid[row][column+2]+grid[row+1][column+1]+grid[row+2][column]+grid[row+2][column+1]+grid[row+2][column+2];
+            answer=Math.max(answer,sum);
+        }
+        return answer;
+    }
+}

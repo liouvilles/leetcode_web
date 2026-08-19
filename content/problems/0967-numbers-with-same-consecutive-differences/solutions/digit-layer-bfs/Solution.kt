@@ -1,1 +1,20 @@
-class Solution { fun numsSameConsecDiff(n:Int,k:Int):IntArray{if(n==1)return IntArray(10){it};var values=(1..9).toList();repeat(n-1){val next=mutableListOf<Int>();for(value in values){val last=value%10;val a=last+k;val b=last-k;if(a<10)next.add(value*10+a);if(b>=0&&b!=a)next.add(value*10+b)};values=next};return values.toIntArray()} }
+class Solution {
+    fun numsSameConsecDiff(n:Int,k:Int):IntArray{
+        if(n==1)return IntArray(10){
+            it
+        };
+        var values=(1..9).toList();
+        repeat(n-1){
+            val next=mutableListOf<Int>();
+            for(value in values){
+                val last=value%10;
+                val a=last+k;
+                val b=last-k;
+                if(a<10)next.add(value*10+a);
+                if(b>=0&&b!=a)next.add(value*10+b)
+            };
+            values=next
+        };
+        return values.toIntArray()
+    }
+}

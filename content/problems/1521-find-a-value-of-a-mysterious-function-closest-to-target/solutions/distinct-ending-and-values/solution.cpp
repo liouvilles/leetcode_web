@@ -1,1 +1,15 @@
-class Solution { public: int closestToTarget(vector<int>& arr,int target){unordered_set<int> previous;int answer=INT_MAX;for(int value:arr){unordered_set<int> current{value};for(int old:previous)current.insert(old&value);for(int result:current)answer=min(answer,abs(result-target));previous=move(current);}return answer;} };
+class Solution {
+    public: int closestToTarget(vector<int>& arr,int target){
+        unordered_set<int> previous;
+        int answer=INT_MAX;
+        for(int value:arr){
+            unordered_set<int> current{
+                value
+            };
+            for(int old:previous)current.insert(old&value);
+            for(int result:current)answer=min(answer,abs(result-target));
+            previous=move(current);
+        }
+        return answer;
+    }
+};

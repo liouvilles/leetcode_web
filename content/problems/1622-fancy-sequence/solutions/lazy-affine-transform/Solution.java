@@ -1,1 +1,30 @@
-class Fancy { private static final long MOD=1_000_000_007L;private final List<Long> values=new ArrayList<>();private long multiply=1,add=0;private long power(long base,long exponent){long answer=1;while(exponent>0){if((exponent&1)==1)answer=answer*base%MOD;base=base*base%MOD;exponent>>=1;}return answer;}public Fancy(){}public void append(int val){long normalized=(val-add+MOD)%MOD;values.add(normalized*power(multiply,MOD-2)%MOD);}public void addAll(int inc){add=(add+inc)%MOD;}public void multAll(int m){multiply=multiply*m%MOD;add=add*m%MOD;}public int getIndex(int idx){return idx>=values.size()?-1:(int)((values.get(idx)*multiply+add)%MOD);} }
+class Fancy {
+    private static final long MOD=1_000_000_007L;
+    private final List<Long> values=new ArrayList<>();
+    private long multiply=1,add=0;
+    private long power(long base,long exponent){
+        long answer=1;
+        while(exponent>0){
+            if((exponent&1)==1)answer=answer*base%MOD;
+            base=base*base%MOD;
+            exponent>>=1;
+        }
+        return answer;
+    }
+    public Fancy(){
+    }
+    public void append(int val){
+        long normalized=(val-add+MOD)%MOD;
+        values.add(normalized*power(multiply,MOD-2)%MOD);
+    }
+    public void addAll(int inc){
+        add=(add+inc)%MOD;
+    }
+    public void multAll(int m){
+        multiply=multiply*m%MOD;
+        add=add*m%MOD;
+    }
+    public int getIndex(int idx){
+        return idx>=values.size()?-1:(int)((values.get(idx)*multiply+add)%MOD);
+    }
+}

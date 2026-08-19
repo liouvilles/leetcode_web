@@ -1,1 +1,16 @@
-class Solution { public: string longestWord(vector<string>& words){unordered_set<string> dictionary(words.begin(),words.end());sort(words.begin(),words.end());string answer;for(string& word:words){bool valid=true;for(int end=1;end<(int)word.size();++end)if(!dictionary.count(word.substr(0,end))){valid=false;break;}if(valid&&word.size()>answer.size())answer=word;}return answer;} };
+class Solution {
+    public: string longestWord(vector<string>& words){
+        unordered_set<string> dictionary(words.begin(),words.end());
+        sort(words.begin(),words.end());
+        string answer;
+        for(string& word:words){
+            bool valid=true;
+            for(int end=1;end<(int)word.size();++end)if(!dictionary.count(word.substr(0,end))){
+                valid=false;
+                break;
+            }
+            if(valid&&word.size()>answer.size())answer=word;
+        }
+        return answer;
+    }
+};

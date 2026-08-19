@@ -1,1 +1,21 @@
-class Solution { fun mostPopularCreator(creators:Array<String>,ids:Array<String>,views:IntArray):List<List<String>>{val total=HashMap<String,Long>();val bestViews=HashMap<String,Int>();val bestId=HashMap<String,String>();for(i in creators.indices){val creator=creators[i];total[creator]=(total[creator]?:0)+views[i];if(bestViews[creator]==null||views[i]>bestViews[creator]!!||views[i]==bestViews[creator]!!&&ids[i]<bestId[creator]!!){bestViews[creator]=views[i];bestId[creator]=ids[i]}};val maximum=total.values.maxOrNull()!!;return total.keys.filter{total[it]==maximum}.map{listOf(it,bestId[it]!!)}} }
+class Solution {
+    fun mostPopularCreator(creators:Array<String>,ids:Array<String>,views:IntArray):List<List<String>>{
+        val total=HashMap<String,Long>();
+        val bestViews=HashMap<String,Int>();
+        val bestId=HashMap<String,String>();
+        for(i in creators.indices){
+            val creator=creators[i];
+            total[creator]=(total[creator]?:0)+views[i];
+            if(bestViews[creator]==null||views[i]>bestViews[creator]!!||views[i]==bestViews[creator]!!&&ids[i]<bestId[creator]!!){
+                bestViews[creator]=views[i];
+                bestId[creator]=ids[i]
+            }
+        };
+        val maximum=total.values.maxOrNull()!!;
+        return total.keys.filter{
+            total[it]==maximum
+        }.map{
+            listOf(it,bestId[it]!!)
+        }
+    }
+}

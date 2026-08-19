@@ -1,1 +1,13 @@
-class Solution { public int findKthNumber(int m,int n,int k){int left=1,right=m*n;while(left<right){int middle=left+(right-left)/2;int count=0;for(int row=1;row<=m;row++)count+=Math.min(n,middle/row);if(count>=k)right=middle;else left=middle+1;}return left;} }
+class Solution {
+    public int findKthNumber(int m,int n,int k){
+        int left=1,right=m*n;
+        while(left<right){
+            int middle=left+(right-left)/2;
+            int count=0;
+            for(int row=1;row<=m;row++)count+=Math.min(n,middle/row);
+            if(count>=k)right=middle;
+            else left=middle+1;
+        }
+        return left;
+    }
+}

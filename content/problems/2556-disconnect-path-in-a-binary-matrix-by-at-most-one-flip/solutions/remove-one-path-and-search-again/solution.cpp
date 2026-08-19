@@ -1,1 +1,18 @@
-class Solution { vector<vector<int>> grid;int rows,cols;bool path(int row,int col){if(row>=rows||col>=cols||!grid[row][col])return false;if(row==rows-1&&col==cols-1)return true;grid[row][col]=0;return path(row+1,col)||path(row,col+1);}public:bool isPossibleToCutPath(vector<vector<int>>& input){grid=input;rows=grid.size();cols=grid[0].size();if(!path(0,0))return true;grid[0][0]=grid[rows-1][cols-1]=1;return !path(0,0);} };
+class Solution {
+    vector<vector<int>> grid;
+    int rows,cols;
+    bool path(int row,int col){
+        if(row>=rows||col>=cols||!grid[row][col])return false;
+        if(row==rows-1&&col==cols-1)return true;
+        grid[row][col]=0;
+        return path(row+1,col)||path(row,col+1);
+    }
+    public:bool isPossibleToCutPath(vector<vector<int>>& input){
+        grid=input;
+        rows=grid.size();
+        cols=grid[0].size();
+        if(!path(0,0))return true;
+        grid[0][0]=grid[rows-1][cols-1]=1;
+        return !path(0,0);
+    }
+};

@@ -1,1 +1,22 @@
-class Solution { fun mergeStones(stones:IntArray,k:Int):Int{val n=stones.size;if((n-1)%(k-1)!=0)return -1;val prefix=IntArray(n+1);for(i in stones.indices)prefix[i+1]=prefix[i]+stones[i];val dp=Array(n){IntArray(n)};for(length in 2..n)for(left in 0..n-length){val right=left+length-1;dp[left][right]=Int.MAX_VALUE/2;var middle=left;while(middle<right){dp[left][right]=minOf(dp[left][right],dp[left][middle]+dp[middle+1][right]);middle+=k-1};if((length-1)%(k-1)==0)dp[left][right]+=prefix[right+1]-prefix[left]};return dp[0][n-1]} }
+class Solution {
+    fun mergeStones(stones:IntArray,k:Int):Int{
+        val n=stones.size;
+        if((n-1)%(k-1)!=0)return -1;
+        val prefix=IntArray(n+1);
+        for(i in stones.indices)prefix[i+1]=prefix[i]+stones[i];
+        val dp=Array(n){
+            IntArray(n)
+        };
+        for(length in 2..n)for(left in 0..n-length){
+            val right=left+length-1;
+            dp[left][right]=Int.MAX_VALUE/2;
+            var middle=left;
+            while(middle<right){
+                dp[left][right]=minOf(dp[left][right],dp[left][middle]+dp[middle+1][right]);
+                middle+=k-1
+            };
+            if((length-1)%(k-1)==0)dp[left][right]+=prefix[right+1]-prefix[left]
+        };
+        return dp[0][n-1]
+    }
+}

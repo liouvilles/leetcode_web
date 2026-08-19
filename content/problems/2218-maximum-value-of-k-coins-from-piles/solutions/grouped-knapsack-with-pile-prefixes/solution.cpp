@@ -1,1 +1,17 @@
-class Solution { public:int maxValueOfCoins(vector<vector<int>>& piles,int k){const int negative=-1000000000;vector<int> dp(k+1,negative);dp[0]=0;for(auto& pile:piles){vector<int> next=dp;int prefix=0;for(int take=1;take<=min(k,(int)pile.size());++take){prefix+=pile[take-1];for(int used=0;used+take<=k;++used)if(dp[used]>negative)next[used+take]=max(next[used+take],dp[used]+prefix);}dp=move(next);}return dp[k];} };
+class Solution {
+    public:int maxValueOfCoins(vector<vector<int>>& piles,int k){
+        const int negative=-1000000000;
+        vector<int> dp(k+1,negative);
+        dp[0]=0;
+        for(auto& pile:piles){
+            vector<int> next=dp;
+            int prefix=0;
+            for(int take=1;take<=min(k,(int)pile.size());++take){
+                prefix+=pile[take-1];
+                for(int used=0;used+take<=k;++used)if(dp[used]>negative)next[used+take]=max(next[used+take],dp[used]+prefix);
+            }
+            dp=move(next);
+        }
+        return dp[k];
+    }
+};

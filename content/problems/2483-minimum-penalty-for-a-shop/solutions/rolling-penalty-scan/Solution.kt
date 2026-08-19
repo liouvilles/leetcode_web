@@ -1,1 +1,17 @@
-class Solution { fun bestClosingTime(customers:String):Int{var penalty=customers.count{it=='Y'};var bestPenalty=penalty;var bestHour=0;for(i in customers.indices){penalty+=if(customers[i]=='Y')-1 else 1;if(penalty<bestPenalty){bestPenalty=penalty;bestHour=i+1}};return bestHour} }
+class Solution {
+    fun bestClosingTime(customers:String):Int{
+        var penalty=customers.count{
+            it=='Y'
+        };
+        var bestPenalty=penalty;
+        var bestHour=0;
+        for(i in customers.indices){
+            penalty+=if(customers[i]=='Y')-1 else 1;
+            if(penalty<bestPenalty){
+                bestPenalty=penalty;
+                bestHour=i+1
+            }
+        };
+        return bestHour
+    }
+}

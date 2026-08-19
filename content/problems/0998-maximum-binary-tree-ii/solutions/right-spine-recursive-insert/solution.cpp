@@ -1,1 +1,12 @@
-class Solution { public: TreeNode* insertIntoMaxTree(TreeNode* root,int value){if(!root)return new TreeNode(value);if(value>root->val){TreeNode* node=new TreeNode(value);node->left=root;return node;}root->right=insertIntoMaxTree(root->right,value);return root;} };
+class Solution {
+    public: TreeNode* insertIntoMaxTree(TreeNode* root,int value){
+        if(!root)return new TreeNode(value);
+        if(value>root->val){
+            TreeNode* node=new TreeNode(value);
+            node->left=root;
+            return node;
+        }
+        root->right=insertIntoMaxTree(root->right,value);
+        return root;
+    }
+};

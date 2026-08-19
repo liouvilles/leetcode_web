@@ -1,1 +1,30 @@
-class Solution { struct Transaction{string raw,name,city;int time,amount;};public:vector<string> invalidTransactions(vector<string>& input){vector<Transaction> transactions;vector<bool> invalid(input.size());for(int i=0;i<(int)input.size();++i){stringstream stream(input[i]);string name,time,amount,city;getline(stream,name,',');getline(stream,time,',');getline(stream,amount,',');getline(stream,city,',');transactions.push_back({input[i],name,city,stoi(time),stoi(amount)});invalid[i]=transactions.back().amount>1000;}for(int i=0;i<(int)input.size();++i)for(int j=i+1;j<(int)input.size();++j){auto& a=transactions[i];auto& b=transactions[j];if(a.name==b.name&&a.city!=b.city&&abs(a.time-b.time)<=60)invalid[i]=invalid[j]=true;}vector<string> answer;for(int i=0;i<(int)input.size();++i)if(invalid[i])answer.push_back(input[i]);return answer;} };
+class Solution {
+    struct Transaction{
+        string raw,name,city;
+        int time,amount;
+    };
+    public:vector<string> invalidTransactions(vector<string>& input){
+        vector<Transaction> transactions;
+        vector<bool> invalid(input.size());
+        for(int i=0;i<(int)input.size();++i){
+            stringstream stream(input[i]);
+            string name,time,amount,city;
+            getline(stream,name,',');
+            getline(stream,time,',');
+            getline(stream,amount,',');
+            getline(stream,city,',');
+            transactions.push_back({
+                input[i],name,city,stoi(time),stoi(amount)
+            });
+            invalid[i]=transactions.back().amount>1000;
+        }
+        for(int i=0;i<(int)input.size();++i)for(int j=i+1;j<(int)input.size();++j){
+            auto& a=transactions[i];
+            auto& b=transactions[j];
+            if(a.name==b.name&&a.city!=b.city&&abs(a.time-b.time)<=60)invalid[i]=invalid[j]=true;
+        }
+        vector<string> answer;
+        for(int i=0;i<(int)input.size();++i)if(invalid[i])answer.push_back(input[i]);
+        return answer;
+    }
+};

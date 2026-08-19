@@ -1,1 +1,21 @@
-class Solution { int check(long long root,long long low,long long high){if(root>3037000499LL)return 0;long long square=root*root;if(square<low||square>high)return 0;string text=to_string(square),reversed=text;reverse(reversed.begin(),reversed.end());return text==reversed;}public:int superpalindromesInRange(string left,string right){long long low=stoll(left),high=stoll(right);int answer=0;for(int prefix=1;prefix<=100000;++prefix){string text=to_string(prefix),odd=text,even=text;for(int i=text.size()-2;i>=0;--i)odd+=text[i];for(int i=text.size()-1;i>=0;--i)even+=text[i];answer+=check(stoll(odd),low,high)+check(stoll(even),low,high);}return answer;} };
+class Solution {
+    int check(long long root,long long low,long long high){
+        if(root>3037000499LL)return 0;
+        long long square=root*root;
+        if(square<low||square>high)return 0;
+        string text=to_string(square),reversed=text;
+        reverse(reversed.begin(),reversed.end());
+        return text==reversed;
+    }
+    public:int superpalindromesInRange(string left,string right){
+        long long low=stoll(left),high=stoll(right);
+        int answer=0;
+        for(int prefix=1;prefix<=100000;++prefix){
+            string text=to_string(prefix),odd=text,even=text;
+            for(int i=text.size()-2;i>=0;--i)odd+=text[i];
+            for(int i=text.size()-1;i>=0;--i)even+=text[i];
+            answer+=check(stoll(odd),low,high)+check(stoll(even),low,high);
+        }
+        return answer;
+    }
+};

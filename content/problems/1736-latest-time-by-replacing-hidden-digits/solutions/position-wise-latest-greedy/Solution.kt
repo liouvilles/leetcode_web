@@ -1,1 +1,10 @@
-class Solution { fun maximumTime(time:String):String{val value=time.toCharArray();if(value[0]=='?')value[0]=if(value[1]=='?'||value[1]<='3')'2' else '1';if(value[1]=='?')value[1]=if(value[0]=='2')'3' else '9';if(value[3]=='?')value[3]='5';if(value[4]=='?')value[4]='9';return String(value)} }
+class Solution {
+    fun maximumTime(time:String):String{
+        val value=time.toCharArray();
+        if(value[0]=='?')value[0]=if(value[1]=='?'||value[1]<='3')'2' else '1';
+        if(value[1]=='?')value[1]=if(value[0]=='2')'3' else '9';
+        if(value[3]=='?')value[3]='5';
+        if(value[4]=='?')value[4]='9';
+        return String(value)
+    }
+}

@@ -1,1 +1,10 @@
-class Solution { public:int captureForts(vector<int>& forts){int previous=-1,answer=0;for(int i=0;i<(int)forts.size();++i)if(forts[i]){if(previous>=0&&forts[previous]!=forts[i])answer=max(answer,i-previous-1);previous=i;}return answer;} };
+class Solution {
+    public:int captureForts(vector<int>& forts){
+        int previous=-1,answer=0;
+        for(int i=0;i<(int)forts.size();++i)if(forts[i]){
+            if(previous>=0&&forts[previous]!=forts[i])answer=max(answer,i-previous-1);
+            previous=i;
+        }
+        return answer;
+    }
+};

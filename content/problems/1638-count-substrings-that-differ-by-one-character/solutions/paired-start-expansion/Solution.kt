@@ -1,1 +1,15 @@
-class Solution { fun countSubstrings(s:String,t:String):Int{var answer=0;for(first in s.indices)for(second in t.indices){var mismatch=0;var offset=0;while(first+offset<s.length&&second+offset<t.length){if(s[first+offset]!=t[second+offset])mismatch++;if(mismatch==1)answer++ else if(mismatch>1)break;offset++}};return answer} }
+class Solution {
+    fun countSubstrings(s:String,t:String):Int{
+        var answer=0;
+        for(first in s.indices)for(second in t.indices){
+            var mismatch=0;
+            var offset=0;
+            while(first+offset<s.length&&second+offset<t.length){
+                if(s[first+offset]!=t[second+offset])mismatch++;
+                if(mismatch==1)answer++ else if(mismatch>1)break;
+                offset++
+            }
+        };
+        return answer
+    }
+}

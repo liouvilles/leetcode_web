@@ -1,1 +1,25 @@
-class Solution { fun distributeCookies(cookies:IntArray,k:Int):Int{val ordered=cookies.sortedArrayDescending();val loads=IntArray(k);var best=Int.MAX_VALUE;fun search(index:Int,current:Int){if(current>=best)return;if(index==ordered.size){best=current;return};val seen=HashSet<Int>();for(i in loads.indices){if(!seen.add(loads[i]))continue;val before=loads[i];loads[i]+=ordered[index];search(index+1,maxOf(current,loads[i]));loads[i]=before;if(before==0)break}};search(0,0);return best} }
+class Solution {
+    fun distributeCookies(cookies:IntArray,k:Int):Int{
+        val ordered=cookies.sortedArrayDescending();
+        val loads=IntArray(k);
+        var best=Int.MAX_VALUE;
+        fun search(index:Int,current:Int){
+            if(current>=best)return;
+            if(index==ordered.size){
+                best=current;
+                return
+            };
+            val seen=HashSet<Int>();
+            for(i in loads.indices){
+                if(!seen.add(loads[i]))continue;
+                val before=loads[i];
+                loads[i]+=ordered[index];
+                search(index+1,maxOf(current,loads[i]));
+                loads[i]=before;
+                if(before==0)break
+            }
+        };
+        search(0,0);
+        return best
+    }
+}

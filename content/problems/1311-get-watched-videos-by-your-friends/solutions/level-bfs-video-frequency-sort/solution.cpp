@@ -1,1 +1,28 @@
-class Solution { public: vector<string> watchedVideosByFriends(vector<vector<string>>& watchedVideos,vector<vector<int>>& friends,int id,int level){queue<int> pending;vector<bool> seen(friends.size());pending.push(id);seen[id]=true;while(level--)for(int size=pending.size();size;--size){int person=pending.front();pending.pop();for(int next:friends[person])if(!seen[next]){seen[next]=true;pending.push(next);}}unordered_map<string,int> frequency;while(!pending.empty()){int person=pending.front();pending.pop();for(string& video:watchedVideos[person])++frequency[video];}vector<string> answer;for(auto& entry:frequency)answer.push_back(entry.first);sort(answer.begin(),answer.end(),[&](string& a,string& b){return frequency[a]!=frequency[b]?frequency[a]<frequency[b]:a<b;});return answer;} };
+class Solution {
+    public: vector<string> watchedVideosByFriends(vector<vector<string>>& watchedVideos,vector<vector<int>>& friends,int id,int level){
+        queue<int> pending;
+        vector<bool> seen(friends.size());
+        pending.push(id);
+        seen[id]=true;
+        while(level--)for(int size=pending.size();size;--size){
+            int person=pending.front();
+            pending.pop();
+            for(int next:friends[person])if(!seen[next]){
+                seen[next]=true;
+                pending.push(next);
+            }
+        }
+        unordered_map<string,int> frequency;
+        while(!pending.empty()){
+            int person=pending.front();
+            pending.pop();
+            for(string& video:watchedVideos[person])++frequency[video];
+        }
+        vector<string> answer;
+        for(auto& entry:frequency)answer.push_back(entry.first);
+        sort(answer.begin(),answer.end(),[&](string& a,string& b){
+            return frequency[a]!=frequency[b]?frequency[a]<frequency[b]:a<b;
+        });
+        return answer;
+    }
+};

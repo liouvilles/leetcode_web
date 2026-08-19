@@ -1,1 +1,18 @@
-class Solution { void dfs(int start,vector<int>& nums,vector<int>& path,vector<vector<int>>& answer){if(path.size()>=2)answer.push_back(path);unordered_set<int> used;for(int i=start;i<(int)nums.size();++i){if((!path.empty()&&nums[i]<path.back())||!used.insert(nums[i]).second)continue;path.push_back(nums[i]);dfs(i+1,nums,path,answer);path.pop_back();}}public:vector<vector<int>> findSubsequences(vector<int>& nums){vector<vector<int>> answer;vector<int> path;dfs(0,nums,path,answer);return answer;} };
+class Solution {
+    void dfs(int start,vector<int>& nums,vector<int>& path,vector<vector<int>>& answer){
+        if(path.size()>=2)answer.push_back(path);
+        unordered_set<int> used;
+        for(int i=start;i<(int)nums.size();++i){
+            if((!path.empty()&&nums[i]<path.back())||!used.insert(nums[i]).second)continue;
+            path.push_back(nums[i]);
+            dfs(i+1,nums,path,answer);
+            path.pop_back();
+        }
+    }
+    public:vector<vector<int>> findSubsequences(vector<int>& nums){
+        vector<vector<int>> answer;
+        vector<int> path;
+        dfs(0,nums,path,answer);
+        return answer;
+    }
+};

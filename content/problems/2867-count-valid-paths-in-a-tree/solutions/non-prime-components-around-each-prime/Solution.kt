@@ -1,1 +1,66 @@
-class Solution { private fun find(parent:IntArray,start:Int):Int{var node=start;while(parent[node]!=node){parent[node]=parent[parent[node]];node=parent[node]};return node};private fun union(parent:IntArray,size:IntArray,first:Int,second:Int){var a=find(parent,first);var b=find(parent,second);if(a==b)return;if(size[a]<size[b]){val swap=a;a=b;b=swap};parent[b]=a;size[a]+=size[b]};fun countPaths(n:Int,edges:Array<IntArray>):Long{val prime=BooleanArray(n+1){true};prime[0]=false;prime[1]=false;var value=2;while(value*value<=n){if(prime[value]){var multiple=value*value;while(multiple<=n){prime[multiple]=false;multiple+=value}};value++};val graph=Array(n+1){mutableListOf<Int>()};val parent=IntArray(n+1){it};val size=IntArray(n+1){1};for(edge in edges){val u=edge[0];val v=edge[1];graph[u].add(v);graph[v].add(u);if(!prime[u]&&!prime[v])union(parent,size,u,v)};var answer=0L;for(node in 2..n)if(prime[node]){var connected=0L;for(next in graph[node])if(!prime[next]){val component=size[find(parent,next)].toLong();answer+=component*(connected+1);connected+=component}};return answer} }
+class Solution {
+    private fun find(parent:IntArray,start:Int):Int{
+        var node=start;
+        while(parent[node]!=node){
+            parent[node]=parent[parent[node]];
+            node=parent[node]
+        };
+        return node
+    };
+    private fun union(parent:IntArray,size:IntArray,first:Int,second:Int){
+        var a=find(parent,first);
+        var b=find(parent,second);
+        if(a==b)return;
+        if(size[a]<size[b]){
+            val swap=a;
+            a=b;
+            b=swap
+        };
+        parent[b]=a;
+        size[a]+=size[b]
+    };
+    fun countPaths(n:Int,edges:Array<IntArray>):Long{
+        val prime=BooleanArray(n+1){
+            true
+        };
+        prime[0]=false;
+        prime[1]=false;
+        var value=2;
+        while(value*value<=n){
+            if(prime[value]){
+                var multiple=value*value;
+                while(multiple<=n){
+                    prime[multiple]=false;
+                    multiple+=value
+                }
+            };
+            value++
+        };
+        val graph=Array(n+1){
+            mutableListOf<Int>()
+        };
+        val parent=IntArray(n+1){
+            it
+        };
+        val size=IntArray(n+1){
+            1
+        };
+        for(edge in edges){
+            val u=edge[0];
+            val v=edge[1];
+            graph[u].add(v);
+            graph[v].add(u);
+            if(!prime[u]&&!prime[v])union(parent,size,u,v)
+        };
+        var answer=0L;
+        for(node in 2..n)if(prime[node]){
+            var connected=0L;
+            for(next in graph[node])if(!prime[next]){
+                val component=size[find(parent,next)].toLong();
+                answer+=component*(connected+1);
+                connected+=component
+            }
+        };
+        return answer
+    }
+}

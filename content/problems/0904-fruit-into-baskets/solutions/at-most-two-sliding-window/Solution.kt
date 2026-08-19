@@ -1,1 +1,17 @@
-class Solution { fun totalFruit(fruits:IntArray):Int{val frequency=mutableMapOf<Int,Int>();var left=0;var answer=0;for(right in fruits.indices){frequency[fruits[right]]=(frequency[fruits[right]]?:0)+1;while(frequency.size>2){val value=fruits[left++];val count=frequency[value]!!-1;if(count==0)frequency.remove(value)else frequency[value]=count};answer=maxOf(answer,right-left+1)};return answer} }
+class Solution {
+    fun totalFruit(fruits:IntArray):Int{
+        val frequency=mutableMapOf<Int,Int>();
+        var left=0;
+        var answer=0;
+        for(right in fruits.indices){
+            frequency[fruits[right]]=(frequency[fruits[right]]?:0)+1;
+            while(frequency.size>2){
+                val value=fruits[left++];
+                val count=frequency[value]!!-1;
+                if(count==0)frequency.remove(value)else frequency[value]=count
+            };
+            answer=maxOf(answer,right-left+1)
+        };
+        return answer
+    }
+}

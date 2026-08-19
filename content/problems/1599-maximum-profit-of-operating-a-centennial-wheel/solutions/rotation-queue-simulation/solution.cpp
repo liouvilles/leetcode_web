@@ -1,1 +1,17 @@
-class Solution { public: int minOperationsMaxProfit(vector<int>& customers,int boardingCost,int runningCost){int waiting=0,profit=0,maximum=0,best=-1,rotation=0;while(rotation<(int)customers.size()||waiting){if(rotation<(int)customers.size())waiting+=customers[rotation];int boarded=min(4,waiting);waiting-=boarded;profit+=boarded*boardingCost-runningCost;++rotation;if(profit>maximum){maximum=profit;best=rotation;}}return best;} };
+class Solution {
+    public: int minOperationsMaxProfit(vector<int>& customers,int boardingCost,int runningCost){
+        int waiting=0,profit=0,maximum=0,best=-1,rotation=0;
+        while(rotation<(int)customers.size()||waiting){
+            if(rotation<(int)customers.size())waiting+=customers[rotation];
+            int boarded=min(4,waiting);
+            waiting-=boarded;
+            profit+=boarded*boardingCost-runningCost;
+            ++rotation;
+            if(profit>maximum){
+                maximum=profit;
+                best=rotation;
+            }
+        }
+        return best;
+    }
+};

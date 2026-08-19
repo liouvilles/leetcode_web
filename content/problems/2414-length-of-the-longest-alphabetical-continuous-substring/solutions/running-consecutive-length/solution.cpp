@@ -1,1 +1,10 @@
-class Solution { public:int longestContinuousSubstring(string s){int current=1,answer=1;for(int i=1;i<(int)s.size();++i){current=s[i]==s[i-1]+1?current+1:1;answer=max(answer,current);}return answer;} };
+class Solution {
+    public:int longestContinuousSubstring(string s){
+        int current=1,answer=1;
+        for(int i=1;i<(int)s.size();++i){
+            current=s[i]==s[i-1]+1?current+1:1;
+            answer=max(answer,current);
+        }
+        return answer;
+    }
+};

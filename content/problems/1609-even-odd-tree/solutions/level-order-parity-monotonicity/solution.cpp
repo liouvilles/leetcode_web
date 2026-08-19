@@ -1,1 +1,22 @@
-class Solution { public: bool isEvenOddTree(TreeNode* root){queue<TreeNode*> pending;pending.push(root);int level=0;while(!pending.empty()){int size=pending.size(),previous=level%2==0?INT_MIN:INT_MAX;while(size--){TreeNode* node=pending.front();pending.pop();if(level%2==0){if(node->val%2==0||node->val<=previous)return false;}else if(node->val%2||node->val>=previous)return false;previous=node->val;if(node->left)pending.push(node->left);if(node->right)pending.push(node->right);}++level;}return true;} };
+class Solution {
+    public: bool isEvenOddTree(TreeNode* root){
+        queue<TreeNode*> pending;
+        pending.push(root);
+        int level=0;
+        while(!pending.empty()){
+            int size=pending.size(),previous=level%2==0?INT_MIN:INT_MAX;
+            while(size--){
+                TreeNode* node=pending.front();
+                pending.pop();
+                if(level%2==0){
+                    if(node->val%2==0||node->val<=previous)return false;
+                }else if(node->val%2||node->val>=previous)return false;
+                previous=node->val;
+                if(node->left)pending.push(node->left);
+                if(node->right)pending.push(node->right);
+            }
+            ++level;
+        }
+        return true;
+    }
+};

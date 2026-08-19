@@ -1,1 +1,9 @@
-class Solution { fun sortArrayByParity(nums:IntArray):IntArray{val answer=IntArray(nums.size);var write=0;for(value in nums)if(value%2==0)answer[write++]=value;for(value in nums)if(value%2!=0)answer[write++]=value;return answer} }
+class Solution {
+    fun sortArrayByParity(nums:IntArray):IntArray{
+        val answer=IntArray(nums.size);
+        var write=0;
+        for(value in nums)if(value%2==0)answer[write++]=value;
+        for(value in nums)if(value%2!=0)answer[write++]=value;
+        return answer
+    }
+}

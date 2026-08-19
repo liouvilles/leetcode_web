@@ -1,1 +1,13 @@
-class Solution { fun sellingWood(m:Int,n:Int,prices:Array<IntArray>):Long{val dp=Array(m+1){LongArray(n+1)};for(price in prices)dp[price[0]][price[1]]=maxOf(dp[price[0]][price[1]],price[2].toLong());for(h in 1..m)for(w in 1..n){for(cut in 1 until h)dp[h][w]=maxOf(dp[h][w],dp[cut][w]+dp[h-cut][w]);for(cut in 1 until w)dp[h][w]=maxOf(dp[h][w],dp[h][cut]+dp[h][w-cut])};return dp[m][n]} }
+class Solution {
+    fun sellingWood(m:Int,n:Int,prices:Array<IntArray>):Long{
+        val dp=Array(m+1){
+            LongArray(n+1)
+        };
+        for(price in prices)dp[price[0]][price[1]]=maxOf(dp[price[0]][price[1]],price[2].toLong());
+        for(h in 1..m)for(w in 1..n){
+            for(cut in 1 until h)dp[h][w]=maxOf(dp[h][w],dp[cut][w]+dp[h-cut][w]);
+            for(cut in 1 until w)dp[h][w]=maxOf(dp[h][w],dp[h][cut]+dp[h][w-cut])
+        };
+        return dp[m][n]
+    }
+}

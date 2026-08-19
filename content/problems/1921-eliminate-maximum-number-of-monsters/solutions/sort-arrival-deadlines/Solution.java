@@ -1,1 +1,9 @@
-class Solution { public int eliminateMaximum(int[] dist,int[] speed){int[] arrival=new int[dist.length];for(int i=0;i<dist.length;i++)arrival[i]=(dist[i]+speed[i]-1)/speed[i];Arrays.sort(arrival);for(int i=0;i<arrival.length;i++)if(arrival[i]<=i)return i;return arrival.length;} }
+class Solution {
+    public int eliminateMaximum(int[] dist,int[] speed){
+        int[] arrival=new int[dist.length];
+        for(int i=0;i<dist.length;i++)arrival[i]=(dist[i]+speed[i]-1)/speed[i];
+        Arrays.sort(arrival);
+        for(int i=0;i<arrival.length;i++)if(arrival[i]<=i)return i;
+        return arrival.length;
+    }
+}

@@ -1,1 +1,17 @@
-class Solution { public int numberOfArrays(String text,int k){int n=text.length(),mod=1_000_000_007;int[] dp=new int[n+1];dp[n]=1;for(int i=n-1;i>=0;i--){if(text.charAt(i)=='0')continue;long value=0;for(int j=i;j<n;j++){value=value*10+text.charAt(j)-'0';if(value>k)break;dp[i]=(dp[i]+dp[j+1])%mod;}}return dp[0];} }
+class Solution {
+    public int numberOfArrays(String text,int k){
+        int n=text.length(),mod=1_000_000_007;
+        int[] dp=new int[n+1];
+        dp[n]=1;
+        for(int i=n-1;i>=0;i--){
+            if(text.charAt(i)=='0')continue;
+            long value=0;
+            for(int j=i;j<n;j++){
+                value=value*10+text.charAt(j)-'0';
+                if(value>k)break;
+                dp[i]=(dp[i]+dp[j+1])%mod;
+            }
+        }
+        return dp[0];
+    }
+}

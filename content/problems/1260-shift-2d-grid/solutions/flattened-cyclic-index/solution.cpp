@@ -1,1 +1,12 @@
-class Solution { public: vector<vector<int>> shiftGrid(vector<vector<int>>& grid,int k){int rows=grid.size(),columns=grid[0].size(),total=rows*columns;k%=total;vector<vector<int>> shifted(rows,vector<int>(columns));for(int index=0;index<total;++index){int next=(index+k)%total;shifted[next/columns][next%columns]=grid[index/columns][index%columns];}return shifted;} };
+class Solution {
+    public: vector<vector<int>> shiftGrid(vector<vector<int>>& grid,int k){
+        int rows=grid.size(),columns=grid[0].size(),total=rows*columns;
+        k%=total;
+        vector<vector<int>> shifted(rows,vector<int>(columns));
+        for(int index=0;index<total;++index){
+            int next=(index+k)%total;
+            shifted[next/columns][next%columns]=grid[index/columns][index%columns];
+        }
+        return shifted;
+    }
+};

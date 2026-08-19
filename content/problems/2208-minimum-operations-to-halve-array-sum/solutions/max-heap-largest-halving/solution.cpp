@@ -1,1 +1,19 @@
-class Solution { public:int halveArray(vector<int>& nums){priority_queue<double> heap;double total=0,reduced=0;for(int value:nums){heap.push(value);total+=value;}int operations=0;while(reduced<total/2){double half=heap.top()/2;heap.pop();reduced+=half;heap.push(half);++operations;}return operations;} };
+class Solution {
+    public:int halveArray(vector<int>& nums){
+        priority_queue<double> heap;
+        double total=0,reduced=0;
+        for(int value:nums){
+            heap.push(value);
+            total+=value;
+        }
+        int operations=0;
+        while(reduced<total/2){
+            double half=heap.top()/2;
+            heap.pop();
+            reduced+=half;
+            heap.push(half);
+            ++operations;
+        }
+        return operations;
+    }
+};

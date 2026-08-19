@@ -1,1 +1,35 @@
-class Solution { public int[][] spiralMatrixIII(int rows,int cols,int rStart,int cStart){int[][] answer=new int[rows*cols][2];int count=0;answer[count++]=new int[]{rStart,cStart};int[][] directions={{0,1},{1,0},{0,-1},{-1,0}};int direction=0,steps=1,row=rStart,column=cStart;while(count<answer.length){for(int twice=0;twice<2;twice++){for(int move=0;move<steps;move++){row+=directions[direction][0];column+=directions[direction][1];if(row>=0&&row<rows&&column>=0&&column<cols)answer[count++]=new int[]{row,column};}direction=(direction+1)%4;}steps++;}return answer;} }
+class Solution {
+    public int[][] spiralMatrixIII(int rows,int cols,int rStart,int cStart){
+        int[][] answer=new int[rows*cols][2];
+        int count=0;
+        answer[count++]=new int[]{
+            rStart,cStart
+        };
+        int[][] directions={
+            {
+                0,1
+            },{
+                1,0
+            },{
+                0,-1
+            },{
+                -1,0
+            }
+        };
+        int direction=0,steps=1,row=rStart,column=cStart;
+        while(count<answer.length){
+            for(int twice=0;twice<2;twice++){
+                for(int move=0;move<steps;move++){
+                    row+=directions[direction][0];
+                    column+=directions[direction][1];
+                    if(row>=0&&row<rows&&column>=0&&column<cols)answer[count++]=new int[]{
+                        row,column
+                    };
+                }
+                direction=(direction+1)%4;
+            }
+            steps++;
+        }
+        return answer;
+    }
+}

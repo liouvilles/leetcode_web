@@ -1,1 +1,52 @@
-class Solution { private fun buildCosts(s:String):Array<IntArray>{val n=s.length;val inf=1_000_000;val mismatchPrefix=Array(n){IntArray(n+1)};for(gap in 1 until n)for(index in 0 until n-gap)mismatchPrefix[gap][index+1]=mismatchPrefix[gap][index]+if(s[index]==s[index+gap])0 else 1;val change=Array(n){IntArray(n){inf}};val divisorCost=Array(n){IntArray(n)};for(divisor in 1..n/2){var length=2*divisor;while(length<=n){val gap=length-divisor;for(left in 0..n-length){val right=left+length-1;var cost=mismatchPrefix[gap][left+divisor]-mismatchPrefix[gap][left];if(length>=4*divisor)cost+=divisorCost[left+divisor][right-divisor];divisorCost[left][right]=cost;change[left][right]=minOf(change[left][right],cost)};length+=divisor}};return change}fun minimumChanges(s:String,k:Int):Int{val n=s.length;val inf=1_000_000;val change=buildCosts(s);var previous=IntArray(n+1){inf};previous[0]=0;for(parts in 1..k){val current=IntArray(n+1){inf};val minimumEnd=2*parts;val maximumEnd=n-2*(k-parts);for(end in minimumEnd..maximumEnd)for(start in 2*(parts-1)..end-2)if(previous[start]<inf)current[end]=minOf(current[end],previous[start]+change[start][end-1]);previous=current};return previous[n]} }
+class Solution {
+    private fun buildCosts(s:String):Array<IntArray>{
+        val n=s.length;
+        val inf=1_000_000;
+        val mismatchPrefix=Array(n){
+            IntArray(n+1)
+        };
+        for(gap in 1 until n)for(index in 0 until n-gap)mismatchPrefix[gap][index+1]=mismatchPrefix[gap][index]+if(s[index]==s[index+gap])0 else 1;
+        val change=Array(n){
+            IntArray(n){
+                inf
+            }
+        };
+        val divisorCost=Array(n){
+            IntArray(n)
+        };
+        for(divisor in 1..n/2){
+            var length=2*divisor;
+            while(length<=n){
+                val gap=length-divisor;
+                for(left in 0..n-length){
+                    val right=left+length-1;
+                    var cost=mismatchPrefix[gap][left+divisor]-mismatchPrefix[gap][left];
+                    if(length>=4*divisor)cost+=divisorCost[left+divisor][right-divisor];
+                    divisorCost[left][right]=cost;
+                    change[left][right]=minOf(change[left][right],cost)
+                };
+                length+=divisor
+            }
+        };
+        return change
+    }
+    fun minimumChanges(s:String,k:Int):Int{
+        val n=s.length;
+        val inf=1_000_000;
+        val change=buildCosts(s);
+        var previous=IntArray(n+1){
+            inf
+        };
+        previous[0]=0;
+        for(parts in 1..k){
+            val current=IntArray(n+1){
+                inf
+            };
+            val minimumEnd=2*parts;
+            val maximumEnd=n-2*(k-parts);
+            for(end in minimumEnd..maximumEnd)for(start in 2*(parts-1)..end-2)if(previous[start]<inf)current[end]=minOf(current[end],previous[start]+change[start][end-1]);
+            previous=current
+        };
+        return previous[n]
+    }
+}

@@ -1,1 +1,12 @@
-class Solution { public:int similarPairs(vector<string>& words){unordered_map<int,int> frequency;int answer=0;for(string& word:words){int mask=0;for(char character:word)mask|=1<<(character-'a');answer+=frequency[mask]++;}return answer;} };
+class Solution {
+    public:int similarPairs(vector<string>& words){
+        unordered_map<int,int> frequency;
+        int answer=0;
+        for(string& word:words){
+            int mask=0;
+            for(char character:word)mask|=1<<(character-'a');
+            answer+=frequency[mask]++;
+        }
+        return answer;
+    }
+};

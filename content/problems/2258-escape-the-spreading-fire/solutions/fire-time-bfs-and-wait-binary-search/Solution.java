@@ -1,1 +1,78 @@
-class Solution { int[][] grid,fire;int rows,columns;int[][] directions={{1,0},{-1,0},{0,1},{0,-1}};private boolean can(int wait){if(wait>=fire[0][0])return false;boolean[][] seen=new boolean[rows][columns];Queue<int[]> queue=new ArrayDeque<>();queue.offer(new int[]{0,0,wait});seen[0][0]=true;while(!queue.isEmpty()){int[] state=queue.poll();for(int[] direction:directions){int r=state[0]+direction[0],c=state[1]+direction[1],arrival=state[2]+1;if(r<0||r>=rows||c<0||c>=columns||seen[r][c]||grid[r][c]==2)continue;if(r==rows-1&&c==columns-1){if(arrival<=fire[r][c])return true;continue;}if(arrival>=fire[r][c])continue;seen[r][c]=true;queue.offer(new int[]{r,c,arrival});}}return false;}public int maximumMinutes(int[][] grid){this.grid=grid;rows=grid.length;columns=grid[0].length;int infinity=1_100_000_000;fire=new int[rows][columns];Queue<int[]> queue=new ArrayDeque<>();for(int r=0;r<rows;r++)for(int c=0;c<columns;c++){fire[r][c]=infinity;if(grid[r][c]==1){fire[r][c]=0;queue.offer(new int[]{r,c});}}while(!queue.isEmpty()){int[] cell=queue.poll();for(int[] direction:directions){int r=cell[0]+direction[0],c=cell[1]+direction[1];if(r>=0&&r<rows&&c>=0&&c<columns&&grid[r][c]!=2&&fire[r][c]==infinity){fire[r][c]=fire[cell[0]][cell[1]]+1;queue.offer(new int[]{r,c});}}}if(!can(0))return -1;if(can(1_000_000_000))return 1_000_000_000;int left=0,right=1_000_000_000;while(left<right){int middle=left+(right-left+1)/2;if(can(middle))left=middle;else right=middle-1;}return left;} }
+class Solution {
+    int[][] grid,fire;
+    int rows,columns;
+    int[][] directions={
+        {
+            1,0
+        },{
+            -1,0
+        },{
+            0,1
+        },{
+            0,-1
+        }
+    };
+    private boolean can(int wait){
+        if(wait>=fire[0][0])return false;
+        boolean[][] seen=new boolean[rows][columns];
+        Queue<int[]> queue=new ArrayDeque<>();
+        queue.offer(new int[]{
+            0,0,wait
+        });
+        seen[0][0]=true;
+        while(!queue.isEmpty()){
+            int[] state=queue.poll();
+            for(int[] direction:directions){
+                int r=state[0]+direction[0],c=state[1]+direction[1],arrival=state[2]+1;
+                if(r<0||r>=rows||c<0||c>=columns||seen[r][c]||grid[r][c]==2)continue;
+                if(r==rows-1&&c==columns-1){
+                    if(arrival<=fire[r][c])return true;
+                    continue;
+                }
+                if(arrival>=fire[r][c])continue;
+                seen[r][c]=true;
+                queue.offer(new int[]{
+                    r,c,arrival
+                });
+            }
+        }
+        return false;
+    }
+    public int maximumMinutes(int[][] grid){
+        this.grid=grid;
+        rows=grid.length;
+        columns=grid[0].length;
+        int infinity=1_100_000_000;
+        fire=new int[rows][columns];
+        Queue<int[]> queue=new ArrayDeque<>();
+        for(int r=0;r<rows;r++)for(int c=0;c<columns;c++){
+            fire[r][c]=infinity;
+            if(grid[r][c]==1){
+                fire[r][c]=0;
+                queue.offer(new int[]{
+                    r,c
+                });
+            }
+        }while(!queue.isEmpty()){
+            int[] cell=queue.poll();
+            for(int[] direction:directions){
+                int r=cell[0]+direction[0],c=cell[1]+direction[1];
+                if(r>=0&&r<rows&&c>=0&&c<columns&&grid[r][c]!=2&&fire[r][c]==infinity){
+                    fire[r][c]=fire[cell[0]][cell[1]]+1;
+                    queue.offer(new int[]{
+                        r,c
+                    });
+                }
+            }
+        }
+        if(!can(0))return -1;
+        if(can(1_000_000_000))return 1_000_000_000;
+        int left=0,right=1_000_000_000;
+        while(left<right){
+            int middle=left+(right-left+1)/2;
+            if(can(middle))left=middle;
+            else right=middle-1;
+        }
+        return left;
+    }
+}

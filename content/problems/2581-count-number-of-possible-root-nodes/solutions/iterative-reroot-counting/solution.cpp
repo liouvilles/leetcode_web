@@ -1,1 +1,35 @@
-class Solution { long long key(int from,int to){return ((long long)from<<32)^(unsigned int)to;}public:int rootCount(vector<vector<int>>& edges,vector<vector<int>>& guesses,int k){int n=edges.size()+1;vector<vector<int>> graph(n);for(auto& edge:edges){graph[edge[0]].push_back(edge[1]);graph[edge[1]].push_back(edge[0]);}unordered_set<long long> guessed;for(auto& guess:guesses)guessed.insert(key(guess[0],guess[1]));vector<int> parent(n,-2),order(n),score(n);parent[0]=-1;int size=1;for(int index=0;index<size;++index){int node=order[index];for(int next:graph[node])if(next!=parent[node]){parent[next]=node;order[size++]=next;}}int rootScore=0;for(int node=1;node<n;++node)rootScore+=guessed.count(key(parent[node],node));score[0]=rootScore;int answer=rootScore>=k;for(int index=1;index<n;++index){int node=order[index],up=parent[node];score[node]=score[up]-guessed.count(key(up,node))+guessed.count(key(node,up));answer+=score[node]>=k;}return answer;} };
+class Solution {
+    long long key(int from,int to){
+        return ((long long)from<<32)^(unsigned int)to;
+    }
+    public:int rootCount(vector<vector<int>>& edges,vector<vector<int>>& guesses,int k){
+        int n=edges.size()+1;
+        vector<vector<int>> graph(n);
+        for(auto& edge:edges){
+            graph[edge[0]].push_back(edge[1]);
+            graph[edge[1]].push_back(edge[0]);
+        }
+        unordered_set<long long> guessed;
+        for(auto& guess:guesses)guessed.insert(key(guess[0],guess[1]));
+        vector<int> parent(n,-2),order(n),score(n);
+        parent[0]=-1;
+        int size=1;
+        for(int index=0;index<size;++index){
+            int node=order[index];
+            for(int next:graph[node])if(next!=parent[node]){
+                parent[next]=node;
+                order[size++]=next;
+            }
+        }
+        int rootScore=0;
+        for(int node=1;node<n;++node)rootScore+=guessed.count(key(parent[node],node));
+        score[0]=rootScore;
+        int answer=rootScore>=k;
+        for(int index=1;index<n;++index){
+            int node=order[index],up=parent[node];
+            score[node]=score[up]-guessed.count(key(up,node))+guessed.count(key(node,up));
+            answer+=score[node]>=k;
+        }
+        return answer;
+    }
+};

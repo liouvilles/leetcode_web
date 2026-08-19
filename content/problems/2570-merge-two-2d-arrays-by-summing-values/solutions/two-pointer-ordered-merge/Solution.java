@@ -1,1 +1,18 @@
-class Solution { public int[][] mergeArrays(int[][] nums1,int[][] nums2){List<int[]> answer=new ArrayList<>();int first=0,second=0;while(first<nums1.length||second<nums2.length){if(second==nums2.length||first<nums1.length&&nums1[first][0]<nums2[second][0])answer.add(nums1[first++]);else if(first==nums1.length||nums2[second][0]<nums1[first][0])answer.add(nums2[second++]);else{answer.add(new int[]{nums1[first][0],nums1[first][1]+nums2[second][1]});first++;second++;}}return answer.toArray(new int[0][]);} }
+class Solution {
+    public int[][] mergeArrays(int[][] nums1,int[][] nums2){
+        List<int[]> answer=new ArrayList<>();
+        int first=0,second=0;
+        while(first<nums1.length||second<nums2.length){
+            if(second==nums2.length||first<nums1.length&&nums1[first][0]<nums2[second][0])answer.add(nums1[first++]);
+            else if(first==nums1.length||nums2[second][0]<nums1[first][0])answer.add(nums2[second++]);
+            else{
+                answer.add(new int[]{
+                    nums1[first][0],nums1[first][1]+nums2[second][1]
+                });
+                first++;
+                second++;
+            }
+        }
+        return answer.toArray(new int[0][]);
+    }
+}

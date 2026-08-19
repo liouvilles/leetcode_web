@@ -1,1 +1,35 @@
-class Solution { fun swimInWater(grid:Array<IntArray>):Int{val n=grid.size;val distance=Array(n){IntArray(n){Int.MAX_VALUE}};distance[0][0]=grid[0][0];val heap=java.util.PriorityQueue<IntArray>(compareBy{it[0]});heap.add(intArrayOf(grid[0][0],0,0));val directions=intArrayOf(-1,0,1,0,-1);while(heap.isNotEmpty()){val state=heap.remove();val time=state[0];val row=state[1];val column=state[2];if(time!=distance[row][column])continue;if(row==n-1&&column==n-1)return time;for(d in 0 until 4){val nextRow=row+directions[d];val nextColumn=column+directions[d+1];if(nextRow !in 0 until n||nextColumn !in 0 until n)continue;val next=maxOf(time,grid[nextRow][nextColumn]);if(next<distance[nextRow][nextColumn]){distance[nextRow][nextColumn]=next;heap.add(intArrayOf(next,nextRow,nextColumn))}}};return -1} }
+class Solution {
+    fun swimInWater(grid:Array<IntArray>):Int{
+        val n=grid.size;
+        val distance=Array(n){
+            IntArray(n){
+                Int.MAX_VALUE
+            }
+        };
+        distance[0][0]=grid[0][0];
+        val heap=java.util.PriorityQueue<IntArray>(compareBy{
+            it[0]
+        });
+        heap.add(intArrayOf(grid[0][0],0,0));
+        val directions=intArrayOf(-1,0,1,0,-1);
+        while(heap.isNotEmpty()){
+            val state=heap.remove();
+            val time=state[0];
+            val row=state[1];
+            val column=state[2];
+            if(time!=distance[row][column])continue;
+            if(row==n-1&&column==n-1)return time;
+            for(d in 0 until 4){
+                val nextRow=row+directions[d];
+                val nextColumn=column+directions[d+1];
+                if(nextRow !in 0 until n||nextColumn !in 0 until n)continue;
+                val next=maxOf(time,grid[nextRow][nextColumn]);
+                if(next<distance[nextRow][nextColumn]){
+                    distance[nextRow][nextColumn]=next;
+                    heap.add(intArrayOf(next,nextRow,nextColumn))
+                }
+            }
+        };
+        return -1
+    }
+}

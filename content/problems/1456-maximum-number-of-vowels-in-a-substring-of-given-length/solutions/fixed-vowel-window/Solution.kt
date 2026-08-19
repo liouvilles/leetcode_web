@@ -1,1 +1,12 @@
-class Solution { fun maxVowels(text:String,k:Int):Int{var count=0;var answer=0;for(right in text.indices){if(text[right] in "aeiou")count++;if(right>=k&&text[right-k] in "aeiou")count--;if(right>=k-1)answer=maxOf(answer,count)};return answer} }
+class Solution {
+    fun maxVowels(text:String,k:Int):Int{
+        var count=0;
+        var answer=0;
+        for(right in text.indices){
+            if(text[right] in "aeiou")count++;
+            if(right>=k&&text[right-k] in "aeiou")count--;
+            if(right>=k-1)answer=maxOf(answer,count)
+        };
+        return answer
+    }
+}

@@ -1,1 +1,52 @@
-class Solution { private final Map<String,int[]> memo=new HashMap<>();private void enumerate(int n,int first,int second,int pair,int beforeFirst,int beforeSecond,Set<Integer> states){if(pair>n/2){if(n%2==1){int middle=(n+1)/2;beforeFirst+=middle<first?1:0;beforeSecond+=middle<second?1:0;}states.add(beforeFirst*32+beforeSecond);return;}int a=pair,b=n+1-pair;if(a==first||b==first)advance(n,first,second,pair,beforeFirst,beforeSecond,states,first);else if(a==second||b==second)advance(n,first,second,pair,beforeFirst,beforeSecond,states,second);else{advance(n,first,second,pair,beforeFirst,beforeSecond,states,a);advance(n,first,second,pair,beforeFirst,beforeSecond,states,b);}}private void advance(int n,int first,int second,int pair,int beforeFirst,int beforeSecond,Set<Integer> states,int winner){enumerate(n,first,second,pair+1,beforeFirst+(winner<first?1:0),beforeSecond+(winner<second?1:0),states);}private int[] solve(int n,int first,int second){if(first+second==n+1)return new int[]{1,1};if(first+second>n+1){int oldFirst=first;first=n+1-second;second=n+1-oldFirst;}String key=n+","+first+","+second;if(memo.containsKey(key))return memo.get(key);Set<Integer> states=new HashSet<>();enumerate(n,first,second,1,0,0,states);int earliest=100,latest=0,nextN=(n+1)/2;for(int state:states){int[] result=solve(nextN,state/32+1,state%32+1);earliest=Math.min(earliest,result[0]+1);latest=Math.max(latest,result[1]+1);}int[] answer={earliest,latest};memo.put(key,answer);return answer;}public int[] earliestAndLatest(int n,int firstPlayer,int secondPlayer){return solve(n,firstPlayer,secondPlayer);} }
+class Solution {
+    private final Map<String,int[]> memo=new HashMap<>();
+    private void enumerate(int n,int first,int second,int pair,int beforeFirst,int beforeSecond,Set<Integer> states){
+        if(pair>n/2){
+            if(n%2==1){
+                int middle=(n+1)/2;
+                beforeFirst+=middle<first?1:0;
+                beforeSecond+=middle<second?1:0;
+            }
+            states.add(beforeFirst*32+beforeSecond);
+            return;
+        }
+        int a=pair,b=n+1-pair;
+        if(a==first||b==first)advance(n,first,second,pair,beforeFirst,beforeSecond,states,first);
+        else if(a==second||b==second)advance(n,first,second,pair,beforeFirst,beforeSecond,states,second);
+        else{
+            advance(n,first,second,pair,beforeFirst,beforeSecond,states,a);
+            advance(n,first,second,pair,beforeFirst,beforeSecond,states,b);
+        }
+    }
+    private void advance(int n,int first,int second,int pair,int beforeFirst,int beforeSecond,Set<Integer> states,int winner){
+        enumerate(n,first,second,pair+1,beforeFirst+(winner<first?1:0),beforeSecond+(winner<second?1:0),states);
+    }
+    private int[] solve(int n,int first,int second){
+        if(first+second==n+1)return new int[]{
+            1,1
+        };
+        if(first+second>n+1){
+            int oldFirst=first;
+            first=n+1-second;
+            second=n+1-oldFirst;
+        }
+        String key=n+","+first+","+second;
+        if(memo.containsKey(key))return memo.get(key);
+        Set<Integer> states=new HashSet<>();
+        enumerate(n,first,second,1,0,0,states);
+        int earliest=100,latest=0,nextN=(n+1)/2;
+        for(int state:states){
+            int[] result=solve(nextN,state/32+1,state%32+1);
+            earliest=Math.min(earliest,result[0]+1);
+            latest=Math.max(latest,result[1]+1);
+        }
+        int[] answer={
+            earliest,latest
+        };
+        memo.put(key,answer);
+        return answer;
+    }
+    public int[] earliestAndLatest(int n,int firstPlayer,int secondPlayer){
+        return solve(n,firstPlayer,secondPlayer);
+    }
+}

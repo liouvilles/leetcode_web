@@ -1,1 +1,42 @@
-class Solution { static final long MOD=1_000_000_007;List<Integer>[] children;long[] factorial,inverse;long power(long base,long exponent){long result=1;while(exponent>0){if((exponent&1)==1)result=result*base%MOD;base=base*base%MOD;exponent>>=1;}return result;}long choose(int n,int k){return factorial[n]*inverse[k]%MOD*inverse[n-k]%MOD;}long[] dfs(int node){long ways=1;int size=1;for(int child:children[node]){long[] result=dfs(child);ways=ways*result[1]%MOD*choose(size+(int)result[0]-1,(int)result[0])%MOD;size+=result[0];}return new long[]{size,ways};}public int waysToBuildRooms(int[] prevRoom){int n=prevRoom.length;children=new List[n];for(int i=0;i<n;i++)children[i]=new ArrayList<>();for(int i=1;i<n;i++)children[prevRoom[i]].add(i);factorial=new long[n+1];inverse=new long[n+1];factorial[0]=1;for(int i=1;i<=n;i++)factorial[i]=factorial[i-1]*i%MOD;inverse[n]=power(factorial[n],MOD-2);for(int i=n;i>0;i--)inverse[i-1]=inverse[i]*i%MOD;return (int)dfs(0)[1];} }
+class Solution {
+    static final long MOD=1_000_000_007;
+    List<Integer>[] children;
+    long[] factorial,inverse;
+    long power(long base,long exponent){
+        long result=1;
+        while(exponent>0){
+            if((exponent&1)==1)result=result*base%MOD;
+            base=base*base%MOD;
+            exponent>>=1;
+        }
+        return result;
+    }
+    long choose(int n,int k){
+        return factorial[n]*inverse[k]%MOD*inverse[n-k]%MOD;
+    }
+    long[] dfs(int node){
+        long ways=1;
+        int size=1;
+        for(int child:children[node]){
+            long[] result=dfs(child);
+            ways=ways*result[1]%MOD*choose(size+(int)result[0]-1,(int)result[0])%MOD;
+            size+=result[0];
+        }
+        return new long[]{
+            size,ways
+        };
+    }
+    public int waysToBuildRooms(int[] prevRoom){
+        int n=prevRoom.length;
+        children=new List[n];
+        for(int i=0;i<n;i++)children[i]=new ArrayList<>();
+        for(int i=1;i<n;i++)children[prevRoom[i]].add(i);
+        factorial=new long[n+1];
+        inverse=new long[n+1];
+        factorial[0]=1;
+        for(int i=1;i<=n;i++)factorial[i]=factorial[i-1]*i%MOD;
+        inverse[n]=power(factorial[n],MOD-2);
+        for(int i=n;i>0;i--)inverse[i-1]=inverse[i]*i%MOD;
+        return (int)dfs(0)[1];
+    }
+}

@@ -1,1 +1,37 @@
-class Solution { private lateinit var parent:IntArray;private fun find(value:Int):Int{if(parent[value]!=value)parent[value]=find(parent[value]);return parent[value]};private fun union(a:Int,b:Int){parent[find(a)]=find(b)};fun findAllPeople(n:Int,meetings:Array<IntArray>,firstPerson:Int):List<Int>{meetings.sortBy{it[2]};parent=IntArray(n){it};union(0,firstPerson);var index=0;while(index<meetings.size){var end=index;val time=meetings[index][2];val participants=HashSet<Int>();while(end<meetings.size&&meetings[end][2]==time){union(meetings[end][0],meetings[end][1]);participants.add(meetings[end][0]);participants.add(meetings[end][1]);end++};val root=find(0);for(person in participants)if(find(person)!=root)parent[person]=person;index=end};return (0 until n).filter{find(it)==find(0)}} }
+class Solution {
+    private lateinit var parent:IntArray;
+    private fun find(value:Int):Int{
+        if(parent[value]!=value)parent[value]=find(parent[value]);
+        return parent[value]
+    };
+    private fun union(a:Int,b:Int){
+        parent[find(a)]=find(b)
+    };
+    fun findAllPeople(n:Int,meetings:Array<IntArray>,firstPerson:Int):List<Int>{
+        meetings.sortBy{
+            it[2]
+        };
+        parent=IntArray(n){
+            it
+        };
+        union(0,firstPerson);
+        var index=0;
+        while(index<meetings.size){
+            var end=index;
+            val time=meetings[index][2];
+            val participants=HashSet<Int>();
+            while(end<meetings.size&&meetings[end][2]==time){
+                union(meetings[end][0],meetings[end][1]);
+                participants.add(meetings[end][0]);
+                participants.add(meetings[end][1]);
+                end++
+            };
+            val root=find(0);
+            for(person in participants)if(find(person)!=root)parent[person]=person;
+            index=end
+        };
+        return (0 until n).filter{
+            find(it)==find(0)
+        }
+    }
+}

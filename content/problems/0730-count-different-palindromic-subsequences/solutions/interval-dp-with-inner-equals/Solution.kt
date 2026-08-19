@@ -1,1 +1,24 @@
-class Solution { fun countPalindromicSubsequences(s:String):Int{val n=s.length;val mod=1000000007L;val dp=Array(n){LongArray(n)};for(i in n-1 downTo 0){dp[i][i]=1;for(j in i+1 until n){if(s[i]!=s[j])dp[i][j]=dp[i+1][j]+dp[i][j-1]-dp[i+1][j-1] else{var low=i+1;var high=j-1;while(low<=high&&s[low]!=s[i])low++;while(low<=high&&s[high]!=s[i])high--;val inner=dp[i+1][j-1];dp[i][j]=if(low>high)2*inner+2 else if(low==high)2*inner+1 else 2*inner-dp[low+1][high-1]};dp[i][j]=(dp[i][j]%mod+mod)%mod}};return dp[0][n-1].toInt()} }
+class Solution {
+    fun countPalindromicSubsequences(s:String):Int{
+        val n=s.length;
+        val mod=1000000007L;
+        val dp=Array(n){
+            LongArray(n)
+        };
+        for(i in n-1 downTo 0){
+            dp[i][i]=1;
+            for(j in i+1 until n){
+                if(s[i]!=s[j])dp[i][j]=dp[i+1][j]+dp[i][j-1]-dp[i+1][j-1] else{
+                    var low=i+1;
+                    var high=j-1;
+                    while(low<=high&&s[low]!=s[i])low++;
+                    while(low<=high&&s[high]!=s[i])high--;
+                    val inner=dp[i+1][j-1];
+                    dp[i][j]=if(low>high)2*inner+2 else if(low==high)2*inner+1 else 2*inner-dp[low+1][high-1]
+                };
+                dp[i][j]=(dp[i][j]%mod+mod)%mod
+            }
+        };
+        return dp[0][n-1].toInt()
+    }
+}

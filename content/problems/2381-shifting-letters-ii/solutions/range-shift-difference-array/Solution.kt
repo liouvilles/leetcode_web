@@ -1,1 +1,17 @@
-class Solution { fun shiftingLetters(s:String,shifts:Array<IntArray>):String{val difference=IntArray(s.length+1);for(shift in shifts){val delta=if(shift[2]==1)1 else -1;difference[shift[0]]+=delta;difference[shift[1]+1]-=delta};val answer=s.toCharArray();var total=0;for(i in answer.indices){total+=difference[i];answer[i]=('a'.code+(answer[i]-'a'+total%26+26)%26).toChar()};return answer.concatToString()} }
+class Solution {
+    fun shiftingLetters(s:String,shifts:Array<IntArray>):String{
+        val difference=IntArray(s.length+1);
+        for(shift in shifts){
+            val delta=if(shift[2]==1)1 else -1;
+            difference[shift[0]]+=delta;
+            difference[shift[1]+1]-=delta
+        };
+        val answer=s.toCharArray();
+        var total=0;
+        for(i in answer.indices){
+            total+=difference[i];
+            answer[i]=('a'.code+(answer[i]-'a'+total%26+26)%26).toChar()
+        };
+        return answer.concatToString()
+    }
+}

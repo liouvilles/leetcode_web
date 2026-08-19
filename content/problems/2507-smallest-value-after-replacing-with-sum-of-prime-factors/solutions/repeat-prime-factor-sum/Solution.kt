@@ -1,1 +1,24 @@
-class Solution { private fun factorSum(valueInput:Int):Int{var value=valueInput;var sum=0;var divisor=2;while(divisor*divisor<=value){while(value%divisor==0){sum+=divisor;value/=divisor};divisor++};if(value>1)sum+=value;return sum}fun smallestValue(nInput:Int):Int{var n=nInput;while(true){val next=factorSum(n);if(next==n)return n;n=next}} }
+class Solution {
+    private fun factorSum(valueInput:Int):Int{
+        var value=valueInput;
+        var sum=0;
+        var divisor=2;
+        while(divisor*divisor<=value){
+            while(value%divisor==0){
+                sum+=divisor;
+                value/=divisor
+            };
+            divisor++
+        };
+        if(value>1)sum+=value;
+        return sum
+    }
+    fun smallestValue(nInput:Int):Int{
+        var n=nInput;
+        while(true){
+            val next=factorSum(n);
+            if(next==n)return n;
+            n=next
+        }
+    }
+}

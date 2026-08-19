@@ -1,1 +1,11 @@
-class Solution { fun mostPoints(questions:Array<IntArray>):Long{val n=questions.size;val dp=LongArray(n+1);for(i in n-1 downTo 0){val next=minOf(n,i+questions[i][1]+1);dp[i]=maxOf(dp[i+1],questions[i][0].toLong()+dp[next])};return dp[0]} }
+class Solution {
+    fun mostPoints(questions:Array<IntArray>):Long{
+        val n=questions.size;
+        val dp=LongArray(n+1);
+        for(i in n-1 downTo 0){
+            val next=minOf(n,i+questions[i][1]+1);
+            dp[i]=maxOf(dp[i+1],questions[i][0].toLong()+dp[next])
+        };
+        return dp[0]
+    }
+}

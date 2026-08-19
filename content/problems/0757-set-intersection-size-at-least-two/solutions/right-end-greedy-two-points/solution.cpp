@@ -1,1 +1,20 @@
-class Solution { public: int intersectionSizeTwo(vector<vector<int>>& intervals){sort(intervals.begin(),intervals.end(),[](auto& a,auto& b){return a[1]!=b[1]?a[1]<b[1]:a[0]>b[0];});int first=-1,second=-1,answer=0;for(auto& interval:intervals){if(interval[0]>second){answer+=2;first=interval[1]-1;second=interval[1];}else if(interval[0]>first){++answer;first=second;second=interval[1];}}return answer;} };
+class Solution {
+    public: int intersectionSizeTwo(vector<vector<int>>& intervals){
+        sort(intervals.begin(),intervals.end(),[](auto& a,auto& b){
+            return a[1]!=b[1]?a[1]<b[1]:a[0]>b[0];
+        });
+        int first=-1,second=-1,answer=0;
+        for(auto& interval:intervals){
+            if(interval[0]>second){
+                answer+=2;
+                first=interval[1]-1;
+                second=interval[1];
+            }else if(interval[0]>first){
+                ++answer;
+                first=second;
+                second=interval[1];
+            }
+        }
+        return answer;
+    }
+};

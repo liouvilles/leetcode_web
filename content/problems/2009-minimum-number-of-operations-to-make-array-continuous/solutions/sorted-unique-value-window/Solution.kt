@@ -1,1 +1,14 @@
-class Solution { fun minOperations(nums:IntArray):Int{val n=nums.size;nums.sort();val unique=nums.distinct();var left=0;var maximum=0;for(right in unique.indices){while(unique[right]>=unique[left]+n)left++;maximum=maxOf(maximum,right-left+1)};return n-maximum} }
+class Solution {
+    fun minOperations(nums:IntArray):Int{
+        val n=nums.size;
+        nums.sort();
+        val unique=nums.distinct();
+        var left=0;
+        var maximum=0;
+        for(right in unique.indices){
+            while(unique[right]>=unique[left]+n)left++;
+            maximum=maxOf(maximum,right-left+1)
+        };
+        return n-maximum
+    }
+}

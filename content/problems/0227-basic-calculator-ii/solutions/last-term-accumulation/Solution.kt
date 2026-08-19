@@ -1,1 +1,29 @@
-class Solution { fun calculate(s:String):Int{var result=0;var last=0;var number=0;var operator='+';for(i in s.indices){val c=s[i];if(c.isDigit())number=number*10+(c-'0');if((!c.isDigit()&&c!=' ')||i==s.lastIndex){when(operator){'+'->{result+=last;last=number};'-'->{result+=last;last=-number};'*'->last*=number;'/'->last/=number};operator=c;number=0}};return result+last} }
+class Solution {
+    fun calculate(s:String):Int{
+        var result=0;
+        var last=0;
+        var number=0;
+        var operator='+';
+        for(i in s.indices){
+            val c=s[i];
+            if(c.isDigit())number=number*10+(c-'0');
+            if((!c.isDigit()&&c!=' ')||i==s.lastIndex){
+                when(operator){
+                    '+'->{
+                        result+=last;
+                        last=number
+                    };
+                    '-'->{
+                        result+=last;
+                        last=-number
+                    };
+                    '*'->last*=number;
+                    '/'->last/=number
+                };
+                operator=c;
+                number=0
+            }
+        };
+        return result+last
+    }
+}

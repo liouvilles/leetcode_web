@@ -1,1 +1,10 @@
-class Solution { public int minSteps(String s,String t){int[] difference=new int[26];for(char ch:s.toCharArray())difference[ch-'a']++;for(char ch:t.toCharArray())difference[ch-'a']--;int answer=0;for(int value:difference)answer+=Math.abs(value);return answer;} }
+class Solution {
+    public int minSteps(String s,String t){
+        int[] difference=new int[26];
+        for(char ch:s.toCharArray())difference[ch-'a']++;
+        for(char ch:t.toCharArray())difference[ch-'a']--;
+        int answer=0;
+        for(int value:difference)answer+=Math.abs(value);
+        return answer;
+    }
+}

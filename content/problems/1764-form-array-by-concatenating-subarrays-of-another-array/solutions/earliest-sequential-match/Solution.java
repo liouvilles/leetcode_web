@@ -1,1 +1,15 @@
-class Solution { private boolean match(int[] nums,int position,int[] group){for(int i=0;i<group.length;i++)if(nums[position+i]!=group[i])return false;return true;}public boolean canChoose(int[][] groups,int[] nums){int position=0;for(int[] group:groups){while(position+group.length<=nums.length&&!match(nums,position,group))position++;if(position+group.length>nums.length)return false;position+=group.length;}return true;} }
+class Solution {
+    private boolean match(int[] nums,int position,int[] group){
+        for(int i=0;i<group.length;i++)if(nums[position+i]!=group[i])return false;
+        return true;
+    }
+    public boolean canChoose(int[][] groups,int[] nums){
+        int position=0;
+        for(int[] group:groups){
+            while(position+group.length<=nums.length&&!match(nums,position,group))position++;
+            if(position+group.length>nums.length)return false;
+            position+=group.length;
+        }
+        return true;
+    }
+}

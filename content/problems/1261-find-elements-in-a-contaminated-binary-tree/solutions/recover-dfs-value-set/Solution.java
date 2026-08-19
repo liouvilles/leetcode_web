@@ -1,1 +1,16 @@
-class FindElements { private final Set<Integer> values=new HashSet<>();public FindElements(TreeNode root){recover(root,0);}private void recover(TreeNode node,int value){if(node==null)return;node.val=value;values.add(value);recover(node.left,value*2+1);recover(node.right,value*2+2);}public boolean find(int target){return values.contains(target);} }
+class FindElements {
+    private final Set<Integer> values=new HashSet<>();
+    public FindElements(TreeNode root){
+        recover(root,0);
+    }
+    private void recover(TreeNode node,int value){
+        if(node==null)return;
+        node.val=value;
+        values.add(value);
+        recover(node.left,value*2+1);
+        recover(node.right,value*2+2);
+    }
+    public boolean find(int target){
+        return values.contains(target);
+    }
+}

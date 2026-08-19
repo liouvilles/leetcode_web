@@ -1,1 +1,24 @@
-class Solution { static const long long MOD=1000000007,INV2=500000004;long long rangeSum(long long low,long long high){if(low>high)return 0;return (low+high)%MOD*((high-low+1)%MOD)%MOD*INV2%MOD;}public:int maxProfit(vector<int>& inventory,int orders){sort(inventory.rbegin(),inventory.rend());inventory.push_back(0);long long remaining=orders,profit=0;for(int i=0;i+1<(int)inventory.size();++i){long long high=inventory[i],low=inventory[i+1],width=i+1,available=(high-low)*width;if(remaining>=available){profit=(profit+rangeSum(low+1,high)*(width%MOD))%MOD;remaining-=available;}else{long long full=remaining/width,newLow=high-full,remainder=remaining%width;profit=(profit+rangeSum(newLow+1,high)*(width%MOD)+newLow*remainder)%MOD;break;}}return profit;} };
+class Solution {
+    static const long long MOD=1000000007,INV2=500000004;
+    long long rangeSum(long long low,long long high){
+        if(low>high)return 0;
+        return (low+high)%MOD*((high-low+1)%MOD)%MOD*INV2%MOD;
+    }
+    public:int maxProfit(vector<int>& inventory,int orders){
+        sort(inventory.rbegin(),inventory.rend());
+        inventory.push_back(0);
+        long long remaining=orders,profit=0;
+        for(int i=0;i+1<(int)inventory.size();++i){
+            long long high=inventory[i],low=inventory[i+1],width=i+1,available=(high-low)*width;
+            if(remaining>=available){
+                profit=(profit+rangeSum(low+1,high)*(width%MOD))%MOD;
+                remaining-=available;
+            }else{
+                long long full=remaining/width,newLow=high-full,remainder=remaining%width;
+                profit=(profit+rangeSum(newLow+1,high)*(width%MOD)+newLow*remainder)%MOD;
+                break;
+            }
+        }
+        return profit;
+    }
+};

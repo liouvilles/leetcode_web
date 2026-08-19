@@ -1,1 +1,27 @@
-class CombinationIterator { vector<string> combinations;int index=0;string characters;int length;void generate(int start,string& current){if((int)current.size()==length){combinations.push_back(current);return;}for(int i=start;i<=(int)characters.size()-(length-current.size());++i){current+=characters[i];generate(i+1,current);current.pop_back();}}public:CombinationIterator(string characters,int combinationLength):characters(characters),length(combinationLength){string current;generate(0,current);}string next(){return combinations[index++];}bool hasNext(){return index<(int)combinations.size();} };
+class CombinationIterator {
+    vector<string> combinations;
+    int index=0;
+    string characters;
+    int length;
+    void generate(int start,string& current){
+        if((int)current.size()==length){
+            combinations.push_back(current);
+            return;
+        }
+        for(int i=start;i<=(int)characters.size()-(length-current.size());++i){
+            current+=characters[i];
+            generate(i+1,current);
+            current.pop_back();
+        }
+    }
+    public:CombinationIterator(string characters,int combinationLength):characters(characters),length(combinationLength){
+        string current;
+        generate(0,current);
+    }
+    string next(){
+        return combinations[index++];
+    }
+    bool hasNext(){
+        return index<(int)combinations.size();
+    }
+};

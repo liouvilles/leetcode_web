@@ -1,1 +1,11 @@
-class Solution { public: vector<int> decode(vector<int>& encoded){int n=encoded.size()+1,first=0;for(int value=1;value<=n;++value)first^=value;for(int i=1;i<(int)encoded.size();i+=2)first^=encoded[i];vector<int> answer(n);answer[0]=first;for(int i=0;i<(int)encoded.size();++i)answer[i+1]=answer[i]^encoded[i];return answer;} };
+class Solution {
+    public: vector<int> decode(vector<int>& encoded){
+        int n=encoded.size()+1,first=0;
+        for(int value=1;value<=n;++value)first^=value;
+        for(int i=1;i<(int)encoded.size();i+=2)first^=encoded[i];
+        vector<int> answer(n);
+        answer[0]=first;
+        for(int i=0;i<(int)encoded.size();++i)answer[i+1]=answer[i]^encoded[i];
+        return answer;
+    }
+};

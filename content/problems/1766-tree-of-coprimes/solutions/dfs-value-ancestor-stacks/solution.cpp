@@ -1,1 +1,34 @@
-class Solution { vector<int> nums,answer;vector<vector<int>> graph;vector<vector<pair<int,int>>> stacks;int gcdValue(int a,int b){return b?gcdValue(b,a%b):a;}void dfs(int node,int parent,int depth){int bestDepth=-1;for(int value=1;value<=50;++value)if(gcdValue(nums[node],value)==1&&!stacks[value].empty()&&stacks[value].back().second>bestDepth){bestDepth=stacks[value].back().second;answer[node]=stacks[value].back().first;}stacks[nums[node]].push_back({node,depth});for(int next:graph[node])if(next!=parent)dfs(next,node,depth+1);stacks[nums[node]].pop_back();}public:vector<int> getCoprimes(vector<int>& input,vector<vector<int>>& edges){nums=input;answer.assign(nums.size(),-1);graph.assign(nums.size(),{});stacks.assign(51,{});for(auto& edge:edges){graph[edge[0]].push_back(edge[1]);graph[edge[1]].push_back(edge[0]);}dfs(0,-1,0);return answer;} };
+class Solution {
+    vector<int> nums,answer;
+    vector<vector<int>> graph;
+    vector<vector<pair<int,int>>> stacks;
+    int gcdValue(int a,int b){
+        return b?gcdValue(b,a%b):a;
+    }
+    void dfs(int node,int parent,int depth){
+        int bestDepth=-1;
+        for(int value=1;value<=50;++value)if(gcdValue(nums[node],value)==1&&!stacks[value].empty()&&stacks[value].back().second>bestDepth){
+            bestDepth=stacks[value].back().second;
+            answer[node]=stacks[value].back().first;
+        }
+        stacks[nums[node]].push_back({
+            node,depth
+        });
+        for(int next:graph[node])if(next!=parent)dfs(next,node,depth+1);
+        stacks[nums[node]].pop_back();
+    }
+    public:vector<int> getCoprimes(vector<int>& input,vector<vector<int>>& edges){
+        nums=input;
+        answer.assign(nums.size(),-1);
+        graph.assign(nums.size(),{
+        });
+        stacks.assign(51,{
+        });
+        for(auto& edge:edges){
+            graph[edge[0]].push_back(edge[1]);
+            graph[edge[1]].push_back(edge[0]);
+        }
+        dfs(0,-1,0);
+        return answer;
+    }
+};

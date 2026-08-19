@@ -1,1 +1,18 @@
-class Solution { public int maximumRobots(int[] chargeTimes,int[] runningCosts,long budget){Deque<Integer> deque=new ArrayDeque<>();long running=0;int left=0,answer=0;for(int right=0;right<chargeTimes.length;right++){running+=runningCosts[right];while(!deque.isEmpty()&&chargeTimes[deque.peekLast()]<=chargeTimes[right])deque.pollLast();deque.addLast(right);while(left<=right&&chargeTimes[deque.peekFirst()]+(long)(right-left+1)*running>budget){if(deque.peekFirst()==left)deque.pollFirst();running-=runningCosts[left++];}answer=Math.max(answer,right-left+1);}return answer;} }
+class Solution {
+    public int maximumRobots(int[] chargeTimes,int[] runningCosts,long budget){
+        Deque<Integer> deque=new ArrayDeque<>();
+        long running=0;
+        int left=0,answer=0;
+        for(int right=0;right<chargeTimes.length;right++){
+            running+=runningCosts[right];
+            while(!deque.isEmpty()&&chargeTimes[deque.peekLast()]<=chargeTimes[right])deque.pollLast();
+            deque.addLast(right);
+            while(left<=right&&chargeTimes[deque.peekFirst()]+(long)(right-left+1)*running>budget){
+                if(deque.peekFirst()==left)deque.pollFirst();
+                running-=runningCosts[left++];
+            }
+            answer=Math.max(answer,right-left+1);
+        }
+        return answer;
+    }
+}

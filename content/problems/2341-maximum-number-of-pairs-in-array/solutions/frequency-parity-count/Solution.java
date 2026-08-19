@@ -1,1 +1,14 @@
-class Solution { public int[] numberOfPairs(int[] nums){Map<Integer,Integer> frequency=new HashMap<>();for(int value:nums)frequency.merge(value,1,Integer::sum);int pairs=0,leftovers=0;for(int count:frequency.values()){pairs+=count/2;leftovers+=count%2;}return new int[]{pairs,leftovers};} }
+class Solution {
+    public int[] numberOfPairs(int[] nums){
+        Map<Integer,Integer> frequency=new HashMap<>();
+        for(int value:nums)frequency.merge(value,1,Integer::sum);
+        int pairs=0,leftovers=0;
+        for(int count:frequency.values()){
+            pairs+=count/2;
+            leftovers+=count%2;
+        }
+        return new int[]{
+            pairs,leftovers
+        };
+    }
+}

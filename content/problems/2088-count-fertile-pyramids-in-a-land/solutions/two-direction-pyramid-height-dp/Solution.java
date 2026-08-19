@@ -1,1 +1,21 @@
-class Solution { private int count(int[][] grid){int rows=grid.length,cols=grid[0].length,answer=0;int[][] height=new int[rows][cols];for(int row=rows-1;row>=0;row--)for(int col=0;col<cols;col++)if(grid[row][col]==1){height[row][col]=1;if(row+1<rows&&col>0&&col+1<cols)height[row][col]+=Math.min(height[row+1][col],Math.min(height[row+1][col-1],height[row+1][col+1]));answer+=height[row][col]-1;}return answer;}public int countPyramids(int[][] grid){int answer=count(grid);for(int top=0,bottom=grid.length-1;top<bottom;top++,bottom--){int[] temporary=grid[top];grid[top]=grid[bottom];grid[bottom]=temporary;}return answer+count(grid);} }
+class Solution {
+    private int count(int[][] grid){
+        int rows=grid.length,cols=grid[0].length,answer=0;
+        int[][] height=new int[rows][cols];
+        for(int row=rows-1;row>=0;row--)for(int col=0;col<cols;col++)if(grid[row][col]==1){
+            height[row][col]=1;
+            if(row+1<rows&&col>0&&col+1<cols)height[row][col]+=Math.min(height[row+1][col],Math.min(height[row+1][col-1],height[row+1][col+1]));
+            answer+=height[row][col]-1;
+        }
+        return answer;
+    }
+    public int countPyramids(int[][] grid){
+        int answer=count(grid);
+        for(int top=0,bottom=grid.length-1;top<bottom;top++,bottom--){
+            int[] temporary=grid[top];
+            grid[top]=grid[bottom];
+            grid[bottom]=temporary;
+        }
+        return answer+count(grid);
+    }
+}

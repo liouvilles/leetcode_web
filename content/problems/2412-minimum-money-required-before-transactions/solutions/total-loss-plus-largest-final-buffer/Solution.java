@@ -1,1 +1,10 @@
-class Solution { public long minimumMoney(int[][] transactions){long loss=0,buffer=0;for(int[] transaction:transactions){loss+=Math.max(0,transaction[0]-transaction[1]);buffer=Math.max(buffer,Math.min(transaction[0],transaction[1]));}return loss+buffer;} }
+class Solution {
+    public long minimumMoney(int[][] transactions){
+        long loss=0,buffer=0;
+        for(int[] transaction:transactions){
+            loss+=Math.max(0,transaction[0]-transaction[1]);
+            buffer=Math.max(buffer,Math.min(transaction[0],transaction[1]));
+        }
+        return loss+buffer;
+    }
+}

@@ -1,1 +1,13 @@
-class Solution { fun toHex(input:Int):String{if(input==0)return "0";val digits="0123456789abcdef";val answer=StringBuilder();var num=input;while(num!=0){answer.append(digits[num and 15]);num=num ushr 4};return answer.reverse().toString()} }
+class Solution {
+    fun toHex(input:Int):String{
+        if(input==0)return "0";
+        val digits="0123456789abcdef";
+        val answer=StringBuilder();
+        var num=input;
+        while(num!=0){
+            answer.append(digits[num and 15]);
+            num=num ushr 4
+        };
+        return answer.reverse().toString()
+    }
+}

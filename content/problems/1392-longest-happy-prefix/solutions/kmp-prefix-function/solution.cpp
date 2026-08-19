@@ -1,1 +1,12 @@
-class Solution { public: string longestPrefix(string text){vector<int> prefix(text.size());for(int i=1;i<(int)text.size();++i){int length=prefix[i-1];while(length&&text[i]!=text[length])length=prefix[length-1];if(text[i]==text[length])++length;prefix[i]=length;}return text.substr(0,prefix.back());} };
+class Solution {
+    public: string longestPrefix(string text){
+        vector<int> prefix(text.size());
+        for(int i=1;i<(int)text.size();++i){
+            int length=prefix[i-1];
+            while(length&&text[i]!=text[length])length=prefix[length-1];
+            if(text[i]==text[length])++length;
+            prefix[i]=length;
+        }
+        return text.substr(0,prefix.back());
+    }
+};

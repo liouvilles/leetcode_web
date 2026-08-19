@@ -1,1 +1,19 @@
-class Solution { public List<List<String>> printTree(TreeNode root){int height=height(root),columns=(1<<height)-1;List<List<String>> answer=new ArrayList<>();for(int row=0;row<height;row++)answer.add(new ArrayList<>(Collections.nCopies(columns,"")));fill(root,0,0,columns-1,answer);return answer;}private int height(TreeNode node){return node==null?0:1+Math.max(height(node.left),height(node.right));}private void fill(TreeNode node,int row,int left,int right,List<List<String>> answer){if(node==null)return;int middle=(left+right)/2;answer.get(row).set(middle,String.valueOf(node.val));fill(node.left,row+1,left,middle-1,answer);fill(node.right,row+1,middle+1,right,answer);} }
+class Solution {
+    public List<List<String>> printTree(TreeNode root){
+        int height=height(root),columns=(1<<height)-1;
+        List<List<String>> answer=new ArrayList<>();
+        for(int row=0;row<height;row++)answer.add(new ArrayList<>(Collections.nCopies(columns,"")));
+        fill(root,0,0,columns-1,answer);
+        return answer;
+    }
+    private int height(TreeNode node){
+        return node==null?0:1+Math.max(height(node.left),height(node.right));
+    }
+    private void fill(TreeNode node,int row,int left,int right,List<List<String>> answer){
+        if(node==null)return;
+        int middle=(left+right)/2;
+        answer.get(row).set(middle,String.valueOf(node.val));
+        fill(node.left,row+1,left,middle-1,answer);
+        fill(node.right,row+1,middle+1,right,answer);
+    }
+}

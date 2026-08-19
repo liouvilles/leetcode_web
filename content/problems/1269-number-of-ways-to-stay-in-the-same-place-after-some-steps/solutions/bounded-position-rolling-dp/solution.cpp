@@ -1,1 +1,18 @@
-class Solution { public: int numWays(int steps,int arrLen){int limit=min(arrLen,steps/2+1);const long long MOD=1000000007;vector<long long> dp(limit);dp[0]=1;while(steps--){vector<long long> next(limit);for(int position=0;position<limit;++position){next[position]=(next[position]+dp[position])%MOD;if(position)next[position-1]=(next[position-1]+dp[position])%MOD;if(position+1<limit)next[position+1]=(next[position+1]+dp[position])%MOD;}dp.swap(next);}return dp[0];} };
+class Solution {
+    public: int numWays(int steps,int arrLen){
+        int limit=min(arrLen,steps/2+1);
+        const long long MOD=1000000007;
+        vector<long long> dp(limit);
+        dp[0]=1;
+        while(steps--){
+            vector<long long> next(limit);
+            for(int position=0;position<limit;++position){
+                next[position]=(next[position]+dp[position])%MOD;
+                if(position)next[position-1]=(next[position-1]+dp[position])%MOD;
+                if(position+1<limit)next[position+1]=(next[position+1]+dp[position])%MOD;
+            }
+            dp.swap(next);
+        }
+        return dp[0];
+    }
+};

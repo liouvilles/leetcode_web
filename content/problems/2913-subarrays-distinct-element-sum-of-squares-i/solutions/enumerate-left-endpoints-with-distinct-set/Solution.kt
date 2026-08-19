@@ -1,1 +1,14 @@
-class Solution { fun sumCounts(nums:List<Int>):Int{var answer=0;for(left in nums.indices){val distinct=HashSet<Int>();for(right in left until nums.size){distinct.add(nums[right]);val count=distinct.size;answer+=count*count}};return answer} }
+class Solution {
+    fun sumCounts(nums:List<Int>):Int{
+        var answer=0;
+        for(left in nums.indices){
+            val distinct=HashSet<Int>();
+            for(right in left until nums.size){
+                distinct.add(nums[right]);
+                val count=distinct.size;
+                answer+=count*count
+            }
+        };
+        return answer
+    }
+}

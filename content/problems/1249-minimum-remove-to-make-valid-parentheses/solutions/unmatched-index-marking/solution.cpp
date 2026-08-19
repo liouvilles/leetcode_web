@@ -1,1 +1,17 @@
-class Solution { public: string minRemoveToMakeValid(string s){vector<bool> remove(s.size());stack<int> opens;for(int i=0;i<(int)s.size();++i)if(s[i]=='(')opens.push(i);else if(s[i]==')'){if(opens.empty())remove[i]=true;else opens.pop();}while(!opens.empty()){remove[opens.top()]=true;opens.pop();}string answer;for(int i=0;i<(int)s.size();++i)if(!remove[i])answer+=s[i];return answer;} };
+class Solution {
+    public: string minRemoveToMakeValid(string s){
+        vector<bool> remove(s.size());
+        stack<int> opens;
+        for(int i=0;i<(int)s.size();++i)if(s[i]=='(')opens.push(i);
+        else if(s[i]==')'){
+            if(opens.empty())remove[i]=true;
+            else opens.pop();
+        }while(!opens.empty()){
+            remove[opens.top()]=true;
+            opens.pop();
+        }
+        string answer;
+        for(int i=0;i<(int)s.size();++i)if(!remove[i])answer+=s[i];
+        return answer;
+    }
+};

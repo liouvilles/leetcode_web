@@ -1,1 +1,47 @@
-class Solution { fun sortItems(n:Int,m:Int,group:IntArray,beforeItems:List<List<Int>>):IntArray{var groupCount=m;for(i in 0 until n)if(group[i]==-1)group[i]=groupCount++;val itemGraph=List(n){mutableListOf<Int>()};val groupGraph=List(groupCount){mutableListOf<Int>()};val itemDegree=IntArray(n);val groupDegree=IntArray(groupCount);val groupEdges=mutableSetOf<Long>();for(item in 0 until n)for(previous in beforeItems[item]){itemGraph[previous].add(item);itemDegree[item]++;if(group[previous]!=group[item]){val key=group[previous].toLong()*groupCount+group[item];if(groupEdges.add(key)){groupGraph[group[previous]].add(group[item]);groupDegree[group[item]]++}}};fun topological(graph:List<List<Int>>,degree:IntArray):List<Int>{val queue=java.util.ArrayDeque<Int>();for(i in degree.indices)if(degree[i]==0)queue.addLast(i);val order=mutableListOf<Int>();while(queue.isNotEmpty()){val node=queue.removeFirst();order.add(node);for(next in graph[node])if(--degree[next]==0)queue.addLast(next)};return order};val itemOrder=topological(itemGraph,itemDegree);val groupOrder=topological(groupGraph,groupDegree);if(itemOrder.size!=n||groupOrder.size!=groupCount)return intArrayOf();val byGroup=List(groupCount){mutableListOf<Int>()};for(item in itemOrder)byGroup[group[item]].add(item);return groupOrder.flatMap{byGroup[it]}.toIntArray()} }
+class Solution {
+    fun sortItems(n:Int,m:Int,group:IntArray,beforeItems:List<List<Int>>):IntArray{
+        var groupCount=m;
+        for(i in 0 until n)if(group[i]==-1)group[i]=groupCount++;
+        val itemGraph=List(n){
+            mutableListOf<Int>()
+        };
+        val groupGraph=List(groupCount){
+            mutableListOf<Int>()
+        };
+        val itemDegree=IntArray(n);
+        val groupDegree=IntArray(groupCount);
+        val groupEdges=mutableSetOf<Long>();
+        for(item in 0 until n)for(previous in beforeItems[item]){
+            itemGraph[previous].add(item);
+            itemDegree[item]++;
+            if(group[previous]!=group[item]){
+                val key=group[previous].toLong()*groupCount+group[item];
+                if(groupEdges.add(key)){
+                    groupGraph[group[previous]].add(group[item]);
+                    groupDegree[group[item]]++
+                }
+            }
+        };
+        fun topological(graph:List<List<Int>>,degree:IntArray):List<Int>{
+            val queue=java.util.ArrayDeque<Int>();
+            for(i in degree.indices)if(degree[i]==0)queue.addLast(i);
+            val order=mutableListOf<Int>();
+            while(queue.isNotEmpty()){
+                val node=queue.removeFirst();
+                order.add(node);
+                for(next in graph[node])if(--degree[next]==0)queue.addLast(next)
+            };
+            return order
+        };
+        val itemOrder=topological(itemGraph,itemDegree);
+        val groupOrder=topological(groupGraph,groupDegree);
+        if(itemOrder.size!=n||groupOrder.size!=groupCount)return intArrayOf();
+        val byGroup=List(groupCount){
+            mutableListOf<Int>()
+        };
+        for(item in itemOrder)byGroup[group[item]].add(item);
+        return groupOrder.flatMap{
+            byGroup[it]
+        }.toIntArray()
+    }
+}

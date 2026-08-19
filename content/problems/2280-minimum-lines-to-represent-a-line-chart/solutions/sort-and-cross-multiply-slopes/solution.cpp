@@ -1,1 +1,12 @@
-class Solution { public:int minimumLines(vector<vector<int>>& stockPrices){sort(stockPrices.begin(),stockPrices.end());if(stockPrices.size()==1)return 0;int answer=1;for(int i=2;i<(int)stockPrices.size();++i){long long dy1=stockPrices[i-1][1]-stockPrices[i-2][1],dx1=stockPrices[i-1][0]-stockPrices[i-2][0],dy2=stockPrices[i][1]-stockPrices[i-1][1],dx2=stockPrices[i][0]-stockPrices[i-1][0];if(dy1*dx2!=dy2*dx1)++answer;}return answer;} };
+class Solution {
+    public:int minimumLines(vector<vector<int>>& stockPrices){
+        sort(stockPrices.begin(),stockPrices.end());
+        if(stockPrices.size()==1)return 0;
+        int answer=1;
+        for(int i=2;i<(int)stockPrices.size();++i){
+            long long dy1=stockPrices[i-1][1]-stockPrices[i-2][1],dx1=stockPrices[i-1][0]-stockPrices[i-2][0],dy2=stockPrices[i][1]-stockPrices[i-1][1],dx2=stockPrices[i][0]-stockPrices[i-1][0];
+            if(dy1*dx2!=dy2*dx1)++answer;
+        }
+        return answer;
+    }
+};

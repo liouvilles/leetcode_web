@@ -1,1 +1,19 @@
-class Solution { public List<Double> averageOfLevels(TreeNode root){List<Double> answer=new ArrayList<>();Queue<TreeNode> queue=new ArrayDeque<>();queue.offer(root);while(!queue.isEmpty()){int size=queue.size();long sum=0;for(int i=0;i<size;i++){TreeNode node=queue.poll();sum+=node.val;if(node.left!=null)queue.offer(node.left);if(node.right!=null)queue.offer(node.right);}answer.add((double)sum/size);}return answer;} }
+class Solution {
+    public List<Double> averageOfLevels(TreeNode root){
+        List<Double> answer=new ArrayList<>();
+        Queue<TreeNode> queue=new ArrayDeque<>();
+        queue.offer(root);
+        while(!queue.isEmpty()){
+            int size=queue.size();
+            long sum=0;
+            for(int i=0;i<size;i++){
+                TreeNode node=queue.poll();
+                sum+=node.val;
+                if(node.left!=null)queue.offer(node.left);
+                if(node.right!=null)queue.offer(node.right);
+            }
+            answer.add((double)sum/size);
+        }
+        return answer;
+    }
+}

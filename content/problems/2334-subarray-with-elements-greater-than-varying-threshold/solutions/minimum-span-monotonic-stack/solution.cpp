@@ -1,1 +1,22 @@
-class Solution { public:int validSubarraySize(vector<int>& nums,int threshold){int n=nums.size();vector<int> left(n),right(n),stack;for(int i=0;i<n;++i){while(!stack.empty()&&nums[stack.back()]>=nums[i])stack.pop_back();left[i]=stack.empty()?-1:stack.back();stack.push_back(i);}stack.clear();for(int i=n-1;i>=0;--i){while(!stack.empty()&&nums[stack.back()]>=nums[i])stack.pop_back();right[i]=stack.empty()?n:stack.back();stack.push_back(i);}for(int i=0;i<n;++i){int length=right[i]-left[i]-1;if(1LL*nums[i]*length>threshold)return length;}return -1;} };
+class Solution {
+    public:int validSubarraySize(vector<int>& nums,int threshold){
+        int n=nums.size();
+        vector<int> left(n),right(n),stack;
+        for(int i=0;i<n;++i){
+            while(!stack.empty()&&nums[stack.back()]>=nums[i])stack.pop_back();
+            left[i]=stack.empty()?-1:stack.back();
+            stack.push_back(i);
+        }
+        stack.clear();
+        for(int i=n-1;i>=0;--i){
+            while(!stack.empty()&&nums[stack.back()]>=nums[i])stack.pop_back();
+            right[i]=stack.empty()?n:stack.back();
+            stack.push_back(i);
+        }
+        for(int i=0;i<n;++i){
+            int length=right[i]-left[i]-1;
+            if(1LL*nums[i]*length>threshold)return length;
+        }
+        return -1;
+    }
+};

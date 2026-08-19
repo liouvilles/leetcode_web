@@ -1,1 +1,16 @@
-class Solution { fun minimumDeleteSum(s1:String,s2:String):Int{val dp=IntArray(s2.length+1);for(j in 1..s2.length)dp[j]=dp[j-1]+s2[j-1].code;for(i in 1..s1.length){var diagonal=dp[0];dp[0]+=s1[i-1].code;for(j in 1..s2.length){val above=dp[j];dp[j]=if(s1[i-1]==s2[j-1])diagonal else minOf(above+s1[i-1].code,dp[j-1]+s2[j-1].code);diagonal=above}};return dp[s2.length]} }
+class Solution {
+    fun minimumDeleteSum(s1:String,s2:String):Int{
+        val dp=IntArray(s2.length+1);
+        for(j in 1..s2.length)dp[j]=dp[j-1]+s2[j-1].code;
+        for(i in 1..s1.length){
+            var diagonal=dp[0];
+            dp[0]+=s1[i-1].code;
+            for(j in 1..s2.length){
+                val above=dp[j];
+                dp[j]=if(s1[i-1]==s2[j-1])diagonal else minOf(above+s1[i-1].code,dp[j-1]+s2[j-1].code);
+                diagonal=above
+            }
+        };
+        return dp[s2.length]
+    }
+}

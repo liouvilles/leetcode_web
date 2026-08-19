@@ -1,1 +1,19 @@
-class Solution { public boolean isPossible(int[] nums){Map<Integer,Integer> remaining=new HashMap<>(),tails=new HashMap<>();for(int value:nums)remaining.put(value,remaining.getOrDefault(value,0)+1);for(int value:nums){if(remaining.get(value)==0)continue;remaining.put(value,remaining.get(value)-1);if(tails.getOrDefault(value-1,0)>0){tails.put(value-1,tails.get(value-1)-1);tails.put(value,tails.getOrDefault(value,0)+1);}else if(remaining.getOrDefault(value+1,0)>0&&remaining.getOrDefault(value+2,0)>0){remaining.put(value+1,remaining.get(value+1)-1);remaining.put(value+2,remaining.get(value+2)-1);tails.put(value+2,tails.getOrDefault(value+2,0)+1);}else return false;}return true;} }
+class Solution {
+    public boolean isPossible(int[] nums){
+        Map<Integer,Integer> remaining=new HashMap<>(),tails=new HashMap<>();
+        for(int value:nums)remaining.put(value,remaining.getOrDefault(value,0)+1);
+        for(int value:nums){
+            if(remaining.get(value)==0)continue;
+            remaining.put(value,remaining.get(value)-1);
+            if(tails.getOrDefault(value-1,0)>0){
+                tails.put(value-1,tails.get(value-1)-1);
+                tails.put(value,tails.getOrDefault(value,0)+1);
+            }else if(remaining.getOrDefault(value+1,0)>0&&remaining.getOrDefault(value+2,0)>0){
+                remaining.put(value+1,remaining.get(value+1)-1);
+                remaining.put(value+2,remaining.get(value+2)-1);
+                tails.put(value+2,tails.getOrDefault(value+2,0)+1);
+            }else return false;
+        }
+        return true;
+    }
+}

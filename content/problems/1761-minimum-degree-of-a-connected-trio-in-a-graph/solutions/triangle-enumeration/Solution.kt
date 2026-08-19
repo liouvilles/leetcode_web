@@ -1,1 +1,19 @@
-class Solution { fun minTrioDegree(n:Int,edges:Array<IntArray>):Int{val degree=IntArray(n);val connected=Array(n){BooleanArray(n)};for(edge in edges){val a=edge[0]-1;val b=edge[1]-1;degree[a]++;degree[b]++;connected[a][b]=true;connected[b][a]=true};var answer=Int.MAX_VALUE;for(first in 0 until n)for(second in first+1 until n)if(connected[first][second])for(third in second+1 until n)if(connected[first][third]&&connected[second][third])answer=minOf(answer,degree[first]+degree[second]+degree[third]-6);return if(answer==Int.MAX_VALUE)-1 else answer} }
+class Solution {
+    fun minTrioDegree(n:Int,edges:Array<IntArray>):Int{
+        val degree=IntArray(n);
+        val connected=Array(n){
+            BooleanArray(n)
+        };
+        for(edge in edges){
+            val a=edge[0]-1;
+            val b=edge[1]-1;
+            degree[a]++;
+            degree[b]++;
+            connected[a][b]=true;
+            connected[b][a]=true
+        };
+        var answer=Int.MAX_VALUE;
+        for(first in 0 until n)for(second in first+1 until n)if(connected[first][second])for(third in second+1 until n)if(connected[first][third]&&connected[second][third])answer=minOf(answer,degree[first]+degree[second]+degree[third]-6);
+        return if(answer==Int.MAX_VALUE)-1 else answer
+    }
+}

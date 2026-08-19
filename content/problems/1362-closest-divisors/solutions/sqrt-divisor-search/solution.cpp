@@ -1,1 +1,13 @@
-class Solution { vector<int> pairFor(int value){for(int divisor=sqrt(value);divisor>=1;--divisor)if(value%divisor==0)return {divisor,value/divisor};return {};}public:vector<int> closestDivisors(int num){auto first=pairFor(num+1),second=pairFor(num+2);return first[1]-first[0]<=second[1]-second[0]?first:second;} };
+class Solution {
+    vector<int> pairFor(int value){
+        for(int divisor=sqrt(value);divisor>=1;--divisor)if(value%divisor==0)return {
+            divisor,value/divisor
+        };
+        return {
+        };
+    }
+    public:vector<int> closestDivisors(int num){
+        auto first=pairFor(num+1),second=pairFor(num+2);
+        return first[1]-first[0]<=second[1]-second[0]?first:second;
+    }
+};

@@ -1,1 +1,27 @@
-class Solution { private String text;private boolean dfs(int position,long previous){if(position==text.length())return true;if(previous==0)return false;long target=previous-1,value=0;for(int end=position;end<text.length();end++){int digit=text.charAt(end)-'0';if(value>(Long.MAX_VALUE-digit)/10)break;value=value*10+digit;if(value==target&&dfs(end+1,value))return true;if(value>target)break;}return false;}public boolean splitString(String s){text=s;long first=0;for(int end=0;end<s.length()-1;end++){int digit=s.charAt(end)-'0';if(first>(Long.MAX_VALUE-digit)/10)break;first=first*10+digit;if(dfs(end+1,first))return true;}return false;} }
+class Solution {
+    private String text;
+    private boolean dfs(int position,long previous){
+        if(position==text.length())return true;
+        if(previous==0)return false;
+        long target=previous-1,value=0;
+        for(int end=position;end<text.length();end++){
+            int digit=text.charAt(end)-'0';
+            if(value>(Long.MAX_VALUE-digit)/10)break;
+            value=value*10+digit;
+            if(value==target&&dfs(end+1,value))return true;
+            if(value>target)break;
+        }
+        return false;
+    }
+    public boolean splitString(String s){
+        text=s;
+        long first=0;
+        for(int end=0;end<s.length()-1;end++){
+            int digit=s.charAt(end)-'0';
+            if(first>(Long.MAX_VALUE-digit)/10)break;
+            first=first*10+digit;
+            if(dfs(end+1,first))return true;
+        }
+        return false;
+    }
+}

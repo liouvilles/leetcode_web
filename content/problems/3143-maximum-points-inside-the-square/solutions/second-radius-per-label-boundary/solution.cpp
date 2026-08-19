@@ -1,1 +1,17 @@
-class Solution { public:int maxPointsInsideSquare(vector<vector<int>>& points,string s){int first[26],second[26];fill(first,first+26,INT_MAX);fill(second,second+26,INT_MAX);for(int index=0;index<(int)points.size();++index){int label=s[index]-'a',radius=max(abs(points[index][0]),abs(points[index][1]));if(radius<first[label]){second[label]=first[label];first[label]=radius;}else if(radius<second[label])second[label]=radius;}int forbidden=*min_element(second,second+26),answer=0;for(auto& point:points)answer+=max(abs(point[0]),abs(point[1]))<forbidden;return answer;} };
+class Solution {
+    public:int maxPointsInsideSquare(vector<vector<int>>& points,string s){
+        int first[26],second[26];
+        fill(first,first+26,INT_MAX);
+        fill(second,second+26,INT_MAX);
+        for(int index=0;index<(int)points.size();++index){
+            int label=s[index]-'a',radius=max(abs(points[index][0]),abs(points[index][1]));
+            if(radius<first[label]){
+                second[label]=first[label];
+                first[label]=radius;
+            }else if(radius<second[label])second[label]=radius;
+        }
+        int forbidden=*min_element(second,second+26),answer=0;
+        for(auto& point:points)answer+=max(abs(point[0]),abs(point[1]))<forbidden;
+        return answer;
+    }
+};

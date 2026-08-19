@@ -1,1 +1,9 @@
-class Solution { public: int maxProduct(vector<string>& words){vector<int> masks(words.size());for(int i=0;i<(int)words.size();++i)for(char c:words[i])masks[i]|=1<<(c-'a');int answer=0;for(int i=0;i<(int)words.size();++i)for(int j=i+1;j<(int)words.size();++j)if((masks[i]&masks[j])==0)answer=max(answer,(int)(words[i].size()*words[j].size()));return answer;} };
+class Solution {
+    public: int maxProduct(vector<string>& words){
+        vector<int> masks(words.size());
+        for(int i=0;i<(int)words.size();++i)for(char c:words[i])masks[i]|=1<<(c-'a');
+        int answer=0;
+        for(int i=0;i<(int)words.size();++i)for(int j=i+1;j<(int)words.size();++j)if((masks[i]&masks[j])==0)answer=max(answer,(int)(words[i].size()*words[j].size()));
+        return answer;
+    }
+};

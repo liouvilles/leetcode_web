@@ -1,1 +1,13 @@
-class Solution { fun arrangeWords(text:String):String{val normalized=text.replaceFirstChar{it.lowercaseChar()};val joined=normalized.split(' ').sortedBy{it.length}.joinToString(" ");return joined.replaceFirstChar{it.uppercaseChar()}} }
+class Solution {
+    fun arrangeWords(text:String):String{
+        val normalized=text.replaceFirstChar{
+            it.lowercaseChar()
+        };
+        val joined=normalized.split(' ').sortedBy{
+            it.length
+        }.joinToString(" ");
+        return joined.replaceFirstChar{
+            it.uppercaseChar()
+        }
+    }
+}

@@ -1,1 +1,29 @@
-class Solution { vector<int> occurrences(const string& text,const string& pattern){int m=pattern.size();vector<int> prefix(m),positions;for(int i=1,j=0;i<m;++i){while(j&&pattern[i]!=pattern[j])j=prefix[j-1];if(pattern[i]==pattern[j])++j;prefix[i]=j;}for(int i=0,j=0;i<(int)text.size();++i){while(j&&text[i]!=pattern[j])j=prefix[j-1];if(text[i]==pattern[j])++j;if(j==m){positions.push_back(i-m+1);j=prefix[j-1];}}return positions;}public:vector<int> beautifulIndices(string s,string a,string b,int k){vector<int> first=occurrences(s,a),second=occurrences(s,b),answer;int pointer=0;for(int index:first){while(pointer<(int)second.size()&&second[pointer]<index-k)++pointer;if(pointer<(int)second.size()&&second[pointer]<=index+k)answer.push_back(index);}return answer;} };
+class Solution {
+    vector<int> occurrences(const string& text,const string& pattern){
+        int m=pattern.size();
+        vector<int> prefix(m),positions;
+        for(int i=1,j=0;i<m;++i){
+            while(j&&pattern[i]!=pattern[j])j=prefix[j-1];
+            if(pattern[i]==pattern[j])++j;
+            prefix[i]=j;
+        }
+        for(int i=0,j=0;i<(int)text.size();++i){
+            while(j&&text[i]!=pattern[j])j=prefix[j-1];
+            if(text[i]==pattern[j])++j;
+            if(j==m){
+                positions.push_back(i-m+1);
+                j=prefix[j-1];
+            }
+        }
+        return positions;
+    }
+    public:vector<int> beautifulIndices(string s,string a,string b,int k){
+        vector<int> first=occurrences(s,a),second=occurrences(s,b),answer;
+        int pointer=0;
+        for(int index:first){
+            while(pointer<(int)second.size()&&second[pointer]<index-k)++pointer;
+            if(pointer<(int)second.size()&&second[pointer]<=index+k)answer.push_back(index);
+        }
+        return answer;
+    }
+};

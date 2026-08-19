@@ -1,1 +1,15 @@
-class Solution { public:int countWays(vector<vector<int>>& ranges){sort(ranges.begin(),ranges.end());int components=0,end=-1;for(auto& range:ranges){if(range[0]>end){++components;end=range[1];}else end=max(end,range[1]);}long long answer=1;while(components--)answer=answer*2%1'000'000'007;return answer;} };
+class Solution {
+    public:int countWays(vector<vector<int>>& ranges){
+        sort(ranges.begin(),ranges.end());
+        int components=0,end=-1;
+        for(auto& range:ranges){
+            if(range[0]>end){
+                ++components;
+                end=range[1];
+            }else end=max(end,range[1]);
+        }
+        long long answer=1;
+        while(components--)answer=answer*2%1'000'000'007;
+        return answer;
+    }
+};

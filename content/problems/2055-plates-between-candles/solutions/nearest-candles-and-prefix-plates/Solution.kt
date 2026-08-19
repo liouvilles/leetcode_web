@@ -1,1 +1,24 @@
-class Solution { fun platesBetweenCandles(s:String,queries:Array<IntArray>):IntArray{val n=s.length;val prefix=IntArray(n+1);val left=IntArray(n);val right=IntArray(n);var candle=-1;for(i in s.indices){prefix[i+1]=prefix[i]+if(s[i]=='*')1 else 0;if(s[i]=='|')candle=i;left[i]=candle};candle=-1;for(i in s.lastIndex downTo 0){if(s[i]=='|')candle=i;right[i]=candle};return IntArray(queries.size){val start=right[queries[it][0]];val end=left[queries[it][1]];if(start>=0&&start<end)prefix[end]-prefix[start] else 0}} }
+class Solution {
+    fun platesBetweenCandles(s:String,queries:Array<IntArray>):IntArray{
+        val n=s.length;
+        val prefix=IntArray(n+1);
+        val left=IntArray(n);
+        val right=IntArray(n);
+        var candle=-1;
+        for(i in s.indices){
+            prefix[i+1]=prefix[i]+if(s[i]=='*')1 else 0;
+            if(s[i]=='|')candle=i;
+            left[i]=candle
+        };
+        candle=-1;
+        for(i in s.lastIndex downTo 0){
+            if(s[i]=='|')candle=i;
+            right[i]=candle
+        };
+        return IntArray(queries.size){
+            val start=right[queries[it][0]];
+            val end=left[queries[it][1]];
+            if(start>=0&&start<end)prefix[end]-prefix[start] else 0
+        }
+    }
+}

@@ -1,1 +1,35 @@
-class Solution { public:vector<int> stringIndices(vector<string>& wordsContainer,vector<string>& wordsQuery){int total=0;for(const string& word:wordsContainer)total+=word.size();vector<int> children((total+1)*26),best(total+1,-1);int nodes=1;auto updateBest=[&](int node,int index){int current=best[node];if(current<0||wordsContainer[index].size()<wordsContainer[current].size()||(wordsContainer[index].size()==wordsContainer[current].size()&&index<current))best[node]=index;};for(int index=0;index<(int)wordsContainer.size();++index){int node=0;updateBest(node,index);for(int position=wordsContainer[index].size()-1;position>=0;--position){int edge=node*26+wordsContainer[index][position]-'a';if(children[edge]==0)children[edge]=nodes++;node=children[edge];updateBest(node,index);}}vector<int> answer;answer.reserve(wordsQuery.size());for(const string& word:wordsQuery){int node=0,index=best[0];for(int position=word.size()-1;position>=0;--position){int child=children[node*26+word[position]-'a'];if(child==0)break;node=child;index=best[node];}answer.push_back(index);}return answer;} };
+class Solution {
+    public:vector<int> stringIndices(vector<string>& wordsContainer,vector<string>& wordsQuery){
+        int total=0;
+        for(const string& word:wordsContainer)total+=word.size();
+        vector<int> children((total+1)*26),best(total+1,-1);
+        int nodes=1;
+        auto updateBest=[&](int node,int index){
+            int current=best[node];
+            if(current<0||wordsContainer[index].size()<wordsContainer[current].size()||(wordsContainer[index].size()==wordsContainer[current].size()&&index<current))best[node]=index;
+        };
+        for(int index=0;index<(int)wordsContainer.size();++index){
+            int node=0;
+            updateBest(node,index);
+            for(int position=wordsContainer[index].size()-1;position>=0;--position){
+                int edge=node*26+wordsContainer[index][position]-'a';
+                if(children[edge]==0)children[edge]=nodes++;
+                node=children[edge];
+                updateBest(node,index);
+            }
+        }
+        vector<int> answer;
+        answer.reserve(wordsQuery.size());
+        for(const string& word:wordsQuery){
+            int node=0,index=best[0];
+            for(int position=word.size()-1;position>=0;--position){
+                int child=children[node*26+word[position]-'a'];
+                if(child==0)break;
+                node=child;
+                index=best[node];
+            }
+            answer.push_back(index);
+        }
+        return answer;
+    }
+};

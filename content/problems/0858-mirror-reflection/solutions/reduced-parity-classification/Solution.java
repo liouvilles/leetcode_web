@@ -1,1 +1,17 @@
-class Solution { public int mirrorReflection(int p,int q){int divisor=gcd(p,q);p/=divisor;q/=divisor;if(p%2==0)return 2;return q%2==1?1:0;}private int gcd(int a,int b){while(b!=0){int temporary=a%b;a=b;b=temporary;}return a;} }
+class Solution {
+    public int mirrorReflection(int p,int q){
+        int divisor=gcd(p,q);
+        p/=divisor;
+        q/=divisor;
+        if(p%2==0)return 2;
+        return q%2==1?1:0;
+    }
+    private int gcd(int a,int b){
+        while(b!=0){
+            int temporary=a%b;
+            a=b;
+            b=temporary;
+        }
+        return a;
+    }
+}

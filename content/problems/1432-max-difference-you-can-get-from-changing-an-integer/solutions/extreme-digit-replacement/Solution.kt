@@ -1,1 +1,18 @@
-class Solution { fun maxDiff(num:Int):Int{val text=num.toString();var maximum=text;var minimum=text;text.firstOrNull{it!='9'}?.let{maximum=text.replace(it,'9')};if(text[0]!='1')minimum=text.replace(text[0],'1')else text.drop(1).firstOrNull{it!='0'&&it!='1'}?.let{minimum=text.replace(it,'0')};return maximum.toInt()-minimum.toInt()} }
+class Solution {
+    fun maxDiff(num:Int):Int{
+        val text=num.toString();
+        var maximum=text;
+        var minimum=text;
+        text.firstOrNull{
+            it!='9'
+        }?.let{
+            maximum=text.replace(it,'9')
+        };
+        if(text[0]!='1')minimum=text.replace(text[0],'1')else text.drop(1).firstOrNull{
+            it!='0'&&it!='1'
+        }?.let{
+            minimum=text.replace(it,'0')
+        };
+        return maximum.toInt()-minimum.toInt()
+    }
+}

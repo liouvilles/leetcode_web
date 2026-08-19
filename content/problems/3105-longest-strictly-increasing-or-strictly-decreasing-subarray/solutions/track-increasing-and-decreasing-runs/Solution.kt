@@ -1,1 +1,21 @@
-class Solution { fun longestMonotonicSubarray(nums:IntArray):Int{var increasing=1;var decreasing=1;var answer=1;for(index in 1 until nums.size){if(nums[index]>nums[index-1]){increasing++;decreasing=1}else if(nums[index]<nums[index-1]){decreasing++;increasing=1}else{increasing=1;decreasing=1};answer=maxOf(answer,increasing,decreasing)};return answer} }
+class Solution {
+    fun longestMonotonicSubarray(nums:IntArray):Int{
+        var increasing=1;
+        var decreasing=1;
+        var answer=1;
+        for(index in 1 until nums.size){
+            if(nums[index]>nums[index-1]){
+                increasing++;
+                decreasing=1
+            }else if(nums[index]<nums[index-1]){
+                decreasing++;
+                increasing=1
+            }else{
+                increasing=1;
+                decreasing=1
+            };
+            answer=maxOf(answer,increasing,decreasing)
+        };
+        return answer
+    }
+}

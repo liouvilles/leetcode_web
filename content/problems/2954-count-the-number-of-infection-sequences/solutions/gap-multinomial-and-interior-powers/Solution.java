@@ -1,1 +1,29 @@
-class Solution { private static final long MOD=1000000007L;private long power(long base,long exponent){long result=1;while(exponent>0){if((exponent&1)==1)result=result*base%MOD;base=base*base%MOD;exponent>>=1;}return result;}public int numberOfSequence(int n,int[] sick){int healthy=n-sick.length;long[] factorial=new long[healthy+1],inverse=new long[healthy+1];factorial[0]=1;for(int i=1;i<=healthy;i++)factorial[i]=factorial[i-1]*i%MOD;inverse[healthy]=power(factorial[healthy],MOD-2);for(int i=healthy;i>0;i--)inverse[i-1]=inverse[i]*i%MOD;long answer=factorial[healthy];int left=sick[0],right=n-1-sick[sick.length-1];answer=answer*inverse[left]%MOD*inverse[right]%MOD;for(int i=1;i<sick.length;i++){int gap=sick[i]-sick[i-1]-1;answer=answer*inverse[gap]%MOD;if(gap>0)answer=answer*power(2,gap-1)%MOD;}return (int)answer;} }
+class Solution {
+    private static final long MOD=1000000007L;
+    private long power(long base,long exponent){
+        long result=1;
+        while(exponent>0){
+            if((exponent&1)==1)result=result*base%MOD;
+            base=base*base%MOD;
+            exponent>>=1;
+        }
+        return result;
+    }
+    public int numberOfSequence(int n,int[] sick){
+        int healthy=n-sick.length;
+        long[] factorial=new long[healthy+1],inverse=new long[healthy+1];
+        factorial[0]=1;
+        for(int i=1;i<=healthy;i++)factorial[i]=factorial[i-1]*i%MOD;
+        inverse[healthy]=power(factorial[healthy],MOD-2);
+        for(int i=healthy;i>0;i--)inverse[i-1]=inverse[i]*i%MOD;
+        long answer=factorial[healthy];
+        int left=sick[0],right=n-1-sick[sick.length-1];
+        answer=answer*inverse[left]%MOD*inverse[right]%MOD;
+        for(int i=1;i<sick.length;i++){
+            int gap=sick[i]-sick[i-1]-1;
+            answer=answer*inverse[gap]%MOD;
+            if(gap>0)answer=answer*power(2,gap-1)%MOD;
+        }
+        return (int)answer;
+    }
+}

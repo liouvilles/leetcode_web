@@ -1,1 +1,48 @@
-class Solution { static final int MOD=1_000_000_007;List<int[]>[] graph;long[] distance;int[] memo;int target;private int dfs(int node){if(node==target)return 1;if(memo[node]>=0)return memo[node];long ways=0;for(int[] edge:graph[node])if(distance[edge[0]]<distance[node])ways+=dfs(edge[0]);return memo[node]=(int)(ways%MOD);}public int countRestrictedPaths(int n,int[][] edges){target=n;graph=new List[n+1];for(int i=1;i<=n;i++)graph[i]=new ArrayList<>();for(int[] e:edges){graph[e[0]].add(new int[]{e[1],e[2]});graph[e[1]].add(new int[]{e[0],e[2]});}distance=new long[n+1];Arrays.fill(distance,Long.MAX_VALUE);distance[n]=0;PriorityQueue<long[]> queue=new PriorityQueue<>(Comparator.comparingLong(a->a[0]));queue.offer(new long[]{0,n});while(!queue.isEmpty()){long[] state=queue.poll();int node=(int)state[1];if(state[0]!=distance[node])continue;for(int[] e:graph[node])if(distance[node]+e[1]<distance[e[0]]){distance[e[0]]=distance[node]+e[1];queue.offer(new long[]{distance[e[0]],e[0]});}}memo=new int[n+1];Arrays.fill(memo,-1);return dfs(1);} }
+class Solution {
+    static final int MOD=1_000_000_007;
+    List<int[]>[] graph;
+    long[] distance;
+    int[] memo;
+    int target;
+    private int dfs(int node){
+        if(node==target)return 1;
+        if(memo[node]>=0)return memo[node];
+        long ways=0;
+        for(int[] edge:graph[node])if(distance[edge[0]]<distance[node])ways+=dfs(edge[0]);
+        return memo[node]=(int)(ways%MOD);
+    }
+    public int countRestrictedPaths(int n,int[][] edges){
+        target=n;
+        graph=new List[n+1];
+        for(int i=1;i<=n;i++)graph[i]=new ArrayList<>();
+        for(int[] e:edges){
+            graph[e[0]].add(new int[]{
+                e[1],e[2]
+            });
+            graph[e[1]].add(new int[]{
+                e[0],e[2]
+            });
+        }
+        distance=new long[n+1];
+        Arrays.fill(distance,Long.MAX_VALUE);
+        distance[n]=0;
+        PriorityQueue<long[]> queue=new PriorityQueue<>(Comparator.comparingLong(a->a[0]));
+        queue.offer(new long[]{
+            0,n
+        });
+        while(!queue.isEmpty()){
+            long[] state=queue.poll();
+            int node=(int)state[1];
+            if(state[0]!=distance[node])continue;
+            for(int[] e:graph[node])if(distance[node]+e[1]<distance[e[0]]){
+                distance[e[0]]=distance[node]+e[1];
+                queue.offer(new long[]{
+                    distance[e[0]],e[0]
+                });
+            }
+        }
+        memo=new int[n+1];
+        Arrays.fill(memo,-1);
+        return dfs(1);
+    }
+}

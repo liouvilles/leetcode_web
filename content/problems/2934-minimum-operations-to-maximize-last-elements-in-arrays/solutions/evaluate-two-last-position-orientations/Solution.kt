@@ -1,1 +1,15 @@
-class Solution { private fun solve(a:IntArray,b:IntArray,lastA:Int,lastB:Int):Int{var operations=0;for(i in 0 until a.lastIndex){if(a[i]<=lastA&&b[i]<=lastB)continue;if(b[i]<=lastA&&a[i]<=lastB)operations++ else return 1000000000};return operations};fun minOperations(nums1:IntArray,nums2:IntArray):Int{val n=nums1.size;val answer=minOf(solve(nums1,nums2,nums1[n-1],nums2[n-1]),1+solve(nums1,nums2,nums2[n-1],nums1[n-1]));return if(answer>=1000000000)-1 else answer} }
+class Solution {
+    private fun solve(a:IntArray,b:IntArray,lastA:Int,lastB:Int):Int{
+        var operations=0;
+        for(i in 0 until a.lastIndex){
+            if(a[i]<=lastA&&b[i]<=lastB)continue;
+            if(b[i]<=lastA&&a[i]<=lastB)operations++ else return 1000000000
+        };
+        return operations
+    };
+    fun minOperations(nums1:IntArray,nums2:IntArray):Int{
+        val n=nums1.size;
+        val answer=minOf(solve(nums1,nums2,nums1[n-1],nums2[n-1]),1+solve(nums1,nums2,nums2[n-1],nums1[n-1]));
+        return if(answer>=1000000000)-1 else answer
+    }
+}

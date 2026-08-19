@@ -1,1 +1,20 @@
-class Solution { public List<String> findHighAccessEmployees(List<List<String>> access_times){Map<String,List<Integer>> times=new TreeMap<>();for(List<String> access:access_times){String value=access.get(1);int minute=Integer.parseInt(value.substring(0,2))*60+Integer.parseInt(value.substring(2));times.computeIfAbsent(access.get(0),ignored->new ArrayList<>()).add(minute);}List<String> answer=new ArrayList<>();for(Map.Entry<String,List<Integer>> entry:times.entrySet()){List<Integer> values=entry.getValue();Collections.sort(values);for(int i=2;i<values.size();i++)if(values.get(i)-values.get(i-2)<60){answer.add(entry.getKey());break;}}return answer;} }
+class Solution {
+    public List<String> findHighAccessEmployees(List<List<String>> access_times){
+        Map<String,List<Integer>> times=new TreeMap<>();
+        for(List<String> access:access_times){
+            String value=access.get(1);
+            int minute=Integer.parseInt(value.substring(0,2))*60+Integer.parseInt(value.substring(2));
+            times.computeIfAbsent(access.get(0),ignored->new ArrayList<>()).add(minute);
+        }
+        List<String> answer=new ArrayList<>();
+        for(Map.Entry<String,List<Integer>> entry:times.entrySet()){
+            List<Integer> values=entry.getValue();
+            Collections.sort(values);
+            for(int i=2;i<values.size();i++)if(values.get(i)-values.get(i-2)<60){
+                answer.add(entry.getKey());
+                break;
+            }
+        }
+        return answer;
+    }
+}

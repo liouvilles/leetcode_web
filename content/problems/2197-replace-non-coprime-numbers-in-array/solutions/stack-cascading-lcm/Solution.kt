@@ -1,1 +1,27 @@
-class Solution { private fun gcd(first:Int,second:Int):Int{var a=first;var b=second;while(b!=0){val temporary=a%b;a=b;b=temporary};return a};fun replaceNonCoprimes(nums:IntArray):List<Int>{val stack=mutableListOf<Int>();for(original in nums){var value=original;while(stack.isNotEmpty()){val top=stack.last();val divisor=gcd(top,value);if(divisor==1)break;stack.removeAt(stack.lastIndex);value=(top.toLong()/divisor*value).toInt()};stack.add(value)};return stack} }
+class Solution {
+    private fun gcd(first:Int,second:Int):Int{
+        var a=first;
+        var b=second;
+        while(b!=0){
+            val temporary=a%b;
+            a=b;
+            b=temporary
+        };
+        return a
+    };
+    fun replaceNonCoprimes(nums:IntArray):List<Int>{
+        val stack=mutableListOf<Int>();
+        for(original in nums){
+            var value=original;
+            while(stack.isNotEmpty()){
+                val top=stack.last();
+                val divisor=gcd(top,value);
+                if(divisor==1)break;
+                stack.removeAt(stack.lastIndex);
+                value=(top.toLong()/divisor*value).toInt()
+            };
+            stack.add(value)
+        };
+        return stack
+    }
+}

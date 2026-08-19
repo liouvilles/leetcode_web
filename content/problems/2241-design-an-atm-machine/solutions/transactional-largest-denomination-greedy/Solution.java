@@ -1,1 +1,24 @@
-class ATM { long[] stock=new long[5];int[] values={20,50,100,200,500};public ATM(){}public void deposit(int[] banknotesCount){for(int i=0;i<5;i++)stock[i]+=banknotesCount[i];}public int[] withdraw(int amount){int[] take=new int[5];int remaining=amount;for(int i=4;i>=0;i--){take[i]=(int)Math.min(stock[i],remaining/values[i]);remaining-=take[i]*values[i];}if(remaining!=0)return new int[]{-1};for(int i=0;i<5;i++)stock[i]-=take[i];return take;} }
+class ATM {
+    long[] stock=new long[5];
+    int[] values={
+        20,50,100,200,500
+    };
+    public ATM(){
+    }
+    public void deposit(int[] banknotesCount){
+        for(int i=0;i<5;i++)stock[i]+=banknotesCount[i];
+    }
+    public int[] withdraw(int amount){
+        int[] take=new int[5];
+        int remaining=amount;
+        for(int i=4;i>=0;i--){
+            take[i]=(int)Math.min(stock[i],remaining/values[i]);
+            remaining-=take[i]*values[i];
+        }
+        if(remaining!=0)return new int[]{
+            -1
+        };
+        for(int i=0;i<5;i++)stock[i]-=take[i];
+        return take;
+    }
+}

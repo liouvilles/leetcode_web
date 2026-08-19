@@ -1,1 +1,29 @@
-class Solution { private int rows,cols,stateBase;private final Map<Long,Integer> memo=new HashMap<>();private int pair(int first,int second){if(first==0||second==0)return 0;if(first==1&&second==1)return -60;if(first==2&&second==2)return 40;return -10;}private int dfs(int position,int mask,int intro,int extro){if(position==rows*cols)return 0;long key=(((long)position*stateBase+mask)*7+intro)*7+extro;Integer cached=memo.get(key);if(cached!=null)return cached;int divisor=stateBase/3,up=mask/divisor,left=position%cols==0?0:mask%3,nextBase=mask%divisor*3;int best=dfs(position+1,nextBase,intro,extro);if(intro>0)best=Math.max(best,120+pair(1,up)+pair(1,left)+dfs(position+1,nextBase+1,intro-1,extro));if(extro>0)best=Math.max(best,40+pair(2,up)+pair(2,left)+dfs(position+1,nextBase+2,intro,extro-1));memo.put(key,best);return best;}public int getMaxGridHappiness(int m,int n,int introvertsCount,int extrovertsCount){rows=m;cols=n;stateBase=1;for(int i=0;i<n;i++)stateBase*=3;return dfs(0,0,introvertsCount,extrovertsCount);} }
+class Solution {
+    private int rows,cols,stateBase;
+    private final Map<Long,Integer> memo=new HashMap<>();
+    private int pair(int first,int second){
+        if(first==0||second==0)return 0;
+        if(first==1&&second==1)return -60;
+        if(first==2&&second==2)return 40;
+        return -10;
+    }
+    private int dfs(int position,int mask,int intro,int extro){
+        if(position==rows*cols)return 0;
+        long key=(((long)position*stateBase+mask)*7+intro)*7+extro;
+        Integer cached=memo.get(key);
+        if(cached!=null)return cached;
+        int divisor=stateBase/3,up=mask/divisor,left=position%cols==0?0:mask%3,nextBase=mask%divisor*3;
+        int best=dfs(position+1,nextBase,intro,extro);
+        if(intro>0)best=Math.max(best,120+pair(1,up)+pair(1,left)+dfs(position+1,nextBase+1,intro-1,extro));
+        if(extro>0)best=Math.max(best,40+pair(2,up)+pair(2,left)+dfs(position+1,nextBase+2,intro,extro-1));
+        memo.put(key,best);
+        return best;
+    }
+    public int getMaxGridHappiness(int m,int n,int introvertsCount,int extrovertsCount){
+        rows=m;
+        cols=n;
+        stateBase=1;
+        for(int i=0;i<n;i++)stateBase*=3;
+        return dfs(0,0,introvertsCount,extrovertsCount);
+    }
+}

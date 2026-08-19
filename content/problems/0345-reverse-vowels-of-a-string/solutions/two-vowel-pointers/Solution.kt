@@ -1,1 +1,18 @@
-class Solution { fun reverseVowels(s:String):String{val chars=s.toCharArray();var left=0;var right=chars.lastIndex;fun vowel(c:Char):Boolean{return c in "aeiouAEIOU"};while(left<right){while(left<right&&!vowel(chars[left]))left++;while(left<right&&!vowel(chars[right]))right--;val value=chars[left];chars[left++]=chars[right];chars[right--]=value};return String(chars)} }
+class Solution {
+    fun reverseVowels(s:String):String{
+        val chars=s.toCharArray();
+        var left=0;
+        var right=chars.lastIndex;
+        fun vowel(c:Char):Boolean{
+            return c in "aeiouAEIOU"
+        };
+        while(left<right){
+            while(left<right&&!vowel(chars[left]))left++;
+            while(left<right&&!vowel(chars[right]))right--;
+            val value=chars[left];
+            chars[left++]=chars[right];
+            chars[right--]=value
+        };
+        return String(chars)
+    }
+}

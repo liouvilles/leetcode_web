@@ -1,1 +1,22 @@
-class Solution { public int movesToChessboard(int[][] board){int n=board.length;for(int i=0;i<n;i++)for(int j=0;j<n;j++)if((board[0][0]^board[i][0]^board[0][j]^board[i][j])!=0)return -1;int rowSum=0,columnSum=0,rowMatches=0,columnMatches=0;for(int i=0;i<n;i++){rowSum+=board[0][i];columnSum+=board[i][0];if(board[i][0]==i%2)rowMatches++;if(board[0][i]==i%2)columnMatches++;}if(rowSum<n/2||rowSum>(n+1)/2||columnSum<n/2||columnSum>(n+1)/2)return -1;if(n%2==1){if(rowMatches%2==1)rowMatches=n-rowMatches;if(columnMatches%2==1)columnMatches=n-columnMatches;}else{rowMatches=Math.min(rowMatches,n-rowMatches);columnMatches=Math.min(columnMatches,n-columnMatches);}return(rowMatches+columnMatches)/2;} }
+class Solution {
+    public int movesToChessboard(int[][] board){
+        int n=board.length;
+        for(int i=0;i<n;i++)for(int j=0;j<n;j++)if((board[0][0]^board[i][0]^board[0][j]^board[i][j])!=0)return -1;
+        int rowSum=0,columnSum=0,rowMatches=0,columnMatches=0;
+        for(int i=0;i<n;i++){
+            rowSum+=board[0][i];
+            columnSum+=board[i][0];
+            if(board[i][0]==i%2)rowMatches++;
+            if(board[0][i]==i%2)columnMatches++;
+        }
+        if(rowSum<n/2||rowSum>(n+1)/2||columnSum<n/2||columnSum>(n+1)/2)return -1;
+        if(n%2==1){
+            if(rowMatches%2==1)rowMatches=n-rowMatches;
+            if(columnMatches%2==1)columnMatches=n-columnMatches;
+        }else{
+            rowMatches=Math.min(rowMatches,n-rowMatches);
+            columnMatches=Math.min(columnMatches,n-columnMatches);
+        }
+        return(rowMatches+columnMatches)/2;
+    }
+}

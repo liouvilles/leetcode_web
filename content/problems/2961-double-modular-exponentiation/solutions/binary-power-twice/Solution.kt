@@ -1,1 +1,22 @@
-class Solution { private fun power(initial:Long,exponentValue:Int,modulus:Int):Int{var base=initial%modulus;var exponent=exponentValue;var result=1L%modulus;while(exponent>0){if(exponent and 1==1)result=result*base%modulus;base=base*base%modulus;exponent=exponent shr 1};return result.toInt()};fun getGoodIndices(variables:Array<IntArray>,target:Int):List<Int>{val answer=mutableListOf<Int>();for(i in variables.indices){val row=variables[i];val first=power(row[0].toLong(),row[1],10);if(power(first.toLong(),row[2],row[3])==target)answer.add(i)};return answer} }
+class Solution {
+    private fun power(initial:Long,exponentValue:Int,modulus:Int):Int{
+        var base=initial%modulus;
+        var exponent=exponentValue;
+        var result=1L%modulus;
+        while(exponent>0){
+            if(exponent and 1==1)result=result*base%modulus;
+            base=base*base%modulus;
+            exponent=exponent shr 1
+        };
+        return result.toInt()
+    };
+    fun getGoodIndices(variables:Array<IntArray>,target:Int):List<Int>{
+        val answer=mutableListOf<Int>();
+        for(i in variables.indices){
+            val row=variables[i];
+            val first=power(row[0].toLong(),row[1],10);
+            if(power(first.toLong(),row[2],row[3])==target)answer.add(i)
+        };
+        return answer
+    }
+}

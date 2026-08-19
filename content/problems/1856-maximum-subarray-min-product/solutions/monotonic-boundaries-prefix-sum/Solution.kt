@@ -1,1 +1,24 @@
-class Solution { fun maxSumMinProduct(nums:IntArray):Int{val n=nums.size;val prefix=LongArray(n+1);for(i in nums.indices)prefix[i+1]=prefix[i]+nums[i];val left=IntArray(n);val right=IntArray(n);val stack=java.util.ArrayDeque<Int>();for(i in nums.indices){while(stack.isNotEmpty()&&nums[stack.last]>=nums[i])stack.removeLast();left[i]=if(stack.isEmpty())-1 else stack.last;stack.addLast(i)};stack.clear();for(i in nums.lastIndex downTo 0){while(stack.isNotEmpty()&&nums[stack.last]>=nums[i])stack.removeLast();right[i]=if(stack.isEmpty())n else stack.last;stack.addLast(i)};var best=0L;for(i in nums.indices)best=maxOf(best,(prefix[right[i]]-prefix[left[i]+1])*nums[i]);return (best%1_000_000_007).toInt()} }
+class Solution {
+    fun maxSumMinProduct(nums:IntArray):Int{
+        val n=nums.size;
+        val prefix=LongArray(n+1);
+        for(i in nums.indices)prefix[i+1]=prefix[i]+nums[i];
+        val left=IntArray(n);
+        val right=IntArray(n);
+        val stack=java.util.ArrayDeque<Int>();
+        for(i in nums.indices){
+            while(stack.isNotEmpty()&&nums[stack.last]>=nums[i])stack.removeLast();
+            left[i]=if(stack.isEmpty())-1 else stack.last;
+            stack.addLast(i)
+        };
+        stack.clear();
+        for(i in nums.lastIndex downTo 0){
+            while(stack.isNotEmpty()&&nums[stack.last]>=nums[i])stack.removeLast();
+            right[i]=if(stack.isEmpty())n else stack.last;
+            stack.addLast(i)
+        };
+        var best=0L;
+        for(i in nums.indices)best=maxOf(best,(prefix[right[i]]-prefix[left[i]+1])*nums[i]);
+        return (best%1_000_000_007).toInt()
+    }
+}

@@ -1,1 +1,36 @@
-class Solution { fun countPaths(n:Int,roads:Array<IntArray>):Int{val graph=Array(n){mutableListOf<IntArray>()};for(road in roads){graph[road[0]].add(intArrayOf(road[1],road[2]));graph[road[1]].add(intArrayOf(road[0],road[2]))};val distance=LongArray(n){Long.MAX_VALUE};val ways=IntArray(n);distance[0]=0;ways[0]=1;val heap=java.util.PriorityQueue<LongArray>(compareBy{it[0]});heap.add(longArrayOf(0,0));while(heap.isNotEmpty()){val state=heap.remove();val currentDistance=state[0];val node=state[1].toInt();if(currentDistance!=distance[node])continue;for(edge in graph[node]){val nextDistance=currentDistance+edge[1];if(nextDistance<distance[edge[0]]){distance[edge[0]]=nextDistance;ways[edge[0]]=ways[node];heap.add(longArrayOf(nextDistance,edge[0].toLong()))}else if(nextDistance==distance[edge[0]])ways[edge[0]]=(ways[edge[0]]+ways[node])%1_000_000_007}};return ways[n-1]} }
+class Solution {
+    fun countPaths(n:Int,roads:Array<IntArray>):Int{
+        val graph=Array(n){
+            mutableListOf<IntArray>()
+        };
+        for(road in roads){
+            graph[road[0]].add(intArrayOf(road[1],road[2]));
+            graph[road[1]].add(intArrayOf(road[0],road[2]))
+        };
+        val distance=LongArray(n){
+            Long.MAX_VALUE
+        };
+        val ways=IntArray(n);
+        distance[0]=0;
+        ways[0]=1;
+        val heap=java.util.PriorityQueue<LongArray>(compareBy{
+            it[0]
+        });
+        heap.add(longArrayOf(0,0));
+        while(heap.isNotEmpty()){
+            val state=heap.remove();
+            val currentDistance=state[0];
+            val node=state[1].toInt();
+            if(currentDistance!=distance[node])continue;
+            for(edge in graph[node]){
+                val nextDistance=currentDistance+edge[1];
+                if(nextDistance<distance[edge[0]]){
+                    distance[edge[0]]=nextDistance;
+                    ways[edge[0]]=ways[node];
+                    heap.add(longArrayOf(nextDistance,edge[0].toLong()))
+                }else if(nextDistance==distance[edge[0]])ways[edge[0]]=(ways[edge[0]]+ways[node])%1_000_000_007
+            }
+        };
+        return ways[n-1]
+    }
+}

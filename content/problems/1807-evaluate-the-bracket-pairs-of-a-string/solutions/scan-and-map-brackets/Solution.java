@@ -1,1 +1,16 @@
-class Solution { public String evaluate(String text,List<List<String>> knowledge){Map<String,String> map=new HashMap<>();for(List<String> pair:knowledge)map.put(pair.get(0),pair.get(1));StringBuilder answer=new StringBuilder();for(int i=0;i<text.length();){if(text.charAt(i)!='(')answer.append(text.charAt(i++));else{int end=text.indexOf(')',i);answer.append(map.getOrDefault(text.substring(i+1,end),"?"));i=end+1;}}return answer.toString();} }
+class Solution {
+    public String evaluate(String text,List<List<String>> knowledge){
+        Map<String,String> map=new HashMap<>();
+        for(List<String> pair:knowledge)map.put(pair.get(0),pair.get(1));
+        StringBuilder answer=new StringBuilder();
+        for(int i=0;i<text.length();){
+            if(text.charAt(i)!='(')answer.append(text.charAt(i++));
+            else{
+                int end=text.indexOf(')',i);
+                answer.append(map.getOrDefault(text.substring(i+1,end),"?"));
+                i=end+1;
+            }
+        }
+        return answer.toString();
+    }
+}

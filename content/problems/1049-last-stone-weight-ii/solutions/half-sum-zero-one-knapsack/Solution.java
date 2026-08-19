@@ -1,1 +1,9 @@
-class Solution { public int lastStoneWeightII(int[] stones){int total=Arrays.stream(stones).sum(),capacity=total/2;boolean[] possible=new boolean[capacity+1];possible[0]=true;for(int stone:stones)for(int sum=capacity;sum>=stone;sum--)possible[sum]|=possible[sum-stone];for(int sum=capacity;;sum--)if(possible[sum])return total-2*sum;} }
+class Solution {
+    public int lastStoneWeightII(int[] stones){
+        int total=Arrays.stream(stones).sum(),capacity=total/2;
+        boolean[] possible=new boolean[capacity+1];
+        possible[0]=true;
+        for(int stone:stones)for(int sum=capacity;sum>=stone;sum--)possible[sum]|=possible[sum-stone];
+        for(int sum=capacity;;sum--)if(possible[sum])return total-2*sum;
+    }
+}

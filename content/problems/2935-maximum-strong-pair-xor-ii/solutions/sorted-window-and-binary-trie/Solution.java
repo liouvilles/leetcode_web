@@ -1,1 +1,38 @@
-class Solution { private int[][] child;private int[] count;private int nodes=1;private void update(int value,int delta){int node=0;for(int bit=20;bit>=0;bit--){int direction=value>>bit&1;if(child[node][direction]==0)child[node][direction]=nodes++;node=child[node][direction];count[node]+=delta;}}private int query(int value){int node=0,result=0;for(int bit=20;bit>=0;bit--){int direction=value>>bit&1,preferred=direction^1;int next=child[node][preferred];if(next!=0&&count[next]>0){result|=1<<bit;node=next;}else node=child[node][direction];}return result;}public int maximumStrongPairXor(int[] nums){Arrays.sort(nums);child=new int[(nums.length+1)*21][2];count=new int[(nums.length+1)*21];int answer=0,left=0;for(int value:nums){update(value,1);while((long)nums[left]*2<value)update(nums[left++],-1);answer=Math.max(answer,query(value));}return answer;} }
+class Solution {
+    private int[][] child;
+    private int[] count;
+    private int nodes=1;
+    private void update(int value,int delta){
+        int node=0;
+        for(int bit=20;bit>=0;bit--){
+            int direction=value>>bit&1;
+            if(child[node][direction]==0)child[node][direction]=nodes++;
+            node=child[node][direction];
+            count[node]+=delta;
+        }
+    }
+    private int query(int value){
+        int node=0,result=0;
+        for(int bit=20;bit>=0;bit--){
+            int direction=value>>bit&1,preferred=direction^1;
+            int next=child[node][preferred];
+            if(next!=0&&count[next]>0){
+                result|=1<<bit;
+                node=next;
+            }else node=child[node][direction];
+        }
+        return result;
+    }
+    public int maximumStrongPairXor(int[] nums){
+        Arrays.sort(nums);
+        child=new int[(nums.length+1)*21][2];
+        count=new int[(nums.length+1)*21];
+        int answer=0,left=0;
+        for(int value:nums){
+            update(value,1);
+            while((long)nums[left]*2<value)update(nums[left++],-1);
+            answer=Math.max(answer,query(value));
+        }
+        return answer;
+    }
+}

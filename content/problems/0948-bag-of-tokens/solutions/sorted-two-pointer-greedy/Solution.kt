@@ -1,1 +1,21 @@
-class Solution { fun bagOfTokensScore(tokens:IntArray,powerInput:Int):Int{tokens.sort();var power=powerInput;var left=0;var right=tokens.lastIndex;var score=0;var best=0;while(left<=right){if(power>=tokens[left]){power-=tokens[left++];score++;best=maxOf(best,score)}else if(score>0&&left<right){power+=tokens[right--];score--}else break};return best} }
+class Solution {
+    fun bagOfTokensScore(tokens:IntArray,powerInput:Int):Int{
+        tokens.sort();
+        var power=powerInput;
+        var left=0;
+        var right=tokens.lastIndex;
+        var score=0;
+        var best=0;
+        while(left<=right){
+            if(power>=tokens[left]){
+                power-=tokens[left++];
+                score++;
+                best=maxOf(best,score)
+            }else if(score>0&&left<right){
+                power+=tokens[right--];
+                score--
+            }else break
+        };
+        return best
+    }
+}

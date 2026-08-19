@@ -1,1 +1,7 @@
-class Solution { public:vector<int> findColumnWidth(vector<vector<int>>& grid){vector<int> answer(grid[0].size());for(auto& row:grid)for(int col=0;col<(int)row.size();++col)answer[col]=max(answer[col],(int)to_string(row[col]).size());return answer;} };
+class Solution {
+    public:vector<int> findColumnWidth(vector<vector<int>>& grid){
+        vector<int> answer(grid[0].size());
+        for(auto& row:grid)for(int col=0;col<(int)row.size();++col)answer[col]=max(answer[col],(int)to_string(row[col]).size());
+        return answer;
+    }
+};

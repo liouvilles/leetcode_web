@@ -1,1 +1,38 @@
-class Solution { public int minimumMoves(int[][] grid){int n=grid.length;Queue<int[]> queue=new ArrayDeque<>();boolean[][][] seen=new boolean[n][n][2];queue.offer(new int[]{0,0,0,0});seen[0][0][0]=true;while(!queue.isEmpty()){int[] state=queue.poll();int r=state[0],c=state[1],orientation=state[2],distance=state[3];if(r==n-1&&c==n-2&&orientation==0)return distance;if(orientation==0){if(c+2<n&&grid[r][c+2]==0)add(queue,seen,r,c+1,0,distance+1);if(r+1<n&&grid[r+1][c]==0&&grid[r+1][c+1]==0){add(queue,seen,r+1,c,0,distance+1);add(queue,seen,r,c,1,distance+1);}}else{if(r+2<n&&grid[r+2][c]==0)add(queue,seen,r+1,c,1,distance+1);if(c+1<n&&grid[r][c+1]==0&&grid[r+1][c+1]==0){add(queue,seen,r,c+1,1,distance+1);add(queue,seen,r,c,0,distance+1);}}}return -1;}private void add(Queue<int[]> queue,boolean[][][] seen,int r,int c,int orientation,int distance){if(!seen[r][c][orientation]){seen[r][c][orientation]=true;queue.offer(new int[]{r,c,orientation,distance});}} }
+class Solution {
+    public int minimumMoves(int[][] grid){
+        int n=grid.length;
+        Queue<int[]> queue=new ArrayDeque<>();
+        boolean[][][] seen=new boolean[n][n][2];
+        queue.offer(new int[]{
+            0,0,0,0
+        });
+        seen[0][0][0]=true;
+        while(!queue.isEmpty()){
+            int[] state=queue.poll();
+            int r=state[0],c=state[1],orientation=state[2],distance=state[3];
+            if(r==n-1&&c==n-2&&orientation==0)return distance;
+            if(orientation==0){
+                if(c+2<n&&grid[r][c+2]==0)add(queue,seen,r,c+1,0,distance+1);
+                if(r+1<n&&grid[r+1][c]==0&&grid[r+1][c+1]==0){
+                    add(queue,seen,r+1,c,0,distance+1);
+                    add(queue,seen,r,c,1,distance+1);
+                }
+            }else{
+                if(r+2<n&&grid[r+2][c]==0)add(queue,seen,r+1,c,1,distance+1);
+                if(c+1<n&&grid[r][c+1]==0&&grid[r+1][c+1]==0){
+                    add(queue,seen,r,c+1,1,distance+1);
+                    add(queue,seen,r,c,0,distance+1);
+                }
+            }
+        }
+        return -1;
+    }
+    private void add(Queue<int[]> queue,boolean[][][] seen,int r,int c,int orientation,int distance){
+        if(!seen[r][c][orientation]){
+            seen[r][c][orientation]=true;
+            queue.offer(new int[]{
+                r,c,orientation,distance
+            });
+        }
+    }
+}

@@ -1,1 +1,11 @@
-class Solution { int score(vector<int>& player){int total=0;for(int i=0;i<(int)player.size();++i)total+=player[i]*((i>0&&player[i-1]==10||i>1&&player[i-2]==10)?2:1);return total;}public:int isWinner(vector<int>& player1,vector<int>& player2){int first=score(player1),second=score(player2);return first==second?0:first>second?1:2;} };
+class Solution {
+    int score(vector<int>& player){
+        int total=0;
+        for(int i=0;i<(int)player.size();++i)total+=player[i]*((i>0&&player[i-1]==10||i>1&&player[i-2]==10)?2:1);
+        return total;
+    }
+    public:int isWinner(vector<int>& player1,vector<int>& player2){
+        int first=score(player1),second=score(player2);
+        return first==second?0:first>second?1:2;
+    }
+};

@@ -1,1 +1,10 @@
-class Solution { public boolean stoneGame(int[] piles){int[] dp=piles.clone();for(int length=2;length<=piles.length;length++)for(int left=0;left+length<=piles.length;left++){int right=left+length-1;dp[left]=Math.max(piles[left]-dp[left+1],piles[right]-dp[left]);}return dp[0]>0;} }
+class Solution {
+    public boolean stoneGame(int[] piles){
+        int[] dp=piles.clone();
+        for(int length=2;length<=piles.length;length++)for(int left=0;left+length<=piles.length;left++){
+            int right=left+length-1;
+            dp[left]=Math.max(piles[left]-dp[left+1],piles[right]-dp[left]);
+        }
+        return dp[0]>0;
+    }
+}

@@ -1,1 +1,8 @@
-class Solution { public: TreeNode* pruneTree(TreeNode* root){if(!root)return nullptr;root->left=pruneTree(root->left);root->right=pruneTree(root->right);return root->val==0&&!root->left&&!root->right?nullptr:root;} };
+class Solution {
+    public: TreeNode* pruneTree(TreeNode* root){
+        if(!root)return nullptr;
+        root->left=pruneTree(root->left);
+        root->right=pruneTree(root->right);
+        return root->val==0&&!root->left&&!root->right?nullptr:root;
+    }
+};

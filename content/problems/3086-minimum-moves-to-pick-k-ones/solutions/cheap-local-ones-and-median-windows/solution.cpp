@@ -1,1 +1,28 @@
-class Solution { public:long long minimumMoves(vector<int>& nums,int k,int maxChanges){vector<int> ones;int run=0,longest=0;for(int index=0;index<(int)nums.size();++index){if(nums[index]){ones.push_back(index);longest=max(longest,++run);}else run=0;}int cheap=min({k,3,longest});if(cheap+maxChanges>=k)return max(0,cheap-1)+2LL*(k-cheap);int required=k-maxChanges;vector<long long> prefix(ones.size()+1);for(int index=0;index<(int)ones.size();++index)prefix[index+1]=prefix[index]+ones[index];long long best=LLONG_MAX;for(int left=0;left+required<=(int)ones.size();++left){int right=left+required-1,middle=left+required/2;long long median=ones[middle];long long leftCost=median*(middle-left)-(prefix[middle]-prefix[left]);long long rightCost=prefix[right+1]-prefix[middle+1]-median*(right-middle);best=min(best,leftCost+rightCost);}return best+2LL*maxChanges;} };
+class Solution {
+    public:long long minimumMoves(vector<int>& nums,int k,int maxChanges){
+        vector<int> ones;
+        int run=0,longest=0;
+        for(int index=0;index<(int)nums.size();++index){
+            if(nums[index]){
+                ones.push_back(index);
+                longest=max(longest,++run);
+            }else run=0;
+        }
+        int cheap=min({
+            k,3,longest
+        });
+        if(cheap+maxChanges>=k)return max(0,cheap-1)+2LL*(k-cheap);
+        int required=k-maxChanges;
+        vector<long long> prefix(ones.size()+1);
+        for(int index=0;index<(int)ones.size();++index)prefix[index+1]=prefix[index]+ones[index];
+        long long best=LLONG_MAX;
+        for(int left=0;left+required<=(int)ones.size();++left){
+            int right=left+required-1,middle=left+required/2;
+            long long median=ones[middle];
+            long long leftCost=median*(middle-left)-(prefix[middle]-prefix[left]);
+            long long rightCost=prefix[right+1]-prefix[middle+1]-median*(right-middle);
+            best=min(best,leftCost+rightCost);
+        }
+        return best+2LL*maxChanges;
+    }
+};

@@ -1,1 +1,18 @@
-class Solution { fun distinctPrimeFactors(nums:IntArray):Int{val factors=HashSet<Int>();for(input in nums){var value=input;var divisor=2;while(divisor*divisor<=value){if(value%divisor==0){factors.add(divisor);while(value%divisor==0)value/=divisor};divisor++};if(value>1)factors.add(value)};return factors.size} }
+class Solution {
+    fun distinctPrimeFactors(nums:IntArray):Int{
+        val factors=HashSet<Int>();
+        for(input in nums){
+            var value=input;
+            var divisor=2;
+            while(divisor*divisor<=value){
+                if(value%divisor==0){
+                    factors.add(divisor);
+                    while(value%divisor==0)value/=divisor
+                };
+                divisor++
+            };
+            if(value>1)factors.add(value)
+        };
+        return factors.size
+    }
+}

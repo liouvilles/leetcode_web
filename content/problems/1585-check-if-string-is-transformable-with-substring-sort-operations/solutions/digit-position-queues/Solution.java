@@ -1,1 +1,15 @@
-class Solution { public boolean isTransformable(String s,String t){Deque<Integer>[] positions=new Deque[10];for(int digit=0;digit<10;digit++)positions[digit]=new ArrayDeque<>();for(int i=0;i<s.length();i++)positions[s.charAt(i)-'0'].addLast(i);for(char value:t.toCharArray()){int digit=value-'0';if(positions[digit].isEmpty())return false;int position=positions[digit].peekFirst();for(int smaller=0;smaller<digit;smaller++)if(!positions[smaller].isEmpty()&&positions[smaller].peekFirst()<position)return false;positions[digit].removeFirst();}return true;} }
+class Solution {
+    public boolean isTransformable(String s,String t){
+        Deque<Integer>[] positions=new Deque[10];
+        for(int digit=0;digit<10;digit++)positions[digit]=new ArrayDeque<>();
+        for(int i=0;i<s.length();i++)positions[s.charAt(i)-'0'].addLast(i);
+        for(char value:t.toCharArray()){
+            int digit=value-'0';
+            if(positions[digit].isEmpty())return false;
+            int position=positions[digit].peekFirst();
+            for(int smaller=0;smaller<digit;smaller++)if(!positions[smaller].isEmpty()&&positions[smaller].peekFirst()<position)return false;
+            positions[digit].removeFirst();
+        }
+        return true;
+    }
+}

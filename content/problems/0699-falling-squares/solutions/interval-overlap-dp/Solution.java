@@ -1,1 +1,18 @@
-class Solution { public List<Integer> fallingSquares(int[][] positions){List<int[]> placed=new ArrayList<>();List<Integer> answer=new ArrayList<>();int maximum=0;for(int[] position:positions){int left=position[0],right=left+position[1],base=0;for(int[] square:placed)if(Math.max(left,square[0])<Math.min(right,square[1]))base=Math.max(base,square[2]);int height=base+position[1];placed.add(new int[]{left,right,height});maximum=Math.max(maximum,height);answer.add(maximum);}return answer;} }
+class Solution {
+    public List<Integer> fallingSquares(int[][] positions){
+        List<int[]> placed=new ArrayList<>();
+        List<Integer> answer=new ArrayList<>();
+        int maximum=0;
+        for(int[] position:positions){
+            int left=position[0],right=left+position[1],base=0;
+            for(int[] square:placed)if(Math.max(left,square[0])<Math.min(right,square[1]))base=Math.max(base,square[2]);
+            int height=base+position[1];
+            placed.add(new int[]{
+                left,right,height
+            });
+            maximum=Math.max(maximum,height);
+            answer.add(maximum);
+        }
+        return answer;
+    }
+}

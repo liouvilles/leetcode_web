@@ -1,1 +1,8 @@
-class Solution { public:int findMaxK(vector<int>& nums){unordered_set<int> values(nums.begin(),nums.end());int answer=-1;for(int value:nums)if(value>0&&values.count(-value))answer=max(answer,value);return answer;} };
+class Solution {
+    public:int findMaxK(vector<int>& nums){
+        unordered_set<int> values(nums.begin(),nums.end());
+        int answer=-1;
+        for(int value:nums)if(value>0&&values.count(-value))answer=max(answer,value);
+        return answer;
+    }
+};

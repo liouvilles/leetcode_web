@@ -1,1 +1,22 @@
-class Solution { private fun permutation(available:Int,count:Int):Int{var result=1;for(i in 0 until count)result*=available-i;return result};fun countSpecialNumbers(n:Int):Int{val digits=n.toString();val length=digits.length;var answer=0;for(size in 1 until length)answer+=9*permutation(9,size-1);val used=BooleanArray(10);for(position in digits.indices){val current=digits[position]-'0';val start=if(position==0)1 else 0;for(digit in start until current)if(!used[digit])answer+=permutation(10-position-1,length-position-1);if(used[current])return answer;used[current]=true};return answer+1} }
+class Solution {
+    private fun permutation(available:Int,count:Int):Int{
+        var result=1;
+        for(i in 0 until count)result*=available-i;
+        return result
+    };
+    fun countSpecialNumbers(n:Int):Int{
+        val digits=n.toString();
+        val length=digits.length;
+        var answer=0;
+        for(size in 1 until length)answer+=9*permutation(9,size-1);
+        val used=BooleanArray(10);
+        for(position in digits.indices){
+            val current=digits[position]-'0';
+            val start=if(position==0)1 else 0;
+            for(digit in start until current)if(!used[digit])answer+=permutation(10-position-1,length-position-1);
+            if(used[current])return answer;
+            used[current]=true
+        };
+        return answer+1
+    }
+}

@@ -1,1 +1,13 @@
-class Solution { fun maxFrequencyElements(nums:IntArray):Int{val frequency=IntArray(101);var maximum=0;for(value in nums){frequency[value]++;maximum=maxOf(maximum,frequency[value])};var answer=0;for(count in frequency)if(count==maximum)answer+=count;return answer} }
+class Solution {
+    fun maxFrequencyElements(nums:IntArray):Int{
+        val frequency=IntArray(101);
+        var maximum=0;
+        for(value in nums){
+            frequency[value]++;
+            maximum=maxOf(maximum,frequency[value])
+        };
+        var answer=0;
+        for(count in frequency)if(count==maximum)answer+=count;
+        return answer
+    }
+}

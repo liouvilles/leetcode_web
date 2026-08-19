@@ -1,1 +1,13 @@
-class Solution { public:int minimumSeconds(vector<int>& nums){unordered_map<int,vector<int>> positions;for(int i=0;i<(int)nums.size();++i)positions[nums[i]].push_back(i);int answer=nums.size();for(auto& [value,list]:positions){int maximumGap=list.front()+nums.size()-list.back();for(int i=1;i<(int)list.size();++i)maximumGap=max(maximumGap,list[i]-list[i-1]);answer=min(answer,maximumGap/2);}return answer;} };
+class Solution {
+    public:int minimumSeconds(vector<int>& nums){
+        unordered_map<int,vector<int>> positions;
+        for(int i=0;i<(int)nums.size();++i)positions[nums[i]].push_back(i);
+        int answer=nums.size();
+        for(auto& [value,list]:positions){
+            int maximumGap=list.front()+nums.size()-list.back();
+            for(int i=1;i<(int)list.size();++i)maximumGap=max(maximumGap,list[i]-list[i-1]);
+            answer=min(answer,maximumGap/2);
+        }
+        return answer;
+    }
+};

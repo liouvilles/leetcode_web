@@ -1,1 +1,22 @@
-class Solution { fun findBottomLeftValue(root:TreeNode?):Int{val nodeRoot=root!!;val queue=ArrayDeque<TreeNode>();queue.addLast(nodeRoot);var answer=nodeRoot.`val`;while(queue.isNotEmpty()){val size=queue.size;answer=queue.first().`val`;repeat(size){val node=queue.removeFirst();node.left?.let{queue.addLast(it)};node.right?.let{queue.addLast(it)}}};return answer} }
+class Solution {
+    fun findBottomLeftValue(root:TreeNode?):Int{
+        val nodeRoot=root!!;
+        val queue=ArrayDeque<TreeNode>();
+        queue.addLast(nodeRoot);
+        var answer=nodeRoot.`val`;
+        while(queue.isNotEmpty()){
+            val size=queue.size;
+            answer=queue.first().`val`;
+            repeat(size){
+                val node=queue.removeFirst();
+                node.left?.let{
+                    queue.addLast(it)
+                };
+                node.right?.let{
+                    queue.addLast(it)
+                }
+            }
+        };
+        return answer
+    }
+}

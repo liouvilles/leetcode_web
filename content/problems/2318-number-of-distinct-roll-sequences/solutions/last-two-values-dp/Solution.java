@@ -1,1 +1,24 @@
-class Solution { static final int MOD=1_000_000_007;private int gcd(int a,int b){while(b!=0){int t=a%b;a=b;b=t;}return a;}public int distinctSequences(int n){if(n==1)return 6;long[][] dp=new long[7][7];for(int a=1;a<=6;a++)for(int b=1;b<=6;b++)if(a!=b&&gcd(a,b)==1)dp[a][b]=1;for(int length=3;length<=n;length++){long[][] next=new long[7][7];for(int previous=1;previous<=6;previous++)for(int last=1;last<=6;last++)if(dp[previous][last]>0)for(int value=1;value<=6;value++)if(value!=last&&value!=previous&&gcd(last,value)==1)next[last][value]=(next[last][value]+dp[previous][last])%MOD;dp=next;}long answer=0;for(long[] row:dp)for(long value:row)answer=(answer+value)%MOD;return (int)answer;} }
+class Solution {
+    static final int MOD=1_000_000_007;
+    private int gcd(int a,int b){
+        while(b!=0){
+            int t=a%b;
+            a=b;
+            b=t;
+        }
+        return a;
+    }
+    public int distinctSequences(int n){
+        if(n==1)return 6;
+        long[][] dp=new long[7][7];
+        for(int a=1;a<=6;a++)for(int b=1;b<=6;b++)if(a!=b&&gcd(a,b)==1)dp[a][b]=1;
+        for(int length=3;length<=n;length++){
+            long[][] next=new long[7][7];
+            for(int previous=1;previous<=6;previous++)for(int last=1;last<=6;last++)if(dp[previous][last]>0)for(int value=1;value<=6;value++)if(value!=last&&value!=previous&&gcd(last,value)==1)next[last][value]=(next[last][value]+dp[previous][last])%MOD;
+            dp=next;
+        }
+        long answer=0;
+        for(long[] row:dp)for(long value:row)answer=(answer+value)%MOD;
+        return (int)answer;
+    }
+}

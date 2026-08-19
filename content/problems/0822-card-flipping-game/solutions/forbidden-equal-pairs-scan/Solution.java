@@ -1,1 +1,10 @@
-class Solution { public int flipgame(int[] fronts,int[] backs){Set<Integer> forbidden=new HashSet<>();for(int i=0;i<fronts.length;i++)if(fronts[i]==backs[i])forbidden.add(fronts[i]);int answer=Integer.MAX_VALUE;for(int value:fronts)if(!forbidden.contains(value))answer=Math.min(answer,value);for(int value:backs)if(!forbidden.contains(value))answer=Math.min(answer,value);return answer==Integer.MAX_VALUE?0:answer;} }
+class Solution {
+    public int flipgame(int[] fronts,int[] backs){
+        Set<Integer> forbidden=new HashSet<>();
+        for(int i=0;i<fronts.length;i++)if(fronts[i]==backs[i])forbidden.add(fronts[i]);
+        int answer=Integer.MAX_VALUE;
+        for(int value:fronts)if(!forbidden.contains(value))answer=Math.min(answer,value);
+        for(int value:backs)if(!forbidden.contains(value))answer=Math.min(answer,value);
+        return answer==Integer.MAX_VALUE?0:answer;
+    }
+}

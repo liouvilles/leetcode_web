@@ -1,1 +1,33 @@
-class Solution { public int minimumJumps(int[] forbidden,int a,int b,int x){final int LIMIT=6000;boolean[] blocked=new boolean[LIMIT+1];for(int value:forbidden)if(value<=LIMIT)blocked[value]=true;boolean[][] visited=new boolean[LIMIT+1][2];Queue<int[]> queue=new ArrayDeque<>();queue.offer(new int[]{0,0,0});visited[0][0]=true;while(!queue.isEmpty()){int[] state=queue.poll();int position=state[0],back=state[1],steps=state[2];if(position==x)return steps;int forward=position+a;if(forward<=LIMIT&&!blocked[forward]&&!visited[forward][0]){visited[forward][0]=true;queue.offer(new int[]{forward,0,steps+1});}int backward=position-b;if(back==0&&backward>=0&&!blocked[backward]&&!visited[backward][1]){visited[backward][1]=true;queue.offer(new int[]{backward,1,steps+1});}}return -1;} }
+class Solution {
+    public int minimumJumps(int[] forbidden,int a,int b,int x){
+        final int LIMIT=6000;
+        boolean[] blocked=new boolean[LIMIT+1];
+        for(int value:forbidden)if(value<=LIMIT)blocked[value]=true;
+        boolean[][] visited=new boolean[LIMIT+1][2];
+        Queue<int[]> queue=new ArrayDeque<>();
+        queue.offer(new int[]{
+            0,0,0
+        });
+        visited[0][0]=true;
+        while(!queue.isEmpty()){
+            int[] state=queue.poll();
+            int position=state[0],back=state[1],steps=state[2];
+            if(position==x)return steps;
+            int forward=position+a;
+            if(forward<=LIMIT&&!blocked[forward]&&!visited[forward][0]){
+                visited[forward][0]=true;
+                queue.offer(new int[]{
+                    forward,0,steps+1
+                });
+            }
+            int backward=position-b;
+            if(back==0&&backward>=0&&!blocked[backward]&&!visited[backward][1]){
+                visited[backward][1]=true;
+                queue.offer(new int[]{
+                    backward,1,steps+1
+                });
+            }
+        }
+        return -1;
+    }
+}

@@ -1,1 +1,14 @@
-class Solution { public int sumDistance(int[] nums,String s,int d){final long MOD=1000000007L;long[] positions=new long[nums.length];for(int i=0;i<nums.length;i++)positions[i]=(long)nums[i]+(s.charAt(i)=='R'?d:-d);Arrays.sort(positions);long prefix=0,answer=0;for(int i=0;i<positions.length;i++){answer=(answer+positions[i]*i-prefix)%MOD;prefix+=positions[i];}return (int)answer;} }
+class Solution {
+    public int sumDistance(int[] nums,String s,int d){
+        final long MOD=1000000007L;
+        long[] positions=new long[nums.length];
+        for(int i=0;i<nums.length;i++)positions[i]=(long)nums[i]+(s.charAt(i)=='R'?d:-d);
+        Arrays.sort(positions);
+        long prefix=0,answer=0;
+        for(int i=0;i<positions.length;i++){
+            answer=(answer+positions[i]*i-prefix)%MOD;
+            prefix+=positions[i];
+        }
+        return (int)answer;
+    }
+}

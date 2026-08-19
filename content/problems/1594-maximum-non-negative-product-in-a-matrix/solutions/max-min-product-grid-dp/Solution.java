@@ -1,1 +1,23 @@
-class Solution { public int maxProductPath(int[][] grid){int rows=grid.length,cols=grid[0].length;long[][] maximum=new long[rows][cols],minimum=new long[rows][cols];maximum[0][0]=minimum[0][0]=grid[0][0];for(int row=0;row<rows;row++)for(int col=0;col<cols;col++){if(row==0&&col==0)continue;long max=Long.MIN_VALUE,min=Long.MAX_VALUE,value=grid[row][col];if(row>0){max=Math.max(max,Math.max(maximum[row-1][col]*value,minimum[row-1][col]*value));min=Math.min(min,Math.min(maximum[row-1][col]*value,minimum[row-1][col]*value));}if(col>0){max=Math.max(max,Math.max(maximum[row][col-1]*value,minimum[row][col-1]*value));min=Math.min(min,Math.min(maximum[row][col-1]*value,minimum[row][col-1]*value));}maximum[row][col]=max;minimum[row][col]=min;}long result=maximum[rows-1][cols-1];return result<0?-1:(int)(result%1_000_000_007L);} }
+class Solution {
+    public int maxProductPath(int[][] grid){
+        int rows=grid.length,cols=grid[0].length;
+        long[][] maximum=new long[rows][cols],minimum=new long[rows][cols];
+        maximum[0][0]=minimum[0][0]=grid[0][0];
+        for(int row=0;row<rows;row++)for(int col=0;col<cols;col++){
+            if(row==0&&col==0)continue;
+            long max=Long.MIN_VALUE,min=Long.MAX_VALUE,value=grid[row][col];
+            if(row>0){
+                max=Math.max(max,Math.max(maximum[row-1][col]*value,minimum[row-1][col]*value));
+                min=Math.min(min,Math.min(maximum[row-1][col]*value,minimum[row-1][col]*value));
+            }
+            if(col>0){
+                max=Math.max(max,Math.max(maximum[row][col-1]*value,minimum[row][col-1]*value));
+                min=Math.min(min,Math.min(maximum[row][col-1]*value,minimum[row][col-1]*value));
+            }
+            maximum[row][col]=max;
+            minimum[row][col]=min;
+        }
+        long result=maximum[rows-1][cols-1];
+        return result<0?-1:(int)(result%1_000_000_007L);
+    }
+}

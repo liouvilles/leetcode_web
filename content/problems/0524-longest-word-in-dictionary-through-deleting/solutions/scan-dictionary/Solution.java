@@ -1,1 +1,12 @@
-class Solution { public String findLongestWord(String s,List<String> dictionary){String best="";for(String word:dictionary)if(isSubsequence(word,s)&&(word.length()>best.length()||word.length()==best.length()&&word.compareTo(best)<0))best=word;return best;}private boolean isSubsequence(String word,String s){int index=0;for(int i=0;i<s.length()&&index<word.length();i++)if(s.charAt(i)==word.charAt(index))index++;return index==word.length();} }
+class Solution {
+    public String findLongestWord(String s,List<String> dictionary){
+        String best="";
+        for(String word:dictionary)if(isSubsequence(word,s)&&(word.length()>best.length()||word.length()==best.length()&&word.compareTo(best)<0))best=word;
+        return best;
+    }
+    private boolean isSubsequence(String word,String s){
+        int index=0;
+        for(int i=0;i<s.length()&&index<word.length();i++)if(s.charAt(i)==word.charAt(index))index++;
+        return index==word.length();
+    }
+}

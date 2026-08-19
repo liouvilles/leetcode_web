@@ -1,1 +1,16 @@
-class Solution { fun minOperations(nums:IntArray):Int{var increments=0;var maximum=0;for(value in nums){increments+=Integer.bitCount(value);maximum=maxOf(maximum,value)};var doublings=0;while(maximum>1){maximum=maximum shr 1;doublings++};return increments+doublings} }
+class Solution {
+    fun minOperations(nums:IntArray):Int{
+        var increments=0;
+        var maximum=0;
+        for(value in nums){
+            increments+=Integer.bitCount(value);
+            maximum=maxOf(maximum,value)
+        };
+        var doublings=0;
+        while(maximum>1){
+            maximum=maximum shr 1;
+            doublings++
+        };
+        return increments+doublings
+    }
+}

@@ -1,1 +1,19 @@
-class Solution { public double minAreaFreeRect(int[][] points){Map<String,List<int[]>> groups=new HashMap<>();for(int i=0;i<points.length;i++)for(int j=i+1;j<points.length;j++){long dx=points[i][0]-points[j][0],dy=points[i][1]-points[j][1];String key=(points[i][0]+points[j][0])+","+(points[i][1]+points[j][1])+","+(dx*dx+dy*dy);groups.computeIfAbsent(key,k->new ArrayList<>()).add(new int[]{i,j});}double answer=Double.MAX_VALUE;for(List<int[]> group:groups.values())for(int a=0;a<group.size();a++)for(int b=a+1;b<group.size();b++){int[] p=points[group.get(a)[0]],q=points[group.get(b)[0]],r=points[group.get(b)[1]];long area=Math.abs((long)(q[0]-p[0])*(r[1]-p[1])-(long)(q[1]-p[1])*(r[0]-p[0]));if(area>0)answer=Math.min(answer,area);}return answer==Double.MAX_VALUE?0:answer;} }
+class Solution {
+    public double minAreaFreeRect(int[][] points){
+        Map<String,List<int[]>> groups=new HashMap<>();
+        for(int i=0;i<points.length;i++)for(int j=i+1;j<points.length;j++){
+            long dx=points[i][0]-points[j][0],dy=points[i][1]-points[j][1];
+            String key=(points[i][0]+points[j][0])+","+(points[i][1]+points[j][1])+","+(dx*dx+dy*dy);
+            groups.computeIfAbsent(key,k->new ArrayList<>()).add(new int[]{
+                i,j
+            });
+        }
+        double answer=Double.MAX_VALUE;
+        for(List<int[]> group:groups.values())for(int a=0;a<group.size();a++)for(int b=a+1;b<group.size();b++){
+            int[] p=points[group.get(a)[0]],q=points[group.get(b)[0]],r=points[group.get(b)[1]];
+            long area=Math.abs((long)(q[0]-p[0])*(r[1]-p[1])-(long)(q[1]-p[1])*(r[0]-p[0]));
+            if(area>0)answer=Math.min(answer,area);
+        }
+        return answer==Double.MAX_VALUE?0:answer;
+    }
+}

@@ -1,1 +1,10 @@
-class Solution { public: vector<bool> checkIfPrerequisite(int numCourses,vector<vector<int>>& prerequisites,vector<vector<int>>& queries){vector<vector<bool>> reach(numCourses,vector<bool>(numCourses));for(auto& edge:prerequisites)reach[edge[0]][edge[1]]=true;for(int middle=0;middle<numCourses;++middle)for(int from=0;from<numCourses;++from)if(reach[from][middle])for(int to=0;to<numCourses;++to)reach[from][to]=reach[from][to]||reach[middle][to];vector<bool> answer;for(auto& query:queries)answer.push_back(reach[query[0]][query[1]]);return answer;} };
+class Solution {
+    public: vector<bool> checkIfPrerequisite(int numCourses,vector<vector<int>>& prerequisites,vector<vector<int>>& queries){
+        vector<vector<bool>> reach(numCourses,vector<bool>(numCourses));
+        for(auto& edge:prerequisites)reach[edge[0]][edge[1]]=true;
+        for(int middle=0;middle<numCourses;++middle)for(int from=0;from<numCourses;++from)if(reach[from][middle])for(int to=0;to<numCourses;++to)reach[from][to]=reach[from][to]||reach[middle][to];
+        vector<bool> answer;
+        for(auto& query:queries)answer.push_back(reach[query[0]][query[1]]);
+        return answer;
+    }
+};

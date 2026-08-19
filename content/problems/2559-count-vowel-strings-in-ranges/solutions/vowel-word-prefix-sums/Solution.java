@@ -1,1 +1,12 @@
-class Solution { private boolean vowel(char character){return "aeiou".indexOf(character)>=0;}public int[] vowelStrings(String[] words,int[][] queries){int[] prefix=new int[words.length+1];for(int i=0;i<words.length;i++)prefix[i+1]=prefix[i]+(vowel(words[i].charAt(0))&&vowel(words[i].charAt(words[i].length()-1))?1:0);int[] answer=new int[queries.length];for(int i=0;i<queries.length;i++)answer[i]=prefix[queries[i][1]+1]-prefix[queries[i][0]];return answer;} }
+class Solution {
+    private boolean vowel(char character){
+        return "aeiou".indexOf(character)>=0;
+    }
+    public int[] vowelStrings(String[] words,int[][] queries){
+        int[] prefix=new int[words.length+1];
+        for(int i=0;i<words.length;i++)prefix[i+1]=prefix[i]+(vowel(words[i].charAt(0))&&vowel(words[i].charAt(words[i].length()-1))?1:0);
+        int[] answer=new int[queries.length];
+        for(int i=0;i<queries.length;i++)answer[i]=prefix[queries[i][1]+1]-prefix[queries[i][0]];
+        return answer;
+    }
+}

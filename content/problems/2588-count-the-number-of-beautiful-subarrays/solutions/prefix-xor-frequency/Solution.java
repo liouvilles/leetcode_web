@@ -1,1 +1,14 @@
-class Solution { public long beautifulSubarrays(int[] nums){Map<Integer,Integer> frequency=new HashMap<>();frequency.put(0,1);int prefix=0;long answer=0;for(int value:nums){prefix^=value;answer+=frequency.getOrDefault(prefix,0);frequency.put(prefix,frequency.getOrDefault(prefix,0)+1);}return answer;} }
+class Solution {
+    public long beautifulSubarrays(int[] nums){
+        Map<Integer,Integer> frequency=new HashMap<>();
+        frequency.put(0,1);
+        int prefix=0;
+        long answer=0;
+        for(int value:nums){
+            prefix^=value;
+            answer+=frequency.getOrDefault(prefix,0);
+            frequency.put(prefix,frequency.getOrDefault(prefix,0)+1);
+        }
+        return answer;
+    }
+}

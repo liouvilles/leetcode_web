@@ -1,1 +1,18 @@
-class Solution { public int minSubarray(int[] nums,int p){long total=0;for(int value:nums)total+=value;int remainder=(int)(total%p);if(remainder==0)return 0;Map<Integer,Integer> latest=new HashMap<>();latest.put(0,-1);int prefix=0,answer=nums.length;for(int i=0;i<nums.length;i++){prefix=(int)(((long)prefix+nums[i])%p);int needed=(prefix-remainder+p)%p;if(latest.containsKey(needed))answer=Math.min(answer,i-latest.get(needed));latest.put(prefix,i);}return answer==nums.length?-1:answer;} }
+class Solution {
+    public int minSubarray(int[] nums,int p){
+        long total=0;
+        for(int value:nums)total+=value;
+        int remainder=(int)(total%p);
+        if(remainder==0)return 0;
+        Map<Integer,Integer> latest=new HashMap<>();
+        latest.put(0,-1);
+        int prefix=0,answer=nums.length;
+        for(int i=0;i<nums.length;i++){
+            prefix=(int)(((long)prefix+nums[i])%p);
+            int needed=(prefix-remainder+p)%p;
+            if(latest.containsKey(needed))answer=Math.min(answer,i-latest.get(needed));
+            latest.put(prefix,i);
+        }
+        return answer==nums.length?-1:answer;
+    }
+}

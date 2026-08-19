@@ -1,1 +1,43 @@
-class Solution { private class Fenwick(n:Int){val tree=LongArray(n+1);fun add(indexValue:Int){var index=indexValue+1;while(index<tree.size){tree[index]++;index+=index and -index}};fun sum(indexValue:Int):Long{var index=indexValue+1;var value=0L;while(index>0){value+=tree[index];index-=index and -index};return value}};fun goodTriplets(nums1:IntArray,nums2:IntArray):Long{val n=nums1.size;val position=IntArray(n);for(i in nums2.indices)position[nums2[i]]=i;val mapped=IntArray(n){position[nums1[it]]};val left=LongArray(n);var bit=Fenwick(n);for(i in 0 until n){left[i]=if(mapped[i]==0)0 else bit.sum(mapped[i]-1);bit.add(mapped[i])};bit=Fenwick(n);var answer=0L;for(i in n-1 downTo 0){val greater=(n-1-i)-bit.sum(mapped[i]);answer+=left[i]*greater;bit.add(mapped[i])};return answer} }
+class Solution {
+    private class Fenwick(n:Int){
+        val tree=LongArray(n+1);
+        fun add(indexValue:Int){
+            var index=indexValue+1;
+            while(index<tree.size){
+                tree[index]++;
+                index+=index and -index
+            }
+        };
+        fun sum(indexValue:Int):Long{
+            var index=indexValue+1;
+            var value=0L;
+            while(index>0){
+                value+=tree[index];
+                index-=index and -index
+            };
+            return value
+        }
+    };
+    fun goodTriplets(nums1:IntArray,nums2:IntArray):Long{
+        val n=nums1.size;
+        val position=IntArray(n);
+        for(i in nums2.indices)position[nums2[i]]=i;
+        val mapped=IntArray(n){
+            position[nums1[it]]
+        };
+        val left=LongArray(n);
+        var bit=Fenwick(n);
+        for(i in 0 until n){
+            left[i]=if(mapped[i]==0)0 else bit.sum(mapped[i]-1);
+            bit.add(mapped[i])
+        };
+        bit=Fenwick(n);
+        var answer=0L;
+        for(i in n-1 downTo 0){
+            val greater=(n-1-i)-bit.sum(mapped[i]);
+            answer+=left[i]*greater;
+            bit.add(mapped[i])
+        };
+        return answer
+    }
+}

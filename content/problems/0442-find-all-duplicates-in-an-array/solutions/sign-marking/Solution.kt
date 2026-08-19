@@ -1,1 +1,12 @@
-class Solution { fun findDuplicates(nums:IntArray):List<Int>{val answer=mutableListOf<Int>();for(item in nums){val value=kotlin.math.abs(item);val index=value-1;if(nums[index]<0)answer.add(value)else nums[index]=-nums[index]};answer.sort();return answer} }
+class Solution {
+    fun findDuplicates(nums:IntArray):List<Int>{
+        val answer=mutableListOf<Int>();
+        for(item in nums){
+            val value=kotlin.math.abs(item);
+            val index=value-1;
+            if(nums[index]<0)answer.add(value)else nums[index]=-nums[index]
+        };
+        answer.sort();
+        return answer
+    }
+}

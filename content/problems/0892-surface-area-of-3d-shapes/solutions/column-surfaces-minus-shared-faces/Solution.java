@@ -1,1 +1,12 @@
-class Solution { public int surfaceArea(int[][] grid){int answer=0;for(int r=0;r<grid.length;r++)for(int c=0;c<grid[0].length;c++){int height=grid[r][c];if(height>0)answer+=4*height+2;if(r>0)answer-=2*Math.min(height,grid[r-1][c]);if(c>0)answer-=2*Math.min(height,grid[r][c-1]);}return answer;} }
+class Solution {
+    public int surfaceArea(int[][] grid){
+        int answer=0;
+        for(int r=0;r<grid.length;r++)for(int c=0;c<grid[0].length;c++){
+            int height=grid[r][c];
+            if(height>0)answer+=4*height+2;
+            if(r>0)answer-=2*Math.min(height,grid[r-1][c]);
+            if(c>0)answer-=2*Math.min(height,grid[r][c-1]);
+        }
+        return answer;
+    }
+}

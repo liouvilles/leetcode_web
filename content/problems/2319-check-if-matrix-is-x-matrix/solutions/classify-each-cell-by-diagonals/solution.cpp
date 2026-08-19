@@ -1,1 +1,10 @@
-class Solution { public:bool checkXMatrix(vector<vector<int>>& grid){int n=grid.size();for(int r=0;r<n;++r)for(int c=0;c<n;++c){bool diagonal=r==c||r+c==n-1;if(diagonal==(grid[r][c]==0))return false;}return true;} };
+class Solution {
+    public:bool checkXMatrix(vector<vector<int>>& grid){
+        int n=grid.size();
+        for(int r=0;r<n;++r)for(int c=0;c<n;++c){
+            bool diagonal=r==c||r+c==n-1;
+            if(diagonal==(grid[r][c]==0))return false;
+        }
+        return true;
+    }
+};

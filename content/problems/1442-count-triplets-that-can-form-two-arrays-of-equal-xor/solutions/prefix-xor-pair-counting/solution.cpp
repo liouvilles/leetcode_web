@@ -1,1 +1,9 @@
-class Solution { public: int countTriplets(vector<int>& arr){vector<int> prefix(arr.size()+1);for(int i=0;i<(int)arr.size();++i)prefix[i+1]=prefix[i]^arr[i];int answer=0;for(int i=0;i<(int)arr.size();++i)for(int k=i+1;k<(int)arr.size();++k)if(prefix[i]==prefix[k+1])answer+=k-i;return answer;} };
+class Solution {
+    public: int countTriplets(vector<int>& arr){
+        vector<int> prefix(arr.size()+1);
+        for(int i=0;i<(int)arr.size();++i)prefix[i+1]=prefix[i]^arr[i];
+        int answer=0;
+        for(int i=0;i<(int)arr.size();++i)for(int k=i+1;k<(int)arr.size();++k)if(prefix[i]==prefix[k+1])answer+=k-i;
+        return answer;
+    }
+};

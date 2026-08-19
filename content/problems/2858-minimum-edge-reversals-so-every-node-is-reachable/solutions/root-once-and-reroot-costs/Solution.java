@@ -1,1 +1,37 @@
-class Solution { public int[] minEdgeReversals(int n,int[][] edges){List<int[]>[] graph=new ArrayList[n];for(int i=0;i<n;i++)graph[i]=new ArrayList<>();for(int[] edge:edges){graph[edge[0]].add(new int[]{edge[1],0});graph[edge[1]].add(new int[]{edge[0],1});}int[] parent=new int[n],edgeCost=new int[n],order=new int[n];Arrays.fill(parent,-1);parent[0]=0;int size=0,total=0;ArrayDeque<Integer> queue=new ArrayDeque<>();queue.add(0);while(!queue.isEmpty()){int node=queue.remove();order[size++]=node;for(int[] next:graph[node])if(parent[next[0]]==-1){parent[next[0]]=node;edgeCost[next[0]]=next[1];total+=next[1];queue.add(next[0]);}}int[] answer=new int[n];answer[0]=total;for(int index=1;index<n;index++){int node=order[index];answer[node]=answer[parent[node]]+(edgeCost[node]==0?1:-1);}return answer;} }
+class Solution {
+    public int[] minEdgeReversals(int n,int[][] edges){
+        List<int[]>[] graph=new ArrayList[n];
+        for(int i=0;i<n;i++)graph[i]=new ArrayList<>();
+        for(int[] edge:edges){
+            graph[edge[0]].add(new int[]{
+                edge[1],0
+            });
+            graph[edge[1]].add(new int[]{
+                edge[0],1
+            });
+        }
+        int[] parent=new int[n],edgeCost=new int[n],order=new int[n];
+        Arrays.fill(parent,-1);
+        parent[0]=0;
+        int size=0,total=0;
+        ArrayDeque<Integer> queue=new ArrayDeque<>();
+        queue.add(0);
+        while(!queue.isEmpty()){
+            int node=queue.remove();
+            order[size++]=node;
+            for(int[] next:graph[node])if(parent[next[0]]==-1){
+                parent[next[0]]=node;
+                edgeCost[next[0]]=next[1];
+                total+=next[1];
+                queue.add(next[0]);
+            }
+        }
+        int[] answer=new int[n];
+        answer[0]=total;
+        for(int index=1;index<n;index++){
+            int node=order[index];
+            answer[node]=answer[parent[node]]+(edgeCost[node]==0?1:-1);
+        }
+        return answer;
+    }
+}

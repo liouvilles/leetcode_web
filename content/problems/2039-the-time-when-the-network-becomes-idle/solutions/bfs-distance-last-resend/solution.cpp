@@ -1,1 +1,28 @@
-class Solution { public: int networkBecomesIdle(vector<vector<int>>& edges,vector<int>& patience){int n=patience.size();vector<vector<int>> graph(n);for(auto& edge:edges){graph[edge[0]].push_back(edge[1]);graph[edge[1]].push_back(edge[0]);}vector<int> distance(n,-1);queue<int> pending;pending.push(0);distance[0]=0;while(!pending.empty()){int node=pending.front();pending.pop();for(int next:graph[node])if(distance[next]<0){distance[next]=distance[node]+1;pending.push(next);}}int answer=0;for(int node=1;node<n;++node){int roundTrip=2*distance[node],lastSend=(roundTrip-1)/patience[node]*patience[node];answer=max(answer,lastSend+roundTrip+1);}return answer;} };
+class Solution {
+    public: int networkBecomesIdle(vector<vector<int>>& edges,vector<int>& patience){
+        int n=patience.size();
+        vector<vector<int>> graph(n);
+        for(auto& edge:edges){
+            graph[edge[0]].push_back(edge[1]);
+            graph[edge[1]].push_back(edge[0]);
+        }
+        vector<int> distance(n,-1);
+        queue<int> pending;
+        pending.push(0);
+        distance[0]=0;
+        while(!pending.empty()){
+            int node=pending.front();
+            pending.pop();
+            for(int next:graph[node])if(distance[next]<0){
+                distance[next]=distance[node]+1;
+                pending.push(next);
+            }
+        }
+        int answer=0;
+        for(int node=1;node<n;++node){
+            int roundTrip=2*distance[node],lastSend=(roundTrip-1)/patience[node]*patience[node];
+            answer=max(answer,lastSend+roundTrip+1);
+        }
+        return answer;
+    }
+};

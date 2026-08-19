@@ -1,1 +1,21 @@
-class Solution { int search(int target,MountainArray& array,int left,int right,bool ascending){while(left<=right){int middle=(left+right)/2,value=array.get(middle);if(value==target)return middle;if((value<target)==ascending)left=middle+1;else right=middle-1;}return -1;}public:int findInMountainArray(int target,MountainArray& mountainArr){int left=0,right=mountainArr.length()-1;while(left<right){int middle=(left+right)/2;if(mountainArr.get(middle)<mountainArr.get(middle+1))left=middle+1;else right=middle;}int found=search(target,mountainArr,0,left,true);return found>=0?found:search(target,mountainArr,left+1,mountainArr.length()-1,false);} };
+class Solution {
+    int search(int target,MountainArray& array,int left,int right,bool ascending){
+        while(left<=right){
+            int middle=(left+right)/2,value=array.get(middle);
+            if(value==target)return middle;
+            if((value<target)==ascending)left=middle+1;
+            else right=middle-1;
+        }
+        return -1;
+    }
+    public:int findInMountainArray(int target,MountainArray& mountainArr){
+        int left=0,right=mountainArr.length()-1;
+        while(left<right){
+            int middle=(left+right)/2;
+            if(mountainArr.get(middle)<mountainArr.get(middle+1))left=middle+1;
+            else right=middle;
+        }
+        int found=search(target,mountainArr,0,left,true);
+        return found>=0?found:search(target,mountainArr,left+1,mountainArr.length()-1,false);
+    }
+};

@@ -1,1 +1,7 @@
-class Solution { public int sumIndicesWithKSetBits(List<Integer> nums,int k){int answer=0;for(int index=0;index<nums.size();index++)if(Integer.bitCount(index)==k)answer+=nums.get(index);return answer;} }
+class Solution {
+    public int sumIndicesWithKSetBits(List<Integer> nums,int k){
+        int answer=0;
+        for(int index=0;index<nums.size();index++)if(Integer.bitCount(index)==k)answer+=nums.get(index);
+        return answer;
+    }
+}

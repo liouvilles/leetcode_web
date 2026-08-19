@@ -1,1 +1,18 @@
-class Solution { public: int minSideJumps(vector<int>& obstacles){const int inf=1000000;int dp[3]={1,0,1};for(int position=1;position<(int)obstacles.size();++position){if(obstacles[position])dp[obstacles[position]-1]=inf;int minimum=min({dp[0],dp[1],dp[2]});for(int lane=0;lane<3;++lane)if(obstacles[position]!=lane+1)dp[lane]=min(dp[lane],minimum+1);}return min({dp[0],dp[1],dp[2]});} };
+class Solution {
+    public: int minSideJumps(vector<int>& obstacles){
+        const int inf=1000000;
+        int dp[3]={
+            1,0,1
+        };
+        for(int position=1;position<(int)obstacles.size();++position){
+            if(obstacles[position])dp[obstacles[position]-1]=inf;
+            int minimum=min({
+                dp[0],dp[1],dp[2]
+            });
+            for(int lane=0;lane<3;++lane)if(obstacles[position]!=lane+1)dp[lane]=min(dp[lane],minimum+1);
+        }
+        return min({
+            dp[0],dp[1],dp[2]
+        });
+    }
+};

@@ -1,1 +1,3 @@
-class Solution { fun minPartitions(n:String):Int=n.maxOrNull()!!-'0' }
+class Solution {
+    fun minPartitions(n:String):Int=n.maxOrNull()!!-'0'
+}

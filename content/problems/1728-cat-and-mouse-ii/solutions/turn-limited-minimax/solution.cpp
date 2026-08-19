@@ -1,1 +1,62 @@
-class Solution { vector<string> grid;int rows,cols,food,catJump,mouseJump,cells;vector<signed char> memo;bool dfs(int turn,int mouse,int cat){if(cat==mouse||cat==food||turn>=1000)return false;if(mouse==food)return true;int key=(turn*cells+mouse)*cells+cat;if(memo[key])return memo[key]==1;bool mouseTurn=turn%2==0;int position=mouseTurn?mouse:cat,jump=mouseTurn?mouseJump:catJump,row=position/cols,col=position%cols;int directions[5][2]={{0,0},{1,0},{-1,0},{0,1},{0,-1}};bool result=!mouseTurn;for(auto& direction:directions){int limit=!direction[0]&&!direction[1]?0:jump;for(int step=0;step<=limit;++step){int nextRow=row+direction[0]*step,nextCol=col+direction[1]*step;if(nextRow<0||nextRow>=rows||nextCol<0||nextCol>=cols||grid[nextRow][nextCol]=='#')break;int next=nextRow*cols+nextCol;bool child=mouseTurn?dfs(turn+1,next,cat):dfs(turn+1,mouse,next);if(mouseTurn&&child){result=true;goto done;}if(!mouseTurn&&!child){result=false;goto done;}}}done:memo[key]=result?1:2;return result;}public:bool canMouseWin(vector<string>& input,int inputCatJump,int inputMouseJump){grid=input;catJump=inputCatJump;mouseJump=inputMouseJump;rows=grid.size();cols=grid[0].size();cells=rows*cols;int mouse=0,cat=0;for(int row=0;row<rows;++row)for(int col=0;col<cols;++col){if(grid[row][col]=='M')mouse=row*cols+col;else if(grid[row][col]=='C')cat=row*cols+col;else if(grid[row][col]=='F')food=row*cols+col;}memo.assign(1000*cells*cells,0);return dfs(0,mouse,cat);} };
+class Solution {
+    vector<string> grid;
+    int rows,cols,food,catJump,mouseJump,cells;
+    vector<signed char> memo;
+    bool dfs(int turn,int mouse,int cat){
+        if(cat==mouse||cat==food||turn>=1000)return false;
+        if(mouse==food)return true;
+        int key=(turn*cells+mouse)*cells+cat;
+        if(memo[key])return memo[key]==1;
+        bool mouseTurn=turn%2==0;
+        int position=mouseTurn?mouse:cat,jump=mouseTurn?mouseJump:catJump,row=position/cols,col=position%cols;
+        int directions[5][2]={
+            {
+                0,0
+            },{
+                1,0
+            },{
+                -1,0
+            },{
+                0,1
+            },{
+                0,-1
+            }
+        };
+        bool result=!mouseTurn;
+        for(auto& direction:directions){
+            int limit=!direction[0]&&!direction[1]?0:jump;
+            for(int step=0;step<=limit;++step){
+                int nextRow=row+direction[0]*step,nextCol=col+direction[1]*step;
+                if(nextRow<0||nextRow>=rows||nextCol<0||nextCol>=cols||grid[nextRow][nextCol]=='#')break;
+                int next=nextRow*cols+nextCol;
+                bool child=mouseTurn?dfs(turn+1,next,cat):dfs(turn+1,mouse,next);
+                if(mouseTurn&&child){
+                    result=true;
+                    goto done;
+                }
+                if(!mouseTurn&&!child){
+                    result=false;
+                    goto done;
+                }
+            }
+        }
+        done:memo[key]=result?1:2;
+        return result;
+    }
+    public:bool canMouseWin(vector<string>& input,int inputCatJump,int inputMouseJump){
+        grid=input;
+        catJump=inputCatJump;
+        mouseJump=inputMouseJump;
+        rows=grid.size();
+        cols=grid[0].size();
+        cells=rows*cols;
+        int mouse=0,cat=0;
+        for(int row=0;row<rows;++row)for(int col=0;col<cols;++col){
+            if(grid[row][col]=='M')mouse=row*cols+col;
+            else if(grid[row][col]=='C')cat=row*cols+col;
+            else if(grid[row][col]=='F')food=row*cols+col;
+        }
+        memo.assign(1000*cells*cells,0);
+        return dfs(0,mouse,cat);
+    }
+};

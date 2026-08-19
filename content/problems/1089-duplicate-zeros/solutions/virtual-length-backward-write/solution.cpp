@@ -1,1 +1,14 @@
-class Solution { public: void duplicateZeros(vector<int>& arr){int zeros=count(arr.begin(),arr.end(),0),read=arr.size()-1,write=arr.size()+zeros-1;while(read>=0){int value=arr[read--];if(write<(int)arr.size())arr[write]=value;--write;if(value==0){if(write<(int)arr.size())arr[write]=0;--write;}}} };
+class Solution {
+    public: void duplicateZeros(vector<int>& arr){
+        int zeros=count(arr.begin(),arr.end(),0),read=arr.size()-1,write=arr.size()+zeros-1;
+        while(read>=0){
+            int value=arr[read--];
+            if(write<(int)arr.size())arr[write]=value;
+            --write;
+            if(value==0){
+                if(write<(int)arr.size())arr[write]=0;
+                --write;
+            }
+        }
+    }
+};

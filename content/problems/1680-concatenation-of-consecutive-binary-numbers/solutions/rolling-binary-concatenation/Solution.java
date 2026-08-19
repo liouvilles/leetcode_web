@@ -1,1 +1,12 @@
-class Solution { public int concatenatedBinary(int n){final int MOD=1_000_000_007;long answer=0;int bits=0;for(int value=1;value<=n;value++){if((value&(value-1))==0)bits++;answer=((answer<<bits)+value)%MOD;}return (int)answer;} }
+class Solution {
+    public int concatenatedBinary(int n){
+        final int MOD=1_000_000_007;
+        long answer=0;
+        int bits=0;
+        for(int value=1;value<=n;value++){
+            if((value&(value-1))==0)bits++;
+            answer=((answer<<bits)+value)%MOD;
+        }
+        return (int)answer;
+    }
+}

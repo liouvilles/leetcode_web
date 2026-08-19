@@ -1,1 +1,15 @@
-class Solution { public: int numFactoredBinaryTrees(vector<int>& arr){sort(arr.begin(),arr.end());const long long mod=1000000007;long long answer=0;unordered_map<int,long long> ways;for(int i=0;i<(int)arr.size();++i){long long count=1;for(int j=0;j<i;++j)if(arr[i]%arr[j]==0&&ways.count(arr[i]/arr[j]))count=(count+ways[arr[j]]*ways[arr[i]/arr[j]])%mod;ways[arr[i]]=count;answer=(answer+count)%mod;}return answer;} };
+class Solution {
+    public: int numFactoredBinaryTrees(vector<int>& arr){
+        sort(arr.begin(),arr.end());
+        const long long mod=1000000007;
+        long long answer=0;
+        unordered_map<int,long long> ways;
+        for(int i=0;i<(int)arr.size();++i){
+            long long count=1;
+            for(int j=0;j<i;++j)if(arr[i]%arr[j]==0&&ways.count(arr[i]/arr[j]))count=(count+ways[arr[j]]*ways[arr[i]/arr[j]])%mod;
+            ways[arr[i]]=count;
+            answer=(answer+count)%mod;
+        }
+        return answer;
+    }
+};

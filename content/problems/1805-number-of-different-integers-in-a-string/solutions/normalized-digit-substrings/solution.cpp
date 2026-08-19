@@ -1,1 +1,17 @@
-class Solution { public: int numDifferentIntegers(string word){unordered_set<string> values;for(int index=0;index<(int)word.size();){if(!isdigit(word[index])){++index;continue;}int end=index;while(end<(int)word.size()&&isdigit(word[end]))++end;while(index<end&&word[index]=='0')++index;values.insert(index==end?"0":word.substr(index,end-index));index=end;}return values.size();} };
+class Solution {
+    public: int numDifferentIntegers(string word){
+        unordered_set<string> values;
+        for(int index=0;index<(int)word.size();){
+            if(!isdigit(word[index])){
+                ++index;
+                continue;
+            }
+            int end=index;
+            while(end<(int)word.size()&&isdigit(word[end]))++end;
+            while(index<end&&word[index]=='0')++index;
+            values.insert(index==end?"0":word.substr(index,end-index));
+            index=end;
+        }
+        return values.size();
+    }
+};

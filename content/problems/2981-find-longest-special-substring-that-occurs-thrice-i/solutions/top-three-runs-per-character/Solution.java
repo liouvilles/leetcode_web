@@ -1,1 +1,24 @@
-class Solution { private void add(int[][] longest,int letter,int length){if(length>longest[letter][0]){longest[letter][2]=longest[letter][1];longest[letter][1]=longest[letter][0];longest[letter][0]=length;}else if(length>longest[letter][1]){longest[letter][2]=longest[letter][1];longest[letter][1]=length;}else if(length>longest[letter][2])longest[letter][2]=length;}public int maximumLength(String s){int[][] longest=new int[26][3];for(int start=0;start<s.length();){int end=start+1;while(end<s.length()&&s.charAt(end)==s.charAt(start))end++;add(longest,s.charAt(start)-'a',end-start);start=end;}int answer=0;for(int[] runs:longest)answer=Math.max(answer,Math.max(runs[0]-2,Math.max(Math.min(runs[0]-1,runs[1]),runs[2])));return answer>0?answer:-1;} }
+class Solution {
+    private void add(int[][] longest,int letter,int length){
+        if(length>longest[letter][0]){
+            longest[letter][2]=longest[letter][1];
+            longest[letter][1]=longest[letter][0];
+            longest[letter][0]=length;
+        }else if(length>longest[letter][1]){
+            longest[letter][2]=longest[letter][1];
+            longest[letter][1]=length;
+        }else if(length>longest[letter][2])longest[letter][2]=length;
+    }
+    public int maximumLength(String s){
+        int[][] longest=new int[26][3];
+        for(int start=0;start<s.length();){
+            int end=start+1;
+            while(end<s.length()&&s.charAt(end)==s.charAt(start))end++;
+            add(longest,s.charAt(start)-'a',end-start);
+            start=end;
+        }
+        int answer=0;
+        for(int[] runs:longest)answer=Math.max(answer,Math.max(runs[0]-2,Math.max(Math.min(runs[0]-1,runs[1]),runs[2])));
+        return answer>0?answer:-1;
+    }
+}

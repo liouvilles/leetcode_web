@@ -1,1 +1,12 @@
-class Solution { fun buildArray(target:IntArray,n:Int):List<String>{val answer=mutableListOf<String>();var index=0;for(value in 1..n){if(index==target.size)break;answer.add("Push");if(value==target[index])index++ else answer.add("Pop")};return answer} }
+class Solution {
+    fun buildArray(target:IntArray,n:Int):List<String>{
+        val answer=mutableListOf<String>();
+        var index=0;
+        for(value in 1..n){
+            if(index==target.size)break;
+            answer.add("Push");
+            if(value==target[index])index++ else answer.add("Pop")
+        };
+        return answer
+    }
+}

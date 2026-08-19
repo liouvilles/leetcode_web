@@ -1,1 +1,13 @@
-class Solution { fun isFascinating(n:Int):Boolean{val value=n.toString()+(2*n).toString()+(3*n).toString();if(value.length!=9)return false;val seen=BooleanArray(10);for(ch in value){val digit=ch-'0';if(digit==0||seen[digit])return false;seen[digit]=true};return true} }
+class Solution {
+    fun isFascinating(n:Int):Boolean{
+        val value=n.toString()+(2*n).toString()+(3*n).toString();
+        if(value.length!=9)return false;
+        val seen=BooleanArray(10);
+        for(ch in value){
+            val digit=ch-'0';
+            if(digit==0||seen[digit])return false;
+            seen[digit]=true
+        };
+        return true
+    }
+}

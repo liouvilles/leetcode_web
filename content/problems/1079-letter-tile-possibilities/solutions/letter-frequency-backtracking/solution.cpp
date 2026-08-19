@@ -1,1 +1,17 @@
-class Solution { int dfs(int count[]){int total=0;for(int i=0;i<26;++i)if(count[i]){--count[i];total+=1+dfs(count);++count[i];}return total;}public:int numTilePossibilities(string tiles){int count[26]={};for(char ch:tiles)++count[ch-'A'];return dfs(count);} };
+class Solution {
+    int dfs(int count[]){
+        int total=0;
+        for(int i=0;i<26;++i)if(count[i]){
+            --count[i];
+            total+=1+dfs(count);
+            ++count[i];
+        }
+        return total;
+    }
+    public:int numTilePossibilities(string tiles){
+        int count[26]={
+        };
+        for(char ch:tiles)++count[ch-'A'];
+        return dfs(count);
+    }
+};

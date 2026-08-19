@@ -1,1 +1,8 @@
-class Solution { fun furthestDistanceFromOrigin(moves:String):Int{var displacement=0;var wildcards=0;for(move in moves)if(move=='L')displacement-- else if(move=='R')displacement++ else wildcards++;return kotlin.math.abs(displacement)+wildcards} }
+class Solution {
+    fun furthestDistanceFromOrigin(moves:String):Int{
+        var displacement=0;
+        var wildcards=0;
+        for(move in moves)if(move=='L')displacement-- else if(move=='R')displacement++ else wildcards++;
+        return kotlin.math.abs(displacement)+wildcards
+    }
+}

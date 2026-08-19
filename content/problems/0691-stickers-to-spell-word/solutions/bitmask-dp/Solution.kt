@@ -1,1 +1,23 @@
-class Solution { fun minStickers(stickers:Array<String>,target:String):Int{val full=(1 shl target.length)-1;val dp=IntArray(full+1){Int.MAX_VALUE};dp[0]=0;for(mask in 0..full){if(dp[mask]==Int.MAX_VALUE)continue;for(sticker in stickers){val counts=IntArray(26);for(c in sticker)counts[c-'a']++;var next=mask;for(i in target.indices)if(next and (1 shl i)==0&&counts[target[i]-'a']>0){counts[target[i]-'a']--;next=next or (1 shl i)};if(next!=mask)dp[next]=minOf(dp[next],dp[mask]+1)}};return if(dp[full]==Int.MAX_VALUE)-1 else dp[full]} }
+class Solution {
+    fun minStickers(stickers:Array<String>,target:String):Int{
+        val full=(1 shl target.length)-1;
+        val dp=IntArray(full+1){
+            Int.MAX_VALUE
+        };
+        dp[0]=0;
+        for(mask in 0..full){
+            if(dp[mask]==Int.MAX_VALUE)continue;
+            for(sticker in stickers){
+                val counts=IntArray(26);
+                for(c in sticker)counts[c-'a']++;
+                var next=mask;
+                for(i in target.indices)if(next and (1 shl i)==0&&counts[target[i]-'a']>0){
+                    counts[target[i]-'a']--;
+                    next=next or (1 shl i)
+                };
+                if(next!=mask)dp[next]=minOf(dp[next],dp[mask]+1)
+            }
+        };
+        return if(dp[full]==Int.MAX_VALUE)-1 else dp[full]
+    }
+}

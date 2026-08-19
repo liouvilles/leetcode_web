@@ -1,1 +1,10 @@
-class Solution { public: int maxNumberOfBalloons(string text){int count[26]={};for(char ch:text)++count[ch-'a'];return min({count['b'-'a'],count['a'-'a'],count['n'-'a'],count['l'-'a']/2,count['o'-'a']/2});} };
+class Solution {
+    public: int maxNumberOfBalloons(string text){
+        int count[26]={
+        };
+        for(char ch:text)++count[ch-'a'];
+        return min({
+            count['b'-'a'],count['a'-'a'],count['n'-'a'],count['l'-'a']/2,count['o'-'a']/2
+        });
+    }
+};

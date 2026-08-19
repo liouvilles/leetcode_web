@@ -1,1 +1,22 @@
-class Solution { public: vector<vector<long long>> splitPainting(vector<vector<int>>& segments){map<int,long long> difference;for(auto& segment:segments){difference[segment[0]]+=segment[2];difference[segment[1]]-=segment[2];}vector<vector<long long>> answer;long long active=0;int previous=0;bool started=false;for(auto [position,delta]:difference){if(started&&active&&previous<position)answer.push_back({previous,position,active});active+=delta;previous=position;started=true;}return answer;} };
+class Solution {
+    public: vector<vector<long long>> splitPainting(vector<vector<int>>& segments){
+        map<int,long long> difference;
+        for(auto& segment:segments){
+            difference[segment[0]]+=segment[2];
+            difference[segment[1]]-=segment[2];
+        }
+        vector<vector<long long>> answer;
+        long long active=0;
+        int previous=0;
+        bool started=false;
+        for(auto [position,delta]:difference){
+            if(started&&active&&previous<position)answer.push_back({
+                previous,position,active
+            });
+            active+=delta;
+            previous=position;
+            started=true;
+        }
+        return answer;
+    }
+};

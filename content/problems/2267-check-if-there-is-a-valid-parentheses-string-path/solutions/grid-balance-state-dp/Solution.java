@@ -1,1 +1,22 @@
-class Solution { public boolean hasValidPath(char[][] grid){int rows=grid.length,columns=grid[0].length,length=rows+columns-1;if((length&1)==1||grid[0][0]!= '('||grid[rows-1][columns-1]!=')')return false;boolean[][][] reachable=new boolean[rows][columns][length+2];reachable[0][0][1]=true;int[][] directions={{1,0},{0,1}};for(int r=0;r<rows;r++)for(int c=0;c<columns;c++)for(int balance=0;balance<=length;balance++)if(reachable[r][c][balance])for(int[] direction:directions){int nr=r+direction[0],nc=c+direction[1];if(nr>=rows||nc>=columns)continue;int next=balance+(grid[nr][nc]=='('?1:-1);if(next>=0&&next<=length)reachable[nr][nc][next]=true;}return reachable[rows-1][columns-1][0];} }
+class Solution {
+    public boolean hasValidPath(char[][] grid){
+        int rows=grid.length,columns=grid[0].length,length=rows+columns-1;
+        if((length&1)==1||grid[0][0]!= '('||grid[rows-1][columns-1]!=')')return false;
+        boolean[][][] reachable=new boolean[rows][columns][length+2];
+        reachable[0][0][1]=true;
+        int[][] directions={
+            {
+                1,0
+            },{
+                0,1
+            }
+        };
+        for(int r=0;r<rows;r++)for(int c=0;c<columns;c++)for(int balance=0;balance<=length;balance++)if(reachable[r][c][balance])for(int[] direction:directions){
+            int nr=r+direction[0],nc=c+direction[1];
+            if(nr>=rows||nc>=columns)continue;
+            int next=balance+(grid[nr][nc]=='('?1:-1);
+            if(next>=0&&next<=length)reachable[nr][nc][next]=true;
+        }
+        return reachable[rows-1][columns-1][0];
+    }
+}

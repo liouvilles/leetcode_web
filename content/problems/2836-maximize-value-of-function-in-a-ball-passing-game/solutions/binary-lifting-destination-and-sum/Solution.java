@@ -1,1 +1,27 @@
-class Solution { public long getMaxFunctionValue(List<Integer> receiver,long k){int n=receiver.size(),levels=61;int[][] jump=new int[levels][n];long[][] sum=new long[levels][n];for(int node=0;node<n;node++){jump[0][node]=receiver.get(node);sum[0][node]=receiver.get(node);}for(int bit=1;bit<levels;bit++)for(int node=0;node<n;node++){int middle=jump[bit-1][node];jump[bit][node]=jump[bit-1][middle];sum[bit][node]=sum[bit-1][node]+sum[bit-1][middle];}long answer=0;for(int start=0;start<n;start++){int node=start;long value=start;for(int bit=0;bit<levels;bit++)if(((k>>bit)&1)==1){value+=sum[bit][node];node=jump[bit][node];}answer=Math.max(answer,value);}return answer;} }
+class Solution {
+    public long getMaxFunctionValue(List<Integer> receiver,long k){
+        int n=receiver.size(),levels=61;
+        int[][] jump=new int[levels][n];
+        long[][] sum=new long[levels][n];
+        for(int node=0;node<n;node++){
+            jump[0][node]=receiver.get(node);
+            sum[0][node]=receiver.get(node);
+        }
+        for(int bit=1;bit<levels;bit++)for(int node=0;node<n;node++){
+            int middle=jump[bit-1][node];
+            jump[bit][node]=jump[bit-1][middle];
+            sum[bit][node]=sum[bit-1][node]+sum[bit-1][middle];
+        }
+        long answer=0;
+        for(int start=0;start<n;start++){
+            int node=start;
+            long value=start;
+            for(int bit=0;bit<levels;bit++)if(((k>>bit)&1)==1){
+                value+=sum[bit][node];
+                node=jump[bit][node];
+            }
+            answer=Math.max(answer,value);
+        }
+        return answer;
+    }
+}

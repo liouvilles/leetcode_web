@@ -1,1 +1,11 @@
-class Solution { long long dfs(TreeNode* node,int minimum){if(!node)return LLONG_MAX;if(node->val>minimum)return node->val;return min(dfs(node->left,minimum),dfs(node->right,minimum));}public:int findSecondMinimumValue(TreeNode* root){long long answer=dfs(root,root->val);return answer==LLONG_MAX?-1:answer;} };
+class Solution {
+    long long dfs(TreeNode* node,int minimum){
+        if(!node)return LLONG_MAX;
+        if(node->val>minimum)return node->val;
+        return min(dfs(node->left,minimum),dfs(node->right,minimum));
+    }
+    public:int findSecondMinimumValue(TreeNode* root){
+        long long answer=dfs(root,root->val);
+        return answer==LLONG_MAX?-1:answer;
+    }
+};

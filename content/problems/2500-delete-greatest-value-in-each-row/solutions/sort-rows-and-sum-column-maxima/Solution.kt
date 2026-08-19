@@ -1,1 +1,12 @@
-class Solution { fun deleteGreatestValue(grid:Array<IntArray>):Int{for(row in grid)row.sort();var answer=0;for(col in grid[0].indices){var maximum=0;for(row in grid)maximum=maxOf(maximum,row[col]);answer+=maximum};return answer} }
+class Solution {
+    fun deleteGreatestValue(grid:Array<IntArray>):Int{
+        for(row in grid)row.sort();
+        var answer=0;
+        for(col in grid[0].indices){
+            var maximum=0;
+            for(row in grid)maximum=maxOf(maximum,row[col]);
+            answer+=maximum
+        };
+        return answer
+    }
+}

@@ -1,1 +1,21 @@
-class Solution { fun gardenNoAdj(n:Int,paths:Array<IntArray>):IntArray{val graph=List(n){mutableListOf<Int>()};for(edge in paths){graph[edge[0]-1].add(edge[1]-1);graph[edge[1]-1].add(edge[0]-1)};val colors=IntArray(n);for(garden in 0 until n){val used=BooleanArray(5);for(neighbor in graph[garden])used[colors[neighbor]]=true;for(color in 1..4)if(!used[color]){colors[garden]=color;break}};return colors} }
+class Solution {
+    fun gardenNoAdj(n:Int,paths:Array<IntArray>):IntArray{
+        val graph=List(n){
+            mutableListOf<Int>()
+        };
+        for(edge in paths){
+            graph[edge[0]-1].add(edge[1]-1);
+            graph[edge[1]-1].add(edge[0]-1)
+        };
+        val colors=IntArray(n);
+        for(garden in 0 until n){
+            val used=BooleanArray(5);
+            for(neighbor in graph[garden])used[colors[neighbor]]=true;
+            for(color in 1..4)if(!used[color]){
+                colors[garden]=color;
+                break
+            }
+        };
+        return colors
+    }
+}

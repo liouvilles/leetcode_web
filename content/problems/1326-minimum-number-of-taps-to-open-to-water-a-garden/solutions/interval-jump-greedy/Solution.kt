@@ -1,1 +1,23 @@
-class Solution { fun minTaps(n:Int,ranges:IntArray):Int{val reach=IntArray(n+1);for(i in 0..n){val left=maxOf(0,i-ranges[i]);val right=minOf(n,i+ranges[i]);reach[left]=maxOf(reach[left],right)};var taps=0;var currentEnd=0;var farthest=0;for(position in 0 until n){farthest=maxOf(farthest,reach[position]);if(position==currentEnd){if(farthest<=position)return -1;taps++;currentEnd=farthest;if(currentEnd>=n)return taps}};return taps} }
+class Solution {
+    fun minTaps(n:Int,ranges:IntArray):Int{
+        val reach=IntArray(n+1);
+        for(i in 0..n){
+            val left=maxOf(0,i-ranges[i]);
+            val right=minOf(n,i+ranges[i]);
+            reach[left]=maxOf(reach[left],right)
+        };
+        var taps=0;
+        var currentEnd=0;
+        var farthest=0;
+        for(position in 0 until n){
+            farthest=maxOf(farthest,reach[position]);
+            if(position==currentEnd){
+                if(farthest<=position)return -1;
+                taps++;
+                currentEnd=farthest;
+                if(currentEnd>=n)return taps
+            }
+        };
+        return taps
+    }
+}

@@ -1,1 +1,31 @@
-class Solution { public long maximumSumOfHeights(int[] heights){int n=heights.length;long[] left=new long[n],right=new long[n];Deque<Integer> stack=new ArrayDeque<>();for(int i=0;i<n;i++){int height=heights[i];while(!stack.isEmpty()&&heights[stack.peek()]>height)stack.pop();if(stack.isEmpty())left[i]=(long)(i+1)*height;else{int previous=stack.peek();left[i]=left[previous]+(long)(i-previous)*height;}stack.push(i);}stack.clear();for(int i=n-1;i>=0;i--){int height=heights[i];while(!stack.isEmpty()&&heights[stack.peek()]>height)stack.pop();if(stack.isEmpty())right[i]=(long)(n-i)*height;else{int previous=stack.peek();right[i]=right[previous]+(long)(previous-i)*height;}stack.push(i);}long answer=0;for(int i=0;i<n;i++)answer=Math.max(answer,left[i]+right[i]-heights[i]);return answer;} }
+class Solution {
+    public long maximumSumOfHeights(int[] heights){
+        int n=heights.length;
+        long[] left=new long[n],right=new long[n];
+        Deque<Integer> stack=new ArrayDeque<>();
+        for(int i=0;i<n;i++){
+            int height=heights[i];
+            while(!stack.isEmpty()&&heights[stack.peek()]>height)stack.pop();
+            if(stack.isEmpty())left[i]=(long)(i+1)*height;
+            else{
+                int previous=stack.peek();
+                left[i]=left[previous]+(long)(i-previous)*height;
+            }
+            stack.push(i);
+        }
+        stack.clear();
+        for(int i=n-1;i>=0;i--){
+            int height=heights[i];
+            while(!stack.isEmpty()&&heights[stack.peek()]>height)stack.pop();
+            if(stack.isEmpty())right[i]=(long)(n-i)*height;
+            else{
+                int previous=stack.peek();
+                right[i]=right[previous]+(long)(previous-i)*height;
+            }
+            stack.push(i);
+        }
+        long answer=0;
+        for(int i=0;i<n;i++)answer=Math.max(answer,left[i]+right[i]-heights[i]);
+        return answer;
+    }
+}

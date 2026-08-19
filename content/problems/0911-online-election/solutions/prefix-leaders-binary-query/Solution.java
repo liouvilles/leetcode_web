@@ -1,1 +1,26 @@
-class TopVotedCandidate { private final int[] times,leaders;public TopVotedCandidate(int[] persons,int[] times){this.times=times;leaders=new int[persons.length];Map<Integer,Integer> counts=new HashMap<>();int leader=-1,leaderVotes=0;for(int i=0;i<persons.length;i++){int votes=counts.merge(persons[i],1,Integer::sum);if(votes>=leaderVotes){leader=persons[i];leaderVotes=votes;}leaders[i]=leader;}}public int q(int t){int low=0,high=times.length;while(low<high){int middle=low+(high-low)/2;if(times[middle]<=t)low=middle+1;else high=middle;}return leaders[low-1];} }
+class TopVotedCandidate {
+    private final int[] times,leaders;
+    public TopVotedCandidate(int[] persons,int[] times){
+        this.times=times;
+        leaders=new int[persons.length];
+        Map<Integer,Integer> counts=new HashMap<>();
+        int leader=-1,leaderVotes=0;
+        for(int i=0;i<persons.length;i++){
+            int votes=counts.merge(persons[i],1,Integer::sum);
+            if(votes>=leaderVotes){
+                leader=persons[i];
+                leaderVotes=votes;
+            }
+            leaders[i]=leader;
+        }
+    }
+    public int q(int t){
+        int low=0,high=times.length;
+        while(low<high){
+            int middle=low+(high-low)/2;
+            if(times[middle]<=t)low=middle+1;
+            else high=middle;
+        }
+        return leaders[low-1];
+    }
+}

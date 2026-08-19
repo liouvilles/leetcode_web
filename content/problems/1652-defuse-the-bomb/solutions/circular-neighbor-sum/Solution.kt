@@ -1,1 +1,9 @@
-class Solution { fun decrypt(code:IntArray,k:Int):IntArray{val answer=IntArray(code.size);if(k==0)return answer;val direction=if(k>0)1 else -1;for(i in code.indices)for(step in 1..kotlin.math.abs(k))answer[i]+=code[(i+direction*step+code.size)%code.size];return answer} }
+class Solution {
+    fun decrypt(code:IntArray,k:Int):IntArray{
+        val answer=IntArray(code.size);
+        if(k==0)return answer;
+        val direction=if(k>0)1 else -1;
+        for(i in code.indices)for(step in 1..kotlin.math.abs(k))answer[i]+=code[(i+direction*step+code.size)%code.size];
+        return answer
+    }
+}

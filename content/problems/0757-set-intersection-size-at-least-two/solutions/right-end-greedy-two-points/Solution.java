@@ -1,1 +1,18 @@
-class Solution { public int intersectionSizeTwo(int[][] intervals){Arrays.sort(intervals,(a,b)->a[1]!=b[1]?Integer.compare(a[1],b[1]):Integer.compare(b[0],a[0]));int first=-1,second=-1,answer=0;for(int[] interval:intervals){if(interval[0]>second){answer+=2;first=interval[1]-1;second=interval[1];}else if(interval[0]>first){answer++;first=second;second=interval[1];}}return answer;} }
+class Solution {
+    public int intersectionSizeTwo(int[][] intervals){
+        Arrays.sort(intervals,(a,b)->a[1]!=b[1]?Integer.compare(a[1],b[1]):Integer.compare(b[0],a[0]));
+        int first=-1,second=-1,answer=0;
+        for(int[] interval:intervals){
+            if(interval[0]>second){
+                answer+=2;
+                first=interval[1]-1;
+                second=interval[1];
+            }else if(interval[0]>first){
+                answer++;
+                first=second;
+                second=interval[1];
+            }
+        }
+        return answer;
+    }
+}

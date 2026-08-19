@@ -1,1 +1,26 @@
-class Solution { public int findCircleNum(int[][] isConnected){int n=isConnected.length;int[] parent=new int[n],rank=new int[n];for(int i=0;i<n;i++)parent[i]=i;int components=n;for(int i=0;i<n;i++)for(int j=i+1;j<n;j++)if(isConnected[i][j]==1){int a=find(parent,i),b=find(parent,j);if(a!=b){if(rank[a]<rank[b]){int value=a;a=b;b=value;}parent[b]=a;if(rank[a]==rank[b])rank[a]++;components--;}}return components;}private int find(int[] parent,int value){if(parent[value]!=value)parent[value]=find(parent,parent[value]);return parent[value];} }
+class Solution {
+    public int findCircleNum(int[][] isConnected){
+        int n=isConnected.length;
+        int[] parent=new int[n],rank=new int[n];
+        for(int i=0;i<n;i++)parent[i]=i;
+        int components=n;
+        for(int i=0;i<n;i++)for(int j=i+1;j<n;j++)if(isConnected[i][j]==1){
+            int a=find(parent,i),b=find(parent,j);
+            if(a!=b){
+                if(rank[a]<rank[b]){
+                    int value=a;
+                    a=b;
+                    b=value;
+                }
+                parent[b]=a;
+                if(rank[a]==rank[b])rank[a]++;
+                components--;
+            }
+        }
+        return components;
+    }
+    private int find(int[] parent,int value){
+        if(parent[value]!=value)parent[value]=find(parent,parent[value]);
+        return parent[value];
+    }
+}

@@ -1,1 +1,21 @@
-class Solution { fun mincostToHireWorkers(quality:IntArray,wage:IntArray,k:Int):Double{val workers=quality.indices.map{wage[it].toDouble()/quality[it] to quality[it]}.sortedBy{it.first};val heap=java.util.PriorityQueue<Int>(compareByDescending{it});var total=0;var answer=Double.MAX_VALUE;for(worker in workers){heap.add(worker.second);total+=worker.second;if(heap.size>k)total-=heap.remove();if(heap.size==k)answer=minOf(answer,total*worker.first)};return answer} }
+class Solution {
+    fun mincostToHireWorkers(quality:IntArray,wage:IntArray,k:Int):Double{
+        val workers=quality.indices.map{
+            wage[it].toDouble()/quality[it] to quality[it]
+        }.sortedBy{
+            it.first
+        };
+        val heap=java.util.PriorityQueue<Int>(compareByDescending{
+            it
+        });
+        var total=0;
+        var answer=Double.MAX_VALUE;
+        for(worker in workers){
+            heap.add(worker.second);
+            total+=worker.second;
+            if(heap.size>k)total-=heap.remove();
+            if(heap.size==k)answer=minOf(answer,total*worker.first)
+        };
+        return answer
+    }
+}

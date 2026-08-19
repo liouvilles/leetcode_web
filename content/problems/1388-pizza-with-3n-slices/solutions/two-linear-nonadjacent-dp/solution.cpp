@@ -1,1 +1,17 @@
-class Solution { int solve(vector<int>& slices,int start,int end,int picks){int length=end-start+1,negative=-1000000000;vector<vector<int>> dp(length+1,vector<int>(picks+1,negative));for(int i=0;i<=length;++i)dp[i][0]=0;for(int i=1;i<=length;++i)for(int chosen=1;chosen<=picks;++chosen){dp[i][chosen]=dp[i-1][chosen];int previous=dp[max(0,i-2)][chosen-1];if(previous!=negative)dp[i][chosen]=max(dp[i][chosen],previous+slices[start+i-1]);}return dp[length][picks];}public:int maxSizeSlices(vector<int>& slices){int picks=slices.size()/3;return max(solve(slices,0,slices.size()-2,picks),solve(slices,1,slices.size()-1,picks));} };
+class Solution {
+    int solve(vector<int>& slices,int start,int end,int picks){
+        int length=end-start+1,negative=-1000000000;
+        vector<vector<int>> dp(length+1,vector<int>(picks+1,negative));
+        for(int i=0;i<=length;++i)dp[i][0]=0;
+        for(int i=1;i<=length;++i)for(int chosen=1;chosen<=picks;++chosen){
+            dp[i][chosen]=dp[i-1][chosen];
+            int previous=dp[max(0,i-2)][chosen-1];
+            if(previous!=negative)dp[i][chosen]=max(dp[i][chosen],previous+slices[start+i-1]);
+        }
+        return dp[length][picks];
+    }
+    public:int maxSizeSlices(vector<int>& slices){
+        int picks=slices.size()/3;
+        return max(solve(slices,0,slices.size()-2,picks),solve(slices,1,slices.size()-1,picks));
+    }
+};

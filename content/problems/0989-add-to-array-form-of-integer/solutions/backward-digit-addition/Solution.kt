@@ -1,1 +1,14 @@
-class Solution { fun addToArrayForm(num:IntArray,kInput:Int):List<Int>{var k=kInput;val digits=mutableListOf<Int>();var i=num.lastIndex;while(i>=0||k>0){if(i>=0)k+=num[i--];digits.add(k%10);k/=10};digits.reverse();return digits} }
+class Solution {
+    fun addToArrayForm(num:IntArray,kInput:Int):List<Int>{
+        var k=kInput;
+        val digits=mutableListOf<Int>();
+        var i=num.lastIndex;
+        while(i>=0||k>0){
+            if(i>=0)k+=num[i--];
+            digits.add(k%10);
+            k/=10
+        };
+        digits.reverse();
+        return digits
+    }
+}

@@ -1,1 +1,19 @@
-class Solution { public: int carFleet(int target,vector<int>& position,vector<int>& speed){vector<int> order(position.size());iota(order.begin(),order.end(),0);sort(order.begin(),order.end(),[&](int a,int b){return position[a]>position[b];});int fleets=0;double last=-1;for(int index:order){double time=(double)(target-position[index])/speed[index];if(time>last){++fleets;last=time;}}return fleets;} };
+class Solution {
+    public: int carFleet(int target,vector<int>& position,vector<int>& speed){
+        vector<int> order(position.size());
+        iota(order.begin(),order.end(),0);
+        sort(order.begin(),order.end(),[&](int a,int b){
+            return position[a]>position[b];
+        });
+        int fleets=0;
+        double last=-1;
+        for(int index:order){
+            double time=(double)(target-position[index])/speed[index];
+            if(time>last){
+                ++fleets;
+                last=time;
+            }
+        }
+        return fleets;
+    }
+};

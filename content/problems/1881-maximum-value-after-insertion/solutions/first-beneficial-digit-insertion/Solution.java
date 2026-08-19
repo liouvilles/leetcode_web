@@ -1,1 +1,9 @@
-class Solution { public String maxValue(String n,int x){int index=n.charAt(0)=='-'?1:0;if(n.charAt(0)=='-'){while(index<n.length()&&n.charAt(index)-'0'<=x)index++;}else while(index<n.length()&&n.charAt(index)-'0'>=x)index++;return n.substring(0,index)+x+n.substring(index);} }
+class Solution {
+    public String maxValue(String n,int x){
+        int index=n.charAt(0)=='-'?1:0;
+        if(n.charAt(0)=='-'){
+            while(index<n.length()&&n.charAt(index)-'0'<=x)index++;
+        }else while(index<n.length()&&n.charAt(index)-'0'>=x)index++;
+        return n.substring(0,index)+x+n.substring(index);
+    }
+}

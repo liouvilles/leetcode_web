@@ -1,1 +1,38 @@
-class Solution { companion object{const val MOD=1_000_000_007L};private fun power(baseValue:Long,exponentValue:Long):Long{var base=baseValue;var exponent=exponentValue;var answer=1L;while(exponent>0){if(exponent and 1L==1L)answer=answer*base%MOD;base=base*base%MOD;exponent=exponent shr 1};return answer};fun makeStringSorted(text:String):Int{val n=text.length;val factorial=LongArray(n+1);val inverse=LongArray(n+1);factorial[0]=1;for(i in 1..n)factorial[i]=factorial[i-1]*i%MOD;inverse[n]=power(factorial[n],MOD-2);for(i in n downTo 1)inverse[i-1]=inverse[i]*i%MOD;val count=IntArray(26);for(c in text)count[c-'a']++;var answer=0L;for(position in text.indices){var base=factorial[n-position-1];for(value in count)base=base*inverse[value]%MOD;val letter=text[position]-'a';var smaller=0;for(c in 0 until letter)smaller+=count[c];answer=(answer+base*smaller)%MOD;count[letter]--};return answer.toInt()} }
+class Solution {
+    companion object{
+        const val MOD=1_000_000_007L
+    };
+    private fun power(baseValue:Long,exponentValue:Long):Long{
+        var base=baseValue;
+        var exponent=exponentValue;
+        var answer=1L;
+        while(exponent>0){
+            if(exponent and 1L==1L)answer=answer*base%MOD;
+            base=base*base%MOD;
+            exponent=exponent shr 1
+        };
+        return answer
+    };
+    fun makeStringSorted(text:String):Int{
+        val n=text.length;
+        val factorial=LongArray(n+1);
+        val inverse=LongArray(n+1);
+        factorial[0]=1;
+        for(i in 1..n)factorial[i]=factorial[i-1]*i%MOD;
+        inverse[n]=power(factorial[n],MOD-2);
+        for(i in n downTo 1)inverse[i-1]=inverse[i]*i%MOD;
+        val count=IntArray(26);
+        for(c in text)count[c-'a']++;
+        var answer=0L;
+        for(position in text.indices){
+            var base=factorial[n-position-1];
+            for(value in count)base=base*inverse[value]%MOD;
+            val letter=text[position]-'a';
+            var smaller=0;
+            for(c in 0 until letter)smaller+=count[c];
+            answer=(answer+base*smaller)%MOD;
+            count[letter]--
+        };
+        return answer.toInt()
+    }
+}

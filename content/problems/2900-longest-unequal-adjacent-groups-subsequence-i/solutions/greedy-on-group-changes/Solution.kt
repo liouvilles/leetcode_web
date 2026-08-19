@@ -1,1 +1,11 @@
-class Solution { fun getLongestSubsequence(words:Array<String>,groups:IntArray):List<String>{val answer=mutableListOf(words[0]);var lastGroup=groups[0];for(i in 1 until words.size)if(groups[i]!=lastGroup){answer.add(words[i]);lastGroup=groups[i]};return answer} }
+class Solution {
+    fun getLongestSubsequence(words:Array<String>,groups:IntArray):List<String>{
+        val answer=mutableListOf(words[0]);
+        var lastGroup=groups[0];
+        for(i in 1 until words.size)if(groups[i]!=lastGroup){
+            answer.add(words[i]);
+            lastGroup=groups[i]
+        };
+        return answer
+    }
+}

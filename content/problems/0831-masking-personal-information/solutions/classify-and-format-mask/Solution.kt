@@ -1,1 +1,14 @@
-class Solution { fun maskPII(s:String):String{if('@' in s){val lower=s.lowercase();val at=lower.indexOf('@');return "${lower[0]}*****${lower[at-1]}${lower.substring(at)}"};val digits=s.filter{it.isDigit()};val country=digits.length-10;return(if(country>0)"+"+"*".repeat(country)+"-" else "")+"***-***-"+digits.takeLast(4)} }
+class Solution {
+    fun maskPII(s:String):String{
+        if('@' in s){
+            val lower=s.lowercase();
+            val at=lower.indexOf('@');
+            return "${lower[0]}*****${lower[at-1]}${lower.substring(at)}"
+        };
+        val digits=s.filter{
+            it.isDigit()
+        };
+        val country=digits.length-10;
+        return(if(country>0)"+"+"*".repeat(country)+"-" else "")+"***-***-"+digits.takeLast(4)
+    }
+}

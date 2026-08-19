@@ -1,1 +1,10 @@
-class Solution { public long putMarbles(int[] weights,int k){int[] boundaries=new int[weights.length-1];for(int i=0;i+1<weights.length;i++)boundaries[i]=weights[i]+weights[i+1];Arrays.sort(boundaries);long answer=0;for(int i=0;i<k-1;i++)answer+=(long)boundaries[boundaries.length-1-i]-boundaries[i];return answer;} }
+class Solution {
+    public long putMarbles(int[] weights,int k){
+        int[] boundaries=new int[weights.length-1];
+        for(int i=0;i+1<weights.length;i++)boundaries[i]=weights[i]+weights[i+1];
+        Arrays.sort(boundaries);
+        long answer=0;
+        for(int i=0;i<k-1;i++)answer+=(long)boundaries[boundaries.length-1-i]-boundaries[i];
+        return answer;
+    }
+}

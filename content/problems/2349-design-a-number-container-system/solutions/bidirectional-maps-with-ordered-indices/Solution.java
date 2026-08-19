@@ -1,1 +1,16 @@
-class NumberContainers { Map<Integer,Integer> indexToNumber=new HashMap<>();Map<Integer,TreeSet<Integer>> numberToIndices=new HashMap<>();public NumberContainers(){}public void change(int index,int number){Integer old=indexToNumber.get(index);if(old!=null)numberToIndices.get(old).remove(index);indexToNumber.put(index,number);numberToIndices.computeIfAbsent(number,key->new TreeSet<>()).add(index);}public int find(int number){TreeSet<Integer> indices=numberToIndices.get(number);return indices==null||indices.isEmpty()?-1:indices.first();} }
+class NumberContainers {
+    Map<Integer,Integer> indexToNumber=new HashMap<>();
+    Map<Integer,TreeSet<Integer>> numberToIndices=new HashMap<>();
+    public NumberContainers(){
+    }
+    public void change(int index,int number){
+        Integer old=indexToNumber.get(index);
+        if(old!=null)numberToIndices.get(old).remove(index);
+        indexToNumber.put(index,number);
+        numberToIndices.computeIfAbsent(number,key->new TreeSet<>()).add(index);
+    }
+    public int find(int number){
+        TreeSet<Integer> indices=numberToIndices.get(number);
+        return indices==null||indices.isEmpty()?-1:indices.first();
+    }
+}

@@ -1,1 +1,19 @@
-class Solution { fun countPrimes(n:Int):Int{val composite=BooleanArray(n);var p=2;while(p.toLong()*p<n){if(!composite[p]){var value=p*p;while(value<n){composite[value]=true;value+=p}};p++};var count=0;for(value in 2 until n)if(!composite[value])count++;return count} }
+class Solution {
+    fun countPrimes(n:Int):Int{
+        val composite=BooleanArray(n);
+        var p=2;
+        while(p.toLong()*p<n){
+            if(!composite[p]){
+                var value=p*p;
+                while(value<n){
+                    composite[value]=true;
+                    value+=p
+                }
+            };
+            p++
+        };
+        var count=0;
+        for(value in 2 until n)if(!composite[value])count++;
+        return count
+    }
+}

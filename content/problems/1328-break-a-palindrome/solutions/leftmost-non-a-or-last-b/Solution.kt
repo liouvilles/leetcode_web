@@ -1,1 +1,12 @@
-class Solution { fun breakPalindrome(palindrome:String):String{if(palindrome.length==1)return "";val chars=palindrome.toCharArray();for(i in 0 until chars.size/2)if(chars[i]!='a'){chars[i]='a';return chars.concatToString()};chars[chars.lastIndex]='b';return chars.concatToString()} }
+class Solution {
+    fun breakPalindrome(palindrome:String):String{
+        if(palindrome.length==1)return "";
+        val chars=palindrome.toCharArray();
+        for(i in 0 until chars.size/2)if(chars[i]!='a'){
+            chars[i]='a';
+            return chars.concatToString()
+        };
+        chars[chars.lastIndex]='b';
+        return chars.concatToString()
+    }
+}

@@ -1,1 +1,38 @@
-class Solution { public int earliestSecondToMarkIndices(int[] nums,int[] changeIndices){long base=nums.length;for(int value:nums)base+=value;int left=1,right=changeIndices.length+1;while(left<right){int middle=(left+right)/2;if(canFinish(nums,changeIndices,middle,base))right=middle;else left=middle+1;}return left==changeIndices.length+1?-1:left;}private boolean canFinish(int[] nums,int[] changeIndices,int seconds,long base){int[] first=new int[nums.length];Arrays.fill(first,-1);for(int time=seconds-1;time>=0;time--)first[changeIndices[time]-1]=time;PriorityQueue<Integer> chosen=new PriorityQueue<>();int available=0;long saved=0;for(int time=seconds-1;time>=0;time--){int index=changeIndices[time]-1,value=nums[index];if(time==first[index]&&value>1){if(available>0){available--;chosen.add(value);saved+=value-1L;}else if(!chosen.isEmpty()&&chosen.peek()<value){int removed=chosen.poll();saved-=removed-1L;available++;chosen.add(value);saved+=value-1L;}else available++;}else available++;}return base-saved<=seconds;} }
+class Solution {
+    public int earliestSecondToMarkIndices(int[] nums,int[] changeIndices){
+        long base=nums.length;
+        for(int value:nums)base+=value;
+        int left=1,right=changeIndices.length+1;
+        while(left<right){
+            int middle=(left+right)/2;
+            if(canFinish(nums,changeIndices,middle,base))right=middle;
+            else left=middle+1;
+        }
+        return left==changeIndices.length+1?-1:left;
+    }
+    private boolean canFinish(int[] nums,int[] changeIndices,int seconds,long base){
+        int[] first=new int[nums.length];
+        Arrays.fill(first,-1);
+        for(int time=seconds-1;time>=0;time--)first[changeIndices[time]-1]=time;
+        PriorityQueue<Integer> chosen=new PriorityQueue<>();
+        int available=0;
+        long saved=0;
+        for(int time=seconds-1;time>=0;time--){
+            int index=changeIndices[time]-1,value=nums[index];
+            if(time==first[index]&&value>1){
+                if(available>0){
+                    available--;
+                    chosen.add(value);
+                    saved+=value-1L;
+                }else if(!chosen.isEmpty()&&chosen.peek()<value){
+                    int removed=chosen.poll();
+                    saved-=removed-1L;
+                    available++;
+                    chosen.add(value);
+                    saved+=value-1L;
+                }else available++;
+            }else available++;
+        }
+        return base-saved<=seconds;
+    }
+}

@@ -1,1 +1,33 @@
-class Solution { private static final long BASE=911382323L;private String text;public String longestDupSubstring(String s){text=s;int low=1,high=s.length()-1,bestStart=-1,bestLength=0;while(low<=high){int length=(low+high)/2,start=search(length);if(start>=0){bestStart=start;bestLength=length;low=length+1;}else high=length-1;}return bestStart<0?"":s.substring(bestStart,bestStart+bestLength);}private int search(int length){long power=1,hash=0;for(int i=0;i<length;i++){power*=BASE;hash=hash*BASE+text.charAt(i);}Map<Long,List<Integer>> seen=new HashMap<>();seen.computeIfAbsent(hash,k->new ArrayList<>()).add(0);for(int start=1;start+length<=text.length();start++){hash=hash*BASE+text.charAt(start+length-1)-power*text.charAt(start-1);List<Integer> positions=seen.get(hash);if(positions!=null)for(int previous:positions)if(text.regionMatches(previous,text,start,length))return start;seen.computeIfAbsent(hash,k->new ArrayList<>()).add(start);}return -1;} }
+class Solution {
+    private static final long BASE=911382323L;
+    private String text;
+    public String longestDupSubstring(String s){
+        text=s;
+        int low=1,high=s.length()-1,bestStart=-1,bestLength=0;
+        while(low<=high){
+            int length=(low+high)/2,start=search(length);
+            if(start>=0){
+                bestStart=start;
+                bestLength=length;
+                low=length+1;
+            }else high=length-1;
+        }
+        return bestStart<0?"":s.substring(bestStart,bestStart+bestLength);
+    }
+    private int search(int length){
+        long power=1,hash=0;
+        for(int i=0;i<length;i++){
+            power*=BASE;
+            hash=hash*BASE+text.charAt(i);
+        }
+        Map<Long,List<Integer>> seen=new HashMap<>();
+        seen.computeIfAbsent(hash,k->new ArrayList<>()).add(0);
+        for(int start=1;start+length<=text.length();start++){
+            hash=hash*BASE+text.charAt(start+length-1)-power*text.charAt(start-1);
+            List<Integer> positions=seen.get(hash);
+            if(positions!=null)for(int previous:positions)if(text.regionMatches(previous,text,start,length))return start;
+            seen.computeIfAbsent(hash,k->new ArrayList<>()).add(start);
+        }
+        return -1;
+    }
+}

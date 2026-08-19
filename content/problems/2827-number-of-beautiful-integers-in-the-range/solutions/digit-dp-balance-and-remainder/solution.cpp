@@ -1,1 +1,38 @@
-class Solution { string digits;int divisor;unordered_map<long long,int> memo;long long key(int pos,int balance,int remainder,bool started){long long state=pos;state=state*(2*digits.size()+1)+balance+digits.size();state=state*divisor+remainder;return state*2+started;}int dfs(int pos,int balance,int remainder,bool started,bool tight){if(pos==(int)digits.size())return started&&balance==0&&remainder==0;long long state=key(pos,balance,remainder,started);if(!tight&&memo.count(state))return memo[state];int limit=tight?digits[pos]-'0':9,ways=0;for(int digit=0;digit<=limit;++digit){bool nextStarted=started||digit;int nextBalance=balance,nextRemainder=remainder;if(nextStarted){nextBalance+=digit%2==0?1:-1;nextRemainder=(remainder*10+digit)%divisor;}ways+=dfs(pos+1,nextBalance,nextRemainder,nextStarted,tight&&digit==limit);}if(!tight)memo[state]=ways;return ways;}int countUpTo(int bound){if(bound<=0)return 0;digits=to_string(bound);memo.clear();return dfs(0,0,0,false,true);}public:int numberOfBeautifulIntegers(int low,int high,int k){divisor=k;return countUpTo(high)-countUpTo(low-1);} };
+class Solution {
+    string digits;
+    int divisor;
+    unordered_map<long long,int> memo;
+    long long key(int pos,int balance,int remainder,bool started){
+        long long state=pos;
+        state=state*(2*digits.size()+1)+balance+digits.size();
+        state=state*divisor+remainder;
+        return state*2+started;
+    }
+    int dfs(int pos,int balance,int remainder,bool started,bool tight){
+        if(pos==(int)digits.size())return started&&balance==0&&remainder==0;
+        long long state=key(pos,balance,remainder,started);
+        if(!tight&&memo.count(state))return memo[state];
+        int limit=tight?digits[pos]-'0':9,ways=0;
+        for(int digit=0;digit<=limit;++digit){
+            bool nextStarted=started||digit;
+            int nextBalance=balance,nextRemainder=remainder;
+            if(nextStarted){
+                nextBalance+=digit%2==0?1:-1;
+                nextRemainder=(remainder*10+digit)%divisor;
+            }
+            ways+=dfs(pos+1,nextBalance,nextRemainder,nextStarted,tight&&digit==limit);
+        }
+        if(!tight)memo[state]=ways;
+        return ways;
+    }
+    int countUpTo(int bound){
+        if(bound<=0)return 0;
+        digits=to_string(bound);
+        memo.clear();
+        return dfs(0,0,0,false,true);
+    }
+    public:int numberOfBeautifulIntegers(int low,int high,int k){
+        divisor=k;
+        return countUpTo(high)-countUpTo(low-1);
+    }
+};

@@ -1,1 +1,12 @@
-class MyCalendar { map<int,int> bookings;public:MyCalendar(){}bool book(int startTime,int endTime){auto next=bookings.lower_bound(startTime);if(next!=bookings.end()&&next->first<endTime)return false;if(next!=bookings.begin()&&prev(next)->second>startTime)return false;bookings[startTime]=endTime;return true;} };
+class MyCalendar {
+    map<int,int> bookings;
+    public:MyCalendar(){
+    }
+    bool book(int startTime,int endTime){
+        auto next=bookings.lower_bound(startTime);
+        if(next!=bookings.end()&&next->first<endTime)return false;
+        if(next!=bookings.begin()&&prev(next)->second>startTime)return false;
+        bookings[startTime]=endTime;
+        return true;
+    }
+};

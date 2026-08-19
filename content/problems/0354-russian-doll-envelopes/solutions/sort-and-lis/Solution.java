@@ -1,1 +1,18 @@
-class Solution { public int maxEnvelopes(int[][] envelopes){Arrays.sort(envelopes,(a,b)->a[0]==b[0]?Integer.compare(b[1],a[1]):Integer.compare(a[0],b[0]));int[] tails=new int[envelopes.length];int size=0;for(int[] envelope:envelopes){int left=0,right=size;while(left<right){int middle=(left+right)/2;if(tails[middle]<envelope[1])left=middle+1;else right=middle;}tails[left]=envelope[1];if(left==size)size++;}return size;} }
+class Solution {
+    public int maxEnvelopes(int[][] envelopes){
+        Arrays.sort(envelopes,(a,b)->a[0]==b[0]?Integer.compare(b[1],a[1]):Integer.compare(a[0],b[0]));
+        int[] tails=new int[envelopes.length];
+        int size=0;
+        for(int[] envelope:envelopes){
+            int left=0,right=size;
+            while(left<right){
+                int middle=(left+right)/2;
+                if(tails[middle]<envelope[1])left=middle+1;
+                else right=middle;
+            }
+            tails[left]=envelope[1];
+            if(left==size)size++;
+        }
+        return size;
+    }
+}

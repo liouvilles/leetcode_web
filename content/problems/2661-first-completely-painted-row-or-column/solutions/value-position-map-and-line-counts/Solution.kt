@@ -1,1 +1,19 @@
-class Solution { fun firstCompleteIndex(arr:IntArray,mat:Array<IntArray>):Int{val rows=mat.size;val cols=mat[0].size;val position=HashMap<Int,Int>();for(row in 0 until rows)for(col in 0 until cols)position[mat[row][col]]=row*cols+col;val rowCount=IntArray(rows);val colCount=IntArray(cols);for(i in arr.indices){val encoded=position[arr[i]]!!;val row=encoded/cols;val col=encoded%cols;rowCount[row]++;colCount[col]++;if(rowCount[row]==cols||colCount[col]==rows)return i};return -1} }
+class Solution {
+    fun firstCompleteIndex(arr:IntArray,mat:Array<IntArray>):Int{
+        val rows=mat.size;
+        val cols=mat[0].size;
+        val position=HashMap<Int,Int>();
+        for(row in 0 until rows)for(col in 0 until cols)position[mat[row][col]]=row*cols+col;
+        val rowCount=IntArray(rows);
+        val colCount=IntArray(cols);
+        for(i in arr.indices){
+            val encoded=position[arr[i]]!!;
+            val row=encoded/cols;
+            val col=encoded%cols;
+            rowCount[row]++;
+            colCount[col]++;
+            if(rowCount[row]==cols||colCount[col]==rows)return i
+        };
+        return -1
+    }
+}

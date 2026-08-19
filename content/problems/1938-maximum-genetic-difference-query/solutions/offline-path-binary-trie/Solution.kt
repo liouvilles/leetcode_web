@@ -1,1 +1,66 @@
-class Solution { private lateinit var zero:IntArray;private lateinit var one:IntArray;private lateinit var count:IntArray;private var nodes=1;private fun update(value:Int,delta:Int){var node=0;count[node]+=delta;for(bit in 18 downTo 0){val direction=value shr bit and 1;var next=if(direction==0)zero[node] else one[node];if(next==0&&delta>0){next=nodes++;if(direction==0)zero[node]=next else one[node]=next};node=next;count[node]+=delta}};private fun best(value:Int):Int{var node=0;var answer=0;for(bit in 18 downTo 0){val direction=value shr bit and 1;val opposite=if(direction==0)one[node] else zero[node];if(opposite!=0&&count[opposite]>0){answer=answer or (1 shl bit);node=opposite}else node=if(direction==0)zero[node] else one[node]};return answer};fun maxGeneticDifference(parents:IntArray,queries:Array<IntArray>):IntArray{val n=parents.size;var root=0;val children=Array(n){mutableListOf<Int>()};val attached=Array(n){mutableListOf<IntArray>()};for(i in parents.indices)if(parents[i]<0)root=i else children[parents[i]].add(i);for(i in queries.indices)attached[queries[i][0]].add(intArrayOf(queries[i][1],i));val capacity=(n+1)*20;zero=IntArray(capacity);one=IntArray(capacity);count=IntArray(capacity);nodes=1;val answer=IntArray(queries.size);val stack=java.util.ArrayDeque<IntArray>();stack.push(intArrayOf(root,0));while(stack.isNotEmpty()){val event=stack.pop();val node=event[0];if(event[1]==1){update(node,-1);continue};update(node,1);for(query in attached[node])answer[query[1]]=best(query[0]);stack.push(intArrayOf(node,1));for(i in children[node].lastIndex downTo 0)stack.push(intArrayOf(children[node][i],0))};return answer} }
+class Solution {
+    private lateinit var zero:IntArray;
+    private lateinit var one:IntArray;
+    private lateinit var count:IntArray;
+    private var nodes=1;
+    private fun update(value:Int,delta:Int){
+        var node=0;
+        count[node]+=delta;
+        for(bit in 18 downTo 0){
+            val direction=value shr bit and 1;
+            var next=if(direction==0)zero[node] else one[node];
+            if(next==0&&delta>0){
+                next=nodes++;
+                if(direction==0)zero[node]=next else one[node]=next
+            };
+            node=next;
+            count[node]+=delta
+        }
+    };
+    private fun best(value:Int):Int{
+        var node=0;
+        var answer=0;
+        for(bit in 18 downTo 0){
+            val direction=value shr bit and 1;
+            val opposite=if(direction==0)one[node] else zero[node];
+            if(opposite!=0&&count[opposite]>0){
+                answer=answer or (1 shl bit);
+                node=opposite
+            }else node=if(direction==0)zero[node] else one[node]
+        };
+        return answer
+    };
+    fun maxGeneticDifference(parents:IntArray,queries:Array<IntArray>):IntArray{
+        val n=parents.size;
+        var root=0;
+        val children=Array(n){
+            mutableListOf<Int>()
+        };
+        val attached=Array(n){
+            mutableListOf<IntArray>()
+        };
+        for(i in parents.indices)if(parents[i]<0)root=i else children[parents[i]].add(i);
+        for(i in queries.indices)attached[queries[i][0]].add(intArrayOf(queries[i][1],i));
+        val capacity=(n+1)*20;
+        zero=IntArray(capacity);
+        one=IntArray(capacity);
+        count=IntArray(capacity);
+        nodes=1;
+        val answer=IntArray(queries.size);
+        val stack=java.util.ArrayDeque<IntArray>();
+        stack.push(intArrayOf(root,0));
+        while(stack.isNotEmpty()){
+            val event=stack.pop();
+            val node=event[0];
+            if(event[1]==1){
+                update(node,-1);
+                continue
+            };
+            update(node,1);
+            for(query in attached[node])answer[query[1]]=best(query[0]);
+            stack.push(intArrayOf(node,1));
+            for(i in children[node].lastIndex downTo 0)stack.push(intArrayOf(children[node][i],0))
+        };
+        return answer
+    }
+}

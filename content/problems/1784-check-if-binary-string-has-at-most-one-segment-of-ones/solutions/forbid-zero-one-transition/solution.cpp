@@ -1,1 +1,5 @@
-class Solution { public: bool checkOnesSegment(string text){return text.find("01")==string::npos;} };
+class Solution {
+    public: bool checkOnesSegment(string text){
+        return text.find("01")==string::npos;
+    }
+};

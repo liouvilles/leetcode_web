@@ -1,1 +1,40 @@
-class Solution { int find(vector<int>& parent,int node){while(parent[node]!=node){parent[node]=parent[parent[node]];node=parent[node];}return node;}void unite(vector<int>& parent,vector<int>& size,int first,int second){int a=find(parent,first),b=find(parent,second);if(a==b)return;if(size[a]<size[b])swap(a,b);parent[b]=a;size[a]+=size[b];}public:long long countPaths(int n,vector<vector<int>>& edges){vector<char> prime(n+1,true);prime[0]=prime[1]=false;for(int value=2;value*value<=n;++value)if(prime[value])for(int multiple=value*value;multiple<=n;multiple+=value)prime[multiple]=false;vector<vector<int>> graph(n+1);vector<int> parent(n+1),size(n+1,1);iota(parent.begin(),parent.end(),0);for(auto& edge:edges){int u=edge[0],v=edge[1];graph[u].push_back(v);graph[v].push_back(u);if(!prime[u]&&!prime[v])unite(parent,size,u,v);}long long answer=0;for(int node=2;node<=n;++node)if(prime[node]){long long connected=0;for(int next:graph[node])if(!prime[next]){long long component=size[find(parent,next)];answer+=component*(connected+1);connected+=component;}}return answer;} };
+class Solution {
+    int find(vector<int>& parent,int node){
+        while(parent[node]!=node){
+            parent[node]=parent[parent[node]];
+            node=parent[node];
+        }
+        return node;
+    }
+    void unite(vector<int>& parent,vector<int>& size,int first,int second){
+        int a=find(parent,first),b=find(parent,second);
+        if(a==b)return;
+        if(size[a]<size[b])swap(a,b);
+        parent[b]=a;
+        size[a]+=size[b];
+    }
+    public:long long countPaths(int n,vector<vector<int>>& edges){
+        vector<char> prime(n+1,true);
+        prime[0]=prime[1]=false;
+        for(int value=2;value*value<=n;++value)if(prime[value])for(int multiple=value*value;multiple<=n;multiple+=value)prime[multiple]=false;
+        vector<vector<int>> graph(n+1);
+        vector<int> parent(n+1),size(n+1,1);
+        iota(parent.begin(),parent.end(),0);
+        for(auto& edge:edges){
+            int u=edge[0],v=edge[1];
+            graph[u].push_back(v);
+            graph[v].push_back(u);
+            if(!prime[u]&&!prime[v])unite(parent,size,u,v);
+        }
+        long long answer=0;
+        for(int node=2;node<=n;++node)if(prime[node]){
+            long long connected=0;
+            for(int next:graph[node])if(!prime[next]){
+                long long component=size[find(parent,next)];
+                answer+=component*(connected+1);
+                connected+=component;
+            }
+        }
+        return answer;
+    }
+};

@@ -1,1 +1,10 @@
-class Solution { fun modifiedMatrix(matrix:Array<IntArray>):Array<IntArray>{for(column in matrix[0].indices){var maximum=0;for(row in matrix)maximum=maxOf(maximum,row[column]);for(row in matrix)if(row[column]==-1)row[column]=maximum};return matrix} }
+class Solution {
+    fun modifiedMatrix(matrix:Array<IntArray>):Array<IntArray>{
+        for(column in matrix[0].indices){
+            var maximum=0;
+            for(row in matrix)maximum=maxOf(maximum,row[column]);
+            for(row in matrix)if(row[column]==-1)row[column]=maximum
+        };
+        return matrix
+    }
+}

@@ -1,1 +1,7 @@
-class Solution { public int[] separateDigits(int[] nums){List<Integer> digits=new ArrayList<>();for(int value:nums)for(char character:String.valueOf(value).toCharArray())digits.add(character-'0');return digits.stream().mapToInt(Integer::intValue).toArray();} }
+class Solution {
+    public int[] separateDigits(int[] nums){
+        List<Integer> digits=new ArrayList<>();
+        for(int value:nums)for(char character:String.valueOf(value).toCharArray())digits.add(character-'0');
+        return digits.stream().mapToInt(Integer::intValue).toArray();
+    }
+}

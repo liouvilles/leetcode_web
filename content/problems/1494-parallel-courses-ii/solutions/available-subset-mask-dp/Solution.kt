@@ -1,1 +1,24 @@
-class Solution { fun minNumberOfSemesters(n:Int,relations:Array<IntArray>,k:Int):Int{val prerequisite=IntArray(n);for(relation in relations)prerequisite[relation[1]-1]=prerequisite[relation[1]-1]or(1 shl (relation[0]-1));val total=1 shl n;val dp=IntArray(total){100};dp[0]=0;for(mask in 0 until total){if(dp[mask]==100)continue;var available=0;for(course in 0 until n)if(mask and (1 shl course)==0&&prerequisite[course] and mask==prerequisite[course])available=available or(1 shl course);if(Integer.bitCount(available)<=k)dp[mask or available]=minOf(dp[mask or available],dp[mask]+1)else{var subset=available;while(subset>0){if(Integer.bitCount(subset)==k)dp[mask or subset]=minOf(dp[mask or subset],dp[mask]+1);subset=(subset-1)and available}}};return dp.last()} }
+class Solution {
+    fun minNumberOfSemesters(n:Int,relations:Array<IntArray>,k:Int):Int{
+        val prerequisite=IntArray(n);
+        for(relation in relations)prerequisite[relation[1]-1]=prerequisite[relation[1]-1]or(1 shl (relation[0]-1));
+        val total=1 shl n;
+        val dp=IntArray(total){
+            100
+        };
+        dp[0]=0;
+        for(mask in 0 until total){
+            if(dp[mask]==100)continue;
+            var available=0;
+            for(course in 0 until n)if(mask and (1 shl course)==0&&prerequisite[course] and mask==prerequisite[course])available=available or(1 shl course);
+            if(Integer.bitCount(available)<=k)dp[mask or available]=minOf(dp[mask or available],dp[mask]+1)else{
+                var subset=available;
+                while(subset>0){
+                    if(Integer.bitCount(subset)==k)dp[mask or subset]=minOf(dp[mask or subset],dp[mask]+1);
+                    subset=(subset-1)and available
+                }
+            }
+        };
+        return dp.last()
+    }
+}

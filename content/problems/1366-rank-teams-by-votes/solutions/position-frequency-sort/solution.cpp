@@ -1,1 +1,14 @@
-class Solution { public: string rankTeams(vector<string>& votes){int size=votes[0].size();int count[26][26]={};for(auto& vote:votes)for(int i=0;i<size;++i)++count[vote[i]-'A'][i];string teams=votes[0];sort(teams.begin(),teams.end(),[&](char a,char b){for(int i=0;i<size;++i)if(count[a-'A'][i]!=count[b-'A'][i])return count[a-'A'][i]>count[b-'A'][i];return a<b;});return teams;} };
+class Solution {
+    public: string rankTeams(vector<string>& votes){
+        int size=votes[0].size();
+        int count[26][26]={
+        };
+        for(auto& vote:votes)for(int i=0;i<size;++i)++count[vote[i]-'A'][i];
+        string teams=votes[0];
+        sort(teams.begin(),teams.end(),[&](char a,char b){
+            for(int i=0;i<size;++i)if(count[a-'A'][i]!=count[b-'A'][i])return count[a-'A'][i]>count[b-'A'][i];
+            return a<b;
+        });
+        return teams;
+    }
+};

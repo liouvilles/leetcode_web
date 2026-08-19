@@ -1,1 +1,12 @@
-class Solution { public: int maxSatisfied(vector<int>& customers,vector<int>& grumpy,int minutes){int baseline=0,recovery=0,best=0;for(int i=0;i<(int)customers.size();++i){if(grumpy[i]==0)baseline+=customers[i];else recovery+=customers[i];if(i>=minutes&&grumpy[i-minutes])recovery-=customers[i-minutes];best=max(best,recovery);}return baseline+best;} };
+class Solution {
+    public: int maxSatisfied(vector<int>& customers,vector<int>& grumpy,int minutes){
+        int baseline=0,recovery=0,best=0;
+        for(int i=0;i<(int)customers.size();++i){
+            if(grumpy[i]==0)baseline+=customers[i];
+            else recovery+=customers[i];
+            if(i>=minutes&&grumpy[i-minutes])recovery-=customers[i-minutes];
+            best=max(best,recovery);
+        }
+        return baseline+best;
+    }
+};

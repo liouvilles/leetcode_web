@@ -1,1 +1,14 @@
-class Solution { fun findMinArrowShots(points:Array<IntArray>):Int{points.sortWith(Comparator.comparingInt{it[1]});var arrows=1;var position=points[0][1].toLong();for(i in 1 until points.size)if(points[i][0]>position){arrows++;position=points[i][1].toLong()};return arrows} }
+class Solution {
+    fun findMinArrowShots(points:Array<IntArray>):Int{
+        points.sortWith(Comparator.comparingInt{
+            it[1]
+        });
+        var arrows=1;
+        var position=points[0][1].toLong();
+        for(i in 1 until points.size)if(points[i][0]>position){
+            arrows++;
+            position=points[i][1].toLong()
+        };
+        return arrows
+    }
+}

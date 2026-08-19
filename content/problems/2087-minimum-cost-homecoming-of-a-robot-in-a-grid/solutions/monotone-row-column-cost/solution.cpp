@@ -1,1 +1,13 @@
-class Solution { public: int minCost(vector<int>& startPos,vector<int>& homePos,vector<int>& rowCosts,vector<int>& colCosts){int answer=0,row=startPos[0],col=startPos[1];while(row!=homePos[0]){row+=row<homePos[0]?1:-1;answer+=rowCosts[row];}while(col!=homePos[1]){col+=col<homePos[1]?1:-1;answer+=colCosts[col];}return answer;} };
+class Solution {
+    public: int minCost(vector<int>& startPos,vector<int>& homePos,vector<int>& rowCosts,vector<int>& colCosts){
+        int answer=0,row=startPos[0],col=startPos[1];
+        while(row!=homePos[0]){
+            row+=row<homePos[0]?1:-1;
+            answer+=rowCosts[row];
+        }while(col!=homePos[1]){
+            col+=col<homePos[1]?1:-1;
+            answer+=colCosts[col];
+        }
+        return answer;
+    }
+};

@@ -1,1 +1,13 @@
-class Solution { public int minNumberOfHours(int initialEnergy,int initialExperience,int[] energy,int[] experience){int training=Math.max(0,Arrays.stream(energy).sum()+1-initialEnergy),current=initialExperience;for(int opponent:experience){if(current<=opponent){training+=opponent+1-current;current=opponent+1;}current+=opponent;}return training;} }
+class Solution {
+    public int minNumberOfHours(int initialEnergy,int initialExperience,int[] energy,int[] experience){
+        int training=Math.max(0,Arrays.stream(energy).sum()+1-initialEnergy),current=initialExperience;
+        for(int opponent:experience){
+            if(current<=opponent){
+                training+=opponent+1-current;
+                current=opponent+1;
+            }
+            current+=opponent;
+        }
+        return training;
+    }
+}

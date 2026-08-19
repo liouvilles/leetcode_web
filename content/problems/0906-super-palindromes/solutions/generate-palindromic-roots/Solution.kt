@@ -1,1 +1,20 @@
-class Solution { fun superpalindromesInRange(left:String,right:String):Int{val low=left.toLong();val high=right.toLong();var answer=0;for(prefix in 1..100000){val text=prefix.toString();answer+=check((text+text.dropLast(1).reversed()).toLong(),low,high);answer+=check((text+text.reversed()).toLong(),low,high)};return answer};private fun check(root:Long,low:Long,high:Long):Int{if(root>3037000499L)return 0;val square=root*root;if(square !in low..high)return 0;val text=square.toString();return if(text==text.reversed())1 else 0} }
+class Solution {
+    fun superpalindromesInRange(left:String,right:String):Int{
+        val low=left.toLong();
+        val high=right.toLong();
+        var answer=0;
+        for(prefix in 1..100000){
+            val text=prefix.toString();
+            answer+=check((text+text.dropLast(1).reversed()).toLong(),low,high);
+            answer+=check((text+text.reversed()).toLong(),low,high)
+        };
+        return answer
+    };
+    private fun check(root:Long,low:Long,high:Long):Int{
+        if(root>3037000499L)return 0;
+        val square=root*root;
+        if(square !in low..high)return 0;
+        val text=square.toString();
+        return if(text==text.reversed())1 else 0
+    }
+}

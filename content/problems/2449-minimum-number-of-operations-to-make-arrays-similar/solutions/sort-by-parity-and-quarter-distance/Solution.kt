@@ -1,1 +1,15 @@
-class Solution { fun makeSimilar(nums:IntArray,target:IntArray):Long{var difference=0L;for(parity in 0..1){val a=nums.filter{it%2==parity}.sorted();val b=target.filter{it%2==parity}.sorted();for(i in a.indices)difference+=kotlin.math.abs(a[i].toLong()-b[i])};return difference/4} }
+class Solution {
+    fun makeSimilar(nums:IntArray,target:IntArray):Long{
+        var difference=0L;
+        for(parity in 0..1){
+            val a=nums.filter{
+                it%2==parity
+            }.sorted();
+            val b=target.filter{
+                it%2==parity
+            }.sorted();
+            for(i in a.indices)difference+=kotlin.math.abs(a[i].toLong()-b[i])
+        };
+        return difference/4
+    }
+}

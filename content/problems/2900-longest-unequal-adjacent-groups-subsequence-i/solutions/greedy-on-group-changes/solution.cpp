@@ -1,1 +1,13 @@
-class Solution { public:vector<string> getLongestSubsequence(vector<string>& words,vector<int>& groups){vector<string> answer{words[0]};int lastGroup=groups[0];for(int i=1;i<(int)words.size();++i)if(groups[i]!=lastGroup){answer.push_back(words[i]);lastGroup=groups[i];}return answer;} };
+class Solution {
+    public:vector<string> getLongestSubsequence(vector<string>& words,vector<int>& groups){
+        vector<string> answer{
+            words[0]
+        };
+        int lastGroup=groups[0];
+        for(int i=1;i<(int)words.size();++i)if(groups[i]!=lastGroup){
+            answer.push_back(words[i]);
+            lastGroup=groups[i];
+        }
+        return answer;
+    }
+};

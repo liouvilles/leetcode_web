@@ -1,1 +1,37 @@
-class Solution { public:int collectTheCoins(vector<int>& coins,vector<vector<int>>& edges){int n=coins.size();vector<vector<int>> graph(n);vector<int> degree(n);for(auto& edge:edges){graph[edge[0]].push_back(edge[1]);graph[edge[1]].push_back(edge[0]);++degree[edge[0]];++degree[edge[1]];}queue<int> pending;for(int node=0;node<n;++node)if(degree[node]==1&&!coins[node])pending.push(node);while(!pending.empty()){int node=pending.front();pending.pop();if(!degree[node])continue;degree[node]=0;for(int next:graph[node])if(degree[next]>0){--degree[next];if(degree[next]==1&&!coins[next])pending.push(next);}}for(int node=0;node<n;++node)if(degree[node]==1)pending.push(node);for(int round=0;round<2;++round)for(int size=pending.size();size--;){int node=pending.front();pending.pop();if(!degree[node])continue;degree[node]=0;for(int next:graph[node])if(degree[next]>0){--degree[next];if(degree[next]==1)pending.push(next);}}return accumulate(degree.begin(),degree.end(),0);} };
+class Solution {
+    public:int collectTheCoins(vector<int>& coins,vector<vector<int>>& edges){
+        int n=coins.size();
+        vector<vector<int>> graph(n);
+        vector<int> degree(n);
+        for(auto& edge:edges){
+            graph[edge[0]].push_back(edge[1]);
+            graph[edge[1]].push_back(edge[0]);
+            ++degree[edge[0]];
+            ++degree[edge[1]];
+        }
+        queue<int> pending;
+        for(int node=0;node<n;++node)if(degree[node]==1&&!coins[node])pending.push(node);
+        while(!pending.empty()){
+            int node=pending.front();
+            pending.pop();
+            if(!degree[node])continue;
+            degree[node]=0;
+            for(int next:graph[node])if(degree[next]>0){
+                --degree[next];
+                if(degree[next]==1&&!coins[next])pending.push(next);
+            }
+        }
+        for(int node=0;node<n;++node)if(degree[node]==1)pending.push(node);
+        for(int round=0;round<2;++round)for(int size=pending.size();size--;){
+            int node=pending.front();
+            pending.pop();
+            if(!degree[node])continue;
+            degree[node]=0;
+            for(int next:graph[node])if(degree[next]>0){
+                --degree[next];
+                if(degree[next]==1)pending.push(next);
+            }
+        }
+        return accumulate(degree.begin(),degree.end(),0);
+    }
+};

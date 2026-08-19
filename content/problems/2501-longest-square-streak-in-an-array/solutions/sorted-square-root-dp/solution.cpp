@@ -1,1 +1,14 @@
-class Solution { public:int longestSquareStreak(vector<int>& nums){sort(nums.begin(),nums.end());unordered_map<int,int> dp;int answer=1;for(int value:nums){int root=sqrt(value);int length=root*root==value&&dp.count(root)?dp[root]+1:1;dp[value]=length;answer=max(answer,length);}return answer>=2?answer:-1;} };
+class Solution {
+    public:int longestSquareStreak(vector<int>& nums){
+        sort(nums.begin(),nums.end());
+        unordered_map<int,int> dp;
+        int answer=1;
+        for(int value:nums){
+            int root=sqrt(value);
+            int length=root*root==value&&dp.count(root)?dp[root]+1:1;
+            dp[value]=length;
+            answer=max(answer,length);
+        }
+        return answer>=2?answer:-1;
+    }
+};

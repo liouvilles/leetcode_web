@@ -1,1 +1,14 @@
-class Solution { public int[][] findFarmland(int[][] land){List<int[]> answer=new ArrayList<>();for(int row=0;row<land.length;row++)for(int col=0;col<land[0].length;col++)if(land[row][col]==1&&(row==0||land[row-1][col]==0)&&(col==0||land[row][col-1]==0)){int bottom=row,right=col;while(bottom+1<land.length&&land[bottom+1][col]==1)bottom++;while(right+1<land[0].length&&land[row][right+1]==1)right++;answer.add(new int[]{row,col,bottom,right});}return answer.toArray(new int[0][]);} }
+class Solution {
+    public int[][] findFarmland(int[][] land){
+        List<int[]> answer=new ArrayList<>();
+        for(int row=0;row<land.length;row++)for(int col=0;col<land[0].length;col++)if(land[row][col]==1&&(row==0||land[row-1][col]==0)&&(col==0||land[row][col-1]==0)){
+            int bottom=row,right=col;
+            while(bottom+1<land.length&&land[bottom+1][col]==1)bottom++;
+            while(right+1<land[0].length&&land[row][right+1]==1)right++;
+            answer.add(new int[]{
+                row,col,bottom,right
+            });
+        }
+        return answer.toArray(new int[0][]);
+    }
+}

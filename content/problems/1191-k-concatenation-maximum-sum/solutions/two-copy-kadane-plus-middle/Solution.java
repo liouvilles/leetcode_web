@@ -1,1 +1,13 @@
-class Solution { public int kConcatenationMaxSum(int[] arr,int k){long total=0;for(int value:arr)total+=value;long ending=0,best=0;for(int copy=0;copy<Math.min(k,2);copy++)for(int value:arr){ending=Math.max(0,ending+value);best=Math.max(best,ending);}if(k>2&&total>0)best+=(long)(k-2)*total;return (int)(best%1000000007L);} }
+class Solution {
+    public int kConcatenationMaxSum(int[] arr,int k){
+        long total=0;
+        for(int value:arr)total+=value;
+        long ending=0,best=0;
+        for(int copy=0;copy<Math.min(k,2);copy++)for(int value:arr){
+            ending=Math.max(0,ending+value);
+            best=Math.max(best,ending);
+        }
+        if(k>2&&total>0)best+=(long)(k-2)*total;
+        return (int)(best%1000000007L);
+    }
+}

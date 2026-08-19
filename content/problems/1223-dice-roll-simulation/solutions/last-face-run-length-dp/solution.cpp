@@ -1,1 +1,17 @@
-class Solution { public: int dieSimulator(int n,vector<int>& rollMax){const long long MOD=1000000007;vector<vector<long long>> dp(6,vector<long long>(16));for(int face=0;face<6;++face)dp[face][1]=1;for(int length=2;length<=n;++length){vector<vector<long long>> next(6,vector<long long>(16));for(int face=0;face<6;++face)for(int run=1;run<=rollMax[face];++run)if(dp[face][run])for(int nextFace=0;nextFace<6;++nextFace)if(nextFace==face){if(run<rollMax[face])next[face][run+1]=(next[face][run+1]+dp[face][run])%MOD;}else next[nextFace][1]=(next[nextFace][1]+dp[face][run])%MOD;dp.swap(next);}long long answer=0;for(auto& face:dp)for(long long count:face)answer=(answer+count)%MOD;return answer;} };
+class Solution {
+    public: int dieSimulator(int n,vector<int>& rollMax){
+        const long long MOD=1000000007;
+        vector<vector<long long>> dp(6,vector<long long>(16));
+        for(int face=0;face<6;++face)dp[face][1]=1;
+        for(int length=2;length<=n;++length){
+            vector<vector<long long>> next(6,vector<long long>(16));
+            for(int face=0;face<6;++face)for(int run=1;run<=rollMax[face];++run)if(dp[face][run])for(int nextFace=0;nextFace<6;++nextFace)if(nextFace==face){
+                if(run<rollMax[face])next[face][run+1]=(next[face][run+1]+dp[face][run])%MOD;
+            }else next[nextFace][1]=(next[nextFace][1]+dp[face][run])%MOD;
+            dp.swap(next);
+        }
+        long long answer=0;
+        for(auto& face:dp)for(long long count:face)answer=(answer+count)%MOD;
+        return answer;
+    }
+};

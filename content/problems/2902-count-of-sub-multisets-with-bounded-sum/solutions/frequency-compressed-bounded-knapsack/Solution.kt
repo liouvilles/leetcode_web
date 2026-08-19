@@ -1,1 +1,26 @@
-class Solution { fun countSubMultisets(nums:List<Int>,l:Int,r:Int):Int{val mod=1000000007;val count=HashMap<Int,Int>();for(value in nums)count[value]=(count[value]?:0)+1;var dp=IntArray(r+1);dp[0]=(count[0]?:0)+1;for((value,copies) in count){if(value==0)continue;val next=IntArray(r+1);val removedDistance=(copies+1L)*value;for(sum in 0..r){var ways=dp[sum].toLong();if(sum>=value)ways+=next[sum-value];if(sum>=removedDistance)ways-=dp[(sum-removedDistance).toInt()];ways%=mod;if(ways<0)ways+=mod;next[sum]=ways.toInt()};dp=next};var answer=0L;for(sum in l..r)answer+=dp[sum];return (answer%mod).toInt()} }
+class Solution {
+    fun countSubMultisets(nums:List<Int>,l:Int,r:Int):Int{
+        val mod=1000000007;
+        val count=HashMap<Int,Int>();
+        for(value in nums)count[value]=(count[value]?:0)+1;
+        var dp=IntArray(r+1);
+        dp[0]=(count[0]?:0)+1;
+        for((value,copies) in count){
+            if(value==0)continue;
+            val next=IntArray(r+1);
+            val removedDistance=(copies+1L)*value;
+            for(sum in 0..r){
+                var ways=dp[sum].toLong();
+                if(sum>=value)ways+=next[sum-value];
+                if(sum>=removedDistance)ways-=dp[(sum-removedDistance).toInt()];
+                ways%=mod;
+                if(ways<0)ways+=mod;
+                next[sum]=ways.toInt()
+            };
+            dp=next
+        };
+        var answer=0L;
+        for(sum in l..r)answer+=dp[sum];
+        return (answer%mod).toInt()
+    }
+}

@@ -1,1 +1,19 @@
-class Solution { fun latestTimeCatchTheBus(buses:IntArray,passengers:IntArray,capacity:Int):Int{buses.sort();passengers.sort();var index=0;var candidate=0;for(busIndex in buses.indices){var boarded=0;while(index<passengers.size&&passengers[index]<=buses[busIndex]&&boarded<capacity){index++;boarded++};if(busIndex==buses.lastIndex)candidate=if(boarded<capacity)buses[busIndex] else passengers[index-1]-1};val occupied=passengers.toHashSet();while(candidate in occupied)candidate--;return candidate} }
+class Solution {
+    fun latestTimeCatchTheBus(buses:IntArray,passengers:IntArray,capacity:Int):Int{
+        buses.sort();
+        passengers.sort();
+        var index=0;
+        var candidate=0;
+        for(busIndex in buses.indices){
+            var boarded=0;
+            while(index<passengers.size&&passengers[index]<=buses[busIndex]&&boarded<capacity){
+                index++;
+                boarded++
+            };
+            if(busIndex==buses.lastIndex)candidate=if(boarded<capacity)buses[busIndex] else passengers[index-1]-1
+        };
+        val occupied=passengers.toHashSet();
+        while(candidate in occupied)candidate--;
+        return candidate
+    }
+}

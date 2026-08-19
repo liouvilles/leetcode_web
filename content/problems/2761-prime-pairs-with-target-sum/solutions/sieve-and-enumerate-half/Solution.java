@@ -1,1 +1,10 @@
-class Solution { public List<List<Integer>> findPrimePairs(int n){boolean[] prime=new boolean[n+1];for(int value=2;value<=n;value++)prime[value]=true;for(int value=2;value*value<=n;value++)if(prime[value])for(int multiple=value*value;multiple<=n;multiple+=value)prime[multiple]=false;List<List<Integer>> answer=new ArrayList<>();for(int first=2;first<=n/2;first++)if(prime[first]&&prime[n-first])answer.add(Arrays.asList(first,n-first));return answer;} }
+class Solution {
+    public List<List<Integer>> findPrimePairs(int n){
+        boolean[] prime=new boolean[n+1];
+        for(int value=2;value<=n;value++)prime[value]=true;
+        for(int value=2;value*value<=n;value++)if(prime[value])for(int multiple=value*value;multiple<=n;multiple+=value)prime[multiple]=false;
+        List<List<Integer>> answer=new ArrayList<>();
+        for(int first=2;first<=n/2;first++)if(prime[first]&&prime[n-first])answer.add(Arrays.asList(first,n-first));
+        return answer;
+    }
+}

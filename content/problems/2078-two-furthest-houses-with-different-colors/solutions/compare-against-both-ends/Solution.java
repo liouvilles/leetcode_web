@@ -1,1 +1,10 @@
-class Solution { public int maxDistance(int[] colors){int answer=0,n=colors.length;for(int i=0;i<n;i++){if(colors[i]!=colors[0])answer=Math.max(answer,i);if(colors[i]!=colors[n-1])answer=Math.max(answer,n-1-i);}return answer;} }
+class Solution {
+    public int maxDistance(int[] colors){
+        int answer=0,n=colors.length;
+        for(int i=0;i<n;i++){
+            if(colors[i]!=colors[0])answer=Math.max(answer,i);
+            if(colors[i]!=colors[n-1])answer=Math.max(answer,n-1-i);
+        }
+        return answer;
+    }
+}

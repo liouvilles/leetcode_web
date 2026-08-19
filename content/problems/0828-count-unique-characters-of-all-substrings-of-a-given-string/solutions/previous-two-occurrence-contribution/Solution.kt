@@ -1,1 +1,16 @@
-class Solution { fun uniqueLetterString(s:String):Int{val positions=Array(26){intArrayOf(-1,-1)};var answer=0;for(i in s.indices){val c=s[i]-'A';answer+=(positions[c][1]-positions[c][0])*(i-positions[c][1]);positions[c][0]=positions[c][1];positions[c][1]=i};for(position in positions)answer+=(position[1]-position[0])*(s.length-position[1]);return answer} }
+class Solution {
+    fun uniqueLetterString(s:String):Int{
+        val positions=Array(26){
+            intArrayOf(-1,-1)
+        };
+        var answer=0;
+        for(i in s.indices){
+            val c=s[i]-'A';
+            answer+=(positions[c][1]-positions[c][0])*(i-positions[c][1]);
+            positions[c][0]=positions[c][1];
+            positions[c][1]=i
+        };
+        for(position in positions)answer+=(position[1]-position[0])*(s.length-position[1]);
+        return answer
+    }
+}

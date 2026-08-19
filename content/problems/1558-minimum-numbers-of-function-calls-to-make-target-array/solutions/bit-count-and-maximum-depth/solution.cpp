@@ -1,1 +1,15 @@
-class Solution { public: int minOperations(vector<int>& nums){int increments=0,maximum=0;for(int value:nums){increments+=__builtin_popcount((unsigned)value);maximum=max(maximum,value);}int doublings=0;while(maximum>1){maximum>>=1;++doublings;}return increments+doublings;} };
+class Solution {
+    public: int minOperations(vector<int>& nums){
+        int increments=0,maximum=0;
+        for(int value:nums){
+            increments+=__builtin_popcount((unsigned)value);
+            maximum=max(maximum,value);
+        }
+        int doublings=0;
+        while(maximum>1){
+            maximum>>=1;
+            ++doublings;
+        }
+        return increments+doublings;
+    }
+};

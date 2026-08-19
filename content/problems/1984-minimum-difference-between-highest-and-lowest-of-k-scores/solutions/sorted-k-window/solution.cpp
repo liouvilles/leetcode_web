@@ -1,1 +1,8 @@
-class Solution { public: int minimumDifference(vector<int>& nums,int k){sort(nums.begin(),nums.end());int answer=INT_MAX;for(int right=k-1;right<(int)nums.size();++right)answer=min(answer,nums[right]-nums[right-k+1]);return answer;} };
+class Solution {
+    public: int minimumDifference(vector<int>& nums,int k){
+        sort(nums.begin(),nums.end());
+        int answer=INT_MAX;
+        for(int right=k-1;right<(int)nums.size();++right)answer=min(answer,nums[right]-nums[right-k+1]);
+        return answer;
+    }
+};

@@ -1,1 +1,25 @@
-class Solution { int batchSize;Map<Long,Integer> memo=new HashMap<>();private int dfs(long state,int current){if(state==0)return 0;long key=state*batchSize+current;if(memo.containsKey(key))return memo.get(key);int best=0;for(int remainder=1;remainder<batchSize;remainder++){int shift=(remainder-1)*5;if(((state>>shift)&31)==0)continue;best=Math.max(best,(current==0?1:0)+dfs(state-(1L<<shift),(current+remainder)%batchSize));}memo.put(key,best);return best;}public int maxHappyGroups(int batchSize,int[] groups){this.batchSize=batchSize;int[] count=new int[batchSize];for(int group:groups)count[group%batchSize]++;long state=0;for(int remainder=1;remainder<batchSize;remainder++)state|=(long)count[remainder]<<((remainder-1)*5);return count[0]+dfs(state,0);} }
+class Solution {
+    int batchSize;
+    Map<Long,Integer> memo=new HashMap<>();
+    private int dfs(long state,int current){
+        if(state==0)return 0;
+        long key=state*batchSize+current;
+        if(memo.containsKey(key))return memo.get(key);
+        int best=0;
+        for(int remainder=1;remainder<batchSize;remainder++){
+            int shift=(remainder-1)*5;
+            if(((state>>shift)&31)==0)continue;
+            best=Math.max(best,(current==0?1:0)+dfs(state-(1L<<shift),(current+remainder)%batchSize));
+        }
+        memo.put(key,best);
+        return best;
+    }
+    public int maxHappyGroups(int batchSize,int[] groups){
+        this.batchSize=batchSize;
+        int[] count=new int[batchSize];
+        for(int group:groups)count[group%batchSize]++;
+        long state=0;
+        for(int remainder=1;remainder<batchSize;remainder++)state|=(long)count[remainder]<<((remainder-1)*5);
+        return count[0]+dfs(state,0);
+    }
+}

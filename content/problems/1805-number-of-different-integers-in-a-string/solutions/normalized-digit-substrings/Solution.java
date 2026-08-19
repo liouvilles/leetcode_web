@@ -1,1 +1,17 @@
-class Solution { public int numDifferentIntegers(String word){Set<String> values=new HashSet<>();for(int index=0;index<word.length();){if(!Character.isDigit(word.charAt(index))){index++;continue;}int end=index;while(end<word.length()&&Character.isDigit(word.charAt(end)))end++;while(index<end&&word.charAt(index)=='0')index++;values.add(index==end?"0":word.substring(index,end));index=end;}return values.size();} }
+class Solution {
+    public int numDifferentIntegers(String word){
+        Set<String> values=new HashSet<>();
+        for(int index=0;index<word.length();){
+            if(!Character.isDigit(word.charAt(index))){
+                index++;
+                continue;
+            }
+            int end=index;
+            while(end<word.length()&&Character.isDigit(word.charAt(end)))end++;
+            while(index<end&&word.charAt(index)=='0')index++;
+            values.add(index==end?"0":word.substring(index,end));
+            index=end;
+        }
+        return values.size();
+    }
+}

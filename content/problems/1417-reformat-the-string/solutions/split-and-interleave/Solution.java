@@ -1,1 +1,14 @@
-class Solution { public String reformat(String text){StringBuilder letters=new StringBuilder(),digits=new StringBuilder();for(char value:text.toCharArray())if(Character.isDigit(value))digits.append(value);else letters.append(value);if(Math.abs(letters.length()-digits.length())>1)return "";StringBuilder first=letters.length()>=digits.length()?letters:digits,second=letters.length()>=digits.length()?digits:letters,answer=new StringBuilder();for(int i=0;i<first.length();i++){answer.append(first.charAt(i));if(i<second.length())answer.append(second.charAt(i));}return answer.toString();} }
+class Solution {
+    public String reformat(String text){
+        StringBuilder letters=new StringBuilder(),digits=new StringBuilder();
+        for(char value:text.toCharArray())if(Character.isDigit(value))digits.append(value);
+        else letters.append(value);
+        if(Math.abs(letters.length()-digits.length())>1)return "";
+        StringBuilder first=letters.length()>=digits.length()?letters:digits,second=letters.length()>=digits.length()?digits:letters,answer=new StringBuilder();
+        for(int i=0;i<first.length();i++){
+            answer.append(first.charAt(i));
+            if(i<second.length())answer.append(second.charAt(i));
+        }
+        return answer.toString();
+    }
+}

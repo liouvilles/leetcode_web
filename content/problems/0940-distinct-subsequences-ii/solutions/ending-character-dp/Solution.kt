@@ -1,1 +1,14 @@
-class Solution { fun distinctSubseqII(s:String):Int{val mod=1000000007L;var total=0L;val ending=LongArray(26);for(ch in s){val index=ch-'a';val next=(2*total+1-ending[index]+mod)%mod;ending[index]=(total+1)%mod;total=next};return total.toInt()} }
+class Solution {
+    fun distinctSubseqII(s:String):Int{
+        val mod=1000000007L;
+        var total=0L;
+        val ending=LongArray(26);
+        for(ch in s){
+            val index=ch-'a';
+            val next=(2*total+1-ending[index]+mod)%mod;
+            ending[index]=(total+1)%mod;
+            total=next
+        };
+        return total.toInt()
+    }
+}

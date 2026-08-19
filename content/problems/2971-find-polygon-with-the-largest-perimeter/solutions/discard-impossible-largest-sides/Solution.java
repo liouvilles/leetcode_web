@@ -1,1 +1,12 @@
-class Solution { public long largestPerimeter(int[] nums){Arrays.sort(nums);long perimeter=0;for(int value:nums)perimeter+=value;for(int index=nums.length-1;index>=2;index--){if(perimeter-nums[index]>nums[index])return perimeter;perimeter-=nums[index];}return -1;} }
+class Solution {
+    public long largestPerimeter(int[] nums){
+        Arrays.sort(nums);
+        long perimeter=0;
+        for(int value:nums)perimeter+=value;
+        for(int index=nums.length-1;index>=2;index--){
+            if(perimeter-nums[index]>nums[index])return perimeter;
+            perimeter-=nums[index];
+        }
+        return -1;
+    }
+}

@@ -1,1 +1,14 @@
-class Solution { int tilt=0;int sum(TreeNode* node){if(!node)return 0;int left=sum(node->left),right=sum(node->right);tilt+=abs(left-right);return left+right+node->val;}public:int findTilt(TreeNode* root){tilt=0;sum(root);return tilt;} };
+class Solution {
+    int tilt=0;
+    int sum(TreeNode* node){
+        if(!node)return 0;
+        int left=sum(node->left),right=sum(node->right);
+        tilt+=abs(left-right);
+        return left+right+node->val;
+    }
+    public:int findTilt(TreeNode* root){
+        tilt=0;
+        sum(root);
+        return tilt;
+    }
+};

@@ -1,1 +1,18 @@
-class Solution { private fun balanced(valueValue:Int):Boolean{var value=valueValue;val count=IntArray(10);while(value>0){count[value%10]++;value/=10};return (0..9).all{count[it]==0||count[it]==it}};fun nextBeautifulNumber(n:Int):Int{var value=n+1;while(!balanced(value))value++;return value} }
+class Solution {
+    private fun balanced(valueValue:Int):Boolean{
+        var value=valueValue;
+        val count=IntArray(10);
+        while(value>0){
+            count[value%10]++;
+            value/=10
+        };
+        return (0..9).all{
+            count[it]==0||count[it]==it
+        }
+    };
+    fun nextBeautifulNumber(n:Int):Int{
+        var value=n+1;
+        while(!balanced(value))value++;
+        return value
+    }
+}

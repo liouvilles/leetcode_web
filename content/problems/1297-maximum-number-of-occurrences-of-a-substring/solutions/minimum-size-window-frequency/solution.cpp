@@ -1,1 +1,13 @@
-class Solution { public: int maxFreq(string s,int maxLetters,int minSize,int maxSize){int frequency[26]={},left=0,distinct=0,answer=0;unordered_map<string,int> counts;for(int right=0;right<(int)s.size();++right){if(!frequency[s[right]-'a']++)++distinct;if(right-left+1>minSize)if(!--frequency[s[left++]-'a'])--distinct;if(right-left+1==minSize&&distinct<=maxLetters)answer=max(answer,++counts[s.substr(left,minSize)]);}return answer;} };
+class Solution {
+    public: int maxFreq(string s,int maxLetters,int minSize,int maxSize){
+        int frequency[26]={
+        },left=0,distinct=0,answer=0;
+        unordered_map<string,int> counts;
+        for(int right=0;right<(int)s.size();++right){
+            if(!frequency[s[right]-'a']++)++distinct;
+            if(right-left+1>minSize)if(!--frequency[s[left++]-'a'])--distinct;
+            if(right-left+1==minSize&&distinct<=maxLetters)answer=max(answer,++counts[s.substr(left,minSize)]);
+        }
+        return answer;
+    }
+};

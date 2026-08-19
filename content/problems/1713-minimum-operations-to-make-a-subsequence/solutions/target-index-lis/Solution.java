@@ -1,1 +1,18 @@
-class Solution { public int minOperations(int[] target,int[] arr){Map<Integer,Integer> index=new HashMap<>();for(int i=0;i<target.length;i++)index.put(target[i],i);List<Integer> tails=new ArrayList<>();for(int value:arr)if(index.containsKey(value)){int position=index.get(value),left=0,right=tails.size();while(left<right){int mid=(left+right)>>>1;if(tails.get(mid)<position)left=mid+1;else right=mid;}if(left==tails.size())tails.add(position);else tails.set(left,position);}return target.length-tails.size();} }
+class Solution {
+    public int minOperations(int[] target,int[] arr){
+        Map<Integer,Integer> index=new HashMap<>();
+        for(int i=0;i<target.length;i++)index.put(target[i],i);
+        List<Integer> tails=new ArrayList<>();
+        for(int value:arr)if(index.containsKey(value)){
+            int position=index.get(value),left=0,right=tails.size();
+            while(left<right){
+                int mid=(left+right)>>>1;
+                if(tails.get(mid)<position)left=mid+1;
+                else right=mid;
+            }
+            if(left==tails.size())tails.add(position);
+            else tails.set(left,position);
+        }
+        return target.length-tails.size();
+    }
+}

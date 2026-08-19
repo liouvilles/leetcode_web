@@ -1,1 +1,23 @@
-class Solution { public:vector<int> goodSubsetofBinaryMatrix(vector<vector<int>>& grid){int cols=grid[0].size(),limit=1<<cols;vector<int> first(limit,-1);for(int row=0;row<(int)grid.size();++row){int mask=0;for(int col=0;col<cols;++col)mask|=grid[row][col]<<col;if(mask==0)return {row};if(first[mask]==-1)first[mask]=row;}for(int a=1;a<limit;++a)if(first[a]!=-1)for(int b=a+1;b<limit;++b)if(first[b]!=-1&&(a&b)==0){int x=first[a],y=first[b];if(x>y)swap(x,y);return {x,y};}return {};} };
+class Solution {
+    public:vector<int> goodSubsetofBinaryMatrix(vector<vector<int>>& grid){
+        int cols=grid[0].size(),limit=1<<cols;
+        vector<int> first(limit,-1);
+        for(int row=0;row<(int)grid.size();++row){
+            int mask=0;
+            for(int col=0;col<cols;++col)mask|=grid[row][col]<<col;
+            if(mask==0)return {
+                row
+            };
+            if(first[mask]==-1)first[mask]=row;
+        }
+        for(int a=1;a<limit;++a)if(first[a]!=-1)for(int b=a+1;b<limit;++b)if(first[b]!=-1&&(a&b)==0){
+            int x=first[a],y=first[b];
+            if(x>y)swap(x,y);
+            return {
+                x,y
+            };
+        }
+        return {
+        };
+    }
+};

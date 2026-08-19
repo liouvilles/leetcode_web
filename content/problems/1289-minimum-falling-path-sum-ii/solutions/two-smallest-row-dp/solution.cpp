@@ -1,1 +1,19 @@
-class Solution { public: int minFallingPathSum(vector<vector<int>>& grid){int n=grid.size();if(n==1)return grid[0][0];vector<int> dp=grid[0];for(int row=1;row<n;++row){int first=INT_MAX,second=INT_MAX,firstColumn=-1;for(int column=0;column<n;++column)if(dp[column]<first){second=first;first=dp[column];firstColumn=column;}else if(dp[column]<second)second=dp[column];vector<int> next(n);for(int column=0;column<n;++column)next[column]=grid[row][column]+(column==firstColumn?second:first);dp.swap(next);}return *min_element(dp.begin(),dp.end());} };
+class Solution {
+    public: int minFallingPathSum(vector<vector<int>>& grid){
+        int n=grid.size();
+        if(n==1)return grid[0][0];
+        vector<int> dp=grid[0];
+        for(int row=1;row<n;++row){
+            int first=INT_MAX,second=INT_MAX,firstColumn=-1;
+            for(int column=0;column<n;++column)if(dp[column]<first){
+                second=first;
+                first=dp[column];
+                firstColumn=column;
+            }else if(dp[column]<second)second=dp[column];
+            vector<int> next(n);
+            for(int column=0;column<n;++column)next[column]=grid[row][column]+(column==firstColumn?second:first);
+            dp.swap(next);
+        }
+        return *min_element(dp.begin(),dp.end());
+    }
+};

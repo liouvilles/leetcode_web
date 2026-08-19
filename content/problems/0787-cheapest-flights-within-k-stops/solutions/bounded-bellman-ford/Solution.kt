@@ -1,1 +1,15 @@
-class Solution { fun findCheapestPrice(n:Int,flights:Array<IntArray>,src:Int,dst:Int,k:Int):Int{val infinity=1000000000;var cost=IntArray(n){infinity};cost[src]=0;for(step in 0..k){val next=cost.copyOf();for(flight in flights)if(cost[flight[0]]<infinity)next[flight[1]]=minOf(next[flight[1]],cost[flight[0]]+flight[2]);cost=next};return if(cost[dst]==infinity)-1 else cost[dst]} }
+class Solution {
+    fun findCheapestPrice(n:Int,flights:Array<IntArray>,src:Int,dst:Int,k:Int):Int{
+        val infinity=1000000000;
+        var cost=IntArray(n){
+            infinity
+        };
+        cost[src]=0;
+        for(step in 0..k){
+            val next=cost.copyOf();
+            for(flight in flights)if(cost[flight[0]]<infinity)next[flight[1]]=minOf(next[flight[1]],cost[flight[0]]+flight[2]);
+            cost=next
+        };
+        return if(cost[dst]==infinity)-1 else cost[dst]
+    }
+}

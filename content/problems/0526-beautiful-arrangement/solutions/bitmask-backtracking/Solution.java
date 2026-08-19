@@ -1,1 +1,16 @@
-class Solution { private int n;public int countArrangement(int n){this.n=n;return dfs(1,0);}private int dfs(int position,int used){if(position>n)return 1;int count=0;for(int value=1;value<=n;value++){int bit=1<<(value-1);if((used&bit)==0&&(value%position==0||position%value==0))count+=dfs(position+1,used|bit);}return count;} }
+class Solution {
+    private int n;
+    public int countArrangement(int n){
+        this.n=n;
+        return dfs(1,0);
+    }
+    private int dfs(int position,int used){
+        if(position>n)return 1;
+        int count=0;
+        for(int value=1;value<=n;value++){
+            int bit=1<<(value-1);
+            if((used&bit)==0&&(value%position==0||position%value==0))count+=dfs(position+1,used|bit);
+        }
+        return count;
+    }
+}

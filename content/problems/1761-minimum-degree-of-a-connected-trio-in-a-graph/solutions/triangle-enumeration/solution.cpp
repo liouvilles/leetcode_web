@@ -1,1 +1,15 @@
-class Solution { public: int minTrioDegree(int n,vector<vector<int>>& edges){vector<int> degree(n);vector<vector<bool>> connected(n,vector<bool>(n));for(auto& edge:edges){int a=edge[0]-1,b=edge[1]-1;++degree[a];++degree[b];connected[a][b]=connected[b][a]=true;}int answer=INT_MAX;for(int first=0;first<n;++first)for(int second=first+1;second<n;++second)if(connected[first][second])for(int third=second+1;third<n;++third)if(connected[first][third]&&connected[second][third])answer=min(answer,degree[first]+degree[second]+degree[third]-6);return answer==INT_MAX?-1:answer;} };
+class Solution {
+    public: int minTrioDegree(int n,vector<vector<int>>& edges){
+        vector<int> degree(n);
+        vector<vector<bool>> connected(n,vector<bool>(n));
+        for(auto& edge:edges){
+            int a=edge[0]-1,b=edge[1]-1;
+            ++degree[a];
+            ++degree[b];
+            connected[a][b]=connected[b][a]=true;
+        }
+        int answer=INT_MAX;
+        for(int first=0;first<n;++first)for(int second=first+1;second<n;++second)if(connected[first][second])for(int third=second+1;third<n;++third)if(connected[first][third]&&connected[second][third])answer=min(answer,degree[first]+degree[second]+degree[third]-6);
+        return answer==INT_MAX?-1:answer;
+    }
+};

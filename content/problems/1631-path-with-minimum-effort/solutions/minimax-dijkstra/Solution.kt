@@ -1,1 +1,36 @@
-class Solution { fun minimumEffortPath(heights:Array<IntArray>):Int{val rows=heights.size;val cols=heights[0].size;val effort=Array(rows){IntArray(cols){Int.MAX_VALUE}};val queue=java.util.PriorityQueue<IntArray>(compareBy{it[0]});effort[0][0]=0;queue.add(intArrayOf(0,0,0));val directions=arrayOf(intArrayOf(1,0),intArrayOf(-1,0),intArrayOf(0,1),intArrayOf(0,-1));while(queue.isNotEmpty()){val state=queue.remove();val cost=state[0];val row=state[1];val col=state[2];if(cost!=effort[row][col])continue;if(row==rows-1&&col==cols-1)return cost;for(direction in directions){val nextRow=row+direction[0];val nextCol=col+direction[1];if(nextRow !in 0 until rows||nextCol !in 0 until cols)continue;val candidate=maxOf(cost,kotlin.math.abs(heights[row][col]-heights[nextRow][nextCol]));if(candidate<effort[nextRow][nextCol]){effort[nextRow][nextCol]=candidate;queue.add(intArrayOf(candidate,nextRow,nextCol))}}};return 0} }
+class Solution {
+    fun minimumEffortPath(heights:Array<IntArray>):Int{
+        val rows=heights.size;
+        val cols=heights[0].size;
+        val effort=Array(rows){
+            IntArray(cols){
+                Int.MAX_VALUE
+            }
+        };
+        val queue=java.util.PriorityQueue<IntArray>(compareBy{
+            it[0]
+        });
+        effort[0][0]=0;
+        queue.add(intArrayOf(0,0,0));
+        val directions=arrayOf(intArrayOf(1,0),intArrayOf(-1,0),intArrayOf(0,1),intArrayOf(0,-1));
+        while(queue.isNotEmpty()){
+            val state=queue.remove();
+            val cost=state[0];
+            val row=state[1];
+            val col=state[2];
+            if(cost!=effort[row][col])continue;
+            if(row==rows-1&&col==cols-1)return cost;
+            for(direction in directions){
+                val nextRow=row+direction[0];
+                val nextCol=col+direction[1];
+                if(nextRow !in 0 until rows||nextCol !in 0 until cols)continue;
+                val candidate=maxOf(cost,kotlin.math.abs(heights[row][col]-heights[nextRow][nextCol]));
+                if(candidate<effort[nextRow][nextCol]){
+                    effort[nextRow][nextCol]=candidate;
+                    queue.add(intArrayOf(candidate,nextRow,nextCol))
+                }
+            }
+        };
+        return 0
+    }
+}

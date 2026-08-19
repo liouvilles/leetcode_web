@@ -1,1 +1,41 @@
-class SORTracker { struct Place{string name;int score;};struct Better{bool operator()(const Place& a,const Place& b)const{return a.score!=b.score?a.score<b.score:a.name>b.name;}};struct Worse{bool operator()(const Place& a,const Place& b)const{return a.score!=b.score?a.score>b.score:a.name<b.name;}};priority_queue<Place,vector<Place>,Worse> selected;priority_queue<Place,vector<Place>,Better> remaining;bool isBetter(const Place& a,const Place& b){return a.score!=b.score?a.score>b.score:a.name<b.name;}public: SORTracker(){}void add(string name,int score){remaining.push({name,score});if(!selected.empty()&&isBetter(remaining.top(),selected.top())){Place best=remaining.top(),worst=selected.top();remaining.pop();selected.pop();remaining.push(worst);selected.push(best);}}string get(){Place next=remaining.top();remaining.pop();selected.push(next);return next.name;} };
+class SORTracker {
+    struct Place{
+        string name;
+        int score;
+    };
+    struct Better{
+        bool operator()(const Place& a,const Place& b)const{
+            return a.score!=b.score?a.score<b.score:a.name>b.name;
+        }
+    };
+    struct Worse{
+        bool operator()(const Place& a,const Place& b)const{
+            return a.score!=b.score?a.score>b.score:a.name<b.name;
+        }
+    };
+    priority_queue<Place,vector<Place>,Worse> selected;
+    priority_queue<Place,vector<Place>,Better> remaining;
+    bool isBetter(const Place& a,const Place& b){
+        return a.score!=b.score?a.score>b.score:a.name<b.name;
+    }
+    public: SORTracker(){
+    }
+    void add(string name,int score){
+        remaining.push({
+            name,score
+        });
+        if(!selected.empty()&&isBetter(remaining.top(),selected.top())){
+            Place best=remaining.top(),worst=selected.top();
+            remaining.pop();
+            selected.pop();
+            remaining.push(worst);
+            selected.push(best);
+        }
+    }
+    string get(){
+        Place next=remaining.top();
+        remaining.pop();
+        selected.push(next);
+        return next.name;
+    }
+};

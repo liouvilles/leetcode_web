@@ -1,1 +1,14 @@
-class Solution { private boolean balanced(int value){int[] count=new int[10];while(value>0){count[value%10]++;value/=10;}for(int digit=0;digit<10;digit++)if(count[digit]>0&&count[digit]!=digit)return false;return true;}public int nextBeautifulNumber(int n){for(int value=n+1;;value++)if(balanced(value))return value;} }
+class Solution {
+    private boolean balanced(int value){
+        int[] count=new int[10];
+        while(value>0){
+            count[value%10]++;
+            value/=10;
+        }
+        for(int digit=0;digit<10;digit++)if(count[digit]>0&&count[digit]!=digit)return false;
+        return true;
+    }
+    public int nextBeautifulNumber(int n){
+        for(int value=n+1;;value++)if(balanced(value))return value;
+    }
+}

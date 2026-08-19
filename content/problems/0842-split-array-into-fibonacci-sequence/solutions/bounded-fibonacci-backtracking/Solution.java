@@ -1,1 +1,25 @@
-class Solution { public List<Integer> splitIntoFibonacci(String num){List<Integer> sequence=new ArrayList<>();dfs(num,0,sequence);return sequence;}private boolean dfs(String num,int index,List<Integer> sequence){if(index==num.length())return sequence.size()>=3;long value=0;for(int end=index;end<num.length();end++){if(end>index&&num.charAt(index)=='0')break;value=value*10+num.charAt(end)-'0';if(value>Integer.MAX_VALUE)break;if(sequence.size()>=2){long sum=(long)sequence.get(sequence.size()-1)+sequence.get(sequence.size()-2);if(value<sum)continue;if(value>sum)break;}sequence.add((int)value);if(dfs(num,end+1,sequence))return true;sequence.remove(sequence.size()-1);}return false;} }
+class Solution {
+    public List<Integer> splitIntoFibonacci(String num){
+        List<Integer> sequence=new ArrayList<>();
+        dfs(num,0,sequence);
+        return sequence;
+    }
+    private boolean dfs(String num,int index,List<Integer> sequence){
+        if(index==num.length())return sequence.size()>=3;
+        long value=0;
+        for(int end=index;end<num.length();end++){
+            if(end>index&&num.charAt(index)=='0')break;
+            value=value*10+num.charAt(end)-'0';
+            if(value>Integer.MAX_VALUE)break;
+            if(sequence.size()>=2){
+                long sum=(long)sequence.get(sequence.size()-1)+sequence.get(sequence.size()-2);
+                if(value<sum)continue;
+                if(value>sum)break;
+            }
+            sequence.add((int)value);
+            if(dfs(num,end+1,sequence))return true;
+            sequence.remove(sequence.size()-1);
+        }
+        return false;
+    }
+}

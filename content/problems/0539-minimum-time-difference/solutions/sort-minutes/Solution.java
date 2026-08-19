@@ -1,1 +1,13 @@
-class Solution { public int findMinDifference(List<String> timePoints){int[] minutes=new int[timePoints.size()];for(int i=0;i<minutes.length;i++){String value=timePoints.get(i);minutes[i]=Integer.parseInt(value.substring(0,2))*60+Integer.parseInt(value.substring(3));}Arrays.sort(minutes);int best=minutes[0]+1440-minutes[minutes.length-1];for(int i=1;i<minutes.length;i++)best=Math.min(best,minutes[i]-minutes[i-1]);return best;} }
+class Solution {
+    public int findMinDifference(List<String> timePoints){
+        int[] minutes=new int[timePoints.size()];
+        for(int i=0;i<minutes.length;i++){
+            String value=timePoints.get(i);
+            minutes[i]=Integer.parseInt(value.substring(0,2))*60+Integer.parseInt(value.substring(3));
+        }
+        Arrays.sort(minutes);
+        int best=minutes[0]+1440-minutes[minutes.length-1];
+        for(int i=1;i<minutes.length;i++)best=Math.min(best,minutes[i]-minutes[i-1]);
+        return best;
+    }
+}

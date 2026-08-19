@@ -1,1 +1,17 @@
-class Solution { private var previous:Int?=null;private var answer=Int.MAX_VALUE;fun minDiffInBST(root:TreeNode?):Int{inorder(root);return answer};private fun inorder(node:TreeNode?){if(node==null)return;inorder(node.left);previous?.let{answer=minOf(answer,node.`val`-it)};previous=node.`val`;inorder(node.right)} }
+class Solution {
+    private var previous:Int?=null;
+    private var answer=Int.MAX_VALUE;
+    fun minDiffInBST(root:TreeNode?):Int{
+        inorder(root);
+        return answer
+    };
+    private fun inorder(node:TreeNode?){
+        if(node==null)return;
+        inorder(node.left);
+        previous?.let{
+            answer=minOf(answer,node.`val`-it)
+        };
+        previous=node.`val`;
+        inorder(node.right)
+    }
+}

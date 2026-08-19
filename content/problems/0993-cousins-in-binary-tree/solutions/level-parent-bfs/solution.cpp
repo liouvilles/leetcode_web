@@ -1,1 +1,25 @@
-class Solution { public: bool isCousins(TreeNode* root,int x,int y){queue<pair<TreeNode*,TreeNode*>> pending;pending.push({root,nullptr});while(!pending.empty()){TreeNode *parentX=nullptr,*parentY=nullptr;for(int size=pending.size();size;--size){auto [node,parent]=pending.front();pending.pop();if(node->val==x)parentX=parent;if(node->val==y)parentY=parent;if(node->left)pending.push({node->left,node});if(node->right)pending.push({node->right,node});}if(parentX||parentY)return parentX&&parentY&&parentX!=parentY;}return false;} };
+class Solution {
+    public: bool isCousins(TreeNode* root,int x,int y){
+        queue<pair<TreeNode*,TreeNode*>> pending;
+        pending.push({
+            root,nullptr
+        });
+        while(!pending.empty()){
+            TreeNode *parentX=nullptr,*parentY=nullptr;
+            for(int size=pending.size();size;--size){
+                auto [node,parent]=pending.front();
+                pending.pop();
+                if(node->val==x)parentX=parent;
+                if(node->val==y)parentY=parent;
+                if(node->left)pending.push({
+                    node->left,node
+                });
+                if(node->right)pending.push({
+                    node->right,node
+                });
+            }
+            if(parentX||parentY)return parentX&&parentY&&parentX!=parentY;
+        }
+        return false;
+    }
+};

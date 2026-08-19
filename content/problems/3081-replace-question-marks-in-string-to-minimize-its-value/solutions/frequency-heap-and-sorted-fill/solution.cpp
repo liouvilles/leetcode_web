@@ -1,1 +1,26 @@
-class Solution { public:string minimizeStringValue(string s){array<int,26> frequency{};int missing=0;for(char letter:s)if(letter=='?')++missing;else ++frequency[letter-'a'];priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>> queue;for(int letter=0;letter<26;++letter)queue.push({frequency[letter],letter});string replacements;while(missing--){auto [count,letter]=queue.top();queue.pop();replacements.push_back('a'+letter);queue.push({count+1,letter});}sort(replacements.begin(),replacements.end());int index=0;for(char& letter:s)if(letter=='?')letter=replacements[index++];return s;} };
+class Solution {
+    public:string minimizeStringValue(string s){
+        array<int,26> frequency{
+        };
+        int missing=0;
+        for(char letter:s)if(letter=='?')++missing;
+        else ++frequency[letter-'a'];
+        priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>> queue;
+        for(int letter=0;letter<26;++letter)queue.push({
+            frequency[letter],letter
+        });
+        string replacements;
+        while(missing--){
+            auto [count,letter]=queue.top();
+            queue.pop();
+            replacements.push_back('a'+letter);
+            queue.push({
+                count+1,letter
+            });
+        }
+        sort(replacements.begin(),replacements.end());
+        int index=0;
+        for(char& letter:s)if(letter=='?')letter=replacements[index++];
+        return s;
+    }
+};

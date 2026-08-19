@@ -1,1 +1,12 @@
-class Solution { public: int numOfWays(int n){const long long mod=1000000007;long long same=6,different=6;for(int row=2;row<=n;++row){long long nextSame=(3*same+2*different)%mod,nextDifferent=(2*same+2*different)%mod;same=nextSame;different=nextDifferent;}return (same+different)%mod;} };
+class Solution {
+    public: int numOfWays(int n){
+        const long long mod=1000000007;
+        long long same=6,different=6;
+        for(int row=2;row<=n;++row){
+            long long nextSame=(3*same+2*different)%mod,nextDifferent=(2*same+2*different)%mod;
+            same=nextSame;
+            different=nextDifferent;
+        }
+        return (same+different)%mod;
+    }
+};

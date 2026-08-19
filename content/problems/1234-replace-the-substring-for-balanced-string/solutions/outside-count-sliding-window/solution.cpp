@@ -1,1 +1,21 @@
-class Solution { public: int balancedString(string s){int count[128]={};for(char ch:s)++count[ch];int target=s.size()/4;auto valid=[&](){return count['Q']<=target&&count['W']<=target&&count['E']<=target&&count['R']<=target;};if(valid())return 0;int left=0,best=s.size();for(int right=0;right<(int)s.size();++right){--count[s[right]];while(left<=right&&valid()){best=min(best,right-left+1);++count[s[left++]];}}return best;} };
+class Solution {
+    public: int balancedString(string s){
+        int count[128]={
+        };
+        for(char ch:s)++count[ch];
+        int target=s.size()/4;
+        auto valid=[&](){
+            return count['Q']<=target&&count['W']<=target&&count['E']<=target&&count['R']<=target;
+        };
+        if(valid())return 0;
+        int left=0,best=s.size();
+        for(int right=0;right<(int)s.size();++right){
+            --count[s[right]];
+            while(left<=right&&valid()){
+                best=min(best,right-left+1);
+                ++count[s[left++]];
+            }
+        }
+        return best;
+    }
+};

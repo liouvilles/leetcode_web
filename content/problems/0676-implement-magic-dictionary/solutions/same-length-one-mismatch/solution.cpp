@@ -1,1 +1,16 @@
-class MagicDictionary { unordered_map<int,vector<string>> words;public:MagicDictionary(){}void buildDict(vector<string> dictionary){for(string& word:dictionary)words[word.size()].push_back(word);}bool search(string searchWord){for(string& word:words[searchWord.size()]){int differences=0;for(int i=0;i<(int)word.size()&&differences<=1;++i)differences+=word[i]!=searchWord[i];if(differences==1)return true;}return false;} };
+class MagicDictionary {
+    unordered_map<int,vector<string>> words;
+    public:MagicDictionary(){
+    }
+    void buildDict(vector<string> dictionary){
+        for(string& word:dictionary)words[word.size()].push_back(word);
+    }
+    bool search(string searchWord){
+        for(string& word:words[searchWord.size()]){
+            int differences=0;
+            for(int i=0;i<(int)word.size()&&differences<=1;++i)differences+=word[i]!=searchWord[i];
+            if(differences==1)return true;
+        }
+        return false;
+    }
+};

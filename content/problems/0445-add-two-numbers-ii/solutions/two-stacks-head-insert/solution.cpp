@@ -1,1 +1,23 @@
-class Solution { public: ListNode* addTwoNumbers(ListNode* l1,ListNode* l2){vector<int> first,second;for(;l1;l1=l1->next)first.push_back(l1->val);for(;l2;l2=l2->next)second.push_back(l2->val);ListNode* head=nullptr;int carry=0;while(!first.empty()||!second.empty()||carry){int sum=carry;if(!first.empty()){sum+=first.back();first.pop_back();}if(!second.empty()){sum+=second.back();second.pop_back();}head=new ListNode(sum%10,head);carry=sum/10;}return head;} };
+class Solution {
+    public: ListNode* addTwoNumbers(ListNode* l1,ListNode* l2){
+        vector<int> first,second;
+        for(;l1;l1=l1->next)first.push_back(l1->val);
+        for(;l2;l2=l2->next)second.push_back(l2->val);
+        ListNode* head=nullptr;
+        int carry=0;
+        while(!first.empty()||!second.empty()||carry){
+            int sum=carry;
+            if(!first.empty()){
+                sum+=first.back();
+                first.pop_back();
+            }
+            if(!second.empty()){
+                sum+=second.back();
+                second.pop_back();
+            }
+            head=new ListNode(sum%10,head);
+            carry=sum/10;
+        }
+        return head;
+    }
+};

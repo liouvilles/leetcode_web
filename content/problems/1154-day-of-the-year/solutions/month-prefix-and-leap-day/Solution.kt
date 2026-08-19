@@ -1,1 +1,11 @@
-class Solution { fun dayOfYear(date:String):Int{val year=date.substring(0,4).toInt();val month=date.substring(5,7).toInt();var day=date.substring(8).toInt();val days=intArrayOf(31,28,31,30,31,30,31,31,30,31,30,31);for(i in 0 until month-1)day+=days[i];if(month>2&&(year%400==0||year%4==0&&year%100!=0))day++;return day} }
+class Solution {
+    fun dayOfYear(date:String):Int{
+        val year=date.substring(0,4).toInt();
+        val month=date.substring(5,7).toInt();
+        var day=date.substring(8).toInt();
+        val days=intArrayOf(31,28,31,30,31,30,31,31,30,31,30,31);
+        for(i in 0 until month-1)day+=days[i];
+        if(month>2&&(year%400==0||year%4==0&&year%100!=0))day++;
+        return day
+    }
+}

@@ -1,1 +1,18 @@
-class Solution { fun checkMove(board:Array<CharArray>,rMove:Int,cMove:Int,color:Char):Boolean{val opponent=if(color=='B')'W' else 'B';for(rowStep in -1..1)for(colStep in -1..1){if(rowStep==0&&colStep==0)continue;var row=rMove+rowStep;var col=cMove+colStep;var count=0;while(row in board.indices&&col in board[0].indices&&board[row][col]==opponent){count++;row+=rowStep;col+=colStep};if(count>0&&row in board.indices&&col in board[0].indices&&board[row][col]==color)return true};return false} }
+class Solution {
+    fun checkMove(board:Array<CharArray>,rMove:Int,cMove:Int,color:Char):Boolean{
+        val opponent=if(color=='B')'W' else 'B';
+        for(rowStep in -1..1)for(colStep in -1..1){
+            if(rowStep==0&&colStep==0)continue;
+            var row=rMove+rowStep;
+            var col=cMove+colStep;
+            var count=0;
+            while(row in board.indices&&col in board[0].indices&&board[row][col]==opponent){
+                count++;
+                row+=rowStep;
+                col+=colStep
+            };
+            if(count>0&&row in board.indices&&col in board[0].indices&&board[row][col]==color)return true
+        };
+        return false
+    }
+}

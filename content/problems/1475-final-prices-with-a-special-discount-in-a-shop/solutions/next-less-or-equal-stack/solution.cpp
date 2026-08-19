@@ -1,1 +1,13 @@
-class Solution { public: vector<int> finalPrices(vector<int>& prices){vector<int> answer=prices,stack;for(int i=0;i<(int)prices.size();++i){while(!stack.empty()&&prices[stack.back()]>=prices[i]){answer[stack.back()]-=prices[i];stack.pop_back();}stack.push_back(i);}return answer;} };
+class Solution {
+    public: vector<int> finalPrices(vector<int>& prices){
+        vector<int> answer=prices,stack;
+        for(int i=0;i<(int)prices.size();++i){
+            while(!stack.empty()&&prices[stack.back()]>=prices[i]){
+                answer[stack.back()]-=prices[i];
+                stack.pop_back();
+            }
+            stack.push_back(i);
+        }
+        return answer;
+    }
+};

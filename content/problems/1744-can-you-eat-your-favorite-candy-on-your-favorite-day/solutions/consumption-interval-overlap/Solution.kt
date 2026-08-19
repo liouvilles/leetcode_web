@@ -1,1 +1,12 @@
-class Solution { fun canEat(candiesCount:IntArray,queries:Array<IntArray>):List<Boolean>{val prefix=LongArray(candiesCount.size+1);for(i in candiesCount.indices)prefix[i+1]=prefix[i]+candiesCount[i];return queries.map{query->val minimum=query[1].toLong()+1;val maximum=minimum*query[2];val type=query[0];maximum>prefix[type]&&minimum<=prefix[type+1]}} }
+class Solution {
+    fun canEat(candiesCount:IntArray,queries:Array<IntArray>):List<Boolean>{
+        val prefix=LongArray(candiesCount.size+1);
+        for(i in candiesCount.indices)prefix[i+1]=prefix[i]+candiesCount[i];
+        return queries.map{
+            query->val minimum=query[1].toLong()+1;
+            val maximum=minimum*query[2];
+            val type=query[0];
+            maximum>prefix[type]&&minimum<=prefix[type+1]
+        }
+    }
+}

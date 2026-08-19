@@ -1,1 +1,10 @@
-class Solution { public int closetTarget(String[] words,String target,int startIndex){int answer=words.length+1;for(int i=0;i<words.length;i++)if(words[i].equals(target)){int difference=Math.abs(i-startIndex);answer=Math.min(answer,Math.min(difference,words.length-difference));}return answer>words.length?-1:answer;} }
+class Solution {
+    public int closetTarget(String[] words,String target,int startIndex){
+        int answer=words.length+1;
+        for(int i=0;i<words.length;i++)if(words[i].equals(target)){
+            int difference=Math.abs(i-startIndex);
+            answer=Math.min(answer,Math.min(difference,words.length-difference));
+        }
+        return answer>words.length?-1:answer;
+    }
+}

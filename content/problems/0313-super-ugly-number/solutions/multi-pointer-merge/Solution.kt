@@ -1,1 +1,14 @@
-class Solution { fun nthSuperUglyNumber(n:Int,primes:IntArray):Int{val ugly=IntArray(n);val pointers=IntArray(primes.size);ugly[0]=1;for(index in 1 until n){var next=Long.MAX_VALUE;for(i in primes.indices)next=minOf(next,ugly[pointers[i]].toLong()*primes[i]);ugly[index]=next.toInt();for(i in primes.indices)if(ugly[pointers[i]].toLong()*primes[i]==next)pointers[i]++};return ugly.last()} }
+class Solution {
+    fun nthSuperUglyNumber(n:Int,primes:IntArray):Int{
+        val ugly=IntArray(n);
+        val pointers=IntArray(primes.size);
+        ugly[0]=1;
+        for(index in 1 until n){
+            var next=Long.MAX_VALUE;
+            for(i in primes.indices)next=minOf(next,ugly[pointers[i]].toLong()*primes[i]);
+            ugly[index]=next.toInt();
+            for(i in primes.indices)if(ugly[pointers[i]].toLong()*primes[i]==next)pointers[i]++
+        };
+        return ugly.last()
+    }
+}

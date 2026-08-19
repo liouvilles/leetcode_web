@@ -1,1 +1,27 @@
-class Solution { int count=0,k,n;string answer;bool generate(string& current){if((int)current.size()==n){if(++count==k){answer=current;return true;}return false;}for(char value='a';value<='c';++value){if(!current.empty()&&current.back()==value)continue;current+=value;if(generate(current))return true;current.pop_back();}return false;}public:string getHappyString(int n,int k){this->n=n;this->k=k;string current;generate(current);return answer;} };
+class Solution {
+    int count=0,k,n;
+    string answer;
+    bool generate(string& current){
+        if((int)current.size()==n){
+            if(++count==k){
+                answer=current;
+                return true;
+            }
+            return false;
+        }
+        for(char value='a';value<='c';++value){
+            if(!current.empty()&&current.back()==value)continue;
+            current+=value;
+            if(generate(current))return true;
+            current.pop_back();
+        }
+        return false;
+    }
+    public:string getHappyString(int n,int k){
+        this->n=n;
+        this->k=k;
+        string current;
+        generate(current);
+        return answer;
+    }
+};

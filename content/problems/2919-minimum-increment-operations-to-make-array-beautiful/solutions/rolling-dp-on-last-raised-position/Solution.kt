@@ -1,1 +1,15 @@
-class Solution { private fun cost(value:Int,k:Int)=maxOf(0L,k.toLong()-value);fun minIncrementOperations(nums:IntArray,k:Int):Long{var first=cost(nums[0],k);var second=cost(nums[1],k);var third=cost(nums[2],k);for(i in 3 until nums.size){val current=cost(nums[i],k)+minOf(first,second,third);first=second;second=third;third=current};return minOf(first,second,third)} }
+class Solution {
+    private fun cost(value:Int,k:Int)=maxOf(0L,k.toLong()-value);
+    fun minIncrementOperations(nums:IntArray,k:Int):Long{
+        var first=cost(nums[0],k);
+        var second=cost(nums[1],k);
+        var third=cost(nums[2],k);
+        for(i in 3 until nums.size){
+            val current=cost(nums[i],k)+minOf(first,second,third);
+            first=second;
+            second=third;
+            third=current
+        };
+        return minOf(first,second,third)
+    }
+}

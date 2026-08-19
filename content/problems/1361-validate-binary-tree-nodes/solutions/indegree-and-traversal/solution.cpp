@@ -1,1 +1,32 @@
-class Solution { public: bool validateBinaryTreeNodes(int n,vector<int>& leftChild,vector<int>& rightChild){vector<int> degree(n);for(int i=0;i<n;++i)for(int child:{leftChild[i],rightChild[i]})if(child!=-1&&++degree[child]>1)return false;int root=-1;for(int i=0;i<n;++i)if(!degree[i]){if(root!=-1)return false;root=i;}if(root==-1)return false;queue<int> pending;vector<bool> seen(n);pending.push(root);seen[root]=true;int count=0;while(!pending.empty()){int node=pending.front();pending.pop();++count;for(int child:{leftChild[node],rightChild[node]})if(child!=-1){if(seen[child])return false;seen[child]=true;pending.push(child);}}return count==n;} };
+class Solution {
+    public: bool validateBinaryTreeNodes(int n,vector<int>& leftChild,vector<int>& rightChild){
+        vector<int> degree(n);
+        for(int i=0;i<n;++i)for(int child:{
+            leftChild[i],rightChild[i]
+        })if(child!=-1&&++degree[child]>1)return false;
+        int root=-1;
+        for(int i=0;i<n;++i)if(!degree[i]){
+            if(root!=-1)return false;
+            root=i;
+        }
+        if(root==-1)return false;
+        queue<int> pending;
+        vector<bool> seen(n);
+        pending.push(root);
+        seen[root]=true;
+        int count=0;
+        while(!pending.empty()){
+            int node=pending.front();
+            pending.pop();
+            ++count;
+            for(int child:{
+                leftChild[node],rightChild[node]
+            })if(child!=-1){
+                if(seen[child])return false;
+                seen[child]=true;
+                pending.push(child);
+            }
+        }
+        return count==n;
+    }
+};

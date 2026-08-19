@@ -1,1 +1,12 @@
-class Solution { fun maxScore(nums:IntArray,x:Int):Long{val negative=Long.MIN_VALUE/4;var even=if(nums[0]%2==0)nums[0].toLong() else negative;var odd=if(nums[0]%2==1)nums[0].toLong() else negative;for(i in 1 until nums.size){val value=nums[i].toLong();if(value%2==0L)even=maxOf(even+value,odd+value-x) else odd=maxOf(odd+value,even+value-x)};return maxOf(even,odd)} }
+class Solution {
+    fun maxScore(nums:IntArray,x:Int):Long{
+        val negative=Long.MIN_VALUE/4;
+        var even=if(nums[0]%2==0)nums[0].toLong() else negative;
+        var odd=if(nums[0]%2==1)nums[0].toLong() else negative;
+        for(i in 1 until nums.size){
+            val value=nums[i].toLong();
+            if(value%2==0L)even=maxOf(even+value,odd+value-x) else odd=maxOf(odd+value,even+value-x)
+        };
+        return maxOf(even,odd)
+    }
+}

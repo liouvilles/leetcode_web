@@ -1,1 +1,12 @@
-class Solution { string signature(int value){string text=to_string(value);sort(text.begin(),text.end());return text;}public:bool reorderedPowerOf2(int n){string target=signature(n);for(int power=1;power>0&&power<=1000000000;power<<=1)if(signature(power)==target)return true;return false;} };
+class Solution {
+    string signature(int value){
+        string text=to_string(value);
+        sort(text.begin(),text.end());
+        return text;
+    }
+    public:bool reorderedPowerOf2(int n){
+        string target=signature(n);
+        for(int power=1;power>0&&power<=1000000000;power<<=1)if(signature(power)==target)return true;
+        return false;
+    }
+};

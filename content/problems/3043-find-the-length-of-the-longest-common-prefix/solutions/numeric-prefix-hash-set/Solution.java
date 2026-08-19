@@ -1,1 +1,19 @@
-class Solution { public int longestCommonPrefix(int[] arr1,int[] arr2){Set<Integer> prefixes=new HashSet<>();for(int number:arr1)for(int value=number;value>0;value/=10)prefixes.add(value);int answer=0;for(int number:arr2){int value=number,length=Integer.toString(number).length();while(value>0&&length>answer){if(prefixes.contains(value)){answer=length;break;}value/=10;length--;}}return answer;} }
+class Solution {
+    public int longestCommonPrefix(int[] arr1,int[] arr2){
+        Set<Integer> prefixes=new HashSet<>();
+        for(int number:arr1)for(int value=number;value>0;value/=10)prefixes.add(value);
+        int answer=0;
+        for(int number:arr2){
+            int value=number,length=Integer.toString(number).length();
+            while(value>0&&length>answer){
+                if(prefixes.contains(value)){
+                    answer=length;
+                    break;
+                }
+                value/=10;
+                length--;
+            }
+        }
+        return answer;
+    }
+}

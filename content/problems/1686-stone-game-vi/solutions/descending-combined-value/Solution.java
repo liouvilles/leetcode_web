@@ -1,1 +1,11 @@
-class Solution { public int stoneGameVI(int[] aliceValues,int[] bobValues){Integer[] order=new Integer[aliceValues.length];for(int i=0;i<order.length;i++)order[i]=i;Arrays.sort(order,(a,b)->Integer.compare(aliceValues[b]+bobValues[b],aliceValues[a]+bobValues[a]));int alice=0,bob=0;for(int turn=0;turn<order.length;turn++)if(turn%2==0)alice+=aliceValues[order[turn]];else bob+=bobValues[order[turn]];return Integer.compare(alice,bob);} }
+class Solution {
+    public int stoneGameVI(int[] aliceValues,int[] bobValues){
+        Integer[] order=new Integer[aliceValues.length];
+        for(int i=0;i<order.length;i++)order[i]=i;
+        Arrays.sort(order,(a,b)->Integer.compare(aliceValues[b]+bobValues[b],aliceValues[a]+bobValues[a]));
+        int alice=0,bob=0;
+        for(int turn=0;turn<order.length;turn++)if(turn%2==0)alice+=aliceValues[order[turn]];
+        else bob+=bobValues[order[turn]];
+        return Integer.compare(alice,bob);
+    }
+}

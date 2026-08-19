@@ -1,1 +1,30 @@
-class Solution { private int[] houses;private int[][] cost;private int m,n,target;private int[][][] memo;private static final int INF=1_000_000_000;private int dfs(int index,int previous,int groups){if(groups>target)return INF;if(index==m)return groups==target?0:INF;if(memo[index][previous][groups]!=-1)return memo[index][previous][groups];int answer=INF;if(houses[index]!=0)answer=dfs(index+1,houses[index],groups+(houses[index]!=previous?1:0));else for(int color=1;color<=n;color++){int next=dfs(index+1,color,groups+(color!=previous?1:0));if(next<INF)answer=Math.min(answer,cost[index][color-1]+next);}return memo[index][previous][groups]=answer;}public int minCost(int[] houses,int[][] cost,int m,int n,int target){this.houses=houses;this.cost=cost;this.m=m;this.n=n;this.target=target;memo=new int[m][n+1][target+1];for(int[][] a:memo)for(int[] b:a)Arrays.fill(b,-1);int answer=dfs(0,0,0);return answer>=INF?-1:answer;} }
+class Solution {
+    private int[] houses;
+    private int[][] cost;
+    private int m,n,target;
+    private int[][][] memo;
+    private static final int INF=1_000_000_000;
+    private int dfs(int index,int previous,int groups){
+        if(groups>target)return INF;
+        if(index==m)return groups==target?0:INF;
+        if(memo[index][previous][groups]!=-1)return memo[index][previous][groups];
+        int answer=INF;
+        if(houses[index]!=0)answer=dfs(index+1,houses[index],groups+(houses[index]!=previous?1:0));
+        else for(int color=1;color<=n;color++){
+            int next=dfs(index+1,color,groups+(color!=previous?1:0));
+            if(next<INF)answer=Math.min(answer,cost[index][color-1]+next);
+        }
+        return memo[index][previous][groups]=answer;
+    }
+    public int minCost(int[] houses,int[][] cost,int m,int n,int target){
+        this.houses=houses;
+        this.cost=cost;
+        this.m=m;
+        this.n=n;
+        this.target=target;
+        memo=new int[m][n+1][target+1];
+        for(int[][] a:memo)for(int[] b:a)Arrays.fill(b,-1);
+        int answer=dfs(0,0,0);
+        return answer>=INF?-1:answer;
+    }
+}

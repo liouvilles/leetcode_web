@@ -1,1 +1,35 @@
-class Solution { companion object{const val MOD=1000000007L};private fun power(initial:Long,exponentValue:Long):Long{var base=initial;var exponent=exponentValue;var result=1L;while(exponent>0){if(exponent and 1L==1L)result=result*base%MOD;base=base*base%MOD;exponent=exponent shr 1};return result};fun numberOfSequence(n:Int,sick:IntArray):Int{val healthy=n-sick.size;val factorial=LongArray(healthy+1);val inverse=LongArray(healthy+1);factorial[0]=1;for(i in 1..healthy)factorial[i]=factorial[i-1]*i%MOD;inverse[healthy]=power(factorial[healthy],MOD-2);for(i in healthy downTo 1)inverse[i-1]=inverse[i]*i%MOD;var answer=factorial[healthy];val left=sick[0];val right=n-1-sick.last();answer=answer*inverse[left]%MOD*inverse[right]%MOD;for(i in 1 until sick.size){val gap=sick[i]-sick[i-1]-1;answer=answer*inverse[gap]%MOD;if(gap>0)answer=answer*power(2,gap-1L)%MOD};return answer.toInt()} }
+class Solution {
+    companion object{
+        const val MOD=1000000007L
+    };
+    private fun power(initial:Long,exponentValue:Long):Long{
+        var base=initial;
+        var exponent=exponentValue;
+        var result=1L;
+        while(exponent>0){
+            if(exponent and 1L==1L)result=result*base%MOD;
+            base=base*base%MOD;
+            exponent=exponent shr 1
+        };
+        return result
+    };
+    fun numberOfSequence(n:Int,sick:IntArray):Int{
+        val healthy=n-sick.size;
+        val factorial=LongArray(healthy+1);
+        val inverse=LongArray(healthy+1);
+        factorial[0]=1;
+        for(i in 1..healthy)factorial[i]=factorial[i-1]*i%MOD;
+        inverse[healthy]=power(factorial[healthy],MOD-2);
+        for(i in healthy downTo 1)inverse[i-1]=inverse[i]*i%MOD;
+        var answer=factorial[healthy];
+        val left=sick[0];
+        val right=n-1-sick.last();
+        answer=answer*inverse[left]%MOD*inverse[right]%MOD;
+        for(i in 1 until sick.size){
+            val gap=sick[i]-sick[i-1]-1;
+            answer=answer*inverse[gap]%MOD;
+            if(gap>0)answer=answer*power(2,gap-1L)%MOD
+        };
+        return answer.toInt()
+    }
+}

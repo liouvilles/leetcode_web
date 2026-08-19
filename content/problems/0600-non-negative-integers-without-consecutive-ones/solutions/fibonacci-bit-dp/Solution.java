@@ -1,1 +1,17 @@
-class Solution { public int findIntegers(int n){int[] fib=new int[31];fib[0]=1;fib[1]=2;for(int i=2;i<31;i++)fib[i]=fib[i-1]+fib[i-2];int answer=0,previous=0;for(int bit=30;bit>=0;bit--){if((n&(1<<bit))!=0){answer+=fib[bit];if(previous==1)return answer;previous=1;}else previous=0;}return answer+1;} }
+class Solution {
+    public int findIntegers(int n){
+        int[] fib=new int[31];
+        fib[0]=1;
+        fib[1]=2;
+        for(int i=2;i<31;i++)fib[i]=fib[i-1]+fib[i-2];
+        int answer=0,previous=0;
+        for(int bit=30;bit>=0;bit--){
+            if((n&(1<<bit))!=0){
+                answer+=fib[bit];
+                if(previous==1)return answer;
+                previous=1;
+            }else previous=0;
+        }
+        return answer+1;
+    }
+}

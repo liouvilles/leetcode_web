@@ -1,1 +1,6 @@
-class Solution { public: long long numberOfWeeks(vector<int>& milestones){long long sum=accumulate(milestones.begin(),milestones.end(),0LL),maximum=*max_element(milestones.begin(),milestones.end()),rest=sum-maximum;return maximum<=rest+1?sum:2*rest+1;} };
+class Solution {
+    public: long long numberOfWeeks(vector<int>& milestones){
+        long long sum=accumulate(milestones.begin(),milestones.end(),0LL),maximum=*max_element(milestones.begin(),milestones.end()),rest=sum-maximum;
+        return maximum<=rest+1?sum:2*rest+1;
+    }
+};

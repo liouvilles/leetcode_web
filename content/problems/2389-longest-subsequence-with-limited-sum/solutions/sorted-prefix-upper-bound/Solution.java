@@ -1,1 +1,18 @@
-class Solution { public int[] answerQueries(int[] nums,int[] queries){Arrays.sort(nums);int[] prefix=new int[nums.length+1];for(int i=0;i<nums.length;i++)prefix[i+1]=prefix[i]+nums[i];int[] answer=new int[queries.length];for(int q=0;q<queries.length;q++){int left=0,right=prefix.length;while(left<right){int middle=(left+right)/2;if(prefix[middle]<=queries[q])left=middle+1;else right=middle;}answer[q]=left-1;}return answer;} }
+class Solution {
+    public int[] answerQueries(int[] nums,int[] queries){
+        Arrays.sort(nums);
+        int[] prefix=new int[nums.length+1];
+        for(int i=0;i<nums.length;i++)prefix[i+1]=prefix[i]+nums[i];
+        int[] answer=new int[queries.length];
+        for(int q=0;q<queries.length;q++){
+            int left=0,right=prefix.length;
+            while(left<right){
+                int middle=(left+right)/2;
+                if(prefix[middle]<=queries[q])left=middle+1;
+                else right=middle;
+            }
+            answer[q]=left-1;
+        }
+        return answer;
+    }
+}

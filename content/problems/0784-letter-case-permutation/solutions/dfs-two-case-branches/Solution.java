@@ -1,1 +1,19 @@
-class Solution { public List<String> letterCasePermutation(String s){List<String> answer=new ArrayList<>();dfs(s.toCharArray(),0,answer);return answer;}private void dfs(char[] chars,int index,List<String> answer){if(index==chars.length){answer.add(new String(chars));return;}if(Character.isLetter(chars[index])){chars[index]=Character.toLowerCase(chars[index]);dfs(chars,index+1,answer);chars[index]=Character.toUpperCase(chars[index]);dfs(chars,index+1,answer);}else dfs(chars,index+1,answer);} }
+class Solution {
+    public List<String> letterCasePermutation(String s){
+        List<String> answer=new ArrayList<>();
+        dfs(s.toCharArray(),0,answer);
+        return answer;
+    }
+    private void dfs(char[] chars,int index,List<String> answer){
+        if(index==chars.length){
+            answer.add(new String(chars));
+            return;
+        }
+        if(Character.isLetter(chars[index])){
+            chars[index]=Character.toLowerCase(chars[index]);
+            dfs(chars,index+1,answer);
+            chars[index]=Character.toUpperCase(chars[index]);
+            dfs(chars,index+1,answer);
+        }else dfs(chars,index+1,answer);
+    }
+}

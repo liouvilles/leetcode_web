@@ -1,1 +1,12 @@
-class Solution { fun minimumRightShifts(nums:List<Int>):Int{var descents=0;var boundary=-1;for(i in nums.indices)if(nums[i]>nums[(i+1)%nums.size]){descents++;boundary=i};if(descents>1)return -1;return if(descents==0)0 else nums.lastIndex-boundary} }
+class Solution {
+    fun minimumRightShifts(nums:List<Int>):Int{
+        var descents=0;
+        var boundary=-1;
+        for(i in nums.indices)if(nums[i]>nums[(i+1)%nums.size]){
+            descents++;
+            boundary=i
+        };
+        if(descents>1)return -1;
+        return if(descents==0)0 else nums.lastIndex-boundary
+    }
+}

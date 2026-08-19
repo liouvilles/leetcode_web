@@ -1,1 +1,17 @@
-class Solution { pair<int,int> dfs(TreeNode* node){if(!node)return{0,0};auto left=dfs(node->left),right=dfs(node->right);int take=node->val+left.first+right.first;int skip=max(left.first,left.second)+max(right.first,right.second);return{skip,take};}public:int rob(TreeNode* root){auto result=dfs(root);return max(result.first,result.second);} };
+class Solution {
+    pair<int,int> dfs(TreeNode* node){
+        if(!node)return{
+            0,0
+        };
+        auto left=dfs(node->left),right=dfs(node->right);
+        int take=node->val+left.first+right.first;
+        int skip=max(left.first,left.second)+max(right.first,right.second);
+        return{
+            skip,take
+        };
+    }
+    public:int rob(TreeNode* root){
+        auto result=dfs(root);
+        return max(result.first,result.second);
+    }
+};

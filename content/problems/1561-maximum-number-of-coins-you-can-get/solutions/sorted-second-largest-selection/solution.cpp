@@ -1,1 +1,8 @@
-class Solution { public: int maxCoins(vector<int>& piles){sort(piles.begin(),piles.end());int answer=0;for(int index=piles.size()/3;index<(int)piles.size();index+=2)answer+=piles[index];return answer;} };
+class Solution {
+    public: int maxCoins(vector<int>& piles){
+        sort(piles.begin(),piles.end());
+        int answer=0;
+        for(int index=piles.size()/3;index<(int)piles.size();index+=2)answer+=piles[index];
+        return answer;
+    }
+};

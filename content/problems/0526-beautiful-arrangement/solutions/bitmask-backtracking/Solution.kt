@@ -1,1 +1,14 @@
-class Solution { fun countArrangement(n:Int):Int{fun dfs(position:Int,used:Int):Int{if(position>n)return 1;var count=0;for(value in 1..n){val bit=1 shl (value-1);if(used and bit==0&&(value%position==0||position%value==0))count+=dfs(position+1,used or bit)};return count};return dfs(1,0)} }
+class Solution {
+    fun countArrangement(n:Int):Int{
+        fun dfs(position:Int,used:Int):Int{
+            if(position>n)return 1;
+            var count=0;
+            for(value in 1..n){
+                val bit=1 shl (value-1);
+                if(used and bit==0&&(value%position==0||position%value==0))count+=dfs(position+1,used or bit)
+            };
+            return count
+        };
+        return dfs(1,0)
+    }
+}

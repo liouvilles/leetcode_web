@@ -1,1 +1,30 @@
-class Solution { public: int maximumDetonation(vector<vector<int>>& bombs){int n=bombs.size();vector<vector<int>> graph(n);for(int i=0;i<n;++i)for(int j=0;j<n;++j){long long dx=(long long)bombs[i][0]-bombs[j][0],dy=(long long)bombs[i][1]-bombs[j][1];if(dx*dx+dy*dy<=1LL*bombs[i][2]*bombs[i][2])graph[i].push_back(j);}int answer=0;for(int start=0;start<n;++start){vector<bool> visited(n);vector<int> stack={start};visited[start]=true;int count=0;while(!stack.empty()){int node=stack.back();stack.pop_back();++count;for(int next:graph[node])if(!visited[next]){visited[next]=true;stack.push_back(next);}}answer=max(answer,count);}return answer;} };
+class Solution {
+    public: int maximumDetonation(vector<vector<int>>& bombs){
+        int n=bombs.size();
+        vector<vector<int>> graph(n);
+        for(int i=0;i<n;++i)for(int j=0;j<n;++j){
+            long long dx=(long long)bombs[i][0]-bombs[j][0],dy=(long long)bombs[i][1]-bombs[j][1];
+            if(dx*dx+dy*dy<=1LL*bombs[i][2]*bombs[i][2])graph[i].push_back(j);
+        }
+        int answer=0;
+        for(int start=0;start<n;++start){
+            vector<bool> visited(n);
+            vector<int> stack={
+                start
+            };
+            visited[start]=true;
+            int count=0;
+            while(!stack.empty()){
+                int node=stack.back();
+                stack.pop_back();
+                ++count;
+                for(int next:graph[node])if(!visited[next]){
+                    visited[next]=true;
+                    stack.push_back(next);
+                }
+            }
+            answer=max(answer,count);
+        }
+        return answer;
+    }
+};

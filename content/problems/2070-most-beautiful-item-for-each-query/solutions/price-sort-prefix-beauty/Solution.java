@@ -1,1 +1,17 @@
-class Solution { public int[] maximumBeauty(int[][] items,int[] queries){Arrays.sort(items,Comparator.comparingInt(a->a[0]));for(int i=1;i<items.length;i++)items[i][1]=Math.max(items[i][1],items[i-1][1]);int[] answer=new int[queries.length];for(int q=0;q<queries.length;q++){int left=0,right=items.length;while(left<right){int middle=(left+right)/2;if(items[middle][0]<=queries[q])left=middle+1;else right=middle;}answer[q]=left==0?0:items[left-1][1];}return answer;} }
+class Solution {
+    public int[] maximumBeauty(int[][] items,int[] queries){
+        Arrays.sort(items,Comparator.comparingInt(a->a[0]));
+        for(int i=1;i<items.length;i++)items[i][1]=Math.max(items[i][1],items[i-1][1]);
+        int[] answer=new int[queries.length];
+        for(int q=0;q<queries.length;q++){
+            int left=0,right=items.length;
+            while(left<right){
+                int middle=(left+right)/2;
+                if(items[middle][0]<=queries[q])left=middle+1;
+                else right=middle;
+            }
+            answer[q]=left==0?0:items[left-1][1];
+        }
+        return answer;
+    }
+}

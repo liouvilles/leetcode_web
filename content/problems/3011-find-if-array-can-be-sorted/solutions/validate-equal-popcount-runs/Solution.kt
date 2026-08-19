@@ -1,1 +1,21 @@
-class Solution { fun canSortArray(nums:IntArray):Boolean{var previousMax=0;var left=0;while(left<nums.size){val count=Integer.bitCount(nums[left]);var right=left;var currentMin=nums[left];var currentMax=nums[left];while(right+1<nums.size&&Integer.bitCount(nums[right+1])==count){right++;currentMin=minOf(currentMin,nums[right]);currentMax=maxOf(currentMax,nums[right])};if(previousMax>currentMin)return false;previousMax=currentMax;left=right+1};return true} }
+class Solution {
+    fun canSortArray(nums:IntArray):Boolean{
+        var previousMax=0;
+        var left=0;
+        while(left<nums.size){
+            val count=Integer.bitCount(nums[left]);
+            var right=left;
+            var currentMin=nums[left];
+            var currentMax=nums[left];
+            while(right+1<nums.size&&Integer.bitCount(nums[right+1])==count){
+                right++;
+                currentMin=minOf(currentMin,nums[right]);
+                currentMax=maxOf(currentMax,nums[right])
+            };
+            if(previousMax>currentMin)return false;
+            previousMax=currentMax;
+            left=right+1
+        };
+        return true
+    }
+}

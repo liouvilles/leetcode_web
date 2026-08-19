@@ -1,1 +1,31 @@
-class Solution { public int maxKDivisibleComponents(int n,int[][] edges,int[] values,int k){List<Integer>[] graph=new List[n];for(int node=0;node<n;node++)graph[node]=new ArrayList<>();for(int[] edge:edges){graph[edge[0]].add(edge[1]);graph[edge[1]].add(edge[0]);}int[] parent=new int[n],order=new int[n];Arrays.fill(parent,-2);parent[0]=-1;order[0]=0;int length=1;for(int index=0;index<length;index++){int node=order[index];for(int next:graph[node])if(next!=parent[node]){parent[next]=node;order[length++]=next;}}long[] remainder=new long[n];for(int node=0;node<n;node++)remainder[node]=values[node]%(long)k;int components=0;for(int index=n-1;index>=0;index--){int node=order[index];if(remainder[node]==0)components++;else if(parent[node]>=0)remainder[parent[node]]=(remainder[parent[node]]+remainder[node])%k;}return components;} }
+class Solution {
+    public int maxKDivisibleComponents(int n,int[][] edges,int[] values,int k){
+        List<Integer>[] graph=new List[n];
+        for(int node=0;node<n;node++)graph[node]=new ArrayList<>();
+        for(int[] edge:edges){
+            graph[edge[0]].add(edge[1]);
+            graph[edge[1]].add(edge[0]);
+        }
+        int[] parent=new int[n],order=new int[n];
+        Arrays.fill(parent,-2);
+        parent[0]=-1;
+        order[0]=0;
+        int length=1;
+        for(int index=0;index<length;index++){
+            int node=order[index];
+            for(int next:graph[node])if(next!=parent[node]){
+                parent[next]=node;
+                order[length++]=next;
+            }
+        }
+        long[] remainder=new long[n];
+        for(int node=0;node<n;node++)remainder[node]=values[node]%(long)k;
+        int components=0;
+        for(int index=n-1;index>=0;index--){
+            int node=order[index];
+            if(remainder[node]==0)components++;
+            else if(parent[node]>=0)remainder[parent[node]]=(remainder[parent[node]]+remainder[node])%k;
+        }
+        return components;
+    }
+}

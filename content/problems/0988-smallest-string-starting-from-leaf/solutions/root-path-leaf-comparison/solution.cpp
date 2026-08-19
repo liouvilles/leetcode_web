@@ -1,1 +1,21 @@
-class Solution { string best;void dfs(TreeNode* node,string& path){if(!node)return;path.push_back('a'+node->val);if(!node->left&&!node->right){string candidate(path.rbegin(),path.rend());if(best.empty()||candidate<best)best=candidate;}else{dfs(node->left,path);dfs(node->right,path);}path.pop_back();}public:string smallestFromLeaf(TreeNode* root){best.clear();string path;dfs(root,path);return best;} };
+class Solution {
+    string best;
+    void dfs(TreeNode* node,string& path){
+        if(!node)return;
+        path.push_back('a'+node->val);
+        if(!node->left&&!node->right){
+            string candidate(path.rbegin(),path.rend());
+            if(best.empty()||candidate<best)best=candidate;
+        }else{
+            dfs(node->left,path);
+            dfs(node->right,path);
+        }
+        path.pop_back();
+    }
+    public:string smallestFromLeaf(TreeNode* root){
+        best.clear();
+        string path;
+        dfs(root,path);
+        return best;
+    }
+};

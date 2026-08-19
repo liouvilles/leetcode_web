@@ -1,1 +1,17 @@
-class Solution { long long key(int x,int y){return((long long)x<<32)^(unsigned int)y;}public:int minAreaRect(vector<vector<int>>& points){unordered_set<long long> set;for(auto& p:points)set.insert(key(p[0],p[1]));int answer=INT_MAX;for(int i=0;i<(int)points.size();++i)for(int j=i+1;j<(int)points.size();++j){auto& a=points[i];auto& b=points[j];if(a[0]==b[0]||a[1]==b[1])continue;if(set.count(key(a[0],b[1]))&&set.count(key(b[0],a[1])))answer=min(answer,abs(a[0]-b[0])*abs(a[1]-b[1]));}return answer==INT_MAX?0:answer;} };
+class Solution {
+    long long key(int x,int y){
+        return((long long)x<<32)^(unsigned int)y;
+    }
+    public:int minAreaRect(vector<vector<int>>& points){
+        unordered_set<long long> set;
+        for(auto& p:points)set.insert(key(p[0],p[1]));
+        int answer=INT_MAX;
+        for(int i=0;i<(int)points.size();++i)for(int j=i+1;j<(int)points.size();++j){
+            auto& a=points[i];
+            auto& b=points[j];
+            if(a[0]==b[0]||a[1]==b[1])continue;
+            if(set.count(key(a[0],b[1]))&&set.count(key(b[0],a[1])))answer=min(answer,abs(a[0]-b[0])*abs(a[1]-b[1]));
+        }
+        return answer==INT_MAX?0:answer;
+    }
+};

@@ -1,1 +1,25 @@
-class Solution { public int minOperations(int[] nums1,int[] nums2){if(nums1.length*6<nums2.length||nums2.length*6<nums1.length)return -1;int sum1=Arrays.stream(nums1).sum(),sum2=Arrays.stream(nums2).sum();if(sum1>sum2){int[] temp=nums1;nums1=nums2;nums2=temp;int value=sum1;sum1=sum2;sum2=value;}int[] gains=new int[nums1.length+nums2.length];int index=0;for(int value:nums1)gains[index++]=6-value;for(int value:nums2)gains[index++]=value-1;Arrays.sort(gains);int difference=sum2-sum1,operations=0;for(int i=gains.length-1;difference>0;i--){difference-=gains[i];operations++;}return operations;} }
+class Solution {
+    public int minOperations(int[] nums1,int[] nums2){
+        if(nums1.length*6<nums2.length||nums2.length*6<nums1.length)return -1;
+        int sum1=Arrays.stream(nums1).sum(),sum2=Arrays.stream(nums2).sum();
+        if(sum1>sum2){
+            int[] temp=nums1;
+            nums1=nums2;
+            nums2=temp;
+            int value=sum1;
+            sum1=sum2;
+            sum2=value;
+        }
+        int[] gains=new int[nums1.length+nums2.length];
+        int index=0;
+        for(int value:nums1)gains[index++]=6-value;
+        for(int value:nums2)gains[index++]=value-1;
+        Arrays.sort(gains);
+        int difference=sum2-sum1,operations=0;
+        for(int i=gains.length-1;difference>0;i--){
+            difference-=gains[i];
+            operations++;
+        }
+        return operations;
+    }
+}

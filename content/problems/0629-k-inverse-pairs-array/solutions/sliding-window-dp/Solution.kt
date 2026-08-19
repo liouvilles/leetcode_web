@@ -1,1 +1,18 @@
-class Solution { fun kInversePairs(n:Int,k:Int):Int{val mod=1000000007L;var previous=LongArray(k+1);previous[0]=1;for(length in 1..n){val current=LongArray(k+1);var window=0L;for(inversions in 0..k){window=(window+previous[inversions])%mod;if(inversions>=length)window=(window-previous[inversions-length]+mod)%mod;current[inversions]=window};previous=current};return previous[k].toInt()} }
+class Solution {
+    fun kInversePairs(n:Int,k:Int):Int{
+        val mod=1000000007L;
+        var previous=LongArray(k+1);
+        previous[0]=1;
+        for(length in 1..n){
+            val current=LongArray(k+1);
+            var window=0L;
+            for(inversions in 0..k){
+                window=(window+previous[inversions])%mod;
+                if(inversions>=length)window=(window-previous[inversions-length]+mod)%mod;
+                current[inversions]=window
+            };
+            previous=current
+        };
+        return previous[k].toInt()
+    }
+}

@@ -1,1 +1,18 @@
-class Solution { public: int maxEvents(vector<vector<int>>& events){sort(events.begin(),events.end());priority_queue<int,vector<int>,greater<int>> ends;int index=0,day=0,answer=0;while(index<(int)events.size()||!ends.empty()){if(ends.empty())day=max(day,events[index][0]);while(index<(int)events.size()&&events[index][0]<=day)ends.push(events[index++][1]);while(!ends.empty()&&ends.top()<day)ends.pop();if(!ends.empty()){ends.pop();++answer;++day;}}return answer;} };
+class Solution {
+    public: int maxEvents(vector<vector<int>>& events){
+        sort(events.begin(),events.end());
+        priority_queue<int,vector<int>,greater<int>> ends;
+        int index=0,day=0,answer=0;
+        while(index<(int)events.size()||!ends.empty()){
+            if(ends.empty())day=max(day,events[index][0]);
+            while(index<(int)events.size()&&events[index][0]<=day)ends.push(events[index++][1]);
+            while(!ends.empty()&&ends.top()<day)ends.pop();
+            if(!ends.empty()){
+                ends.pop();
+                ++answer;
+                ++day;
+            }
+        }
+        return answer;
+    }
+};

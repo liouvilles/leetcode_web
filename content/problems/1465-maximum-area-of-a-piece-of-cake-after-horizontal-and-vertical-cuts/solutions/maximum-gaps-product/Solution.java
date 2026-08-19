@@ -1,1 +1,14 @@
-class Solution { private int gap(int length,int[] cuts){Arrays.sort(cuts);int previous=0,maximum=0;for(int cut:cuts){maximum=Math.max(maximum,cut-previous);previous=cut;}return Math.max(maximum,length-previous);}public int maxArea(int h,int w,int[] horizontalCuts,int[] verticalCuts){return (int)((long)gap(h,horizontalCuts)*gap(w,verticalCuts)%1_000_000_007L);} }
+class Solution {
+    private int gap(int length,int[] cuts){
+        Arrays.sort(cuts);
+        int previous=0,maximum=0;
+        for(int cut:cuts){
+            maximum=Math.max(maximum,cut-previous);
+            previous=cut;
+        }
+        return Math.max(maximum,length-previous);
+    }
+    public int maxArea(int h,int w,int[] horizontalCuts,int[] verticalCuts){
+        return (int)((long)gap(h,horizontalCuts)*gap(w,verticalCuts)%1_000_000_007L);
+    }
+}

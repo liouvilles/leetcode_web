@@ -1,1 +1,10 @@
-class Solution { fun findMinDifference(timePoints:List<String>):Int{val minutes=timePoints.map{it.substring(0,2).toInt()*60+it.substring(3).toInt()}.sorted();var best=minutes[0]+1440-minutes.last();for(i in 1 until minutes.size)best=minOf(best,minutes[i]-minutes[i-1]);return best} }
+class Solution {
+    fun findMinDifference(timePoints:List<String>):Int{
+        val minutes=timePoints.map{
+            it.substring(0,2).toInt()*60+it.substring(3).toInt()
+        }.sorted();
+        var best=minutes[0]+1440-minutes.last();
+        for(i in 1 until minutes.size)best=minOf(best,minutes[i]-minutes[i-1]);
+        return best
+    }
+}

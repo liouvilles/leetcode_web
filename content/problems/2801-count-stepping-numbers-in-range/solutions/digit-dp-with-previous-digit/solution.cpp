@@ -1,1 +1,37 @@
-class Solution { static constexpr int MOD=1000000007;string digits;vector<array<int,11>> memo;int dfs(int pos,int previous,bool tight){if(pos==(int)digits.size())return 1;if(!tight&&memo[pos][previous]!=-1)return memo[pos][previous];int limit=tight?digits[pos]-'0':9;long long ways=0;for(int digit=0;digit<=limit;++digit){int next;if(previous==10&&digit==0)next=10;else if(previous==10||abs(previous-digit)==1)next=digit;else continue;ways=(ways+dfs(pos+1,next,tight&&digit==limit))%MOD;}int answer=ways;if(!tight)memo[pos][previous]=answer;return answer;}int countUpTo(string bound){digits=move(bound);memo.resize(digits.size());for(auto& row:memo)row.fill(-1);return dfs(0,10,true);}bool stepping(const string& value){for(int i=1;i<(int)value.size();++i)if(abs(value[i]-value[i-1])!=1)return false;return true;}public:int countSteppingNumbers(string low,string high){long long answer=(long long)countUpTo(high)-countUpTo(low)+(stepping(low)?1:0);answer%=MOD;if(answer<0)answer+=MOD;return answer;} };
+class Solution {
+    static constexpr int MOD=1000000007;
+    string digits;
+    vector<array<int,11>> memo;
+    int dfs(int pos,int previous,bool tight){
+        if(pos==(int)digits.size())return 1;
+        if(!tight&&memo[pos][previous]!=-1)return memo[pos][previous];
+        int limit=tight?digits[pos]-'0':9;
+        long long ways=0;
+        for(int digit=0;digit<=limit;++digit){
+            int next;
+            if(previous==10&&digit==0)next=10;
+            else if(previous==10||abs(previous-digit)==1)next=digit;
+            else continue;
+            ways=(ways+dfs(pos+1,next,tight&&digit==limit))%MOD;
+        }
+        int answer=ways;
+        if(!tight)memo[pos][previous]=answer;
+        return answer;
+    }
+    int countUpTo(string bound){
+        digits=move(bound);
+        memo.resize(digits.size());
+        for(auto& row:memo)row.fill(-1);
+        return dfs(0,10,true);
+    }
+    bool stepping(const string& value){
+        for(int i=1;i<(int)value.size();++i)if(abs(value[i]-value[i-1])!=1)return false;
+        return true;
+    }
+    public:int countSteppingNumbers(string low,string high){
+        long long answer=(long long)countUpTo(high)-countUpTo(low)+(stepping(low)?1:0);
+        answer%=MOD;
+        if(answer<0)answer+=MOD;
+        return answer;
+    }
+};

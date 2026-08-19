@@ -1,1 +1,42 @@
-class Solution { vector<long long> dijkstra(int source,const vector<vector<pair<int,int>>>& graph){const long long infinity=LLONG_MAX/4;vector<long long> distance(graph.size(),infinity);distance[source]=0;priority_queue<pair<long long,int>,vector<pair<long long,int>>,greater<pair<long long,int>>> queue;queue.push({0,source});while(!queue.empty()){auto [cost,node]=queue.top();queue.pop();if(cost!=distance[node])continue;for(auto [next,weight]:graph[node])if(cost+weight<distance[next]){distance[next]=cost+weight;queue.push({distance[next],next});}}return distance;}public:vector<bool> findAnswer(int n,vector<vector<int>>& edges){vector<vector<pair<int,int>>> graph(n);for(auto& edge:edges){graph[edge[0]].push_back({edge[1],edge[2]});graph[edge[1]].push_back({edge[0],edge[2]});}auto fromStart=dijkstra(0,graph),fromEnd=dijkstra(n-1,graph);long long shortest=fromStart[n-1];vector<bool> answer(edges.size());for(int index=0;index<(int)edges.size();++index){long long u=edges[index][0],v=edges[index][1],weight=edges[index][2];answer[index]=fromStart[u]+weight+fromEnd[v]==shortest||fromStart[v]+weight+fromEnd[u]==shortest;}return answer;} };
+class Solution {
+    vector<long long> dijkstra(int source,const vector<vector<pair<int,int>>>& graph){
+        const long long infinity=LLONG_MAX/4;
+        vector<long long> distance(graph.size(),infinity);
+        distance[source]=0;
+        priority_queue<pair<long long,int>,vector<pair<long long,int>>,greater<pair<long long,int>>> queue;
+        queue.push({
+            0,source
+        });
+        while(!queue.empty()){
+            auto [cost,node]=queue.top();
+            queue.pop();
+            if(cost!=distance[node])continue;
+            for(auto [next,weight]:graph[node])if(cost+weight<distance[next]){
+                distance[next]=cost+weight;
+                queue.push({
+                    distance[next],next
+                });
+            }
+        }
+        return distance;
+    }
+    public:vector<bool> findAnswer(int n,vector<vector<int>>& edges){
+        vector<vector<pair<int,int>>> graph(n);
+        for(auto& edge:edges){
+            graph[edge[0]].push_back({
+                edge[1],edge[2]
+            });
+            graph[edge[1]].push_back({
+                edge[0],edge[2]
+            });
+        }
+        auto fromStart=dijkstra(0,graph),fromEnd=dijkstra(n-1,graph);
+        long long shortest=fromStart[n-1];
+        vector<bool> answer(edges.size());
+        for(int index=0;index<(int)edges.size();++index){
+            long long u=edges[index][0],v=edges[index][1],weight=edges[index][2];
+            answer[index]=fromStart[u]+weight+fromEnd[v]==shortest||fromStart[v]+weight+fromEnd[u]==shortest;
+        }
+        return answer;
+    }
+};

@@ -1,1 +1,33 @@
-class Solution { private int upper(int[] values,int target){int left=0,right=values.length;while(left<right){int middle=(left+right)>>>1;if(values[middle]<=target)left=middle+1;else right=middle;}return left;}public int minWastedSpace(int[] packages,int[][] boxes){Arrays.sort(packages);long[] prefix=new long[packages.length+1];for(int i=0;i<packages.length;i++)prefix[i+1]=prefix[i]+packages[i];long best=Long.MAX_VALUE;for(int[] supplier:boxes){Arrays.sort(supplier);if(supplier[supplier.length-1]<packages[packages.length-1])continue;int index=0;long waste=0;for(int box:supplier){int next=upper(packages,box);if(next>index){waste+=(long)box*(next-index)-(prefix[next]-prefix[index]);index=next;}if(index==packages.length)break;}best=Math.min(best,waste);}return best==Long.MAX_VALUE?-1:(int)(best%1_000_000_007);} }
+class Solution {
+    private int upper(int[] values,int target){
+        int left=0,right=values.length;
+        while(left<right){
+            int middle=(left+right)>>>1;
+            if(values[middle]<=target)left=middle+1;
+            else right=middle;
+        }
+        return left;
+    }
+    public int minWastedSpace(int[] packages,int[][] boxes){
+        Arrays.sort(packages);
+        long[] prefix=new long[packages.length+1];
+        for(int i=0;i<packages.length;i++)prefix[i+1]=prefix[i]+packages[i];
+        long best=Long.MAX_VALUE;
+        for(int[] supplier:boxes){
+            Arrays.sort(supplier);
+            if(supplier[supplier.length-1]<packages[packages.length-1])continue;
+            int index=0;
+            long waste=0;
+            for(int box:supplier){
+                int next=upper(packages,box);
+                if(next>index){
+                    waste+=(long)box*(next-index)-(prefix[next]-prefix[index]);
+                    index=next;
+                }
+                if(index==packages.length)break;
+            }
+            best=Math.min(best,waste);
+        }
+        return best==Long.MAX_VALUE?-1:(int)(best%1_000_000_007);
+    }
+}

@@ -1,1 +1,24 @@
-class Solution { fun intersectionSizeTwo(intervals:Array<IntArray>):Int{intervals.sortWith(compareBy<IntArray>{it[1]}.thenByDescending{it[0]});var first=-1;var second=-1;var answer=0;for(interval in intervals){if(interval[0]>second){answer+=2;first=interval[1]-1;second=interval[1]}else if(interval[0]>first){answer++;first=second;second=interval[1]}};return answer} }
+class Solution {
+    fun intersectionSizeTwo(intervals:Array<IntArray>):Int{
+        intervals.sortWith(compareBy<IntArray>{
+            it[1]
+        }.thenByDescending{
+            it[0]
+        });
+        var first=-1;
+        var second=-1;
+        var answer=0;
+        for(interval in intervals){
+            if(interval[0]>second){
+                answer+=2;
+                first=interval[1]-1;
+                second=interval[1]
+            }else if(interval[0]>first){
+                answer++;
+                first=second;
+                second=interval[1]
+            }
+        };
+        return answer
+    }
+}

@@ -1,1 +1,15 @@
-class Solution { fun characterReplacement(s:String,k:Int):Int{val counts=IntArray(26);var left=0;var maxFrequency=0;var answer=0;for(right in s.indices){counts[s[right]-'A']++;maxFrequency=maxOf(maxFrequency,counts[s[right]-'A']);while(right-left+1-maxFrequency>k)counts[s[left++]-'A']--;answer=maxOf(answer,right-left+1)};return answer} }
+class Solution {
+    fun characterReplacement(s:String,k:Int):Int{
+        val counts=IntArray(26);
+        var left=0;
+        var maxFrequency=0;
+        var answer=0;
+        for(right in s.indices){
+            counts[s[right]-'A']++;
+            maxFrequency=maxOf(maxFrequency,counts[s[right]-'A']);
+            while(right-left+1-maxFrequency>k)counts[s[left++]-'A']--;
+            answer=maxOf(answer,right-left+1)
+        };
+        return answer
+    }
+}

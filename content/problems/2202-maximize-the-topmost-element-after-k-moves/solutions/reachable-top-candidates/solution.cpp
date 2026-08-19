@@ -1,1 +1,10 @@
-class Solution { public:int maximumTop(vector<int>& nums,int k){if(!k)return nums[0];if(nums.size()==1)return k%2==0?nums[0]:-1;int answer=-1;for(int i=0;i<min((int)nums.size(),k-1);++i)answer=max(answer,nums[i]);if(k<(int)nums.size())answer=max(answer,nums[k]);return answer;} };
+class Solution {
+    public:int maximumTop(vector<int>& nums,int k){
+        if(!k)return nums[0];
+        if(nums.size()==1)return k%2==0?nums[0]:-1;
+        int answer=-1;
+        for(int i=0;i<min((int)nums.size(),k-1);++i)answer=max(answer,nums[i]);
+        if(k<(int)nums.size())answer=max(answer,nums[k]);
+        return answer;
+    }
+};

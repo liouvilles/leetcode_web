@@ -1,1 +1,29 @@
-class Solution { fun updateMatrix(mat:Array<IntArray>):Array<IntArray>{val rows=mat.size;val cols=mat[0].size;val distance=Array(rows){IntArray(cols){-1}};val queue=ArrayDeque<IntArray>();for(r in 0 until rows)for(c in 0 until cols)if(mat[r][c]==0){distance[r][c]=0;queue.addLast(intArrayOf(r,c))};val directions=arrayOf(intArrayOf(1,0),intArrayOf(-1,0),intArrayOf(0,1),intArrayOf(0,-1));while(queue.isNotEmpty()){val cell=queue.removeFirst();for(d in directions){val r=cell[0]+d[0];val c=cell[1]+d[1];if(r in 0 until rows&&c in 0 until cols&&distance[r][c]==-1){distance[r][c]=distance[cell[0]][cell[1]]+1;queue.addLast(intArrayOf(r,c))}}};return distance} }
+class Solution {
+    fun updateMatrix(mat:Array<IntArray>):Array<IntArray>{
+        val rows=mat.size;
+        val cols=mat[0].size;
+        val distance=Array(rows){
+            IntArray(cols){
+                -1
+            }
+        };
+        val queue=ArrayDeque<IntArray>();
+        for(r in 0 until rows)for(c in 0 until cols)if(mat[r][c]==0){
+            distance[r][c]=0;
+            queue.addLast(intArrayOf(r,c))
+        };
+        val directions=arrayOf(intArrayOf(1,0),intArrayOf(-1,0),intArrayOf(0,1),intArrayOf(0,-1));
+        while(queue.isNotEmpty()){
+            val cell=queue.removeFirst();
+            for(d in directions){
+                val r=cell[0]+d[0];
+                val c=cell[1]+d[1];
+                if(r in 0 until rows&&c in 0 until cols&&distance[r][c]==-1){
+                    distance[r][c]=distance[cell[0]][cell[1]]+1;
+                    queue.addLast(intArrayOf(r,c))
+                }
+            }
+        };
+        return distance
+    }
+}

@@ -1,1 +1,22 @@
-class Solution { long long zeroes(long long value){long long result=0;while(value){value/=5;result+=value;}return result;}long long lowerBound(long long target){long long low=0,high=5*(target+1);while(low<high){long long middle=low+(high-low)/2;if(zeroes(middle)>=target)high=middle;else low=middle+1;}return low;}public:int preimageSizeFZF(int k){return lowerBound((long long)k+1)-lowerBound(k);} };
+class Solution {
+    long long zeroes(long long value){
+        long long result=0;
+        while(value){
+            value/=5;
+            result+=value;
+        }
+        return result;
+    }
+    long long lowerBound(long long target){
+        long long low=0,high=5*(target+1);
+        while(low<high){
+            long long middle=low+(high-low)/2;
+            if(zeroes(middle)>=target)high=middle;
+            else low=middle+1;
+        }
+        return low;
+    }
+    public:int preimageSizeFZF(int k){
+        return lowerBound((long long)k+1)-lowerBound(k);
+    }
+};

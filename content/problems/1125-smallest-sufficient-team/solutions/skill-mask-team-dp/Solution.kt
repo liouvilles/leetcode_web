@@ -1,1 +1,17 @@
-class Solution { fun smallestSufficientTeam(reqSkills:Array<String>,people:List<List<String>>):IntArray{val skill=reqSkills.withIndex().associate{it.value to it.index};val dp=mutableMapOf<Int,List<Int>>(0 to emptyList());for(person in people.indices){var personMask=0;for(name in people[person])personMask=personMask or (1 shl skill[name]!!);for((mask,team) in dp.toList()){val next=mask or personMask;if(next !in dp||dp[next]!!.size>team.size+1)dp[next]=team+person}};return dp[(1 shl reqSkills.size)-1]!!.toIntArray()} }
+class Solution {
+    fun smallestSufficientTeam(reqSkills:Array<String>,people:List<List<String>>):IntArray{
+        val skill=reqSkills.withIndex().associate{
+            it.value to it.index
+        };
+        val dp=mutableMapOf<Int,List<Int>>(0 to emptyList());
+        for(person in people.indices){
+            var personMask=0;
+            for(name in people[person])personMask=personMask or (1 shl skill[name]!!);
+            for((mask,team) in dp.toList()){
+                val next=mask or personMask;
+                if(next !in dp||dp[next]!!.size>team.size+1)dp[next]=team+person
+            }
+        };
+        return dp[(1 shl reqSkills.size)-1]!!.toIntArray()
+    }
+}

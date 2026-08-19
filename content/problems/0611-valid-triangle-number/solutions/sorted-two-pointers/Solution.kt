@@ -1,1 +1,15 @@
-class Solution { fun triangleNumber(nums:IntArray):Int{nums.sort();var answer=0;for(longest in nums.lastIndex downTo 2){var left=0;var right=longest-1;while(left<right)if(nums[left]+nums[right]>nums[longest]){answer+=right-left;right--}else left++};return answer} }
+class Solution {
+    fun triangleNumber(nums:IntArray):Int{
+        nums.sort();
+        var answer=0;
+        for(longest in nums.lastIndex downTo 2){
+            var left=0;
+            var right=longest-1;
+            while(left<right)if(nums[left]+nums[right]>nums[longest]){
+                answer+=right-left;
+                right--
+            }else left++
+        };
+        return answer
+    }
+}

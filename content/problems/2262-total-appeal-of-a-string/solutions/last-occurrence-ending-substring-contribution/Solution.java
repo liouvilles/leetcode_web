@@ -1,1 +1,14 @@
-class Solution { public long appealSum(String s){int[] last=new int[26];Arrays.fill(last,-1);long current=0,answer=0;for(int i=0;i<s.length();i++){int ch=s.charAt(i)-'a';current+=i-last[ch];last[ch]=i;answer+=current;}return answer;} }
+class Solution {
+    public long appealSum(String s){
+        int[] last=new int[26];
+        Arrays.fill(last,-1);
+        long current=0,answer=0;
+        for(int i=0;i<s.length();i++){
+            int ch=s.charAt(i)-'a';
+            current+=i-last[ch];
+            last[ch]=i;
+            answer+=current;
+        }
+        return answer;
+    }
+}

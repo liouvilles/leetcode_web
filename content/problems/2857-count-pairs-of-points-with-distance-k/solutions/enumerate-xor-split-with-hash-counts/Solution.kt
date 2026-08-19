@@ -1,1 +1,15 @@
-class Solution { private fun key(x:Int,y:Int):Long=(x.toLong() shl 32) xor (y.toLong() and 0xffffffffL);fun countPairs(coordinates:List<List<Int>>,k:Int):Int{val frequency=HashMap<Long,Int>();var answer=0;for(point in coordinates){val x=point[0];val y=point[1];for(deltaX in 0..k)answer+=frequency[key(x xor deltaX,y xor (k-deltaX))]?:0;val current=key(x,y);frequency[current]=(frequency[current]?:0)+1};return answer} }
+class Solution {
+    private fun key(x:Int,y:Int):Long=(x.toLong() shl 32) xor (y.toLong() and 0xffffffffL);
+    fun countPairs(coordinates:List<List<Int>>,k:Int):Int{
+        val frequency=HashMap<Long,Int>();
+        var answer=0;
+        for(point in coordinates){
+            val x=point[0];
+            val y=point[1];
+            for(deltaX in 0..k)answer+=frequency[key(x xor deltaX,y xor (k-deltaX))]?:0;
+            val current=key(x,y);
+            frequency[current]=(frequency[current]?:0)+1
+        };
+        return answer
+    }
+}

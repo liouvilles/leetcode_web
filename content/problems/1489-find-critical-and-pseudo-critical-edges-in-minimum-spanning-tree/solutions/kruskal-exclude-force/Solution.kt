@@ -1,1 +1,62 @@
-class Solution { private class DSU(n:Int){val parent=IntArray(n){it};val rank=IntArray(n);fun find(x:Int):Int{if(parent[x]!=x)parent[x]=find(parent[x]);return parent[x]};fun union(first:Int,second:Int):Boolean{var a=find(first);var b=find(second);if(a==b)return false;if(rank[a]<rank[b]){val temporary=a;a=b;b=temporary};parent[b]=a;if(rank[a]==rank[b])rank[a]++;return true}};private var n=0;private lateinit var edges:Array<IntArray>;private fun mst(skip:Int,force:Int):Long{val dsu=DSU(n);var weight=0L;var used=0;if(force!=-1)for(edge in edges)if(edge[3]==force){if(dsu.union(edge[0],edge[1])){weight+=edge[2];used++};break};for(edge in edges){if(edge[3]==skip||edge[3]==force)continue;if(dsu.union(edge[0],edge[1])){weight+=edge[2];used++;if(used==n-1)break}};return if(used==n-1)weight else Long.MAX_VALUE/4};fun findCriticalAndPseudoCriticalEdges(n:Int,input:Array<IntArray>):List<List<Int>>{this.n=n;edges=Array(input.size){intArrayOf(input[it][0],input[it][1],input[it][2],it)};edges.sortBy{it[2]};val base=mst(-1,-1);val critical=mutableListOf<Int>();val pseudo=mutableListOf<Int>();for(index in input.indices)if(mst(index,-1)>base)critical.add(index)else if(mst(-1,index)==base)pseudo.add(index);return listOf(critical,pseudo)} }
+class Solution {
+    private class DSU(n:Int){
+        val parent=IntArray(n){
+            it
+        };
+        val rank=IntArray(n);
+        fun find(x:Int):Int{
+            if(parent[x]!=x)parent[x]=find(parent[x]);
+            return parent[x]
+        };
+        fun union(first:Int,second:Int):Boolean{
+            var a=find(first);
+            var b=find(second);
+            if(a==b)return false;
+            if(rank[a]<rank[b]){
+                val temporary=a;
+                a=b;
+                b=temporary
+            };
+            parent[b]=a;
+            if(rank[a]==rank[b])rank[a]++;
+            return true
+        }
+    };
+    private var n=0;
+    private lateinit var edges:Array<IntArray>;
+    private fun mst(skip:Int,force:Int):Long{
+        val dsu=DSU(n);
+        var weight=0L;
+        var used=0;
+        if(force!=-1)for(edge in edges)if(edge[3]==force){
+            if(dsu.union(edge[0],edge[1])){
+                weight+=edge[2];
+                used++
+            };
+            break
+        };
+        for(edge in edges){
+            if(edge[3]==skip||edge[3]==force)continue;
+            if(dsu.union(edge[0],edge[1])){
+                weight+=edge[2];
+                used++;
+                if(used==n-1)break
+            }
+        };
+        return if(used==n-1)weight else Long.MAX_VALUE/4
+    };
+    fun findCriticalAndPseudoCriticalEdges(n:Int,input:Array<IntArray>):List<List<Int>>{
+        this.n=n;
+        edges=Array(input.size){
+            intArrayOf(input[it][0],input[it][1],input[it][2],it)
+        };
+        edges.sortBy{
+            it[2]
+        };
+        val base=mst(-1,-1);
+        val critical=mutableListOf<Int>();
+        val pseudo=mutableListOf<Int>();
+        for(index in input.indices)if(mst(index,-1)>base)critical.add(index)else if(mst(-1,index)==base)pseudo.add(index);
+        return listOf(critical,pseudo)
+    }
+}

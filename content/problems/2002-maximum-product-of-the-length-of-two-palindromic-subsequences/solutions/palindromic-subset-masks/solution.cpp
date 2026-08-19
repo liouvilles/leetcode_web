@@ -1,1 +1,15 @@
-class Solution { bool palindrome(string& s,int mask){string value;for(int i=0;i<(int)s.size();++i)if(mask&(1<<i))value+=s[i];return equal(value.begin(),value.begin()+value.size()/2,value.rbegin());}public: int maxProduct(string s){int total=1<<s.size();vector<int> length(total);for(int mask=1;mask<total;++mask)if(palindrome(s,mask))length[mask]=__builtin_popcount((unsigned)mask);int answer=0;for(int first=1;first<total;++first)for(int second=first+1;second<total;++second)if(!(first&second))answer=max(answer,length[first]*length[second]);return answer;} };
+class Solution {
+    bool palindrome(string& s,int mask){
+        string value;
+        for(int i=0;i<(int)s.size();++i)if(mask&(1<<i))value+=s[i];
+        return equal(value.begin(),value.begin()+value.size()/2,value.rbegin());
+    }
+    public: int maxProduct(string s){
+        int total=1<<s.size();
+        vector<int> length(total);
+        for(int mask=1;mask<total;++mask)if(palindrome(s,mask))length[mask]=__builtin_popcount((unsigned)mask);
+        int answer=0;
+        for(int first=1;first<total;++first)for(int second=first+1;second<total;++second)if(!(first&second))answer=max(answer,length[first]*length[second]);
+        return answer;
+    }
+};

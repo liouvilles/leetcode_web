@@ -1,1 +1,14 @@
-class Solution { public:int maximumBags(vector<int>& capacity,vector<int>& rocks,int additionalRocks){vector<int> deficits(capacity.size());for(int i=0;i<(int)capacity.size();++i)deficits[i]=capacity[i]-rocks[i];sort(deficits.begin(),deficits.end());int answer=0;for(int deficit:deficits){if(deficit>additionalRocks)break;additionalRocks-=deficit;++answer;}return answer;} };
+class Solution {
+    public:int maximumBags(vector<int>& capacity,vector<int>& rocks,int additionalRocks){
+        vector<int> deficits(capacity.size());
+        for(int i=0;i<(int)capacity.size();++i)deficits[i]=capacity[i]-rocks[i];
+        sort(deficits.begin(),deficits.end());
+        int answer=0;
+        for(int deficit:deficits){
+            if(deficit>additionalRocks)break;
+            additionalRocks-=deficit;
+            ++answer;
+        }
+        return answer;
+    }
+};

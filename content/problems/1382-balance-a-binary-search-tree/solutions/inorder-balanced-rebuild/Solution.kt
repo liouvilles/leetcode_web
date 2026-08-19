@@ -1,1 +1,21 @@
-class Solution { private val values=mutableListOf<Int>();private fun inorder(node:TreeNode?){if(node==null)return;inorder(node.left);values.add(node.`val`);inorder(node.right)};private fun build(left:Int,right:Int):TreeNode?{if(left>right)return null;val middle=left+(right-left)/2;val root=TreeNode(values[middle]);root.left=build(left,middle-1);root.right=build(middle+1,right);return root};fun balanceBST(root:TreeNode?):TreeNode?{inorder(root);return build(0,values.lastIndex)} }
+class Solution {
+    private val values=mutableListOf<Int>();
+    private fun inorder(node:TreeNode?){
+        if(node==null)return;
+        inorder(node.left);
+        values.add(node.`val`);
+        inorder(node.right)
+    };
+    private fun build(left:Int,right:Int):TreeNode?{
+        if(left>right)return null;
+        val middle=left+(right-left)/2;
+        val root=TreeNode(values[middle]);
+        root.left=build(left,middle-1);
+        root.right=build(middle+1,right);
+        return root
+    };
+    fun balanceBST(root:TreeNode?):TreeNode?{
+        inorder(root);
+        return build(0,values.lastIndex)
+    }
+}

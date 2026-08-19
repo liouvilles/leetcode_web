@@ -1,1 +1,17 @@
-class Solution { private Set<Integer> distances(int boundary,int[] fences){int[] positions=Arrays.copyOf(fences,fences.length+2);positions[fences.length]=1;positions[fences.length+1]=boundary;Set<Integer> result=new HashSet<>();for(int first=0;first<positions.length;first++)for(int second=first+1;second<positions.length;second++)result.add(Math.abs(positions[first]-positions[second]));return result;}public int maximizeSquareArea(int m,int n,int[] hFences,int[] vFences){Set<Integer> horizontal=distances(m,hFences),vertical=distances(n,vFences);long side=-1;for(int distance:horizontal)if(vertical.contains(distance))side=Math.max(side,distance);if(side<0)return -1;return (int)(side*side%1_000_000_007L);} }
+class Solution {
+    private Set<Integer> distances(int boundary,int[] fences){
+        int[] positions=Arrays.copyOf(fences,fences.length+2);
+        positions[fences.length]=1;
+        positions[fences.length+1]=boundary;
+        Set<Integer> result=new HashSet<>();
+        for(int first=0;first<positions.length;first++)for(int second=first+1;second<positions.length;second++)result.add(Math.abs(positions[first]-positions[second]));
+        return result;
+    }
+    public int maximizeSquareArea(int m,int n,int[] hFences,int[] vFences){
+        Set<Integer> horizontal=distances(m,hFences),vertical=distances(n,vFences);
+        long side=-1;
+        for(int distance:horizontal)if(vertical.contains(distance))side=Math.max(side,distance);
+        if(side<0)return -1;
+        return (int)(side*side%1_000_000_007L);
+    }
+}

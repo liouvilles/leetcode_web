@@ -1,1 +1,16 @@
-class Solution { public: int maxSum(vector<int>& nums1,vector<int>& nums2){int i=0,j=0;long long first=0,second=0;while(i<(int)nums1.size()&&j<(int)nums2.size())if(nums1[i]<nums2[j])first+=nums1[i++];else if(nums1[i]>nums2[j])second+=nums2[j++];else{long long common=max(first,second)+nums1[i];first=second=common;++i;++j;}while(i<(int)nums1.size())first+=nums1[i++];while(j<(int)nums2.size())second+=nums2[j++];return max(first,second)%1000000007;} };
+class Solution {
+    public: int maxSum(vector<int>& nums1,vector<int>& nums2){
+        int i=0,j=0;
+        long long first=0,second=0;
+        while(i<(int)nums1.size()&&j<(int)nums2.size())if(nums1[i]<nums2[j])first+=nums1[i++];
+        else if(nums1[i]>nums2[j])second+=nums2[j++];
+        else{
+            long long common=max(first,second)+nums1[i];
+            first=second=common;
+            ++i;
+            ++j;
+        }while(i<(int)nums1.size())first+=nums1[i++];
+        while(j<(int)nums2.size())second+=nums2[j++];
+        return max(first,second)%1000000007;
+    }
+};

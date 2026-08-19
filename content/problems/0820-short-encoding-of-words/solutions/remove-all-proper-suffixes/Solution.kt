@@ -1,1 +1,9 @@
-class Solution { fun minimumLengthEncoding(words:Array<String>):Int{val remaining=words.toMutableSet();for(word in words)for(start in 1 until word.length)remaining.remove(word.substring(start));return remaining.sumOf{it.length+1}} }
+class Solution {
+    fun minimumLengthEncoding(words:Array<String>):Int{
+        val remaining=words.toMutableSet();
+        for(word in words)for(start in 1 until word.length)remaining.remove(word.substring(start));
+        return remaining.sumOf{
+            it.length+1
+        }
+    }
+}

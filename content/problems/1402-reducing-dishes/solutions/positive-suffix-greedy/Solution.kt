@@ -1,1 +1,13 @@
-class Solution { fun maxSatisfaction(satisfaction:IntArray):Int{satisfaction.sort();var suffix=0;var answer=0;for(i in satisfaction.lastIndex downTo 0){suffix+=satisfaction[i];if(suffix<=0)break;answer+=suffix};return answer} }
+class Solution {
+    fun maxSatisfaction(satisfaction:IntArray):Int{
+        satisfaction.sort();
+        var suffix=0;
+        var answer=0;
+        for(i in satisfaction.lastIndex downTo 0){
+            suffix+=satisfaction[i];
+            if(suffix<=0)break;
+            answer+=suffix
+        };
+        return answer
+    }
+}

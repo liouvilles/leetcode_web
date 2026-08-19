@@ -1,1 +1,18 @@
-class Solution { vector<int> first,second,memo;int dfs(int mask){if(mask==(1<<(int)first.size())-1)return 0;int& result=memo[mask];if(result!=-1)return result;int index=__builtin_popcount((unsigned)mask);result=INT_MAX;for(int j=0;j<(int)second.size();++j)if(!(mask&(1<<j)))result=min(result,(first[index]^second[j])+dfs(mask|(1<<j)));return result;}public: int minimumXORSum(vector<int>& nums1,vector<int>& nums2){first=nums1;second=nums2;memo.assign(1<<first.size(),-1);return dfs(0);} };
+class Solution {
+    vector<int> first,second,memo;
+    int dfs(int mask){
+        if(mask==(1<<(int)first.size())-1)return 0;
+        int& result=memo[mask];
+        if(result!=-1)return result;
+        int index=__builtin_popcount((unsigned)mask);
+        result=INT_MAX;
+        for(int j=0;j<(int)second.size();++j)if(!(mask&(1<<j)))result=min(result,(first[index]^second[j])+dfs(mask|(1<<j)));
+        return result;
+    }
+    public: int minimumXORSum(vector<int>& nums1,vector<int>& nums2){
+        first=nums1;
+        second=nums2;
+        memo.assign(1<<first.size(),-1);
+        return dfs(0);
+    }
+};

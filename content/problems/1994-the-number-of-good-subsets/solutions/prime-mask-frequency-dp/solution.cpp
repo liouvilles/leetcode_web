@@ -1,1 +1,27 @@
-class Solution { public: int numberOfGoodSubsets(vector<int>& nums){const long long MOD=1000000007;int frequency[31]={},primes[10]={2,3,5,7,11,13,17,19,23,29};for(int value:nums)++frequency[value];vector<long long> dp(1<<10);dp[0]=1;for(int value=2;value<=30;++value)if(frequency[value]){int mask=0;bool valid=true;for(int bit=0;bit<10;++bit){if(value%(primes[bit]*primes[bit])==0)valid=false;if(value%primes[bit]==0)mask|=1<<bit;}if(!valid)continue;auto next=dp;for(int state=0;state<(1<<10);++state)if(!(state&mask))next[state|mask]=(next[state|mask]+dp[state]*frequency[value])%MOD;dp.swap(next);}long long answer=accumulate(dp.begin()+1,dp.end(),0LL)%MOD;while(frequency[1]--)answer=answer*2%MOD;return answer;} };
+class Solution {
+    public: int numberOfGoodSubsets(vector<int>& nums){
+        const long long MOD=1000000007;
+        int frequency[31]={
+        },primes[10]={
+            2,3,5,7,11,13,17,19,23,29
+        };
+        for(int value:nums)++frequency[value];
+        vector<long long> dp(1<<10);
+        dp[0]=1;
+        for(int value=2;value<=30;++value)if(frequency[value]){
+            int mask=0;
+            bool valid=true;
+            for(int bit=0;bit<10;++bit){
+                if(value%(primes[bit]*primes[bit])==0)valid=false;
+                if(value%primes[bit]==0)mask|=1<<bit;
+            }
+            if(!valid)continue;
+            auto next=dp;
+            for(int state=0;state<(1<<10);++state)if(!(state&mask))next[state|mask]=(next[state|mask]+dp[state]*frequency[value])%MOD;
+            dp.swap(next);
+        }
+        long long answer=accumulate(dp.begin()+1,dp.end(),0LL)%MOD;
+        while(frequency[1]--)answer=answer*2%MOD;
+        return answer;
+    }
+};

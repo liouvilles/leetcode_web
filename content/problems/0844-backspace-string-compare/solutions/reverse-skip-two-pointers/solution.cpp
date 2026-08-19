@@ -1,1 +1,27 @@
-class Solution { int previous(string& text,int index){int skip=0;while(index>=0){if(text[index]=='#'){++skip;--index;}else if(skip){--skip;--index;}else break;}return index;}public:bool backspaceCompare(string s,string t){int i=s.size()-1,j=t.size()-1;while(i>=0||j>=0){i=previous(s,i);j=previous(t,j);if(i<0||j<0)return i==j;if(s[i]!=t[j])return false;--i;--j;}return true;} };
+class Solution {
+    int previous(string& text,int index){
+        int skip=0;
+        while(index>=0){
+            if(text[index]=='#'){
+                ++skip;
+                --index;
+            }else if(skip){
+                --skip;
+                --index;
+            }else break;
+        }
+        return index;
+    }
+    public:bool backspaceCompare(string s,string t){
+        int i=s.size()-1,j=t.size()-1;
+        while(i>=0||j>=0){
+            i=previous(s,i);
+            j=previous(t,j);
+            if(i<0||j<0)return i==j;
+            if(s[i]!=t[j])return false;
+            --i;
+            --j;
+        }
+        return true;
+    }
+};

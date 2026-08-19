@@ -1,1 +1,23 @@
-class Solution { private fun priceSum(number:Long,x:Int):Long{val value=number+1;var total=0L;var bit=x-1;while(bit<60){val half=1L shl bit;val cycle=half shl 1;total+=(value/cycle)*half+maxOf(0L,value%cycle-half);bit+=x};return total};fun findMaximumNumber(k:Long,x:Int):Long{var low=0L;var high=(k+1) shl x;while(low<high){val middle=low+(high-low)/2;if(priceSum(middle,x)<=k)low=middle+1 else high=middle};return low-1} }
+class Solution {
+    private fun priceSum(number:Long,x:Int):Long{
+        val value=number+1;
+        var total=0L;
+        var bit=x-1;
+        while(bit<60){
+            val half=1L shl bit;
+            val cycle=half shl 1;
+            total+=(value/cycle)*half+maxOf(0L,value%cycle-half);
+            bit+=x
+        };
+        return total
+    };
+    fun findMaximumNumber(k:Long,x:Int):Long{
+        var low=0L;
+        var high=(k+1) shl x;
+        while(low<high){
+            val middle=low+(high-low)/2;
+            if(priceSum(middle,x)<=k)low=middle+1 else high=middle
+        };
+        return low-1
+    }
+}

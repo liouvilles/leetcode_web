@@ -1,1 +1,24 @@
-class Solution { fun executeInstructions(n:Int,startPos:IntArray,s:String):IntArray{return IntArray(s.length){begin->var row=startPos[0];var column=startPos[1];var count=0;for(i in begin until s.length){var nextRow=row;var nextColumn=column;when(s[i]){'L'->nextColumn--;'R'->nextColumn++;'U'->nextRow--;else->nextRow++};if(nextRow !in 0 until n||nextColumn !in 0 until n)break;row=nextRow;column=nextColumn;count++};count}} }
+class Solution {
+    fun executeInstructions(n:Int,startPos:IntArray,s:String):IntArray{
+        return IntArray(s.length){
+            begin->var row=startPos[0];
+            var column=startPos[1];
+            var count=0;
+            for(i in begin until s.length){
+                var nextRow=row;
+                var nextColumn=column;
+                when(s[i]){
+                    'L'->nextColumn--;
+                    'R'->nextColumn++;
+                    'U'->nextRow--;
+                    else->nextRow++
+                };
+                if(nextRow !in 0 until n||nextColumn !in 0 until n)break;
+                row=nextRow;
+                column=nextColumn;
+                count++
+            };
+            count
+        }
+    }
+}

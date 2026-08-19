@@ -1,1 +1,12 @@
-class Solution { public String[] findRelativeRanks(int[] score){Integer[] indices=new Integer[score.length];for(int i=0;i<score.length;i++)indices[i]=i;Arrays.sort(indices,(a,b)->Integer.compare(score[b],score[a]));String[] answer=new String[score.length],medals={"Gold Medal","Silver Medal","Bronze Medal"};for(int rank=0;rank<indices.length;rank++)answer[indices[rank]]=rank<3?medals[rank]:String.valueOf(rank+1);return answer;} }
+class Solution {
+    public String[] findRelativeRanks(int[] score){
+        Integer[] indices=new Integer[score.length];
+        for(int i=0;i<score.length;i++)indices[i]=i;
+        Arrays.sort(indices,(a,b)->Integer.compare(score[b],score[a]));
+        String[] answer=new String[score.length],medals={
+            "Gold Medal","Silver Medal","Bronze Medal"
+        };
+        for(int rank=0;rank<indices.length;rank++)answer[indices[rank]]=rank<3?medals[rank]:String.valueOf(rank+1);
+        return answer;
+    }
+}

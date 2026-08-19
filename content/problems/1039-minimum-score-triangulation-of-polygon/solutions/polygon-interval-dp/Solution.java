@@ -1,1 +1,12 @@
-class Solution { public int minScoreTriangulation(int[] values){int n=values.length;int[][] dp=new int[n][n];for(int length=3;length<=n;length++)for(int left=0;left+length<=n;left++){int right=left+length-1;dp[left][right]=Integer.MAX_VALUE;for(int middle=left+1;middle<right;middle++)dp[left][right]=Math.min(dp[left][right],dp[left][middle]+dp[middle][right]+values[left]*values[middle]*values[right]);}return dp[0][n-1];} }
+class Solution {
+    public int minScoreTriangulation(int[] values){
+        int n=values.length;
+        int[][] dp=new int[n][n];
+        for(int length=3;length<=n;length++)for(int left=0;left+length<=n;left++){
+            int right=left+length-1;
+            dp[left][right]=Integer.MAX_VALUE;
+            for(int middle=left+1;middle<right;middle++)dp[left][right]=Math.min(dp[left][right],dp[left][middle]+dp[middle][right]+values[left]*values[middle]*values[right]);
+        }
+        return dp[0][n-1];
+    }
+}

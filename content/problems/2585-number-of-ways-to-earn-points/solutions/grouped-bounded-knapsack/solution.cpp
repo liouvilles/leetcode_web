@@ -1,1 +1,17 @@
-class Solution { public:int waysToReachTarget(int target,vector<vector<int>>& types){const int MOD=1'000'000'007;vector<int> dp(target+1);dp[0]=1;for(auto& type:types){vector<int> next(target+1);for(int score=0;score<=target;++score)if(dp[score])for(int take=0;take<=type[0]&&score+take*type[1]<=target;++take){int newScore=score+take*type[1];next[newScore]+=dp[score];if(next[newScore]>=MOD)next[newScore]-=MOD;}dp.swap(next);}return dp[target];} };
+class Solution {
+    public:int waysToReachTarget(int target,vector<vector<int>>& types){
+        const int MOD=1'000'000'007;
+        vector<int> dp(target+1);
+        dp[0]=1;
+        for(auto& type:types){
+            vector<int> next(target+1);
+            for(int score=0;score<=target;++score)if(dp[score])for(int take=0;take<=type[0]&&score+take*type[1]<=target;++take){
+                int newScore=score+take*type[1];
+                next[newScore]+=dp[score];
+                if(next[newScore]>=MOD)next[newScore]-=MOD;
+            }
+            dp.swap(next);
+        }
+        return dp[target];
+    }
+};

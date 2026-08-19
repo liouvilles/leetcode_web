@@ -1,1 +1,10 @@
-class Solution { private data class Result(val node:TreeNode?,val depth:Int);fun lcaDeepestLeaves(root:TreeNode?):TreeNode?=dfs(root).node;private fun dfs(node:TreeNode?):Result{node?:return Result(null,0);val left=dfs(node.left);val right=dfs(node.right);return if(left.depth==right.depth)Result(node,left.depth+1) else if(left.depth>right.depth)Result(left.node,left.depth+1) else Result(right.node,right.depth+1)} }
+class Solution {
+    private data class Result(val node:TreeNode?,val depth:Int);
+    fun lcaDeepestLeaves(root:TreeNode?):TreeNode?=dfs(root).node;
+    private fun dfs(node:TreeNode?):Result{
+        node?:return Result(null,0);
+        val left=dfs(node.left);
+        val right=dfs(node.right);
+        return if(left.depth==right.depth)Result(node,left.depth+1) else if(left.depth>right.depth)Result(left.node,left.depth+1) else Result(right.node,right.depth+1)
+    }
+}

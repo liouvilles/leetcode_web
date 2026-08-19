@@ -1,1 +1,37 @@
-class Solution { private lateinit var houses:IntArray;private lateinit var cost:Array<IntArray>;private var m=0;private var n=0;private var target=0;private lateinit var memo:Array<Array<IntArray>>;private val inf=1_000_000_000;private fun dfs(index:Int,previous:Int,groups:Int):Int{if(groups>target)return inf;if(index==m)return if(groups==target)0 else inf;if(memo[index][previous][groups]!=-1)return memo[index][previous][groups];var answer=inf;if(houses[index]!=0)answer=dfs(index+1,houses[index],groups+if(houses[index]!=previous)1 else 0)else for(color in 1..n){val next=dfs(index+1,color,groups+if(color!=previous)1 else 0);if(next<inf)answer=minOf(answer,cost[index][color-1]+next)};memo[index][previous][groups]=answer;return answer};fun minCost(houses:IntArray,cost:Array<IntArray>,m:Int,n:Int,target:Int):Int{this.houses=houses;this.cost=cost;this.m=m;this.n=n;this.target=target;memo=Array(m){Array(n+1){IntArray(target+1){-1}}};val answer=dfs(0,0,0);return if(answer>=inf)-1 else answer} }
+class Solution {
+    private lateinit var houses:IntArray;
+    private lateinit var cost:Array<IntArray>;
+    private var m=0;
+    private var n=0;
+    private var target=0;
+    private lateinit var memo:Array<Array<IntArray>>;
+    private val inf=1_000_000_000;
+    private fun dfs(index:Int,previous:Int,groups:Int):Int{
+        if(groups>target)return inf;
+        if(index==m)return if(groups==target)0 else inf;
+        if(memo[index][previous][groups]!=-1)return memo[index][previous][groups];
+        var answer=inf;
+        if(houses[index]!=0)answer=dfs(index+1,houses[index],groups+if(houses[index]!=previous)1 else 0)else for(color in 1..n){
+            val next=dfs(index+1,color,groups+if(color!=previous)1 else 0);
+            if(next<inf)answer=minOf(answer,cost[index][color-1]+next)
+        };
+        memo[index][previous][groups]=answer;
+        return answer
+    };
+    fun minCost(houses:IntArray,cost:Array<IntArray>,m:Int,n:Int,target:Int):Int{
+        this.houses=houses;
+        this.cost=cost;
+        this.m=m;
+        this.n=n;
+        this.target=target;
+        memo=Array(m){
+            Array(n+1){
+                IntArray(target+1){
+                    -1
+                }
+            }
+        };
+        val answer=dfs(0,0,0);
+        return if(answer>=inf)-1 else answer
+    }
+}

@@ -1,1 +1,21 @@
-class Solution { public String tree2str(TreeNode root){StringBuilder answer=new StringBuilder();append(root,answer);return answer.toString();}private void append(TreeNode node,StringBuilder answer){if(node==null)return;answer.append(node.val);if(node.left!=null||node.right!=null){answer.append('(');append(node.left,answer);answer.append(')');}if(node.right!=null){answer.append('(');append(node.right,answer);answer.append(')');}} }
+class Solution {
+    public String tree2str(TreeNode root){
+        StringBuilder answer=new StringBuilder();
+        append(root,answer);
+        return answer.toString();
+    }
+    private void append(TreeNode node,StringBuilder answer){
+        if(node==null)return;
+        answer.append(node.val);
+        if(node.left!=null||node.right!=null){
+            answer.append('(');
+            append(node.left,answer);
+            answer.append(')');
+        }
+        if(node.right!=null){
+            answer.append('(');
+            append(node.right,answer);
+            answer.append(')');
+        }
+    }
+}

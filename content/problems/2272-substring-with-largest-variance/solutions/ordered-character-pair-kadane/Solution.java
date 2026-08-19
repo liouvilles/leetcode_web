@@ -1,1 +1,23 @@
-class Solution { public int largestVariance(String s){int[] frequency=new int[26];for(char ch:s.toCharArray())frequency[ch-'a']++;int answer=0;for(int major=0;major<26;major++)for(int minor=0;minor<26;minor++)if(major!=minor&&frequency[major]>0&&frequency[minor]>0){int majorCount=0,minorCount=0,remainingMinor=frequency[minor];for(char ch:s.toCharArray()){int value=ch-'a';if(value==major)majorCount++;if(value==minor){minorCount++;remainingMinor--;}if(minorCount>0)answer=Math.max(answer,majorCount-minorCount);if(majorCount<minorCount&&remainingMinor>0){majorCount=minorCount=0;}}}return answer;} }
+class Solution {
+    public int largestVariance(String s){
+        int[] frequency=new int[26];
+        for(char ch:s.toCharArray())frequency[ch-'a']++;
+        int answer=0;
+        for(int major=0;major<26;major++)for(int minor=0;minor<26;minor++)if(major!=minor&&frequency[major]>0&&frequency[minor]>0){
+            int majorCount=0,minorCount=0,remainingMinor=frequency[minor];
+            for(char ch:s.toCharArray()){
+                int value=ch-'a';
+                if(value==major)majorCount++;
+                if(value==minor){
+                    minorCount++;
+                    remainingMinor--;
+                }
+                if(minorCount>0)answer=Math.max(answer,majorCount-minorCount);
+                if(majorCount<minorCount&&remainingMinor>0){
+                    majorCount=minorCount=0;
+                }
+            }
+        }
+        return answer;
+    }
+}

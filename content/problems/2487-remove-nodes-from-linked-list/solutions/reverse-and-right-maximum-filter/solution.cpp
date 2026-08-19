@@ -1,1 +1,26 @@
-class Solution { ListNode* reverse(ListNode* head){ListNode* previous=nullptr;while(head){ListNode* next=head->next;head->next=previous;previous=head;head=next;}return previous;}public:ListNode* removeNodes(ListNode* head){ListNode* node=reverse(head),*answer=nullptr;int maximum=INT_MIN;while(node){ListNode* next=node->next;if(node->val>=maximum){maximum=node->val;node->next=answer;answer=node;}node=next;}return answer;} };
+class Solution {
+    ListNode* reverse(ListNode* head){
+        ListNode* previous=nullptr;
+        while(head){
+            ListNode* next=head->next;
+            head->next=previous;
+            previous=head;
+            head=next;
+        }
+        return previous;
+    }
+    public:ListNode* removeNodes(ListNode* head){
+        ListNode* node=reverse(head),*answer=nullptr;
+        int maximum=INT_MIN;
+        while(node){
+            ListNode* next=node->next;
+            if(node->val>=maximum){
+                maximum=node->val;
+                node->next=answer;
+                answer=node;
+            }
+            node=next;
+        }
+        return answer;
+    }
+};

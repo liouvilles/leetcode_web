@@ -1,1 +1,32 @@
-class Solution { private val parent=mutableMapOf<TreeNode,TreeNode?>();private var actualTarget:TreeNode?=null;fun distanceK(root:TreeNode?,target:TreeNode?,k:Int):List<Int>{build(root,null,target!!.`val`);val queue=java.util.ArrayDeque<TreeNode>();val seen=mutableSetOf<TreeNode>();queue.addLast(actualTarget!!);seen.add(actualTarget!!);repeat(k){repeat(queue.size){val node=queue.removeFirst();add(node.left,seen,queue);add(node.right,seen,queue);add(parent[node],seen,queue)}};return queue.map{it.`val`}};private fun build(node:TreeNode?,p:TreeNode?,targetValue:Int){if(node==null)return;parent[node]=p;if(node.`val`==targetValue)actualTarget=node;build(node.left,node,targetValue);build(node.right,node,targetValue)};private fun add(node:TreeNode?,seen:MutableSet<TreeNode>,queue:java.util.ArrayDeque<TreeNode>){if(node!=null&&seen.add(node))queue.addLast(node)} }
+class Solution {
+    private val parent=mutableMapOf<TreeNode,TreeNode?>();
+    private var actualTarget:TreeNode?=null;
+    fun distanceK(root:TreeNode?,target:TreeNode?,k:Int):List<Int>{
+        build(root,null,target!!.`val`);
+        val queue=java.util.ArrayDeque<TreeNode>();
+        val seen=mutableSetOf<TreeNode>();
+        queue.addLast(actualTarget!!);
+        seen.add(actualTarget!!);
+        repeat(k){
+            repeat(queue.size){
+                val node=queue.removeFirst();
+                add(node.left,seen,queue);
+                add(node.right,seen,queue);
+                add(parent[node],seen,queue)
+            }
+        };
+        return queue.map{
+            it.`val`
+        }
+    };
+    private fun build(node:TreeNode?,p:TreeNode?,targetValue:Int){
+        if(node==null)return;
+        parent[node]=p;
+        if(node.`val`==targetValue)actualTarget=node;
+        build(node.left,node,targetValue);
+        build(node.right,node,targetValue)
+    };
+    private fun add(node:TreeNode?,seen:MutableSet<TreeNode>,queue:java.util.ArrayDeque<TreeNode>){
+        if(node!=null&&seen.add(node))queue.addLast(node)
+    }
+}

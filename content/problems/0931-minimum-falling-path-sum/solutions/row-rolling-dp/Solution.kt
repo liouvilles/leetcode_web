@@ -1,1 +1,16 @@
-class Solution { fun minFallingPathSum(matrix:Array<IntArray>):Int{var dp=matrix[0].clone();for(row in 1 until matrix.size){val next=IntArray(matrix.size);for(col in matrix.indices){var best=dp[col];if(col>0)best=minOf(best,dp[col-1]);if(col+1<matrix.size)best=minOf(best,dp[col+1]);next[col]=matrix[row][col]+best};dp=next};return dp.minOrNull()!!} }
+class Solution {
+    fun minFallingPathSum(matrix:Array<IntArray>):Int{
+        var dp=matrix[0].clone();
+        for(row in 1 until matrix.size){
+            val next=IntArray(matrix.size);
+            for(col in matrix.indices){
+                var best=dp[col];
+                if(col>0)best=minOf(best,dp[col-1]);
+                if(col+1<matrix.size)best=minOf(best,dp[col+1]);
+                next[col]=matrix[row][col]+best
+            };
+            dp=next
+        };
+        return dp.minOrNull()!!
+    }
+}

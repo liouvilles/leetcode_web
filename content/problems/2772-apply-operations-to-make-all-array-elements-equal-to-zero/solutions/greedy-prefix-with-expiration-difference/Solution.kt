@@ -1,1 +1,17 @@
-class Solution { fun checkArray(nums:IntArray,k:Int):Boolean{val expire=LongArray(nums.size+1);var active=0L;for(i in nums.indices){active-=expire[i];val needed=nums[i]-active;if(needed<0)return false;if(needed>0){if(i+k>nums.size)return false;active+=needed;expire[i+k]+=needed}};return true} }
+class Solution {
+    fun checkArray(nums:IntArray,k:Int):Boolean{
+        val expire=LongArray(nums.size+1);
+        var active=0L;
+        for(i in nums.indices){
+            active-=expire[i];
+            val needed=nums[i]-active;
+            if(needed<0)return false;
+            if(needed>0){
+                if(i+k>nums.size)return false;
+                active+=needed;
+                expire[i+k]+=needed
+            }
+        };
+        return true
+    }
+}

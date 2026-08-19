@@ -1,1 +1,16 @@
-class Solution { public:int digArtifacts(int n,vector<vector<int>>& artifacts,vector<vector<int>>& dig){unordered_set<int> dug;for(auto& cell:dig)dug.insert(cell[0]*n+cell[1]);int answer=0;for(auto& artifact:artifacts){bool complete=true;for(int row=artifact[0];row<=artifact[2]&&complete;++row)for(int column=artifact[1];column<=artifact[3];++column)if(!dug.count(row*n+column)){complete=false;break;}answer+=complete;}return answer;} };
+class Solution {
+    public:int digArtifacts(int n,vector<vector<int>>& artifacts,vector<vector<int>>& dig){
+        unordered_set<int> dug;
+        for(auto& cell:dig)dug.insert(cell[0]*n+cell[1]);
+        int answer=0;
+        for(auto& artifact:artifacts){
+            bool complete=true;
+            for(int row=artifact[0];row<=artifact[2]&&complete;++row)for(int column=artifact[1];column<=artifact[3];++column)if(!dug.count(row*n+column)){
+                complete=false;
+                break;
+            }
+            answer+=complete;
+        }
+        return answer;
+    }
+};

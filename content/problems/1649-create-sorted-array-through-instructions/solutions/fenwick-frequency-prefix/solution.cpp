@@ -1,1 +1,26 @@
-class Solution { struct Fenwick{vector<int> tree;Fenwick(int n):tree(n+1){}void add(int index){for(;index<(int)tree.size();index+=index&-index)++tree[index];}int query(int index){int sum=0;for(;index>0;index-=index&-index)sum+=tree[index];return sum;}};public:int createSortedArray(vector<int>& instructions){const int MOD=1000000007;Fenwick fenwick(*max_element(instructions.begin(),instructions.end()));long long cost=0;for(int i=0;i<(int)instructions.size();++i){int value=instructions[i],less=fenwick.query(value-1),greater=i-fenwick.query(value);cost=(cost+min(less,greater))%MOD;fenwick.add(value);}return cost;} };
+class Solution {
+    struct Fenwick{
+        vector<int> tree;
+        Fenwick(int n):tree(n+1){
+        }
+        void add(int index){
+            for(;index<(int)tree.size();index+=index&-index)++tree[index];
+        }
+        int query(int index){
+            int sum=0;
+            for(;index>0;index-=index&-index)sum+=tree[index];
+            return sum;
+        }
+    };
+    public:int createSortedArray(vector<int>& instructions){
+        const int MOD=1000000007;
+        Fenwick fenwick(*max_element(instructions.begin(),instructions.end()));
+        long long cost=0;
+        for(int i=0;i<(int)instructions.size();++i){
+            int value=instructions[i],less=fenwick.query(value-1),greater=i-fenwick.query(value);
+            cost=(cost+min(less,greater))%MOD;
+            fenwick.add(value);
+        }
+        return cost;
+    }
+};

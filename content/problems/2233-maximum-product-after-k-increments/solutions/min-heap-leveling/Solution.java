@@ -1,1 +1,10 @@
-class Solution { public int maximumProduct(int[] nums,int k){PriorityQueue<Long> heap=new PriorityQueue<>();for(int value:nums)heap.offer((long)value);while(k-->0)heap.offer(heap.poll()+1);long answer=1;while(!heap.isEmpty())answer=answer*(heap.poll()%1_000_000_007)%1_000_000_007;return (int)answer;} }
+class Solution {
+    public int maximumProduct(int[] nums,int k){
+        PriorityQueue<Long> heap=new PriorityQueue<>();
+        for(int value:nums)heap.offer((long)value);
+        while(k-->0)heap.offer(heap.poll()+1);
+        long answer=1;
+        while(!heap.isEmpty())answer=answer*(heap.poll()%1_000_000_007)%1_000_000_007;
+        return (int)answer;
+    }
+}

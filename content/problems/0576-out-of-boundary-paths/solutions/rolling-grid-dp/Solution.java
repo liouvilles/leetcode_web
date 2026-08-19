@@ -1,1 +1,28 @@
-class Solution { public int findPaths(int m,int n,int maxMove,int startRow,int startColumn){long mod=1000000007L,answer=0;long[][] dp=new long[m][n];dp[startRow][startColumn]=1;int[][] directions={{1,0},{-1,0},{0,1},{0,-1}};for(int move=0;move<maxMove;move++){long[][] next=new long[m][n];for(int row=0;row<m;row++)for(int column=0;column<n;column++)for(int[] direction:directions){int r=row+direction[0],c=column+direction[1];if(r<0||r>=m||c<0||c>=n)answer=(answer+dp[row][column])%mod;else next[r][c]=(next[r][c]+dp[row][column])%mod;}dp=next;}return(int)answer;} }
+class Solution {
+    public int findPaths(int m,int n,int maxMove,int startRow,int startColumn){
+        long mod=1000000007L,answer=0;
+        long[][] dp=new long[m][n];
+        dp[startRow][startColumn]=1;
+        int[][] directions={
+            {
+                1,0
+            },{
+                -1,0
+            },{
+                0,1
+            },{
+                0,-1
+            }
+        };
+        for(int move=0;move<maxMove;move++){
+            long[][] next=new long[m][n];
+            for(int row=0;row<m;row++)for(int column=0;column<n;column++)for(int[] direction:directions){
+                int r=row+direction[0],c=column+direction[1];
+                if(r<0||r>=m||c<0||c>=n)answer=(answer+dp[row][column])%mod;
+                else next[r][c]=(next[r][c]+dp[row][column])%mod;
+            }
+            dp=next;
+        }
+        return(int)answer;
+    }
+}

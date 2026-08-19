@@ -1,1 +1,12 @@
-class Solution { public int splitNum(int num){char[] digits=String.valueOf(num).toCharArray();Arrays.sort(digits);int first=0,second=0;for(int i=0;i<digits.length;i++){if((i&1)==0)first=first*10+digits[i]-'0';else second=second*10+digits[i]-'0';}return first+second;} }
+class Solution {
+    public int splitNum(int num){
+        char[] digits=String.valueOf(num).toCharArray();
+        Arrays.sort(digits);
+        int first=0,second=0;
+        for(int i=0;i<digits.length;i++){
+            if((i&1)==0)first=first*10+digits[i]-'0';
+            else second=second*10+digits[i]-'0';
+        }
+        return first+second;
+    }
+}

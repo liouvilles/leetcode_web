@@ -1,1 +1,14 @@
-class Solution { fun beautifulSubarrays(nums:IntArray):Long{val frequency=HashMap<Int,Int>();frequency[0]=1;var prefix=0;var answer=0L;for(value in nums){prefix=prefix xor value;answer+=frequency.getOrDefault(prefix,0);frequency[prefix]=frequency.getOrDefault(prefix,0)+1};return answer} }
+class Solution {
+    fun beautifulSubarrays(nums:IntArray):Long{
+        val frequency=HashMap<Int,Int>();
+        frequency[0]=1;
+        var prefix=0;
+        var answer=0L;
+        for(value in nums){
+            prefix=prefix xor value;
+            answer+=frequency.getOrDefault(prefix,0);
+            frequency[prefix]=frequency.getOrDefault(prefix,0)+1
+        };
+        return answer
+    }
+}

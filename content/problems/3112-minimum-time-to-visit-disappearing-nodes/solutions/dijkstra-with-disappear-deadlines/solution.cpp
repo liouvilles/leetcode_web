@@ -1,1 +1,36 @@
-class Solution { public:vector<int> minimumTime(int n,vector<vector<int>>& edges,vector<int>& disappear){vector<vector<pair<int,int>>> graph(n);for(auto& edge:edges){graph[edge[0]].push_back({edge[1],edge[2]});graph[edge[1]].push_back({edge[0],edge[2]});}vector<long long> distance(n,LLONG_MAX);priority_queue<pair<long long,int>,vector<pair<long long,int>>,greater<pair<long long,int>>> queue;distance[0]=0;queue.push({0,0});while(!queue.empty()){auto [time,node]=queue.top();queue.pop();if(time!=distance[node])continue;for(auto [next,weight]:graph[node]){long long candidate=time+weight;if(candidate<distance[next]&&candidate<disappear[next]){distance[next]=candidate;queue.push({candidate,next});}}}vector<int> answer(n);for(int node=0;node<n;++node)answer[node]=distance[node]==LLONG_MAX?-1:distance[node];return answer;} };
+class Solution {
+    public:vector<int> minimumTime(int n,vector<vector<int>>& edges,vector<int>& disappear){
+        vector<vector<pair<int,int>>> graph(n);
+        for(auto& edge:edges){
+            graph[edge[0]].push_back({
+                edge[1],edge[2]
+            });
+            graph[edge[1]].push_back({
+                edge[0],edge[2]
+            });
+        }
+        vector<long long> distance(n,LLONG_MAX);
+        priority_queue<pair<long long,int>,vector<pair<long long,int>>,greater<pair<long long,int>>> queue;
+        distance[0]=0;
+        queue.push({
+            0,0
+        });
+        while(!queue.empty()){
+            auto [time,node]=queue.top();
+            queue.pop();
+            if(time!=distance[node])continue;
+            for(auto [next,weight]:graph[node]){
+                long long candidate=time+weight;
+                if(candidate<distance[next]&&candidate<disappear[next]){
+                    distance[next]=candidate;
+                    queue.push({
+                        candidate,next
+                    });
+                }
+            }
+        }
+        vector<int> answer(n);
+        for(int node=0;node<n;++node)answer[node]=distance[node]==LLONG_MAX?-1:distance[node];
+        return answer;
+    }
+};

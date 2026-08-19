@@ -1,1 +1,36 @@
-class Solution { fun countVisitedNodes(edges:List<Int>):IntArray{val n=edges.size;val indegree=IntArray(n);val order=IntArray(n);val answer=IntArray(n);for(next in edges)indegree[next]++;val queue=java.util.ArrayDeque<Int>();for(node in 0 until n)if(indegree[node]==0)queue.addLast(node);var size=0;while(!queue.isEmpty()){val node=queue.removeFirst();order[size++]=node;val next=edges[node];if(--indegree[next]==0)queue.addLast(next)};for(start in 0 until n)if(indegree[start]>0&&answer[start]==0){var length=1;var current=edges[start];while(current!=start){length++;current=edges[current]};current=start;do{answer[current]=length;current=edges[current]}while(current!=start)};for(i in size-1 downTo 0){val node=order[i];answer[node]=answer[edges[node]]+1};return answer} }
+class Solution {
+    fun countVisitedNodes(edges:List<Int>):IntArray{
+        val n=edges.size;
+        val indegree=IntArray(n);
+        val order=IntArray(n);
+        val answer=IntArray(n);
+        for(next in edges)indegree[next]++;
+        val queue=java.util.ArrayDeque<Int>();
+        for(node in 0 until n)if(indegree[node]==0)queue.addLast(node);
+        var size=0;
+        while(!queue.isEmpty()){
+            val node=queue.removeFirst();
+            order[size++]=node;
+            val next=edges[node];
+            if(--indegree[next]==0)queue.addLast(next)
+        };
+        for(start in 0 until n)if(indegree[start]>0&&answer[start]==0){
+            var length=1;
+            var current=edges[start];
+            while(current!=start){
+                length++;
+                current=edges[current]
+            };
+            current=start;
+            do{
+                answer[current]=length;
+                current=edges[current]
+            }while(current!=start)
+        };
+        for(i in size-1 downTo 0){
+            val node=order[i];
+            answer[node]=answer[edges[node]]+1
+        };
+        return answer
+    }
+}

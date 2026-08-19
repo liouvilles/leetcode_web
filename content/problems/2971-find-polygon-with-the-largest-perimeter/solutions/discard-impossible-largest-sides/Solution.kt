@@ -1,1 +1,12 @@
-class Solution { fun largestPerimeter(nums:IntArray):Long{nums.sort();var perimeter=0L;for(value in nums)perimeter+=value;for(index in nums.lastIndex downTo 2){if(perimeter-nums[index]>nums[index])return perimeter;perimeter-=nums[index]};return -1} }
+class Solution {
+    fun largestPerimeter(nums:IntArray):Long{
+        nums.sort();
+        var perimeter=0L;
+        for(value in nums)perimeter+=value;
+        for(index in nums.lastIndex downTo 2){
+            if(perimeter-nums[index]>nums[index])return perimeter;
+            perimeter-=nums[index]
+        };
+        return -1
+    }
+}

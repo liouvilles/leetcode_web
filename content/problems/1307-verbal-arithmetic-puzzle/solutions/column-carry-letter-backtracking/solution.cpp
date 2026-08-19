@@ -1,1 +1,49 @@
-class Solution { vector<string> words;string result;array<int,26> mapping;array<bool,10> used{};array<bool,26> leading{};bool dfs(int column,int row,int sum){if(column==(int)result.size())return sum==0;if(row<(int)words.size()){string& word=words[row];int index=word.size()-1-column;if(index<0)return dfs(column,row+1,sum);int letter=word[index]-'A';if(mapping[letter]>=0)return dfs(column,row+1,sum+mapping[letter]);for(int digit=0;digit<=9;++digit)if(!used[digit]&&(digit||!leading[letter])){mapping[letter]=digit;used[digit]=true;if(dfs(column,row+1,sum+digit))return true;used[digit]=false;mapping[letter]=-1;}return false;}int letter=result[result.size()-1-column]-'A',digit=sum%10,carry=sum/10;if(mapping[letter]>=0)return mapping[letter]==digit&&dfs(column+1,0,carry);if(used[digit]||(!digit&&leading[letter]))return false;mapping[letter]=digit;used[digit]=true;bool solved=dfs(column+1,0,carry);used[digit]=false;mapping[letter]=-1;return solved;}public:bool isSolvable(vector<string>& input,string output){words=input;result=output;mapping.fill(-1);used.fill(false);leading.fill(false);for(string& word:words){if(word.size()>result.size())return false;if(word.size()>1)leading[word[0]-'A']=true;}if(result.size()>1)leading[result[0]-'A']=true;return dfs(0,0,0);} };
+class Solution {
+    vector<string> words;
+    string result;
+    array<int,26> mapping;
+    array<bool,10> used{
+    };
+    array<bool,26> leading{
+    };
+    bool dfs(int column,int row,int sum){
+        if(column==(int)result.size())return sum==0;
+        if(row<(int)words.size()){
+            string& word=words[row];
+            int index=word.size()-1-column;
+            if(index<0)return dfs(column,row+1,sum);
+            int letter=word[index]-'A';
+            if(mapping[letter]>=0)return dfs(column,row+1,sum+mapping[letter]);
+            for(int digit=0;digit<=9;++digit)if(!used[digit]&&(digit||!leading[letter])){
+                mapping[letter]=digit;
+                used[digit]=true;
+                if(dfs(column,row+1,sum+digit))return true;
+                used[digit]=false;
+                mapping[letter]=-1;
+            }
+            return false;
+        }
+        int letter=result[result.size()-1-column]-'A',digit=sum%10,carry=sum/10;
+        if(mapping[letter]>=0)return mapping[letter]==digit&&dfs(column+1,0,carry);
+        if(used[digit]||(!digit&&leading[letter]))return false;
+        mapping[letter]=digit;
+        used[digit]=true;
+        bool solved=dfs(column+1,0,carry);
+        used[digit]=false;
+        mapping[letter]=-1;
+        return solved;
+    }
+    public:bool isSolvable(vector<string>& input,string output){
+        words=input;
+        result=output;
+        mapping.fill(-1);
+        used.fill(false);
+        leading.fill(false);
+        for(string& word:words){
+            if(word.size()>result.size())return false;
+            if(word.size()>1)leading[word[0]-'A']=true;
+        }
+        if(result.size()>1)leading[result[0]-'A']=true;
+        return dfs(0,0,0);
+    }
+};

@@ -1,1 +1,13 @@
-class Solution { public int minimumSize(int[] nums,int maxOperations){int left=1,right=Arrays.stream(nums).max().getAsInt();while(left<right){int middle=left+(right-left)/2;long operations=0;for(int value:nums)operations+=(value-1)/middle;if(operations<=maxOperations)right=middle;else left=middle+1;}return left;} }
+class Solution {
+    public int minimumSize(int[] nums,int maxOperations){
+        int left=1,right=Arrays.stream(nums).max().getAsInt();
+        while(left<right){
+            int middle=left+(right-left)/2;
+            long operations=0;
+            for(int value:nums)operations+=(value-1)/middle;
+            if(operations<=maxOperations)right=middle;
+            else left=middle+1;
+        }
+        return left;
+    }
+}

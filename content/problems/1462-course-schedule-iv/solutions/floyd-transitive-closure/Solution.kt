@@ -1,1 +1,12 @@
-class Solution { fun checkIfPrerequisite(numCourses:Int,prerequisites:Array<IntArray>,queries:Array<IntArray>):List<Boolean>{val reach=Array(numCourses){BooleanArray(numCourses)};for(edge in prerequisites)reach[edge[0]][edge[1]]=true;for(middle in 0 until numCourses)for(from in 0 until numCourses)if(reach[from][middle])for(to in 0 until numCourses)reach[from][to]=reach[from][to]||reach[middle][to];return queries.map{reach[it[0]][it[1]]}} }
+class Solution {
+    fun checkIfPrerequisite(numCourses:Int,prerequisites:Array<IntArray>,queries:Array<IntArray>):List<Boolean>{
+        val reach=Array(numCourses){
+            BooleanArray(numCourses)
+        };
+        for(edge in prerequisites)reach[edge[0]][edge[1]]=true;
+        for(middle in 0 until numCourses)for(from in 0 until numCourses)if(reach[from][middle])for(to in 0 until numCourses)reach[from][to]=reach[from][to]||reach[middle][to];
+        return queries.map{
+            reach[it[0]][it[1]]
+        }
+    }
+}

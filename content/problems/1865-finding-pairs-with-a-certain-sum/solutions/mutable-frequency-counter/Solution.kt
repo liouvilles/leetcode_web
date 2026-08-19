@@ -1,1 +1,16 @@
-class FindSumPairs(private val nums1:IntArray,private val nums2:IntArray){private val frequency=HashMap<Int,Int>();init{for(value in nums2)frequency[value]=(frequency[value]?:0)+1}fun add(index:Int,value:Int){frequency[nums2[index]]=(frequency[nums2[index]]?:0)-1;nums2[index]+=value;frequency[nums2[index]]=(frequency[nums2[index]]?:0)+1}fun count(total:Int):Int{var answer=0;for(value in nums1)answer+=frequency[total-value]?:0;return answer}}
+class FindSumPairs(private val nums1:IntArray,private val nums2:IntArray){
+    private val frequency=HashMap<Int,Int>();
+    init{
+        for(value in nums2)frequency[value]=(frequency[value]?:0)+1
+    }
+    fun add(index:Int,value:Int){
+        frequency[nums2[index]]=(frequency[nums2[index]]?:0)-1;
+        nums2[index]+=value;
+        frequency[nums2[index]]=(frequency[nums2[index]]?:0)+1
+    }
+    fun count(total:Int):Int{
+        var answer=0;
+        for(value in nums1)answer+=frequency[total-value]?:0;
+        return answer
+    }
+}

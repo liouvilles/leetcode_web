@@ -1,1 +1,32 @@
-class Solution { vector<vector<int>> graph;vector<int> count,answer;int n;void post(int node,int parent){for(int next:graph[node])if(next!=parent){post(next,node);count[node]+=count[next];answer[node]+=answer[next]+count[next];}}void pre(int node,int parent){for(int next:graph[node])if(next!=parent){answer[next]=answer[node]-count[next]+n-count[next];pre(next,node);}}public:vector<int> sumOfDistancesInTree(int size,vector<vector<int>>& edges){n=size;graph.assign(n,{});for(auto& edge:edges){graph[edge[0]].push_back(edge[1]);graph[edge[1]].push_back(edge[0]);}count.assign(n,1);answer.assign(n,0);post(0,-1);pre(0,-1);return answer;} };
+class Solution {
+    vector<vector<int>> graph;
+    vector<int> count,answer;
+    int n;
+    void post(int node,int parent){
+        for(int next:graph[node])if(next!=parent){
+            post(next,node);
+            count[node]+=count[next];
+            answer[node]+=answer[next]+count[next];
+        }
+    }
+    void pre(int node,int parent){
+        for(int next:graph[node])if(next!=parent){
+            answer[next]=answer[node]-count[next]+n-count[next];
+            pre(next,node);
+        }
+    }
+    public:vector<int> sumOfDistancesInTree(int size,vector<vector<int>>& edges){
+        n=size;
+        graph.assign(n,{
+        });
+        for(auto& edge:edges){
+            graph[edge[0]].push_back(edge[1]);
+            graph[edge[1]].push_back(edge[0]);
+        }
+        count.assign(n,1);
+        answer.assign(n,0);
+        post(0,-1);
+        pre(0,-1);
+        return answer;
+    }
+};

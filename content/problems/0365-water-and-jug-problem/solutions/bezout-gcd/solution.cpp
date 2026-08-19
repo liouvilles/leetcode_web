@@ -1,1 +1,16 @@
-class Solution { int gcdValue(int a,int b){while(b){int value=a%b;a=b;b=value;}return a;}public:bool canMeasureWater(int x,int y,int target){if(target==0)return true;if((long long)x+y<target)return false;int gcd=gcdValue(x,y);return gcd&&target%gcd==0;} };
+class Solution {
+    int gcdValue(int a,int b){
+        while(b){
+            int value=a%b;
+            a=b;
+            b=value;
+        }
+        return a;
+    }
+    public:bool canMeasureWater(int x,int y,int target){
+        if(target==0)return true;
+        if((long long)x+y<target)return false;
+        int gcd=gcdValue(x,y);
+        return gcd&&target%gcd==0;
+    }
+};

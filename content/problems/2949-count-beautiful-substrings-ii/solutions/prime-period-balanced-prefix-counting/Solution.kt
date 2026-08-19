@@ -1,1 +1,36 @@
-class Solution { private fun period(value:Int):Int{var remaining=value;var base=1;var factor=2;while(factor*factor<=remaining){var exponent=0;while(remaining%factor==0){remaining/=factor;exponent++};repeat((exponent+1)/2){base*=factor};factor++};if(remaining>1)base*=remaining;return 2*base}fun beautifulSubstrings(s:String,k:Int):Long{val n=s.length;val period=period(k);val frequency=HashMap<Long,Long>();frequency[n.toLong()*period]=1L;var balance=0;var answer=0L;for(position in 1..n){balance+=if(s[position-1] in "aeiou")1 else -1;val key=(balance+n).toLong()*period+position%period;val previous=frequency[key]?:0L;answer+=previous;frequency[key]=previous+1};return answer} }
+class Solution {
+    private fun period(value:Int):Int{
+        var remaining=value;
+        var base=1;
+        var factor=2;
+        while(factor*factor<=remaining){
+            var exponent=0;
+            while(remaining%factor==0){
+                remaining/=factor;
+                exponent++
+            };
+            repeat((exponent+1)/2){
+                base*=factor
+            };
+            factor++
+        };
+        if(remaining>1)base*=remaining;
+        return 2*base
+    }
+    fun beautifulSubstrings(s:String,k:Int):Long{
+        val n=s.length;
+        val period=period(k);
+        val frequency=HashMap<Long,Long>();
+        frequency[n.toLong()*period]=1L;
+        var balance=0;
+        var answer=0L;
+        for(position in 1..n){
+            balance+=if(s[position-1] in "aeiou")1 else -1;
+            val key=(balance+n).toLong()*period+position%period;
+            val previous=frequency[key]?:0L;
+            answer+=previous;
+            frequency[key]=previous+1
+        };
+        return answer
+    }
+}

@@ -1,1 +1,19 @@
-class Solution { public:vector<int> secondGreaterElement(vector<int>& nums){vector<int> answer(nums.size(),-1),first,second;for(int i=0;i<(int)nums.size();++i){while(!second.empty()&&nums[second.back()]<nums[i]){answer[second.back()]=nums[i];second.pop_back();}vector<int> moved;while(!first.empty()&&nums[first.back()]<nums[i]){moved.push_back(first.back());first.pop_back();}for(auto iterator=moved.rbegin();iterator!=moved.rend();++iterator)second.push_back(*iterator);first.push_back(i);}return answer;} };
+class Solution {
+    public:vector<int> secondGreaterElement(vector<int>& nums){
+        vector<int> answer(nums.size(),-1),first,second;
+        for(int i=0;i<(int)nums.size();++i){
+            while(!second.empty()&&nums[second.back()]<nums[i]){
+                answer[second.back()]=nums[i];
+                second.pop_back();
+            }
+            vector<int> moved;
+            while(!first.empty()&&nums[first.back()]<nums[i]){
+                moved.push_back(first.back());
+                first.pop_back();
+            }
+            for(auto iterator=moved.rbegin();iterator!=moved.rend();++iterator)second.push_back(*iterator);
+            first.push_back(i);
+        }
+        return answer;
+    }
+};

@@ -1,1 +1,24 @@
-class Solution { int[] nums,powers,memo;int slots;private int dfs(int index,int mask){if(index==nums.length)return 0;if(memo[mask]>=0)return memo[mask];int best=0;for(int slot=0;slot<slots;slot++)if(mask/powers[slot]%3<2)best=Math.max(best,(nums[index]&(slot+1))+dfs(index+1,mask+powers[slot]));return memo[mask]=best;}public int maximumANDSum(int[] nums,int numSlots){this.nums=nums;slots=numSlots;powers=new int[slots];int states=1;for(int i=0;i<slots;i++){powers[i]=states;states*=3;}memo=new int[states];Arrays.fill(memo,-1);return dfs(0,0);} }
+class Solution {
+    int[] nums,powers,memo;
+    int slots;
+    private int dfs(int index,int mask){
+        if(index==nums.length)return 0;
+        if(memo[mask]>=0)return memo[mask];
+        int best=0;
+        for(int slot=0;slot<slots;slot++)if(mask/powers[slot]%3<2)best=Math.max(best,(nums[index]&(slot+1))+dfs(index+1,mask+powers[slot]));
+        return memo[mask]=best;
+    }
+    public int maximumANDSum(int[] nums,int numSlots){
+        this.nums=nums;
+        slots=numSlots;
+        powers=new int[slots];
+        int states=1;
+        for(int i=0;i<slots;i++){
+            powers[i]=states;
+            states*=3;
+        }
+        memo=new int[states];
+        Arrays.fill(memo,-1);
+        return dfs(0,0);
+    }
+}

@@ -1,1 +1,5 @@
-class Solution { fun isStrictlyPalindromic(n:Int):Boolean{return false} }
+class Solution {
+    fun isStrictlyPalindromic(n:Int):Boolean{
+        return false
+    }
+}

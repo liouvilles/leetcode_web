@@ -1,1 +1,17 @@
-class Solution { fun numSubmat(mat:Array<IntArray>):Int{val height=IntArray(mat[0].size);var answer=0;for(row in mat){for(col in height.indices)height[col]=if(row[col]==0)0 else height[col]+1;for(right in height.indices){var minimum=Int.MAX_VALUE;for(left in right downTo 0){minimum=minOf(minimum,height[left]);answer+=minimum}}};return answer} }
+class Solution {
+    fun numSubmat(mat:Array<IntArray>):Int{
+        val height=IntArray(mat[0].size);
+        var answer=0;
+        for(row in mat){
+            for(col in height.indices)height[col]=if(row[col]==0)0 else height[col]+1;
+            for(right in height.indices){
+                var minimum=Int.MAX_VALUE;
+                for(left in right downTo 0){
+                    minimum=minOf(minimum,height[left]);
+                    answer+=minimum
+                }
+            }
+        };
+        return answer
+    }
+}

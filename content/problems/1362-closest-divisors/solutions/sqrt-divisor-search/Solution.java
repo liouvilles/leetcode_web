@@ -1,1 +1,12 @@
-class Solution { private int[] pair(int value){for(int divisor=(int)Math.sqrt(value);divisor>=1;divisor--)if(value%divisor==0)return new int[]{divisor,value/divisor};throw new IllegalStateException();}public int[] closestDivisors(int num){int[] first=pair(num+1),second=pair(num+2);return first[1]-first[0]<=second[1]-second[0]?first:second;} }
+class Solution {
+    private int[] pair(int value){
+        for(int divisor=(int)Math.sqrt(value);divisor>=1;divisor--)if(value%divisor==0)return new int[]{
+            divisor,value/divisor
+        };
+        throw new IllegalStateException();
+    }
+    public int[] closestDivisors(int num){
+        int[] first=pair(num+1),second=pair(num+2);
+        return first[1]-first[0]<=second[1]-second[0]?first:second;
+    }
+}

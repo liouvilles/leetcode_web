@@ -1,1 +1,16 @@
-class Solution { public String longestWord(String[] words){Set<String> dictionary=new HashSet<>(Arrays.asList(words));Arrays.sort(words);String answer="";for(String word:words){boolean valid=true;for(int end=1;end<word.length();end++)if(!dictionary.contains(word.substring(0,end))){valid=false;break;}if(valid&&word.length()>answer.length())answer=word;}return answer;} }
+class Solution {
+    public String longestWord(String[] words){
+        Set<String> dictionary=new HashSet<>(Arrays.asList(words));
+        Arrays.sort(words);
+        String answer="";
+        for(String word:words){
+            boolean valid=true;
+            for(int end=1;end<word.length();end++)if(!dictionary.contains(word.substring(0,end))){
+                valid=false;
+                break;
+            }
+            if(valid&&word.length()>answer.length())answer=word;
+        }
+        return answer;
+    }
+}

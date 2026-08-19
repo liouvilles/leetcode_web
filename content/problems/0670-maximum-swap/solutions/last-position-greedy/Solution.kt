@@ -1,1 +1,14 @@
-class Solution { fun maximumSwap(num:Int):Int{val digits=num.toString().toCharArray();val last=IntArray(10);for(i in digits.indices)last[digits[i]-'0']=i;for(i in digits.indices)for(digit in 9 downTo digits[i]-'0'+1)if(last[digit]>i){val value=digits[i];digits[i]=('0'.code+digit).toChar();digits[last[digit]]=value;return String(digits).toInt()};return num} }
+class Solution {
+    fun maximumSwap(num:Int):Int{
+        val digits=num.toString().toCharArray();
+        val last=IntArray(10);
+        for(i in digits.indices)last[digits[i]-'0']=i;
+        for(i in digits.indices)for(digit in 9 downTo digits[i]-'0'+1)if(last[digit]>i){
+            val value=digits[i];
+            digits[i]=('0'.code+digit).toChar();
+            digits[last[digit]]=value;
+            return String(digits).toInt()
+        };
+        return num
+    }
+}

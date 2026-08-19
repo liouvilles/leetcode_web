@@ -1,1 +1,13 @@
-class Solution { public:vector<int> arrayChange(vector<int>& nums,vector<vector<int>>& operations){unordered_map<int,int> position;for(int i=0;i<(int)nums.size();++i)position[nums[i]]=i;for(auto& operation:operations){int index=position[operation[0]];position.erase(operation[0]);nums[index]=operation[1];position[operation[1]]=index;}return nums;} };
+class Solution {
+    public:vector<int> arrayChange(vector<int>& nums,vector<vector<int>>& operations){
+        unordered_map<int,int> position;
+        for(int i=0;i<(int)nums.size();++i)position[nums[i]]=i;
+        for(auto& operation:operations){
+            int index=position[operation[0]];
+            position.erase(operation[0]);
+            nums[index]=operation[1];
+            position[operation[1]]=index;
+        }
+        return nums;
+    }
+};

@@ -1,1 +1,15 @@
-class Solution { fun rearrangeArray(nums:IntArray):IntArray{val answer=IntArray(nums.size);var positive=0;var negative=1;for(value in nums)if(value>0){answer[positive]=value;positive+=2}else{answer[negative]=value;negative+=2};return answer} }
+class Solution {
+    fun rearrangeArray(nums:IntArray):IntArray{
+        val answer=IntArray(nums.size);
+        var positive=0;
+        var negative=1;
+        for(value in nums)if(value>0){
+            answer[positive]=value;
+            positive+=2
+        }else{
+            answer[negative]=value;
+            negative+=2
+        };
+        return answer
+    }
+}

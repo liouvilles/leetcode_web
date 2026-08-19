@@ -1,1 +1,15 @@
-class Solution { fun threeSumMulti(arr:IntArray,target:Int):Int{val mod=1000000007L;var answer=0L;val count=LongArray(101);for(value in arr)count[value]++;for(a in 0..100)for(b in a..100){val c=target-a-b;if(c<b||c>100)continue;val ways=if(a==b&&b==c)count[a]*(count[a]-1)*(count[a]-2)/6 else if(a==b)count[a]*(count[a]-1)/2*count[c] else if(b==c)count[a]*count[b]*(count[b]-1)/2 else count[a]*count[b]*count[c];answer=(answer+ways)%mod};return answer.toInt()} }
+class Solution {
+    fun threeSumMulti(arr:IntArray,target:Int):Int{
+        val mod=1000000007L;
+        var answer=0L;
+        val count=LongArray(101);
+        for(value in arr)count[value]++;
+        for(a in 0..100)for(b in a..100){
+            val c=target-a-b;
+            if(c<b||c>100)continue;
+            val ways=if(a==b&&b==c)count[a]*(count[a]-1)*(count[a]-2)/6 else if(a==b)count[a]*(count[a]-1)/2*count[c] else if(b==c)count[a]*count[b]*(count[b]-1)/2 else count[a]*count[b]*count[c];
+            answer=(answer+ways)%mod
+        };
+        return answer.toInt()
+    }
+}

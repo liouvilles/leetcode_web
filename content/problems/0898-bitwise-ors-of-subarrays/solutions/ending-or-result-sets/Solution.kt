@@ -1,1 +1,13 @@
-class Solution { fun subarrayBitwiseORs(arr:IntArray):Int{var current=emptySet<Int>();val all=mutableSetOf<Int>();for(value in arr){val next=mutableSetOf(value);for(result in current)next.add(result or value);current=next;all.addAll(current)};return all.size} }
+class Solution {
+    fun subarrayBitwiseORs(arr:IntArray):Int{
+        var current=emptySet<Int>();
+        val all=mutableSetOf<Int>();
+        for(value in arr){
+            val next=mutableSetOf(value);
+            for(result in current)next.add(result or value);
+            current=next;
+            all.addAll(current)
+        };
+        return all.size
+    }
+}

@@ -1,1 +1,15 @@
-class Solution { fun garbageCollection(garbage:Array<String>,travel:IntArray):Int{val prefix=IntArray(garbage.size);for(i in 1 until garbage.size)prefix[i]=prefix[i-1]+travel[i-1];val last=IntArray(3);var answer=0;val types="MPG";for(i in garbage.indices){answer+=garbage[i].length;for(ch in garbage[i])last[types.indexOf(ch)]=i};for(index in last)answer+=prefix[index];return answer} }
+class Solution {
+    fun garbageCollection(garbage:Array<String>,travel:IntArray):Int{
+        val prefix=IntArray(garbage.size);
+        for(i in 1 until garbage.size)prefix[i]=prefix[i-1]+travel[i-1];
+        val last=IntArray(3);
+        var answer=0;
+        val types="MPG";
+        for(i in garbage.indices){
+            answer+=garbage[i].length;
+            for(ch in garbage[i])last[types.indexOf(ch)]=i
+        };
+        for(index in last)answer+=prefix[index];
+        return answer
+    }
+}

@@ -1,1 +1,33 @@
-class Solution { private int best;private int[] jobs,loads;private void dfs(int index){if(index==jobs.length){int maximum=0;for(int load:loads)maximum=Math.max(maximum,load);best=Math.min(best,maximum);return;}Set<Integer> seen=new HashSet<>();for(int worker=0;worker<loads.length;worker++){if(!seen.add(loads[worker])||loads[worker]+jobs[index]>=best)continue;loads[worker]+=jobs[index];dfs(index+1);loads[worker]-=jobs[index];if(loads[worker]==0)break;}}public int minimumTimeRequired(int[] jobs,int k){Arrays.sort(jobs);for(int left=0,right=jobs.length-1;left<right;left++,right--){int t=jobs[left];jobs[left]=jobs[right];jobs[right]=t;}this.jobs=jobs;loads=new int[k];best=Arrays.stream(jobs).sum();dfs(0);return best;} }
+class Solution {
+    private int best;
+    private int[] jobs,loads;
+    private void dfs(int index){
+        if(index==jobs.length){
+            int maximum=0;
+            for(int load:loads)maximum=Math.max(maximum,load);
+            best=Math.min(best,maximum);
+            return;
+        }
+        Set<Integer> seen=new HashSet<>();
+        for(int worker=0;worker<loads.length;worker++){
+            if(!seen.add(loads[worker])||loads[worker]+jobs[index]>=best)continue;
+            loads[worker]+=jobs[index];
+            dfs(index+1);
+            loads[worker]-=jobs[index];
+            if(loads[worker]==0)break;
+        }
+    }
+    public int minimumTimeRequired(int[] jobs,int k){
+        Arrays.sort(jobs);
+        for(int left=0,right=jobs.length-1;left<right;left++,right--){
+            int t=jobs[left];
+            jobs[left]=jobs[right];
+            jobs[right]=t;
+        }
+        this.jobs=jobs;
+        loads=new int[k];
+        best=Arrays.stream(jobs).sum();
+        dfs(0);
+        return best;
+    }
+}

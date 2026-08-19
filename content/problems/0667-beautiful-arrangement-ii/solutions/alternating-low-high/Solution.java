@@ -1,1 +1,12 @@
-class Solution { public int[] constructArray(int n,int k){int[] answer=new int[n];int index=0,left=1,right=k+1;while(left<=right){answer[index++]=left++;if(left<=right)answer[index++]=right--;}for(int value=k+2;value<=n;value++)answer[index++]=value;return answer;} }
+class Solution {
+    public int[] constructArray(int n,int k){
+        int[] answer=new int[n];
+        int index=0,left=1,right=k+1;
+        while(left<=right){
+            answer[index++]=left++;
+            if(left<=right)answer[index++]=right--;
+        }
+        for(int value=k+2;value<=n;value++)answer[index++]=value;
+        return answer;
+    }
+}

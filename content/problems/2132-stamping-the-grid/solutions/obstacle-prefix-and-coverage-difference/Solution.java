@@ -1,1 +1,24 @@
-class Solution { public boolean possibleToStamp(int[][] grid,int stampHeight,int stampWidth){int rows=grid.length,columns=grid[0].length;int[][] prefix=new int[rows+1][columns+1],cover=new int[rows+1][columns+1];for(int r=0;r<rows;r++)for(int c=0;c<columns;c++)prefix[r+1][c+1]=grid[r][c]+prefix[r][c+1]+prefix[r+1][c]-prefix[r][c];for(int r=0;r+stampHeight<=rows;r++)for(int c=0;c+stampWidth<=columns;c++){int bottom=r+stampHeight,right=c+stampWidth;int occupied=prefix[bottom][right]-prefix[r][right]-prefix[bottom][c]+prefix[r][c];if(occupied==0){cover[r][c]++;cover[bottom][c]--;cover[r][right]--;cover[bottom][right]++;}}for(int r=0;r<rows;r++)for(int c=0;c<columns;c++){if(r>0)cover[r][c]+=cover[r-1][c];if(c>0)cover[r][c]+=cover[r][c-1];if(r>0&&c>0)cover[r][c]-=cover[r-1][c-1];if(grid[r][c]==0&&cover[r][c]==0)return false;}return true;} }
+class Solution {
+    public boolean possibleToStamp(int[][] grid,int stampHeight,int stampWidth){
+        int rows=grid.length,columns=grid[0].length;
+        int[][] prefix=new int[rows+1][columns+1],cover=new int[rows+1][columns+1];
+        for(int r=0;r<rows;r++)for(int c=0;c<columns;c++)prefix[r+1][c+1]=grid[r][c]+prefix[r][c+1]+prefix[r+1][c]-prefix[r][c];
+        for(int r=0;r+stampHeight<=rows;r++)for(int c=0;c+stampWidth<=columns;c++){
+            int bottom=r+stampHeight,right=c+stampWidth;
+            int occupied=prefix[bottom][right]-prefix[r][right]-prefix[bottom][c]+prefix[r][c];
+            if(occupied==0){
+                cover[r][c]++;
+                cover[bottom][c]--;
+                cover[r][right]--;
+                cover[bottom][right]++;
+            }
+        }
+        for(int r=0;r<rows;r++)for(int c=0;c<columns;c++){
+            if(r>0)cover[r][c]+=cover[r-1][c];
+            if(c>0)cover[r][c]+=cover[r][c-1];
+            if(r>0&&c>0)cover[r][c]-=cover[r-1][c-1];
+            if(grid[r][c]==0&&cover[r][c]==0)return false;
+        }
+        return true;
+    }
+}

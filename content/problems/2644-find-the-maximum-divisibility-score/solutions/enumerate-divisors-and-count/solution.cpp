@@ -1,1 +1,14 @@
-class Solution { public:int maxDivScore(vector<int>& nums,vector<int>& divisors){int bestScore=-1,answer=INT_MAX;for(int divisor:divisors){int score=0;for(int value:nums)score+=value%divisor==0;if(score>bestScore||(score==bestScore&&divisor<answer)){bestScore=score;answer=divisor;}}return answer;} };
+class Solution {
+    public:int maxDivScore(vector<int>& nums,vector<int>& divisors){
+        int bestScore=-1,answer=INT_MAX;
+        for(int divisor:divisors){
+            int score=0;
+            for(int value:nums)score+=value%divisor==0;
+            if(score>bestScore||(score==bestScore&&divisor<answer)){
+                bestScore=score;
+                answer=divisor;
+            }
+        }
+        return answer;
+    }
+};

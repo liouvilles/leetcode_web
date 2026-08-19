@@ -1,1 +1,42 @@
-class Solution { companion object{const val MOD=1_000_000_007L};private fun power(baseValue:Long,exponentValue:Long):Long{var base=baseValue;var exponent=exponentValue;var answer=1L;while(exponent>0){if(exponent and 1L==1L)answer=answer*base%MOD;base=base*base%MOD;exponent=exponent shr 1};return answer};private fun combination(n:Int,exponent:Int):Long{var answer=1L;for(i in 1..exponent)answer=answer*(n+i-1)%MOD*power(i.toLong(),MOD-2)%MOD;return answer};fun waysToFillArray(queries:Array<IntArray>):IntArray{return IntArray(queries.size){index->val n=queries[index][0];var value=queries[index][1];var ways=1L;var prime=2;while(prime*prime<=value){if(value%prime==0){var exponent=0;while(value%prime==0){value/=prime;exponent++};ways=ways*combination(n,exponent)%MOD};prime++};if(value>1)ways=ways*n%MOD;ways.toInt()}} }
+class Solution {
+    companion object{
+        const val MOD=1_000_000_007L
+    };
+    private fun power(baseValue:Long,exponentValue:Long):Long{
+        var base=baseValue;
+        var exponent=exponentValue;
+        var answer=1L;
+        while(exponent>0){
+            if(exponent and 1L==1L)answer=answer*base%MOD;
+            base=base*base%MOD;
+            exponent=exponent shr 1
+        };
+        return answer
+    };
+    private fun combination(n:Int,exponent:Int):Long{
+        var answer=1L;
+        for(i in 1..exponent)answer=answer*(n+i-1)%MOD*power(i.toLong(),MOD-2)%MOD;
+        return answer
+    };
+    fun waysToFillArray(queries:Array<IntArray>):IntArray{
+        return IntArray(queries.size){
+            index->val n=queries[index][0];
+            var value=queries[index][1];
+            var ways=1L;
+            var prime=2;
+            while(prime*prime<=value){
+                if(value%prime==0){
+                    var exponent=0;
+                    while(value%prime==0){
+                        value/=prime;
+                        exponent++
+                    };
+                    ways=ways*combination(n,exponent)%MOD
+                };
+                prime++
+            };
+            if(value>1)ways=ways*n%MOD;
+            ways.toInt()
+        }
+    }
+}

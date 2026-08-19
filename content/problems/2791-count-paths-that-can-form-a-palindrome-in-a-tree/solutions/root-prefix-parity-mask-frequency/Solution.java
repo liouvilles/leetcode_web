@@ -1,1 +1,15 @@
-class Solution { public long countPalindromePaths(List<Integer> parent,String s){int n=parent.size();int[] mask=new int[n];Map<Integer,Integer> frequency=new HashMap<>();long answer=0;for(int node=0;node<n;node++){if(node>0)mask[node]=mask[parent.get(node)]^(1<<(s.charAt(node)-'a'));answer+=frequency.getOrDefault(mask[node],0);for(int bit=0;bit<26;bit++)answer+=frequency.getOrDefault(mask[node]^(1<<bit),0);frequency.put(mask[node],frequency.getOrDefault(mask[node],0)+1);}return answer;} }
+class Solution {
+    public long countPalindromePaths(List<Integer> parent,String s){
+        int n=parent.size();
+        int[] mask=new int[n];
+        Map<Integer,Integer> frequency=new HashMap<>();
+        long answer=0;
+        for(int node=0;node<n;node++){
+            if(node>0)mask[node]=mask[parent.get(node)]^(1<<(s.charAt(node)-'a'));
+            answer+=frequency.getOrDefault(mask[node],0);
+            for(int bit=0;bit<26;bit++)answer+=frequency.getOrDefault(mask[node]^(1<<bit),0);
+            frequency.put(mask[node],frequency.getOrDefault(mask[node],0)+1);
+        }
+        return answer;
+    }
+}

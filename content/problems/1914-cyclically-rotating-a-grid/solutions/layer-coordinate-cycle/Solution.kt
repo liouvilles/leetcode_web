@@ -1,1 +1,26 @@
-class Solution { fun rotateGrid(grid:Array<IntArray>,k:Int):Array<IntArray>{val rows=grid.size;val cols=grid[0].size;for(layer in 0 until minOf(rows,cols)/2){val top=layer;val bottom=rows-1-layer;val left=layer;val right=cols-1-layer;val positions=mutableListOf<Pair<Int,Int>>();for(col in left..right)positions.add(top to col);for(row in top+1..bottom)positions.add(row to right);for(col in right-1 downTo left)positions.add(bottom to col);for(row in bottom-1 downTo top+1)positions.add(row to left);val values=positions.map{grid[it.first][it.second]};val shift=k%values.size;for(i in positions.indices){val position=positions[i];grid[position.first][position.second]=values[(i+shift)%values.size]}};return grid} }
+class Solution {
+    fun rotateGrid(grid:Array<IntArray>,k:Int):Array<IntArray>{
+        val rows=grid.size;
+        val cols=grid[0].size;
+        for(layer in 0 until minOf(rows,cols)/2){
+            val top=layer;
+            val bottom=rows-1-layer;
+            val left=layer;
+            val right=cols-1-layer;
+            val positions=mutableListOf<Pair<Int,Int>>();
+            for(col in left..right)positions.add(top to col);
+            for(row in top+1..bottom)positions.add(row to right);
+            for(col in right-1 downTo left)positions.add(bottom to col);
+            for(row in bottom-1 downTo top+1)positions.add(row to left);
+            val values=positions.map{
+                grid[it.first][it.second]
+            };
+            val shift=k%values.size;
+            for(i in positions.indices){
+                val position=positions[i];
+                grid[position.first][position.second]=values[(i+shift)%values.size]
+            }
+        };
+        return grid
+    }
+}

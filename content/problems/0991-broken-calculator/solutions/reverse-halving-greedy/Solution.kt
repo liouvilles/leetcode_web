@@ -1,1 +1,11 @@
-class Solution { fun brokenCalc(startValue:Int,targetInput:Int):Int{var target=targetInput;var operations=0;while(target>startValue){target=if(target%2==1)target+1 else target/2;operations++};return operations+startValue-target} }
+class Solution {
+    fun brokenCalc(startValue:Int,targetInput:Int):Int{
+        var target=targetInput;
+        var operations=0;
+        while(target>startValue){
+            target=if(target%2==1)target+1 else target/2;
+            operations++
+        };
+        return operations+startValue-target
+    }
+}

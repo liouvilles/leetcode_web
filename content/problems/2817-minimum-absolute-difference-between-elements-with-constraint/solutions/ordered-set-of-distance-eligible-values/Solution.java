@@ -1,1 +1,14 @@
-class Solution { public int minAbsoluteDifference(List<Integer> nums,int x){TreeSet<Integer> values=new TreeSet<>();int answer=Integer.MAX_VALUE;for(int right=x;right<nums.size();right++){int value=nums.get(right);values.add(nums.get(right-x));Integer floor=values.floor(value),ceiling=values.ceiling(value);if(floor!=null)answer=Math.min(answer,value-floor);if(ceiling!=null)answer=Math.min(answer,ceiling-value);}return answer;} }
+class Solution {
+    public int minAbsoluteDifference(List<Integer> nums,int x){
+        TreeSet<Integer> values=new TreeSet<>();
+        int answer=Integer.MAX_VALUE;
+        for(int right=x;right<nums.size();right++){
+            int value=nums.get(right);
+            values.add(nums.get(right-x));
+            Integer floor=values.floor(value),ceiling=values.ceiling(value);
+            if(floor!=null)answer=Math.min(answer,value-floor);
+            if(ceiling!=null)answer=Math.min(answer,ceiling-value);
+        }
+        return answer;
+    }
+}

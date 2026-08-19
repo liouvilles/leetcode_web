@@ -1,1 +1,38 @@
-class Solution { vector<vector<int>> graph;vector<int> amount;int path(int node,int parent){if(node&&graph[node].size()==1)return amount[node];int best=INT_MIN;for(int next:graph[node])if(next!=parent)best=max(best,path(next,node));return amount[node]+best;}public:int mostProfitablePath(vector<vector<int>>& edges,int bob,vector<int>& values){int n=values.size();amount=values;graph.assign(n,{});for(auto& edge:edges){graph[edge[0]].push_back(edge[1]);graph[edge[1]].push_back(edge[0]);}vector<int> parent(n,-2),depth(n);parent[0]=-1;queue<int> queue;queue.push(0);while(!queue.empty()){int node=queue.front();queue.pop();for(int next:graph[node])if(parent[next]==-2){parent[next]=node;depth[next]=depth[node]+1;queue.push(next);}}for(int node=bob,time=0;node!=-1;node=parent[node],++time){if(time<depth[node])amount[node]=0;else if(time==depth[node])amount[node]/=2;}return path(0,-1);} };
+class Solution {
+    vector<vector<int>> graph;
+    vector<int> amount;
+    int path(int node,int parent){
+        if(node&&graph[node].size()==1)return amount[node];
+        int best=INT_MIN;
+        for(int next:graph[node])if(next!=parent)best=max(best,path(next,node));
+        return amount[node]+best;
+    }
+    public:int mostProfitablePath(vector<vector<int>>& edges,int bob,vector<int>& values){
+        int n=values.size();
+        amount=values;
+        graph.assign(n,{
+        });
+        for(auto& edge:edges){
+            graph[edge[0]].push_back(edge[1]);
+            graph[edge[1]].push_back(edge[0]);
+        }
+        vector<int> parent(n,-2),depth(n);
+        parent[0]=-1;
+        queue<int> queue;
+        queue.push(0);
+        while(!queue.empty()){
+            int node=queue.front();
+            queue.pop();
+            for(int next:graph[node])if(parent[next]==-2){
+                parent[next]=node;
+                depth[next]=depth[node]+1;
+                queue.push(next);
+            }
+        }
+        for(int node=bob,time=0;node!=-1;node=parent[node],++time){
+            if(time<depth[node])amount[node]=0;
+            else if(time==depth[node])amount[node]/=2;
+        }
+        return path(0,-1);
+    }
+};

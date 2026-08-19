@@ -1,1 +1,28 @@
-class Solution { public: int minJumps(vector<int>& arr){unordered_map<int,vector<int>> indices;for(int i=0;i<(int)arr.size();++i)indices[arr[i]].push_back(i);queue<pair<int,int>> pending;vector<bool> seen(arr.size());pending.push({0,0});seen[0]=true;while(!pending.empty()){auto [index,distance]=pending.front();pending.pop();if(index==(int)arr.size()-1)return distance;vector<int> next=move(indices[arr[index]]);indices.erase(arr[index]);next.push_back(index-1);next.push_back(index+1);for(int value:next)if(value>=0&&value<(int)arr.size()&&!seen[value]){seen[value]=true;pending.push({value,distance+1});}}return -1;} };
+class Solution {
+    public: int minJumps(vector<int>& arr){
+        unordered_map<int,vector<int>> indices;
+        for(int i=0;i<(int)arr.size();++i)indices[arr[i]].push_back(i);
+        queue<pair<int,int>> pending;
+        vector<bool> seen(arr.size());
+        pending.push({
+            0,0
+        });
+        seen[0]=true;
+        while(!pending.empty()){
+            auto [index,distance]=pending.front();
+            pending.pop();
+            if(index==(int)arr.size()-1)return distance;
+            vector<int> next=move(indices[arr[index]]);
+            indices.erase(arr[index]);
+            next.push_back(index-1);
+            next.push_back(index+1);
+            for(int value:next)if(value>=0&&value<(int)arr.size()&&!seen[value]){
+                seen[value]=true;
+                pending.push({
+                    value,distance+1
+                });
+            }
+        }
+        return -1;
+    }
+};

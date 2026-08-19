@@ -1,1 +1,14 @@
-class Solution { fun checkPartitioning(text:String):Boolean{val n=text.length;val palindrome=Array(n){BooleanArray(n)};for(length in 1..n)for(left in 0..n-length){val right=left+length-1;palindrome[left][right]=text[left]==text[right]&&(length<=2||palindrome[left+1][right-1])};for(first in 0 until n-2)for(second in first+1 until n-1)if(palindrome[0][first]&&palindrome[first+1][second]&&palindrome[second+1][n-1])return true;return false} }
+class Solution {
+    fun checkPartitioning(text:String):Boolean{
+        val n=text.length;
+        val palindrome=Array(n){
+            BooleanArray(n)
+        };
+        for(length in 1..n)for(left in 0..n-length){
+            val right=left+length-1;
+            palindrome[left][right]=text[left]==text[right]&&(length<=2||palindrome[left+1][right-1])
+        };
+        for(first in 0 until n-2)for(second in first+1 until n-1)if(palindrome[0][first]&&palindrome[first+1][second]&&palindrome[second+1][n-1])return true;
+        return false
+    }
+}

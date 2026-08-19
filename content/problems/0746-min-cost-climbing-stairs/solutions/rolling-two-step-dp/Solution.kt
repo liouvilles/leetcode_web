@@ -1,1 +1,12 @@
-class Solution { fun minCostClimbingStairs(cost:IntArray):Int{var previousTwo=0;var previousOne=0;for(position in 2..cost.size){val current=minOf(previousOne+cost[position-1],previousTwo+cost[position-2]);previousTwo=previousOne;previousOne=current};return previousOne} }
+class Solution {
+    fun minCostClimbingStairs(cost:IntArray):Int{
+        var previousTwo=0;
+        var previousOne=0;
+        for(position in 2..cost.size){
+            val current=minOf(previousOne+cost[position-1],previousTwo+cost[position-2]);
+            previousTwo=previousOne;
+            previousOne=current
+        };
+        return previousOne
+    }
+}

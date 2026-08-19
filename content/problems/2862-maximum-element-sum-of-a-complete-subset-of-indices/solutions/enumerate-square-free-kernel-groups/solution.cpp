@@ -1,1 +1,18 @@
-class Solution { public:long long maximumSum(vector<int>& nums){int n=nums.size();vector<bool> squareFree(n+1,true);for(int factor=2;factor*factor<=n;++factor){int square=factor*factor;for(int multiple=square;multiple<=n;multiple+=square)squareFree[multiple]=false;}long long answer=0;for(int base=1;base<=n;++base){if(!squareFree[base])continue;long long sum=0;for(int multiplier=1;1LL*base*multiplier*multiplier<=n;++multiplier)sum+=nums[base*multiplier*multiplier-1];answer=max(answer,sum);}return answer;} };
+class Solution {
+    public:long long maximumSum(vector<int>& nums){
+        int n=nums.size();
+        vector<bool> squareFree(n+1,true);
+        for(int factor=2;factor*factor<=n;++factor){
+            int square=factor*factor;
+            for(int multiple=square;multiple<=n;multiple+=square)squareFree[multiple]=false;
+        }
+        long long answer=0;
+        for(int base=1;base<=n;++base){
+            if(!squareFree[base])continue;
+            long long sum=0;
+            for(int multiplier=1;1LL*base*multiplier*multiplier<=n;++multiplier)sum+=nums[base*multiplier*multiplier-1];
+            answer=max(answer,sum);
+        }
+        return answer;
+    }
+};

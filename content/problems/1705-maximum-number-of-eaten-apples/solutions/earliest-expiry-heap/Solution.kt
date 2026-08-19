@@ -1,1 +1,21 @@
-class Solution { fun eatenApples(apples:IntArray,days:IntArray):Int{val batches=java.util.PriorityQueue<IntArray>(compareBy{it[0]});var eaten=0;var day=0;while(day<apples.size||batches.isNotEmpty()){if(day<apples.size&&apples[day]>0)batches.add(intArrayOf(day+days[day],apples[day]));while(batches.isNotEmpty()&&batches.peek()[0]<=day)batches.remove();if(batches.isNotEmpty()){val batch=batches.peek();batch[1]--;eaten++;if(batch[1]==0)batches.remove()};day++};return eaten} }
+class Solution {
+    fun eatenApples(apples:IntArray,days:IntArray):Int{
+        val batches=java.util.PriorityQueue<IntArray>(compareBy{
+            it[0]
+        });
+        var eaten=0;
+        var day=0;
+        while(day<apples.size||batches.isNotEmpty()){
+            if(day<apples.size&&apples[day]>0)batches.add(intArrayOf(day+days[day],apples[day]));
+            while(batches.isNotEmpty()&&batches.peek()[0]<=day)batches.remove();
+            if(batches.isNotEmpty()){
+                val batch=batches.peek();
+                batch[1]--;
+                eaten++;
+                if(batch[1]==0)batches.remove()
+            };
+            day++
+        };
+        return eaten
+    }
+}

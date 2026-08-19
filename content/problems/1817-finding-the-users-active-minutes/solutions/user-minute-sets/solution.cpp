@@ -1,1 +1,9 @@
-class Solution { public: vector<int> findingUsersActiveMinutes(vector<vector<int>>& logs,int k){unordered_map<int,unordered_set<int>> minutes;for(auto& log:logs)minutes[log[0]].insert(log[1]);vector<int> answer(k);for(auto& [user,set]:minutes)++answer[set.size()-1];return answer;} };
+class Solution {
+    public: vector<int> findingUsersActiveMinutes(vector<vector<int>>& logs,int k){
+        unordered_map<int,unordered_set<int>> minutes;
+        for(auto& log:logs)minutes[log[0]].insert(log[1]);
+        vector<int> answer(k);
+        for(auto& [user,set]:minutes)++answer[set.size()-1];
+        return answer;
+    }
+};

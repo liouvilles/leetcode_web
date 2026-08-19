@@ -1,1 +1,8 @@
-class Solution { public: int getLastMoment(int n,vector<int>& left,vector<int>& right){int answer=0;for(int position:left)answer=max(answer,position);for(int position:right)answer=max(answer,n-position);return answer;} };
+class Solution {
+    public: int getLastMoment(int n,vector<int>& left,vector<int>& right){
+        int answer=0;
+        for(int position:left)answer=max(answer,position);
+        for(int position:right)answer=max(answer,n-position);
+        return answer;
+    }
+};

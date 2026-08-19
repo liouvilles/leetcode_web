@@ -1,1 +1,27 @@
-class Solution { int startAt,moveCost,pushCost;int cost(int minutes,int seconds){if(minutes<0||minutes>99||seconds<0||seconds>99)return INT_MAX;ostringstream out;out<<setw(2)<<setfill('0')<<minutes<<setw(2)<<setfill('0')<<seconds;string digits=out.str();int first=digits.find_first_not_of('0');if(first==string::npos)digits="0";else digits=digits.substr(first);int finger=startAt,total=0;for(char ch:digits){int digit=ch-'0';if(digit!=finger)total+=moveCost;total+=pushCost;finger=digit;}return total;}public:int minCostSetTime(int startAt,int moveCost,int pushCost,int targetSeconds){this->startAt=startAt;this->moveCost=moveCost;this->pushCost=pushCost;int minutes=targetSeconds/60,seconds=targetSeconds%60;return min(cost(minutes,seconds),cost(minutes-1,seconds+60));} };
+class Solution {
+    int startAt,moveCost,pushCost;
+    int cost(int minutes,int seconds){
+        if(minutes<0||minutes>99||seconds<0||seconds>99)return INT_MAX;
+        ostringstream out;
+        out<<setw(2)<<setfill('0')<<minutes<<setw(2)<<setfill('0')<<seconds;
+        string digits=out.str();
+        int first=digits.find_first_not_of('0');
+        if(first==string::npos)digits="0";
+        else digits=digits.substr(first);
+        int finger=startAt,total=0;
+        for(char ch:digits){
+            int digit=ch-'0';
+            if(digit!=finger)total+=moveCost;
+            total+=pushCost;
+            finger=digit;
+        }
+        return total;
+    }
+    public:int minCostSetTime(int startAt,int moveCost,int pushCost,int targetSeconds){
+        this->startAt=startAt;
+        this->moveCost=moveCost;
+        this->pushCost=pushCost;
+        int minutes=targetSeconds/60,seconds=targetSeconds%60;
+        return min(cost(minutes,seconds),cost(minutes-1,seconds+60));
+    }
+};

@@ -1,1 +1,13 @@
-class Solution { fun numberOfWays(startPos:Int,endPos:Int,k:Int):Int{val value=k+endPos-startPos;if(value%2!=0)return 0;val right=value/2;if(right !in 0..k)return 0;val mod=1_000_000_007L;val ways=LongArray(k+1);ways[0]=1;for(step in 1..k)for(count in step downTo 1)ways[count]=(ways[count]+ways[count-1])%mod;return ways[right].toInt()} }
+class Solution {
+    fun numberOfWays(startPos:Int,endPos:Int,k:Int):Int{
+        val value=k+endPos-startPos;
+        if(value%2!=0)return 0;
+        val right=value/2;
+        if(right !in 0..k)return 0;
+        val mod=1_000_000_007L;
+        val ways=LongArray(k+1);
+        ways[0]=1;
+        for(step in 1..k)for(count in step downTo 1)ways[count]=(ways[count]+ways[count-1])%mod;
+        return ways[right].toInt()
+    }
+}

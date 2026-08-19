@@ -1,1 +1,20 @@
-class Solution { private int[] piles,suffix;private int[][] memo;public int stoneGameII(int[] piles){this.piles=piles;int n=piles.length;suffix=new int[n+1];for(int i=n-1;i>=0;i--)suffix[i]=suffix[i+1]+piles[i];memo=new int[n][n+1];return dfs(0,1);}private int dfs(int index,int m){if(index>=piles.length)return 0;if(2*m>=piles.length-index)return suffix[index];if(memo[index][m]!=0)return memo[index][m];int best=0;for(int take=1;take<=2*m;take++)best=Math.max(best,suffix[index]-dfs(index+take,Math.max(m,take)));return memo[index][m]=best;} }
+class Solution {
+    private int[] piles,suffix;
+    private int[][] memo;
+    public int stoneGameII(int[] piles){
+        this.piles=piles;
+        int n=piles.length;
+        suffix=new int[n+1];
+        for(int i=n-1;i>=0;i--)suffix[i]=suffix[i+1]+piles[i];
+        memo=new int[n][n+1];
+        return dfs(0,1);
+    }
+    private int dfs(int index,int m){
+        if(index>=piles.length)return 0;
+        if(2*m>=piles.length-index)return suffix[index];
+        if(memo[index][m]!=0)return memo[index][m];
+        int best=0;
+        for(int take=1;take<=2*m;take++)best=Math.max(best,suffix[index]-dfs(index+take,Math.max(m,take)));
+        return memo[index][m]=best;
+    }
+}

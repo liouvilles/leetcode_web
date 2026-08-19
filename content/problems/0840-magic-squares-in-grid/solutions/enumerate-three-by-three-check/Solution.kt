@@ -1,1 +1,17 @@
-class Solution { fun numMagicSquaresInside(grid:Array<IntArray>):Int{var answer=0;for(r in 0 until grid.size-2)for(c in 0 until grid[0].size-2)if(magic(grid,r,c))answer++;return answer};private fun magic(grid:Array<IntArray>,r:Int,c:Int):Boolean{val seen=BooleanArray(10);for(i in 0 until 3)for(j in 0 until 3){val value=grid[r+i][c+j];if(value !in 1..9||seen[value])return false;seen[value]=true};for(i in 0 until 3)if(grid[r+i][c]+grid[r+i][c+1]+grid[r+i][c+2]!=15||grid[r][c+i]+grid[r+1][c+i]+grid[r+2][c+i]!=15)return false;return grid[r][c]+grid[r+1][c+1]+grid[r+2][c+2]==15&&grid[r][c+2]+grid[r+1][c+1]+grid[r+2][c]==15} }
+class Solution {
+    fun numMagicSquaresInside(grid:Array<IntArray>):Int{
+        var answer=0;
+        for(r in 0 until grid.size-2)for(c in 0 until grid[0].size-2)if(magic(grid,r,c))answer++;
+        return answer
+    };
+    private fun magic(grid:Array<IntArray>,r:Int,c:Int):Boolean{
+        val seen=BooleanArray(10);
+        for(i in 0 until 3)for(j in 0 until 3){
+            val value=grid[r+i][c+j];
+            if(value !in 1..9||seen[value])return false;
+            seen[value]=true
+        };
+        for(i in 0 until 3)if(grid[r+i][c]+grid[r+i][c+1]+grid[r+i][c+2]!=15||grid[r][c+i]+grid[r+1][c+i]+grid[r+2][c+i]!=15)return false;
+        return grid[r][c]+grid[r+1][c+1]+grid[r+2][c+2]==15&&grid[r][c+2]+grid[r+1][c+1]+grid[r+2][c]==15
+    }
+}

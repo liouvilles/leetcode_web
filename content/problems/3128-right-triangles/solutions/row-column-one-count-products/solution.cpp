@@ -1,1 +1,13 @@
-class Solution { public:long long numberOfRightTriangles(vector<vector<int>>& grid){int rows=grid.size(),cols=grid[0].size();vector<int> rowOnes(rows),colOnes(cols);for(int row=0;row<rows;++row)for(int col=0;col<cols;++col)if(grid[row][col]){++rowOnes[row];++colOnes[col];}long long answer=0;for(int row=0;row<rows;++row)for(int col=0;col<cols;++col)if(grid[row][col])answer+=1LL*(rowOnes[row]-1)*(colOnes[col]-1);return answer;} };
+class Solution {
+    public:long long numberOfRightTriangles(vector<vector<int>>& grid){
+        int rows=grid.size(),cols=grid[0].size();
+        vector<int> rowOnes(rows),colOnes(cols);
+        for(int row=0;row<rows;++row)for(int col=0;col<cols;++col)if(grid[row][col]){
+            ++rowOnes[row];
+            ++colOnes[col];
+        }
+        long long answer=0;
+        for(int row=0;row<rows;++row)for(int col=0;col<cols;++col)if(grid[row][col])answer+=1LL*(rowOnes[row]-1)*(colOnes[col]-1);
+        return answer;
+    }
+};

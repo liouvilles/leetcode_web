@@ -1,1 +1,32 @@
-class Solution { List<Integer> answer=new ArrayList<>();private void recover(int[] sums){if(sums.length==1)return;int difference=sums[1]-sums[0];Map<Integer,Integer> count=new HashMap<>();for(int value:sums)count.merge(value,1,Integer::sum);int[] first=new int[sums.length/2],second=new int[sums.length/2];int index=0;for(int value:sums)if(count.getOrDefault(value,0)>0){count.put(value,count.get(value)-1);count.put(value+difference,count.get(value+difference)-1);first[index]=value;second[index]=value+difference;index++;}boolean zero=false;for(int value:first)if(value==0)zero=true;if(zero){answer.add(difference);recover(first);}else{answer.add(-difference);recover(second);}}public int[] recoverArray(int n,int[] sums){Arrays.sort(sums);recover(sums);return answer.stream().mapToInt(Integer::intValue).toArray();} }
+class Solution {
+    List<Integer> answer=new ArrayList<>();
+    private void recover(int[] sums){
+        if(sums.length==1)return;
+        int difference=sums[1]-sums[0];
+        Map<Integer,Integer> count=new HashMap<>();
+        for(int value:sums)count.merge(value,1,Integer::sum);
+        int[] first=new int[sums.length/2],second=new int[sums.length/2];
+        int index=0;
+        for(int value:sums)if(count.getOrDefault(value,0)>0){
+            count.put(value,count.get(value)-1);
+            count.put(value+difference,count.get(value+difference)-1);
+            first[index]=value;
+            second[index]=value+difference;
+            index++;
+        }
+        boolean zero=false;
+        for(int value:first)if(value==0)zero=true;
+        if(zero){
+            answer.add(difference);
+            recover(first);
+        }else{
+            answer.add(-difference);
+            recover(second);
+        }
+    }
+    public int[] recoverArray(int n,int[] sums){
+        Arrays.sort(sums);
+        recover(sums);
+        return answer.stream().mapToInt(Integer::intValue).toArray();
+    }
+}

@@ -1,1 +1,12 @@
-class Solution { fun minimumReplacement(nums:IntArray):Long{var answer=0L;var limit=nums.last();for(i in nums.size-2 downTo 0){val parts=(nums[i].toLong()+limit-1)/limit;answer+=parts-1;limit=(nums[i].toLong()/parts).toInt()};return answer} }
+class Solution {
+    fun minimumReplacement(nums:IntArray):Long{
+        var answer=0L;
+        var limit=nums.last();
+        for(i in nums.size-2 downTo 0){
+            val parts=(nums[i].toLong()+limit-1)/limit;
+            answer+=parts-1;
+            limit=(nums[i].toLong()/parts).toInt()
+        };
+        return answer
+    }
+}

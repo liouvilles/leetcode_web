@@ -1,1 +1,51 @@
-class Solution { struct DSU{vector<int> parent;DSU(int n):parent(n){iota(parent.begin(),parent.end(),0);}int find(int x){return parent[x]==x?x:parent[x]=find(parent[x]);}void unite(int a,int b){a=find(a);b=find(b);if(a!=b)parent[a]=b;}};public:vector<vector<int>> matrixRankTransform(vector<vector<int>>& matrix){int rows=matrix.size(),cols=matrix[0].size();vector<pair<int,int>> cells;for(int row=0;row<rows;++row)for(int col=0;col<cols;++col)cells.push_back({row,col});sort(cells.begin(),cells.end(),[&](auto a,auto b){return matrix[a.first][a.second]<matrix[b.first][b.second];});vector<int> rowRank(rows),colRank(cols);vector<vector<int>> answer(rows,vector<int>(cols));for(int start=0;start<(int)cells.size();){int end=start,value=matrix[cells[start].first][cells[start].second];while(end<(int)cells.size()&&matrix[cells[end].first][cells[end].second]==value)++end;DSU dsu(rows+cols);for(int index=start;index<end;++index)dsu.unite(cells[index].first,rows+cells[index].second);unordered_map<int,int> componentRank;for(int index=start;index<end;++index){auto [row,col]=cells[index];int root=dsu.find(row);componentRank[root]=max(componentRank[root],max(rowRank[row],colRank[col])+1);}for(int index=start;index<end;++index){auto [row,col]=cells[index];answer[row][col]=componentRank[dsu.find(row)];}for(int index=start;index<end;++index){auto [row,col]=cells[index];rowRank[row]=max(rowRank[row],answer[row][col]);colRank[col]=max(colRank[col],answer[row][col]);}start=end;}return answer;} };
+class Solution {
+    struct DSU{
+        vector<int> parent;
+        DSU(int n):parent(n){
+            iota(parent.begin(),parent.end(),0);
+        }
+        int find(int x){
+            return parent[x]==x?x:parent[x]=find(parent[x]);
+        }
+        void unite(int a,int b){
+            a=find(a);
+            b=find(b);
+            if(a!=b)parent[a]=b;
+        }
+    };
+    public:vector<vector<int>> matrixRankTransform(vector<vector<int>>& matrix){
+        int rows=matrix.size(),cols=matrix[0].size();
+        vector<pair<int,int>> cells;
+        for(int row=0;row<rows;++row)for(int col=0;col<cols;++col)cells.push_back({
+            row,col
+        });
+        sort(cells.begin(),cells.end(),[&](auto a,auto b){
+            return matrix[a.first][a.second]<matrix[b.first][b.second];
+        });
+        vector<int> rowRank(rows),colRank(cols);
+        vector<vector<int>> answer(rows,vector<int>(cols));
+        for(int start=0;start<(int)cells.size();){
+            int end=start,value=matrix[cells[start].first][cells[start].second];
+            while(end<(int)cells.size()&&matrix[cells[end].first][cells[end].second]==value)++end;
+            DSU dsu(rows+cols);
+            for(int index=start;index<end;++index)dsu.unite(cells[index].first,rows+cells[index].second);
+            unordered_map<int,int> componentRank;
+            for(int index=start;index<end;++index){
+                auto [row,col]=cells[index];
+                int root=dsu.find(row);
+                componentRank[root]=max(componentRank[root],max(rowRank[row],colRank[col])+1);
+            }
+            for(int index=start;index<end;++index){
+                auto [row,col]=cells[index];
+                answer[row][col]=componentRank[dsu.find(row)];
+            }
+            for(int index=start;index<end;++index){
+                auto [row,col]=cells[index];
+                rowRank[row]=max(rowRank[row],answer[row][col]);
+                colRank[col]=max(colRank[col],answer[row][col]);
+            }
+            start=end;
+        }
+        return answer;
+    }
+};

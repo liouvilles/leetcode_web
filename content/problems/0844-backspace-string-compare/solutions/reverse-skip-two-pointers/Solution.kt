@@ -1,1 +1,29 @@
-class Solution { fun backspaceCompare(s:String,t:String):Boolean{var i=s.lastIndex;var j=t.lastIndex;while(i>=0||j>=0){i=previous(s,i);j=previous(t,j);if(i<0||j<0)return i==j;if(s[i]!=t[j])return false;i--;j--};return true};private fun previous(text:String,start:Int):Int{var index=start;var skip=0;while(index>=0){if(text[index]=='#'){skip++;index--}else if(skip>0){skip--;index--}else break};return index} }
+class Solution {
+    fun backspaceCompare(s:String,t:String):Boolean{
+        var i=s.lastIndex;
+        var j=t.lastIndex;
+        while(i>=0||j>=0){
+            i=previous(s,i);
+            j=previous(t,j);
+            if(i<0||j<0)return i==j;
+            if(s[i]!=t[j])return false;
+            i--;
+            j--
+        };
+        return true
+    };
+    private fun previous(text:String,start:Int):Int{
+        var index=start;
+        var skip=0;
+        while(index>=0){
+            if(text[index]=='#'){
+                skip++;
+                index--
+            }else if(skip>0){
+                skip--;
+                index--
+            }else break
+        };
+        return index
+    }
+}

@@ -1,1 +1,12 @@
-class Solution { public: int findUnsortedSubarray(vector<int>& nums){int maximum=nums[0],right=-1;for(int i=1;i<(int)nums.size();++i)if(nums[i]<maximum)right=i;else maximum=nums[i];if(right==-1)return 0;int minimum=nums.back(),left=0;for(int i=nums.size()-2;i>=0;--i)if(nums[i]>minimum)left=i;else minimum=nums[i];return right-left+1;} };
+class Solution {
+    public: int findUnsortedSubarray(vector<int>& nums){
+        int maximum=nums[0],right=-1;
+        for(int i=1;i<(int)nums.size();++i)if(nums[i]<maximum)right=i;
+        else maximum=nums[i];
+        if(right==-1)return 0;
+        int minimum=nums.back(),left=0;
+        for(int i=nums.size()-2;i>=0;--i)if(nums[i]>minimum)left=i;
+        else minimum=nums[i];
+        return right-left+1;
+    }
+};

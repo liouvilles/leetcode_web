@@ -1,1 +1,39 @@
-class Solution { int swaps(vector<int>& values){vector<pair<int,int>> order;for(int i=0;i<(int)values.size();++i)order.push_back({values[i],i});sort(order.begin(),order.end());vector<bool> visited(values.size());int answer=0;for(int i=0;i<(int)values.size();++i)if(!visited[i]){int node=i,length=0;while(!visited[node]){visited[node]=true;node=order[node].second;++length;}answer+=length-1;}return answer;}public:int minimumOperations(TreeNode* root){queue<TreeNode*> queue;queue.push(root);int answer=0;while(!queue.empty()){int size=queue.size();vector<int> values;while(size--){TreeNode* node=queue.front();queue.pop();values.push_back(node->val);if(node->left)queue.push(node->left);if(node->right)queue.push(node->right);}answer+=swaps(values);}return answer;} };
+class Solution {
+    int swaps(vector<int>& values){
+        vector<pair<int,int>> order;
+        for(int i=0;i<(int)values.size();++i)order.push_back({
+            values[i],i
+        });
+        sort(order.begin(),order.end());
+        vector<bool> visited(values.size());
+        int answer=0;
+        for(int i=0;i<(int)values.size();++i)if(!visited[i]){
+            int node=i,length=0;
+            while(!visited[node]){
+                visited[node]=true;
+                node=order[node].second;
+                ++length;
+            }
+            answer+=length-1;
+        }
+        return answer;
+    }
+    public:int minimumOperations(TreeNode* root){
+        queue<TreeNode*> queue;
+        queue.push(root);
+        int answer=0;
+        while(!queue.empty()){
+            int size=queue.size();
+            vector<int> values;
+            while(size--){
+                TreeNode* node=queue.front();
+                queue.pop();
+                values.push_back(node->val);
+                if(node->left)queue.push(node->left);
+                if(node->right)queue.push(node->right);
+            }
+            answer+=swaps(values);
+        }
+        return answer;
+    }
+};

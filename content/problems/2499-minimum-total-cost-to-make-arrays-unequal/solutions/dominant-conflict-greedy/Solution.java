@@ -1,1 +1,21 @@
-class Solution { public long minimumTotalCost(int[] nums1,int[] nums2){Map<Integer,Integer> frequency=new HashMap<>();long cost=0;int selected=0,dominant=0,dominantCount=0;for(int i=0;i<nums1.length;i++)if(nums1[i]==nums2[i]){cost+=i;selected++;int count=frequency.merge(nums1[i],1,Integer::sum);if(count>dominantCount){dominantCount=count;dominant=nums1[i];}}for(int i=0;i<nums1.length&&dominantCount*2>selected;i++)if(nums1[i]!=nums2[i]&&nums1[i]!=dominant&&nums2[i]!=dominant){cost+=i;selected++;}return dominantCount*2>selected?-1:cost;} }
+class Solution {
+    public long minimumTotalCost(int[] nums1,int[] nums2){
+        Map<Integer,Integer> frequency=new HashMap<>();
+        long cost=0;
+        int selected=0,dominant=0,dominantCount=0;
+        for(int i=0;i<nums1.length;i++)if(nums1[i]==nums2[i]){
+            cost+=i;
+            selected++;
+            int count=frequency.merge(nums1[i],1,Integer::sum);
+            if(count>dominantCount){
+                dominantCount=count;
+                dominant=nums1[i];
+            }
+        }
+        for(int i=0;i<nums1.length&&dominantCount*2>selected;i++)if(nums1[i]!=nums2[i]&&nums1[i]!=dominant&&nums2[i]!=dominant){
+            cost+=i;
+            selected++;
+        }
+        return dominantCount*2>selected?-1:cost;
+    }
+}

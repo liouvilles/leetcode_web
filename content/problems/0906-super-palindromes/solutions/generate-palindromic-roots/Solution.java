@@ -1,1 +1,19 @@
-class Solution { public int superpalindromesInRange(String left,String right){long low=Long.parseLong(left),high=Long.parseLong(right);int answer=0;for(int prefix=1;prefix<=100000;prefix++){String text=Integer.toString(prefix);answer+=check(Long.parseLong(text+new StringBuilder(text.substring(0,text.length()-1)).reverse()),low,high);answer+=check(Long.parseLong(text+new StringBuilder(text).reverse()),low,high);}return answer;}private int check(long root,long low,long high){if(root>3037000499L)return 0;long square=root*root;if(square<low||square>high)return 0;String text=Long.toString(square);return text.equals(new StringBuilder(text).reverse().toString())?1:0;} }
+class Solution {
+    public int superpalindromesInRange(String left,String right){
+        long low=Long.parseLong(left),high=Long.parseLong(right);
+        int answer=0;
+        for(int prefix=1;prefix<=100000;prefix++){
+            String text=Integer.toString(prefix);
+            answer+=check(Long.parseLong(text+new StringBuilder(text.substring(0,text.length()-1)).reverse()),low,high);
+            answer+=check(Long.parseLong(text+new StringBuilder(text).reverse()),low,high);
+        }
+        return answer;
+    }
+    private int check(long root,long low,long high){
+        if(root>3037000499L)return 0;
+        long square=root*root;
+        if(square<low||square>high)return 0;
+        String text=Long.toString(square);
+        return text.equals(new StringBuilder(text).reverse().toString())?1:0;
+    }
+}

@@ -1,1 +1,30 @@
-class Solution { vector<int> houses;vector<vector<int>> cost;int m,n,target;vector<vector<vector<int>>> memo;const int INF=1000000000;int dfs(int index,int previous,int groups){if(groups>target)return INF;if(index==m)return groups==target?0:INF;int& cached=memo[index][previous][groups];if(cached!=-1)return cached;int answer=INF;if(houses[index])answer=dfs(index+1,houses[index],groups+(houses[index]!=previous));else for(int color=1;color<=n;++color){int next=dfs(index+1,color,groups+(color!=previous));if(next<INF)answer=min(answer,cost[index][color-1]+next);}return cached=answer;}public:int minCost(vector<int>& houses,vector<vector<int>>& cost,int m,int n,int target){this->houses=houses;this->cost=cost;this->m=m;this->n=n;this->target=target;memo.assign(m,vector<vector<int>>(n+1,vector<int>(target+1,-1)));int answer=dfs(0,0,0);return answer>=INF?-1:answer;} };
+class Solution {
+    vector<int> houses;
+    vector<vector<int>> cost;
+    int m,n,target;
+    vector<vector<vector<int>>> memo;
+    const int INF=1000000000;
+    int dfs(int index,int previous,int groups){
+        if(groups>target)return INF;
+        if(index==m)return groups==target?0:INF;
+        int& cached=memo[index][previous][groups];
+        if(cached!=-1)return cached;
+        int answer=INF;
+        if(houses[index])answer=dfs(index+1,houses[index],groups+(houses[index]!=previous));
+        else for(int color=1;color<=n;++color){
+            int next=dfs(index+1,color,groups+(color!=previous));
+            if(next<INF)answer=min(answer,cost[index][color-1]+next);
+        }
+        return cached=answer;
+    }
+    public:int minCost(vector<int>& houses,vector<vector<int>>& cost,int m,int n,int target){
+        this->houses=houses;
+        this->cost=cost;
+        this->m=m;
+        this->n=n;
+        this->target=target;
+        memo.assign(m,vector<vector<int>>(n+1,vector<int>(target+1,-1)));
+        int answer=dfs(0,0,0);
+        return answer>=INF?-1:answer;
+    }
+};

@@ -1,1 +1,12 @@
-class Solution { fun vowelStrings(words:Array<String>,queries:Array<IntArray>):IntArray{fun vowel(character:Char):Boolean{return character in "aeiou"};val prefix=IntArray(words.size+1);for(i in words.indices)prefix[i+1]=prefix[i]+(if(vowel(words[i].first())&&vowel(words[i].last()))1 else 0);return IntArray(queries.size){prefix[queries[it][1]+1]-prefix[queries[it][0]]}} }
+class Solution {
+    fun vowelStrings(words:Array<String>,queries:Array<IntArray>):IntArray{
+        fun vowel(character:Char):Boolean{
+            return character in "aeiou"
+        };
+        val prefix=IntArray(words.size+1);
+        for(i in words.indices)prefix[i+1]=prefix[i]+(if(vowel(words[i].first())&&vowel(words[i].last()))1 else 0);
+        return IntArray(queries.size){
+            prefix[queries[it][1]+1]-prefix[queries[it][0]]
+        }
+    }
+}

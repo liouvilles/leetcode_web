@@ -1,1 +1,9 @@
-class Solution { int dfs(vector<int>& nums,int index,int value){if(index==(int)nums.size())return value;return dfs(nums,index+1,value)+dfs(nums,index+1,value^nums[index]);}public: int subsetXORSum(vector<int>& nums){return dfs(nums,0,0);} };
+class Solution {
+    int dfs(vector<int>& nums,int index,int value){
+        if(index==(int)nums.size())return value;
+        return dfs(nums,index+1,value)+dfs(nums,index+1,value^nums[index]);
+    }
+    public: int subsetXORSum(vector<int>& nums){
+        return dfs(nums,0,0);
+    }
+};

@@ -1,1 +1,31 @@
-class Solution { fun calculate(s:String):Int{var result=0;var number=0;var sign=1;val stack=ArrayDeque<Int>();for(c in s){when{c.isDigit()->number=number*10+(c-'0');c=='+'||c=='-'->{result+=sign*number;number=0;sign=if(c=='+')1 else -1};c=='('->{stack.addLast(result);stack.addLast(sign);result=0;sign=1};c==')'->{result+=sign*number;number=0;result*=stack.removeLast();result+=stack.removeLast()}}};return result+sign*number} }
+class Solution {
+    fun calculate(s:String):Int{
+        var result=0;
+        var number=0;
+        var sign=1;
+        val stack=ArrayDeque<Int>();
+        for(c in s){
+            when{
+                c.isDigit()->number=number*10+(c-'0');
+                c=='+'||c=='-'->{
+                    result+=sign*number;
+                    number=0;
+                    sign=if(c=='+')1 else -1
+                };
+                c=='('->{
+                    stack.addLast(result);
+                    stack.addLast(sign);
+                    result=0;
+                    sign=1
+                };
+                c==')'->{
+                    result+=sign*number;
+                    number=0;
+                    result*=stack.removeLast();
+                    result+=stack.removeLast()
+                }
+            }
+        };
+        return result+sign*number
+    }
+}

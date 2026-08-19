@@ -1,1 +1,10 @@
-class Solution { fun pivotArray(nums:IntArray,pivot:Int):IntArray{val answer=IntArray(nums.size);var index=0;for(value in nums)if(value<pivot)answer[index++]=value;for(value in nums)if(value==pivot)answer[index++]=value;for(value in nums)if(value>pivot)answer[index++]=value;return answer} }
+class Solution {
+    fun pivotArray(nums:IntArray,pivot:Int):IntArray{
+        val answer=IntArray(nums.size);
+        var index=0;
+        for(value in nums)if(value<pivot)answer[index++]=value;
+        for(value in nums)if(value==pivot)answer[index++]=value;
+        for(value in nums)if(value>pivot)answer[index++]=value;
+        return answer
+    }
+}

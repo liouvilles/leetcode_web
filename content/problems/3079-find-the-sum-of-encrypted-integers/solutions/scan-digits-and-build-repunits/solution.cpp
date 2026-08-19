@@ -1,1 +1,15 @@
-class Solution { public:int sumOfEncryptedInt(vector<int>& nums){int answer=0;for(int number:nums){int value=number,maximum=0,place=0;while(value>0){maximum=max(maximum,value%10);place=place*10+1;value/=10;}answer+=maximum*place;}return answer;} };
+class Solution {
+    public:int sumOfEncryptedInt(vector<int>& nums){
+        int answer=0;
+        for(int number:nums){
+            int value=number,maximum=0,place=0;
+            while(value>0){
+                maximum=max(maximum,value%10);
+                place=place*10+1;
+                value/=10;
+            }
+            answer+=maximum*place;
+        }
+        return answer;
+    }
+};

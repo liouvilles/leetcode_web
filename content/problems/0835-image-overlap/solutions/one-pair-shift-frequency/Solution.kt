@@ -1,1 +1,19 @@
-class Solution { fun largestOverlap(img1:Array<IntArray>,img2:Array<IntArray>):Int{val first=mutableListOf<Pair<Int,Int>>();val second=mutableListOf<Pair<Int,Int>>();for(r in img1.indices)for(c in img1.indices){if(img1[r][c]==1)first.add(r to c);if(img2[r][c]==1)second.add(r to c)};val counts=mutableMapOf<Pair<Int,Int>,Int>();var answer=0;for(a in first)for(b in second){val key=(a.first-b.first) to (a.second-b.second);val count=(counts[key]?:0)+1;counts[key]=count;answer=maxOf(answer,count)};return answer} }
+class Solution {
+    fun largestOverlap(img1:Array<IntArray>,img2:Array<IntArray>):Int{
+        val first=mutableListOf<Pair<Int,Int>>();
+        val second=mutableListOf<Pair<Int,Int>>();
+        for(r in img1.indices)for(c in img1.indices){
+            if(img1[r][c]==1)first.add(r to c);
+            if(img2[r][c]==1)second.add(r to c)
+        };
+        val counts=mutableMapOf<Pair<Int,Int>,Int>();
+        var answer=0;
+        for(a in first)for(b in second){
+            val key=(a.first-b.first) to (a.second-b.second);
+            val count=(counts[key]?:0)+1;
+            counts[key]=count;
+            answer=maxOf(answer,count)
+        };
+        return answer
+    }
+}

@@ -1,1 +1,14 @@
-class Solution { fun sumOfPower(nums:IntArray,k:Int):Int{val mod=1000000007L;val dp=LongArray(k+1);dp[0]=1;for(value in nums){for(sum in k downTo 0){dp[sum]=dp[sum]*2%mod;if(sum>=value)dp[sum]=(dp[sum]+dp[sum-value])%mod}};return dp[k].toInt()} }
+class Solution {
+    fun sumOfPower(nums:IntArray,k:Int):Int{
+        val mod=1000000007L;
+        val dp=LongArray(k+1);
+        dp[0]=1;
+        for(value in nums){
+            for(sum in k downTo 0){
+                dp[sum]=dp[sum]*2%mod;
+                if(sum>=value)dp[sum]=(dp[sum]+dp[sum-value])%mod
+            }
+        };
+        return dp[k].toInt()
+    }
+}

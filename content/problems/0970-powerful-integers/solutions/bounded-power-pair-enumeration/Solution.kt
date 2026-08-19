@@ -1,1 +1,17 @@
-class Solution { fun powerfulIntegers(x:Int,y:Int,bound:Int):List<Int>{val values=sortedSetOf<Int>();var a=1L;while(a<=bound){var b=1L;while(b<=bound){if(a+b<=bound)values.add((a+b).toInt());if(y==1||b>bound/y)break;b*=y};if(x==1||a>bound/x)break;a*=x};return values.toList()} }
+class Solution {
+    fun powerfulIntegers(x:Int,y:Int,bound:Int):List<Int>{
+        val values=sortedSetOf<Int>();
+        var a=1L;
+        while(a<=bound){
+            var b=1L;
+            while(b<=bound){
+                if(a+b<=bound)values.add((a+b).toInt());
+                if(y==1||b>bound/y)break;
+                b*=y
+            };
+            if(x==1||a>bound/x)break;
+            a*=x
+        };
+        return values.toList()
+    }
+}

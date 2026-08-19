@@ -1,1 +1,27 @@
-class Solution { static class Node{Node[] children=new Node[26];int count;}public int[] sumPrefixScores(String[] words){Node root=new Node();for(String word:words){Node node=root;for(char ch:word.toCharArray()){int index=ch-'a';if(node.children[index]==null)node.children[index]=new Node();node=node.children[index];node.count++;}}int[] answer=new int[words.length];for(int i=0;i<words.length;i++){Node node=root;for(char ch:words[i].toCharArray()){node=node.children[ch-'a'];answer[i]+=node.count;}}return answer;} }
+class Solution {
+    static class Node{
+        Node[] children=new Node[26];
+        int count;
+    }
+    public int[] sumPrefixScores(String[] words){
+        Node root=new Node();
+        for(String word:words){
+            Node node=root;
+            for(char ch:word.toCharArray()){
+                int index=ch-'a';
+                if(node.children[index]==null)node.children[index]=new Node();
+                node=node.children[index];
+                node.count++;
+            }
+        }
+        int[] answer=new int[words.length];
+        for(int i=0;i<words.length;i++){
+            Node node=root;
+            for(char ch:words[i].toCharArray()){
+                node=node.children[ch-'a'];
+                answer[i]+=node.count;
+            }
+        }
+        return answer;
+    }
+}

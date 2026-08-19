@@ -1,1 +1,13 @@
-class Solution { public int paintWalls(int[] cost,int[] time){int n=cost.length,inf=1000000000;int[] dp=new int[n+1];Arrays.fill(dp,inf);dp[0]=0;for(int i=0;i<n;i++)for(int covered=n-1;covered>=0;covered--)if(dp[covered]<inf){int next=Math.min(n,covered+time[i]+1);dp[next]=Math.min(dp[next],dp[covered]+cost[i]);}return dp[n];} }
+class Solution {
+    public int paintWalls(int[] cost,int[] time){
+        int n=cost.length,inf=1000000000;
+        int[] dp=new int[n+1];
+        Arrays.fill(dp,inf);
+        dp[0]=0;
+        for(int i=0;i<n;i++)for(int covered=n-1;covered>=0;covered--)if(dp[covered]<inf){
+            int next=Math.min(n,covered+time[i]+1);
+            dp[next]=Math.min(dp[next],dp[covered]+cost[i]);
+        }
+        return dp[n];
+    }
+}

@@ -1,1 +1,11 @@
-class Solution { public String makeGood(String text){StringBuilder stack=new StringBuilder();for(char value:text.toCharArray()){int length=stack.length();if(length>0&&Math.abs(stack.charAt(length-1)-value)==32)stack.deleteCharAt(length-1);else stack.append(value);}return stack.toString();} }
+class Solution {
+    public String makeGood(String text){
+        StringBuilder stack=new StringBuilder();
+        for(char value:text.toCharArray()){
+            int length=stack.length();
+            if(length>0&&Math.abs(stack.charAt(length-1)-value)==32)stack.deleteCharAt(length-1);
+            else stack.append(value);
+        }
+        return stack.toString();
+    }
+}

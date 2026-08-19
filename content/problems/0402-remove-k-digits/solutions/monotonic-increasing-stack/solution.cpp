@@ -1,1 +1,15 @@
-class Solution { public: string removeKdigits(string num,int k){string stack;for(char c:num){while(k>0&&!stack.empty()&&stack.back()>c){stack.pop_back();--k;}stack.push_back(c);}while(k-->0)stack.pop_back();int start=0;while(start<(int)stack.size()&&stack[start]=='0')++start;return start==(int)stack.size()?"0":stack.substr(start);} };
+class Solution {
+    public: string removeKdigits(string num,int k){
+        string stack;
+        for(char c:num){
+            while(k>0&&!stack.empty()&&stack.back()>c){
+                stack.pop_back();
+                --k;
+            }
+            stack.push_back(c);
+        }while(k-->0)stack.pop_back();
+        int start=0;
+        while(start<(int)stack.size()&&stack[start]=='0')++start;
+        return start==(int)stack.size()?"0":stack.substr(start);
+    }
+};

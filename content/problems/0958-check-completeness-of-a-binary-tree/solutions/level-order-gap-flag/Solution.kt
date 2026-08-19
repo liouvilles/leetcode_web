@@ -1,1 +1,20 @@
-class Solution { fun isCompleteTree(root:TreeNode?):Boolean{root?:return true;val queue=java.util.ArrayDeque<TreeNode>();queue.addLast(root);var gap=false;while(queue.isNotEmpty()){val node=queue.removeFirst();if(node.left!=null){if(gap)return false;queue.addLast(node.left)}else gap=true;if(node.right!=null){if(gap)return false;queue.addLast(node.right)}else gap=true};return true} }
+class Solution {
+    fun isCompleteTree(root:TreeNode?):Boolean{
+        root?:return true;
+        val queue=java.util.ArrayDeque<TreeNode>();
+        queue.addLast(root);
+        var gap=false;
+        while(queue.isNotEmpty()){
+            val node=queue.removeFirst();
+            if(node.left!=null){
+                if(gap)return false;
+                queue.addLast(node.left)
+            }else gap=true;
+            if(node.right!=null){
+                if(gap)return false;
+                queue.addLast(node.right)
+            }else gap=true
+        };
+        return true
+    }
+}

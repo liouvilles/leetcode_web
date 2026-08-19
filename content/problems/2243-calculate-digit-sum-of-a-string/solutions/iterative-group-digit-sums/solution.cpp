@@ -1,1 +1,14 @@
-class Solution { public:string digitSum(string s,int k){while((int)s.size()>k){string next;for(int start=0;start<(int)s.size();start+=k){int sum=0;for(int i=start;i<min(start+k,(int)s.size());++i)sum+=s[i]-'0';next+=to_string(sum);}s=next;}return s;} };
+class Solution {
+    public:string digitSum(string s,int k){
+        while((int)s.size()>k){
+            string next;
+            for(int start=0;start<(int)s.size();start+=k){
+                int sum=0;
+                for(int i=start;i<min(start+k,(int)s.size());++i)sum+=s[i]-'0';
+                next+=to_string(sum);
+            }
+            s=next;
+        }
+        return s;
+    }
+};

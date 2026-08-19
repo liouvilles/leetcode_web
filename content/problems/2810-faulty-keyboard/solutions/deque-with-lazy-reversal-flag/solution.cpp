@@ -1,1 +1,13 @@
-class Solution { public:string finalString(string s){deque<char> values;bool reversed=false;for(char ch:s)if(ch=='i')reversed=!reversed;else if(reversed)values.push_front(ch);else values.push_back(ch);string answer;if(reversed)for(auto it=values.rbegin();it!=values.rend();++it)answer+=*it;else for(char ch:values)answer+=ch;return answer;} };
+class Solution {
+    public:string finalString(string s){
+        deque<char> values;
+        bool reversed=false;
+        for(char ch:s)if(ch=='i')reversed=!reversed;
+        else if(reversed)values.push_front(ch);
+        else values.push_back(ch);
+        string answer;
+        if(reversed)for(auto it=values.rbegin();it!=values.rend();++it)answer+=*it;
+        else for(char ch:values)answer+=ch;
+        return answer;
+    }
+};

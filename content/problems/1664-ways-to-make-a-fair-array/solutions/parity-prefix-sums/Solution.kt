@@ -1,1 +1,17 @@
-class Solution { fun waysToMakeFair(nums:IntArray):Int{var totalEven=0;var totalOdd=0;for(i in nums.indices)if(i%2==0)totalEven+=nums[i] else totalOdd+=nums[i];var leftEven=0;var leftOdd=0;var answer=0;for(i in nums.indices){val rightEven=totalEven-leftEven-if(i%2==0)nums[i] else 0;val rightOdd=totalOdd-leftOdd-if(i%2==1)nums[i] else 0;if(leftEven+rightOdd==leftOdd+rightEven)answer++;if(i%2==0)leftEven+=nums[i] else leftOdd+=nums[i]};return answer} }
+class Solution {
+    fun waysToMakeFair(nums:IntArray):Int{
+        var totalEven=0;
+        var totalOdd=0;
+        for(i in nums.indices)if(i%2==0)totalEven+=nums[i] else totalOdd+=nums[i];
+        var leftEven=0;
+        var leftOdd=0;
+        var answer=0;
+        for(i in nums.indices){
+            val rightEven=totalEven-leftEven-if(i%2==0)nums[i] else 0;
+            val rightOdd=totalOdd-leftOdd-if(i%2==1)nums[i] else 0;
+            if(leftEven+rightOdd==leftOdd+rightEven)answer++;
+            if(i%2==0)leftEven+=nums[i] else leftOdd+=nums[i]
+        };
+        return answer
+    }
+}

@@ -1,1 +1,30 @@
-class Solution { vector<int> tree;int size;int query(int node,int left,int right,int ql,int qr){if(ql>right||qr<left)return 0;if(ql<=left&&right<=qr)return tree[node];int middle=(left+right)/2;return max(query(node*2,left,middle,ql,qr),query(node*2+1,middle+1,right,ql,qr));}void update(int node,int left,int right,int index,int value){if(left==right){tree[node]=max(tree[node],value);return;}int middle=(left+right)/2;if(index<=middle)update(node*2,left,middle,index,value);else update(node*2+1,middle+1,right,index,value);tree[node]=max(tree[node*2],tree[node*2+1]);}public:int lengthOfLIS(vector<int>& nums,int k){size=*max_element(nums.begin(),nums.end());tree.assign(4*size+4,0);for(int value:nums){int best=1;if(value>1)best+=query(1,1,size,max(1,value-k),value-1);update(1,1,size,value,best);}return tree[1];} };
+class Solution {
+    vector<int> tree;
+    int size;
+    int query(int node,int left,int right,int ql,int qr){
+        if(ql>right||qr<left)return 0;
+        if(ql<=left&&right<=qr)return tree[node];
+        int middle=(left+right)/2;
+        return max(query(node*2,left,middle,ql,qr),query(node*2+1,middle+1,right,ql,qr));
+    }
+    void update(int node,int left,int right,int index,int value){
+        if(left==right){
+            tree[node]=max(tree[node],value);
+            return;
+        }
+        int middle=(left+right)/2;
+        if(index<=middle)update(node*2,left,middle,index,value);
+        else update(node*2+1,middle+1,right,index,value);
+        tree[node]=max(tree[node*2],tree[node*2+1]);
+    }
+    public:int lengthOfLIS(vector<int>& nums,int k){
+        size=*max_element(nums.begin(),nums.end());
+        tree.assign(4*size+4,0);
+        for(int value:nums){
+            int best=1;
+            if(value>1)best+=query(1,1,size,max(1,value-k),value-1);
+            update(1,1,size,value,best);
+        }
+        return tree[1];
+    }
+};

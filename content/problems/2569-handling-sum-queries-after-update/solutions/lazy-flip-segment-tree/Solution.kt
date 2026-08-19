@@ -1,1 +1,54 @@
-class Solution { private lateinit var tree:IntArray;private lateinit var lazy:BooleanArray;private fun build(node:Int,left:Int,right:Int,nums:IntArray){if(left==right){tree[node]=nums[left];return};val middle=(left+right)/2;build(node*2,left,middle,nums);build(node*2+1,middle+1,right,nums);tree[node]=tree[node*2]+tree[node*2+1]}private fun flip(node:Int,left:Int,right:Int){tree[node]=right-left+1-tree[node];lazy[node]=!lazy[node]}private fun push(node:Int,left:Int,right:Int){if(!lazy[node]||left==right)return;val middle=(left+right)/2;flip(node*2,left,middle);flip(node*2+1,middle+1,right);lazy[node]=false}private fun update(node:Int,left:Int,right:Int,queryLeft:Int,queryRight:Int){if(queryLeft<=left&&right<=queryRight){flip(node,left,right);return};push(node,left,right);val middle=(left+right)/2;if(queryLeft<=middle)update(node*2,left,middle,queryLeft,queryRight);if(queryRight>middle)update(node*2+1,middle+1,right,queryLeft,queryRight);tree[node]=tree[node*2]+tree[node*2+1]}fun handleQuery(nums1:IntArray,nums2:IntArray,queries:Array<IntArray>):LongArray{val n=nums1.size;tree=IntArray(4*n);lazy=BooleanArray(4*n);build(1,0,n-1,nums1);var sum=nums2.sumOf{it.toLong()};val reports=mutableListOf<Long>();for(query in queries){when(query[0]){1->update(1,0,n-1,query[1],query[2]);2->sum+=query[1].toLong()*tree[1];else->reports.add(sum)}};return reports.toLongArray()} }
+class Solution {
+    private lateinit var tree:IntArray;
+    private lateinit var lazy:BooleanArray;
+    private fun build(node:Int,left:Int,right:Int,nums:IntArray){
+        if(left==right){
+            tree[node]=nums[left];
+            return
+        };
+        val middle=(left+right)/2;
+        build(node*2,left,middle,nums);
+        build(node*2+1,middle+1,right,nums);
+        tree[node]=tree[node*2]+tree[node*2+1]
+    }
+    private fun flip(node:Int,left:Int,right:Int){
+        tree[node]=right-left+1-tree[node];
+        lazy[node]=!lazy[node]
+    }
+    private fun push(node:Int,left:Int,right:Int){
+        if(!lazy[node]||left==right)return;
+        val middle=(left+right)/2;
+        flip(node*2,left,middle);
+        flip(node*2+1,middle+1,right);
+        lazy[node]=false
+    }
+    private fun update(node:Int,left:Int,right:Int,queryLeft:Int,queryRight:Int){
+        if(queryLeft<=left&&right<=queryRight){
+            flip(node,left,right);
+            return
+        };
+        push(node,left,right);
+        val middle=(left+right)/2;
+        if(queryLeft<=middle)update(node*2,left,middle,queryLeft,queryRight);
+        if(queryRight>middle)update(node*2+1,middle+1,right,queryLeft,queryRight);
+        tree[node]=tree[node*2]+tree[node*2+1]
+    }
+    fun handleQuery(nums1:IntArray,nums2:IntArray,queries:Array<IntArray>):LongArray{
+        val n=nums1.size;
+        tree=IntArray(4*n);
+        lazy=BooleanArray(4*n);
+        build(1,0,n-1,nums1);
+        var sum=nums2.sumOf{
+            it.toLong()
+        };
+        val reports=mutableListOf<Long>();
+        for(query in queries){
+            when(query[0]){
+                1->update(1,0,n-1,query[1],query[2]);
+                2->sum+=query[1].toLong()*tree[1];
+                else->reports.add(sum)
+            }
+        };
+        return reports.toLongArray()
+    }
+}

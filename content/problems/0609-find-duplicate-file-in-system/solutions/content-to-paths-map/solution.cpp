@@ -1,1 +1,21 @@
-class Solution { public: vector<vector<string>> findDuplicate(vector<string>& paths){map<string,vector<string>> groups;for(string description:paths){stringstream stream(description);string directory,file;stream>>directory;while(stream>>file){int open=file.find('(');string name=file.substr(0,open),content=file.substr(open+1,file.size()-open-2);groups[content].push_back(directory+"/"+name);}}vector<vector<string>> answer;for(auto& [content,group]:groups)if(group.size()>1){sort(group.begin(),group.end());answer.push_back(group);}return answer;} };
+class Solution {
+    public: vector<vector<string>> findDuplicate(vector<string>& paths){
+        map<string,vector<string>> groups;
+        for(string description:paths){
+            stringstream stream(description);
+            string directory,file;
+            stream>>directory;
+            while(stream>>file){
+                int open=file.find('(');
+                string name=file.substr(0,open),content=file.substr(open+1,file.size()-open-2);
+                groups[content].push_back(directory+"/"+name);
+            }
+        }
+        vector<vector<string>> answer;
+        for(auto& [content,group]:groups)if(group.size()>1){
+            sort(group.begin(),group.end());
+            answer.push_back(group);
+        }
+        return answer;
+    }
+};

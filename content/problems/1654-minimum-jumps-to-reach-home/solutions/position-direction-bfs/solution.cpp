@@ -1,1 +1,33 @@
-class Solution { public: int minimumJumps(vector<int>& forbidden,int a,int b,int x){const int LIMIT=6000;vector<bool> blocked(LIMIT+1);for(int value:forbidden)if(value<=LIMIT)blocked[value]=true;vector<array<bool,2>> visited(LIMIT+1);queue<array<int,3>> pending;pending.push({0,0,0});visited[0][0]=true;while(!pending.empty()){auto [position,back,steps]=pending.front();pending.pop();if(position==x)return steps;int forward=position+a;if(forward<=LIMIT&&!blocked[forward]&&!visited[forward][0]){visited[forward][0]=true;pending.push({forward,0,steps+1});}int backward=position-b;if(!back&&backward>=0&&!blocked[backward]&&!visited[backward][1]){visited[backward][1]=true;pending.push({backward,1,steps+1});}}return -1;} };
+class Solution {
+    public: int minimumJumps(vector<int>& forbidden,int a,int b,int x){
+        const int LIMIT=6000;
+        vector<bool> blocked(LIMIT+1);
+        for(int value:forbidden)if(value<=LIMIT)blocked[value]=true;
+        vector<array<bool,2>> visited(LIMIT+1);
+        queue<array<int,3>> pending;
+        pending.push({
+            0,0,0
+        });
+        visited[0][0]=true;
+        while(!pending.empty()){
+            auto [position,back,steps]=pending.front();
+            pending.pop();
+            if(position==x)return steps;
+            int forward=position+a;
+            if(forward<=LIMIT&&!blocked[forward]&&!visited[forward][0]){
+                visited[forward][0]=true;
+                pending.push({
+                    forward,0,steps+1
+                });
+            }
+            int backward=position-b;
+            if(!back&&backward>=0&&!blocked[backward]&&!visited[backward][1]){
+                visited[backward][1]=true;
+                pending.push({
+                    backward,1,steps+1
+                });
+            }
+        }
+        return -1;
+    }
+};

@@ -1,1 +1,15 @@
-class Solution { public:long long minimumTime(vector<int>& time,int totalTrips){long long left=1,right=(long long)*min_element(time.begin(),time.end())*totalTrips;while(left<right){long long middle=(left+right)/2,trips=0;for(int duration:time){trips+=middle/duration;if(trips>=totalTrips)break;}if(trips>=totalTrips)right=middle;else left=middle+1;}return left;} };
+class Solution {
+    public:long long minimumTime(vector<int>& time,int totalTrips){
+        long long left=1,right=(long long)*min_element(time.begin(),time.end())*totalTrips;
+        while(left<right){
+            long long middle=(left+right)/2,trips=0;
+            for(int duration:time){
+                trips+=middle/duration;
+                if(trips>=totalTrips)break;
+            }
+            if(trips>=totalTrips)right=middle;
+            else left=middle+1;
+        }
+        return left;
+    }
+};

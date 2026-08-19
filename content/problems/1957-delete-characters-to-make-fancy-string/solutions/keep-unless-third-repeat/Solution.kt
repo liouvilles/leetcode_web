@@ -1,1 +1,11 @@
-class Solution { fun makeFancyString(s:String):String{val result=StringBuilder();for(value in s){val n=result.length;if(n>=2&&result[n-1]==value&&result[n-2]==value)continue;result.append(value)};return result.toString()} }
+class Solution {
+    fun makeFancyString(s:String):String{
+        val result=StringBuilder();
+        for(value in s){
+            val n=result.length;
+            if(n>=2&&result[n-1]==value&&result[n-2]==value)continue;
+            result.append(value)
+        };
+        return result.toString()
+    }
+}

@@ -1,1 +1,13 @@
-class Solution { public int movesToMakeZigzag(int[] nums){return Math.min(cost(nums,0),cost(nums,1));}private int cost(int[] nums,int parity){int moves=0;for(int i=parity;i<nums.length;i+=2){int left=i>0?nums[i-1]:1000000000,right=i+1<nums.length?nums[i+1]:1000000000;moves+=Math.max(0,nums[i]-Math.min(left,right)+1);}return moves;} }
+class Solution {
+    public int movesToMakeZigzag(int[] nums){
+        return Math.min(cost(nums,0),cost(nums,1));
+    }
+    private int cost(int[] nums,int parity){
+        int moves=0;
+        for(int i=parity;i<nums.length;i+=2){
+            int left=i>0?nums[i-1]:1000000000,right=i+1<nums.length?nums[i+1]:1000000000;
+            moves+=Math.max(0,nums[i]-Math.min(left,right)+1);
+        }
+        return moves;
+    }
+}

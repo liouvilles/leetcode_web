@@ -1,1 +1,16 @@
-class Solution { public: int minKBitFlips(vector<int>& nums,int k){vector<int> started(nums.size());int parity=0,answer=0;for(int i=0;i<(int)nums.size();++i){if(i>=k)parity^=started[i-k];if((nums[i]^parity)==0){if(i+k>(int)nums.size())return -1;started[i]=1;parity^=1;++answer;}}return answer;} };
+class Solution {
+    public: int minKBitFlips(vector<int>& nums,int k){
+        vector<int> started(nums.size());
+        int parity=0,answer=0;
+        for(int i=0;i<(int)nums.size();++i){
+            if(i>=k)parity^=started[i-k];
+            if((nums[i]^parity)==0){
+                if(i+k>(int)nums.size())return -1;
+                started[i]=1;
+                parity^=1;
+                ++answer;
+            }
+        }
+        return answer;
+    }
+};

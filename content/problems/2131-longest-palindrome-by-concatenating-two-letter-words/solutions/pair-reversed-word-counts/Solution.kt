@@ -1,1 +1,16 @@
-class Solution { fun longestPalindrome(words:Array<String>):Int{val count=Array(26){IntArray(26)};for(word in words)count[word[0]-'a'][word[1]-'a']++;var answer=0;var center=false;for(a in 0 until 26){for(b in a+1 until 26)answer+=4*minOf(count[a][b],count[b][a]);answer+=count[a][a]/2*4;if(count[a][a]%2==1)center=true};return answer+if(center)2 else 0} }
+class Solution {
+    fun longestPalindrome(words:Array<String>):Int{
+        val count=Array(26){
+            IntArray(26)
+        };
+        for(word in words)count[word[0]-'a'][word[1]-'a']++;
+        var answer=0;
+        var center=false;
+        for(a in 0 until 26){
+            for(b in a+1 until 26)answer+=4*minOf(count[a][b],count[b][a]);
+            answer+=count[a][a]/2*4;
+            if(count[a][a]%2==1)center=true
+        };
+        return answer+if(center)2 else 0
+    }
+}

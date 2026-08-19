@@ -1,1 +1,11 @@
-class Solution { fun stoneGameVI(aliceValues:IntArray,bobValues:IntArray):Int{val order=aliceValues.indices.sortedByDescending{aliceValues[it]+bobValues[it]};var alice=0;var bob=0;for(turn in order.indices)if(turn%2==0)alice+=aliceValues[order[turn]] else bob+=bobValues[order[turn]];return alice.compareTo(bob)} }
+class Solution {
+    fun stoneGameVI(aliceValues:IntArray,bobValues:IntArray):Int{
+        val order=aliceValues.indices.sortedByDescending{
+            aliceValues[it]+bobValues[it]
+        };
+        var alice=0;
+        var bob=0;
+        for(turn in order.indices)if(turn%2==0)alice+=aliceValues[order[turn]] else bob+=bobValues[order[turn]];
+        return alice.compareTo(bob)
+    }
+}

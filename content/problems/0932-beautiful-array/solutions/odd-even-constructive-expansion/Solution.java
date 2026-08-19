@@ -1,1 +1,13 @@
-class Solution { public int[] beautifulArray(int n){List<Integer> values=new ArrayList<>();values.add(1);while(values.size()<n){List<Integer> next=new ArrayList<>();for(int x:values)if(2*x-1<=n)next.add(2*x-1);for(int x:values)if(2*x<=n)next.add(2*x);values=next;}return values.stream().mapToInt(Integer::intValue).toArray();} }
+class Solution {
+    public int[] beautifulArray(int n){
+        List<Integer> values=new ArrayList<>();
+        values.add(1);
+        while(values.size()<n){
+            List<Integer> next=new ArrayList<>();
+            for(int x:values)if(2*x-1<=n)next.add(2*x-1);
+            for(int x:values)if(2*x<=n)next.add(2*x);
+            values=next;
+        }
+        return values.stream().mapToInt(Integer::intValue).toArray();
+    }
+}

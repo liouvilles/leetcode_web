@@ -1,1 +1,9 @@
-class Solution { public: int lastStoneWeightII(vector<int>& stones){int total=accumulate(stones.begin(),stones.end(),0),capacity=total/2;vector<bool> possible(capacity+1);possible[0]=true;for(int stone:stones)for(int sum=capacity;sum>=stone;--sum)possible[sum]=possible[sum]||possible[sum-stone];for(int sum=capacity;;--sum)if(possible[sum])return total-2*sum;} };
+class Solution {
+    public: int lastStoneWeightII(vector<int>& stones){
+        int total=accumulate(stones.begin(),stones.end(),0),capacity=total/2;
+        vector<bool> possible(capacity+1);
+        possible[0]=true;
+        for(int stone:stones)for(int sum=capacity;sum>=stone;--sum)possible[sum]=possible[sum]||possible[sum-stone];
+        for(int sum=capacity;;--sum)if(possible[sum])return total-2*sum;
+    }
+};

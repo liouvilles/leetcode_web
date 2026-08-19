@@ -1,1 +1,17 @@
-class Solution { public:bool checkArray(vector<int>& nums,int k){vector<long long> expire(nums.size()+1);long long active=0;for(int i=0;i<(int)nums.size();++i){active-=expire[i];long long needed=nums[i]-active;if(needed<0)return false;if(needed>0){if(i+k>(int)nums.size())return false;active+=needed;expire[i+k]+=needed;}}return true;} };
+class Solution {
+    public:bool checkArray(vector<int>& nums,int k){
+        vector<long long> expire(nums.size()+1);
+        long long active=0;
+        for(int i=0;i<(int)nums.size();++i){
+            active-=expire[i];
+            long long needed=nums[i]-active;
+            if(needed<0)return false;
+            if(needed>0){
+                if(i+k>(int)nums.size())return false;
+                active+=needed;
+                expire[i+k]+=needed;
+            }
+        }
+        return true;
+    }
+};

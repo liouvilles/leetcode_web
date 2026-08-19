@@ -1,1 +1,18 @@
-class Solution { fun distanceBetweenBusStops(distance:IntArray,startValue:Int,destinationValue:Int):Int{var start=startValue;var destination=destinationValue;if(start>destination){val temporary=start;start=destination;destination=temporary};var total=0;var direct=0;for(i in distance.indices){total+=distance[i];if(i in start until destination)direct+=distance[i]};return minOf(direct,total-direct)} }
+class Solution {
+    fun distanceBetweenBusStops(distance:IntArray,startValue:Int,destinationValue:Int):Int{
+        var start=startValue;
+        var destination=destinationValue;
+        if(start>destination){
+            val temporary=start;
+            start=destination;
+            destination=temporary
+        };
+        var total=0;
+        var direct=0;
+        for(i in distance.indices){
+            total+=distance[i];
+            if(i in start until destination)direct+=distance[i]
+        };
+        return minOf(direct,total-direct)
+    }
+}

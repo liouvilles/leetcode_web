@@ -1,1 +1,26 @@
-class ExamRoom(private val n:Int){private val occupied=java.util.TreeSet<Int>();fun seat():Int{if(occupied.isEmpty()){occupied.add(0);return 0};var candidate=0;var best=occupied.first();var previous=occupied.first();for(current in occupied.tailSet(previous,false)){val distance=(current-previous)/2;if(distance>best){best=distance;candidate=previous+distance};previous=current};if(n-1-previous>best)candidate=n-1;occupied.add(candidate);return candidate};fun leave(p:Int){occupied.remove(p)} }
+class ExamRoom(private val n:Int){
+    private val occupied=java.util.TreeSet<Int>();
+    fun seat():Int{
+        if(occupied.isEmpty()){
+            occupied.add(0);
+            return 0
+        };
+        var candidate=0;
+        var best=occupied.first();
+        var previous=occupied.first();
+        for(current in occupied.tailSet(previous,false)){
+            val distance=(current-previous)/2;
+            if(distance>best){
+                best=distance;
+                candidate=previous+distance
+            };
+            previous=current
+        };
+        if(n-1-previous>best)candidate=n-1;
+        occupied.add(candidate);
+        return candidate
+    };
+    fun leave(p:Int){
+        occupied.remove(p)
+    }
+}

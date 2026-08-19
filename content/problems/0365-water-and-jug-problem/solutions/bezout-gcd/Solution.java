@@ -1,1 +1,16 @@
-class Solution { public boolean canMeasureWater(int x,int y,int target){if(target==0)return true;if((long)x+y<target)return false;int gcd=gcd(x,y);return gcd!=0&&target%gcd==0;}private int gcd(int a,int b){while(b!=0){int value=a%b;a=b;b=value;}return a;} }
+class Solution {
+    public boolean canMeasureWater(int x,int y,int target){
+        if(target==0)return true;
+        if((long)x+y<target)return false;
+        int gcd=gcd(x,y);
+        return gcd!=0&&target%gcd==0;
+    }
+    private int gcd(int a,int b){
+        while(b!=0){
+            int value=a%b;
+            a=b;
+            b=value;
+        }
+        return a;
+    }
+}

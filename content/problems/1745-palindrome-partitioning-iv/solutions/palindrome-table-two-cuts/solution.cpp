@@ -1,1 +1,12 @@
-class Solution { public: bool checkPartitioning(string text){int n=text.size();vector<vector<bool>> palindrome(n,vector<bool>(n));for(int length=1;length<=n;++length)for(int left=0;left+length<=n;++left){int right=left+length-1;palindrome[left][right]=text[left]==text[right]&&(length<=2||palindrome[left+1][right-1]);}for(int first=0;first<n-2;++first)for(int second=first+1;second<n-1;++second)if(palindrome[0][first]&&palindrome[first+1][second]&&palindrome[second+1][n-1])return true;return false;} };
+class Solution {
+    public: bool checkPartitioning(string text){
+        int n=text.size();
+        vector<vector<bool>> palindrome(n,vector<bool>(n));
+        for(int length=1;length<=n;++length)for(int left=0;left+length<=n;++left){
+            int right=left+length-1;
+            palindrome[left][right]=text[left]==text[right]&&(length<=2||palindrome[left+1][right-1]);
+        }
+        for(int first=0;first<n-2;++first)for(int second=first+1;second<n-1;++second)if(palindrome[0][first]&&palindrome[first+1][second]&&palindrome[second+1][n-1])return true;
+        return false;
+    }
+};

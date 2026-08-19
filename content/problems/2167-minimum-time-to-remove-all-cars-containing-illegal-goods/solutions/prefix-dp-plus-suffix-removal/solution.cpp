@@ -1,1 +1,10 @@
-class Solution { public:int minimumTime(string s){int n=s.size(),leftCost=0,answer=n;for(int i=0;i<n;++i){if(s[i]=='1')leftCost=min(leftCost+2,i+1);answer=min(answer,leftCost+n-1-i);}return answer;} };
+class Solution {
+    public:int minimumTime(string s){
+        int n=s.size(),leftCost=0,answer=n;
+        for(int i=0;i<n;++i){
+            if(s[i]=='1')leftCost=min(leftCost+2,i+1);
+            answer=min(answer,leftCost+n-1-i);
+        }
+        return answer;
+    }
+};

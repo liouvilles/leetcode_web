@@ -1,1 +1,13 @@
-class Solution { fun numberOfArrays(differences:IntArray,lower:Int,upper:Int):Int{var prefix=0L;var minimum=0L;var maximum=0L;for(difference in differences){prefix+=difference;minimum=minOf(minimum,prefix);maximum=maxOf(maximum,prefix)};return maxOf(0L,upper.toLong()-lower-(maximum-minimum)+1).toInt()} }
+class Solution {
+    fun numberOfArrays(differences:IntArray,lower:Int,upper:Int):Int{
+        var prefix=0L;
+        var minimum=0L;
+        var maximum=0L;
+        for(difference in differences){
+            prefix+=difference;
+            minimum=minOf(minimum,prefix);
+            maximum=maxOf(maximum,prefix)
+        };
+        return maxOf(0L,upper.toLong()-lower-(maximum-minimum)+1).toInt()
+    }
+}

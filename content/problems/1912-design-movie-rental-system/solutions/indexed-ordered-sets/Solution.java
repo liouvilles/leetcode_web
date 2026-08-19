@@ -1,1 +1,53 @@
-class MovieRentingSystem { private static class Entry { int price,shop,movie;Entry(int price,int shop,int movie){this.price=price;this.shop=shop;this.movie=movie;} }private static final Comparator<Entry> ORDER=Comparator.comparingInt((Entry e)->e.price).thenComparingInt(e->e.shop).thenComparingInt(e->e.movie);private final Map<Integer,TreeSet<Entry>> available=new HashMap<>();private final TreeSet<Entry> rented=new TreeSet<>(ORDER);private final Map<Long,Integer> prices=new HashMap<>();private long key(int shop,int movie){return ((long)shop<<32)|(movie&0xffffffffL);}private Entry entry(int shop,int movie){return new Entry(prices.get(key(shop,movie)),shop,movie);}public MovieRentingSystem(int n,int[][] entries){for(int[] item:entries){prices.put(key(item[0],item[1]),item[2]);available.computeIfAbsent(item[1],ignored->new TreeSet<>(ORDER)).add(new Entry(item[2],item[0],item[1]));}}public List<Integer> search(int movie){List<Integer> answer=new ArrayList<>();TreeSet<Entry> set=available.get(movie);if(set!=null)for(Entry item:set){if(answer.size()==5)break;answer.add(item.shop);}return answer;}public void rent(int shop,int movie){Entry item=entry(shop,movie);available.get(movie).remove(item);rented.add(item);}public void drop(int shop,int movie){Entry item=entry(shop,movie);rented.remove(item);available.get(movie).add(item);}public List<List<Integer>> report(){List<List<Integer>> answer=new ArrayList<>();for(Entry item:rented){if(answer.size()==5)break;answer.add(Arrays.asList(item.shop,item.movie));}return answer;} }
+class MovieRentingSystem {
+    private static class Entry {
+        int price,shop,movie;
+        Entry(int price,int shop,int movie){
+            this.price=price;
+            this.shop=shop;
+            this.movie=movie;
+        }
+    }
+    private static final Comparator<Entry> ORDER=Comparator.comparingInt((Entry e)->e.price).thenComparingInt(e->e.shop).thenComparingInt(e->e.movie);
+    private final Map<Integer,TreeSet<Entry>> available=new HashMap<>();
+    private final TreeSet<Entry> rented=new TreeSet<>(ORDER);
+    private final Map<Long,Integer> prices=new HashMap<>();
+    private long key(int shop,int movie){
+        return ((long)shop<<32)|(movie&0xffffffffL);
+    }
+    private Entry entry(int shop,int movie){
+        return new Entry(prices.get(key(shop,movie)),shop,movie);
+    }
+    public MovieRentingSystem(int n,int[][] entries){
+        for(int[] item:entries){
+            prices.put(key(item[0],item[1]),item[2]);
+            available.computeIfAbsent(item[1],ignored->new TreeSet<>(ORDER)).add(new Entry(item[2],item[0],item[1]));
+        }
+    }
+    public List<Integer> search(int movie){
+        List<Integer> answer=new ArrayList<>();
+        TreeSet<Entry> set=available.get(movie);
+        if(set!=null)for(Entry item:set){
+            if(answer.size()==5)break;
+            answer.add(item.shop);
+        }
+        return answer;
+    }
+    public void rent(int shop,int movie){
+        Entry item=entry(shop,movie);
+        available.get(movie).remove(item);
+        rented.add(item);
+    }
+    public void drop(int shop,int movie){
+        Entry item=entry(shop,movie);
+        rented.remove(item);
+        available.get(movie).add(item);
+    }
+    public List<List<Integer>> report(){
+        List<List<Integer>> answer=new ArrayList<>();
+        for(Entry item:rented){
+            if(answer.size()==5)break;
+            answer.add(Arrays.asList(item.shop,item.movie));
+        }
+        return answer;
+    }
+}

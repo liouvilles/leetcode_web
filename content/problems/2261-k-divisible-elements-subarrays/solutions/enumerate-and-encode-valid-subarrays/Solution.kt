@@ -1,1 +1,16 @@
-class Solution { fun countDistinct(nums:IntArray,k:Int,p:Int):Int{val distinct=HashSet<String>();for(start in nums.indices){var divisible=0;val key=StringBuilder();for(end in start until nums.size){if(nums[end]%p==0)divisible++;if(divisible>k)break;key.append('#').append(nums[end]);distinct.add(key.toString())}};return distinct.size} }
+class Solution {
+    fun countDistinct(nums:IntArray,k:Int,p:Int):Int{
+        val distinct=HashSet<String>();
+        for(start in nums.indices){
+            var divisible=0;
+            val key=StringBuilder();
+            for(end in start until nums.size){
+                if(nums[end]%p==0)divisible++;
+                if(divisible>k)break;
+                key.append('#').append(nums[end]);
+                distinct.add(key.toString())
+            }
+        };
+        return distinct.size
+    }
+}

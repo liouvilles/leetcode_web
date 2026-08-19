@@ -1,1 +1,33 @@
-class Solution { public: vector<vector<int>> validArrangement(vector<vector<int>>& pairs){unordered_map<int,vector<int>> graph;unordered_map<int,int> balance;for(auto& pair:pairs){graph[pair[0]].push_back(pair[1]);++balance[pair[0]];--balance[pair[1]];}int start=pairs[0][0];for(auto [node,value]:balance)if(value==1)start=node;vector<int> stack={start};vector<vector<int>> reversed;while(!stack.empty()){int node=stack.back();auto& edges=graph[node];if(!edges.empty()){stack.push_back(edges.back());edges.pop_back();}else{int end=stack.back();stack.pop_back();if(!stack.empty())reversed.push_back({stack.back(),end});}}reverse(reversed.begin(),reversed.end());return reversed;} };
+class Solution {
+    public: vector<vector<int>> validArrangement(vector<vector<int>>& pairs){
+        unordered_map<int,vector<int>> graph;
+        unordered_map<int,int> balance;
+        for(auto& pair:pairs){
+            graph[pair[0]].push_back(pair[1]);
+            ++balance[pair[0]];
+            --balance[pair[1]];
+        }
+        int start=pairs[0][0];
+        for(auto [node,value]:balance)if(value==1)start=node;
+        vector<int> stack={
+            start
+        };
+        vector<vector<int>> reversed;
+        while(!stack.empty()){
+            int node=stack.back();
+            auto& edges=graph[node];
+            if(!edges.empty()){
+                stack.push_back(edges.back());
+                edges.pop_back();
+            }else{
+                int end=stack.back();
+                stack.pop_back();
+                if(!stack.empty())reversed.push_back({
+                    stack.back(),end
+                });
+            }
+        }
+        reverse(reversed.begin(),reversed.end());
+        return reversed;
+    }
+};

@@ -1,1 +1,53 @@
-class Solution { fun catMouseGame(graph:Array<IntArray>):Int{val n=graph.size;val outcome=Array(n){Array(n){IntArray(2)}};val degree=Array(n){Array(n){IntArray(2)}};for(m in 0 until n)for(c in 1 until n){degree[m][c][0]=graph[m].size;degree[m][c][1]=graph[c].count{it!=0}};val queue=java.util.ArrayDeque<IntArray>();for(c in 1 until n)for(turn in 0..1){outcome[0][c][turn]=1;queue.addLast(intArrayOf(0,c,turn,1))};for(m in 1 until n)for(turn in 0..1){outcome[m][m][turn]=2;queue.addLast(intArrayOf(m,m,turn,2))};while(queue.isNotEmpty()){val state=queue.removeFirst();val m=state[0];val c=state[1];val turn=state[2];val result=state[3];if(turn==0){for(previousCat in graph[c])if(previousCat!=0)propagate(m,previousCat,1,result,outcome,degree,queue)}else for(previousMouse in graph[m])propagate(previousMouse,c,0,result,outcome,degree,queue)};return outcome[1][2][0]};private fun propagate(m:Int,c:Int,turn:Int,childResult:Int,outcome:Array<Array<IntArray>>,degree:Array<Array<IntArray>>,queue:java.util.ArrayDeque<IntArray>){if(outcome[m][c][turn]!=0)return;val playerWin=if(turn==0)1 else 2;if(childResult==playerWin){outcome[m][c][turn]=childResult;queue.addLast(intArrayOf(m,c,turn,childResult))}else if(--degree[m][c][turn]==0){val result=if(turn==0)2 else 1;outcome[m][c][turn]=result;queue.addLast(intArrayOf(m,c,turn,result))}} }
+class Solution {
+    fun catMouseGame(graph:Array<IntArray>):Int{
+        val n=graph.size;
+        val outcome=Array(n){
+            Array(n){
+                IntArray(2)
+            }
+        };
+        val degree=Array(n){
+            Array(n){
+                IntArray(2)
+            }
+        };
+        for(m in 0 until n)for(c in 1 until n){
+            degree[m][c][0]=graph[m].size;
+            degree[m][c][1]=graph[c].count{
+                it!=0
+            }
+        };
+        val queue=java.util.ArrayDeque<IntArray>();
+        for(c in 1 until n)for(turn in 0..1){
+            outcome[0][c][turn]=1;
+            queue.addLast(intArrayOf(0,c,turn,1))
+        };
+        for(m in 1 until n)for(turn in 0..1){
+            outcome[m][m][turn]=2;
+            queue.addLast(intArrayOf(m,m,turn,2))
+        };
+        while(queue.isNotEmpty()){
+            val state=queue.removeFirst();
+            val m=state[0];
+            val c=state[1];
+            val turn=state[2];
+            val result=state[3];
+            if(turn==0){
+                for(previousCat in graph[c])if(previousCat!=0)propagate(m,previousCat,1,result,outcome,degree,queue)
+            }else for(previousMouse in graph[m])propagate(previousMouse,c,0,result,outcome,degree,queue)
+        };
+        return outcome[1][2][0]
+    };
+    private fun propagate(m:Int,c:Int,turn:Int,childResult:Int,outcome:Array<Array<IntArray>>,degree:Array<Array<IntArray>>,queue:java.util.ArrayDeque<IntArray>){
+        if(outcome[m][c][turn]!=0)return;
+        val playerWin=if(turn==0)1 else 2;
+        if(childResult==playerWin){
+            outcome[m][c][turn]=childResult;
+            queue.addLast(intArrayOf(m,c,turn,childResult))
+        }else if(--degree[m][c][turn]==0){
+            val result=if(turn==0)2 else 1;
+            outcome[m][c][turn]=result;
+            queue.addLast(intArrayOf(m,c,turn,result))
+        }
+    }
+}

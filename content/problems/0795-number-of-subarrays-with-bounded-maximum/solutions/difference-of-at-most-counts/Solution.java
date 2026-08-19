@@ -1,1 +1,13 @@
-class Solution { public int numSubarrayBoundedMax(int[] nums,int left,int right){return atMost(nums,right)-atMost(nums,left-1);}private int atMost(int[] nums,int bound){int result=0,length=0;for(int value:nums){length=value<=bound?length+1:0;result+=length;}return result;} }
+class Solution {
+    public int numSubarrayBoundedMax(int[] nums,int left,int right){
+        return atMost(nums,right)-atMost(nums,left-1);
+    }
+    private int atMost(int[] nums,int bound){
+        int result=0,length=0;
+        for(int value:nums){
+            length=value<=bound?length+1:0;
+            result+=length;
+        }
+        return result;
+    }
+}

@@ -1,1 +1,3 @@
-class Solution { fun findDelayedArrivalTime(arrivalTime:Int,delayedTime:Int)=(arrivalTime+delayedTime)%24 }
+class Solution {
+    fun findDelayedArrivalTime(arrivalTime:Int,delayedTime:Int)=(arrivalTime+delayedTime)%24
+}

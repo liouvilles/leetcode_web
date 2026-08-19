@@ -1,1 +1,33 @@
-class Solution { private fun adjacent(a:String,b:String):Boolean{if(a.length!=b.length)return false;var differences=0;for(i in a.indices)if(a[i]!=b[i]&&++differences>1)return false;return differences==1};fun getWordsInLongestSubsequence(words:Array<String>,groups:IntArray):List<String>{val n=words.size;val dp=IntArray(n){1};val previous=IntArray(n){-1};var best=0;for(i in 0 until n){for(j in 0 until i)if(groups[i]!=groups[j]&&adjacent(words[i],words[j])&&dp[j]+1>dp[i]){dp[i]=dp[j]+1;previous[i]=j};if(dp[i]>dp[best])best=i};val answer=mutableListOf<String>();var node=best;while(node!=-1){answer.add(words[node]);node=previous[node]};answer.reverse();return answer} }
+class Solution {
+    private fun adjacent(a:String,b:String):Boolean{
+        if(a.length!=b.length)return false;
+        var differences=0;
+        for(i in a.indices)if(a[i]!=b[i]&&++differences>1)return false;
+        return differences==1
+    };
+    fun getWordsInLongestSubsequence(words:Array<String>,groups:IntArray):List<String>{
+        val n=words.size;
+        val dp=IntArray(n){
+            1
+        };
+        val previous=IntArray(n){
+            -1
+        };
+        var best=0;
+        for(i in 0 until n){
+            for(j in 0 until i)if(groups[i]!=groups[j]&&adjacent(words[i],words[j])&&dp[j]+1>dp[i]){
+                dp[i]=dp[j]+1;
+                previous[i]=j
+            };
+            if(dp[i]>dp[best])best=i
+        };
+        val answer=mutableListOf<String>();
+        var node=best;
+        while(node!=-1){
+            answer.add(words[node]);
+            node=previous[node]
+        };
+        answer.reverse();
+        return answer
+    }
+}

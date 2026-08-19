@@ -1,1 +1,18 @@
-class Solution { public long maximumSubarraySum(int[] nums,int k){Map<Integer,Integer> frequency=new HashMap<>();long sum=0,answer=0;int left=0;for(int right=0;right<nums.length;right++){sum+=nums[right];frequency.merge(nums[right],1,Integer::sum);if(right-left+1>k){int value=nums[left++];sum-=value;if(frequency.merge(value,-1,Integer::sum)==0)frequency.remove(value);}if(right-left+1==k&&frequency.size()==k)answer=Math.max(answer,sum);}return answer;} }
+class Solution {
+    public long maximumSubarraySum(int[] nums,int k){
+        Map<Integer,Integer> frequency=new HashMap<>();
+        long sum=0,answer=0;
+        int left=0;
+        for(int right=0;right<nums.length;right++){
+            sum+=nums[right];
+            frequency.merge(nums[right],1,Integer::sum);
+            if(right-left+1>k){
+                int value=nums[left++];
+                sum-=value;
+                if(frequency.merge(value,-1,Integer::sum)==0)frequency.remove(value);
+            }
+            if(right-left+1==k&&frequency.size()==k)answer=Math.max(answer,sum);
+        }
+        return answer;
+    }
+}

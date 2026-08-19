@@ -1,1 +1,10 @@
-class Solution { fun canBeEqual(target:IntArray,arr:IntArray):Boolean{val count=mutableMapOf<Int,Int>();for(value in target)count[value]=(count[value]?:0)+1;for(value in arr)count[value]=(count[value]?:0)-1;return count.values.all{it==0}} }
+class Solution {
+    fun canBeEqual(target:IntArray,arr:IntArray):Boolean{
+        val count=mutableMapOf<Int,Int>();
+        for(value in target)count[value]=(count[value]?:0)+1;
+        for(value in arr)count[value]=(count[value]?:0)-1;
+        return count.values.all{
+            it==0
+        }
+    }
+}

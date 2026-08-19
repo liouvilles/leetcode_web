@@ -1,1 +1,14 @@
-class Solution { fun goodIndices(nums:IntArray,k:Int):List<Int>{val n=nums.size;val left=IntArray(n);val right=IntArray(n);left[0]=1;for(i in 1 until n)left[i]=if(nums[i]<=nums[i-1])left[i-1]+1 else 1;right[n-1]=1;for(i in n-2 downTo 0)right[i]=if(nums[i]<=nums[i+1])right[i+1]+1 else 1;val answer=mutableListOf<Int>();for(i in k until n-k)if(left[i-1]>=k&&right[i+1]>=k)answer.add(i);return answer} }
+class Solution {
+    fun goodIndices(nums:IntArray,k:Int):List<Int>{
+        val n=nums.size;
+        val left=IntArray(n);
+        val right=IntArray(n);
+        left[0]=1;
+        for(i in 1 until n)left[i]=if(nums[i]<=nums[i-1])left[i-1]+1 else 1;
+        right[n-1]=1;
+        for(i in n-2 downTo 0)right[i]=if(nums[i]<=nums[i+1])right[i+1]+1 else 1;
+        val answer=mutableListOf<Int>();
+        for(i in k until n-k)if(left[i-1]>=k&&right[i+1]>=k)answer.add(i);
+        return answer
+    }
+}

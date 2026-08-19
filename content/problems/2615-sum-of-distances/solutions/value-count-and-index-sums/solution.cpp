@@ -1,1 +1,19 @@
-class Solution { public:vector<long long> distance(vector<int>& nums){unordered_map<int,int> totalCount,leftCount;unordered_map<int,long long> totalSum,leftSum;for(int i=0;i<(int)nums.size();++i){++totalCount[nums[i]];totalSum[nums[i]]+=i;}vector<long long> answer(nums.size());for(int i=0;i<(int)nums.size();++i){int value=nums[i],leftNumber=leftCount[value],rightNumber=totalCount[value]-leftNumber-1;long long leftPositions=leftSum[value],rightPositions=totalSum[value]-leftPositions-i;answer[i]=1LL*i*leftNumber-leftPositions+rightPositions-1LL*i*rightNumber;++leftCount[value];leftSum[value]+=i;}return answer;} };
+class Solution {
+    public:vector<long long> distance(vector<int>& nums){
+        unordered_map<int,int> totalCount,leftCount;
+        unordered_map<int,long long> totalSum,leftSum;
+        for(int i=0;i<(int)nums.size();++i){
+            ++totalCount[nums[i]];
+            totalSum[nums[i]]+=i;
+        }
+        vector<long long> answer(nums.size());
+        for(int i=0;i<(int)nums.size();++i){
+            int value=nums[i],leftNumber=leftCount[value],rightNumber=totalCount[value]-leftNumber-1;
+            long long leftPositions=leftSum[value],rightPositions=totalSum[value]-leftPositions-i;
+            answer[i]=1LL*i*leftNumber-leftPositions+rightPositions-1LL*i*rightNumber;
+            ++leftCount[value];
+            leftSum[value]+=i;
+        }
+        return answer;
+    }
+};

@@ -1,1 +1,7 @@
-class Solution { public boolean isSubsequence(String s,String t){int matched=0;for(int i=0;i<t.length()&&matched<s.length();i++)if(t.charAt(i)==s.charAt(matched))matched++;return matched==s.length();} }
+class Solution {
+    public boolean isSubsequence(String s,String t){
+        int matched=0;
+        for(int i=0;i<t.length()&&matched<s.length();i++)if(t.charAt(i)==s.charAt(matched))matched++;
+        return matched==s.length();
+    }
+}

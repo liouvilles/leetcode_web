@@ -1,1 +1,11 @@
-class Solution { public int findGCD(int[] nums){int minimum=Arrays.stream(nums).min().getAsInt(),maximum=Arrays.stream(nums).max().getAsInt();while(minimum!=0){int remainder=maximum%minimum;maximum=minimum;minimum=remainder;}return maximum;} }
+class Solution {
+    public int findGCD(int[] nums){
+        int minimum=Arrays.stream(nums).min().getAsInt(),maximum=Arrays.stream(nums).max().getAsInt();
+        while(minimum!=0){
+            int remainder=maximum%minimum;
+            maximum=minimum;
+            minimum=remainder;
+        }
+        return maximum;
+    }
+}

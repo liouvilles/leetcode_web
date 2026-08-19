@@ -1,1 +1,23 @@
-class Solution { fun checkValidGrid(grid:Array<IntArray>):Boolean{val n=grid.size;val total=n*n;if(grid[0][0]!=0)return false;val rows=IntArray(total);val cols=IntArray(total);val seen=BooleanArray(total);for(row in 0 until n)for(col in 0 until n){val step=grid[row][col];if(step !in 0 until total||seen[step])return false;seen[step]=true;rows[step]=row;cols[step]=col};for(step in 1 until total){val rowDiff=kotlin.math.abs(rows[step]-rows[step-1]);val colDiff=kotlin.math.abs(cols[step]-cols[step-1]);if(rowDiff*colDiff!=2)return false};return true} }
+class Solution {
+    fun checkValidGrid(grid:Array<IntArray>):Boolean{
+        val n=grid.size;
+        val total=n*n;
+        if(grid[0][0]!=0)return false;
+        val rows=IntArray(total);
+        val cols=IntArray(total);
+        val seen=BooleanArray(total);
+        for(row in 0 until n)for(col in 0 until n){
+            val step=grid[row][col];
+            if(step !in 0 until total||seen[step])return false;
+            seen[step]=true;
+            rows[step]=row;
+            cols[step]=col
+        };
+        for(step in 1 until total){
+            val rowDiff=kotlin.math.abs(rows[step]-rows[step-1]);
+            val colDiff=kotlin.math.abs(cols[step]-cols[step-1]);
+            if(rowDiff*colDiff!=2)return false
+        };
+        return true
+    }
+}

@@ -1,1 +1,14 @@
-class Solution { fun numWays(words:Array<String>,target:String):Int{val mod=1_000_000_007L;val length=words[0].length;val count=Array(length){IntArray(26)};for(word in words)for(column in 0 until length)count[column][word[column]-'a']++;val dp=LongArray(target.length+1);dp[0]=1;for(column in 0 until length)for(formed in minOf(column,target.lastIndex) downTo 0)dp[formed+1]=(dp[formed+1]+dp[formed]*count[column][target[formed]-'a'])%mod;return dp[target.length].toInt()} }
+class Solution {
+    fun numWays(words:Array<String>,target:String):Int{
+        val mod=1_000_000_007L;
+        val length=words[0].length;
+        val count=Array(length){
+            IntArray(26)
+        };
+        for(word in words)for(column in 0 until length)count[column][word[column]-'a']++;
+        val dp=LongArray(target.length+1);
+        dp[0]=1;
+        for(column in 0 until length)for(formed in minOf(column,target.lastIndex) downTo 0)dp[formed+1]=(dp[formed+1]+dp[formed]*count[column][target[formed]-'a'])%mod;
+        return dp[target.length].toInt()
+    }
+}

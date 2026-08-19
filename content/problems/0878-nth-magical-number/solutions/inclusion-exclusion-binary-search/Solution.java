@@ -1,1 +1,19 @@
-class Solution { public int nthMagicalNumber(int n,int a,int b){long lcm=(long)a/gcd(a,b)*b,low=1,high=(long)n*Math.min(a,b);while(low<high){long middle=low+(high-low)/2,count=middle/a+middle/b-middle/lcm;if(count>=n)high=middle;else low=middle+1;}return(int)(low%1000000007);}private int gcd(int a,int b){while(b!=0){int temporary=a%b;a=b;b=temporary;}return a;} }
+class Solution {
+    public int nthMagicalNumber(int n,int a,int b){
+        long lcm=(long)a/gcd(a,b)*b,low=1,high=(long)n*Math.min(a,b);
+        while(low<high){
+            long middle=low+(high-low)/2,count=middle/a+middle/b-middle/lcm;
+            if(count>=n)high=middle;
+            else low=middle+1;
+        }
+        return(int)(low%1000000007);
+    }
+    private int gcd(int a,int b){
+        while(b!=0){
+            int temporary=a%b;
+            a=b;
+            b=temporary;
+        }
+        return a;
+    }
+}

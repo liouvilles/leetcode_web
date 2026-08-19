@@ -1,1 +1,10 @@
-class Solution { public:bool canMakeSquare(vector<vector<char>>& grid){for(int row=0;row<2;++row)for(int col=0;col<2;++col){int black=0;for(int dr=0;dr<2;++dr)for(int dc=0;dc<2;++dc)black+=grid[row+dr][col+dc]=='B';if(black!=2)return true;}return false;} };
+class Solution {
+    public:bool canMakeSquare(vector<vector<char>>& grid){
+        for(int row=0;row<2;++row)for(int col=0;col<2;++col){
+            int black=0;
+            for(int dr=0;dr<2;++dr)for(int dc=0;dc<2;++dc)black+=grid[row+dr][col+dc]=='B';
+            if(black!=2)return true;
+        }
+        return false;
+    }
+};

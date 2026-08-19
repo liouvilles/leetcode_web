@@ -1,1 +1,13 @@
-class Solution { fun minimumDeletions(nums:IntArray):Int{var minimum=0;var maximum=0;for(i in 1 until nums.size){if(nums[i]<nums[minimum])minimum=i;if(nums[i]>nums[maximum])maximum=i};val first=minOf(minimum,maximum);val second=maxOf(minimum,maximum);return minOf(second+1,nums.size-first,first+1+nums.size-second)} }
+class Solution {
+    fun minimumDeletions(nums:IntArray):Int{
+        var minimum=0;
+        var maximum=0;
+        for(i in 1 until nums.size){
+            if(nums[i]<nums[minimum])minimum=i;
+            if(nums[i]>nums[maximum])maximum=i
+        };
+        val first=minOf(minimum,maximum);
+        val second=maxOf(minimum,maximum);
+        return minOf(second+1,nums.size-first,first+1+nums.size-second)
+    }
+}

@@ -1,1 +1,11 @@
-class Solution { public:int largestCombination(vector<int>& candidates){int answer=0;for(int bit=0;bit<31;++bit){int count=0;for(int value:candidates)count+=value&(1<<bit)?1:0;answer=max(answer,count);}return answer;} };
+class Solution {
+    public:int largestCombination(vector<int>& candidates){
+        int answer=0;
+        for(int bit=0;bit<31;++bit){
+            int count=0;
+            for(int value:candidates)count+=value&(1<<bit)?1:0;
+            answer=max(answer,count);
+        }
+        return answer;
+    }
+};

@@ -1,1 +1,25 @@
-class Solution { fun findAllRecipes(recipes:Array<String>,ingredients:List<List<String>>,supplies:Array<String>):List<String>{val dependents=HashMap<String,MutableList<Int>>();val missing=IntArray(recipes.size);for(i in recipes.indices){missing[i]=ingredients[i].size;for(ingredient in ingredients[i])dependents.getOrPut(ingredient){mutableListOf()}.add(i)};val queue=java.util.ArrayDeque<String>();supplies.forEach{queue.add(it)};val answer=mutableListOf<String>();while(queue.isNotEmpty()){val item=queue.removeFirst();for(recipe in dependents[item]?:emptyList())if(--missing[recipe]==0){answer.add(recipes[recipe]);queue.add(recipes[recipe])}};return answer} }
+class Solution {
+    fun findAllRecipes(recipes:Array<String>,ingredients:List<List<String>>,supplies:Array<String>):List<String>{
+        val dependents=HashMap<String,MutableList<Int>>();
+        val missing=IntArray(recipes.size);
+        for(i in recipes.indices){
+            missing[i]=ingredients[i].size;
+            for(ingredient in ingredients[i])dependents.getOrPut(ingredient){
+                mutableListOf()
+            }.add(i)
+        };
+        val queue=java.util.ArrayDeque<String>();
+        supplies.forEach{
+            queue.add(it)
+        };
+        val answer=mutableListOf<String>();
+        while(queue.isNotEmpty()){
+            val item=queue.removeFirst();
+            for(recipe in dependents[item]?:emptyList())if(--missing[recipe]==0){
+                answer.add(recipes[recipe]);
+                queue.add(recipes[recipe])
+            }
+        };
+        return answer
+    }
+}

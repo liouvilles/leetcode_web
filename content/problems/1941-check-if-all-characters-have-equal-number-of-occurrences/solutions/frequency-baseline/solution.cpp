@@ -1,1 +1,13 @@
-class Solution { public: bool areOccurrencesEqual(string s){int frequency[26]={};for(char letter:s)++frequency[letter-'a'];int baseline=0;for(int value:frequency)if(value){if(!baseline)baseline=value;else if(value!=baseline)return false;}return true;} };
+class Solution {
+    public: bool areOccurrencesEqual(string s){
+        int frequency[26]={
+        };
+        for(char letter:s)++frequency[letter-'a'];
+        int baseline=0;
+        for(int value:frequency)if(value){
+            if(!baseline)baseline=value;
+            else if(value!=baseline)return false;
+        }
+        return true;
+    }
+};

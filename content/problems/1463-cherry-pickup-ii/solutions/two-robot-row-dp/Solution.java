@@ -1,1 +1,18 @@
-class Solution { private int[][] grid;private int[][][] memo;private int dfs(int row,int first,int second){if(first<0||second<0||first>=grid[0].length||second>=grid[0].length)return -1_000_000;if(row==grid.length)return 0;if(memo[row][first][second]!=-1)return memo[row][first][second];int current=grid[row][first]+(first==second?0:grid[row][second]),best=0;for(int moveFirst=-1;moveFirst<=1;moveFirst++)for(int moveSecond=-1;moveSecond<=1;moveSecond++)best=Math.max(best,dfs(row+1,first+moveFirst,second+moveSecond));return memo[row][first][second]=current+best;}public int cherryPickup(int[][] grid){this.grid=grid;memo=new int[grid.length][grid[0].length][grid[0].length];for(int[][] a:memo)for(int[] b:a)Arrays.fill(b,-1);return dfs(0,0,grid[0].length-1);} }
+class Solution {
+    private int[][] grid;
+    private int[][][] memo;
+    private int dfs(int row,int first,int second){
+        if(first<0||second<0||first>=grid[0].length||second>=grid[0].length)return -1_000_000;
+        if(row==grid.length)return 0;
+        if(memo[row][first][second]!=-1)return memo[row][first][second];
+        int current=grid[row][first]+(first==second?0:grid[row][second]),best=0;
+        for(int moveFirst=-1;moveFirst<=1;moveFirst++)for(int moveSecond=-1;moveSecond<=1;moveSecond++)best=Math.max(best,dfs(row+1,first+moveFirst,second+moveSecond));
+        return memo[row][first][second]=current+best;
+    }
+    public int cherryPickup(int[][] grid){
+        this.grid=grid;
+        memo=new int[grid.length][grid[0].length][grid[0].length];
+        for(int[][] a:memo)for(int[] b:a)Arrays.fill(b,-1);
+        return dfs(0,0,grid[0].length-1);
+    }
+}

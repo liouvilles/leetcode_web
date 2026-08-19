@@ -1,1 +1,14 @@
-class Solution { public List<Integer> pathInZigZagTree(int label){List<Integer> path=new ArrayList<>();int level=31-Integer.numberOfLeadingZeros(label);while(label>=1){path.add(label);int start=1<<level,end=(1<<(level+1))-1;label=(start+end-label)/2;level--;}Collections.reverse(path);return path;} }
+class Solution {
+    public List<Integer> pathInZigZagTree(int label){
+        List<Integer> path=new ArrayList<>();
+        int level=31-Integer.numberOfLeadingZeros(label);
+        while(label>=1){
+            path.add(label);
+            int start=1<<level,end=(1<<(level+1))-1;
+            label=(start+end-label)/2;
+            level--;
+        }
+        Collections.reverse(path);
+        return path;
+    }
+}

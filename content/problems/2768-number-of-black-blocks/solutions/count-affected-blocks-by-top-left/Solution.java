@@ -1,1 +1,16 @@
-class Solution { public long[] countBlackBlocks(int m,int n,int[][] coordinates){Map<Long,Integer> count=new HashMap<>();for(int[] cell:coordinates)for(int dr=-1;dr<=0;dr++)for(int dc=-1;dc<=0;dc++){int row=cell[0]+dr,col=cell[1]+dc;if(row>=0&&row<m-1&&col>=0&&col<n-1){long key=(long)row*n+col;count.put(key,count.getOrDefault(key,0)+1);}}long[] answer=new long[5];answer[0]=(long)(m-1)*(n-1)-count.size();for(int value:count.values())answer[value]++;return answer;} }
+class Solution {
+    public long[] countBlackBlocks(int m,int n,int[][] coordinates){
+        Map<Long,Integer> count=new HashMap<>();
+        for(int[] cell:coordinates)for(int dr=-1;dr<=0;dr++)for(int dc=-1;dc<=0;dc++){
+            int row=cell[0]+dr,col=cell[1]+dc;
+            if(row>=0&&row<m-1&&col>=0&&col<n-1){
+                long key=(long)row*n+col;
+                count.put(key,count.getOrDefault(key,0)+1);
+            }
+        }
+        long[] answer=new long[5];
+        answer[0]=(long)(m-1)*(n-1)-count.size();
+        for(int value:count.values())answer[value]++;
+        return answer;
+    }
+}

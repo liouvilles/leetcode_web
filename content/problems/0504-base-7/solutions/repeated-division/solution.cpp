@@ -1,1 +1,14 @@
-class Solution { public: string convertToBase7(int num){if(num==0)return "0";long long value=llabs((long long)num);string answer;while(value){answer+=char('0'+value%7);value/=7;}if(num<0)answer+='-';reverse(answer.begin(),answer.end());return answer;} };
+class Solution {
+    public: string convertToBase7(int num){
+        if(num==0)return "0";
+        long long value=llabs((long long)num);
+        string answer;
+        while(value){
+            answer+=char('0'+value%7);
+            value/=7;
+        }
+        if(num<0)answer+='-';
+        reverse(answer.begin(),answer.end());
+        return answer;
+    }
+};

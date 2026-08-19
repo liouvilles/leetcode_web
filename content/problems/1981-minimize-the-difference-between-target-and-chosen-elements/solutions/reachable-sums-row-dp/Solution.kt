@@ -1,1 +1,19 @@
-class Solution { fun minimizeTheDifference(mat:Array<IntArray>,target:Int):Int{val maximum=mat.sumOf{it.maxOrNull()!!};var reachable=BooleanArray(maximum+1);reachable[0]=true;var limit=0;for(row in mat){val next=BooleanArray(maximum+1);for(sum in 0..limit)if(reachable[sum])for(value in row)next[sum+value]=true;limit+=row.maxOrNull()!!;reachable=next};var answer=Int.MAX_VALUE;for(sum in 0..maximum)if(reachable[sum])answer=minOf(answer,kotlin.math.abs(sum-target));return answer} }
+class Solution {
+    fun minimizeTheDifference(mat:Array<IntArray>,target:Int):Int{
+        val maximum=mat.sumOf{
+            it.maxOrNull()!!
+        };
+        var reachable=BooleanArray(maximum+1);
+        reachable[0]=true;
+        var limit=0;
+        for(row in mat){
+            val next=BooleanArray(maximum+1);
+            for(sum in 0..limit)if(reachable[sum])for(value in row)next[sum+value]=true;
+            limit+=row.maxOrNull()!!;
+            reachable=next
+        };
+        var answer=Int.MAX_VALUE;
+        for(sum in 0..maximum)if(reachable[sum])answer=minOf(answer,kotlin.math.abs(sum-target));
+        return answer
+    }
+}

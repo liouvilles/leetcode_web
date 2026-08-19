@@ -1,1 +1,17 @@
-class Solution { public String reformatNumber(String number){String digits=number.replace(" ","").replace("-","");List<String> groups=new ArrayList<>();int index=0;while(digits.length()-index>4){groups.add(digits.substring(index,index+3));index+=3;}int remaining=digits.length()-index;if(remaining==4){groups.add(digits.substring(index,index+2));groups.add(digits.substring(index+2));}else groups.add(digits.substring(index));return String.join("-",groups);} }
+class Solution {
+    public String reformatNumber(String number){
+        String digits=number.replace(" ","").replace("-","");
+        List<String> groups=new ArrayList<>();
+        int index=0;
+        while(digits.length()-index>4){
+            groups.add(digits.substring(index,index+3));
+            index+=3;
+        }
+        int remaining=digits.length()-index;
+        if(remaining==4){
+            groups.add(digits.substring(index,index+2));
+            groups.add(digits.substring(index+2));
+        }else groups.add(digits.substring(index));
+        return String.join("-",groups);
+    }
+}

@@ -1,1 +1,14 @@
-class MyHashMap { vector<int> values;public:MyHashMap():values(1000001,-1){}void put(int key,int value){values[key]=value;}int get(int key){return values[key];}void remove(int key){values[key]=-1;} };
+class MyHashMap {
+    vector<int> values;
+    public:MyHashMap():values(1000001,-1){
+    }
+    void put(int key,int value){
+        values[key]=value;
+    }
+    int get(int key){
+        return values[key];
+    }
+    void remove(int key){
+        values[key]=-1;
+    }
+};

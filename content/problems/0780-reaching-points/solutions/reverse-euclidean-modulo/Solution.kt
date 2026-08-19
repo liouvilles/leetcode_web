@@ -1,1 +1,12 @@
-class Solution { fun reachingPoints(sx:Int,sy:Int,targetX:Int,targetY:Int):Boolean{var tx=targetX;var ty=targetY;while(tx>sx&&ty>sy){if(tx>ty)tx%=ty else ty%=tx};if(tx==sx)return ty>=sy&&(ty-sy)%tx==0;if(ty==sy)return tx>=sx&&(tx-sx)%ty==0;return false} }
+class Solution {
+    fun reachingPoints(sx:Int,sy:Int,targetX:Int,targetY:Int):Boolean{
+        var tx=targetX;
+        var ty=targetY;
+        while(tx>sx&&ty>sy){
+            if(tx>ty)tx%=ty else ty%=tx
+        };
+        if(tx==sx)return ty>=sy&&(ty-sy)%tx==0;
+        if(ty==sy)return tx>=sx&&(tx-sx)%ty==0;
+        return false
+    }
+}

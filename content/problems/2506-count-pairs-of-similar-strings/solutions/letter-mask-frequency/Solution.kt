@@ -1,1 +1,13 @@
-class Solution { fun similarPairs(words:Array<String>):Int{val frequency=HashMap<Int,Int>();var answer=0;for(word in words){var mask=0;for(character in word)mask=mask or (1 shl (character-'a'));answer+=frequency[mask]?:0;frequency[mask]=(frequency[mask]?:0)+1};return answer} }
+class Solution {
+    fun similarPairs(words:Array<String>):Int{
+        val frequency=HashMap<Int,Int>();
+        var answer=0;
+        for(word in words){
+            var mask=0;
+            for(character in word)mask=mask or (1 shl (character-'a'));
+            answer+=frequency[mask]?:0;
+            frequency[mask]=(frequency[mask]?:0)+1
+        };
+        return answer
+    }
+}

@@ -1,1 +1,11 @@
-class Solution { public int minimumLength(String text){int left=0,right=text.length()-1;while(left<right&&text.charAt(left)==text.charAt(right)){char target=text.charAt(left);while(left<=right&&text.charAt(left)==target)left++;while(left<=right&&text.charAt(right)==target)right--;}return Math.max(0,right-left+1);} }
+class Solution {
+    public int minimumLength(String text){
+        int left=0,right=text.length()-1;
+        while(left<right&&text.charAt(left)==text.charAt(right)){
+            char target=text.charAt(left);
+            while(left<=right&&text.charAt(left)==target)left++;
+            while(left<=right&&text.charAt(right)==target)right--;
+        }
+        return Math.max(0,right-left+1);
+    }
+}

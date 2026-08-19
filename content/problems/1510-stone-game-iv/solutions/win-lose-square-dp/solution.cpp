@@ -1,1 +1,10 @@
-class Solution { public: bool winnerSquareGame(int n){vector<bool> dp(n+1);for(int stones=1;stones<=n;++stones)for(int root=1;root*root<=stones;++root)if(!dp[stones-root*root]){dp[stones]=true;break;}return dp[n];} };
+class Solution {
+    public: bool winnerSquareGame(int n){
+        vector<bool> dp(n+1);
+        for(int stones=1;stones<=n;++stones)for(int root=1;root*root<=stones;++root)if(!dp[stones-root*root]){
+            dp[stones]=true;
+            break;
+        }
+        return dp[n];
+    }
+};

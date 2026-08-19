@@ -1,1 +1,12 @@
-class Solution { public int maxSatisfied(int[] customers,int[] grumpy,int minutes){int baseline=0,recovery=0,best=0;for(int i=0;i<customers.length;i++){if(grumpy[i]==0)baseline+=customers[i];else recovery+=customers[i];if(i>=minutes&&grumpy[i-minutes]==1)recovery-=customers[i-minutes];best=Math.max(best,recovery);}return baseline+best;} }
+class Solution {
+    public int maxSatisfied(int[] customers,int[] grumpy,int minutes){
+        int baseline=0,recovery=0,best=0;
+        for(int i=0;i<customers.length;i++){
+            if(grumpy[i]==0)baseline+=customers[i];
+            else recovery+=customers[i];
+            if(i>=minutes&&grumpy[i-minutes]==1)recovery-=customers[i-minutes];
+            best=Math.max(best,recovery);
+        }
+        return baseline+best;
+    }
+}

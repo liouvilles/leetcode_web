@@ -1,1 +1,24 @@
-class Solution { public int minMovesToMakePalindrome(String s){List<Character> chars=new ArrayList<>();for(char ch:s.toCharArray())chars.add(ch);int left=0,right=chars.size()-1,moves=0;while(left<right){int match=right;while(match>left&&!chars.get(match).equals(chars.get(left)))match--;if(match==left){Collections.swap(chars,left,left+1);moves++;}else{while(match<right){Collections.swap(chars,match,match+1);match++;moves++;}left++;right--;}}return moves;} }
+class Solution {
+    public int minMovesToMakePalindrome(String s){
+        List<Character> chars=new ArrayList<>();
+        for(char ch:s.toCharArray())chars.add(ch);
+        int left=0,right=chars.size()-1,moves=0;
+        while(left<right){
+            int match=right;
+            while(match>left&&!chars.get(match).equals(chars.get(left)))match--;
+            if(match==left){
+                Collections.swap(chars,left,left+1);
+                moves++;
+            }else{
+                while(match<right){
+                    Collections.swap(chars,match,match+1);
+                    match++;
+                    moves++;
+                }
+                left++;
+                right--;
+            }
+        }
+        return moves;
+    }
+}

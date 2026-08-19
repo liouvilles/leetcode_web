@@ -1,1 +1,25 @@
-class Solution { ListNode* reverse(ListNode* head){ListNode* previous=nullptr;while(head){ListNode* next=head->next;head->next=previous;previous=head;head=next;}return previous;}public:ListNode* doubleIt(ListNode* head){ListNode* reversed=reverse(head),*node=reversed,*last=nullptr;int carry=0;while(node){int value=node->val*2+carry;node->val=value%10;carry=value/10;last=node;node=node->next;}if(carry)last->next=new ListNode(carry);return reverse(reversed);} };
+class Solution {
+    ListNode* reverse(ListNode* head){
+        ListNode* previous=nullptr;
+        while(head){
+            ListNode* next=head->next;
+            head->next=previous;
+            previous=head;
+            head=next;
+        }
+        return previous;
+    }
+    public:ListNode* doubleIt(ListNode* head){
+        ListNode* reversed=reverse(head),*node=reversed,*last=nullptr;
+        int carry=0;
+        while(node){
+            int value=node->val*2+carry;
+            node->val=value%10;
+            carry=value/10;
+            last=node;
+            node=node->next;
+        }
+        if(carry)last->next=new ListNode(carry);
+        return reverse(reversed);
+    }
+};

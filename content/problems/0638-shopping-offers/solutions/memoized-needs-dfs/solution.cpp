@@ -1,1 +1,33 @@
-class Solution { vector<int> price;vector<vector<int>> special;unordered_map<string,int> memo;string key(vector<int>& needs){string result;for(int value:needs)result+=to_string(value)+",";return result;}int dfs(vector<int>& needs){string state=key(needs);if(memo.count(state))return memo[state];int best=inner_product(needs.begin(),needs.end(),price.begin(),0);for(auto& offer:special){vector<int> next;bool valid=true;for(int i=0;i<(int)needs.size();++i){if(offer[i]>needs[i]){valid=false;break;}next.push_back(needs[i]-offer[i]);}if(valid)best=min(best,offer[needs.size()]+dfs(next));}return memo[state]=best;}public:int shoppingOffers(vector<int>& prices,vector<vector<int>>& offers,vector<int>& needs){price=prices;special=offers;return dfs(needs);} };
+class Solution {
+    vector<int> price;
+    vector<vector<int>> special;
+    unordered_map<string,int> memo;
+    string key(vector<int>& needs){
+        string result;
+        for(int value:needs)result+=to_string(value)+",";
+        return result;
+    }
+    int dfs(vector<int>& needs){
+        string state=key(needs);
+        if(memo.count(state))return memo[state];
+        int best=inner_product(needs.begin(),needs.end(),price.begin(),0);
+        for(auto& offer:special){
+            vector<int> next;
+            bool valid=true;
+            for(int i=0;i<(int)needs.size();++i){
+                if(offer[i]>needs[i]){
+                    valid=false;
+                    break;
+                }
+                next.push_back(needs[i]-offer[i]);
+            }
+            if(valid)best=min(best,offer[needs.size()]+dfs(next));
+        }
+        return memo[state]=best;
+    }
+    public:int shoppingOffers(vector<int>& prices,vector<vector<int>>& offers,vector<int>& needs){
+        price=prices;
+        special=offers;
+        return dfs(needs);
+    }
+};

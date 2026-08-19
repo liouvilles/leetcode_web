@@ -1,1 +1,20 @@
-class Solution { public:long long kthLargestLevelSum(TreeNode* root,int k){queue<TreeNode*> pending;pending.push(root);priority_queue<long long,vector<long long>,greater<long long>> largest;while(!pending.empty()){long long sum=0;for(int size=pending.size();size--;){auto* node=pending.front();pending.pop();sum+=node->val;if(node->left)pending.push(node->left);if(node->right)pending.push(node->right);}largest.push(sum);if((int)largest.size()>k)largest.pop();}return (int)largest.size()<k?-1:largest.top();} };
+class Solution {
+    public:long long kthLargestLevelSum(TreeNode* root,int k){
+        queue<TreeNode*> pending;
+        pending.push(root);
+        priority_queue<long long,vector<long long>,greater<long long>> largest;
+        while(!pending.empty()){
+            long long sum=0;
+            for(int size=pending.size();size--;){
+                auto* node=pending.front();
+                pending.pop();
+                sum+=node->val;
+                if(node->left)pending.push(node->left);
+                if(node->right)pending.push(node->right);
+            }
+            largest.push(sum);
+            if((int)largest.size()>k)largest.pop();
+        }
+        return (int)largest.size()<k?-1:largest.top();
+    }
+};

@@ -1,1 +1,40 @@
-class Solution { private int[][] grid;private int rows,columns;public int uniquePathsIII(int[][] grid){this.grid=grid;rows=grid.length;columns=grid[0].length;int startRow=0,startColumn=0,walkable=0;for(int r=0;r<rows;r++)for(int c=0;c<columns;c++)if(grid[r][c]!=-1){walkable++;if(grid[r][c]==1){startRow=r;startColumn=c;}}return dfs(startRow,startColumn,walkable);}private int dfs(int r,int c,int remaining){if(grid[r][c]==2)return remaining==1?1:0;int saved=grid[r][c],paths=0;grid[r][c]=-1;int[][] directions={{1,0},{-1,0},{0,1},{0,-1}};for(int[] d:directions){int nr=r+d[0],nc=c+d[1];if(nr>=0&&nr<rows&&nc>=0&&nc<columns&&grid[nr][nc]!=-1)paths+=dfs(nr,nc,remaining-1);}grid[r][c]=saved;return paths;} }
+class Solution {
+    private int[][] grid;
+    private int rows,columns;
+    public int uniquePathsIII(int[][] grid){
+        this.grid=grid;
+        rows=grid.length;
+        columns=grid[0].length;
+        int startRow=0,startColumn=0,walkable=0;
+        for(int r=0;r<rows;r++)for(int c=0;c<columns;c++)if(grid[r][c]!=-1){
+            walkable++;
+            if(grid[r][c]==1){
+                startRow=r;
+                startColumn=c;
+            }
+        }
+        return dfs(startRow,startColumn,walkable);
+    }
+    private int dfs(int r,int c,int remaining){
+        if(grid[r][c]==2)return remaining==1?1:0;
+        int saved=grid[r][c],paths=0;
+        grid[r][c]=-1;
+        int[][] directions={
+            {
+                1,0
+            },{
+                -1,0
+            },{
+                0,1
+            },{
+                0,-1
+            }
+        };
+        for(int[] d:directions){
+            int nr=r+d[0],nc=c+d[1];
+            if(nr>=0&&nr<rows&&nc>=0&&nc<columns&&grid[nr][nc]!=-1)paths+=dfs(nr,nc,remaining-1);
+        }
+        grid[r][c]=saved;
+        return paths;
+    }
+}

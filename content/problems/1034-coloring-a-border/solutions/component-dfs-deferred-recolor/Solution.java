@@ -1,1 +1,32 @@
-class Solution { public int[][] colorBorder(int[][] grid,int row,int col,int color){boolean[][] visited=new boolean[grid.length][grid[0].length];List<int[]> borders=new ArrayList<>();dfs(grid,row,col,grid[row][col],visited,borders);for(int[] cell:borders)grid[cell[0]][cell[1]]=color;return grid;}private void dfs(int[][] grid,int r,int c,int original,boolean[][] visited,List<int[]> borders){visited[r][c]=true;boolean border=false;int[][] directions={{1,0},{-1,0},{0,1},{0,-1}};for(int[] d:directions){int nr=r+d[0],nc=c+d[1];if(nr<0||nr==grid.length||nc<0||nc==grid[0].length||grid[nr][nc]!=original)border=true;else if(!visited[nr][nc])dfs(grid,nr,nc,original,visited,borders);}if(border)borders.add(new int[]{r,c});} }
+class Solution {
+    public int[][] colorBorder(int[][] grid,int row,int col,int color){
+        boolean[][] visited=new boolean[grid.length][grid[0].length];
+        List<int[]> borders=new ArrayList<>();
+        dfs(grid,row,col,grid[row][col],visited,borders);
+        for(int[] cell:borders)grid[cell[0]][cell[1]]=color;
+        return grid;
+    }
+    private void dfs(int[][] grid,int r,int c,int original,boolean[][] visited,List<int[]> borders){
+        visited[r][c]=true;
+        boolean border=false;
+        int[][] directions={
+            {
+                1,0
+            },{
+                -1,0
+            },{
+                0,1
+            },{
+                0,-1
+            }
+        };
+        for(int[] d:directions){
+            int nr=r+d[0],nc=c+d[1];
+            if(nr<0||nr==grid.length||nc<0||nc==grid[0].length||grid[nr][nc]!=original)border=true;
+            else if(!visited[nr][nc])dfs(grid,nr,nc,original,visited,borders);
+        }
+        if(border)borders.add(new int[]{
+            r,c
+        });
+    }
+}

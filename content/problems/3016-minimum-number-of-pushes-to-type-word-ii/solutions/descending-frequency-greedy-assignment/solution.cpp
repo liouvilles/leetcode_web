@@ -1,1 +1,11 @@
-class Solution { public:int minimumPushes(string word){array<int,26> frequency{};for(char letter:word)++frequency[letter-'a'];sort(frequency.begin(),frequency.end(),greater<int>());int answer=0;for(int rank=0;rank<26;++rank)answer+=frequency[rank]*(rank/8+1);return answer;} };
+class Solution {
+    public:int minimumPushes(string word){
+        array<int,26> frequency{
+        };
+        for(char letter:word)++frequency[letter-'a'];
+        sort(frequency.begin(),frequency.end(),greater<int>());
+        int answer=0;
+        for(int rank=0;rank<26;++rank)answer+=frequency[rank]*(rank/8+1);
+        return answer;
+    }
+};

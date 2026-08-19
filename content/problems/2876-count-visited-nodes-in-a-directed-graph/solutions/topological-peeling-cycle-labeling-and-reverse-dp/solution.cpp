@@ -1,1 +1,31 @@
-class Solution { public:vector<int> countVisitedNodes(vector<int>& edges){int n=edges.size();vector<int> indegree(n),order(n),answer(n);for(int next:edges)++indegree[next];queue<int> pending;for(int node=0;node<n;++node)if(indegree[node]==0)pending.push(node);int size=0;while(!pending.empty()){int node=pending.front();pending.pop();order[size++]=node;int next=edges[node];if(!--indegree[next])pending.push(next);}for(int start=0;start<n;++start)if(indegree[start]>0&&answer[start]==0){int length=1;for(int node=edges[start];node!=start;node=edges[node])++length;int node=start;do{answer[node]=length;node=edges[node];}while(node!=start);}for(int i=size-1;i>=0;--i){int node=order[i];answer[node]=answer[edges[node]]+1;}return answer;} };
+class Solution {
+    public:vector<int> countVisitedNodes(vector<int>& edges){
+        int n=edges.size();
+        vector<int> indegree(n),order(n),answer(n);
+        for(int next:edges)++indegree[next];
+        queue<int> pending;
+        for(int node=0;node<n;++node)if(indegree[node]==0)pending.push(node);
+        int size=0;
+        while(!pending.empty()){
+            int node=pending.front();
+            pending.pop();
+            order[size++]=node;
+            int next=edges[node];
+            if(!--indegree[next])pending.push(next);
+        }
+        for(int start=0;start<n;++start)if(indegree[start]>0&&answer[start]==0){
+            int length=1;
+            for(int node=edges[start];node!=start;node=edges[node])++length;
+            int node=start;
+            do{
+                answer[node]=length;
+                node=edges[node];
+            }while(node!=start);
+        }
+        for(int i=size-1;i>=0;--i){
+            int node=order[i];
+            answer[node]=answer[edges[node]]+1;
+        }
+        return answer;
+    }
+};

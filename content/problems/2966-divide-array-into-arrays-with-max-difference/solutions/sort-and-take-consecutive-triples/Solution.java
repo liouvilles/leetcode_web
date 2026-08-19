@@ -1,1 +1,14 @@
-class Solution { public int[][] divideArray(int[] nums,int k){Arrays.sort(nums);int[][] answer=new int[nums.length/3][3];for(int group=0;group<answer.length;group++){int start=group*3;if(nums[start+2]-nums[start]>k)return new int[0][0];answer[group][0]=nums[start];answer[group][1]=nums[start+1];answer[group][2]=nums[start+2];}return answer;} }
+class Solution {
+    public int[][] divideArray(int[] nums,int k){
+        Arrays.sort(nums);
+        int[][] answer=new int[nums.length/3][3];
+        for(int group=0;group<answer.length;group++){
+            int start=group*3;
+            if(nums[start+2]-nums[start]>k)return new int[0][0];
+            answer[group][0]=nums[start];
+            answer[group][1]=nums[start+1];
+            answer[group][2]=nums[start+2];
+        }
+        return answer;
+    }
+}

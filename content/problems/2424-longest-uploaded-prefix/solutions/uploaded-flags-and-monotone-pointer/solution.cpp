@@ -1,1 +1,13 @@
-class LUPrefix { vector<bool> uploaded;int prefix=0;public:LUPrefix(int n):uploaded(n+2){}void upload(int video){uploaded[video]=true;while(uploaded[prefix+1])++prefix;}int longest(){return prefix;} };
+class LUPrefix {
+    vector<bool> uploaded;
+    int prefix=0;
+    public:LUPrefix(int n):uploaded(n+2){
+    }
+    void upload(int video){
+        uploaded[video]=true;
+        while(uploaded[prefix+1])++prefix;
+    }
+    int longest(){
+        return prefix;
+    }
+};

@@ -1,1 +1,15 @@
-class Solution { public: string evaluate(string text,vector<vector<string>>& knowledge){unordered_map<string,string> map;for(auto& pair:knowledge)map[pair[0]]=pair[1];string answer;for(int i=0;i<(int)text.size();)if(text[i]!='(')answer+=text[i++];else{int end=text.find(')',i);string key=text.substr(i+1,end-i-1);answer+=map.count(key)?map[key]:"?";i=end+1;}return answer;} };
+class Solution {
+    public: string evaluate(string text,vector<vector<string>>& knowledge){
+        unordered_map<string,string> map;
+        for(auto& pair:knowledge)map[pair[0]]=pair[1];
+        string answer;
+        for(int i=0;i<(int)text.size();)if(text[i]!='(')answer+=text[i++];
+        else{
+            int end=text.find(')',i);
+            string key=text.substr(i+1,end-i-1);
+            answer+=map.count(key)?map[key]:"?";
+            i=end+1;
+        }
+        return answer;
+    }
+};

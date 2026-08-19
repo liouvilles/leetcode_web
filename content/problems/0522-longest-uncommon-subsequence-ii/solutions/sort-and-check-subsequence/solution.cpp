@@ -1,1 +1,18 @@
-class Solution { bool subsequence(const string& small,const string& large){int index=0;for(char c:large)if(index<(int)small.size()&&small[index]==c)++index;return index==(int)small.size();}public:int findLUSlength(vector<string>& strs){sort(strs.begin(),strs.end(),[](const string& a,const string& b){return a.size()!=b.size()?a.size()>b.size():a<b;});for(int i=0;i<(int)strs.size();++i){bool uncommon=true;for(int j=0;j<(int)strs.size()&&uncommon;++j)if(i!=j&&subsequence(strs[i],strs[j]))uncommon=false;if(uncommon)return strs[i].size();}return -1;} };
+class Solution {
+    bool subsequence(const string& small,const string& large){
+        int index=0;
+        for(char c:large)if(index<(int)small.size()&&small[index]==c)++index;
+        return index==(int)small.size();
+    }
+    public:int findLUSlength(vector<string>& strs){
+        sort(strs.begin(),strs.end(),[](const string& a,const string& b){
+            return a.size()!=b.size()?a.size()>b.size():a<b;
+        });
+        for(int i=0;i<(int)strs.size();++i){
+            bool uncommon=true;
+            for(int j=0;j<(int)strs.size()&&uncommon;++j)if(i!=j&&subsequence(strs[i],strs[j]))uncommon=false;
+            if(uncommon)return strs[i].size();
+        }
+        return -1;
+    }
+};

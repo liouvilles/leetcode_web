@@ -1,1 +1,14 @@
-class Solution { public:vector<int> productQueries(int n,vector<vector<int>>& queries){vector<long long> powers;for(int bit=0;bit<31;++bit)if(n&(1<<bit))powers.push_back(1LL<<bit);const long long mod=1000000007;vector<int> answer;for(auto& query:queries){long long product=1;for(int i=query[0];i<=query[1];++i)product=product*powers[i]%mod;answer.push_back(product);}return answer;} };
+class Solution {
+    public:vector<int> productQueries(int n,vector<vector<int>>& queries){
+        vector<long long> powers;
+        for(int bit=0;bit<31;++bit)if(n&(1<<bit))powers.push_back(1LL<<bit);
+        const long long mod=1000000007;
+        vector<int> answer;
+        for(auto& query:queries){
+            long long product=1;
+            for(int i=query[0];i<=query[1];++i)product=product*powers[i]%mod;
+            answer.push_back(product);
+        }
+        return answer;
+    }
+};

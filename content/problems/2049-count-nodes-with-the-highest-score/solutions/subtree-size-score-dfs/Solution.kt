@@ -1,1 +1,30 @@
-class Solution { private lateinit var children:Array<MutableList<Int>>;private var n=0;private var count=0;private var maximum=0L;private fun dfs(node:Int):Int{var size=1;var score=1L;for(child in children[node]){val childSize=dfs(child);size+=childSize;score*=childSize};if(n-size>0)score*=n-size;if(score>maximum){maximum=score;count=1}else if(score==maximum)count++;return size};fun countHighestScoreNodes(parents:IntArray):Int{n=parents.size;children=Array(n){mutableListOf()};for(i in 1 until n)children[parents[i]].add(i);dfs(0);return count} }
+class Solution {
+    private lateinit var children:Array<MutableList<Int>>;
+    private var n=0;
+    private var count=0;
+    private var maximum=0L;
+    private fun dfs(node:Int):Int{
+        var size=1;
+        var score=1L;
+        for(child in children[node]){
+            val childSize=dfs(child);
+            size+=childSize;
+            score*=childSize
+        };
+        if(n-size>0)score*=n-size;
+        if(score>maximum){
+            maximum=score;
+            count=1
+        }else if(score==maximum)count++;
+        return size
+    };
+    fun countHighestScoreNodes(parents:IntArray):Int{
+        n=parents.size;
+        children=Array(n){
+            mutableListOf()
+        };
+        for(i in 1 until n)children[parents[i]].add(i);
+        dfs(0);
+        return count
+    }
+}

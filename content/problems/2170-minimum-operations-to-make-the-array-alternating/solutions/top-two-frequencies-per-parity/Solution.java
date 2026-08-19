@@ -1,1 +1,23 @@
-class Solution { private int[] topTwo(Map<Integer,Integer> count){int topValue=-1,top=0,second=0;for(Map.Entry<Integer,Integer> entry:count.entrySet()){int frequency=entry.getValue();if(frequency>top){second=top;top=frequency;topValue=entry.getKey();}else if(frequency>second)second=frequency;}return new int[]{topValue,top,second};}public int minimumOperations(int[] nums){Map<Integer,Integer> even=new HashMap<>(),odd=new HashMap<>();for(int i=0;i<nums.length;i++)(i%2==0?even:odd).merge(nums[i],1,Integer::sum);int[] a=topTwo(even),b=topTwo(odd);int kept=a[0]!=b[0]?a[1]+b[1]:Math.max(a[1]+b[2],a[2]+b[1]);return nums.length-kept;} }
+class Solution {
+    private int[] topTwo(Map<Integer,Integer> count){
+        int topValue=-1,top=0,second=0;
+        for(Map.Entry<Integer,Integer> entry:count.entrySet()){
+            int frequency=entry.getValue();
+            if(frequency>top){
+                second=top;
+                top=frequency;
+                topValue=entry.getKey();
+            }else if(frequency>second)second=frequency;
+        }
+        return new int[]{
+            topValue,top,second
+        };
+    }
+    public int minimumOperations(int[] nums){
+        Map<Integer,Integer> even=new HashMap<>(),odd=new HashMap<>();
+        for(int i=0;i<nums.length;i++)(i%2==0?even:odd).merge(nums[i],1,Integer::sum);
+        int[] a=topTwo(even),b=topTwo(odd);
+        int kept=a[0]!=b[0]?a[1]+b[1]:Math.max(a[1]+b[2],a[2]+b[1]);
+        return nums.length-kept;
+    }
+}

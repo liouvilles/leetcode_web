@@ -1,1 +1,25 @@
-class Solution { public:vector<string> splitMessage(string message,int limit){int prefixDigits=0,totalParts=-1;for(int parts=1;parts<=(int)message.size();++parts){prefixDigits+=to_string(parts).size();int digits=to_string(parts).size();long long capacity=1LL*parts*limit-prefixDigits-1LL*parts*(3+digits);if(limit>3+2*digits&&capacity>=(int)message.size()){totalParts=parts;break;}}if(totalParts==-1)return {};vector<string> answer;int index=0;for(int part=1;part<=totalParts;++part){string suffix="<"+to_string(part)+"/"+to_string(totalParts)+">";int take=min(limit-(int)suffix.size(),(int)message.size()-index);answer.push_back(message.substr(index,take)+suffix);index+=take;}return answer;} };
+class Solution {
+    public:vector<string> splitMessage(string message,int limit){
+        int prefixDigits=0,totalParts=-1;
+        for(int parts=1;parts<=(int)message.size();++parts){
+            prefixDigits+=to_string(parts).size();
+            int digits=to_string(parts).size();
+            long long capacity=1LL*parts*limit-prefixDigits-1LL*parts*(3+digits);
+            if(limit>3+2*digits&&capacity>=(int)message.size()){
+                totalParts=parts;
+                break;
+            }
+        }
+        if(totalParts==-1)return {
+        };
+        vector<string> answer;
+        int index=0;
+        for(int part=1;part<=totalParts;++part){
+            string suffix="<"+to_string(part)+"/"+to_string(totalParts)+">";
+            int take=min(limit-(int)suffix.size(),(int)message.size()-index);
+            answer.push_back(message.substr(index,take)+suffix);
+            index+=take;
+        }
+        return answer;
+    }
+};

@@ -1,1 +1,17 @@
-class Solution { fun numberOfBoomerangs(points:Array<IntArray>):Int{var answer=0;for(center in points){val counts=hashMapOf<Long,Int>();for(point in points){val dx=center[0].toLong()-point[0];val dy=center[1].toLong()-point[1];val distance=dx*dx+dy*dy;val count=counts[distance]?:0;answer+=2*count;counts[distance]=count+1}};return answer} }
+class Solution {
+    fun numberOfBoomerangs(points:Array<IntArray>):Int{
+        var answer=0;
+        for(center in points){
+            val counts=hashMapOf<Long,Int>();
+            for(point in points){
+                val dx=center[0].toLong()-point[0];
+                val dy=center[1].toLong()-point[1];
+                val distance=dx*dx+dy*dy;
+                val count=counts[distance]?:0;
+                answer+=2*count;
+                counts[distance]=count+1
+            }
+        };
+        return answer
+    }
+}

@@ -1,1 +1,13 @@
-class Solution { fun longestNiceSubarray(nums:IntArray):Int{var mask=0;var left=0;var answer=0;for(right in nums.indices){while(mask and nums[right]!=0)mask=mask xor nums[left++];mask=mask or nums[right];answer=maxOf(answer,right-left+1)};return answer} }
+class Solution {
+    fun longestNiceSubarray(nums:IntArray):Int{
+        var mask=0;
+        var left=0;
+        var answer=0;
+        for(right in nums.indices){
+            while(mask and nums[right]!=0)mask=mask xor nums[left++];
+            mask=mask or nums[right];
+            answer=maxOf(answer,right-left+1)
+        };
+        return answer
+    }
+}

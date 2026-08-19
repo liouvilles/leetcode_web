@@ -1,1 +1,18 @@
-class Solution { fun canMeasureWater(x:Int,y:Int,target:Int):Boolean{if(target==0)return true;if(x.toLong()+y<target)return false;fun gcdValue(first:Int,second:Int):Int{var a=first;var b=second;while(b!=0){val value=a%b;a=b;b=value};return a};val gcd=gcdValue(x,y);return gcd!=0&&target%gcd==0} }
+class Solution {
+    fun canMeasureWater(x:Int,y:Int,target:Int):Boolean{
+        if(target==0)return true;
+        if(x.toLong()+y<target)return false;
+        fun gcdValue(first:Int,second:Int):Int{
+            var a=first;
+            var b=second;
+            while(b!=0){
+                val value=a%b;
+                a=b;
+                b=value
+            };
+            return a
+        };
+        val gcd=gcdValue(x,y);
+        return gcd!=0&&target%gcd==0
+    }
+}

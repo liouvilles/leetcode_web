@@ -1,1 +1,38 @@
-class Solution { private static final int MOD=1000000007;private String digits;private int[][] memo;private int dfs(int pos,int previous,boolean tight){if(pos==digits.length())return 1;if(!tight&&memo[pos][previous]!=-1)return memo[pos][previous];int limit=tight?digits.charAt(pos)-'0':9;long ways=0;for(int digit=0;digit<=limit;digit++){int next;if(previous==10&&digit==0)next=10;else if(previous==10||Math.abs(previous-digit)==1)next=digit;else continue;ways+=dfs(pos+1,next,tight&&digit==limit);ways%=MOD;}int answer=(int)ways;if(!tight)memo[pos][previous]=answer;return answer;}private int countUpTo(String bound){digits=bound;memo=new int[digits.length()][11];for(int[] row:memo)Arrays.fill(row,-1);return dfs(0,10,true);}private boolean stepping(String value){for(int i=1;i<value.length();i++)if(Math.abs(value.charAt(i)-value.charAt(i-1))!=1)return false;return true;}public int countSteppingNumbers(String low,String high){long answer=(long)countUpTo(high)-countUpTo(low)+(stepping(low)?1:0);answer%=MOD;if(answer<0)answer+=MOD;return (int)answer;} }
+class Solution {
+    private static final int MOD=1000000007;
+    private String digits;
+    private int[][] memo;
+    private int dfs(int pos,int previous,boolean tight){
+        if(pos==digits.length())return 1;
+        if(!tight&&memo[pos][previous]!=-1)return memo[pos][previous];
+        int limit=tight?digits.charAt(pos)-'0':9;
+        long ways=0;
+        for(int digit=0;digit<=limit;digit++){
+            int next;
+            if(previous==10&&digit==0)next=10;
+            else if(previous==10||Math.abs(previous-digit)==1)next=digit;
+            else continue;
+            ways+=dfs(pos+1,next,tight&&digit==limit);
+            ways%=MOD;
+        }
+        int answer=(int)ways;
+        if(!tight)memo[pos][previous]=answer;
+        return answer;
+    }
+    private int countUpTo(String bound){
+        digits=bound;
+        memo=new int[digits.length()][11];
+        for(int[] row:memo)Arrays.fill(row,-1);
+        return dfs(0,10,true);
+    }
+    private boolean stepping(String value){
+        for(int i=1;i<value.length();i++)if(Math.abs(value.charAt(i)-value.charAt(i-1))!=1)return false;
+        return true;
+    }
+    public int countSteppingNumbers(String low,String high){
+        long answer=(long)countUpTo(high)-countUpTo(low)+(stepping(low)?1:0);
+        answer%=MOD;
+        if(answer<0)answer+=MOD;
+        return (int)answer;
+    }
+}

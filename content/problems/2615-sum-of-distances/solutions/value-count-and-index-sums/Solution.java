@@ -1,1 +1,21 @@
-class Solution { public long[] distance(int[] nums){Map<Integer,Integer> totalCount=new HashMap<>(),leftCount=new HashMap<>();Map<Integer,Long> totalSum=new HashMap<>(),leftSum=new HashMap<>();for(int i=0;i<nums.length;i++){totalCount.merge(nums[i],1,Integer::sum);totalSum.merge(nums[i],(long)i,Long::sum);}long[] answer=new long[nums.length];for(int i=0;i<nums.length;i++){int value=nums[i],leftNumber=leftCount.getOrDefault(value,0);long leftPositions=leftSum.getOrDefault(value,0L);int rightNumber=totalCount.get(value)-leftNumber-1;long rightPositions=totalSum.get(value)-leftPositions-i;answer[i]=(long)i*leftNumber-leftPositions+rightPositions-(long)i*rightNumber;leftCount.put(value,leftNumber+1);leftSum.put(value,leftPositions+i);}return answer;} }
+class Solution {
+    public long[] distance(int[] nums){
+        Map<Integer,Integer> totalCount=new HashMap<>(),leftCount=new HashMap<>();
+        Map<Integer,Long> totalSum=new HashMap<>(),leftSum=new HashMap<>();
+        for(int i=0;i<nums.length;i++){
+            totalCount.merge(nums[i],1,Integer::sum);
+            totalSum.merge(nums[i],(long)i,Long::sum);
+        }
+        long[] answer=new long[nums.length];
+        for(int i=0;i<nums.length;i++){
+            int value=nums[i],leftNumber=leftCount.getOrDefault(value,0);
+            long leftPositions=leftSum.getOrDefault(value,0L);
+            int rightNumber=totalCount.get(value)-leftNumber-1;
+            long rightPositions=totalSum.get(value)-leftPositions-i;
+            answer[i]=(long)i*leftNumber-leftPositions+rightPositions-(long)i*rightNumber;
+            leftCount.put(value,leftNumber+1);
+            leftSum.put(value,leftPositions+i);
+        }
+        return answer;
+    }
+}

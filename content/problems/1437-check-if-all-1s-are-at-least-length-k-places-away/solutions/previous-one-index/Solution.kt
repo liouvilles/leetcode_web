@@ -1,1 +1,12 @@
-class Solution { fun kLengthApart(nums:IntArray,k:Int):Boolean{var previous=0;var found=false;for(i in nums.indices)if(nums[i]==1){if(found&&i-previous<=k)return false;previous=i;found=true};return true} }
+class Solution {
+    fun kLengthApart(nums:IntArray,k:Int):Boolean{
+        var previous=0;
+        var found=false;
+        for(i in nums.indices)if(nums[i]==1){
+            if(found&&i-previous<=k)return false;
+            previous=i;
+            found=true
+        };
+        return true
+    }
+}

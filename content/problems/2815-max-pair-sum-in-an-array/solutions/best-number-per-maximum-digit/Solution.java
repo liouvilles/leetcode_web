@@ -1,1 +1,21 @@
-class Solution { private int maximumDigit(int value){int answer=0;while(value>0){answer=Math.max(answer,value%10);value/=10;}return answer;}public int maxSum(int[] nums){int[] best=new int[10];Arrays.fill(best,-1);int answer=-1;for(int value:nums){int digit=maximumDigit(value);if(best[digit]!=-1)answer=Math.max(answer,best[digit]+value);best[digit]=Math.max(best[digit],value);}return answer;} }
+class Solution {
+    private int maximumDigit(int value){
+        int answer=0;
+        while(value>0){
+            answer=Math.max(answer,value%10);
+            value/=10;
+        }
+        return answer;
+    }
+    public int maxSum(int[] nums){
+        int[] best=new int[10];
+        Arrays.fill(best,-1);
+        int answer=-1;
+        for(int value:nums){
+            int digit=maximumDigit(value);
+            if(best[digit]!=-1)answer=Math.max(answer,best[digit]+value);
+            best[digit]=Math.max(best[digit],value);
+        }
+        return answer;
+    }
+}

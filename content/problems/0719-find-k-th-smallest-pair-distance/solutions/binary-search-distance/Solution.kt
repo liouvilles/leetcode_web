@@ -1,1 +1,18 @@
-class Solution { fun smallestDistancePair(nums:IntArray,k:Int):Int{nums.sort();var left=0;var right=nums.last()-nums[0];while(left<right){val middle=left+(right-left)/2;var count=0L;var l=0;for(r in nums.indices){while(nums[r]-nums[l]>middle)l++;count+=r-l};if(count>=k)right=middle else left=middle+1};return left} }
+class Solution {
+    fun smallestDistancePair(nums:IntArray,k:Int):Int{
+        nums.sort();
+        var left=0;
+        var right=nums.last()-nums[0];
+        while(left<right){
+            val middle=left+(right-left)/2;
+            var count=0L;
+            var l=0;
+            for(r in nums.indices){
+                while(nums[r]-nums[l]>middle)l++;
+                count+=r-l
+            };
+            if(count>=k)right=middle else left=middle+1
+        };
+        return left
+    }
+}

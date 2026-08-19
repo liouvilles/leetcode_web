@@ -1,1 +1,19 @@
-class Solution { fun reformat(text:String):String{val letters=text.filter{it.isLetter()};val digits=text.filter{it.isDigit()};if(kotlin.math.abs(letters.length-digits.length)>1)return "";val first=if(letters.length>=digits.length)letters else digits;val second=if(letters.length>=digits.length)digits else letters;return buildString{for(i in first.indices){append(first[i]);if(i<second.length)append(second[i])}}} }
+class Solution {
+    fun reformat(text:String):String{
+        val letters=text.filter{
+            it.isLetter()
+        };
+        val digits=text.filter{
+            it.isDigit()
+        };
+        if(kotlin.math.abs(letters.length-digits.length)>1)return "";
+        val first=if(letters.length>=digits.length)letters else digits;
+        val second=if(letters.length>=digits.length)digits else letters;
+        return buildString{
+            for(i in first.indices){
+                append(first[i]);
+                if(i<second.length)append(second[i])
+            }
+        }
+    }
+}

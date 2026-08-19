@@ -1,1 +1,13 @@
-class Solution { fun thousandSeparator(n:Int):String{val text=n.toString();val reversed=StringBuilder();var count=0;for(i in text.lastIndex downTo 0){reversed.append(text[i]);count++;if(count%3==0&&i>0)reversed.append('.')};return reversed.reverse().toString()} }
+class Solution {
+    fun thousandSeparator(n:Int):String{
+        val text=n.toString();
+        val reversed=StringBuilder();
+        var count=0;
+        for(i in text.lastIndex downTo 0){
+            reversed.append(text[i]);
+            count++;
+            if(count%3==0&&i>0)reversed.append('.')
+        };
+        return reversed.reverse().toString()
+    }
+}

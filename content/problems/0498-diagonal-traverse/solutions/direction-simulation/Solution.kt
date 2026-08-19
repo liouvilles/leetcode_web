@@ -1,1 +1,26 @@
-class Solution { fun findDiagonalOrder(mat:Array<IntArray>):IntArray{val rows=mat.size;val cols=mat[0].size;var row=0;var column=0;var direction=1;return IntArray(rows*cols){mat[row][column].also{val nextRow=row-direction;val nextColumn=column+direction;if(nextRow !in 0 until rows||nextColumn !in 0 until cols){if(direction==1){if(column+1<cols)column++ else row++}else{if(row+1<rows)row++ else column++};direction=-direction}else{row=nextRow;column=nextColumn}}}} }
+class Solution {
+    fun findDiagonalOrder(mat:Array<IntArray>):IntArray{
+        val rows=mat.size;
+        val cols=mat[0].size;
+        var row=0;
+        var column=0;
+        var direction=1;
+        return IntArray(rows*cols){
+            mat[row][column].also{
+                val nextRow=row-direction;
+                val nextColumn=column+direction;
+                if(nextRow !in 0 until rows||nextColumn !in 0 until cols){
+                    if(direction==1){
+                        if(column+1<cols)column++ else row++
+                    }else{
+                        if(row+1<rows)row++ else column++
+                    };
+                    direction=-direction
+                }else{
+                    row=nextRow;
+                    column=nextColumn
+                }
+            }
+        }
+    }
+}

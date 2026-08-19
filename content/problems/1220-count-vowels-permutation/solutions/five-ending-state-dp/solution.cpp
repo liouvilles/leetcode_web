@@ -1,1 +1,14 @@
-class Solution { public: int countVowelPermutation(int n){long long mod=1000000007,a=1,e=1,i=1,o=1,u=1;for(int length=2;length<=n;++length){long long nextA=(e+i+u)%mod,nextE=(a+i)%mod,nextI=(e+o)%mod,nextO=i,nextU=(i+o)%mod;a=nextA;e=nextE;i=nextI;o=nextO;u=nextU;}return (a+e+i+o+u)%mod;} };
+class Solution {
+    public: int countVowelPermutation(int n){
+        long long mod=1000000007,a=1,e=1,i=1,o=1,u=1;
+        for(int length=2;length<=n;++length){
+            long long nextA=(e+i+u)%mod,nextE=(a+i)%mod,nextI=(e+o)%mod,nextO=i,nextU=(i+o)%mod;
+            a=nextA;
+            e=nextE;
+            i=nextI;
+            o=nextO;
+            u=nextU;
+        }
+        return (a+e+i+o+u)%mod;
+    }
+};

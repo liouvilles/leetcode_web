@@ -1,1 +1,10 @@
-class Solution { public int[][] flipAndInvertImage(int[][] image){for(int[] row:image)for(int left=0,right=row.length-1;left<=right;left++,right--){int first=row[left],second=row[right];row[left]=second^1;row[right]=first^1;}return image;} }
+class Solution {
+    public int[][] flipAndInvertImage(int[][] image){
+        for(int[] row:image)for(int left=0,right=row.length-1;left<=right;left++,right--){
+            int first=row[left],second=row[right];
+            row[left]=second^1;
+            row[right]=first^1;
+        }
+        return image;
+    }
+}

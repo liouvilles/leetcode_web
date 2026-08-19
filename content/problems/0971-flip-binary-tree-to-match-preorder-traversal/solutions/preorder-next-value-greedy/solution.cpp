@@ -1,1 +1,20 @@
-class Solution { int index;vector<int> flips;bool dfs(TreeNode* node,vector<int>& voyage){if(!node)return true;if(index==(int)voyage.size()||node->val!=voyage[index++])return false;if(node->left&&index<(int)voyage.size()&&node->left->val!=voyage[index]){flips.push_back(node->val);return dfs(node->right,voyage)&&dfs(node->left,voyage);}return dfs(node->left,voyage)&&dfs(node->right,voyage);}public:vector<int> flipMatchVoyage(TreeNode* root,vector<int>& voyage){index=0;flips.clear();return dfs(root,voyage)?flips:vector<int>{-1};} };
+class Solution {
+    int index;
+    vector<int> flips;
+    bool dfs(TreeNode* node,vector<int>& voyage){
+        if(!node)return true;
+        if(index==(int)voyage.size()||node->val!=voyage[index++])return false;
+        if(node->left&&index<(int)voyage.size()&&node->left->val!=voyage[index]){
+            flips.push_back(node->val);
+            return dfs(node->right,voyage)&&dfs(node->left,voyage);
+        }
+        return dfs(node->left,voyage)&&dfs(node->right,voyage);
+    }
+    public:vector<int> flipMatchVoyage(TreeNode* root,vector<int>& voyage){
+        index=0;
+        flips.clear();
+        return dfs(root,voyage)?flips:vector<int>{
+            -1
+        };
+    }
+};

@@ -1,1 +1,10 @@
-class Solution { public int[] pivotArray(int[] nums,int pivot){int[] answer=new int[nums.length];int index=0;for(int value:nums)if(value<pivot)answer[index++]=value;for(int value:nums)if(value==pivot)answer[index++]=value;for(int value:nums)if(value>pivot)answer[index++]=value;return answer;} }
+class Solution {
+    public int[] pivotArray(int[] nums,int pivot){
+        int[] answer=new int[nums.length];
+        int index=0;
+        for(int value:nums)if(value<pivot)answer[index++]=value;
+        for(int value:nums)if(value==pivot)answer[index++]=value;
+        for(int value:nums)if(value>pivot)answer[index++]=value;
+        return answer;
+    }
+}

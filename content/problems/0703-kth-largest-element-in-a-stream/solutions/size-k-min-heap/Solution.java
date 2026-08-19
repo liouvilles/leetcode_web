@@ -1,1 +1,13 @@
-class KthLargest { private final int k;private final PriorityQueue<Integer> heap=new PriorityQueue<>();public KthLargest(int k,int[] nums){this.k=k;for(int value:nums)add(value);}public int add(int val){heap.offer(val);if(heap.size()>k)heap.poll();return heap.peek();} }
+class KthLargest {
+    private final int k;
+    private final PriorityQueue<Integer> heap=new PriorityQueue<>();
+    public KthLargest(int k,int[] nums){
+        this.k=k;
+        for(int value:nums)add(value);
+    }
+    public int add(int val){
+        heap.offer(val);
+        if(heap.size()>k)heap.poll();
+        return heap.peek();
+    }
+}

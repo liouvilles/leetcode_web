@@ -1,1 +1,12 @@
-class Solution { fun sortedSquares(nums:IntArray):IntArray{val answer=IntArray(nums.size);var left=0;var right=nums.lastIndex;for(write in nums.lastIndex downTo 0){val value=if(kotlin.math.abs(nums[left])>kotlin.math.abs(nums[right]))nums[left++] else nums[right--];answer[write]=value*value};return answer} }
+class Solution {
+    fun sortedSquares(nums:IntArray):IntArray{
+        val answer=IntArray(nums.size);
+        var left=0;
+        var right=nums.lastIndex;
+        for(write in nums.lastIndex downTo 0){
+            val value=if(kotlin.math.abs(nums[left])>kotlin.math.abs(nums[right]))nums[left++] else nums[right--];
+            answer[write]=value*value
+        };
+        return answer
+    }
+}

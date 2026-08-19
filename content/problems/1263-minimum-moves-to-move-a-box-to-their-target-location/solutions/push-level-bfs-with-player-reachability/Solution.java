@@ -1,1 +1,81 @@
-class Solution { private char[][] grid;private int rows,columns,targetRow,targetColumn;private final int[][] directions={{1,0},{-1,0},{0,1},{0,-1}};public int minPushBox(char[][] grid){this.grid=grid;rows=grid.length;columns=grid[0].length;int boxRow=0,boxColumn=0,playerRow=0,playerColumn=0;for(int r=0;r<rows;r++)for(int c=0;c<columns;c++){if(grid[r][c]=='B'){boxRow=r;boxColumn=c;}else if(grid[r][c]=='S'){playerRow=r;playerColumn=c;}else if(grid[r][c]=='T'){targetRow=r;targetColumn=c;}}Queue<int[]> queue=new ArrayDeque<>();Set<Integer> seen=new HashSet<>();queue.offer(new int[]{boxRow,boxColumn,playerRow,playerColumn,0});seen.add(key(boxRow,boxColumn,playerRow,playerColumn));while(!queue.isEmpty()){int[] state=queue.poll();if(state[0]==targetRow&&state[1]==targetColumn)return state[4];boolean[][] reachable=reachable(state[2],state[3],state[0],state[1]);for(int[] direction:directions){int nextBoxRow=state[0]+direction[0],nextBoxColumn=state[1]+direction[1],standRow=state[0]-direction[0],standColumn=state[1]-direction[1];if(open(nextBoxRow,nextBoxColumn)&&open(standRow,standColumn)&&reachable[standRow][standColumn]){int code=key(nextBoxRow,nextBoxColumn,state[0],state[1]);if(seen.add(code))queue.offer(new int[]{nextBoxRow,nextBoxColumn,state[0],state[1],state[4]+1});}}}return -1;}private boolean[][] reachable(int startRow,int startColumn,int boxRow,int boxColumn){boolean[][] seen=new boolean[rows][columns];Queue<int[]> queue=new ArrayDeque<>();queue.offer(new int[]{startRow,startColumn});seen[startRow][startColumn]=true;while(!queue.isEmpty()){int[] cell=queue.poll();for(int[] direction:directions){int r=cell[0]+direction[0],c=cell[1]+direction[1];if(open(r,c)&&!seen[r][c]&&(r!=boxRow||c!=boxColumn)){seen[r][c]=true;queue.offer(new int[]{r,c});}}}return seen;}private boolean open(int r,int c){return r>=0&&r<rows&&c>=0&&c<columns&&grid[r][c]!='#';}private int key(int br,int bc,int pr,int pc){return ((br*columns+bc)*rows+pr)*columns+pc;} }
+class Solution {
+    private char[][] grid;
+    private int rows,columns,targetRow,targetColumn;
+    private final int[][] directions={
+        {
+            1,0
+        },{
+            -1,0
+        },{
+            0,1
+        },{
+            0,-1
+        }
+    };
+    public int minPushBox(char[][] grid){
+        this.grid=grid;
+        rows=grid.length;
+        columns=grid[0].length;
+        int boxRow=0,boxColumn=0,playerRow=0,playerColumn=0;
+        for(int r=0;r<rows;r++)for(int c=0;c<columns;c++){
+            if(grid[r][c]=='B'){
+                boxRow=r;
+                boxColumn=c;
+            }else if(grid[r][c]=='S'){
+                playerRow=r;
+                playerColumn=c;
+            }else if(grid[r][c]=='T'){
+                targetRow=r;
+                targetColumn=c;
+            }
+        }
+        Queue<int[]> queue=new ArrayDeque<>();
+        Set<Integer> seen=new HashSet<>();
+        queue.offer(new int[]{
+            boxRow,boxColumn,playerRow,playerColumn,0
+        });
+        seen.add(key(boxRow,boxColumn,playerRow,playerColumn));
+        while(!queue.isEmpty()){
+            int[] state=queue.poll();
+            if(state[0]==targetRow&&state[1]==targetColumn)return state[4];
+            boolean[][] reachable=reachable(state[2],state[3],state[0],state[1]);
+            for(int[] direction:directions){
+                int nextBoxRow=state[0]+direction[0],nextBoxColumn=state[1]+direction[1],standRow=state[0]-direction[0],standColumn=state[1]-direction[1];
+                if(open(nextBoxRow,nextBoxColumn)&&open(standRow,standColumn)&&reachable[standRow][standColumn]){
+                    int code=key(nextBoxRow,nextBoxColumn,state[0],state[1]);
+                    if(seen.add(code))queue.offer(new int[]{
+                        nextBoxRow,nextBoxColumn,state[0],state[1],state[4]+1
+                    });
+                }
+            }
+        }
+        return -1;
+    }
+    private boolean[][] reachable(int startRow,int startColumn,int boxRow,int boxColumn){
+        boolean[][] seen=new boolean[rows][columns];
+        Queue<int[]> queue=new ArrayDeque<>();
+        queue.offer(new int[]{
+            startRow,startColumn
+        });
+        seen[startRow][startColumn]=true;
+        while(!queue.isEmpty()){
+            int[] cell=queue.poll();
+            for(int[] direction:directions){
+                int r=cell[0]+direction[0],c=cell[1]+direction[1];
+                if(open(r,c)&&!seen[r][c]&&(r!=boxRow||c!=boxColumn)){
+                    seen[r][c]=true;
+                    queue.offer(new int[]{
+                        r,c
+                    });
+                }
+            }
+        }
+        return seen;
+    }
+    private boolean open(int r,int c){
+        return r>=0&&r<rows&&c>=0&&c<columns&&grid[r][c]!='#';
+    }
+    private int key(int br,int bc,int pr,int pc){
+        return ((br*columns+bc)*rows+pr)*columns+pc;
+    }
+}

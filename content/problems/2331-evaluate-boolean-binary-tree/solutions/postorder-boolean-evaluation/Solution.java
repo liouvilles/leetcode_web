@@ -1,1 +1,7 @@
-class Solution { public boolean evaluateTree(TreeNode root){if(root.left==null)return root.val==1;boolean left=evaluateTree(root.left),right=evaluateTree(root.right);return root.val==2?left||right:left&&right;} }
+class Solution {
+    public boolean evaluateTree(TreeNode root){
+        if(root.left==null)return root.val==1;
+        boolean left=evaluateTree(root.left),right=evaluateTree(root.right);
+        return root.val==2?left||right:left&&right;
+    }
+}

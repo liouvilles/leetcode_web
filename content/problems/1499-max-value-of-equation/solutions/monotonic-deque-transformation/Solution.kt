@@ -1,1 +1,17 @@
-class Solution { fun findMaxValueOfEquation(points:Array<IntArray>,k:Int):Int{val deque=java.util.ArrayDeque<Int>();var answer=Int.MIN_VALUE;for(j in points.indices){while(deque.isNotEmpty()&&points[j][0]-points[deque.peekFirst()][0]>k)deque.removeFirst();if(deque.isNotEmpty()){val i=deque.peekFirst();answer=maxOf(answer,points[j][1]+points[j][0]+points[i][1]-points[i][0])};val value=points[j][1]-points[j][0];while(deque.isNotEmpty()&&points[deque.peekLast()][1]-points[deque.peekLast()][0]<=value)deque.removeLast();deque.addLast(j)};return answer} }
+class Solution {
+    fun findMaxValueOfEquation(points:Array<IntArray>,k:Int):Int{
+        val deque=java.util.ArrayDeque<Int>();
+        var answer=Int.MIN_VALUE;
+        for(j in points.indices){
+            while(deque.isNotEmpty()&&points[j][0]-points[deque.peekFirst()][0]>k)deque.removeFirst();
+            if(deque.isNotEmpty()){
+                val i=deque.peekFirst();
+                answer=maxOf(answer,points[j][1]+points[j][0]+points[i][1]-points[i][0])
+            };
+            val value=points[j][1]-points[j][0];
+            while(deque.isNotEmpty()&&points[deque.peekLast()][1]-points[deque.peekLast()][0]<=value)deque.removeLast();
+            deque.addLast(j)
+        };
+        return answer
+    }
+}

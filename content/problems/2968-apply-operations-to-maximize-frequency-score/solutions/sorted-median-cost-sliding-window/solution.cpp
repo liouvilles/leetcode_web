@@ -1,1 +1,19 @@
-class Solution { long long cost(vector<int>& nums,vector<long long>& prefix,int left,int right){int middle=(left+right)/2;long long leftCost=1LL*nums[middle]*(middle-left)-(prefix[middle]-prefix[left]);long long rightCost=prefix[right+1]-prefix[middle+1]-1LL*nums[middle]*(right-middle);return leftCost+rightCost;}public:int maxFrequencyScore(vector<int>& nums,long long k){sort(nums.begin(),nums.end());vector<long long> prefix(nums.size()+1);for(int i=0;i<(int)nums.size();++i)prefix[i+1]=prefix[i]+nums[i];int left=0,answer=1;for(int right=0;right<(int)nums.size();++right){while(cost(nums,prefix,left,right)>k)++left;answer=max(answer,right-left+1);}return answer;} };
+class Solution {
+    long long cost(vector<int>& nums,vector<long long>& prefix,int left,int right){
+        int middle=(left+right)/2;
+        long long leftCost=1LL*nums[middle]*(middle-left)-(prefix[middle]-prefix[left]);
+        long long rightCost=prefix[right+1]-prefix[middle+1]-1LL*nums[middle]*(right-middle);
+        return leftCost+rightCost;
+    }
+    public:int maxFrequencyScore(vector<int>& nums,long long k){
+        sort(nums.begin(),nums.end());
+        vector<long long> prefix(nums.size()+1);
+        for(int i=0;i<(int)nums.size();++i)prefix[i+1]=prefix[i]+nums[i];
+        int left=0,answer=1;
+        for(int right=0;right<(int)nums.size();++right){
+            while(cost(nums,prefix,left,right)>k)++left;
+            answer=max(answer,right-left+1);
+        }
+        return answer;
+    }
+};

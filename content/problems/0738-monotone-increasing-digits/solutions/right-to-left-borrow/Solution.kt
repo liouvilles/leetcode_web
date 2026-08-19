@@ -1,1 +1,12 @@
-class Solution { fun monotoneIncreasingDigits(n:Int):Int{val digits=n.toString().toCharArray();var marker=digits.size;for(i in digits.lastIndex downTo 1)if(digits[i-1]>digits[i]){digits[i-1]--;marker=i};for(i in marker until digits.size)digits[i]='9';return String(digits).toInt()} }
+class Solution {
+    fun monotoneIncreasingDigits(n:Int):Int{
+        val digits=n.toString().toCharArray();
+        var marker=digits.size;
+        for(i in digits.lastIndex downTo 1)if(digits[i-1]>digits[i]){
+            digits[i-1]--;
+            marker=i
+        };
+        for(i in marker until digits.size)digits[i]='9';
+        return String(digits).toInt()
+    }
+}

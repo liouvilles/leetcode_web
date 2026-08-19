@@ -1,1 +1,28 @@
-class Solution { public:long long maximumSumOfHeights(vector<int>& maxHeights){int n=maxHeights.size();vector<long long> left(n),right(n);stack<int> indices;for(int i=0;i<n;++i){while(!indices.empty()&&maxHeights[indices.top()]>maxHeights[i])indices.pop();if(indices.empty())left[i]=1LL*(i+1)*maxHeights[i];else{int previous=indices.top();left[i]=left[previous]+1LL*(i-previous)*maxHeights[i];}indices.push(i);}while(!indices.empty())indices.pop();for(int i=n-1;i>=0;--i){while(!indices.empty()&&maxHeights[indices.top()]>maxHeights[i])indices.pop();if(indices.empty())right[i]=1LL*(n-i)*maxHeights[i];else{int previous=indices.top();right[i]=right[previous]+1LL*(previous-i)*maxHeights[i];}indices.push(i);}long long answer=0;for(int i=0;i<n;++i)answer=max(answer,left[i]+right[i]-maxHeights[i]);return answer;} };
+class Solution {
+    public:long long maximumSumOfHeights(vector<int>& maxHeights){
+        int n=maxHeights.size();
+        vector<long long> left(n),right(n);
+        stack<int> indices;
+        for(int i=0;i<n;++i){
+            while(!indices.empty()&&maxHeights[indices.top()]>maxHeights[i])indices.pop();
+            if(indices.empty())left[i]=1LL*(i+1)*maxHeights[i];
+            else{
+                int previous=indices.top();
+                left[i]=left[previous]+1LL*(i-previous)*maxHeights[i];
+            }
+            indices.push(i);
+        }while(!indices.empty())indices.pop();
+        for(int i=n-1;i>=0;--i){
+            while(!indices.empty()&&maxHeights[indices.top()]>maxHeights[i])indices.pop();
+            if(indices.empty())right[i]=1LL*(n-i)*maxHeights[i];
+            else{
+                int previous=indices.top();
+                right[i]=right[previous]+1LL*(previous-i)*maxHeights[i];
+            }
+            indices.push(i);
+        }
+        long long answer=0;
+        for(int i=0;i<n;++i)answer=max(answer,left[i]+right[i]-maxHeights[i]);
+        return answer;
+    }
+};

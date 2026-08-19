@@ -1,1 +1,18 @@
-class Solution { bool can(vector<int>& dist,double hour,int speed){double used=0;for(int i=0;i+1<(int)dist.size();++i)used+=(dist[i]+speed-1)/speed;used+=(double)dist.back()/speed;return used<=hour;}public: int minSpeedOnTime(vector<int>& dist,double hour){if(hour<=dist.size()-1)return -1;int left=1,right=10000000;while(left<right){int middle=left+(right-left)/2;if(can(dist,hour,middle))right=middle;else left=middle+1;}return can(dist,hour,left)?left:-1;} };
+class Solution {
+    bool can(vector<int>& dist,double hour,int speed){
+        double used=0;
+        for(int i=0;i+1<(int)dist.size();++i)used+=(dist[i]+speed-1)/speed;
+        used+=(double)dist.back()/speed;
+        return used<=hour;
+    }
+    public: int minSpeedOnTime(vector<int>& dist,double hour){
+        if(hour<=dist.size()-1)return -1;
+        int left=1,right=10000000;
+        while(left<right){
+            int middle=left+(right-left)/2;
+            if(can(dist,hour,middle))right=middle;
+            else left=middle+1;
+        }
+        return can(dist,hour,left)?left:-1;
+    }
+};

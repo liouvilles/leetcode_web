@@ -1,1 +1,29 @@
-class Solution { vector<int> occurrences(const string& text,const string& pattern){vector<int> prefix(pattern.size());for(int i=1,matched=0;i<(int)pattern.size();++i){while(matched>0&&pattern[i]!=pattern[matched])matched=prefix[matched-1];if(pattern[i]==pattern[matched])++matched;prefix[i]=matched;}vector<int> positions;for(int i=0,matched=0;i<(int)text.size();++i){while(matched>0&&text[i]!=pattern[matched])matched=prefix[matched-1];if(text[i]==pattern[matched])++matched;if(matched==(int)pattern.size()){positions.push_back(i-pattern.size()+1);matched=prefix[matched-1];}}return positions;}public:vector<int> beautifulIndices(string s,string a,string b,int k){vector<int> first=occurrences(s,a),second=occurrences(s,b),answer;int pointer=0;for(int index:first){while(pointer<(int)second.size()&&second[pointer]<index-k)++pointer;if(pointer<(int)second.size()&&second[pointer]<=index+k)answer.push_back(index);}return answer;} };
+class Solution {
+    vector<int> occurrences(const string& text,const string& pattern){
+        vector<int> prefix(pattern.size());
+        for(int i=1,matched=0;i<(int)pattern.size();++i){
+            while(matched>0&&pattern[i]!=pattern[matched])matched=prefix[matched-1];
+            if(pattern[i]==pattern[matched])++matched;
+            prefix[i]=matched;
+        }
+        vector<int> positions;
+        for(int i=0,matched=0;i<(int)text.size();++i){
+            while(matched>0&&text[i]!=pattern[matched])matched=prefix[matched-1];
+            if(text[i]==pattern[matched])++matched;
+            if(matched==(int)pattern.size()){
+                positions.push_back(i-pattern.size()+1);
+                matched=prefix[matched-1];
+            }
+        }
+        return positions;
+    }
+    public:vector<int> beautifulIndices(string s,string a,string b,int k){
+        vector<int> first=occurrences(s,a),second=occurrences(s,b),answer;
+        int pointer=0;
+        for(int index:first){
+            while(pointer<(int)second.size()&&second[pointer]<index-k)++pointer;
+            if(pointer<(int)second.size()&&second[pointer]<=index+k)answer.push_back(index);
+        }
+        return answer;
+    }
+};

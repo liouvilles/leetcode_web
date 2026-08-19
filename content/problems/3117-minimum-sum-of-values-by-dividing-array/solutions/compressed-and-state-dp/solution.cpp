@@ -1,1 +1,27 @@
-class Solution { void putMin(unordered_map<int,int>& map,int key,int value){auto found=map.find(key);if(found==map.end()||value<found->second)map[key]=value;}public:int minimumValueSum(vector<int>& nums,vector<int>& andValues){int parts=andValues.size(),answer=INT_MAX;vector<unordered_map<int,int>> active(parts);active[0][-1]=0;for(int index=0;index<(int)nums.size();++index){vector<unordered_map<int,int>> next(parts);for(int part=0;part<parts;++part)for(auto [currentAnd,cost]:active[part]){int merged=currentAnd&nums[index],target=andValues[part];if((merged&target)!=target)continue;putMin(next[part],merged,cost);if(merged==target){int closed=cost+nums[index];if(part==parts-1){if(index+1==(int)nums.size())answer=min(answer,closed);}else putMin(next[part+1],-1,closed);}}active.swap(next);}return answer==INT_MAX?-1:answer;} };
+class Solution {
+    void putMin(unordered_map<int,int>& map,int key,int value){
+        auto found=map.find(key);
+        if(found==map.end()||value<found->second)map[key]=value;
+    }
+    public:int minimumValueSum(vector<int>& nums,vector<int>& andValues){
+        int parts=andValues.size(),answer=INT_MAX;
+        vector<unordered_map<int,int>> active(parts);
+        active[0][-1]=0;
+        for(int index=0;index<(int)nums.size();++index){
+            vector<unordered_map<int,int>> next(parts);
+            for(int part=0;part<parts;++part)for(auto [currentAnd,cost]:active[part]){
+                int merged=currentAnd&nums[index],target=andValues[part];
+                if((merged&target)!=target)continue;
+                putMin(next[part],merged,cost);
+                if(merged==target){
+                    int closed=cost+nums[index];
+                    if(part==parts-1){
+                        if(index+1==(int)nums.size())answer=min(answer,closed);
+                    }else putMin(next[part+1],-1,closed);
+                }
+            }
+            active.swap(next);
+        }
+        return answer==INT_MAX?-1:answer;
+    }
+};

@@ -1,1 +1,44 @@
-class Solution { private static final int BOUND=1000000;private Set<Long> blocked;private int limit;public boolean isEscapePossible(int[][] blockedCells,int[] source,int[] target){blocked=new HashSet<>();for(int[] cell:blockedCells)blocked.add(key(cell[0],cell[1]));limit=blockedCells.length*(blockedCells.length-1)/2;return search(source,target)&&search(target,source);}private boolean search(int[] start,int[] finish){Deque<int[]> queue=new ArrayDeque<>();Set<Long> seen=new HashSet<>();queue.offer(start);seen.add(key(start[0],start[1]));int[][] directions={{1,0},{-1,0},{0,1},{0,-1}};while(!queue.isEmpty()&&seen.size()<=limit){int[] cell=queue.poll();for(int[] d:directions){int r=cell[0]+d[0],c=cell[1]+d[1];if(r<0||r>=BOUND||c<0||c>=BOUND)continue;if(r==finish[0]&&c==finish[1])return true;long code=key(r,c);if(!blocked.contains(code)&&seen.add(code))queue.offer(new int[]{r,c});}}return seen.size()>limit;}private long key(int r,int c){return(long)r*BOUND+c;} }
+class Solution {
+    private static final int BOUND=1000000;
+    private Set<Long> blocked;
+    private int limit;
+    public boolean isEscapePossible(int[][] blockedCells,int[] source,int[] target){
+        blocked=new HashSet<>();
+        for(int[] cell:blockedCells)blocked.add(key(cell[0],cell[1]));
+        limit=blockedCells.length*(blockedCells.length-1)/2;
+        return search(source,target)&&search(target,source);
+    }
+    private boolean search(int[] start,int[] finish){
+        Deque<int[]> queue=new ArrayDeque<>();
+        Set<Long> seen=new HashSet<>();
+        queue.offer(start);
+        seen.add(key(start[0],start[1]));
+        int[][] directions={
+            {
+                1,0
+            },{
+                -1,0
+            },{
+                0,1
+            },{
+                0,-1
+            }
+        };
+        while(!queue.isEmpty()&&seen.size()<=limit){
+            int[] cell=queue.poll();
+            for(int[] d:directions){
+                int r=cell[0]+d[0],c=cell[1]+d[1];
+                if(r<0||r>=BOUND||c<0||c>=BOUND)continue;
+                if(r==finish[0]&&c==finish[1])return true;
+                long code=key(r,c);
+                if(!blocked.contains(code)&&seen.add(code))queue.offer(new int[]{
+                    r,c
+                });
+            }
+        }
+        return seen.size()>limit;
+    }
+    private long key(int r,int c){
+        return(long)r*BOUND+c;
+    }
+}

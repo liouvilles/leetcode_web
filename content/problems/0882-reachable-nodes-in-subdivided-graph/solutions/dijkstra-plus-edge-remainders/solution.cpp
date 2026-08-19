@@ -1,1 +1,37 @@
-class Solution { public: int reachableNodes(vector<vector<int>>& edges,int maxMoves,int n){vector<vector<pair<int,int>>> graph(n);for(auto& edge:edges){graph[edge[0]].push_back({edge[1],edge[2]+1});graph[edge[1]].push_back({edge[0],edge[2]+1});}vector<long long> distance(n,LLONG_MAX);priority_queue<pair<long long,int>,vector<pair<long long,int>>,greater<pair<long long,int>>> heap;distance[0]=0;heap.push({0,0});while(!heap.empty()){auto [current,node]=heap.top();heap.pop();if(current!=distance[node])continue;for(auto [next,weight]:graph[node])if(current+weight<distance[next]){distance[next]=current+weight;heap.push({distance[next],next});}}long long answer=0;for(long long value:distance)answer+=value<=maxMoves;for(auto& edge:edges){long long fromU=distance[edge[0]]<=maxMoves?maxMoves-distance[edge[0]]:0,fromV=distance[edge[1]]<=maxMoves?maxMoves-distance[edge[1]]:0;answer+=min((long long)edge[2],fromU+fromV);}return answer;} };
+class Solution {
+    public: int reachableNodes(vector<vector<int>>& edges,int maxMoves,int n){
+        vector<vector<pair<int,int>>> graph(n);
+        for(auto& edge:edges){
+            graph[edge[0]].push_back({
+                edge[1],edge[2]+1
+            });
+            graph[edge[1]].push_back({
+                edge[0],edge[2]+1
+            });
+        }
+        vector<long long> distance(n,LLONG_MAX);
+        priority_queue<pair<long long,int>,vector<pair<long long,int>>,greater<pair<long long,int>>> heap;
+        distance[0]=0;
+        heap.push({
+            0,0
+        });
+        while(!heap.empty()){
+            auto [current,node]=heap.top();
+            heap.pop();
+            if(current!=distance[node])continue;
+            for(auto [next,weight]:graph[node])if(current+weight<distance[next]){
+                distance[next]=current+weight;
+                heap.push({
+                    distance[next],next
+                });
+            }
+        }
+        long long answer=0;
+        for(long long value:distance)answer+=value<=maxMoves;
+        for(auto& edge:edges){
+            long long fromU=distance[edge[0]]<=maxMoves?maxMoves-distance[edge[0]]:0,fromV=distance[edge[1]]<=maxMoves?maxMoves-distance[edge[1]]:0;
+            answer+=min((long long)edge[2],fromU+fromV);
+        }
+        return answer;
+    }
+};

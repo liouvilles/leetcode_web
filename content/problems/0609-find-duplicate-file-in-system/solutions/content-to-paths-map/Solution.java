@@ -1,1 +1,19 @@
-class Solution { public List<List<String>> findDuplicate(String[] paths){Map<String,List<String>> groups=new TreeMap<>();for(String description:paths){String[] parts=description.split(" ");for(int i=1;i<parts.length;i++){int open=parts[i].indexOf('(');String name=parts[i].substring(0,open),content=parts[i].substring(open+1,parts[i].length()-1);groups.computeIfAbsent(content,key->new ArrayList<>()).add(parts[0]+"/"+name);}}List<List<String>> answer=new ArrayList<>();for(List<String> group:groups.values())if(group.size()>1){Collections.sort(group);answer.add(group);}return answer;} }
+class Solution {
+    public List<List<String>> findDuplicate(String[] paths){
+        Map<String,List<String>> groups=new TreeMap<>();
+        for(String description:paths){
+            String[] parts=description.split(" ");
+            for(int i=1;i<parts.length;i++){
+                int open=parts[i].indexOf('(');
+                String name=parts[i].substring(0,open),content=parts[i].substring(open+1,parts[i].length()-1);
+                groups.computeIfAbsent(content,key->new ArrayList<>()).add(parts[0]+"/"+name);
+            }
+        }
+        List<List<String>> answer=new ArrayList<>();
+        for(List<String> group:groups.values())if(group.size()>1){
+            Collections.sort(group);
+            answer.add(group);
+        }
+        return answer;
+    }
+}

@@ -1,1 +1,13 @@
-class Solution { public int minOperations(int[] nums,int k){PriorityQueue<Long> heap=new PriorityQueue<>();for(int value:nums)heap.add((long)value);int operations=0;while(heap.peek()<k){long first=heap.poll(),second=heap.poll();heap.add(first*2+second);operations++;}return operations;} }
+class Solution {
+    public int minOperations(int[] nums,int k){
+        PriorityQueue<Long> heap=new PriorityQueue<>();
+        for(int value:nums)heap.add((long)value);
+        int operations=0;
+        while(heap.peek()<k){
+            long first=heap.poll(),second=heap.poll();
+            heap.add(first*2+second);
+            operations++;
+        }
+        return operations;
+    }
+}

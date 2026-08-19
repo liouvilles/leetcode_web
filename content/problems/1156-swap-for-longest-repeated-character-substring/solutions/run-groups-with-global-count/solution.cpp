@@ -1,1 +1,23 @@
-class Solution { public: int maxRepOpt1(string text){int total[26]={};for(char ch:text)++total[ch-'a'];vector<pair<int,int>> groups;for(int i=0;i<(int)text.size();){int j=i+1;while(j<(int)text.size()&&text[j]==text[i])++j;groups.push_back({text[i]-'a',j-i});i=j;}int best=0;for(int i=0;i<(int)groups.size();++i){auto [ch,length]=groups[i];best=max(best,min(total[ch],length+1));if(i+2<(int)groups.size()&&groups[i+1].second==1&&groups[i+2].first==ch)best=max(best,min(total[ch],length+groups[i+2].second+1));}return best;} };
+class Solution {
+    public: int maxRepOpt1(string text){
+        int total[26]={
+        };
+        for(char ch:text)++total[ch-'a'];
+        vector<pair<int,int>> groups;
+        for(int i=0;i<(int)text.size();){
+            int j=i+1;
+            while(j<(int)text.size()&&text[j]==text[i])++j;
+            groups.push_back({
+                text[i]-'a',j-i
+            });
+            i=j;
+        }
+        int best=0;
+        for(int i=0;i<(int)groups.size();++i){
+            auto [ch,length]=groups[i];
+            best=max(best,min(total[ch],length+1));
+            if(i+2<(int)groups.size()&&groups[i+1].second==1&&groups[i+2].first==ch)best=max(best,min(total[ch],length+groups[i+2].second+1));
+        }
+        return best;
+    }
+};

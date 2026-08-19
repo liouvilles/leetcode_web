@@ -1,1 +1,13 @@
-class Solution { public int unequalTriplets(int[] nums){Arrays.sort(nums);int answer=0,n=nums.length;for(int i=0;i<n;){int j=i+1;while(j<n&&nums[j]==nums[i])j++;answer+=i*(j-i)*(n-j);i=j;}return answer;} }
+class Solution {
+    public int unequalTriplets(int[] nums){
+        Arrays.sort(nums);
+        int answer=0,n=nums.length;
+        for(int i=0;i<n;){
+            int j=i+1;
+            while(j<n&&nums[j]==nums[i])j++;
+            answer+=i*(j-i)*(n-j);
+            i=j;
+        }
+        return answer;
+    }
+}

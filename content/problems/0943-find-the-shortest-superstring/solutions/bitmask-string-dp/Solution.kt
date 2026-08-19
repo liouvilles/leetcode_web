@@ -1,1 +1,30 @@
-class Solution { fun shortestSuperstring(words:Array<String>):String{val n=words.size;val overlap=Array(n){IntArray(n)};for(i in 0 until n)for(j in 0 until n)if(i!=j)for(length in minOf(words[i].length,words[j].length) downTo 0)if(words[i].endsWith(words[j].substring(0,length))){overlap[i][j]=length;break};val dp=Array(1 shl n){arrayOfNulls<String>(n)};for(i in 0 until n)dp[1 shl i][i]=words[i];fun better(a:String,b:String?):Boolean{return b==null||a.length<b.length||a.length==b.length&&a<b};for(mask in 1 until (1 shl n))for(last in 0 until n){val current=dp[mask][last]?:continue;for(next in 0 until n)if(mask and (1 shl next)==0){val nextMask=mask or (1 shl next);val candidate=current+words[next].substring(overlap[last][next]);if(better(candidate,dp[nextMask][next]))dp[nextMask][next]=candidate}};var answer:String?=null;for(candidate in dp[(1 shl n)-1])if(candidate!=null&&better(candidate,answer))answer=candidate;return answer!!} }
+class Solution {
+    fun shortestSuperstring(words:Array<String>):String{
+        val n=words.size;
+        val overlap=Array(n){
+            IntArray(n)
+        };
+        for(i in 0 until n)for(j in 0 until n)if(i!=j)for(length in minOf(words[i].length,words[j].length) downTo 0)if(words[i].endsWith(words[j].substring(0,length))){
+            overlap[i][j]=length;
+            break
+        };
+        val dp=Array(1 shl n){
+            arrayOfNulls<String>(n)
+        };
+        for(i in 0 until n)dp[1 shl i][i]=words[i];
+        fun better(a:String,b:String?):Boolean{
+            return b==null||a.length<b.length||a.length==b.length&&a<b
+        };
+        for(mask in 1 until (1 shl n))for(last in 0 until n){
+            val current=dp[mask][last]?:continue;
+            for(next in 0 until n)if(mask and (1 shl next)==0){
+                val nextMask=mask or (1 shl next);
+                val candidate=current+words[next].substring(overlap[last][next]);
+                if(better(candidate,dp[nextMask][next]))dp[nextMask][next]=candidate
+            }
+        };
+        var answer:String?=null;
+        for(candidate in dp[(1 shl n)-1])if(candidate!=null&&better(candidate,answer))answer=candidate;
+        return answer!!
+    }
+}

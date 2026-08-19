@@ -1,1 +1,20 @@
-class Solution { fun isPossible(nums:IntArray):Boolean{val remaining=hashMapOf<Int,Int>();val tails=hashMapOf<Int,Int>();for(value in nums)remaining[value]=(remaining[value]?:0)+1;for(value in nums){if(remaining[value]==0)continue;remaining[value]=remaining[value]!!-1;if((tails[value-1]?:0)>0){tails[value-1]=tails[value-1]!!-1;tails[value]=(tails[value]?:0)+1}else if((remaining[value+1]?:0)>0&&(remaining[value+2]?:0)>0){remaining[value+1]=remaining[value+1]!!-1;remaining[value+2]=remaining[value+2]!!-1;tails[value+2]=(tails[value+2]?:0)+1}else return false};return true} }
+class Solution {
+    fun isPossible(nums:IntArray):Boolean{
+        val remaining=hashMapOf<Int,Int>();
+        val tails=hashMapOf<Int,Int>();
+        for(value in nums)remaining[value]=(remaining[value]?:0)+1;
+        for(value in nums){
+            if(remaining[value]==0)continue;
+            remaining[value]=remaining[value]!!-1;
+            if((tails[value-1]?:0)>0){
+                tails[value-1]=tails[value-1]!!-1;
+                tails[value]=(tails[value]?:0)+1
+            }else if((remaining[value+1]?:0)>0&&(remaining[value+2]?:0)>0){
+                remaining[value+1]=remaining[value+1]!!-1;
+                remaining[value+2]=remaining[value+2]!!-1;
+                tails[value+2]=(tails[value+2]?:0)+1
+            }else return false
+        };
+        return true
+    }
+}

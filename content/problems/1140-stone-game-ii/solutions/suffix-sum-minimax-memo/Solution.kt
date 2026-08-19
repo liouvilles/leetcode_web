@@ -1,1 +1,23 @@
-class Solution { private lateinit var piles:IntArray;private lateinit var suffix:IntArray;private lateinit var memo:Array<IntArray>;fun stoneGameII(piles:IntArray):Int{this.piles=piles;suffix=IntArray(piles.size+1);for(i in piles.lastIndex downTo 0)suffix[i]=suffix[i+1]+piles[i];memo=Array(piles.size){IntArray(piles.size+1)};return dfs(0,1)};private fun dfs(index:Int,m:Int):Int{if(index>=piles.size)return 0;if(2*m>=piles.size-index)return suffix[index];if(memo[index][m]!=0)return memo[index][m];var best=0;for(take in 1..2*m)best=maxOf(best,suffix[index]-dfs(index+take,maxOf(m,take)));memo[index][m]=best;return best} }
+class Solution {
+    private lateinit var piles:IntArray;
+    private lateinit var suffix:IntArray;
+    private lateinit var memo:Array<IntArray>;
+    fun stoneGameII(piles:IntArray):Int{
+        this.piles=piles;
+        suffix=IntArray(piles.size+1);
+        for(i in piles.lastIndex downTo 0)suffix[i]=suffix[i+1]+piles[i];
+        memo=Array(piles.size){
+            IntArray(piles.size+1)
+        };
+        return dfs(0,1)
+    };
+    private fun dfs(index:Int,m:Int):Int{
+        if(index>=piles.size)return 0;
+        if(2*m>=piles.size-index)return suffix[index];
+        if(memo[index][m]!=0)return memo[index][m];
+        var best=0;
+        for(take in 1..2*m)best=maxOf(best,suffix[index]-dfs(index+take,maxOf(m,take)));
+        memo[index][m]=best;
+        return best
+    }
+}

@@ -1,1 +1,47 @@
-class Solution { public:int magnificentSets(int n,vector<vector<int>>& edges){vector<vector<int>> graph(n);for(auto& edge:edges){graph[edge[0]-1].push_back(edge[1]-1);graph[edge[1]-1].push_back(edge[0]-1);}vector<int> color(n,-1);int answer=0;for(int root=0;root<n;++root)if(color[root]<0){vector<int> component;queue<int> queue;queue.push(root);color[root]=0;while(!queue.empty()){int node=queue.front();queue.pop();component.push_back(node);for(int next:graph[node]){if(color[next]<0){color[next]=color[node]^1;queue.push(next);}else if(color[next]==color[node])return -1;}}int best=0;for(int start:component){vector<int> distance(n,-1);queue.push(start);distance[start]=0;int farthest=0;while(!queue.empty()){int node=queue.front();queue.pop();for(int next:graph[node])if(distance[next]<0){distance[next]=distance[node]+1;farthest=max(farthest,distance[next]);queue.push(next);}}best=max(best,farthest+1);}answer+=best;}return answer;} };
+class Solution {
+    public:int magnificentSets(int n,vector<vector<int>>& edges){
+        vector<vector<int>> graph(n);
+        for(auto& edge:edges){
+            graph[edge[0]-1].push_back(edge[1]-1);
+            graph[edge[1]-1].push_back(edge[0]-1);
+        }
+        vector<int> color(n,-1);
+        int answer=0;
+        for(int root=0;root<n;++root)if(color[root]<0){
+            vector<int> component;
+            queue<int> queue;
+            queue.push(root);
+            color[root]=0;
+            while(!queue.empty()){
+                int node=queue.front();
+                queue.pop();
+                component.push_back(node);
+                for(int next:graph[node]){
+                    if(color[next]<0){
+                        color[next]=color[node]^1;
+                        queue.push(next);
+                    }else if(color[next]==color[node])return -1;
+                }
+            }
+            int best=0;
+            for(int start:component){
+                vector<int> distance(n,-1);
+                queue.push(start);
+                distance[start]=0;
+                int farthest=0;
+                while(!queue.empty()){
+                    int node=queue.front();
+                    queue.pop();
+                    for(int next:graph[node])if(distance[next]<0){
+                        distance[next]=distance[node]+1;
+                        farthest=max(farthest,distance[next]);
+                        queue.push(next);
+                    }
+                }
+                best=max(best,farthest+1);
+            }
+            answer+=best;
+        }
+        return answer;
+    }
+};

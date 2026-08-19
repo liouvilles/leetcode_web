@@ -1,1 +1,9 @@
-class Solution { public: vector<vector<int>> matrixReshape(vector<vector<int>>& mat,int r,int c){int rows=mat.size(),columns=mat[0].size();if(rows*columns!=r*c)return mat;vector<vector<int>> result(r,vector<int>(c));for(int index=0;index<rows*columns;++index)result[index/c][index%c]=mat[index/columns][index%columns];return result;} };
+class Solution {
+    public: vector<vector<int>> matrixReshape(vector<vector<int>>& mat,int r,int c){
+        int rows=mat.size(),columns=mat[0].size();
+        if(rows*columns!=r*c)return mat;
+        vector<vector<int>> result(r,vector<int>(c));
+        for(int index=0;index<rows*columns;++index)result[index/c][index%c]=mat[index/columns][index%columns];
+        return result;
+    }
+};

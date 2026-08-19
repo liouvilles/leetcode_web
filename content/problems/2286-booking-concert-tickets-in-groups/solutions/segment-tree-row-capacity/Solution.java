@@ -1,1 +1,73 @@
-class BookMyShow { int n,m,first;int[] remaining,maximum;long[] sum;public BookMyShow(int n,int m){this.n=n;this.m=m;remaining=new int[n];Arrays.fill(remaining,m);maximum=new int[4*n];sum=new long[4*n];build(1,0,n-1);}private void build(int node,int left,int right){if(left==right){maximum[node]=m;sum[node]=m;return;}int middle=(left+right)/2;build(node*2,left,middle);build(node*2+1,middle+1,right);pull(node);}private void pull(int node){maximum[node]=Math.max(maximum[node*2],maximum[node*2+1]);sum[node]=sum[node*2]+sum[node*2+1];}private void update(int node,int left,int right,int index){if(left==right){maximum[node]=remaining[index];sum[node]=remaining[index];return;}int middle=(left+right)/2;if(index<=middle)update(node*2,left,middle,index);else update(node*2+1,middle+1,right,index);pull(node);}private int find(int node,int left,int right,int maxRow,int k){if(left>maxRow||maximum[node]<k)return -1;if(left==right)return left;int middle=(left+right)/2,result=find(node*2,left,middle,maxRow,k);return result>=0?result:find(node*2+1,middle+1,right,maxRow,k);}private long query(int node,int left,int right,int maxRow){if(left>maxRow)return 0;if(right<=maxRow)return sum[node];int middle=(left+right)/2;return query(node*2,left,middle,maxRow)+query(node*2+1,middle+1,right,maxRow);}public int[] gather(int k,int maxRow){int row=find(1,0,n-1,maxRow,k);if(row<0)return new int[0];int start=m-remaining[row];remaining[row]-=k;update(1,0,n-1,row);return new int[]{row,start};}public boolean scatter(int k,int maxRow){if(query(1,0,n-1,maxRow)<k)return false;while(k>0){while(first<n&&remaining[first]==0)first++;int take=Math.min(k,remaining[first]);remaining[first]-=take;k-=take;update(1,0,n-1,first);}return true;} }
+class BookMyShow {
+    int n,m,first;
+    int[] remaining,maximum;
+    long[] sum;
+    public BookMyShow(int n,int m){
+        this.n=n;
+        this.m=m;
+        remaining=new int[n];
+        Arrays.fill(remaining,m);
+        maximum=new int[4*n];
+        sum=new long[4*n];
+        build(1,0,n-1);
+    }
+    private void build(int node,int left,int right){
+        if(left==right){
+            maximum[node]=m;
+            sum[node]=m;
+            return;
+        }
+        int middle=(left+right)/2;
+        build(node*2,left,middle);
+        build(node*2+1,middle+1,right);
+        pull(node);
+    }
+    private void pull(int node){
+        maximum[node]=Math.max(maximum[node*2],maximum[node*2+1]);
+        sum[node]=sum[node*2]+sum[node*2+1];
+    }
+    private void update(int node,int left,int right,int index){
+        if(left==right){
+            maximum[node]=remaining[index];
+            sum[node]=remaining[index];
+            return;
+        }
+        int middle=(left+right)/2;
+        if(index<=middle)update(node*2,left,middle,index);
+        else update(node*2+1,middle+1,right,index);
+        pull(node);
+    }
+    private int find(int node,int left,int right,int maxRow,int k){
+        if(left>maxRow||maximum[node]<k)return -1;
+        if(left==right)return left;
+        int middle=(left+right)/2,result=find(node*2,left,middle,maxRow,k);
+        return result>=0?result:find(node*2+1,middle+1,right,maxRow,k);
+    }
+    private long query(int node,int left,int right,int maxRow){
+        if(left>maxRow)return 0;
+        if(right<=maxRow)return sum[node];
+        int middle=(left+right)/2;
+        return query(node*2,left,middle,maxRow)+query(node*2+1,middle+1,right,maxRow);
+    }
+    public int[] gather(int k,int maxRow){
+        int row=find(1,0,n-1,maxRow,k);
+        if(row<0)return new int[0];
+        int start=m-remaining[row];
+        remaining[row]-=k;
+        update(1,0,n-1,row);
+        return new int[]{
+            row,start
+        };
+    }
+    public boolean scatter(int k,int maxRow){
+        if(query(1,0,n-1,maxRow)<k)return false;
+        while(k>0){
+            while(first<n&&remaining[first]==0)first++;
+            int take=Math.min(k,remaining[first]);
+            remaining[first]-=take;
+            k-=take;
+            update(1,0,n-1,first);
+        }
+        return true;
+    }
+}

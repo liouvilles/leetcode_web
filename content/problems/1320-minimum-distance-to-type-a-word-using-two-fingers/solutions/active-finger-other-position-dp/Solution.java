@@ -1,1 +1,23 @@
-class Solution { public int minimumDistance(String word){int infinity=1000000;int[] dp=new int[27];Arrays.fill(dp,infinity);dp[26]=0;for(int i=1;i<word.length();i++){int current=word.charAt(i-1)-'A',target=word.charAt(i)-'A';int[] next=new int[27];Arrays.fill(next,infinity);for(int other=0;other<=26;other++)if(dp[other]<infinity){next[other]=Math.min(next[other],dp[other]+distance(current,target));next[current]=Math.min(next[current],dp[other]+distance(other,target));}dp=next;}return Arrays.stream(dp).min().getAsInt();}private int distance(int a,int b){if(a==26||b==26)return 0;return Math.abs(a/6-b/6)+Math.abs(a%6-b%6);} }
+class Solution {
+    public int minimumDistance(String word){
+        int infinity=1000000;
+        int[] dp=new int[27];
+        Arrays.fill(dp,infinity);
+        dp[26]=0;
+        for(int i=1;i<word.length();i++){
+            int current=word.charAt(i-1)-'A',target=word.charAt(i)-'A';
+            int[] next=new int[27];
+            Arrays.fill(next,infinity);
+            for(int other=0;other<=26;other++)if(dp[other]<infinity){
+                next[other]=Math.min(next[other],dp[other]+distance(current,target));
+                next[current]=Math.min(next[current],dp[other]+distance(other,target));
+            }
+            dp=next;
+        }
+        return Arrays.stream(dp).min().getAsInt();
+    }
+    private int distance(int a,int b){
+        if(a==26||b==26)return 0;
+        return Math.abs(a/6-b/6)+Math.abs(a%6-b%6);
+    }
+}

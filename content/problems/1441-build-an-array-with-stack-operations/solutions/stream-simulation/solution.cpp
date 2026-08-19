@@ -1,1 +1,12 @@
-class Solution { public: vector<string> buildArray(vector<int>& target,int n){vector<string> answer;int index=0;for(int value=1;value<=n&&index<(int)target.size();++value){answer.push_back("Push");if(value==target[index])++index;else answer.push_back("Pop");}return answer;} };
+class Solution {
+    public: vector<string> buildArray(vector<int>& target,int n){
+        vector<string> answer;
+        int index=0;
+        for(int value=1;value<=n&&index<(int)target.size();++value){
+            answer.push_back("Push");
+            if(value==target[index])++index;
+            else answer.push_back("Pop");
+        }
+        return answer;
+    }
+};

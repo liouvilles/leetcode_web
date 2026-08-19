@@ -1,1 +1,25 @@
-class StockPrice { unordered_map<int,int> prices;map<int,int> counts;int latest=0;public: StockPrice(){}void update(int timestamp,int price){if(prices.count(timestamp)){int old=prices[timestamp];if(!--counts[old])counts.erase(old);}prices[timestamp]=price;++counts[price];latest=max(latest,timestamp);}int current(){return prices[latest];}int maximum(){return counts.rbegin()->first;}int minimum(){return counts.begin()->first;} };
+class StockPrice {
+    unordered_map<int,int> prices;
+    map<int,int> counts;
+    int latest=0;
+    public: StockPrice(){
+    }
+    void update(int timestamp,int price){
+        if(prices.count(timestamp)){
+            int old=prices[timestamp];
+            if(!--counts[old])counts.erase(old);
+        }
+        prices[timestamp]=price;
+        ++counts[price];
+        latest=max(latest,timestamp);
+    }
+    int current(){
+        return prices[latest];
+    }
+    int maximum(){
+        return counts.rbegin()->first;
+    }
+    int minimum(){
+        return counts.begin()->first;
+    }
+};

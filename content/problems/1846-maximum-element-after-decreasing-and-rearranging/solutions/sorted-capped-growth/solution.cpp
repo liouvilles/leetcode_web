@@ -1,1 +1,8 @@
-class Solution { public: int maximumElementAfterDecrementingAndRearranging(vector<int>& arr){sort(arr.begin(),arr.end());int current=0;for(int value:arr)current=min(value,current+1);return current;} };
+class Solution {
+    public: int maximumElementAfterDecrementingAndRearranging(vector<int>& arr){
+        sort(arr.begin(),arr.end());
+        int current=0;
+        for(int value:arr)current=min(value,current+1);
+        return current;
+    }
+};

@@ -1,1 +1,22 @@
-class Solution { vector<int> nums;int difference;unordered_map<int,int> frequency;int dfs(int index){if(index==(int)nums.size())return 1;int ways=dfs(index+1),value=nums[index];if(!frequency[value-difference]){++frequency[value];ways+=dfs(index+1);--frequency[value];}return ways;}public:int beautifulSubsets(vector<int>& input,int k){nums=input;difference=k;sort(nums.begin(),nums.end());frequency.clear();return dfs(0)-1;} };
+class Solution {
+    vector<int> nums;
+    int difference;
+    unordered_map<int,int> frequency;
+    int dfs(int index){
+        if(index==(int)nums.size())return 1;
+        int ways=dfs(index+1),value=nums[index];
+        if(!frequency[value-difference]){
+            ++frequency[value];
+            ways+=dfs(index+1);
+            --frequency[value];
+        }
+        return ways;
+    }
+    public:int beautifulSubsets(vector<int>& input,int k){
+        nums=input;
+        difference=k;
+        sort(nums.begin(),nums.end());
+        frequency.clear();
+        return dfs(0)-1;
+    }
+};

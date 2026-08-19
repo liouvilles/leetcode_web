@@ -1,1 +1,13 @@
-class Solution { fun countBinarySubstrings(s:String):Int{var previous=0;var current=1;var answer=0;for(i in 1 until s.length)if(s[i]==s[i-1])current++ else{answer+=minOf(previous,current);previous=current;current=1};return answer+minOf(previous,current)} }
+class Solution {
+    fun countBinarySubstrings(s:String):Int{
+        var previous=0;
+        var current=1;
+        var answer=0;
+        for(i in 1 until s.length)if(s[i]==s[i-1])current++ else{
+            answer+=minOf(previous,current);
+            previous=current;
+            current=1
+        };
+        return answer+minOf(previous,current)
+    }
+}

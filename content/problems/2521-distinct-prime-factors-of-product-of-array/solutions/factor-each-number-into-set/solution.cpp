@@ -1,1 +1,14 @@
-class Solution { public:int distinctPrimeFactors(vector<int>& nums){unordered_set<int> factors;for(int input:nums){int value=input;for(int divisor=2;divisor*divisor<=value;++divisor)if(value%divisor==0){factors.insert(divisor);while(value%divisor==0)value/=divisor;}if(value>1)factors.insert(value);}return factors.size();} };
+class Solution {
+    public:int distinctPrimeFactors(vector<int>& nums){
+        unordered_set<int> factors;
+        for(int input:nums){
+            int value=input;
+            for(int divisor=2;divisor*divisor<=value;++divisor)if(value%divisor==0){
+                factors.insert(divisor);
+                while(value%divisor==0)value/=divisor;
+            }
+            if(value>1)factors.insert(value);
+        }
+        return factors.size();
+    }
+};

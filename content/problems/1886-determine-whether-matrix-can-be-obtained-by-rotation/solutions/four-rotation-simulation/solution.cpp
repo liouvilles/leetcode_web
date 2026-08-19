@@ -1,1 +1,18 @@
-class Solution { bool same(vector<vector<int>>& a,vector<vector<int>>& b){return a==b;}vector<vector<int>> rotate(vector<vector<int>>& matrix){int n=matrix.size();vector<vector<int>> result(n,vector<int>(n));for(int row=0;row<n;++row)for(int col=0;col<n;++col)result[col][n-1-row]=matrix[row][col];return result;}public: bool findRotation(vector<vector<int>>& mat,vector<vector<int>>& target){for(int turn=0;turn<4;++turn){if(same(mat,target))return true;mat=rotate(mat);}return false;} };
+class Solution {
+    bool same(vector<vector<int>>& a,vector<vector<int>>& b){
+        return a==b;
+    }
+    vector<vector<int>> rotate(vector<vector<int>>& matrix){
+        int n=matrix.size();
+        vector<vector<int>> result(n,vector<int>(n));
+        for(int row=0;row<n;++row)for(int col=0;col<n;++col)result[col][n-1-row]=matrix[row][col];
+        return result;
+    }
+    public: bool findRotation(vector<vector<int>>& mat,vector<vector<int>>& target){
+        for(int turn=0;turn<4;++turn){
+            if(same(mat,target))return true;
+            mat=rotate(mat);
+        }
+        return false;
+    }
+};

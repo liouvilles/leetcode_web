@@ -1,1 +1,7 @@
-class Solution { fun countQuadruplets(nums:IntArray):Int{var answer=0;for(a in nums.indices)for(b in a+1 until nums.size)for(c in b+1 until nums.size)for(d in c+1 until nums.size)if(nums[a]+nums[b]+nums[c]==nums[d])answer++;return answer} }
+class Solution {
+    fun countQuadruplets(nums:IntArray):Int{
+        var answer=0;
+        for(a in nums.indices)for(b in a+1 until nums.size)for(c in b+1 until nums.size)for(d in c+1 until nums.size)if(nums[a]+nums[b]+nums[c]==nums[d])answer++;
+        return answer
+    }
+}

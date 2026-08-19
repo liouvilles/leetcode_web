@@ -1,1 +1,15 @@
-class Solution { public: bool checkZeroOnes(string s){int ones=0,zeros=0,bestOne=0,bestZero=0;for(char value:s)if(value=='1'){++ones;zeros=0;bestOne=max(bestOne,ones);}else{++zeros;ones=0;bestZero=max(bestZero,zeros);}return bestOne>bestZero;} };
+class Solution {
+    public: bool checkZeroOnes(string s){
+        int ones=0,zeros=0,bestOne=0,bestZero=0;
+        for(char value:s)if(value=='1'){
+            ++ones;
+            zeros=0;
+            bestOne=max(bestOne,ones);
+        }else{
+            ++zeros;
+            ones=0;
+            bestZero=max(bestZero,zeros);
+        }
+        return bestOne>bestZero;
+    }
+};

@@ -1,1 +1,15 @@
-class Solution { public int[] findThePrefixCommonArray(int[] A,int[] B){int n=A.length,common=0;boolean[] seenA=new boolean[n+1],seenB=new boolean[n+1];int[] answer=new int[n];for(int i=0;i<n;i++){seenA[A[i]]=true;if(seenB[A[i]])common++;seenB[B[i]]=true;if(seenA[B[i]])common++;answer[i]=common;}return answer;} }
+class Solution {
+    public int[] findThePrefixCommonArray(int[] A,int[] B){
+        int n=A.length,common=0;
+        boolean[] seenA=new boolean[n+1],seenB=new boolean[n+1];
+        int[] answer=new int[n];
+        for(int i=0;i<n;i++){
+            seenA[A[i]]=true;
+            if(seenB[A[i]])common++;
+            seenB[B[i]]=true;
+            if(seenA[B[i]])common++;
+            answer[i]=common;
+        }
+        return answer;
+    }
+}

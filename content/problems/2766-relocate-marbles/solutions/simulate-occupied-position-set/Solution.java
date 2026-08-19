@@ -1,1 +1,13 @@
-class Solution { public List<Integer> relocateMarbles(int[] nums,int[] moveFrom,int[] moveTo){Set<Integer> positions=new HashSet<>();for(int value:nums)positions.add(value);for(int i=0;i<moveFrom.length;i++){positions.remove(moveFrom[i]);positions.add(moveTo[i]);}List<Integer> answer=new ArrayList<>(positions);Collections.sort(answer);return answer;} }
+class Solution {
+    public List<Integer> relocateMarbles(int[] nums,int[] moveFrom,int[] moveTo){
+        Set<Integer> positions=new HashSet<>();
+        for(int value:nums)positions.add(value);
+        for(int i=0;i<moveFrom.length;i++){
+            positions.remove(moveFrom[i]);
+            positions.add(moveTo[i]);
+        }
+        List<Integer> answer=new ArrayList<>(positions);
+        Collections.sort(answer);
+        return answer;
+    }
+}

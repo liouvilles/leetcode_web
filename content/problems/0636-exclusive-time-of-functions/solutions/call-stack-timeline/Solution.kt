@@ -1,1 +1,21 @@
-class Solution { fun exclusiveTime(n:Int,logs:List<String>):IntArray{val answer=IntArray(n);val stack=java.util.ArrayDeque<Int>();var previous=0;for(log in logs){val parts=log.split(':');val id=parts[0].toInt();val time=parts[2].toInt();if(parts[1]=="start"){if(stack.isNotEmpty())answer[stack.peekLast()]+=time-previous;stack.addLast(id);previous=time}else{answer[stack.removeLast()]+=time-previous+1;previous=time+1}};return answer} }
+class Solution {
+    fun exclusiveTime(n:Int,logs:List<String>):IntArray{
+        val answer=IntArray(n);
+        val stack=java.util.ArrayDeque<Int>();
+        var previous=0;
+        for(log in logs){
+            val parts=log.split(':');
+            val id=parts[0].toInt();
+            val time=parts[2].toInt();
+            if(parts[1]=="start"){
+                if(stack.isNotEmpty())answer[stack.peekLast()]+=time-previous;
+                stack.addLast(id);
+                previous=time
+            }else{
+                answer[stack.removeLast()]+=time-previous+1;
+                previous=time+1
+            }
+        };
+        return answer
+    }
+}

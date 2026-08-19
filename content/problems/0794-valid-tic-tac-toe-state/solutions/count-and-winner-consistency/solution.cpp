@@ -1,1 +1,19 @@
-class Solution { bool wins(vector<string>& board,char player){for(int i=0;i<3;++i)if(board[i][0]==player&&board[i][1]==player&&board[i][2]==player||board[0][i]==player&&board[1][i]==player&&board[2][i]==player)return true;return board[0][0]==player&&board[1][1]==player&&board[2][2]==player||board[0][2]==player&&board[1][1]==player&&board[2][0]==player;}public:bool validTicTacToe(vector<string>& board){int x=0,o=0;for(auto& row:board)for(char c:row){x+=c=='X';o+=c=='O';}if(x!=o&&x!=o+1)return false;bool xWins=wins(board,'X'),oWins=wins(board,'O');if(xWins&&oWins)return false;if(xWins&&x!=o+1)return false;if(oWins&&x!=o)return false;return true;} };
+class Solution {
+    bool wins(vector<string>& board,char player){
+        for(int i=0;i<3;++i)if(board[i][0]==player&&board[i][1]==player&&board[i][2]==player||board[0][i]==player&&board[1][i]==player&&board[2][i]==player)return true;
+        return board[0][0]==player&&board[1][1]==player&&board[2][2]==player||board[0][2]==player&&board[1][1]==player&&board[2][0]==player;
+    }
+    public:bool validTicTacToe(vector<string>& board){
+        int x=0,o=0;
+        for(auto& row:board)for(char c:row){
+            x+=c=='X';
+            o+=c=='O';
+        }
+        if(x!=o&&x!=o+1)return false;
+        bool xWins=wins(board,'X'),oWins=wins(board,'O');
+        if(xWins&&oWins)return false;
+        if(xWins&&x!=o+1)return false;
+        if(oWins&&x!=o)return false;
+        return true;
+    }
+};

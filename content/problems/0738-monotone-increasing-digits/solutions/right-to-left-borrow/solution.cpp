@@ -1,1 +1,12 @@
-class Solution { public: int monotoneIncreasingDigits(int n){string digits=to_string(n);int marker=digits.size();for(int i=digits.size()-1;i>0;--i)if(digits[i-1]>digits[i]){--digits[i-1];marker=i;}for(int i=marker;i<(int)digits.size();++i)digits[i]='9';return stoi(digits);} };
+class Solution {
+    public: int monotoneIncreasingDigits(int n){
+        string digits=to_string(n);
+        int marker=digits.size();
+        for(int i=digits.size()-1;i>0;--i)if(digits[i-1]>digits[i]){
+            --digits[i-1];
+            marker=i;
+        }
+        for(int i=marker;i<(int)digits.size();++i)digits[i]='9';
+        return stoi(digits);
+    }
+};

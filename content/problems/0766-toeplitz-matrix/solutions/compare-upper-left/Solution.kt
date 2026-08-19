@@ -1,1 +1,6 @@
-class Solution { fun isToeplitzMatrix(matrix:Array<IntArray>):Boolean{for(row in 1 until matrix.size)for(column in 1 until matrix[0].size)if(matrix[row][column]!=matrix[row-1][column-1])return false;return true} }
+class Solution {
+    fun isToeplitzMatrix(matrix:Array<IntArray>):Boolean{
+        for(row in 1 until matrix.size)for(column in 1 until matrix[0].size)if(matrix[row][column]!=matrix[row-1][column-1])return false;
+        return true
+    }
+}

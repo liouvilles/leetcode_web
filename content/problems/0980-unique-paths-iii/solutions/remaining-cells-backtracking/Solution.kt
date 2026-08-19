@@ -1,1 +1,35 @@
-class Solution { private lateinit var grid:Array<IntArray>;private var rows=0;private var columns=0;fun uniquePathsIII(grid:Array<IntArray>):Int{this.grid=grid;rows=grid.size;columns=grid[0].size;var startRow=0;var startColumn=0;var walkable=0;for(r in 0 until rows)for(c in 0 until columns)if(grid[r][c]!=-1){walkable++;if(grid[r][c]==1){startRow=r;startColumn=c}};return dfs(startRow,startColumn,walkable)};private fun dfs(r:Int,c:Int,remaining:Int):Int{if(grid[r][c]==2)return if(remaining==1)1 else 0;val saved=grid[r][c];grid[r][c]=-1;var paths=0;val directions=arrayOf(intArrayOf(1,0),intArrayOf(-1,0),intArrayOf(0,1),intArrayOf(0,-1));for(d in directions){val nr=r+d[0];val nc=c+d[1];if(nr in 0 until rows&&nc in 0 until columns&&grid[nr][nc]!=-1)paths+=dfs(nr,nc,remaining-1)};grid[r][c]=saved;return paths} }
+class Solution {
+    private lateinit var grid:Array<IntArray>;
+    private var rows=0;
+    private var columns=0;
+    fun uniquePathsIII(grid:Array<IntArray>):Int{
+        this.grid=grid;
+        rows=grid.size;
+        columns=grid[0].size;
+        var startRow=0;
+        var startColumn=0;
+        var walkable=0;
+        for(r in 0 until rows)for(c in 0 until columns)if(grid[r][c]!=-1){
+            walkable++;
+            if(grid[r][c]==1){
+                startRow=r;
+                startColumn=c
+            }
+        };
+        return dfs(startRow,startColumn,walkable)
+    };
+    private fun dfs(r:Int,c:Int,remaining:Int):Int{
+        if(grid[r][c]==2)return if(remaining==1)1 else 0;
+        val saved=grid[r][c];
+        grid[r][c]=-1;
+        var paths=0;
+        val directions=arrayOf(intArrayOf(1,0),intArrayOf(-1,0),intArrayOf(0,1),intArrayOf(0,-1));
+        for(d in directions){
+            val nr=r+d[0];
+            val nc=c+d[1];
+            if(nr in 0 until rows&&nc in 0 until columns&&grid[nr][nc]!=-1)paths+=dfs(nr,nc,remaining-1)
+        };
+        grid[r][c]=saved;
+        return paths
+    }
+}

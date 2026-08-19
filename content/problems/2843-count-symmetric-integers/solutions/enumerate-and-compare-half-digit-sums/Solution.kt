@@ -1,1 +1,18 @@
-class Solution { fun countSymmetricIntegers(low:Int,high:Int):Int{var answer=0;for(value in low..high){val digits=value.toString();if(digits.length%2==1)continue;var first=0;var second=0;val half=digits.length/2;for(i in 0 until half){first+=digits[i]-'0';second+=digits[i+half]-'0'};if(first==second)answer++};return answer} }
+class Solution {
+    fun countSymmetricIntegers(low:Int,high:Int):Int{
+        var answer=0;
+        for(value in low..high){
+            val digits=value.toString();
+            if(digits.length%2==1)continue;
+            var first=0;
+            var second=0;
+            val half=digits.length/2;
+            for(i in 0 until half){
+                first+=digits[i]-'0';
+                second+=digits[i+half]-'0'
+            };
+            if(first==second)answer++
+        };
+        return answer
+    }
+}

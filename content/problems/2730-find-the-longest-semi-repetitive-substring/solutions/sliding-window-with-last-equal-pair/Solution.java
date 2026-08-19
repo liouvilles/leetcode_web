@@ -1,1 +1,13 @@
-class Solution { public int longestSemiRepetitiveSubstring(String s){int left=0,lastRepeat=-1,answer=1;for(int right=1;right<s.length();right++){if(s.charAt(right)==s.charAt(right-1)){if(lastRepeat>=left)left=lastRepeat;lastRepeat=right;}answer=Math.max(answer,right-left+1);}return answer;} }
+class Solution {
+    public int longestSemiRepetitiveSubstring(String s){
+        int left=0,lastRepeat=-1,answer=1;
+        for(int right=1;right<s.length();right++){
+            if(s.charAt(right)==s.charAt(right-1)){
+                if(lastRepeat>=left)left=lastRepeat;
+                lastRepeat=right;
+            }
+            answer=Math.max(answer,right-left+1);
+        }
+        return answer;
+    }
+}

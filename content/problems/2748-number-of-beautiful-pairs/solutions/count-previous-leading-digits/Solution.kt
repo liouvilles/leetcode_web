@@ -1,1 +1,24 @@
-class Solution { fun countBeautifulPairs(nums:IntArray):Int{fun gcd(aInput:Int,bInput:Int):Int{var a=aInput;var b=bInput;while(b!=0){val next=a%b;a=b;b=next};return a};val frequency=IntArray(10);var answer=0;for(value in nums){val last=value%10;for(leading in 1..9)if(gcd(leading,last)==1)answer+=frequency[leading];var first=value;while(first>=10)first/=10;frequency[first]++};return answer} }
+class Solution {
+    fun countBeautifulPairs(nums:IntArray):Int{
+        fun gcd(aInput:Int,bInput:Int):Int{
+            var a=aInput;
+            var b=bInput;
+            while(b!=0){
+                val next=a%b;
+                a=b;
+                b=next
+            };
+            return a
+        };
+        val frequency=IntArray(10);
+        var answer=0;
+        for(value in nums){
+            val last=value%10;
+            for(leading in 1..9)if(gcd(leading,last)==1)answer+=frequency[leading];
+            var first=value;
+            while(first>=10)first/=10;
+            frequency[first]++
+        };
+        return answer
+    }
+}

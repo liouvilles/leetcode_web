@@ -1,1 +1,16 @@
-class Solution { public char slowestKey(int[] releaseTimes,String keysPressed){int previous=0,bestDuration=0;char answer='a';for(int i=0;i<releaseTimes.length;i++){int duration=releaseTimes[i]-previous;char key=keysPressed.charAt(i);if(duration>bestDuration||duration==bestDuration&&key>answer){bestDuration=duration;answer=key;}previous=releaseTimes[i];}return answer;} }
+class Solution {
+    public char slowestKey(int[] releaseTimes,String keysPressed){
+        int previous=0,bestDuration=0;
+        char answer='a';
+        for(int i=0;i<releaseTimes.length;i++){
+            int duration=releaseTimes[i]-previous;
+            char key=keysPressed.charAt(i);
+            if(duration>bestDuration||duration==bestDuration&&key>answer){
+                bestDuration=duration;
+                answer=key;
+            }
+            previous=releaseTimes[i];
+        }
+        return answer;
+    }
+}

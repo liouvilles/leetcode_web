@@ -1,1 +1,18 @@
-class Solution { fun maximumRequests(n:Int,requests:Array<IntArray>):Int{var answer=0;for(mask in 0 until (1 shl requests.size)){val selected=Integer.bitCount(mask);if(selected<=answer)continue;val balance=IntArray(n);for(i in requests.indices)if(mask and (1 shl i)!=0){balance[requests[i][0]]--;balance[requests[i][1]]++};if(balance.all{it==0})answer=selected};return answer} }
+class Solution {
+    fun maximumRequests(n:Int,requests:Array<IntArray>):Int{
+        var answer=0;
+        for(mask in 0 until (1 shl requests.size)){
+            val selected=Integer.bitCount(mask);
+            if(selected<=answer)continue;
+            val balance=IntArray(n);
+            for(i in requests.indices)if(mask and (1 shl i)!=0){
+                balance[requests[i][0]]--;
+                balance[requests[i][1]]++
+            };
+            if(balance.all{
+                it==0
+            })answer=selected
+        };
+        return answer
+    }
+}

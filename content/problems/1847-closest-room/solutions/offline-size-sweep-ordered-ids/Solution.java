@@ -1,1 +1,22 @@
-class Solution { public int[] closestRoom(int[][] rooms,int[][] queries){Arrays.sort(rooms,(a,b)->b[1]-a[1]);Integer[] order=new Integer[queries.length];for(int i=0;i<order.length;i++)order[i]=i;Arrays.sort(order,(a,b)->queries[b][1]-queries[a][1]);TreeSet<Integer> ids=new TreeSet<>();int[] answer=new int[queries.length];Arrays.fill(answer,-1);int room=0;for(int index:order){while(room<rooms.length&&rooms[room][1]>=queries[index][1])ids.add(rooms[room++][0]);if(ids.isEmpty())continue;int preferred=queries[index][0];Integer low=ids.floor(preferred),high=ids.ceiling(preferred);if(low==null)answer[index]=high;else if(high==null)answer[index]=low;else answer[index]=preferred-low<=high-preferred?low:high;}return answer;} }
+class Solution {
+    public int[] closestRoom(int[][] rooms,int[][] queries){
+        Arrays.sort(rooms,(a,b)->b[1]-a[1]);
+        Integer[] order=new Integer[queries.length];
+        for(int i=0;i<order.length;i++)order[i]=i;
+        Arrays.sort(order,(a,b)->queries[b][1]-queries[a][1]);
+        TreeSet<Integer> ids=new TreeSet<>();
+        int[] answer=new int[queries.length];
+        Arrays.fill(answer,-1);
+        int room=0;
+        for(int index:order){
+            while(room<rooms.length&&rooms[room][1]>=queries[index][1])ids.add(rooms[room++][0]);
+            if(ids.isEmpty())continue;
+            int preferred=queries[index][0];
+            Integer low=ids.floor(preferred),high=ids.ceiling(preferred);
+            if(low==null)answer[index]=high;
+            else if(high==null)answer[index]=low;
+            else answer[index]=preferred-low<=high-preferred?low:high;
+        }
+        return answer;
+    }
+}

@@ -1,1 +1,13 @@
-class Solution { fun numberOfWays(corridor:String):Int{var ways=1L;var seats=0;var previousSecond=-1;for(i in corridor.indices)if(corridor[i]=='S'){seats++;if(seats>2&&seats%2==1)ways=ways*(i-previousSecond)%1_000_000_007;if(seats%2==0)previousSecond=i};return if(seats>0&&seats%2==0)ways.toInt()else 0} }
+class Solution {
+    fun numberOfWays(corridor:String):Int{
+        var ways=1L;
+        var seats=0;
+        var previousSecond=-1;
+        for(i in corridor.indices)if(corridor[i]=='S'){
+            seats++;
+            if(seats>2&&seats%2==1)ways=ways*(i-previousSecond)%1_000_000_007;
+            if(seats%2==0)previousSecond=i
+        };
+        return if(seats>0&&seats%2==0)ways.toInt()else 0
+    }
+}

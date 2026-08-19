@@ -1,1 +1,26 @@
-class Solution { fun largestVariance(s:String):Int{val frequency=IntArray(26);for(ch in s)frequency[ch-'a']++;var answer=0;for(major in 0 until 26)for(minor in 0 until 26)if(major!=minor&&frequency[major]>0&&frequency[minor]>0){var majorCount=0;var minorCount=0;var remainingMinor=frequency[minor];for(ch in s){val value=ch-'a';if(value==major)majorCount++;if(value==minor){minorCount++;remainingMinor--};if(minorCount>0)answer=maxOf(answer,majorCount-minorCount);if(majorCount<minorCount&&remainingMinor>0){majorCount=0;minorCount=0}}};return answer} }
+class Solution {
+    fun largestVariance(s:String):Int{
+        val frequency=IntArray(26);
+        for(ch in s)frequency[ch-'a']++;
+        var answer=0;
+        for(major in 0 until 26)for(minor in 0 until 26)if(major!=minor&&frequency[major]>0&&frequency[minor]>0){
+            var majorCount=0;
+            var minorCount=0;
+            var remainingMinor=frequency[minor];
+            for(ch in s){
+                val value=ch-'a';
+                if(value==major)majorCount++;
+                if(value==minor){
+                    minorCount++;
+                    remainingMinor--
+                };
+                if(minorCount>0)answer=maxOf(answer,majorCount-minorCount);
+                if(majorCount<minorCount&&remainingMinor>0){
+                    majorCount=0;
+                    minorCount=0
+                }
+            }
+        };
+        return answer
+    }
+}

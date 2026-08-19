@@ -1,1 +1,17 @@
-class Solution { public:vector<long long> getDistances(vector<int>& arr){unordered_map<int,vector<int>> groups;for(int i=0;i<(int)arr.size();++i)groups[arr[i]].push_back(i);vector<long long> answer(arr.size());for(auto& entry:groups){auto& indices=entry.second;long long total=accumulate(indices.begin(),indices.end(),0LL),left=0;for(int i=0;i<(int)indices.size();++i){long long index=indices[i];answer[index]=index*i-left+(total-left-index)-index*(indices.size()-i-1);left+=index;}}return answer;} };
+class Solution {
+    public:vector<long long> getDistances(vector<int>& arr){
+        unordered_map<int,vector<int>> groups;
+        for(int i=0;i<(int)arr.size();++i)groups[arr[i]].push_back(i);
+        vector<long long> answer(arr.size());
+        for(auto& entry:groups){
+            auto& indices=entry.second;
+            long long total=accumulate(indices.begin(),indices.end(),0LL),left=0;
+            for(int i=0;i<(int)indices.size();++i){
+                long long index=indices[i];
+                answer[index]=index*i-left+(total-left-index)-index*(indices.size()-i-1);
+                left+=index;
+            }
+        }
+        return answer;
+    }
+};

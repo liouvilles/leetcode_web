@@ -1,1 +1,19 @@
-class Solution { public: int maximumPopulation(vector<vector<int>>& logs){int difference[101]={};for(auto& log:logs){++difference[log[0]-1950];--difference[log[1]-1950];}int population=0,maximum=0,answer=1950;for(int year=0;year<100;++year){population+=difference[year];if(population>maximum){maximum=population;answer=1950+year;}}return answer;} };
+class Solution {
+    public: int maximumPopulation(vector<vector<int>>& logs){
+        int difference[101]={
+        };
+        for(auto& log:logs){
+            ++difference[log[0]-1950];
+            --difference[log[1]-1950];
+        }
+        int population=0,maximum=0,answer=1950;
+        for(int year=0;year<100;++year){
+            population+=difference[year];
+            if(population>maximum){
+                maximum=population;
+                answer=1950+year;
+            }
+        }
+        return answer;
+    }
+};

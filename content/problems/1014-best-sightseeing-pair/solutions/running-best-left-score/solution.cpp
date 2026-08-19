@@ -1,1 +1,10 @@
-class Solution { public: int maxScoreSightseeingPair(vector<int>& values){int bestLeft=values[0],answer=INT_MIN;for(int j=1;j<(int)values.size();++j){answer=max(answer,bestLeft+values[j]-j);bestLeft=max(bestLeft,values[j]+j);}return answer;} };
+class Solution {
+    public: int maxScoreSightseeingPair(vector<int>& values){
+        int bestLeft=values[0],answer=INT_MIN;
+        for(int j=1;j<(int)values.size();++j){
+            answer=max(answer,bestLeft+values[j]-j);
+            bestLeft=max(bestLeft,values[j]+j);
+        }
+        return answer;
+    }
+};

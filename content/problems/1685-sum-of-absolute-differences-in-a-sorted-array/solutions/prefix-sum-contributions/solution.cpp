@@ -1,1 +1,13 @@
-class Solution { public: vector<int> getSumAbsoluteDifferences(vector<int>& nums){long long total=accumulate(nums.begin(),nums.end(),0LL),leftSum=0;vector<int> answer(nums.size());for(int i=0;i<(int)nums.size();++i){long long left=1LL*nums[i]*i-leftSum;long long right=total-leftSum-nums[i]-1LL*nums[i]*(nums.size()-i-1);answer[i]=left+right;leftSum+=nums[i];}return answer;} };
+class Solution {
+    public: vector<int> getSumAbsoluteDifferences(vector<int>& nums){
+        long long total=accumulate(nums.begin(),nums.end(),0LL),leftSum=0;
+        vector<int> answer(nums.size());
+        for(int i=0;i<(int)nums.size();++i){
+            long long left=1LL*nums[i]*i-leftSum;
+            long long right=total-leftSum-nums[i]-1LL*nums[i]*(nums.size()-i-1);
+            answer[i]=left+right;
+            leftSum+=nums[i];
+        }
+        return answer;
+    }
+};

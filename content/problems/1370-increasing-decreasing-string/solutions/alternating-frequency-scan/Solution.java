@@ -1,1 +1,18 @@
-class Solution { public String sortString(String text){int[] count=new int[26];for(char value:text.toCharArray())count[value-'a']++;StringBuilder answer=new StringBuilder();while(answer.length()<text.length()){for(int i=0;i<26;i++)if(count[i]>0){answer.append((char)('a'+i));count[i]--;}for(int i=25;i>=0;i--)if(count[i]>0){answer.append((char)('a'+i));count[i]--;}}return answer.toString();} }
+class Solution {
+    public String sortString(String text){
+        int[] count=new int[26];
+        for(char value:text.toCharArray())count[value-'a']++;
+        StringBuilder answer=new StringBuilder();
+        while(answer.length()<text.length()){
+            for(int i=0;i<26;i++)if(count[i]>0){
+                answer.append((char)('a'+i));
+                count[i]--;
+            }
+            for(int i=25;i>=0;i--)if(count[i]>0){
+                answer.append((char)('a'+i));
+                count[i]--;
+            }
+        }
+        return answer.toString();
+    }
+}

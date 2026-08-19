@@ -1,1 +1,19 @@
-class Solution { public int minSwap(int[] nums1,int[] nums2){int keep=0,swap=1,infinity=1000000;for(int i=1;i<nums1.length;i++){int nextKeep=infinity,nextSwap=infinity;if(nums1[i]>nums1[i-1]&&nums2[i]>nums2[i-1]){nextKeep=keep;nextSwap=swap+1;}if(nums1[i]>nums2[i-1]&&nums2[i]>nums1[i-1]){nextKeep=Math.min(nextKeep,swap);nextSwap=Math.min(nextSwap,keep+1);}keep=nextKeep;swap=nextSwap;}return Math.min(keep,swap);} }
+class Solution {
+    public int minSwap(int[] nums1,int[] nums2){
+        int keep=0,swap=1,infinity=1000000;
+        for(int i=1;i<nums1.length;i++){
+            int nextKeep=infinity,nextSwap=infinity;
+            if(nums1[i]>nums1[i-1]&&nums2[i]>nums2[i-1]){
+                nextKeep=keep;
+                nextSwap=swap+1;
+            }
+            if(nums1[i]>nums2[i-1]&&nums2[i]>nums1[i-1]){
+                nextKeep=Math.min(nextKeep,swap);
+                nextSwap=Math.min(nextSwap,keep+1);
+            }
+            keep=nextKeep;
+            swap=nextSwap;
+        }
+        return Math.min(keep,swap);
+    }
+}

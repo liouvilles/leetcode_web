@@ -1,1 +1,12 @@
-class Solution { public: int findTheDistanceValue(vector<int>& arr1,vector<int>& arr2,int d){sort(arr2.begin(),arr2.end());int answer=0;for(int value:arr1){auto it=lower_bound(arr2.begin(),arr2.end(),value);bool close=it!=arr2.end()&&abs(*it-value)<=d||it!=arr2.begin()&&abs(*prev(it)-value)<=d;if(!close)++answer;}return answer;} };
+class Solution {
+    public: int findTheDistanceValue(vector<int>& arr1,vector<int>& arr2,int d){
+        sort(arr2.begin(),arr2.end());
+        int answer=0;
+        for(int value:arr1){
+            auto it=lower_bound(arr2.begin(),arr2.end(),value);
+            bool close=it!=arr2.end()&&abs(*it-value)<=d||it!=arr2.begin()&&abs(*prev(it)-value)<=d;
+            if(!close)++answer;
+        }
+        return answer;
+    }
+};

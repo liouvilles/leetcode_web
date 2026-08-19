@@ -1,1 +1,16 @@
-class Solution { fun mostFrequent(nums:IntArray,key:Int):Int{val frequency=HashMap<Int,Int>();var answer=0;var best=0;for(i in 0 until nums.lastIndex)if(nums[i]==key){val count=(frequency[nums[i+1]]?:0)+1;frequency[nums[i+1]]=count;if(count>best){best=count;answer=nums[i+1]}};return answer} }
+class Solution {
+    fun mostFrequent(nums:IntArray,key:Int):Int{
+        val frequency=HashMap<Int,Int>();
+        var answer=0;
+        var best=0;
+        for(i in 0 until nums.lastIndex)if(nums[i]==key){
+            val count=(frequency[nums[i+1]]?:0)+1;
+            frequency[nums[i+1]]=count;
+            if(count>best){
+                best=count;
+                answer=nums[i+1]
+            }
+        };
+        return answer
+    }
+}

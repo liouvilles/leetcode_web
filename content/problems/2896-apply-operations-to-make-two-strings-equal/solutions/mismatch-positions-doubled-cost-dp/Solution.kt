@@ -1,1 +1,13 @@
-class Solution { fun minOperations(s1:String,s2:String,x:Int):Int{val positions=mutableListOf<Int>();for(i in s1.indices)if(s1[i]!=s2[i])positions.add(i);val m=positions.size;if(m%2==1)return -1;if(m==0)return 0;val dp=IntArray(m+1);dp[1]=x;for(i in 2..m)dp[i]=minOf(dp[i-1]+x,dp[i-2]+2*(positions[i-1]-positions[i-2]));return dp[m]/2} }
+class Solution {
+    fun minOperations(s1:String,s2:String,x:Int):Int{
+        val positions=mutableListOf<Int>();
+        for(i in s1.indices)if(s1[i]!=s2[i])positions.add(i);
+        val m=positions.size;
+        if(m%2==1)return -1;
+        if(m==0)return 0;
+        val dp=IntArray(m+1);
+        dp[1]=x;
+        for(i in 2..m)dp[i]=minOf(dp[i-1]+x,dp[i-2]+2*(positions[i-1]-positions[i-2]));
+        return dp[m]/2
+    }
+}

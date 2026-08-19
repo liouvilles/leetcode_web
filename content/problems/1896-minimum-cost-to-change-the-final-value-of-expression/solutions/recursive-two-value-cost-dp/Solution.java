@@ -1,1 +1,45 @@
-class Solution { private String expression;private int position;private int[] combine(int[] left,int[] right,char operator){int[] result={1_000_000,1_000_000};for(int a=0;a<2;a++)for(int b=0;b<2;b++)for(char used:new char[]{'&','|'}){int value=used=='&'?(a&b):(a|b);result[value]=Math.min(result[value],left[a]+right[b]+(used==operator?0:1));}return result;}private int[] atom(){char current=expression.charAt(position);if(current=='('){position++;int[] value=parse();position++;return value;}position++;return current=='0'?new int[]{0,1}:new int[]{1,0};}private int[] parse(){int[] value=atom();while(position<expression.length()&&expression.charAt(position)!=')'){char operator=expression.charAt(position++);value=combine(value,atom(),operator);}return value;}public int minOperationsToFlip(String expression){this.expression=expression;position=0;int[] cost=parse();return cost[0]==0?cost[1]:cost[0];} }
+class Solution {
+    private String expression;
+    private int position;
+    private int[] combine(int[] left,int[] right,char operator){
+        int[] result={
+            1_000_000,1_000_000
+        };
+        for(int a=0;a<2;a++)for(int b=0;b<2;b++)for(char used:new char[]{
+            '&','|'
+        }){
+            int value=used=='&'?(a&b):(a|b);
+            result[value]=Math.min(result[value],left[a]+right[b]+(used==operator?0:1));
+        }
+        return result;
+    }
+    private int[] atom(){
+        char current=expression.charAt(position);
+        if(current=='('){
+            position++;
+            int[] value=parse();
+            position++;
+            return value;
+        }
+        position++;
+        return current=='0'?new int[]{
+            0,1
+        }:new int[]{
+            1,0
+        };
+    }
+    private int[] parse(){
+        int[] value=atom();
+        while(position<expression.length()&&expression.charAt(position)!=')'){
+            char operator=expression.charAt(position++);
+            value=combine(value,atom(),operator);
+        }
+        return value;
+    }
+    public int minOperationsToFlip(String expression){
+        this.expression=expression;
+        position=0;
+        int[] cost=parse();
+        return cost[0]==0?cost[1]:cost[0];
+    }
+}

@@ -1,1 +1,14 @@
-class Solution { public:vector<int> numberOfPairs(vector<int>& nums){unordered_map<int,int> frequency;for(int value:nums)++frequency[value];int pairs=0,leftovers=0;for(auto [value,count]:frequency){pairs+=count/2;leftovers+=count%2;}return{pairs,leftovers};} };
+class Solution {
+    public:vector<int> numberOfPairs(vector<int>& nums){
+        unordered_map<int,int> frequency;
+        for(int value:nums)++frequency[value];
+        int pairs=0,leftovers=0;
+        for(auto [value,count]:frequency){
+            pairs+=count/2;
+            leftovers+=count%2;
+        }
+        return{
+            pairs,leftovers
+        };
+    }
+};

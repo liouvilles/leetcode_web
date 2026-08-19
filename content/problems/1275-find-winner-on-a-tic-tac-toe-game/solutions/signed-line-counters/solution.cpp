@@ -1,1 +1,16 @@
-class Solution { public: string tictactoe(vector<vector<int>>& moves){int rows[3]={},columns[3]={},diagonal=0,antiDiagonal=0;for(int i=0;i<(int)moves.size();++i){int score=i%2? -1:1,r=moves[i][0],c=moves[i][1];rows[r]+=score;columns[c]+=score;if(r==c)diagonal+=score;if(r+c==2)antiDiagonal+=score;if(abs(rows[r])==3||abs(columns[c])==3||abs(diagonal)==3||abs(antiDiagonal)==3)return score==1?"A":"B";}return moves.size()==9?"Draw":"Pending";} };
+class Solution {
+    public: string tictactoe(vector<vector<int>>& moves){
+        int rows[3]={
+        },columns[3]={
+        },diagonal=0,antiDiagonal=0;
+        for(int i=0;i<(int)moves.size();++i){
+            int score=i%2? -1:1,r=moves[i][0],c=moves[i][1];
+            rows[r]+=score;
+            columns[c]+=score;
+            if(r==c)diagonal+=score;
+            if(r+c==2)antiDiagonal+=score;
+            if(abs(rows[r])==3||abs(columns[c])==3||abs(diagonal)==3||abs(antiDiagonal)==3)return score==1?"A":"B";
+        }
+        return moves.size()==9?"Draw":"Pending";
+    }
+};

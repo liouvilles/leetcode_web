@@ -1,1 +1,10 @@
-class Solution { public int maxPower(String text){int current=1,answer=1;for(int i=1;i<text.length();i++){current=text.charAt(i)==text.charAt(i-1)?current+1:1;answer=Math.max(answer,current);}return answer;} }
+class Solution {
+    public int maxPower(String text){
+        int current=1,answer=1;
+        for(int i=1;i<text.length();i++){
+            current=text.charAt(i)==text.charAt(i-1)?current+1:1;
+            answer=Math.max(answer,current);
+        }
+        return answer;
+    }
+}

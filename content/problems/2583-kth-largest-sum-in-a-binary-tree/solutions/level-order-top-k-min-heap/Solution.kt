@@ -1,1 +1,24 @@
-class Solution { fun kthLargestLevelSum(root:TreeNode?,k:Int):Long{if(root==null)return -1;val queue=java.util.ArrayDeque<TreeNode>();queue.add(root);val largest=java.util.PriorityQueue<Long>();while(queue.isNotEmpty()){var sum=0L;repeat(queue.size){val node=queue.removeFirst();sum+=node.`val`;node.left?.let{queue.add(it)};node.right?.let{queue.add(it)}};largest.add(sum);if(largest.size>k)largest.poll()};return if(largest.size<k)-1L else largest.peek()} }
+class Solution {
+    fun kthLargestLevelSum(root:TreeNode?,k:Int):Long{
+        if(root==null)return -1;
+        val queue=java.util.ArrayDeque<TreeNode>();
+        queue.add(root);
+        val largest=java.util.PriorityQueue<Long>();
+        while(queue.isNotEmpty()){
+            var sum=0L;
+            repeat(queue.size){
+                val node=queue.removeFirst();
+                sum+=node.`val`;
+                node.left?.let{
+                    queue.add(it)
+                };
+                node.right?.let{
+                    queue.add(it)
+                }
+            };
+            largest.add(sum);
+            if(largest.size>k)largest.poll()
+        };
+        return if(largest.size<k)-1L else largest.peek()
+    }
+}

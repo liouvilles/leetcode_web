@@ -1,1 +1,26 @@
-class Solution { private static final long MOD=1_000_000_007L;private long power(long base,long exponent){long result=1;while(exponent>0){if((exponent&1)==1)result=result*base%MOD;base=base*base%MOD;exponent>>=1;}return result;}public int countAnagrams(String s){long[] factorial=new long[s.length()+1];factorial[0]=1;for(int i=1;i<factorial.length;i++)factorial[i]=factorial[i-1]*i%MOD;long answer=1;for(String word:s.split(" ")){int[] frequency=new int[26];for(char character:word.toCharArray())frequency[character-'a']++;long ways=factorial[word.length()];for(int count:frequency)ways=ways*power(factorial[count],MOD-2)%MOD;answer=answer*ways%MOD;}return (int)answer;} }
+class Solution {
+    private static final long MOD=1_000_000_007L;
+    private long power(long base,long exponent){
+        long result=1;
+        while(exponent>0){
+            if((exponent&1)==1)result=result*base%MOD;
+            base=base*base%MOD;
+            exponent>>=1;
+        }
+        return result;
+    }
+    public int countAnagrams(String s){
+        long[] factorial=new long[s.length()+1];
+        factorial[0]=1;
+        for(int i=1;i<factorial.length;i++)factorial[i]=factorial[i-1]*i%MOD;
+        long answer=1;
+        for(String word:s.split(" ")){
+            int[] frequency=new int[26];
+            for(char character:word.toCharArray())frequency[character-'a']++;
+            long ways=factorial[word.length()];
+            for(int count:frequency)ways=ways*power(factorial[count],MOD-2)%MOD;
+            answer=answer*ways%MOD;
+        }
+        return (int)answer;
+    }
+}

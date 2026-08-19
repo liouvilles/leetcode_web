@@ -1,1 +1,16 @@
-class Solution { fun mostFrequentEven(nums:IntArray):Int{val frequency=HashMap<Int,Int>();var answer=-1;var best=0;for(value in nums)if(value%2==0){val count=(frequency[value]?:0)+1;frequency[value]=count;if(count>best||count==best&&(answer<0||value<answer)){best=count;answer=value}};return answer} }
+class Solution {
+    fun mostFrequentEven(nums:IntArray):Int{
+        val frequency=HashMap<Int,Int>();
+        var answer=-1;
+        var best=0;
+        for(value in nums)if(value%2==0){
+            val count=(frequency[value]?:0)+1;
+            frequency[value]=count;
+            if(count>best||count==best&&(answer<0||value<answer)){
+                best=count;
+                answer=value
+            }
+        };
+        return answer
+    }
+}

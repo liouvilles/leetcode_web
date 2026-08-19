@@ -1,1 +1,9 @@
-class Solution { public: bool hasGroupsSizeX(vector<int>& deck){unordered_map<int,int> frequency;for(int card:deck)++frequency[card];int divisor=0;for(auto [card,count]:frequency)divisor=gcd(divisor,count);return divisor>=2;} };
+class Solution {
+    public: bool hasGroupsSizeX(vector<int>& deck){
+        unordered_map<int,int> frequency;
+        for(int card:deck)++frequency[card];
+        int divisor=0;
+        for(auto [card,count]:frequency)divisor=gcd(divisor,count);
+        return divisor>=2;
+    }
+};

@@ -1,1 +1,12 @@
-class Solution { public: int numRabbits(vector<int>& answers){unordered_map<int,int> frequency;for(int answer:answers)++frequency[answer];int result=0;for(auto [answer,count]:frequency){int size=answer+1;result+=(count+size-1)/size*size;}return result;} };
+class Solution {
+    public: int numRabbits(vector<int>& answers){
+        unordered_map<int,int> frequency;
+        for(int answer:answers)++frequency[answer];
+        int result=0;
+        for(auto [answer,count]:frequency){
+            int size=answer+1;
+            result+=(count+size-1)/size*size;
+        }
+        return result;
+    }
+};

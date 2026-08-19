@@ -1,1 +1,37 @@
-class Solution { public int knightDialer(int n){int[][] next={{4,6},{6,8},{7,9},{4,8},{0,3,9},{},{0,1,7},{2,6},{1,3},{2,4}};long mod=1000000007L;long[] dp=new long[10];Arrays.fill(dp,1);for(int length=1;length<n;length++){long[] updated=new long[10];for(int from=0;from<10;from++)for(int to:next[from])updated[to]=(updated[to]+dp[from])%mod;dp=updated;}long answer=0;for(long ways:dp)answer=(answer+ways)%mod;return(int)answer;} }
+class Solution {
+    public int knightDialer(int n){
+        int[][] next={
+            {
+                4,6
+            },{
+                6,8
+            },{
+                7,9
+            },{
+                4,8
+            },{
+                0,3,9
+            },{
+            },{
+                0,1,7
+            },{
+                2,6
+            },{
+                1,3
+            },{
+                2,4
+            }
+        };
+        long mod=1000000007L;
+        long[] dp=new long[10];
+        Arrays.fill(dp,1);
+        for(int length=1;length<n;length++){
+            long[] updated=new long[10];
+            for(int from=0;from<10;from++)for(int to:next[from])updated[to]=(updated[to]+dp[from])%mod;
+            dp=updated;
+        }
+        long answer=0;
+        for(long ways:dp)answer=(answer+ways)%mod;
+        return(int)answer;
+    }
+}

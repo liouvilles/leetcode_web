@@ -1,1 +1,19 @@
-class Solution { fun minOperations(nums:IntArray,numsDivide:IntArray):Int{fun gcd(aValue:Int,bValue:Int):Int{var a=aValue;var b=bValue;while(b!=0){val t=a%b;a=b;b=t};return a};var divisor=0;for(value in numsDivide)divisor=gcd(divisor,value);nums.sort();for(i in nums.indices)if(divisor%nums[i]==0)return i;return -1} }
+class Solution {
+    fun minOperations(nums:IntArray,numsDivide:IntArray):Int{
+        fun gcd(aValue:Int,bValue:Int):Int{
+            var a=aValue;
+            var b=bValue;
+            while(b!=0){
+                val t=a%b;
+                a=b;
+                b=t
+            };
+            return a
+        };
+        var divisor=0;
+        for(value in numsDivide)divisor=gcd(divisor,value);
+        nums.sort();
+        for(i in nums.indices)if(divisor%nums[i]==0)return i;
+        return -1
+    }
+}

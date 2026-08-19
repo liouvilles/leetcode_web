@@ -1,1 +1,15 @@
-class Solution { public int numberOfSubarrays(int[] nums,int k){return atMost(nums,k)-atMost(nums,k-1);}private int atMost(int[] nums,int limit){if(limit<0)return 0;int left=0,odd=0,total=0;for(int right=0;right<nums.length;right++){odd+=nums[right]&1;while(odd>limit)odd-=nums[left++]&1;total+=right-left+1;}return total;} }
+class Solution {
+    public int numberOfSubarrays(int[] nums,int k){
+        return atMost(nums,k)-atMost(nums,k-1);
+    }
+    private int atMost(int[] nums,int limit){
+        if(limit<0)return 0;
+        int left=0,odd=0,total=0;
+        for(int right=0;right<nums.length;right++){
+            odd+=nums[right]&1;
+            while(odd>limit)odd-=nums[left++]&1;
+            total+=right-left+1;
+        }
+        return total;
+    }
+}

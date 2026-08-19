@@ -1,1 +1,11 @@
-class Solution { fun canArrange(arr:IntArray,k:Int):Boolean{val count=IntArray(k);for(value in arr)count[((value%k)+k)%k]++;if(count[0]%2!=0)return false;for(remainder in 1 until k)if(remainder==k-remainder){if(count[remainder]%2!=0)return false}else if(count[remainder]!=count[k-remainder])return false;return true} }
+class Solution {
+    fun canArrange(arr:IntArray,k:Int):Boolean{
+        val count=IntArray(k);
+        for(value in arr)count[((value%k)+k)%k]++;
+        if(count[0]%2!=0)return false;
+        for(remainder in 1 until k)if(remainder==k-remainder){
+            if(count[remainder]%2!=0)return false
+        }else if(count[remainder]!=count[k-remainder])return false;
+        return true
+    }
+}

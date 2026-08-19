@@ -1,1 +1,12 @@
-class Solution { public: vector<int> filterRestaurants(vector<vector<int>>& restaurants,int veganFriendly,int maxPrice,int maxDistance){vector<vector<int>> filtered;for(auto& restaurant:restaurants)if((!veganFriendly||restaurant[2])&&restaurant[3]<=maxPrice&&restaurant[4]<=maxDistance)filtered.push_back(restaurant);sort(filtered.begin(),filtered.end(),[](auto& a,auto& b){return a[1]!=b[1]?a[1]>b[1]:a[0]>b[0];});vector<int> answer;for(auto& restaurant:filtered)answer.push_back(restaurant[0]);return answer;} };
+class Solution {
+    public: vector<int> filterRestaurants(vector<vector<int>>& restaurants,int veganFriendly,int maxPrice,int maxDistance){
+        vector<vector<int>> filtered;
+        for(auto& restaurant:restaurants)if((!veganFriendly||restaurant[2])&&restaurant[3]<=maxPrice&&restaurant[4]<=maxDistance)filtered.push_back(restaurant);
+        sort(filtered.begin(),filtered.end(),[](auto& a,auto& b){
+            return a[1]!=b[1]?a[1]>b[1]:a[0]>b[0];
+        });
+        vector<int> answer;
+        for(auto& restaurant:filtered)answer.push_back(restaurant[0]);
+        return answer;
+    }
+};

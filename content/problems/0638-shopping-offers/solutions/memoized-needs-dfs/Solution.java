@@ -1,1 +1,30 @@
-class Solution { private List<Integer> price;private List<List<Integer>> special;private final Map<List<Integer>,Integer> memo=new HashMap<>();public int shoppingOffers(List<Integer> price,List<List<Integer>> special,List<Integer> needs){this.price=price;this.special=special;return dfs(needs);}private int dfs(List<Integer> needs){Integer cached=memo.get(needs);if(cached!=null)return cached;int best=0;for(int i=0;i<needs.size();i++)best+=needs.get(i)*price.get(i);for(List<Integer> offer:special){List<Integer> next=new ArrayList<>();boolean valid=true;for(int i=0;i<needs.size();i++){if(offer.get(i)>needs.get(i)){valid=false;break;}next.add(needs.get(i)-offer.get(i));}if(valid)best=Math.min(best,offer.get(needs.size())+dfs(next));}memo.put(new ArrayList<>(needs),best);return best;} }
+class Solution {
+    private List<Integer> price;
+    private List<List<Integer>> special;
+    private final Map<List<Integer>,Integer> memo=new HashMap<>();
+    public int shoppingOffers(List<Integer> price,List<List<Integer>> special,List<Integer> needs){
+        this.price=price;
+        this.special=special;
+        return dfs(needs);
+    }
+    private int dfs(List<Integer> needs){
+        Integer cached=memo.get(needs);
+        if(cached!=null)return cached;
+        int best=0;
+        for(int i=0;i<needs.size();i++)best+=needs.get(i)*price.get(i);
+        for(List<Integer> offer:special){
+            List<Integer> next=new ArrayList<>();
+            boolean valid=true;
+            for(int i=0;i<needs.size();i++){
+                if(offer.get(i)>needs.get(i)){
+                    valid=false;
+                    break;
+                }
+                next.add(needs.get(i)-offer.get(i));
+            }
+            if(valid)best=Math.min(best,offer.get(needs.size())+dfs(next));
+        }
+        memo.put(new ArrayList<>(needs),best);
+        return best;
+    }
+}

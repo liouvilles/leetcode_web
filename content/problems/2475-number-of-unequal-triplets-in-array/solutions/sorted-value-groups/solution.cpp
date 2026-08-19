@@ -1,1 +1,13 @@
-class Solution { public:int unequalTriplets(vector<int>& nums){sort(nums.begin(),nums.end());int answer=0,n=nums.size();for(int i=0;i<n;){int j=i+1;while(j<n&&nums[j]==nums[i])++j;answer+=i*(j-i)*(n-j);i=j;}return answer;} };
+class Solution {
+    public:int unequalTriplets(vector<int>& nums){
+        sort(nums.begin(),nums.end());
+        int answer=0,n=nums.size();
+        for(int i=0;i<n;){
+            int j=i+1;
+            while(j<n&&nums[j]==nums[i])++j;
+            answer+=i*(j-i)*(n-j);
+            i=j;
+        }
+        return answer;
+    }
+};

@@ -1,1 +1,22 @@
-class Solution { private int gcd(int a,int b){while(b!=0){int t=a%b;a=b;b=t;}return a;}public int subarrayGCD(int[] nums,int k){int answer=0;for(int left=0;left<nums.length;left++){int value=0;for(int right=left;right<nums.length;right++){value=gcd(value,nums[right]);if(value==k)answer++;if(value%k!=0)break;}}return answer;} }
+class Solution {
+    private int gcd(int a,int b){
+        while(b!=0){
+            int t=a%b;
+            a=b;
+            b=t;
+        }
+        return a;
+    }
+    public int subarrayGCD(int[] nums,int k){
+        int answer=0;
+        for(int left=0;left<nums.length;left++){
+            int value=0;
+            for(int right=left;right<nums.length;right++){
+                value=gcd(value,nums[right]);
+                if(value==k)answer++;
+                if(value%k!=0)break;
+            }
+        }
+        return answer;
+    }
+}

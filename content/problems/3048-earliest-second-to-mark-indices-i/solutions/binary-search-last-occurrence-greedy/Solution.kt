@@ -1,1 +1,29 @@
-class Solution { fun earliestSecondToMarkIndices(nums:IntArray,changeIndices:IntArray):Int{fun canFinish(seconds:Int):Boolean{val last=IntArray(nums.size){-1};for(time in 0 until seconds)last[changeIndices[time]-1]=time;if(last.any{it<0})return false;var available=0L;for(time in 0 until seconds){val index=changeIndices[time]-1;if(time==last[index]){if(available<nums[index].toLong())return false;available-=nums[index]}else available++};return true};var left=1;var right=changeIndices.size+1;while(left<right){val middle=(left+right)/2;if(canFinish(middle))right=middle else left=middle+1};return if(left==changeIndices.size+1)-1 else left} }
+class Solution {
+    fun earliestSecondToMarkIndices(nums:IntArray,changeIndices:IntArray):Int{
+        fun canFinish(seconds:Int):Boolean{
+            val last=IntArray(nums.size){
+                -1
+            };
+            for(time in 0 until seconds)last[changeIndices[time]-1]=time;
+            if(last.any{
+                it<0
+            })return false;
+            var available=0L;
+            for(time in 0 until seconds){
+                val index=changeIndices[time]-1;
+                if(time==last[index]){
+                    if(available<nums[index].toLong())return false;
+                    available-=nums[index]
+                }else available++
+            };
+            return true
+        };
+        var left=1;
+        var right=changeIndices.size+1;
+        while(left<right){
+            val middle=(left+right)/2;
+            if(canFinish(middle))right=middle else left=middle+1
+        };
+        return if(left==changeIndices.size+1)-1 else left
+    }
+}

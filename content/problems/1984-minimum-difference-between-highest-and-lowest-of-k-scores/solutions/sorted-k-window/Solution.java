@@ -1,1 +1,8 @@
-class Solution { public int minimumDifference(int[] nums,int k){Arrays.sort(nums);int answer=Integer.MAX_VALUE;for(int right=k-1;right<nums.length;right++)answer=Math.min(answer,nums[right]-nums[right-k+1]);return answer;} }
+class Solution {
+    public int minimumDifference(int[] nums,int k){
+        Arrays.sort(nums);
+        int answer=Integer.MAX_VALUE;
+        for(int right=k-1;right<nums.length;right++)answer=Math.min(answer,nums[right]-nums[right-k+1]);
+        return answer;
+    }
+}

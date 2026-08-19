@@ -1,1 +1,38 @@
-class Solution { fun countPairs(n:Int,edges:Array<IntArray>):Long{val parent=IntArray(n){it};val size=IntArray(n){1};fun find(value:Int):Int{var x=value;while(x!=parent[x]){parent[x]=parent[parent[x]];x=parent[x]};return x};fun union(x:Int,y:Int){var a=find(x);var b=find(y);if(a==b)return;if(size[a]<size[b]){val t=a;a=b;b=t};parent[b]=a;size[a]+=size[b]};for(edge in edges)union(edge[0],edge[1]);var answer=0L;var seen=0L;for(i in 0 until n)if(find(i)==i){answer+=seen*size[i];seen+=size[i]};return answer} }
+class Solution {
+    fun countPairs(n:Int,edges:Array<IntArray>):Long{
+        val parent=IntArray(n){
+            it
+        };
+        val size=IntArray(n){
+            1
+        };
+        fun find(value:Int):Int{
+            var x=value;
+            while(x!=parent[x]){
+                parent[x]=parent[parent[x]];
+                x=parent[x]
+            };
+            return x
+        };
+        fun union(x:Int,y:Int){
+            var a=find(x);
+            var b=find(y);
+            if(a==b)return;
+            if(size[a]<size[b]){
+                val t=a;
+                a=b;
+                b=t
+            };
+            parent[b]=a;
+            size[a]+=size[b]
+        };
+        for(edge in edges)union(edge[0],edge[1]);
+        var answer=0L;
+        var seen=0L;
+        for(i in 0 until n)if(find(i)==i){
+            answer+=seen*size[i];
+            seen+=size[i]
+        };
+        return answer
+    }
+}

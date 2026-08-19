@@ -1,1 +1,8 @@
-class Solution { public int findFinalValue(int[] nums,int original){Set<Integer> values=new HashSet<>();for(int value:nums)values.add(value);while(values.contains(original))original*=2;return original;} }
+class Solution {
+    public int findFinalValue(int[] nums,int original){
+        Set<Integer> values=new HashSet<>();
+        for(int value:nums)values.add(value);
+        while(values.contains(original))original*=2;
+        return original;
+    }
+}

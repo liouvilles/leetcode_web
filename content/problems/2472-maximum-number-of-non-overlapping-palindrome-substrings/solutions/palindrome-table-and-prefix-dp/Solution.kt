@@ -1,1 +1,18 @@
-class Solution { fun maxPalindromes(s:String,k:Int):Int{val n=s.length;val palindrome=Array(n){BooleanArray(n)};for(left in n-1 downTo 0)for(right in left until n)palindrome[left][right]=s[left]==s[right]&&(right-left<2||palindrome[left+1][right-1]);val dp=IntArray(n+1);for(end in 0 until n){dp[end+1]=dp[end];for(length in k..k+1){val start=end-length+1;if(start>=0&&palindrome[start][end])dp[end+1]=maxOf(dp[end+1],dp[start]+1)}};return dp[n]} }
+class Solution {
+    fun maxPalindromes(s:String,k:Int):Int{
+        val n=s.length;
+        val palindrome=Array(n){
+            BooleanArray(n)
+        };
+        for(left in n-1 downTo 0)for(right in left until n)palindrome[left][right]=s[left]==s[right]&&(right-left<2||palindrome[left+1][right-1]);
+        val dp=IntArray(n+1);
+        for(end in 0 until n){
+            dp[end+1]=dp[end];
+            for(length in k..k+1){
+                val start=end-length+1;
+                if(start>=0&&palindrome[start][end])dp[end+1]=maxOf(dp[end+1],dp[start]+1)
+            }
+        };
+        return dp[n]
+    }
+}

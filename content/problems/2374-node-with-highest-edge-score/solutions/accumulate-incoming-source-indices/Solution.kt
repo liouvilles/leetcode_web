@@ -1,1 +1,9 @@
-class Solution { fun edgeScore(edges:IntArray):Int{val scores=LongArray(edges.size);for(i in edges.indices)scores[edges[i]]+=i;var answer=0;for(i in 1 until edges.size)if(scores[i]>scores[answer])answer=i;return answer} }
+class Solution {
+    fun edgeScore(edges:IntArray):Int{
+        val scores=LongArray(edges.size);
+        for(i in edges.indices)scores[edges[i]]+=i;
+        var answer=0;
+        for(i in 1 until edges.size)if(scores[i]>scores[answer])answer=i;
+        return answer
+    }
+}

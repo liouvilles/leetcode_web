@@ -1,1 +1,30 @@
-class Solution { public int[] countVisitedNodes(List<Integer> edges){int n=edges.size();int[] indegree=new int[n],order=new int[n],answer=new int[n];for(int next:edges)indegree[next]++;Deque<Integer> queue=new ArrayDeque<>();for(int node=0;node<n;node++)if(indegree[node]==0)queue.addLast(node);int size=0;while(!queue.isEmpty()){int node=queue.removeFirst();order[size++]=node;int next=edges.get(node);if(--indegree[next]==0)queue.addLast(next);}for(int start=0;start<n;start++)if(indegree[start]>0&&answer[start]==0){int length=1;for(int node=edges.get(start);node!=start;node=edges.get(node))length++;int node=start;do{answer[node]=length;node=edges.get(node);}while(node!=start);}for(int i=size-1;i>=0;i--){int node=order[i];answer[node]=answer[edges.get(node)]+1;}return answer;} }
+class Solution {
+    public int[] countVisitedNodes(List<Integer> edges){
+        int n=edges.size();
+        int[] indegree=new int[n],order=new int[n],answer=new int[n];
+        for(int next:edges)indegree[next]++;
+        Deque<Integer> queue=new ArrayDeque<>();
+        for(int node=0;node<n;node++)if(indegree[node]==0)queue.addLast(node);
+        int size=0;
+        while(!queue.isEmpty()){
+            int node=queue.removeFirst();
+            order[size++]=node;
+            int next=edges.get(node);
+            if(--indegree[next]==0)queue.addLast(next);
+        }
+        for(int start=0;start<n;start++)if(indegree[start]>0&&answer[start]==0){
+            int length=1;
+            for(int node=edges.get(start);node!=start;node=edges.get(node))length++;
+            int node=start;
+            do{
+                answer[node]=length;
+                node=edges.get(node);
+            }while(node!=start);
+        }
+        for(int i=size-1;i>=0;i--){
+            int node=order[i];
+            answer[node]=answer[edges.get(node)]+1;
+        }
+        return answer;
+    }
+}

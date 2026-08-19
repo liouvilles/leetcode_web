@@ -1,1 +1,9 @@
-class Solution { public: int leastInterval(vector<char>& tasks,int n){int counts[26]{};for(char task:tasks)++counts[task-'A'];int maximum=*max_element(counts,counts+26),kinds=count(counts,counts+26,maximum);return max((int)tasks.size(),(maximum-1)*(n+1)+kinds);} };
+class Solution {
+    public: int leastInterval(vector<char>& tasks,int n){
+        int counts[26]{
+        };
+        for(char task:tasks)++counts[task-'A'];
+        int maximum=*max_element(counts,counts+26),kinds=count(counts,counts+26,maximum);
+        return max((int)tasks.size(),(maximum-1)*(n+1)+kinds);
+    }
+};

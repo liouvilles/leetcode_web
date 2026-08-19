@@ -1,1 +1,14 @@
-class Solution { public int longestPalindrome(String[] words){int[][] count=new int[26][26];for(String word:words)count[word.charAt(0)-'a'][word.charAt(1)-'a']++;int answer=0;boolean center=false;for(int a=0;a<26;a++){for(int b=a+1;b<26;b++)answer+=4*Math.min(count[a][b],count[b][a]);answer+=count[a][a]/2*4;if(count[a][a]%2==1)center=true;}return answer+(center?2:0);} }
+class Solution {
+    public int longestPalindrome(String[] words){
+        int[][] count=new int[26][26];
+        for(String word:words)count[word.charAt(0)-'a'][word.charAt(1)-'a']++;
+        int answer=0;
+        boolean center=false;
+        for(int a=0;a<26;a++){
+            for(int b=a+1;b<26;b++)answer+=4*Math.min(count[a][b],count[b][a]);
+            answer+=count[a][a]/2*4;
+            if(count[a][a]%2==1)center=true;
+        }
+        return answer+(center?2:0);
+    }
+}

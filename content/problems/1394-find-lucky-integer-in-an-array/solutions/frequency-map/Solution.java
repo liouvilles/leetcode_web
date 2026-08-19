@@ -1,1 +1,9 @@
-class Solution { public int findLucky(int[] arr){Map<Integer,Integer> count=new HashMap<>();for(int value:arr)count.merge(value,1,Integer::sum);int answer=-1;for(Map.Entry<Integer,Integer> entry:count.entrySet())if(entry.getKey().equals(entry.getValue()))answer=Math.max(answer,entry.getKey());return answer;} }
+class Solution {
+    public int findLucky(int[] arr){
+        Map<Integer,Integer> count=new HashMap<>();
+        for(int value:arr)count.merge(value,1,Integer::sum);
+        int answer=-1;
+        for(Map.Entry<Integer,Integer> entry:count.entrySet())if(entry.getKey().equals(entry.getValue()))answer=Math.max(answer,entry.getKey());
+        return answer;
+    }
+}

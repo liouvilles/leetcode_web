@@ -1,1 +1,9 @@
-class Solution { public: int minDifference(vector<int>& nums){if(nums.size()<=4)return 0;sort(nums.begin(),nums.end());int answer=INT_MAX,n=nums.size();for(int i=0;i<=3;++i)answer=min(answer,nums[n-4+i]-nums[i]);return answer;} };
+class Solution {
+    public: int minDifference(vector<int>& nums){
+        if(nums.size()<=4)return 0;
+        sort(nums.begin(),nums.end());
+        int answer=INT_MAX,n=nums.size();
+        for(int i=0;i<=3;++i)answer=min(answer,nums[n-4+i]-nums[i]);
+        return answer;
+    }
+};

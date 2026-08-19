@@ -1,1 +1,21 @@
-class Solution { public: string fractionAddition(string expression){long long numerator=0,denominator=1;int index=0;while(index<(int)expression.size()){int sign=1;if(expression[index]=='+'||expression[index]=='-')sign=expression[index++]=='-'?-1:1;long long value=0;while(index<(int)expression.size()&&isdigit(expression[index]))value=value*10+expression[index++]-'0';++index;long long divisor=0;while(index<(int)expression.size()&&isdigit(expression[index]))divisor=divisor*10+expression[index++]-'0';numerator=numerator*divisor+sign*value*denominator;denominator*=divisor;long long common=gcd(llabs(numerator),denominator);numerator/=common;denominator/=common;}return to_string(numerator)+"/"+to_string(denominator);} };
+class Solution {
+    public: string fractionAddition(string expression){
+        long long numerator=0,denominator=1;
+        int index=0;
+        while(index<(int)expression.size()){
+            int sign=1;
+            if(expression[index]=='+'||expression[index]=='-')sign=expression[index++]=='-'?-1:1;
+            long long value=0;
+            while(index<(int)expression.size()&&isdigit(expression[index]))value=value*10+expression[index++]-'0';
+            ++index;
+            long long divisor=0;
+            while(index<(int)expression.size()&&isdigit(expression[index]))divisor=divisor*10+expression[index++]-'0';
+            numerator=numerator*divisor+sign*value*denominator;
+            denominator*=divisor;
+            long long common=gcd(llabs(numerator),denominator);
+            numerator/=common;
+            denominator/=common;
+        }
+        return to_string(numerator)+"/"+to_string(denominator);
+    }
+};

@@ -1,1 +1,25 @@
-class Solution { fun possibleBipartition(n:Int,dislikes:Array<IntArray>):Boolean{val graph=Array(n+1){mutableListOf<Int>()};for(edge in dislikes){graph[edge[0]].add(edge[1]);graph[edge[1]].add(edge[0])};val color=IntArray(n+1);for(start in 1..n)if(color[start]==0){val queue=java.util.ArrayDeque<Int>();queue.addLast(start);color[start]=1;while(queue.isNotEmpty()){val node=queue.removeFirst();for(next in graph[node])if(color[next]==0){color[next]=-color[node];queue.addLast(next)}else if(color[next]==color[node])return false}};return true} }
+class Solution {
+    fun possibleBipartition(n:Int,dislikes:Array<IntArray>):Boolean{
+        val graph=Array(n+1){
+            mutableListOf<Int>()
+        };
+        for(edge in dislikes){
+            graph[edge[0]].add(edge[1]);
+            graph[edge[1]].add(edge[0])
+        };
+        val color=IntArray(n+1);
+        for(start in 1..n)if(color[start]==0){
+            val queue=java.util.ArrayDeque<Int>();
+            queue.addLast(start);
+            color[start]=1;
+            while(queue.isNotEmpty()){
+                val node=queue.removeFirst();
+                for(next in graph[node])if(color[next]==0){
+                    color[next]=-color[node];
+                    queue.addLast(next)
+                }else if(color[next]==color[node])return false
+            }
+        };
+        return true
+    }
+}

@@ -1,1 +1,10 @@
-class Solution { fun stoneGame(piles:IntArray):Boolean{val dp=piles.copyOf();for(length in 2..piles.size)for(left in 0..piles.size-length){val right=left+length-1;dp[left]=maxOf(piles[left]-dp[left+1],piles[right]-dp[left])};return dp[0]>0} }
+class Solution {
+    fun stoneGame(piles:IntArray):Boolean{
+        val dp=piles.copyOf();
+        for(length in 2..piles.size)for(left in 0..piles.size-length){
+            val right=left+length-1;
+            dp[left]=maxOf(piles[left]-dp[left+1],piles[right]-dp[left])
+        };
+        return dp[0]>0
+    }
+}

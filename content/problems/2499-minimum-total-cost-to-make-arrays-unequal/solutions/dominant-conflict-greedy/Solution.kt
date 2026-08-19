@@ -1,1 +1,27 @@
-class Solution { fun minimumTotalCost(nums1:IntArray,nums2:IntArray):Long{val frequency=HashMap<Int,Int>();var cost=0L;var selected=0;var dominant=0;var dominantCount=0;for(i in nums1.indices)if(nums1[i]==nums2[i]){cost+=i;selected++;val count=(frequency[nums1[i]]?:0)+1;frequency[nums1[i]]=count;if(count>dominantCount){dominantCount=count;dominant=nums1[i]}};for(i in nums1.indices){if(dominantCount*2<=selected)break;if(nums1[i]!=nums2[i]&&nums1[i]!=dominant&&nums2[i]!=dominant){cost+=i;selected++}};return if(dominantCount*2>selected)-1 else cost} }
+class Solution {
+    fun minimumTotalCost(nums1:IntArray,nums2:IntArray):Long{
+        val frequency=HashMap<Int,Int>();
+        var cost=0L;
+        var selected=0;
+        var dominant=0;
+        var dominantCount=0;
+        for(i in nums1.indices)if(nums1[i]==nums2[i]){
+            cost+=i;
+            selected++;
+            val count=(frequency[nums1[i]]?:0)+1;
+            frequency[nums1[i]]=count;
+            if(count>dominantCount){
+                dominantCount=count;
+                dominant=nums1[i]
+            }
+        };
+        for(i in nums1.indices){
+            if(dominantCount*2<=selected)break;
+            if(nums1[i]!=nums2[i]&&nums1[i]!=dominant&&nums2[i]!=dominant){
+                cost+=i;
+                selected++
+            }
+        };
+        return if(dominantCount*2>selected)-1 else cost
+    }
+}

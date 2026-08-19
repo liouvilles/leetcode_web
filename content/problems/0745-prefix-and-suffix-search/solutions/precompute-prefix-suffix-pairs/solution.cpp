@@ -1,1 +1,13 @@
-class WordFilter { unordered_map<string,int> indices;public:WordFilter(vector<string>& words){for(int index=0;index<(int)words.size();++index){string& word=words[index];for(int prefix=0;prefix<=(int)word.size();++prefix)for(int suffix=0;suffix<=(int)word.size();++suffix)indices[word.substr(0,prefix)+"#"+word.substr(suffix)]=index;}}int f(string pref,string suff){auto it=indices.find(pref+"#"+suff);return it==indices.end()?-1:it->second;} };
+class WordFilter {
+    unordered_map<string,int> indices;
+    public:WordFilter(vector<string>& words){
+        for(int index=0;index<(int)words.size();++index){
+            string& word=words[index];
+            for(int prefix=0;prefix<=(int)word.size();++prefix)for(int suffix=0;suffix<=(int)word.size();++suffix)indices[word.substr(0,prefix)+"#"+word.substr(suffix)]=index;
+        }
+    }
+    int f(string pref,string suff){
+        auto it=indices.find(pref+"#"+suff);
+        return it==indices.end()?-1:it->second;
+    }
+};

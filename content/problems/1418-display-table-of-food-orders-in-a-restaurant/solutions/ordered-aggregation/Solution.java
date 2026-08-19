@@ -1,1 +1,24 @@
-class Solution { public List<List<String>> displayTable(List<List<String>> orders){Set<String> foods=new TreeSet<>();Map<Integer,Map<String,Integer>> tables=new TreeMap<>();for(List<String> order:orders){int table=Integer.parseInt(order.get(1));String food=order.get(2);foods.add(food);tables.computeIfAbsent(table,key->new HashMap<>()).merge(food,1,Integer::sum);}List<List<String>> answer=new ArrayList<>();List<String> header=new ArrayList<>();header.add("Table");header.addAll(foods);answer.add(header);for(Map.Entry<Integer,Map<String,Integer>> entry:tables.entrySet()){List<String> row=new ArrayList<>();row.add(String.valueOf(entry.getKey()));for(String food:foods)row.add(String.valueOf(entry.getValue().getOrDefault(food,0)));answer.add(row);}return answer;} }
+class Solution {
+    public List<List<String>> displayTable(List<List<String>> orders){
+        Set<String> foods=new TreeSet<>();
+        Map<Integer,Map<String,Integer>> tables=new TreeMap<>();
+        for(List<String> order:orders){
+            int table=Integer.parseInt(order.get(1));
+            String food=order.get(2);
+            foods.add(food);
+            tables.computeIfAbsent(table,key->new HashMap<>()).merge(food,1,Integer::sum);
+        }
+        List<List<String>> answer=new ArrayList<>();
+        List<String> header=new ArrayList<>();
+        header.add("Table");
+        header.addAll(foods);
+        answer.add(header);
+        for(Map.Entry<Integer,Map<String,Integer>> entry:tables.entrySet()){
+            List<String> row=new ArrayList<>();
+            row.add(String.valueOf(entry.getKey()));
+            for(String food:foods)row.add(String.valueOf(entry.getValue().getOrDefault(food,0)));
+            answer.add(row);
+        }
+        return answer;
+    }
+}

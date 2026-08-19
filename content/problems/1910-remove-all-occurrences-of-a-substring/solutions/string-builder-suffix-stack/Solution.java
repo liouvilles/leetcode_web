@@ -1,1 +1,18 @@
-class Solution { public String removeOccurrences(String s,String part){StringBuilder builder=new StringBuilder();for(char value:s.toCharArray()){builder.append(value);if(builder.length()>=part.length()){boolean match=true;int start=builder.length()-part.length();for(int i=0;i<part.length();i++)if(builder.charAt(start+i)!=part.charAt(i)){match=false;break;}if(match)builder.delete(start,builder.length());}}return builder.toString();} }
+class Solution {
+    public String removeOccurrences(String s,String part){
+        StringBuilder builder=new StringBuilder();
+        for(char value:s.toCharArray()){
+            builder.append(value);
+            if(builder.length()>=part.length()){
+                boolean match=true;
+                int start=builder.length()-part.length();
+                for(int i=0;i<part.length();i++)if(builder.charAt(start+i)!=part.charAt(i)){
+                    match=false;
+                    break;
+                }
+                if(match)builder.delete(start,builder.length());
+            }
+        }
+        return builder.toString();
+    }
+}

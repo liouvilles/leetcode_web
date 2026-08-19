@@ -1,1 +1,25 @@
-class Solution { private lateinit var grid:Array<IntArray>;private lateinit var memo:Array<Array<IntArray>>;private fun dfs(row:Int,first:Int,second:Int):Int{if(first !in grid[0].indices||second !in grid[0].indices)return -1_000_000;if(row==grid.size)return 0;if(memo[row][first][second]!=-1)return memo[row][first][second];val current=grid[row][first]+if(first==second)0 else grid[row][second];var best=0;for(moveFirst in -1..1)for(moveSecond in -1..1)best=maxOf(best,dfs(row+1,first+moveFirst,second+moveSecond));memo[row][first][second]=current+best;return memo[row][first][second]};fun cherryPickup(grid:Array<IntArray>):Int{this.grid=grid;memo=Array(grid.size){Array(grid[0].size){IntArray(grid[0].size){-1}}};return dfs(0,0,grid[0].lastIndex)} }
+class Solution {
+    private lateinit var grid:Array<IntArray>;
+    private lateinit var memo:Array<Array<IntArray>>;
+    private fun dfs(row:Int,first:Int,second:Int):Int{
+        if(first !in grid[0].indices||second !in grid[0].indices)return -1_000_000;
+        if(row==grid.size)return 0;
+        if(memo[row][first][second]!=-1)return memo[row][first][second];
+        val current=grid[row][first]+if(first==second)0 else grid[row][second];
+        var best=0;
+        for(moveFirst in -1..1)for(moveSecond in -1..1)best=maxOf(best,dfs(row+1,first+moveFirst,second+moveSecond));
+        memo[row][first][second]=current+best;
+        return memo[row][first][second]
+    };
+    fun cherryPickup(grid:Array<IntArray>):Int{
+        this.grid=grid;
+        memo=Array(grid.size){
+            Array(grid[0].size){
+                IntArray(grid[0].size){
+                    -1
+                }
+            }
+        };
+        return dfs(0,0,grid[0].lastIndex)
+    }
+}

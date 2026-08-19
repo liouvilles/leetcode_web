@@ -1,1 +1,17 @@
-class Solution { private long total,maximum;public int maxProduct(TreeNode root){total=sum(root);sumAndProduct(root);return (int)(maximum%1000000007L);}private long sum(TreeNode node){return node==null?0:node.val+sum(node.left)+sum(node.right);}private long sumAndProduct(TreeNode node){if(node==null)return 0;long sub=node.val+sumAndProduct(node.left)+sumAndProduct(node.right);maximum=Math.max(maximum,sub*(total-sub));return sub;} }
+class Solution {
+    private long total,maximum;
+    public int maxProduct(TreeNode root){
+        total=sum(root);
+        sumAndProduct(root);
+        return (int)(maximum%1000000007L);
+    }
+    private long sum(TreeNode node){
+        return node==null?0:node.val+sum(node.left)+sum(node.right);
+    }
+    private long sumAndProduct(TreeNode node){
+        if(node==null)return 0;
+        long sub=node.val+sumAndProduct(node.left)+sumAndProduct(node.right);
+        maximum=Math.max(maximum,sub*(total-sub));
+        return sub;
+    }
+}

@@ -1,1 +1,19 @@
-class Solution { public int maxAbsValExpr(int[] arr1,int[] arr2){int answer=0;for(int signB:new int[]{-1,1})for(int signI:new int[]{-1,1}){int minimum=Integer.MAX_VALUE,maximum=Integer.MIN_VALUE;for(int i=0;i<arr1.length;i++){int value=arr1[i]+signB*arr2[i]+signI*i;minimum=Math.min(minimum,value);maximum=Math.max(maximum,value);}answer=Math.max(answer,maximum-minimum);}return answer;} }
+class Solution {
+    public int maxAbsValExpr(int[] arr1,int[] arr2){
+        int answer=0;
+        for(int signB:new int[]{
+            -1,1
+        })for(int signI:new int[]{
+            -1,1
+        }){
+            int minimum=Integer.MAX_VALUE,maximum=Integer.MIN_VALUE;
+            for(int i=0;i<arr1.length;i++){
+                int value=arr1[i]+signB*arr2[i]+signI*i;
+                minimum=Math.min(minimum,value);
+                maximum=Math.max(maximum,value);
+            }
+            answer=Math.max(answer,maximum-minimum);
+        }
+        return answer;
+    }
+}

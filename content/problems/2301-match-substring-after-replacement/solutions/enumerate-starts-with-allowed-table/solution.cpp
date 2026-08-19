@@ -1,1 +1,19 @@
-class Solution { public:bool matchReplacement(string s,string sub,vector<vector<char>>& mappings){bool allowed[128][128]={};for(auto& mapping:mappings)allowed[mapping[0]][mapping[1]]=true;for(int start=0;start+(int)sub.size()<=(int)s.size();++start){bool matches=true;for(int j=0;j<(int)sub.size();++j){char from=sub[j],to=s[start+j];if(from!=to&&!allowed[from][to]){matches=false;break;}}if(matches)return true;}return false;} };
+class Solution {
+    public:bool matchReplacement(string s,string sub,vector<vector<char>>& mappings){
+        bool allowed[128][128]={
+        };
+        for(auto& mapping:mappings)allowed[mapping[0]][mapping[1]]=true;
+        for(int start=0;start+(int)sub.size()<=(int)s.size();++start){
+            bool matches=true;
+            for(int j=0;j<(int)sub.size();++j){
+                char from=sub[j],to=s[start+j];
+                if(from!=to&&!allowed[from][to]){
+                    matches=false;
+                    break;
+                }
+            }
+            if(matches)return true;
+        }
+        return false;
+    }
+};

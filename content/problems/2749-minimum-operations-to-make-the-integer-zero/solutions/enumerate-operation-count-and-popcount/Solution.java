@@ -1,1 +1,9 @@
-class Solution { public int makeTheIntegerZero(int num1,int num2){for(int operations=1;operations<=60;operations++){long target=(long)num1-(long)operations*num2;if(target>=operations&&Long.bitCount(target)<=operations)return operations;}return -1;} }
+class Solution {
+    public int makeTheIntegerZero(int num1,int num2){
+        for(int operations=1;operations<=60;operations++){
+            long target=(long)num1-(long)operations*num2;
+            if(target>=operations&&Long.bitCount(target)<=operations)return operations;
+        }
+        return -1;
+    }
+}

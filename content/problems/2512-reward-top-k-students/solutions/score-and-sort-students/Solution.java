@@ -1,1 +1,20 @@
-class Solution { public List<Integer> topStudents(String[] positiveFeedback,String[] negativeFeedback,String[] report,int[] studentId,int k){Set<String> positive=new HashSet<>(Arrays.asList(positiveFeedback)),negative=new HashSet<>(Arrays.asList(negativeFeedback));List<int[]> students=new ArrayList<>();for(int i=0;i<report.length;i++){int score=0;for(String word:report[i].split(" ")){if(positive.contains(word))score+=3;if(negative.contains(word))score--;}students.add(new int[]{score,studentId[i]});}students.sort((a,b)->a[0]!=b[0]?Integer.compare(b[0],a[0]):Integer.compare(a[1],b[1]));List<Integer> answer=new ArrayList<>();for(int i=0;i<k;i++)answer.add(students.get(i)[1]);return answer;} }
+class Solution {
+    public List<Integer> topStudents(String[] positiveFeedback,String[] negativeFeedback,String[] report,int[] studentId,int k){
+        Set<String> positive=new HashSet<>(Arrays.asList(positiveFeedback)),negative=new HashSet<>(Arrays.asList(negativeFeedback));
+        List<int[]> students=new ArrayList<>();
+        for(int i=0;i<report.length;i++){
+            int score=0;
+            for(String word:report[i].split(" ")){
+                if(positive.contains(word))score+=3;
+                if(negative.contains(word))score--;
+            }
+            students.add(new int[]{
+                score,studentId[i]
+            });
+        }
+        students.sort((a,b)->a[0]!=b[0]?Integer.compare(b[0],a[0]):Integer.compare(a[1],b[1]));
+        List<Integer> answer=new ArrayList<>();
+        for(int i=0;i<k;i++)answer.add(students.get(i)[1]);
+        return answer;
+    }
+}

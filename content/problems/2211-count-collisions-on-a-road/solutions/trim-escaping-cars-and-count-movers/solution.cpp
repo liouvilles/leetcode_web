@@ -1,1 +1,10 @@
-class Solution { public:int countCollisions(string directions){int left=0,right=directions.size()-1;while(left<=right&&directions[left]=='L')++left;while(left<=right&&directions[right]=='R')--right;int answer=0;for(int i=left;i<=right;++i)answer+=directions[i]!='S';return answer;} };
+class Solution {
+    public:int countCollisions(string directions){
+        int left=0,right=directions.size()-1;
+        while(left<=right&&directions[left]=='L')++left;
+        while(left<=right&&directions[right]=='R')--right;
+        int answer=0;
+        for(int i=left;i<=right;++i)answer+=directions[i]!='S';
+        return answer;
+    }
+};

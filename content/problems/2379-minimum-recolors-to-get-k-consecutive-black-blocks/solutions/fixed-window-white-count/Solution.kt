@@ -1,1 +1,14 @@
-class Solution { fun minimumRecolors(blocks:String,k:Int):Int{var white=(0 until k).count{blocks[it]=='W'};var answer=white;for(i in k until blocks.length){if(blocks[i]=='W')white++;if(blocks[i-k]=='W')white--;answer=minOf(answer,white)};return answer} }
+class Solution {
+    fun minimumRecolors(blocks:String,k:Int):Int{
+        var white=(0 until k).count{
+            blocks[it]=='W'
+        };
+        var answer=white;
+        for(i in k until blocks.length){
+            if(blocks[i]=='W')white++;
+            if(blocks[i-k]=='W')white--;
+            answer=minOf(answer,white)
+        };
+        return answer
+    }
+}

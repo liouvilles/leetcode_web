@@ -1,1 +1,13 @@
-class Solution { public int[] nextGreaterElement(int[] nums1,int[] nums2){Map<Integer,Integer> next=new HashMap<>();Deque<Integer> stack=new ArrayDeque<>();for(int value:nums2){while(!stack.isEmpty()&&stack.peek()<value)next.put(stack.pop(),value);stack.push(value);}int[] answer=new int[nums1.length];for(int i=0;i<nums1.length;i++)answer[i]=next.getOrDefault(nums1[i],-1);return answer;} }
+class Solution {
+    public int[] nextGreaterElement(int[] nums1,int[] nums2){
+        Map<Integer,Integer> next=new HashMap<>();
+        Deque<Integer> stack=new ArrayDeque<>();
+        for(int value:nums2){
+            while(!stack.isEmpty()&&stack.peek()<value)next.put(stack.pop(),value);
+            stack.push(value);
+        }
+        int[] answer=new int[nums1.length];
+        for(int i=0;i<nums1.length;i++)answer[i]=next.getOrDefault(nums1[i],-1);
+        return answer;
+    }
+}

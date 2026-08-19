@@ -1,1 +1,13 @@
-class Solution { public int minInsertions(String s){String reverse=new StringBuilder(s).reverse().toString();int n=s.length();int[] dp=new int[n+1];for(int i=1;i<=n;i++){int[] next=new int[n+1];for(int j=1;j<=n;j++)next[j]=s.charAt(i-1)==reverse.charAt(j-1)?dp[j-1]+1:Math.max(dp[j],next[j-1]);dp=next;}return n-dp[n];} }
+class Solution {
+    public int minInsertions(String s){
+        String reverse=new StringBuilder(s).reverse().toString();
+        int n=s.length();
+        int[] dp=new int[n+1];
+        for(int i=1;i<=n;i++){
+            int[] next=new int[n+1];
+            for(int j=1;j<=n;j++)next[j]=s.charAt(i-1)==reverse.charAt(j-1)?dp[j-1]+1:Math.max(dp[j],next[j-1]);
+            dp=next;
+        }
+        return n-dp[n];
+    }
+}

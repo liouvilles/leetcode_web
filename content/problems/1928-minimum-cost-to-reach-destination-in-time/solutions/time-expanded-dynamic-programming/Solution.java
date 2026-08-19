@@ -1,1 +1,17 @@
-class Solution { public int minCost(int maxTime,int[][] edges,int[] passingFees){int infinity=1_000_000_000,n=passingFees.length;int[][] dp=new int[maxTime+1][n];for(int[] row:dp)Arrays.fill(row,infinity);dp[0][0]=passingFees[0];for(int time=0;time<=maxTime;time++)for(int[] edge:edges){int next=time+edge[2];if(next>maxTime)continue;if(dp[time][edge[0]]<infinity)dp[next][edge[1]]=Math.min(dp[next][edge[1]],dp[time][edge[0]]+passingFees[edge[1]]);if(dp[time][edge[1]]<infinity)dp[next][edge[0]]=Math.min(dp[next][edge[0]],dp[time][edge[1]]+passingFees[edge[0]]);}int answer=infinity;for(int time=0;time<=maxTime;time++)answer=Math.min(answer,dp[time][n-1]);return answer==infinity?-1:answer;} }
+class Solution {
+    public int minCost(int maxTime,int[][] edges,int[] passingFees){
+        int infinity=1_000_000_000,n=passingFees.length;
+        int[][] dp=new int[maxTime+1][n];
+        for(int[] row:dp)Arrays.fill(row,infinity);
+        dp[0][0]=passingFees[0];
+        for(int time=0;time<=maxTime;time++)for(int[] edge:edges){
+            int next=time+edge[2];
+            if(next>maxTime)continue;
+            if(dp[time][edge[0]]<infinity)dp[next][edge[1]]=Math.min(dp[next][edge[1]],dp[time][edge[0]]+passingFees[edge[1]]);
+            if(dp[time][edge[1]]<infinity)dp[next][edge[0]]=Math.min(dp[next][edge[0]],dp[time][edge[1]]+passingFees[edge[0]]);
+        }
+        int answer=infinity;
+        for(int time=0;time<=maxTime;time++)answer=Math.min(answer,dp[time][n-1]);
+        return answer==infinity?-1:answer;
+    }
+}

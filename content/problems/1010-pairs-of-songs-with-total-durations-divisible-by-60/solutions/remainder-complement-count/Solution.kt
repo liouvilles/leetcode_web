@@ -1,1 +1,12 @@
-class Solution { fun numPairsDivisibleBy60(time:IntArray):Int{val frequency=IntArray(60);var answer=0;for(duration in time){val remainder=duration%60;answer+=frequency[(60-remainder)%60];frequency[remainder]++};return answer} }
+class Solution {
+    fun numPairsDivisibleBy60(time:IntArray):Int{
+        val frequency=IntArray(60);
+        var answer=0;
+        for(duration in time){
+            val remainder=duration%60;
+            answer+=frequency[(60-remainder)%60];
+            frequency[remainder]++
+        };
+        return answer
+    }
+}

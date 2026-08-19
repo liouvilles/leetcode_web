@@ -1,1 +1,23 @@
-class Solution { fun imageSmoother(img:Array<IntArray>):Array<IntArray>{val rows=img.size;val columns=img[0].size;val answer=Array(rows){IntArray(columns)};for(row in 0 until rows)for(column in 0 until columns){var sum=0;var count=0;for(dr in -1..1)for(dc in -1..1){val r=row+dr;val c=column+dc;if(r in 0 until rows&&c in 0 until columns){sum+=img[r][c];count++}};answer[row][column]=sum/count};return answer} }
+class Solution {
+    fun imageSmoother(img:Array<IntArray>):Array<IntArray>{
+        val rows=img.size;
+        val columns=img[0].size;
+        val answer=Array(rows){
+            IntArray(columns)
+        };
+        for(row in 0 until rows)for(column in 0 until columns){
+            var sum=0;
+            var count=0;
+            for(dr in -1..1)for(dc in -1..1){
+                val r=row+dr;
+                val c=column+dc;
+                if(r in 0 until rows&&c in 0 until columns){
+                    sum+=img[r][c];
+                    count++
+                }
+            };
+            answer[row][column]=sum/count
+        };
+        return answer
+    }
+}

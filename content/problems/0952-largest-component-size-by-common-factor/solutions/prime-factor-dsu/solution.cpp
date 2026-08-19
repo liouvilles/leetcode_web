@@ -1,1 +1,36 @@
-class Solution { vector<int> parent,size;int find(int x){return parent[x]==x?x:parent[x]=find(parent[x]);}void unite(int a,int b){a=find(a);b=find(b);if(a==b)return;if(size[a]<size[b])swap(a,b);parent[b]=a;size[a]+=size[b];}public:int largestComponentSize(vector<int>& nums){int n=nums.size();parent.resize(n);iota(parent.begin(),parent.end(),0);size.assign(n,1);unordered_map<int,int> owner;auto connect=[&](int factor,int index){if(owner.count(factor))unite(index,owner[factor]);else owner[factor]=index;};for(int i=0;i<n;++i){int value=nums[i];for(int factor=2;factor*factor<=value;++factor)if(value%factor==0){connect(factor,i);while(value%factor==0)value/=factor;}if(value>1)connect(value,i);}int answer=0;for(int i=0;i<n;++i)if(find(i)==i)answer=max(answer,size[i]);return answer;} };
+class Solution {
+    vector<int> parent,size;
+    int find(int x){
+        return parent[x]==x?x:parent[x]=find(parent[x]);
+    }
+    void unite(int a,int b){
+        a=find(a);
+        b=find(b);
+        if(a==b)return;
+        if(size[a]<size[b])swap(a,b);
+        parent[b]=a;
+        size[a]+=size[b];
+    }
+    public:int largestComponentSize(vector<int>& nums){
+        int n=nums.size();
+        parent.resize(n);
+        iota(parent.begin(),parent.end(),0);
+        size.assign(n,1);
+        unordered_map<int,int> owner;
+        auto connect=[&](int factor,int index){
+            if(owner.count(factor))unite(index,owner[factor]);
+            else owner[factor]=index;
+        };
+        for(int i=0;i<n;++i){
+            int value=nums[i];
+            for(int factor=2;factor*factor<=value;++factor)if(value%factor==0){
+                connect(factor,i);
+                while(value%factor==0)value/=factor;
+            }
+            if(value>1)connect(value,i);
+        }
+        int answer=0;
+        for(int i=0;i<n;++i)if(find(i)==i)answer=max(answer,size[i]);
+        return answer;
+    }
+};

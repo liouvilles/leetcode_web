@@ -1,1 +1,19 @@
-class Solution { public List<List<String>> mostPopularCreator(String[] creators,String[] ids,int[] views){Map<String,Long> total=new HashMap<>();Map<String,Integer> bestViews=new HashMap<>();Map<String,String> bestId=new HashMap<>();for(int i=0;i<creators.length;i++){String creator=creators[i];total.merge(creator,(long)views[i],Long::sum);if(!bestViews.containsKey(creator)||views[i]>bestViews.get(creator)||views[i]==bestViews.get(creator)&&ids[i].compareTo(bestId.get(creator))<0){bestViews.put(creator,views[i]);bestId.put(creator,ids[i]);}}long maximum=Collections.max(total.values());List<List<String>> answer=new ArrayList<>();for(String creator:total.keySet())if(total.get(creator)==maximum)answer.add(Arrays.asList(creator,bestId.get(creator)));return answer;} }
+class Solution {
+    public List<List<String>> mostPopularCreator(String[] creators,String[] ids,int[] views){
+        Map<String,Long> total=new HashMap<>();
+        Map<String,Integer> bestViews=new HashMap<>();
+        Map<String,String> bestId=new HashMap<>();
+        for(int i=0;i<creators.length;i++){
+            String creator=creators[i];
+            total.merge(creator,(long)views[i],Long::sum);
+            if(!bestViews.containsKey(creator)||views[i]>bestViews.get(creator)||views[i]==bestViews.get(creator)&&ids[i].compareTo(bestId.get(creator))<0){
+                bestViews.put(creator,views[i]);
+                bestId.put(creator,ids[i]);
+            }
+        }
+        long maximum=Collections.max(total.values());
+        List<List<String>> answer=new ArrayList<>();
+        for(String creator:total.keySet())if(total.get(creator)==maximum)answer.add(Arrays.asList(creator,bestId.get(creator)));
+        return answer;
+    }
+}

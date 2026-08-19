@@ -1,1 +1,16 @@
-class Solution { fun numberOfWeakCharacters(properties:Array<IntArray>):Int{properties.sortWith(compareByDescending<IntArray>{it[0]}.thenBy{it[1]});var answer=0;var maximum=0;for(property in properties){if(property[1]<maximum)answer++;maximum=maxOf(maximum,property[1])};return answer} }
+class Solution {
+    fun numberOfWeakCharacters(properties:Array<IntArray>):Int{
+        properties.sortWith(compareByDescending<IntArray>{
+            it[0]
+        }.thenBy{
+            it[1]
+        });
+        var answer=0;
+        var maximum=0;
+        for(property in properties){
+            if(property[1]<maximum)answer++;
+            maximum=maxOf(maximum,property[1])
+        };
+        return answer
+    }
+}

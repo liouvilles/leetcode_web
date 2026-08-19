@@ -1,1 +1,40 @@
-class Solution { public int countPaths(int n,int[][] roads){List<int[]>[] graph=new List[n];for(int i=0;i<n;i++)graph[i]=new ArrayList<>();for(int[] road:roads){graph[road[0]].add(new int[]{road[1],road[2]});graph[road[1]].add(new int[]{road[0],road[2]});}long[] distance=new long[n];Arrays.fill(distance,Long.MAX_VALUE);int[] ways=new int[n];distance[0]=0;ways[0]=1;PriorityQueue<long[]> heap=new PriorityQueue<>(Comparator.comparingLong(a->a[0]));heap.offer(new long[]{0,0});while(!heap.isEmpty()){long[] state=heap.poll();long currentDistance=state[0];int node=(int)state[1];if(currentDistance!=distance[node])continue;for(int[] edge:graph[node]){long nextDistance=currentDistance+edge[1];if(nextDistance<distance[edge[0]]){distance[edge[0]]=nextDistance;ways[edge[0]]=ways[node];heap.offer(new long[]{nextDistance,edge[0]});}else if(nextDistance==distance[edge[0]])ways[edge[0]]=(ways[edge[0]]+ways[node])%1_000_000_007;}}return ways[n-1];} }
+class Solution {
+    public int countPaths(int n,int[][] roads){
+        List<int[]>[] graph=new List[n];
+        for(int i=0;i<n;i++)graph[i]=new ArrayList<>();
+        for(int[] road:roads){
+            graph[road[0]].add(new int[]{
+                road[1],road[2]
+            });
+            graph[road[1]].add(new int[]{
+                road[0],road[2]
+            });
+        }
+        long[] distance=new long[n];
+        Arrays.fill(distance,Long.MAX_VALUE);
+        int[] ways=new int[n];
+        distance[0]=0;
+        ways[0]=1;
+        PriorityQueue<long[]> heap=new PriorityQueue<>(Comparator.comparingLong(a->a[0]));
+        heap.offer(new long[]{
+            0,0
+        });
+        while(!heap.isEmpty()){
+            long[] state=heap.poll();
+            long currentDistance=state[0];
+            int node=(int)state[1];
+            if(currentDistance!=distance[node])continue;
+            for(int[] edge:graph[node]){
+                long nextDistance=currentDistance+edge[1];
+                if(nextDistance<distance[edge[0]]){
+                    distance[edge[0]]=nextDistance;
+                    ways[edge[0]]=ways[node];
+                    heap.offer(new long[]{
+                        nextDistance,edge[0]
+                    });
+                }else if(nextDistance==distance[edge[0]])ways[edge[0]]=(ways[edge[0]]+ways[node])%1_000_000_007;
+            }
+        }
+        return ways[n-1];
+    }
+}

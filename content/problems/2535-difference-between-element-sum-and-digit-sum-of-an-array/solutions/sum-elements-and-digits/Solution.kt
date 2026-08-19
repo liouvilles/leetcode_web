@@ -1,1 +1,15 @@
-class Solution { fun differenceOfSum(nums:IntArray):Int{var elementSum=0;var digitSum=0;for(value in nums){elementSum+=value;var copy=value;while(copy>0){digitSum+=copy%10;copy/=10}};return kotlin.math.abs(elementSum-digitSum)} }
+class Solution {
+    fun differenceOfSum(nums:IntArray):Int{
+        var elementSum=0;
+        var digitSum=0;
+        for(value in nums){
+            elementSum+=value;
+            var copy=value;
+            while(copy>0){
+                digitSum+=copy%10;
+                copy/=10
+            }
+        };
+        return kotlin.math.abs(elementSum-digitSum)
+    }
+}

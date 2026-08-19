@@ -1,1 +1,15 @@
-class Solution { public boolean splitArraySameAverage(int[] nums){int n=nums.length,total=Arrays.stream(nums).sum();List<Set<Integer>> sums=new ArrayList<>();for(int i=0;i<=n/2;i++)sums.add(new HashSet<>());sums.get(0).add(0);int used=0;for(int value:nums){used++;for(int count=Math.min(used,n/2);count>=1;count--)for(int previous:new ArrayList<>(sums.get(count-1)))sums.get(count).add(previous+value);}for(int count=1;count<=n/2;count++)if(total*count%n==0&&sums.get(count).contains(total*count/n))return true;return false;} }
+class Solution {
+    public boolean splitArraySameAverage(int[] nums){
+        int n=nums.length,total=Arrays.stream(nums).sum();
+        List<Set<Integer>> sums=new ArrayList<>();
+        for(int i=0;i<=n/2;i++)sums.add(new HashSet<>());
+        sums.get(0).add(0);
+        int used=0;
+        for(int value:nums){
+            used++;
+            for(int count=Math.min(used,n/2);count>=1;count--)for(int previous:new ArrayList<>(sums.get(count-1)))sums.get(count).add(previous+value);
+        }
+        for(int count=1;count<=n/2;count++)if(total*count%n==0&&sums.get(count).contains(total*count/n))return true;
+        return false;
+    }
+}

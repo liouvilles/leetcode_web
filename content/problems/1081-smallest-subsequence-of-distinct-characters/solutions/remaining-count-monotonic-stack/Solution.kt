@@ -1,1 +1,20 @@
-class Solution { fun smallestSubsequence(s:String):String{val remaining=IntArray(26);val used=BooleanArray(26);for(ch in s)remaining[ch-'a']++;val stack=StringBuilder();for(ch in s){val index=ch-'a';remaining[index]--;if(used[index])continue;while(stack.isNotEmpty()&&stack.last()>ch&&remaining[stack.last()-'a']>0){used[stack.last()-'a']=false;stack.deleteCharAt(stack.lastIndex)};stack.append(ch);used[index]=true};return stack.toString()} }
+class Solution {
+    fun smallestSubsequence(s:String):String{
+        val remaining=IntArray(26);
+        val used=BooleanArray(26);
+        for(ch in s)remaining[ch-'a']++;
+        val stack=StringBuilder();
+        for(ch in s){
+            val index=ch-'a';
+            remaining[index]--;
+            if(used[index])continue;
+            while(stack.isNotEmpty()&&stack.last()>ch&&remaining[stack.last()-'a']>0){
+                used[stack.last()-'a']=false;
+                stack.deleteCharAt(stack.lastIndex)
+            };
+            stack.append(ch);
+            used[index]=true
+        };
+        return stack.toString()
+    }
+}

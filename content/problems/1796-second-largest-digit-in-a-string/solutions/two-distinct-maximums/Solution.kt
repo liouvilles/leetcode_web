@@ -1,1 +1,14 @@
-class Solution { fun secondHighest(text:String):Int{var largest=-1;var second=-1;for(c in text)if(c.isDigit()){val digit=c-'0';if(digit>largest){second=largest;largest=digit}else if(digit<largest&&digit>second)second=digit};return second} }
+class Solution {
+    fun secondHighest(text:String):Int{
+        var largest=-1;
+        var second=-1;
+        for(c in text)if(c.isDigit()){
+            val digit=c-'0';
+            if(digit>largest){
+                second=largest;
+                largest=digit
+            }else if(digit<largest&&digit>second)second=digit
+        };
+        return second
+    }
+}

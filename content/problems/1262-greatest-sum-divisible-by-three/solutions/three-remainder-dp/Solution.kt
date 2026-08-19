@@ -1,1 +1,15 @@
-class Solution { fun maxSumDivThree(nums:IntArray):Int{val negative=Int.MIN_VALUE/4;var dp=intArrayOf(0,negative,negative);for(value in nums){val next=dp.copyOf();for(remainder in 0..2)if(dp[remainder]>negative){val candidate=dp[remainder]+value;next[candidate%3]=maxOf(next[candidate%3],candidate)};dp=next};return dp[0]} }
+class Solution {
+    fun maxSumDivThree(nums:IntArray):Int{
+        val negative=Int.MIN_VALUE/4;
+        var dp=intArrayOf(0,negative,negative);
+        for(value in nums){
+            val next=dp.copyOf();
+            for(remainder in 0..2)if(dp[remainder]>negative){
+                val candidate=dp[remainder]+value;
+                next[candidate%3]=maxOf(next[candidate%3],candidate)
+            };
+            dp=next
+        };
+        return dp[0]
+    }
+}

@@ -1,1 +1,16 @@
-class Solution { fun maxSumRangeQuery(nums:IntArray,requests:Array<IntArray>):Int{val n=nums.size;val frequency=IntArray(n+1);for(request in requests){frequency[request[0]]++;frequency[request[1]+1]--};for(i in 1 until n)frequency[i]+=frequency[i-1];nums.sort();frequency.sort(0,n);var answer=0L;for(i in 0 until n)answer=(answer+nums[i].toLong()*frequency[i])%1_000_000_007L;return answer.toInt()} }
+class Solution {
+    fun maxSumRangeQuery(nums:IntArray,requests:Array<IntArray>):Int{
+        val n=nums.size;
+        val frequency=IntArray(n+1);
+        for(request in requests){
+            frequency[request[0]]++;
+            frequency[request[1]+1]--
+        };
+        for(i in 1 until n)frequency[i]+=frequency[i-1];
+        nums.sort();
+        frequency.sort(0,n);
+        var answer=0L;
+        for(i in 0 until n)answer=(answer+nums[i].toLong()*frequency[i])%1_000_000_007L;
+        return answer.toInt()
+    }
+}

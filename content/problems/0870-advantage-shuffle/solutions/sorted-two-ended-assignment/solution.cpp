@@ -1,1 +1,15 @@
-class Solution { public: vector<int> advantageCount(vector<int>& nums1,vector<int>& nums2){sort(nums1.begin(),nums1.end());vector<int> order(nums2.size());iota(order.begin(),order.end(),0);sort(order.begin(),order.end(),[&](int a,int b){return nums2[a]<nums2[b];});vector<int> answer(nums1.size());int left=0,right=nums1.size()-1;for(int value:nums1)if(value>nums2[order[left]])answer[order[left++]]=value;else answer[order[right--]]=value;return answer;} };
+class Solution {
+    public: vector<int> advantageCount(vector<int>& nums1,vector<int>& nums2){
+        sort(nums1.begin(),nums1.end());
+        vector<int> order(nums2.size());
+        iota(order.begin(),order.end(),0);
+        sort(order.begin(),order.end(),[&](int a,int b){
+            return nums2[a]<nums2[b];
+        });
+        vector<int> answer(nums1.size());
+        int left=0,right=nums1.size()-1;
+        for(int value:nums1)if(value>nums2[order[left]])answer[order[left++]]=value;
+        else answer[order[right--]]=value;
+        return answer;
+    }
+};

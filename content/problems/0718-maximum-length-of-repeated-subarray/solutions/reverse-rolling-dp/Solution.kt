@@ -1,1 +1,11 @@
-class Solution { fun findLength(nums1:IntArray,nums2:IntArray):Int{val dp=IntArray(nums2.size+1);var best=0;for(value in nums1)for(j in nums2.size downTo 1){dp[j]=if(value==nums2[j-1])dp[j-1]+1 else 0;best=maxOf(best,dp[j])};return best} }
+class Solution {
+    fun findLength(nums1:IntArray,nums2:IntArray):Int{
+        val dp=IntArray(nums2.size+1);
+        var best=0;
+        for(value in nums1)for(j in nums2.size downTo 1){
+            dp[j]=if(value==nums2[j-1])dp[j-1]+1 else 0;
+            best=maxOf(best,dp[j])
+        };
+        return best
+    }
+}

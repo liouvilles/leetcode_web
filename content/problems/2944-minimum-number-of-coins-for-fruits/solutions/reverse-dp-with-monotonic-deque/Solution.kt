@@ -1,1 +1,16 @@
-class Solution { fun minimumCoins(prices:IntArray):Int{val n=prices.size;val dp=IntArray(n+1);val deque=java.util.ArrayDeque<Int>();deque.addLast(n);for(i in n-1 downTo 0){val right=minOf(n,2*i+2);while(deque.peekFirst()>right)deque.removeFirst();dp[i]=prices[i]+dp[deque.peekFirst()];while(deque.isNotEmpty()&&dp[deque.peekLast()]>=dp[i])deque.removeLast();deque.addLast(i)};return dp[0]} }
+class Solution {
+    fun minimumCoins(prices:IntArray):Int{
+        val n=prices.size;
+        val dp=IntArray(n+1);
+        val deque=java.util.ArrayDeque<Int>();
+        deque.addLast(n);
+        for(i in n-1 downTo 0){
+            val right=minOf(n,2*i+2);
+            while(deque.peekFirst()>right)deque.removeFirst();
+            dp[i]=prices[i]+dp[deque.peekFirst()];
+            while(deque.isNotEmpty()&&dp[deque.peekLast()]>=dp[i])deque.removeLast();
+            deque.addLast(i)
+        };
+        return dp[0]
+    }
+}

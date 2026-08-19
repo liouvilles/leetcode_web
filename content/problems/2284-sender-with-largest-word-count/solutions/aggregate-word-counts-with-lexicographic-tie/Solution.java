@@ -1,1 +1,17 @@
-class Solution { public String largestWordCount(String[] messages,String[] senders){Map<String,Integer> count=new HashMap<>();for(int i=0;i<messages.length;i++){int words=1;for(char ch:messages[i].toCharArray())if(ch==' ')words++;count.merge(senders[i],words,Integer::sum);}String answer="";int best=-1;for(Map.Entry<String,Integer> entry:count.entrySet())if(entry.getValue()>best||entry.getValue()==best&&entry.getKey().compareTo(answer)>0){best=entry.getValue();answer=entry.getKey();}return answer;} }
+class Solution {
+    public String largestWordCount(String[] messages,String[] senders){
+        Map<String,Integer> count=new HashMap<>();
+        for(int i=0;i<messages.length;i++){
+            int words=1;
+            for(char ch:messages[i].toCharArray())if(ch==' ')words++;
+            count.merge(senders[i],words,Integer::sum);
+        }
+        String answer="";
+        int best=-1;
+        for(Map.Entry<String,Integer> entry:count.entrySet())if(entry.getValue()>best||entry.getValue()==best&&entry.getKey().compareTo(answer)>0){
+            best=entry.getValue();
+            answer=entry.getKey();
+        }
+        return answer;
+    }
+}

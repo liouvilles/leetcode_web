@@ -1,1 +1,30 @@
-class Solution { public int findShortestCycle(int n,int[][] edges){List<Integer>[] graph=new ArrayList[n];for(int i=0;i<n;i++)graph[i]=new ArrayList<>();for(int[] edge:edges){graph[edge[0]].add(edge[1]);graph[edge[1]].add(edge[0]);}int answer=Integer.MAX_VALUE;for(int source=0;source<n;source++){int[] distance=new int[n],parent=new int[n];Arrays.fill(distance,-1);Arrays.fill(parent,-1);Queue<Integer> queue=new ArrayDeque<>();distance[source]=0;queue.add(source);while(!queue.isEmpty()){int node=queue.poll();for(int next:graph[node]){if(distance[next]<0){distance[next]=distance[node]+1;parent[next]=node;queue.add(next);}else if(parent[node]!=next)answer=Math.min(answer,distance[node]+distance[next]+1);}}}return answer==Integer.MAX_VALUE?-1:answer;} }
+class Solution {
+    public int findShortestCycle(int n,int[][] edges){
+        List<Integer>[] graph=new ArrayList[n];
+        for(int i=0;i<n;i++)graph[i]=new ArrayList<>();
+        for(int[] edge:edges){
+            graph[edge[0]].add(edge[1]);
+            graph[edge[1]].add(edge[0]);
+        }
+        int answer=Integer.MAX_VALUE;
+        for(int source=0;source<n;source++){
+            int[] distance=new int[n],parent=new int[n];
+            Arrays.fill(distance,-1);
+            Arrays.fill(parent,-1);
+            Queue<Integer> queue=new ArrayDeque<>();
+            distance[source]=0;
+            queue.add(source);
+            while(!queue.isEmpty()){
+                int node=queue.poll();
+                for(int next:graph[node]){
+                    if(distance[next]<0){
+                        distance[next]=distance[node]+1;
+                        parent[next]=node;
+                        queue.add(next);
+                    }else if(parent[node]!=next)answer=Math.min(answer,distance[node]+distance[next]+1);
+                }
+            }
+        }
+        return answer==Integer.MAX_VALUE?-1:answer;
+    }
+}

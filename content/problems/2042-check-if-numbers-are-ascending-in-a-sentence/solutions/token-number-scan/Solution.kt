@@ -1,1 +1,11 @@
-class Solution { fun areNumbersAscending(s:String):Boolean{var previous=-1;for(token in s.split(' '))if(token[0].isDigit()){val current=token.toInt();if(current<=previous)return false;previous=current};return true} }
+class Solution {
+    fun areNumbersAscending(s:String):Boolean{
+        var previous=-1;
+        for(token in s.split(' '))if(token[0].isDigit()){
+            val current=token.toInt();
+            if(current<=previous)return false;
+            previous=current
+        };
+        return true
+    }
+}

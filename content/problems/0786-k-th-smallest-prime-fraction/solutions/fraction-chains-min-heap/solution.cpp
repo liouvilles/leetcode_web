@@ -1,1 +1,23 @@
-class Solution { public: vector<int> kthSmallestPrimeFraction(vector<int>& arr,int k){auto compare=[&](const array<int,2>& a,const array<int,2>& b){return(long long)arr[a[0]]*arr[b[1]]>(long long)arr[b[0]]*arr[a[1]];};priority_queue<array<int,2>,vector<array<int,2>>,decltype(compare)> heap(compare);for(int j=1;j<(int)arr.size();++j)heap.push({0,j});array<int,2> current{};while(k--){current=heap.top();heap.pop();if(current[0]+1<current[1])heap.push({current[0]+1,current[1]});}return{arr[current[0]],arr[current[1]]};} };
+class Solution {
+    public: vector<int> kthSmallestPrimeFraction(vector<int>& arr,int k){
+        auto compare=[&](const array<int,2>& a,const array<int,2>& b){
+            return(long long)arr[a[0]]*arr[b[1]]>(long long)arr[b[0]]*arr[a[1]];
+        };
+        priority_queue<array<int,2>,vector<array<int,2>>,decltype(compare)> heap(compare);
+        for(int j=1;j<(int)arr.size();++j)heap.push({
+            0,j
+        });
+        array<int,2> current{
+        };
+        while(k--){
+            current=heap.top();
+            heap.pop();
+            if(current[0]+1<current[1])heap.push({
+                current[0]+1,current[1]
+            });
+        }
+        return{
+            arr[current[0]],arr[current[1]]
+        };
+    }
+};

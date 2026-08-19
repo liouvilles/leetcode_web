@@ -1,1 +1,16 @@
-class Solution { fun minimumMountainRemovals(nums:IntArray):Int{val n=nums.size;val increasing=IntArray(n){1};val decreasing=IntArray(n){1};for(i in 0 until n)for(j in 0 until i)if(nums[j]<nums[i])increasing[i]=maxOf(increasing[i],increasing[j]+1);for(i in n-1 downTo 0)for(j in n-1 downTo i+1)if(nums[j]<nums[i])decreasing[i]=maxOf(decreasing[i],decreasing[j]+1);var longest=0;for(i in 1 until n-1)if(increasing[i]>1&&decreasing[i]>1)longest=maxOf(longest,increasing[i]+decreasing[i]-1);return n-longest} }
+class Solution {
+    fun minimumMountainRemovals(nums:IntArray):Int{
+        val n=nums.size;
+        val increasing=IntArray(n){
+            1
+        };
+        val decreasing=IntArray(n){
+            1
+        };
+        for(i in 0 until n)for(j in 0 until i)if(nums[j]<nums[i])increasing[i]=maxOf(increasing[i],increasing[j]+1);
+        for(i in n-1 downTo 0)for(j in n-1 downTo i+1)if(nums[j]<nums[i])decreasing[i]=maxOf(decreasing[i],decreasing[j]+1);
+        var longest=0;
+        for(i in 1 until n-1)if(increasing[i]>1&&decreasing[i]>1)longest=maxOf(longest,increasing[i]+decreasing[i]-1);
+        return n-longest
+    }
+}

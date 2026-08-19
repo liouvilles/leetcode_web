@@ -1,1 +1,26 @@
-class Allocator { private final int[] memory;public Allocator(int n){memory=new int[n];}public int allocate(int size,int mID){int run=0;for(int i=0;i<memory.length;i++){run=memory[i]==0?run+1:0;if(run==size){int start=i-size+1;Arrays.fill(memory,start,i+1,mID);return start;}}return -1;}public int freeMemory(int mID){int released=0;for(int i=0;i<memory.length;i++)if(memory[i]==mID){memory[i]=0;released++;}return released;} }
+class Allocator {
+    private final int[] memory;
+    public Allocator(int n){
+        memory=new int[n];
+    }
+    public int allocate(int size,int mID){
+        int run=0;
+        for(int i=0;i<memory.length;i++){
+            run=memory[i]==0?run+1:0;
+            if(run==size){
+                int start=i-size+1;
+                Arrays.fill(memory,start,i+1,mID);
+                return start;
+            }
+        }
+        return -1;
+    }
+    public int freeMemory(int mID){
+        int released=0;
+        for(int i=0;i<memory.length;i++)if(memory[i]==mID){
+            memory[i]=0;
+            released++;
+        }
+        return released;
+    }
+}

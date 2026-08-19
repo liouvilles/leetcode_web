@@ -1,1 +1,24 @@
-class Solution { private int[] toppings;private int target,best;private void update(int cost){int difference=Math.abs(cost-target),bestDifference=Math.abs(best-target);if(difference<bestDifference||difference==bestDifference&&cost<best)best=cost;}private void dfs(int index,int cost){if(index==toppings.length){update(cost);return;}dfs(index+1,cost);dfs(index+1,cost+toppings[index]);dfs(index+1,cost+2*toppings[index]);}public int closestCost(int[] baseCosts,int[] toppingCosts,int target){this.toppings=toppingCosts;this.target=target;best=baseCosts[0];for(int base:baseCosts)dfs(0,base);return best;} }
+class Solution {
+    private int[] toppings;
+    private int target,best;
+    private void update(int cost){
+        int difference=Math.abs(cost-target),bestDifference=Math.abs(best-target);
+        if(difference<bestDifference||difference==bestDifference&&cost<best)best=cost;
+    }
+    private void dfs(int index,int cost){
+        if(index==toppings.length){
+            update(cost);
+            return;
+        }
+        dfs(index+1,cost);
+        dfs(index+1,cost+toppings[index]);
+        dfs(index+1,cost+2*toppings[index]);
+    }
+    public int closestCost(int[] baseCosts,int[] toppingCosts,int target){
+        this.toppings=toppingCosts;
+        this.target=target;
+        best=baseCosts[0];
+        for(int base:baseCosts)dfs(0,base);
+        return best;
+    }
+}

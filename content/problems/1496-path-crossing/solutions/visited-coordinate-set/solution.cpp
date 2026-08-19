@@ -1,1 +1,20 @@
-class Solution { public: bool isPathCrossing(string path){int x=0,y=0;set<pair<int,int>> seen{{0,0}};for(char direction:path){if(direction=='N')++y;else if(direction=='S')--y;else if(direction=='E')++x;else --x;if(!seen.insert({x,y}).second)return true;}return false;} };
+class Solution {
+    public: bool isPathCrossing(string path){
+        int x=0,y=0;
+        set<pair<int,int>> seen{
+            {
+                0,0
+            }
+        };
+        for(char direction:path){
+            if(direction=='N')++y;
+            else if(direction=='S')--y;
+            else if(direction=='E')++x;
+            else --x;
+            if(!seen.insert({
+                x,y
+            }).second)return true;
+        }
+        return false;
+    }
+};

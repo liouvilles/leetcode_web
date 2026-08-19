@@ -1,1 +1,6 @@
-class Solution { public: int getXORSum(vector<int>& arr1,vector<int>& arr2){int first=accumulate(arr1.begin(),arr1.end(),0,bit_xor<int>()),second=accumulate(arr2.begin(),arr2.end(),0,bit_xor<int>());return first&second;} };
+class Solution {
+    public: int getXORSum(vector<int>& arr1,vector<int>& arr2){
+        int first=accumulate(arr1.begin(),arr1.end(),0,bit_xor<int>()),second=accumulate(arr2.begin(),arr2.end(),0,bit_xor<int>());
+        return first&second;
+    }
+};

@@ -1,1 +1,13 @@
-class Solution { public int maximumSum(int[] arr){int keep=arr[0],removed=Integer.MIN_VALUE/2,answer=arr[0];for(int i=1;i<arr.length;i++){int nextRemoved=Math.max(removed+arr[i],keep);int nextKeep=Math.max(arr[i],keep+arr[i]);keep=nextKeep;removed=nextRemoved;answer=Math.max(answer,Math.max(keep,removed));}return answer;} }
+class Solution {
+    public int maximumSum(int[] arr){
+        int keep=arr[0],removed=Integer.MIN_VALUE/2,answer=arr[0];
+        for(int i=1;i<arr.length;i++){
+            int nextRemoved=Math.max(removed+arr[i],keep);
+            int nextKeep=Math.max(arr[i],keep+arr[i]);
+            keep=nextKeep;
+            removed=nextRemoved;
+            answer=Math.max(answer,Math.max(keep,removed));
+        }
+        return answer;
+    }
+}

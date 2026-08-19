@@ -1,1 +1,32 @@
-class Solution { fun maximumInvitations(favorite:IntArray):Int{val n=favorite.size;val indegree=IntArray(n);val depth=IntArray(n){1};for(value in favorite)indegree[value]++;val queue=java.util.ArrayDeque<Int>();for(i in 0 until n)if(indegree[i]==0)queue.add(i);while(queue.isNotEmpty()){val node=queue.removeFirst();val next=favorite[node];depth[next]=maxOf(depth[next],depth[node]+1);if(--indegree[next]==0)queue.add(next)};var pairSum=0;var longestCycle=0;val seen=BooleanArray(n);for(start in 0 until n)if(indegree[start]>0&&!seen[start]){var length=0;var node=start;do{seen[node]=true;length++;node=favorite[node]}while(node!=start);if(length==2)pairSum+=depth[start]+depth[favorite[start]]else longestCycle=maxOf(longestCycle,length)};return maxOf(pairSum,longestCycle)} }
+class Solution {
+    fun maximumInvitations(favorite:IntArray):Int{
+        val n=favorite.size;
+        val indegree=IntArray(n);
+        val depth=IntArray(n){
+            1
+        };
+        for(value in favorite)indegree[value]++;
+        val queue=java.util.ArrayDeque<Int>();
+        for(i in 0 until n)if(indegree[i]==0)queue.add(i);
+        while(queue.isNotEmpty()){
+            val node=queue.removeFirst();
+            val next=favorite[node];
+            depth[next]=maxOf(depth[next],depth[node]+1);
+            if(--indegree[next]==0)queue.add(next)
+        };
+        var pairSum=0;
+        var longestCycle=0;
+        val seen=BooleanArray(n);
+        for(start in 0 until n)if(indegree[start]>0&&!seen[start]){
+            var length=0;
+            var node=start;
+            do{
+                seen[node]=true;
+                length++;
+                node=favorite[node]
+            }while(node!=start);
+            if(length==2)pairSum+=depth[start]+depth[favorite[start]]else longestCycle=maxOf(longestCycle,length)
+        };
+        return maxOf(pairSum,longestCycle)
+    }
+}

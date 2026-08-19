@@ -1,1 +1,10 @@
-class Solution { public:long long minimumMoney(vector<vector<int>>& transactions){long long loss=0,buffer=0;for(auto& transaction:transactions){loss+=max(0,transaction[0]-transaction[1]);buffer=max(buffer,(long long)min(transaction[0],transaction[1]));}return loss+buffer;} };
+class Solution {
+    public:long long minimumMoney(vector<vector<int>>& transactions){
+        long long loss=0,buffer=0;
+        for(auto& transaction:transactions){
+            loss+=max(0,transaction[0]-transaction[1]);
+            buffer=max(buffer,(long long)min(transaction[0],transaction[1]));
+        }
+        return loss+buffer;
+    }
+};

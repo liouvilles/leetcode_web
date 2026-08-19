@@ -1,1 +1,19 @@
-class Solution { private fun valid(s:String,length:Int):Boolean{val target=IntArray(26);val current=IntArray(26);for(index in 0 until length)target[s[index]-'a']++;var start=length;while(start<s.length){current.fill(0);for(index in start until start+length)current[s[index]-'a']++;if(!target.contentEquals(current))return false;start+=length};return true}fun minAnagramLength(s:String):Int{for(length in 1..s.length)if(s.length%length==0&&valid(s,length))return length;return s.length} }
+class Solution {
+    private fun valid(s:String,length:Int):Boolean{
+        val target=IntArray(26);
+        val current=IntArray(26);
+        for(index in 0 until length)target[s[index]-'a']++;
+        var start=length;
+        while(start<s.length){
+            current.fill(0);
+            for(index in start until start+length)current[s[index]-'a']++;
+            if(!target.contentEquals(current))return false;
+            start+=length
+        };
+        return true
+    }
+    fun minAnagramLength(s:String):Int{
+        for(length in 1..s.length)if(s.length%length==0&&valid(s,length))return length;
+        return s.length
+    }
+}

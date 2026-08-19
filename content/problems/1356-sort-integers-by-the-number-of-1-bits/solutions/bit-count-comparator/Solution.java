@@ -1,1 +1,8 @@
-class Solution { public int[] sortByBits(int[] arr){Integer[] values=Arrays.stream(arr).boxed().toArray(Integer[]::new);Arrays.sort(values,Comparator.comparingInt((Integer value)->Integer.bitCount(value)).thenComparingInt(value->value));for(int i=0;i<arr.length;i++)arr[i]=values[i];return arr;} }
+class Solution {
+    public int[] sortByBits(int[] arr){
+        Integer[] values=Arrays.stream(arr).boxed().toArray(Integer[]::new);
+        Arrays.sort(values,Comparator.comparingInt((Integer value)->Integer.bitCount(value)).thenComparingInt(value->value));
+        for(int i=0;i<arr.length;i++)arr[i]=values[i];
+        return arr;
+    }
+}

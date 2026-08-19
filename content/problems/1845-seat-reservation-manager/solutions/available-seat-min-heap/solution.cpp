@@ -1,1 +1,14 @@
-class SeatManager { priority_queue<int,vector<int>,greater<int>> available;public:SeatManager(int n){for(int seat=1;seat<=n;++seat)available.push(seat);}int reserve(){int seat=available.top();available.pop();return seat;}void unreserve(int seatNumber){available.push(seatNumber);} };
+class SeatManager {
+    priority_queue<int,vector<int>,greater<int>> available;
+    public:SeatManager(int n){
+        for(int seat=1;seat<=n;++seat)available.push(seat);
+    }
+    int reserve(){
+        int seat=available.top();
+        available.pop();
+        return seat;
+    }
+    void unreserve(int seatNumber){
+        available.push(seatNumber);
+    }
+};

@@ -1,1 +1,13 @@
-class Solution { public int[] smallestSubarrays(int[] nums){int[] last=new int[32],answer=new int[nums.length];Arrays.fill(last,-1);for(int i=nums.length-1;i>=0;i--){for(int bit=0;bit<32;bit++)if((nums[i]&(1<<bit))!=0)last[bit]=i;int farthest=i;for(int position:last)farthest=Math.max(farthest,position);answer[i]=farthest-i+1;}return answer;} }
+class Solution {
+    public int[] smallestSubarrays(int[] nums){
+        int[] last=new int[32],answer=new int[nums.length];
+        Arrays.fill(last,-1);
+        for(int i=nums.length-1;i>=0;i--){
+            for(int bit=0;bit<32;bit++)if((nums[i]&(1<<bit))!=0)last[bit]=i;
+            int farthest=i;
+            for(int position:last)farthest=Math.max(farthest,position);
+            answer[i]=farthest-i+1;
+        }
+        return answer;
+    }
+}

@@ -1,1 +1,9 @@
-class Solution { public: int largestSumAfterKNegations(vector<int>& nums,int k){sort(nums.begin(),nums.end());for(int i=0;i<(int)nums.size()&&k>0&&nums[i]<0;++i,--k)nums[i]=-nums[i];int sum=accumulate(nums.begin(),nums.end(),0),minimum=INT_MAX;for(int value:nums)minimum=min(minimum,abs(value));return k%2?sum-2*minimum:sum;} };
+class Solution {
+    public: int largestSumAfterKNegations(vector<int>& nums,int k){
+        sort(nums.begin(),nums.end());
+        for(int i=0;i<(int)nums.size()&&k>0&&nums[i]<0;++i,--k)nums[i]=-nums[i];
+        int sum=accumulate(nums.begin(),nums.end(),0),minimum=INT_MAX;
+        for(int value:nums)minimum=min(minimum,abs(value));
+        return k%2?sum-2*minimum:sum;
+    }
+};

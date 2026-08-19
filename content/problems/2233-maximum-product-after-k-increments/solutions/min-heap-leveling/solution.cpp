@@ -1,1 +1,16 @@
-class Solution { public:int maximumProduct(vector<int>& nums,int k){priority_queue<long long,vector<long long>,greater<long long>> heap(nums.begin(),nums.end());while(k--){long long value=heap.top()+1;heap.pop();heap.push(value);}long long answer=1;while(!heap.empty()){answer=answer*(heap.top()%1000000007)%1000000007;heap.pop();}return answer;} };
+class Solution {
+    public:int maximumProduct(vector<int>& nums,int k){
+        priority_queue<long long,vector<long long>,greater<long long>> heap(nums.begin(),nums.end());
+        while(k--){
+            long long value=heap.top()+1;
+            heap.pop();
+            heap.push(value);
+        }
+        long long answer=1;
+        while(!heap.empty()){
+            answer=answer*(heap.top()%1000000007)%1000000007;
+            heap.pop();
+        }
+        return answer;
+    }
+};

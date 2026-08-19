@@ -1,1 +1,12 @@
-class Solution { fun numFriendRequests(ages:IntArray):Int{val count=IntArray(121);for(age in ages)count[age]++;var answer=0;for(sender in 1..120)for(receiver in 1..120){if(count[sender]==0||count[receiver]==0||2*receiver<=sender+14||receiver>sender||receiver>100&&sender<100)continue;answer+=count[sender]*count[receiver]-if(sender==receiver)count[sender] else 0};return answer} }
+class Solution {
+    fun numFriendRequests(ages:IntArray):Int{
+        val count=IntArray(121);
+        for(age in ages)count[age]++;
+        var answer=0;
+        for(sender in 1..120)for(receiver in 1..120){
+            if(count[sender]==0||count[receiver]==0||2*receiver<=sender+14||receiver>sender||receiver>100&&sender<100)continue;
+            answer+=count[sender]*count[receiver]-if(sender==receiver)count[sender] else 0
+        };
+        return answer
+    }
+}

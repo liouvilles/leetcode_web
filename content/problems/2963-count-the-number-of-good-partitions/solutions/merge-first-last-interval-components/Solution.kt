@@ -1,1 +1,22 @@
-class Solution { fun numberOfGoodPartitions(nums:IntArray):Int{val mod=1000000007L;val last=HashMap<Int,Int>();for(i in nums.indices)last[nums[i]]=i;var components=0;var farthest=0;for(i in nums.indices){farthest=maxOf(farthest,last[nums[i]]!!);if(i==farthest)components++};var answer=1L;var base=2L;var exponent=components-1;while(exponent>0){if(exponent and 1==1)answer=answer*base%mod;base=base*base%mod;exponent=exponent shr 1};return answer.toInt()} }
+class Solution {
+    fun numberOfGoodPartitions(nums:IntArray):Int{
+        val mod=1000000007L;
+        val last=HashMap<Int,Int>();
+        for(i in nums.indices)last[nums[i]]=i;
+        var components=0;
+        var farthest=0;
+        for(i in nums.indices){
+            farthest=maxOf(farthest,last[nums[i]]!!);
+            if(i==farthest)components++
+        };
+        var answer=1L;
+        var base=2L;
+        var exponent=components-1;
+        while(exponent>0){
+            if(exponent and 1==1)answer=answer*base%mod;
+            base=base*base%mod;
+            exponent=exponent shr 1
+        };
+        return answer.toInt()
+    }
+}

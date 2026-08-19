@@ -1,1 +1,16 @@
-class Solution { public int totalFruit(int[] fruits){Map<Integer,Integer> frequency=new HashMap<>();int left=0,answer=0;for(int right=0;right<fruits.length;right++){frequency.merge(fruits[right],1,Integer::sum);while(frequency.size()>2){int value=fruits[left++],count=frequency.get(value)-1;if(count==0)frequency.remove(value);else frequency.put(value,count);}answer=Math.max(answer,right-left+1);}return answer;} }
+class Solution {
+    public int totalFruit(int[] fruits){
+        Map<Integer,Integer> frequency=new HashMap<>();
+        int left=0,answer=0;
+        for(int right=0;right<fruits.length;right++){
+            frequency.merge(fruits[right],1,Integer::sum);
+            while(frequency.size()>2){
+                int value=fruits[left++],count=frequency.get(value)-1;
+                if(count==0)frequency.remove(value);
+                else frequency.put(value,count);
+            }
+            answer=Math.max(answer,right-left+1);
+        }
+        return answer;
+    }
+}

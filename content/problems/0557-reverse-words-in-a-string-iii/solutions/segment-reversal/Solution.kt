@@ -1,1 +1,21 @@
-class Solution { fun reverseWords(s:String):String{val chars=s.toCharArray();var start=0;var end=0;while(end<=chars.size){if(end==chars.size||chars[end]==' '){var left=start;var right=end-1;while(left<right){val value=chars[left];chars[left++]=chars[right];chars[right--]=value};start=end+1};end++};return String(chars)} }
+class Solution {
+    fun reverseWords(s:String):String{
+        val chars=s.toCharArray();
+        var start=0;
+        var end=0;
+        while(end<=chars.size){
+            if(end==chars.size||chars[end]==' '){
+                var left=start;
+                var right=end-1;
+                while(left<right){
+                    val value=chars[left];
+                    chars[left++]=chars[right];
+                    chars[right--]=value
+                };
+                start=end+1
+            };
+            end++
+        };
+        return String(chars)
+    }
+}

@@ -1,1 +1,18 @@
-class Solution { public List<String> subdomainVisits(String[] cpdomains){Map<String,Integer> counts=new TreeMap<>();for(String item:cpdomains){int space=item.indexOf(' '),count=Integer.parseInt(item.substring(0,space));String domain=item.substring(space+1);while(true){counts.merge(domain,count,Integer::sum);int dot=domain.indexOf('.');if(dot<0)break;domain=domain.substring(dot+1);}}List<String> answer=new ArrayList<>();for(Map.Entry<String,Integer> entry:counts.entrySet())answer.add(entry.getValue()+" "+entry.getKey());return answer;} }
+class Solution {
+    public List<String> subdomainVisits(String[] cpdomains){
+        Map<String,Integer> counts=new TreeMap<>();
+        for(String item:cpdomains){
+            int space=item.indexOf(' '),count=Integer.parseInt(item.substring(0,space));
+            String domain=item.substring(space+1);
+            while(true){
+                counts.merge(domain,count,Integer::sum);
+                int dot=domain.indexOf('.');
+                if(dot<0)break;
+                domain=domain.substring(dot+1);
+            }
+        }
+        List<String> answer=new ArrayList<>();
+        for(Map.Entry<String,Integer> entry:counts.entrySet())answer.add(entry.getValue()+" "+entry.getKey());
+        return answer;
+    }
+}

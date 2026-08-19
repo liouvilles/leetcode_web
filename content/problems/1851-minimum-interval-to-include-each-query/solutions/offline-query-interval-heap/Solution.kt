@@ -1,1 +1,27 @@
-class Solution { fun minInterval(intervals:Array<IntArray>,queries:IntArray):IntArray{intervals.sortBy{it[0]};val order=queries.indices.sortedBy{queries[it]};val heap=java.util.PriorityQueue<IntArray>(compareBy{it[0]});val answer=IntArray(queries.size){-1};var next=0;for(index in order){val value=queries[index];while(next<intervals.size&&intervals[next][0]<=value){heap.add(intArrayOf(intervals[next][1]-intervals[next][0]+1,intervals[next][1]));next++};while(heap.isNotEmpty()&&heap.peek()[1]<value)heap.remove();if(heap.isNotEmpty())answer[index]=heap.peek()[0]};return answer} }
+class Solution {
+    fun minInterval(intervals:Array<IntArray>,queries:IntArray):IntArray{
+        intervals.sortBy{
+            it[0]
+        };
+        val order=queries.indices.sortedBy{
+            queries[it]
+        };
+        val heap=java.util.PriorityQueue<IntArray>(compareBy{
+            it[0]
+        });
+        val answer=IntArray(queries.size){
+            -1
+        };
+        var next=0;
+        for(index in order){
+            val value=queries[index];
+            while(next<intervals.size&&intervals[next][0]<=value){
+                heap.add(intArrayOf(intervals[next][1]-intervals[next][0]+1,intervals[next][1]));
+                next++
+            };
+            while(heap.isNotEmpty()&&heap.peek()[1]<value)heap.remove();
+            if(heap.isNotEmpty())answer[index]=heap.peek()[0]
+        };
+        return answer
+    }
+}

@@ -1,1 +1,20 @@
-class Solution { long long gcd(long long a,long long b){while(b){long long remainder=a%b;a=b;b=remainder;}return a;}public:int minimizeSet(int divisor1,int divisor2,int uniqueCnt1,int uniqueCnt2){long long lcm=1LL*divisor1/gcd(divisor1,divisor2)*divisor2,left=1,right=2'000'000'000;while(left<right){long long middle=(left+right)/2;bool valid=middle-middle/divisor1>=uniqueCnt1&&middle-middle/divisor2>=uniqueCnt2&&middle-middle/lcm>=uniqueCnt1+uniqueCnt2;if(valid)right=middle;else left=middle+1;}return left;} };
+class Solution {
+    long long gcd(long long a,long long b){
+        while(b){
+            long long remainder=a%b;
+            a=b;
+            b=remainder;
+        }
+        return a;
+    }
+    public:int minimizeSet(int divisor1,int divisor2,int uniqueCnt1,int uniqueCnt2){
+        long long lcm=1LL*divisor1/gcd(divisor1,divisor2)*divisor2,left=1,right=2'000'000'000;
+        while(left<right){
+            long long middle=(left+right)/2;
+            bool valid=middle-middle/divisor1>=uniqueCnt1&&middle-middle/divisor2>=uniqueCnt2&&middle-middle/lcm>=uniqueCnt1+uniqueCnt2;
+            if(valid)right=middle;
+            else left=middle+1;
+        }
+        return left;
+    }
+};

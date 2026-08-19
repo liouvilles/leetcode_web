@@ -1,1 +1,22 @@
-class Solution { public:int numberOfSets(int n,int maxDistance,vector<vector<int>>& roads){const int INF=1000000000;int answer=0;for(int mask=0;mask<(1<<n);++mask){vector distance(n,vector<int>(n,INF));for(int i=0;i<n;++i)distance[i][i]=0;for(auto& road:roads)if((mask>>road[0]&1)&&(mask>>road[1]&1)){distance[road[0]][road[1]]=min(distance[road[0]][road[1]],road[2]);distance[road[1]][road[0]]=min(distance[road[1]][road[0]],road[2]);}for(int middle=0;middle<n;++middle)if(mask>>middle&1)for(int from=0;from<n;++from)if(mask>>from&1)for(int to=0;to<n;++to)if(mask>>to&1)distance[from][to]=min(distance[from][to],distance[from][middle]+distance[middle][to]);bool valid=true;for(int i=0;i<n&&valid;++i)if(mask>>i&1)for(int j=i+1;j<n;++j)if((mask>>j&1)&&distance[i][j]>maxDistance){valid=false;break;}answer+=valid;}return answer;} };
+class Solution {
+    public:int numberOfSets(int n,int maxDistance,vector<vector<int>>& roads){
+        const int INF=1000000000;
+        int answer=0;
+        for(int mask=0;mask<(1<<n);++mask){
+            vector distance(n,vector<int>(n,INF));
+            for(int i=0;i<n;++i)distance[i][i]=0;
+            for(auto& road:roads)if((mask>>road[0]&1)&&(mask>>road[1]&1)){
+                distance[road[0]][road[1]]=min(distance[road[0]][road[1]],road[2]);
+                distance[road[1]][road[0]]=min(distance[road[1]][road[0]],road[2]);
+            }
+            for(int middle=0;middle<n;++middle)if(mask>>middle&1)for(int from=0;from<n;++from)if(mask>>from&1)for(int to=0;to<n;++to)if(mask>>to&1)distance[from][to]=min(distance[from][to],distance[from][middle]+distance[middle][to]);
+            bool valid=true;
+            for(int i=0;i<n&&valid;++i)if(mask>>i&1)for(int j=i+1;j<n;++j)if((mask>>j&1)&&distance[i][j]>maxDistance){
+                valid=false;
+                break;
+            }
+            answer+=valid;
+        }
+        return answer;
+    }
+};

@@ -1,1 +1,8 @@
-class Solution { public: int longestDecomposition(string text){int n=text.size();if(!n)return 0;for(int length=1;length*2<=n;++length)if(text.compare(0,length,text,n-length,length)==0)return 2+longestDecomposition(text.substr(length,n-2*length));return 1;} };
+class Solution {
+    public: int longestDecomposition(string text){
+        int n=text.size();
+        if(!n)return 0;
+        for(int length=1;length*2<=n;++length)if(text.compare(0,length,text,n-length,length)==0)return 2+longestDecomposition(text.substr(length,n-2*length));
+        return 1;
+    }
+};

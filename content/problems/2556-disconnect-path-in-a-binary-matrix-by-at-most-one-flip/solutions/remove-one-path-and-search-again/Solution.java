@@ -1,1 +1,18 @@
-class Solution { private int[][] grid;private int rows,cols;private boolean path(int row,int col){if(row>=rows||col>=cols||grid[row][col]==0)return false;if(row==rows-1&&col==cols-1)return true;grid[row][col]=0;return path(row+1,col)||path(row,col+1);}public boolean isPossibleToCutPath(int[][] grid){this.grid=grid;rows=grid.length;cols=grid[0].length;if(!path(0,0))return true;grid[0][0]=grid[rows-1][cols-1]=1;return !path(0,0);} }
+class Solution {
+    private int[][] grid;
+    private int rows,cols;
+    private boolean path(int row,int col){
+        if(row>=rows||col>=cols||grid[row][col]==0)return false;
+        if(row==rows-1&&col==cols-1)return true;
+        grid[row][col]=0;
+        return path(row+1,col)||path(row,col+1);
+    }
+    public boolean isPossibleToCutPath(int[][] grid){
+        this.grid=grid;
+        rows=grid.length;
+        cols=grid[0].length;
+        if(!path(0,0))return true;
+        grid[0][0]=grid[rows-1][cols-1]=1;
+        return !path(0,0);
+    }
+}

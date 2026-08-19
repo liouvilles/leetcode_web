@@ -1,1 +1,35 @@
-class Solution { private char[][] grid;private boolean[][] seen;private int rows,cols;private boolean dfs(int row,int col,int parentRow,int parentCol){seen[row][col]=true;int[][] directions={{1,0},{-1,0},{0,1},{0,-1}};for(int[] direction:directions){int nr=row+direction[0],nc=col+direction[1];if(nr<0||nr>=rows||nc<0||nc>=cols||grid[nr][nc]!=grid[row][col])continue;if(!seen[nr][nc]){if(dfs(nr,nc,row,col))return true;}else if(nr!=parentRow||nc!=parentCol)return true;}return false;}public boolean containsCycle(char[][] grid){this.grid=grid;rows=grid.length;cols=grid[0].length;seen=new boolean[rows][cols];for(int row=0;row<rows;row++)for(int col=0;col<cols;col++)if(!seen[row][col]&&dfs(row,col,-1,-1))return true;return false;} }
+class Solution {
+    private char[][] grid;
+    private boolean[][] seen;
+    private int rows,cols;
+    private boolean dfs(int row,int col,int parentRow,int parentCol){
+        seen[row][col]=true;
+        int[][] directions={
+            {
+                1,0
+            },{
+                -1,0
+            },{
+                0,1
+            },{
+                0,-1
+            }
+        };
+        for(int[] direction:directions){
+            int nr=row+direction[0],nc=col+direction[1];
+            if(nr<0||nr>=rows||nc<0||nc>=cols||grid[nr][nc]!=grid[row][col])continue;
+            if(!seen[nr][nc]){
+                if(dfs(nr,nc,row,col))return true;
+            }else if(nr!=parentRow||nc!=parentCol)return true;
+        }
+        return false;
+    }
+    public boolean containsCycle(char[][] grid){
+        this.grid=grid;
+        rows=grid.length;
+        cols=grid[0].length;
+        seen=new boolean[rows][cols];
+        for(int row=0;row<rows;row++)for(int col=0;col<cols;col++)if(!seen[row][col]&&dfs(row,col,-1,-1))return true;
+        return false;
+    }
+}

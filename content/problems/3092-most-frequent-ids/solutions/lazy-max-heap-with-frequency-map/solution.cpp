@@ -1,1 +1,17 @@
-class Solution { public:vector<long long> mostFrequentIDs(vector<int>& nums,vector<int>& freq){unordered_map<int,long long> frequency;priority_queue<pair<long long,int>> heap;vector<long long> answer(nums.size());for(int index=0;index<(int)nums.size();++index){long long updated=frequency[nums[index]]+freq[index];frequency[nums[index]]=updated;heap.push({updated,nums[index]});while(frequency[heap.top().second]!=heap.top().first)heap.pop();answer[index]=heap.top().first;}return answer;} };
+class Solution {
+    public:vector<long long> mostFrequentIDs(vector<int>& nums,vector<int>& freq){
+        unordered_map<int,long long> frequency;
+        priority_queue<pair<long long,int>> heap;
+        vector<long long> answer(nums.size());
+        for(int index=0;index<(int)nums.size();++index){
+            long long updated=frequency[nums[index]]+freq[index];
+            frequency[nums[index]]=updated;
+            heap.push({
+                updated,nums[index]
+            });
+            while(frequency[heap.top().second]!=heap.top().first)heap.pop();
+            answer[index]=heap.top().first;
+        }
+        return answer;
+    }
+};

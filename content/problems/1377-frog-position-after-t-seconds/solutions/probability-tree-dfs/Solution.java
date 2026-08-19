@@ -1,1 +1,20 @@
-class Solution { private double dfs(int node,int parent,int time,int target,double probability,List<Integer>[] graph,int limit){if(time==limit)return node==target?probability:0.0;int children=0;for(int next:graph[node])if(next!=parent)children++;if(children==0)return node==target?probability:0.0;double answer=0;for(int next:graph[node])if(next!=parent)answer+=dfs(next,node,time+1,target,probability/children,graph,limit);return answer;}public double frogPosition(int n,int[][] edges,int t,int target){List<Integer>[] graph=new List[n+1];for(int i=1;i<=n;i++)graph[i]=new ArrayList<>();for(int[] edge:edges){graph[edge[0]].add(edge[1]);graph[edge[1]].add(edge[0]);}return dfs(1,0,0,target,1.0,graph,t);} }
+class Solution {
+    private double dfs(int node,int parent,int time,int target,double probability,List<Integer>[] graph,int limit){
+        if(time==limit)return node==target?probability:0.0;
+        int children=0;
+        for(int next:graph[node])if(next!=parent)children++;
+        if(children==0)return node==target?probability:0.0;
+        double answer=0;
+        for(int next:graph[node])if(next!=parent)answer+=dfs(next,node,time+1,target,probability/children,graph,limit);
+        return answer;
+    }
+    public double frogPosition(int n,int[][] edges,int t,int target){
+        List<Integer>[] graph=new List[n+1];
+        for(int i=1;i<=n;i++)graph[i]=new ArrayList<>();
+        for(int[] edge:edges){
+            graph[edge[0]].add(edge[1]);
+            graph[edge[1]].add(edge[0]);
+        }
+        return dfs(1,0,0,target,1.0,graph,t);
+    }
+}

@@ -1,1 +1,20 @@
-class Solution { int beauty(vector<int>& frequency,int x){int count=0;for(int index=0;index<50;++index){count+=frequency[index];if(count>=x)return index-50;}return 0;}public:vector<int> getSubarrayBeauty(vector<int>& nums,int k,int x){vector<int> frequency(101),answer(nums.size()-k+1);for(int i=0;i<k;++i)++frequency[nums[i]+50];for(int start=0;start<(int)answer.size();++start){answer[start]=beauty(frequency,x);--frequency[nums[start]+50];if(start+k<(int)nums.size())++frequency[nums[start+k]+50];}return answer;} };
+class Solution {
+    int beauty(vector<int>& frequency,int x){
+        int count=0;
+        for(int index=0;index<50;++index){
+            count+=frequency[index];
+            if(count>=x)return index-50;
+        }
+        return 0;
+    }
+    public:vector<int> getSubarrayBeauty(vector<int>& nums,int k,int x){
+        vector<int> frequency(101),answer(nums.size()-k+1);
+        for(int i=0;i<k;++i)++frequency[nums[i]+50];
+        for(int start=0;start<(int)answer.size();++start){
+            answer[start]=beauty(frequency,x);
+            --frequency[nums[start]+50];
+            if(start+k<(int)nums.size())++frequency[nums[start+k]+50];
+        }
+        return answer;
+    }
+};

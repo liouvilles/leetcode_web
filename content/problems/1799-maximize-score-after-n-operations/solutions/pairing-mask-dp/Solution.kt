@@ -1,1 +1,21 @@
-class Solution { private lateinit var nums:IntArray;private lateinit var memo:IntArray;private fun gcd(a:Int,b:Int):Int=if(b==0)a else gcd(b,a%b);private fun dfs(mask:Int):Int{if(mask==(1 shl nums.size)-1)return 0;if(memo[mask]>=0)return memo[mask];val operation=Integer.bitCount(mask)/2+1;var best=0;for(first in nums.indices)if(mask and (1 shl first)==0)for(second in first+1 until nums.size)if(mask and (1 shl second)==0)best=maxOf(best,operation*gcd(nums[first],nums[second])+dfs(mask or (1 shl first) or (1 shl second)));memo[mask]=best;return best};fun maxScore(nums:IntArray):Int{this.nums=nums;memo=IntArray(1 shl nums.size){-1};return dfs(0)} }
+class Solution {
+    private lateinit var nums:IntArray;
+    private lateinit var memo:IntArray;
+    private fun gcd(a:Int,b:Int):Int=if(b==0)a else gcd(b,a%b);
+    private fun dfs(mask:Int):Int{
+        if(mask==(1 shl nums.size)-1)return 0;
+        if(memo[mask]>=0)return memo[mask];
+        val operation=Integer.bitCount(mask)/2+1;
+        var best=0;
+        for(first in nums.indices)if(mask and (1 shl first)==0)for(second in first+1 until nums.size)if(mask and (1 shl second)==0)best=maxOf(best,operation*gcd(nums[first],nums[second])+dfs(mask or (1 shl first) or (1 shl second)));
+        memo[mask]=best;
+        return best
+    };
+    fun maxScore(nums:IntArray):Int{
+        this.nums=nums;
+        memo=IntArray(1 shl nums.size){
+            -1
+        };
+        return dfs(0)
+    }
+}

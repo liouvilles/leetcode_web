@@ -1,1 +1,17 @@
-class Solution { public boolean hasGroupsSizeX(int[] deck){Map<Integer,Integer> frequency=new HashMap<>();for(int card:deck)frequency.merge(card,1,Integer::sum);int divisor=0;for(int count:frequency.values())divisor=gcd(divisor,count);return divisor>=2;}private int gcd(int a,int b){while(b!=0){int temporary=a%b;a=b;b=temporary;}return a;} }
+class Solution {
+    public boolean hasGroupsSizeX(int[] deck){
+        Map<Integer,Integer> frequency=new HashMap<>();
+        for(int card:deck)frequency.merge(card,1,Integer::sum);
+        int divisor=0;
+        for(int count:frequency.values())divisor=gcd(divisor,count);
+        return divisor>=2;
+    }
+    private int gcd(int a,int b){
+        while(b!=0){
+            int temporary=a%b;
+            a=b;
+            b=temporary;
+        }
+        return a;
+    }
+}

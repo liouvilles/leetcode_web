@@ -1,1 +1,70 @@
-class Solution { private static final int[][][] PATHS={{{0,0}},{{0,-1},{0,1}},{{-1,0},{1,0}},{{0,-1},{1,0}},{{0,1},{1,0}},{{0,-1},{-1,0}},{{0,1},{-1,0}}};public boolean hasValidPath(int[][] grid){int rows=grid.length,cols=grid[0].length;boolean[][] seen=new boolean[rows][cols];Queue<int[]> queue=new ArrayDeque<>();queue.offer(new int[]{0,0});seen[0][0]=true;while(!queue.isEmpty()){int[] cell=queue.poll();if(cell[0]==rows-1&&cell[1]==cols-1)return true;for(int[] direction:PATHS[grid[cell[0]][cell[1]]]){int nr=cell[0]+direction[0],nc=cell[1]+direction[1];if(nr<0||nr>=rows||nc<0||nc>=cols||seen[nr][nc])continue;for(int[] back:PATHS[grid[nr][nc]])if(back[0]==-direction[0]&&back[1]==-direction[1]){seen[nr][nc]=true;queue.offer(new int[]{nr,nc});break;}}}return false;} }
+class Solution {
+    private static final int[][][] PATHS={
+        {
+            {
+                0,0
+            }
+        },{
+            {
+                0,-1
+            },{
+                0,1
+            }
+        },{
+            {
+                -1,0
+            },{
+                1,0
+            }
+        },{
+            {
+                0,-1
+            },{
+                1,0
+            }
+        },{
+            {
+                0,1
+            },{
+                1,0
+            }
+        },{
+            {
+                0,-1
+            },{
+                -1,0
+            }
+        },{
+            {
+                0,1
+            },{
+                -1,0
+            }
+        }
+    };
+    public boolean hasValidPath(int[][] grid){
+        int rows=grid.length,cols=grid[0].length;
+        boolean[][] seen=new boolean[rows][cols];
+        Queue<int[]> queue=new ArrayDeque<>();
+        queue.offer(new int[]{
+            0,0
+        });
+        seen[0][0]=true;
+        while(!queue.isEmpty()){
+            int[] cell=queue.poll();
+            if(cell[0]==rows-1&&cell[1]==cols-1)return true;
+            for(int[] direction:PATHS[grid[cell[0]][cell[1]]]){
+                int nr=cell[0]+direction[0],nc=cell[1]+direction[1];
+                if(nr<0||nr>=rows||nc<0||nc>=cols||seen[nr][nc])continue;
+                for(int[] back:PATHS[grid[nr][nc]])if(back[0]==-direction[0]&&back[1]==-direction[1]){
+                    seen[nr][nc]=true;
+                    queue.offer(new int[]{
+                        nr,nc
+                    });
+                    break;
+                }
+            }
+        }
+        return false;
+    }
+}

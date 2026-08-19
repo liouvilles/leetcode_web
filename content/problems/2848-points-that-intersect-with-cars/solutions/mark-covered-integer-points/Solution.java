@@ -1,1 +1,9 @@
-class Solution { public int numberOfPoints(List<List<Integer>> nums){boolean[] covered=new boolean[101];for(List<Integer> interval:nums)for(int point=interval.get(0);point<=interval.get(1);point++)covered[point]=true;int answer=0;for(boolean value:covered)if(value)answer++;return answer;} }
+class Solution {
+    public int numberOfPoints(List<List<Integer>> nums){
+        boolean[] covered=new boolean[101];
+        for(List<Integer> interval:nums)for(int point=interval.get(0);point<=interval.get(1);point++)covered[point]=true;
+        int answer=0;
+        for(boolean value:covered)if(value)answer++;
+        return answer;
+    }
+}

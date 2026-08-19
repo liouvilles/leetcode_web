@@ -1,1 +1,20 @@
-class Solution { private int permutation(int available,int count){int result=1;for(int i=0;i<count;i++)result*=available-i;return result;}public int countSpecialNumbers(int n){char[] digits=String.valueOf(n).toCharArray();int length=digits.length,answer=0;for(int size=1;size<length;size++)answer+=9*permutation(9,size-1);boolean[] used=new boolean[10];for(int position=0;position<length;position++){int current=digits[position]-'0',start=position==0?1:0;for(int digit=start;digit<current;digit++)if(!used[digit])answer+=permutation(10-position-1,length-position-1);if(used[current])return answer;used[current]=true;}return answer+1;} }
+class Solution {
+    private int permutation(int available,int count){
+        int result=1;
+        for(int i=0;i<count;i++)result*=available-i;
+        return result;
+    }
+    public int countSpecialNumbers(int n){
+        char[] digits=String.valueOf(n).toCharArray();
+        int length=digits.length,answer=0;
+        for(int size=1;size<length;size++)answer+=9*permutation(9,size-1);
+        boolean[] used=new boolean[10];
+        for(int position=0;position<length;position++){
+            int current=digits[position]-'0',start=position==0?1:0;
+            for(int digit=start;digit<current;digit++)if(!used[digit])answer+=permutation(10-position-1,length-position-1);
+            if(used[current])return answer;
+            used[current]=true;
+        }
+        return answer+1;
+    }
+}

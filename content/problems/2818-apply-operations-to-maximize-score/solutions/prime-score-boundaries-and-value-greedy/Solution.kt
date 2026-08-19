@@ -1,1 +1,58 @@
-class Solution { private val mod=1000000007L;private fun power(baseInput:Long,exponentInput:Long):Long{var base=baseInput;var exponent=exponentInput;var answer=1L;while(exponent>0){if(exponent and 1L==1L)answer=answer*base%mod;base=base*base%mod;exponent=exponent shr 1};return answer};fun maximumScore(nums:List<Int>,k:Int):Int{val n=nums.size;val maximum=nums.maxOrNull()!!;val primeScore=IntArray(maximum+1);for(prime in 2..maximum)if(primeScore[prime]==0){var multiple=prime;while(multiple<=maximum){primeScore[multiple]++;multiple+=prime}};val left=IntArray(n);val right=IntArray(n);val stack=java.util.ArrayDeque<Int>();for(i in nums.indices){val score=primeScore[nums[i]];while(!stack.isEmpty()&&primeScore[nums[stack.peekLast()]]<score)stack.pollLast();left[i]=if(stack.isEmpty())-1 else stack.peekLast();stack.addLast(i)};stack.clear();for(i in nums.lastIndex downTo 0){val score=primeScore[nums[i]];while(!stack.isEmpty()&&primeScore[nums[stack.peekLast()]]<=score)stack.pollLast();right[i]=if(stack.isEmpty())n else stack.peekLast();stack.addLast(i)};val order=Array(n){it};order.sortWith(Comparator{a,b->nums[b].compareTo(nums[a])});var answer=1L;var remaining=k.toLong();for(index in order){val ways=(index-left[index]).toLong()*(right[index]-index);val used=minOf(remaining,ways);answer=answer*power(nums[index].toLong(),used)%mod;remaining-=used;if(remaining==0L)break};return answer.toInt()} }
+class Solution {
+    private val mod=1000000007L;
+    private fun power(baseInput:Long,exponentInput:Long):Long{
+        var base=baseInput;
+        var exponent=exponentInput;
+        var answer=1L;
+        while(exponent>0){
+            if(exponent and 1L==1L)answer=answer*base%mod;
+            base=base*base%mod;
+            exponent=exponent shr 1
+        };
+        return answer
+    };
+    fun maximumScore(nums:List<Int>,k:Int):Int{
+        val n=nums.size;
+        val maximum=nums.maxOrNull()!!;
+        val primeScore=IntArray(maximum+1);
+        for(prime in 2..maximum)if(primeScore[prime]==0){
+            var multiple=prime;
+            while(multiple<=maximum){
+                primeScore[multiple]++;
+                multiple+=prime
+            }
+        };
+        val left=IntArray(n);
+        val right=IntArray(n);
+        val stack=java.util.ArrayDeque<Int>();
+        for(i in nums.indices){
+            val score=primeScore[nums[i]];
+            while(!stack.isEmpty()&&primeScore[nums[stack.peekLast()]]<score)stack.pollLast();
+            left[i]=if(stack.isEmpty())-1 else stack.peekLast();
+            stack.addLast(i)
+        };
+        stack.clear();
+        for(i in nums.lastIndex downTo 0){
+            val score=primeScore[nums[i]];
+            while(!stack.isEmpty()&&primeScore[nums[stack.peekLast()]]<=score)stack.pollLast();
+            right[i]=if(stack.isEmpty())n else stack.peekLast();
+            stack.addLast(i)
+        };
+        val order=Array(n){
+            it
+        };
+        order.sortWith(Comparator{
+            a,b->nums[b].compareTo(nums[a])
+        });
+        var answer=1L;
+        var remaining=k.toLong();
+        for(index in order){
+            val ways=(index-left[index]).toLong()*(right[index]-index);
+            val used=minOf(remaining,ways);
+            answer=answer*power(nums[index].toLong(),used)%mod;
+            remaining-=used;
+            if(remaining==0L)break
+        };
+        return answer.toInt()
+    }
+}

@@ -1,1 +1,19 @@
-class Solution { fun numberOfWays(s:String):Long{var zeros=0L;var ones=0L;var pairs01=0L;var pairs10=0L;var answer=0L;for(ch in s)if(ch=='0'){answer+=pairs01;pairs10+=ones;zeros++}else{answer+=pairs10;pairs01+=zeros;ones++};return answer} }
+class Solution {
+    fun numberOfWays(s:String):Long{
+        var zeros=0L;
+        var ones=0L;
+        var pairs01=0L;
+        var pairs10=0L;
+        var answer=0L;
+        for(ch in s)if(ch=='0'){
+            answer+=pairs01;
+            pairs10+=ones;
+            zeros++
+        }else{
+            answer+=pairs10;
+            pairs01+=zeros;
+            ones++
+        };
+        return answer
+    }
+}

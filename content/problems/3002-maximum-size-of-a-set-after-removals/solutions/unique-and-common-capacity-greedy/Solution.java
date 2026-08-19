@@ -1,1 +1,11 @@
-class Solution { public int maximumSetSize(int[] nums1,int[] nums2){Set<Integer> first=new HashSet<>(),second=new HashSet<>();for(int value:nums1)first.add(value);for(int value:nums2)second.add(value);int common=0;for(int value:first)if(second.contains(value))common++;int half=nums1.length/2,takeFirst=Math.min(half,first.size()-common),takeSecond=Math.min(half,second.size()-common);return takeFirst+takeSecond+Math.min(common,2*half-takeFirst-takeSecond);} }
+class Solution {
+    public int maximumSetSize(int[] nums1,int[] nums2){
+        Set<Integer> first=new HashSet<>(),second=new HashSet<>();
+        for(int value:nums1)first.add(value);
+        for(int value:nums2)second.add(value);
+        int common=0;
+        for(int value:first)if(second.contains(value))common++;
+        int half=nums1.length/2,takeFirst=Math.min(half,first.size()-common),takeSecond=Math.min(half,second.size()-common);
+        return takeFirst+takeSecond+Math.min(common,2*half-takeFirst-takeSecond);
+    }
+}

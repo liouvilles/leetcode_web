@@ -1,1 +1,19 @@
-class FreqStack { private final Map<Integer,Integer> frequency=new HashMap<>();private final Map<Integer,Deque<Integer>> groups=new HashMap<>();private int maximum;public FreqStack(){}public void push(int val){int count=frequency.merge(val,1,Integer::sum);maximum=Math.max(maximum,count);groups.computeIfAbsent(count,key->new ArrayDeque<>()).push(val);}public int pop(){Deque<Integer> stack=groups.get(maximum);int value=stack.pop();frequency.put(value,frequency.get(value)-1);if(stack.isEmpty())maximum--;return value;} }
+class FreqStack {
+    private final Map<Integer,Integer> frequency=new HashMap<>();
+    private final Map<Integer,Deque<Integer>> groups=new HashMap<>();
+    private int maximum;
+    public FreqStack(){
+    }
+    public void push(int val){
+        int count=frequency.merge(val,1,Integer::sum);
+        maximum=Math.max(maximum,count);
+        groups.computeIfAbsent(count,key->new ArrayDeque<>()).push(val);
+    }
+    public int pop(){
+        Deque<Integer> stack=groups.get(maximum);
+        int value=stack.pop();
+        frequency.put(value,frequency.get(value)-1);
+        if(stack.isEmpty())maximum--;
+        return value;
+    }
+}

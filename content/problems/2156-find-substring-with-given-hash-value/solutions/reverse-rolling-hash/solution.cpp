@@ -1,1 +1,14 @@
-class Solution { public:string subStrHash(string s,int power,int modulo,int k,int hashValue){long long powerK=1;for(int i=0;i<k;++i)powerK=powerK*power%modulo;long long hash=0;int answer=0;for(int i=s.size()-1;i>=0;--i){hash=(hash*power+s[i]-'a'+1)%modulo;if(i+k<(int)s.size())hash=(hash-(s[i+k]-'a'+1)*powerK%modulo+modulo)%modulo;if(i<=(int)s.size()-k&&hash==hashValue)answer=i;}return s.substr(answer,k);} };
+class Solution {
+    public:string subStrHash(string s,int power,int modulo,int k,int hashValue){
+        long long powerK=1;
+        for(int i=0;i<k;++i)powerK=powerK*power%modulo;
+        long long hash=0;
+        int answer=0;
+        for(int i=s.size()-1;i>=0;--i){
+            hash=(hash*power+s[i]-'a'+1)%modulo;
+            if(i+k<(int)s.size())hash=(hash-(s[i+k]-'a'+1)*powerK%modulo+modulo)%modulo;
+            if(i<=(int)s.size()-k&&hash==hashValue)answer=i;
+        }
+        return s.substr(answer,k);
+    }
+};

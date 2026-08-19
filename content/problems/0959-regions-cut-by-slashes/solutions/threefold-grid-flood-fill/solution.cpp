@@ -1,1 +1,47 @@
-class Solution { public: int regionsBySlashes(vector<string>& grid){int n=grid.size(),size=3*n;vector<vector<bool>> blocked(size,vector<bool>(size));for(int r=0;r<n;++r)for(int c=0;c<n;++c){char ch=grid[r][c];if(ch=='/'){blocked[3*r][3*c+2]=blocked[3*r+1][3*c+1]=blocked[3*r+2][3*c]=true;}else if(ch==92){blocked[3*r][3*c]=blocked[3*r+1][3*c+1]=blocked[3*r+2][3*c+2]=true;}}int regions=0,directions[4][2]={{1,0},{-1,0},{0,1},{0,-1}};for(int r=0;r<size;++r)for(int c=0;c<size;++c)if(!blocked[r][c]){++regions;queue<pair<int,int>> pending;pending.push({r,c});blocked[r][c]=true;while(!pending.empty()){auto cell=pending.front();pending.pop();for(auto& d:directions){int nr=cell.first+d[0],nc=cell.second+d[1];if(nr>=0&&nr<size&&nc>=0&&nc<size&&!blocked[nr][nc]){blocked[nr][nc]=true;pending.push({nr,nc});}}}}return regions;} };
+class Solution {
+    public: int regionsBySlashes(vector<string>& grid){
+        int n=grid.size(),size=3*n;
+        vector<vector<bool>> blocked(size,vector<bool>(size));
+        for(int r=0;r<n;++r)for(int c=0;c<n;++c){
+            char ch=grid[r][c];
+            if(ch=='/'){
+                blocked[3*r][3*c+2]=blocked[3*r+1][3*c+1]=blocked[3*r+2][3*c]=true;
+            }else if(ch==92){
+                blocked[3*r][3*c]=blocked[3*r+1][3*c+1]=blocked[3*r+2][3*c+2]=true;
+            }
+        }
+        int regions=0,directions[4][2]={
+            {
+                1,0
+            },{
+                -1,0
+            },{
+                0,1
+            },{
+                0,-1
+            }
+        };
+        for(int r=0;r<size;++r)for(int c=0;c<size;++c)if(!blocked[r][c]){
+            ++regions;
+            queue<pair<int,int>> pending;
+            pending.push({
+                r,c
+            });
+            blocked[r][c]=true;
+            while(!pending.empty()){
+                auto cell=pending.front();
+                pending.pop();
+                for(auto& d:directions){
+                    int nr=cell.first+d[0],nc=cell.second+d[1];
+                    if(nr>=0&&nr<size&&nc>=0&&nc<size&&!blocked[nr][nc]){
+                        blocked[nr][nc]=true;
+                        pending.push({
+                            nr,nc
+                        });
+                    }
+                }
+            }
+        }
+        return regions;
+    }
+};

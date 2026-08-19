@@ -1,1 +1,11 @@
-class Solution { public int maxAbsoluteSum(int[] nums){int prefix=0,minimum=0,maximum=0;for(int value:nums){prefix+=value;minimum=Math.min(minimum,prefix);maximum=Math.max(maximum,prefix);}return maximum-minimum;} }
+class Solution {
+    public int maxAbsoluteSum(int[] nums){
+        int prefix=0,minimum=0,maximum=0;
+        for(int value:nums){
+            prefix+=value;
+            minimum=Math.min(minimum,prefix);
+            maximum=Math.max(maximum,prefix);
+        }
+        return maximum-minimum;
+    }
+}

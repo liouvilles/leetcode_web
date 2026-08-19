@@ -1,1 +1,17 @@
-class Solution { unordered_map<int,int> counts;int best=0;int dfs(TreeNode* node){if(!node)return 0;int sum=node->val+dfs(node->left)+dfs(node->right);best=max(best,++counts[sum]);return sum;}public:vector<int> findFrequentTreeSum(TreeNode* root){dfs(root);vector<int> answer;for(auto [sum,count]:counts)if(count==best)answer.push_back(sum);sort(answer.begin(),answer.end());return answer;} };
+class Solution {
+    unordered_map<int,int> counts;
+    int best=0;
+    int dfs(TreeNode* node){
+        if(!node)return 0;
+        int sum=node->val+dfs(node->left)+dfs(node->right);
+        best=max(best,++counts[sum]);
+        return sum;
+    }
+    public:vector<int> findFrequentTreeSum(TreeNode* root){
+        dfs(root);
+        vector<int> answer;
+        for(auto [sum,count]:counts)if(count==best)answer.push_back(sum);
+        sort(answer.begin(),answer.end());
+        return answer;
+    }
+};

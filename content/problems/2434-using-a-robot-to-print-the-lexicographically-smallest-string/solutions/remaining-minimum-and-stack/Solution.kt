@@ -1,1 +1,19 @@
-class Solution { fun robotWithString(s:String):String{val frequency=IntArray(26);for(ch in s)frequency[ch-'a']++;var smallest=0;val stack=StringBuilder();val answer=StringBuilder();for(ch in s){stack.append(ch);frequency[ch-'a']--;while(smallest<26&&frequency[smallest]==0)smallest++;while(stack.isNotEmpty()&&(smallest==26||stack[stack.length-1]-'a'<=smallest)){answer.append(stack[stack.length-1]);stack.setLength(stack.length-1)}};return answer.toString()} }
+class Solution {
+    fun robotWithString(s:String):String{
+        val frequency=IntArray(26);
+        for(ch in s)frequency[ch-'a']++;
+        var smallest=0;
+        val stack=StringBuilder();
+        val answer=StringBuilder();
+        for(ch in s){
+            stack.append(ch);
+            frequency[ch-'a']--;
+            while(smallest<26&&frequency[smallest]==0)smallest++;
+            while(stack.isNotEmpty()&&(smallest==26||stack[stack.length-1]-'a'<=smallest)){
+                answer.append(stack[stack.length-1]);
+                stack.setLength(stack.length-1)
+            }
+        };
+        return answer.toString()
+    }
+}

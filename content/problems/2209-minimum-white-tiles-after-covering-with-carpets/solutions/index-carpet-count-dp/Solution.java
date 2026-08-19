@@ -1,1 +1,24 @@
-class Solution { String floor;int length;int[][] memo;private int dfs(int index,int carpets){if(index>=floor.length())return 0;if(carpets==0){int white=0;for(int i=index;i<floor.length();i++)if(floor.charAt(i)=='1')white++;return white;}if(memo[index][carpets]>=0)return memo[index][carpets];int skip=(floor.charAt(index)-'0')+dfs(index+1,carpets);int cover=dfs(index+length,carpets-1);return memo[index][carpets]=Math.min(skip,cover);}public int minimumWhiteTiles(String floor,int numCarpets,int carpetLen){this.floor=floor;length=carpetLen;memo=new int[floor.length()][numCarpets+1];for(int[] row:memo)Arrays.fill(row,-1);return dfs(0,numCarpets);} }
+class Solution {
+    String floor;
+    int length;
+    int[][] memo;
+    private int dfs(int index,int carpets){
+        if(index>=floor.length())return 0;
+        if(carpets==0){
+            int white=0;
+            for(int i=index;i<floor.length();i++)if(floor.charAt(i)=='1')white++;
+            return white;
+        }
+        if(memo[index][carpets]>=0)return memo[index][carpets];
+        int skip=(floor.charAt(index)-'0')+dfs(index+1,carpets);
+        int cover=dfs(index+length,carpets-1);
+        return memo[index][carpets]=Math.min(skip,cover);
+    }
+    public int minimumWhiteTiles(String floor,int numCarpets,int carpetLen){
+        this.floor=floor;
+        length=carpetLen;
+        memo=new int[floor.length()][numCarpets+1];
+        for(int[] row:memo)Arrays.fill(row,-1);
+        return dfs(0,numCarpets);
+    }
+}

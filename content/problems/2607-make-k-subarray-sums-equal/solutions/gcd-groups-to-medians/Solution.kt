@@ -1,1 +1,28 @@
-class Solution { private fun gcd(aInput:Int,bInput:Int):Int{var a=aInput;var b=bInput;while(b!=0){val next=a%b;a=b;b=next};return a}fun makeSubKSumEqual(arr:IntArray,k:Int):Long{val groups=gcd(arr.size,k);var answer=0L;for(start in 0 until groups){val values=mutableListOf<Int>();var index=start;while(index<arr.size){values.add(arr[index]);index+=groups};values.sort();val median=values[values.size/2];for(value in values)answer+=kotlin.math.abs(value.toLong()-median)};return answer} }
+class Solution {
+    private fun gcd(aInput:Int,bInput:Int):Int{
+        var a=aInput;
+        var b=bInput;
+        while(b!=0){
+            val next=a%b;
+            a=b;
+            b=next
+        };
+        return a
+    }
+    fun makeSubKSumEqual(arr:IntArray,k:Int):Long{
+        val groups=gcd(arr.size,k);
+        var answer=0L;
+        for(start in 0 until groups){
+            val values=mutableListOf<Int>();
+            var index=start;
+            while(index<arr.size){
+                values.add(arr[index]);
+                index+=groups
+            };
+            values.sort();
+            val median=values[values.size/2];
+            for(value in values)answer+=kotlin.math.abs(value.toLong()-median)
+        };
+        return answer
+    }
+}

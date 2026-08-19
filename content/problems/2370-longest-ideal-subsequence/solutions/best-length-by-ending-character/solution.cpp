@@ -1,1 +1,13 @@
-class Solution { public:int longestIdealString(string s,int k){int dp[26]={},answer=0;for(char ch:s){int value=ch-'a',best=0;for(int previous=max(0,value-k);previous<=min(25,value+k);++previous)best=max(best,dp[previous]);dp[value]=max(dp[value],best+1);answer=max(answer,dp[value]);}return answer;} };
+class Solution {
+    public:int longestIdealString(string s,int k){
+        int dp[26]={
+        },answer=0;
+        for(char ch:s){
+            int value=ch-'a',best=0;
+            for(int previous=max(0,value-k);previous<=min(25,value+k);++previous)best=max(best,dp[previous]);
+            dp[value]=max(dp[value],best+1);
+            answer=max(answer,dp[value]);
+        }
+        return answer;
+    }
+};

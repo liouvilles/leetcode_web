@@ -1,1 +1,21 @@
-class Solution { fun dieSimulator(n:Int,rollMax:IntArray):Int{val mod=1000000007L;var dp=Array(6){LongArray(16)};for(face in 0..5)dp[face][1]=1;for(length in 2..n){val next=Array(6){LongArray(16)};for(face in 0..5)for(run in 1..rollMax[face])if(dp[face][run]>0)for(nextFace in 0..5)if(nextFace==face){if(run<rollMax[face])next[face][run+1]=(next[face][run+1]+dp[face][run])%mod}else next[nextFace][1]=(next[nextFace][1]+dp[face][run])%mod;dp=next};var answer=0L;for(face in dp)for(count in face)answer=(answer+count)%mod;return answer.toInt()} }
+class Solution {
+    fun dieSimulator(n:Int,rollMax:IntArray):Int{
+        val mod=1000000007L;
+        var dp=Array(6){
+            LongArray(16)
+        };
+        for(face in 0..5)dp[face][1]=1;
+        for(length in 2..n){
+            val next=Array(6){
+                LongArray(16)
+            };
+            for(face in 0..5)for(run in 1..rollMax[face])if(dp[face][run]>0)for(nextFace in 0..5)if(nextFace==face){
+                if(run<rollMax[face])next[face][run+1]=(next[face][run+1]+dp[face][run])%mod
+            }else next[nextFace][1]=(next[nextFace][1]+dp[face][run])%mod;
+            dp=next
+        };
+        var answer=0L;
+        for(face in dp)for(count in face)answer=(answer+count)%mod;
+        return answer.toInt()
+    }
+}

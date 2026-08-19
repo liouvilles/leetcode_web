@@ -1,1 +1,16 @@
-class Solution { public List<List<Integer>> groupThePeople(int[] groupSizes){Map<Integer,List<Integer>> pending=new HashMap<>();List<List<Integer>> answer=new ArrayList<>();for(int person=0;person<groupSizes.length;person++){int size=groupSizes[person];List<Integer> group=pending.computeIfAbsent(size,key->new ArrayList<>());group.add(person);if(group.size()==size){answer.add(group);pending.remove(size);}}return answer;} }
+class Solution {
+    public List<List<Integer>> groupThePeople(int[] groupSizes){
+        Map<Integer,List<Integer>> pending=new HashMap<>();
+        List<List<Integer>> answer=new ArrayList<>();
+        for(int person=0;person<groupSizes.length;person++){
+            int size=groupSizes[person];
+            List<Integer> group=pending.computeIfAbsent(size,key->new ArrayList<>());
+            group.add(person);
+            if(group.size()==size){
+                answer.add(group);
+                pending.remove(size);
+            }
+        }
+        return answer;
+    }
+}

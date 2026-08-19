@@ -1,1 +1,14 @@
-class Solution { int index;TreeNode* build(vector<int>& preorder,int bound){if(index==(int)preorder.size()||preorder[index]>bound)return nullptr;TreeNode* root=new TreeNode(preorder[index++]);root->left=build(preorder,root->val);root->right=build(preorder,bound);return root;}public:TreeNode* bstFromPreorder(vector<int>& preorder){index=0;return build(preorder,INT_MAX);} };
+class Solution {
+    int index;
+    TreeNode* build(vector<int>& preorder,int bound){
+        if(index==(int)preorder.size()||preorder[index]>bound)return nullptr;
+        TreeNode* root=new TreeNode(preorder[index++]);
+        root->left=build(preorder,root->val);
+        root->right=build(preorder,bound);
+        return root;
+    }
+    public:TreeNode* bstFromPreorder(vector<int>& preorder){
+        index=0;
+        return build(preorder,INT_MAX);
+    }
+};

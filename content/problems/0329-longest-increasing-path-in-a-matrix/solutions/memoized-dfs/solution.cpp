@@ -1,1 +1,34 @@
-class Solution { vector<vector<int>>* matrix;vector<vector<int>> memo;int rows,cols;int dfs(int r,int c){if(memo[r][c])return memo[r][c];int best=1;int directions[4][2]={{1,0},{-1,0},{0,1},{0,-1}};for(auto& d:directions){int nr=r+d[0],nc=c+d[1];if(nr>=0&&nr<rows&&nc>=0&&nc<cols&&(*matrix)[nr][nc]>(*matrix)[r][c])best=max(best,1+dfs(nr,nc));}return memo[r][c]=best;}public:int longestIncreasingPath(vector<vector<int>>& input){matrix=&input;rows=input.size();cols=input[0].size();memo.assign(rows,vector<int>(cols));int answer=0;for(int r=0;r<rows;++r)for(int c=0;c<cols;++c)answer=max(answer,dfs(r,c));return answer;} };
+class Solution {
+    vector<vector<int>>* matrix;
+    vector<vector<int>> memo;
+    int rows,cols;
+    int dfs(int r,int c){
+        if(memo[r][c])return memo[r][c];
+        int best=1;
+        int directions[4][2]={
+            {
+                1,0
+            },{
+                -1,0
+            },{
+                0,1
+            },{
+                0,-1
+            }
+        };
+        for(auto& d:directions){
+            int nr=r+d[0],nc=c+d[1];
+            if(nr>=0&&nr<rows&&nc>=0&&nc<cols&&(*matrix)[nr][nc]>(*matrix)[r][c])best=max(best,1+dfs(nr,nc));
+        }
+        return memo[r][c]=best;
+    }
+    public:int longestIncreasingPath(vector<vector<int>>& input){
+        matrix=&input;
+        rows=input.size();
+        cols=input[0].size();
+        memo.assign(rows,vector<int>(cols));
+        int answer=0;
+        for(int r=0;r<rows;++r)for(int c=0;c<cols;++c)answer=max(answer,dfs(r,c));
+        return answer;
+    }
+};

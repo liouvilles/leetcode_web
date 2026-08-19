@@ -1,1 +1,23 @@
-class Solution { fun minimizeMax(nums:IntArray,p:Int):Int{nums.sort();fun feasible(limit:Int):Boolean{var pairs=0;var index=0;while(index+1<nums.size&&pairs<p){if(nums[index+1]-nums[index]<=limit){pairs++;index+=2}else index++};return pairs>=p};var left=0;var right=nums.last()-nums.first();while(left<right){val middle=left+(right-left)/2;if(feasible(middle))right=middle else left=middle+1};return left} }
+class Solution {
+    fun minimizeMax(nums:IntArray,p:Int):Int{
+        nums.sort();
+        fun feasible(limit:Int):Boolean{
+            var pairs=0;
+            var index=0;
+            while(index+1<nums.size&&pairs<p){
+                if(nums[index+1]-nums[index]<=limit){
+                    pairs++;
+                    index+=2
+                }else index++
+            };
+            return pairs>=p
+        };
+        var left=0;
+        var right=nums.last()-nums.first();
+        while(left<right){
+            val middle=left+(right-left)/2;
+            if(feasible(middle))right=middle else left=middle+1
+        };
+        return left
+    }
+}

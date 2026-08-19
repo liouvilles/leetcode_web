@@ -1,1 +1,28 @@
-class Solution { fun minimumDifference(nums:IntArray):Long{val n=nums.size/3;val prefix=LongArray(nums.size);val suffix=LongArray(nums.size);val left=java.util.PriorityQueue<Int>(compareByDescending{it});var sum=0L;for(i in 0 until 2*n){left.add(nums[i]);sum+=nums[i];if(left.size>n)sum-=left.remove();if(left.size==n)prefix[i]=sum};val right=java.util.PriorityQueue<Int>();sum=0;for(i in nums.lastIndex downTo n){right.add(nums[i]);sum+=nums[i];if(right.size>n)sum-=right.remove();if(right.size==n)suffix[i]=sum};var answer=Long.MAX_VALUE;for(i in n-1 until 2*n)answer=minOf(answer,prefix[i]-suffix[i+1]);return answer} }
+class Solution {
+    fun minimumDifference(nums:IntArray):Long{
+        val n=nums.size/3;
+        val prefix=LongArray(nums.size);
+        val suffix=LongArray(nums.size);
+        val left=java.util.PriorityQueue<Int>(compareByDescending{
+            it
+        });
+        var sum=0L;
+        for(i in 0 until 2*n){
+            left.add(nums[i]);
+            sum+=nums[i];
+            if(left.size>n)sum-=left.remove();
+            if(left.size==n)prefix[i]=sum
+        };
+        val right=java.util.PriorityQueue<Int>();
+        sum=0;
+        for(i in nums.lastIndex downTo n){
+            right.add(nums[i]);
+            sum+=nums[i];
+            if(right.size>n)sum-=right.remove();
+            if(right.size==n)suffix[i]=sum
+        };
+        var answer=Long.MAX_VALUE;
+        for(i in n-1 until 2*n)answer=minOf(answer,prefix[i]-suffix[i+1]);
+        return answer
+    }
+}

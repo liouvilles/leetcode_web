@@ -1,1 +1,20 @@
-class MyQueue { private final Deque<Integer> input=new ArrayDeque<>(),output=new ArrayDeque<>();public void push(int x){input.push(x);}private void move(){if(output.isEmpty())while(!input.isEmpty())output.push(input.pop());}public int pop(){move();return output.pop();}public int peek(){move();return output.peek();}public boolean empty(){return input.isEmpty()&&output.isEmpty();} }
+class MyQueue {
+    private final Deque<Integer> input=new ArrayDeque<>(),output=new ArrayDeque<>();
+    public void push(int x){
+        input.push(x);
+    }
+    private void move(){
+        if(output.isEmpty())while(!input.isEmpty())output.push(input.pop());
+    }
+    public int pop(){
+        move();
+        return output.pop();
+    }
+    public int peek(){
+        move();
+        return output.peek();
+    }
+    public boolean empty(){
+        return input.isEmpty()&&output.isEmpty();
+    }
+}

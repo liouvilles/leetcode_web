@@ -1,1 +1,19 @@
-class Solution { private boolean same(int[][] first,int[][] second){for(int i=0;i<first.length;i++)if(!Arrays.equals(first[i],second[i]))return false;return true;}private int[][] rotate(int[][] matrix){int n=matrix.length;int[][] result=new int[n][n];for(int row=0;row<n;row++)for(int col=0;col<n;col++)result[col][n-1-row]=matrix[row][col];return result;}public boolean findRotation(int[][] mat,int[][] target){for(int turn=0;turn<4;turn++){if(same(mat,target))return true;mat=rotate(mat);}return false;} }
+class Solution {
+    private boolean same(int[][] first,int[][] second){
+        for(int i=0;i<first.length;i++)if(!Arrays.equals(first[i],second[i]))return false;
+        return true;
+    }
+    private int[][] rotate(int[][] matrix){
+        int n=matrix.length;
+        int[][] result=new int[n][n];
+        for(int row=0;row<n;row++)for(int col=0;col<n;col++)result[col][n-1-row]=matrix[row][col];
+        return result;
+    }
+    public boolean findRotation(int[][] mat,int[][] target){
+        for(int turn=0;turn<4;turn++){
+            if(same(mat,target))return true;
+            mat=rotate(mat);
+        }
+        return false;
+    }
+}

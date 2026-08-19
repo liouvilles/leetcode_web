@@ -1,1 +1,36 @@
-class Solution { fun minimumFuelCost(roads:Array<IntArray>,seats:Int):Long{val n=roads.size+1;val graph=Array(n){mutableListOf<Int>()};for(road in roads){graph[road[0]].add(road[1]);graph[road[1]].add(road[0])};val parent=IntArray(n){-2};val order=IntArray(n);parent[0]=-1;var size=1;var index=0;while(index<size){val node=order[index++];for(next in graph[node])if(parent[next]==-2){parent[next]=node;order[size++]=next}};val people=LongArray(n){1};var fuel=0L;for(position in n-1 downTo 1){val node=order[position];fuel+=(people[node]+seats-1)/seats;people[parent[node]]+=people[node]};return fuel} }
+class Solution {
+    fun minimumFuelCost(roads:Array<IntArray>,seats:Int):Long{
+        val n=roads.size+1;
+        val graph=Array(n){
+            mutableListOf<Int>()
+        };
+        for(road in roads){
+            graph[road[0]].add(road[1]);
+            graph[road[1]].add(road[0])
+        };
+        val parent=IntArray(n){
+            -2
+        };
+        val order=IntArray(n);
+        parent[0]=-1;
+        var size=1;
+        var index=0;
+        while(index<size){
+            val node=order[index++];
+            for(next in graph[node])if(parent[next]==-2){
+                parent[next]=node;
+                order[size++]=next
+            }
+        };
+        val people=LongArray(n){
+            1
+        };
+        var fuel=0L;
+        for(position in n-1 downTo 1){
+            val node=order[position];
+            fuel+=(people[node]+seats-1)/seats;
+            people[parent[node]]+=people[node]
+        };
+        return fuel
+    }
+}

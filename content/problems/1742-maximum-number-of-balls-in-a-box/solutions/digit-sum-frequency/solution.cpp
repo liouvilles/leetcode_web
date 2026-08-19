@@ -1,1 +1,16 @@
-class Solution { int digitSum(int value){int sum=0;while(value){sum+=value%10;value/=10;}return sum;}public:int countBalls(int lowLimit,int highLimit){int counts[50]={},answer=0;for(int value=lowLimit;value<=highLimit;++value)answer=max(answer,++counts[digitSum(value)]);return answer;} };
+class Solution {
+    int digitSum(int value){
+        int sum=0;
+        while(value){
+            sum+=value%10;
+            value/=10;
+        }
+        return sum;
+    }
+    public:int countBalls(int lowLimit,int highLimit){
+        int counts[50]={
+        },answer=0;
+        for(int value=lowLimit;value<=highLimit;++value)answer=max(answer,++counts[digitSum(value)]);
+        return answer;
+    }
+};

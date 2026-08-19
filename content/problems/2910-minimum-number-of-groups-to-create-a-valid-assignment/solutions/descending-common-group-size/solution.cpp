@@ -1,1 +1,22 @@
-class Solution { public:int minGroupsForValidAssignment(vector<int>& balls){unordered_map<int,int> frequencies;for(int ball:balls)++frequencies[ball];int smallest=balls.size();for(auto& entry:frequencies)smallest=min(smallest,entry.second);for(int size=smallest;size>=1;--size){int groups=0;bool feasible=true;for(auto& entry:frequencies){int frequency=entry.second,quotient=frequency/size,remainder=frequency%size;if(quotient<remainder){feasible=false;break;}groups+=(frequency+size)/(size+1);}if(feasible)return groups;}return balls.size();} };
+class Solution {
+    public:int minGroupsForValidAssignment(vector<int>& balls){
+        unordered_map<int,int> frequencies;
+        for(int ball:balls)++frequencies[ball];
+        int smallest=balls.size();
+        for(auto& entry:frequencies)smallest=min(smallest,entry.second);
+        for(int size=smallest;size>=1;--size){
+            int groups=0;
+            bool feasible=true;
+            for(auto& entry:frequencies){
+                int frequency=entry.second,quotient=frequency/size,remainder=frequency%size;
+                if(quotient<remainder){
+                    feasible=false;
+                    break;
+                }
+                groups+=(frequency+size)/(size+1);
+            }
+            if(feasible)return groups;
+        }
+        return balls.size();
+    }
+};

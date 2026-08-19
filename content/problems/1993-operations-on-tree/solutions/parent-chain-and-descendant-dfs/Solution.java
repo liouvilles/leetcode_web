@@ -1,1 +1,37 @@
-class LockingTree { int[] parent,locked;List<Integer>[] children;public LockingTree(int[] parent){this.parent=parent;locked=new int[parent.length];Arrays.fill(locked,-1);children=new List[parent.length];for(int i=0;i<parent.length;i++)children[i]=new ArrayList<>();for(int i=1;i<parent.length;i++)children[parent[i]].add(i);}public boolean lock(int num,int user){if(locked[num]!=-1)return false;locked[num]=user;return true;}public boolean unlock(int num,int user){if(locked[num]!=user)return false;locked[num]=-1;return true;}private boolean clear(int node){boolean found=locked[node]!=-1;locked[node]=-1;for(int child:children[node])found=clear(child)||found;return found;}public boolean upgrade(int num,int user){if(locked[num]!=-1)return false;for(int ancestor=parent[num];ancestor!=-1;ancestor=parent[ancestor])if(locked[ancestor]!=-1)return false;boolean found=false;for(int child:children[num])found=clear(child)||found;if(!found)return false;locked[num]=user;return true;} }
+class LockingTree {
+    int[] parent,locked;
+    List<Integer>[] children;
+    public LockingTree(int[] parent){
+        this.parent=parent;
+        locked=new int[parent.length];
+        Arrays.fill(locked,-1);
+        children=new List[parent.length];
+        for(int i=0;i<parent.length;i++)children[i]=new ArrayList<>();
+        for(int i=1;i<parent.length;i++)children[parent[i]].add(i);
+    }
+    public boolean lock(int num,int user){
+        if(locked[num]!=-1)return false;
+        locked[num]=user;
+        return true;
+    }
+    public boolean unlock(int num,int user){
+        if(locked[num]!=user)return false;
+        locked[num]=-1;
+        return true;
+    }
+    private boolean clear(int node){
+        boolean found=locked[node]!=-1;
+        locked[node]=-1;
+        for(int child:children[node])found=clear(child)||found;
+        return found;
+    }
+    public boolean upgrade(int num,int user){
+        if(locked[num]!=-1)return false;
+        for(int ancestor=parent[num];ancestor!=-1;ancestor=parent[ancestor])if(locked[ancestor]!=-1)return false;
+        boolean found=false;
+        for(int child:children[num])found=clear(child)||found;
+        if(!found)return false;
+        locked[num]=user;
+        return true;
+    }
+}

@@ -1,1 +1,16 @@
-class Solution { fun divideArray(nums:IntArray,k:Int):Array<IntArray>{nums.sort();val answer=Array(nums.size/3){IntArray(3)};for(group in answer.indices){val start=group*3;if(nums[start+2]-nums[start]>k)return emptyArray<IntArray>();answer[group][0]=nums[start];answer[group][1]=nums[start+1];answer[group][2]=nums[start+2]};return answer} }
+class Solution {
+    fun divideArray(nums:IntArray,k:Int):Array<IntArray>{
+        nums.sort();
+        val answer=Array(nums.size/3){
+            IntArray(3)
+        };
+        for(group in answer.indices){
+            val start=group*3;
+            if(nums[start+2]-nums[start]>k)return emptyArray<IntArray>();
+            answer[group][0]=nums[start];
+            answer[group][1]=nums[start+1];
+            answer[group][2]=nums[start+2]
+        };
+        return answer
+    }
+}

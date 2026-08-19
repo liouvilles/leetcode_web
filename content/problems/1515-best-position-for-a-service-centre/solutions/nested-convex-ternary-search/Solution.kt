@@ -1,1 +1,27 @@
-class Solution { private lateinit var positions:Array<IntArray>;private fun distance(x:Double,y:Double):Double=positions.sumOf{kotlin.math.hypot(it[0]-x,it[1]-y)};private fun bestAtX(x:Double):Double{var low=0.0;var high=100.0;repeat(80){val first=(2*low+high)/3;val second=(low+2*high)/3;if(distance(x,first)<distance(x,second))high=second else low=first};return distance(x,(low+high)/2)};fun getMinDistSum(positions:Array<IntArray>):Double{this.positions=positions;var low=0.0;var high=100.0;repeat(80){val first=(2*low+high)/3;val second=(low+2*high)/3;if(bestAtX(first)<bestAtX(second))high=second else low=first};return bestAtX((low+high)/2)} }
+class Solution {
+    private lateinit var positions:Array<IntArray>;
+    private fun distance(x:Double,y:Double):Double=positions.sumOf{
+        kotlin.math.hypot(it[0]-x,it[1]-y)
+    };
+    private fun bestAtX(x:Double):Double{
+        var low=0.0;
+        var high=100.0;
+        repeat(80){
+            val first=(2*low+high)/3;
+            val second=(low+2*high)/3;
+            if(distance(x,first)<distance(x,second))high=second else low=first
+        };
+        return distance(x,(low+high)/2)
+    };
+    fun getMinDistSum(positions:Array<IntArray>):Double{
+        this.positions=positions;
+        var low=0.0;
+        var high=100.0;
+        repeat(80){
+            val first=(2*low+high)/3;
+            val second=(low+2*high)/3;
+            if(bestAtX(first)<bestAtX(second))high=second else low=first
+        };
+        return bestAtX((low+high)/2)
+    }
+}

@@ -1,1 +1,37 @@
-class Solution { private static class Fenwick{int[] tree;Fenwick(int n){tree=new int[n+1];}void add(int index,int delta){for(int i=index+1;i<tree.length;i+=i&-i)tree[i]+=delta;}int query(int index){int sum=0;for(int i=index+1;i>0;i-=i&-i)sum+=tree[i];return sum;}}public String minInteger(String num,int k){Deque<Integer>[] positions=new Deque[10];for(int digit=0;digit<10;digit++)positions[digit]=new ArrayDeque<>();Fenwick fenwick=new Fenwick(num.length());for(int i=0;i<num.length();i++){positions[num.charAt(i)-'0'].addLast(i);fenwick.add(i,1);}StringBuilder answer=new StringBuilder();for(int output=0;output<num.length();output++)for(int digit=0;digit<10;digit++)if(!positions[digit].isEmpty()){int position=positions[digit].peekFirst(),cost=fenwick.query(position)-1;if(cost<=k){k-=cost;answer.append(digit);positions[digit].removeFirst();fenwick.add(position,-1);break;}}return answer.toString();} }
+class Solution {
+    private static class Fenwick{
+        int[] tree;
+        Fenwick(int n){
+            tree=new int[n+1];
+        }
+        void add(int index,int delta){
+            for(int i=index+1;i<tree.length;i+=i&-i)tree[i]+=delta;
+        }
+        int query(int index){
+            int sum=0;
+            for(int i=index+1;i>0;i-=i&-i)sum+=tree[i];
+            return sum;
+        }
+    }
+    public String minInteger(String num,int k){
+        Deque<Integer>[] positions=new Deque[10];
+        for(int digit=0;digit<10;digit++)positions[digit]=new ArrayDeque<>();
+        Fenwick fenwick=new Fenwick(num.length());
+        for(int i=0;i<num.length();i++){
+            positions[num.charAt(i)-'0'].addLast(i);
+            fenwick.add(i,1);
+        }
+        StringBuilder answer=new StringBuilder();
+        for(int output=0;output<num.length();output++)for(int digit=0;digit<10;digit++)if(!positions[digit].isEmpty()){
+            int position=positions[digit].peekFirst(),cost=fenwick.query(position)-1;
+            if(cost<=k){
+                k-=cost;
+                answer.append(digit);
+                positions[digit].removeFirst();
+                fenwick.add(position,-1);
+                break;
+            }
+        }
+        return answer.toString();
+    }
+}

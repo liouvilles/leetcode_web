@@ -1,1 +1,26 @@
-class Solution { public: int minimumTeachings(int n,vector<vector<int>>& languages,vector<vector<int>>& friendships){vector<unordered_set<int>> known(languages.size());for(int user=0;user<(int)languages.size();++user)known[user].insert(languages[user].begin(),languages[user].end());unordered_set<int> candidates;for(auto& friendship:friendships){int first=friendship[0]-1,second=friendship[1]-1;bool share=false;for(int language:known[first])if(known[second].count(language)){share=true;break;}if(!share){candidates.insert(first);candidates.insert(second);}}int answer=candidates.size();for(int language=1;language<=n;++language){int teach=0;for(int user:candidates)teach+=!known[user].count(language);answer=min(answer,teach);}return answer;} };
+class Solution {
+    public: int minimumTeachings(int n,vector<vector<int>>& languages,vector<vector<int>>& friendships){
+        vector<unordered_set<int>> known(languages.size());
+        for(int user=0;user<(int)languages.size();++user)known[user].insert(languages[user].begin(),languages[user].end());
+        unordered_set<int> candidates;
+        for(auto& friendship:friendships){
+            int first=friendship[0]-1,second=friendship[1]-1;
+            bool share=false;
+            for(int language:known[first])if(known[second].count(language)){
+                share=true;
+                break;
+            }
+            if(!share){
+                candidates.insert(first);
+                candidates.insert(second);
+            }
+        }
+        int answer=candidates.size();
+        for(int language=1;language<=n;++language){
+            int teach=0;
+            for(int user:candidates)teach+=!known[user].count(language);
+            answer=min(answer,teach);
+        }
+        return answer;
+    }
+};

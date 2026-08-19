@@ -1,1 +1,12 @@
-class Solution { public boolean findTarget(TreeNode root,int k){Set<Integer> seen=new HashSet<>();return dfs(root,k,seen);}private boolean dfs(TreeNode node,int target,Set<Integer> seen){if(node==null)return false;if(seen.contains(target-node.val))return true;seen.add(node.val);return dfs(node.left,target,seen)||dfs(node.right,target,seen);} }
+class Solution {
+    public boolean findTarget(TreeNode root,int k){
+        Set<Integer> seen=new HashSet<>();
+        return dfs(root,k,seen);
+    }
+    private boolean dfs(TreeNode node,int target,Set<Integer> seen){
+        if(node==null)return false;
+        if(seen.contains(target-node.val))return true;
+        seen.add(node.val);
+        return dfs(node.left,target,seen)||dfs(node.right,target,seen);
+    }
+}

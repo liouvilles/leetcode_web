@@ -1,1 +1,16 @@
-class Solution { public:int minimumAddedInteger(vector<int>& nums1,vector<int>& nums2){sort(nums1.begin(),nums1.end());sort(nums2.begin(),nums2.end());int answer=INT_MAX;for(int candidateIndex=0;candidateIndex<3;++candidateIndex){int added=nums2[0]-nums1[candidateIndex],first=0,second=0;while(first<(int)nums1.size()&&second<(int)nums2.size()){if(nums1[first]+added==nums2[second])++second;++first;}if(second==(int)nums2.size())answer=min(answer,added);}return answer;} };
+class Solution {
+    public:int minimumAddedInteger(vector<int>& nums1,vector<int>& nums2){
+        sort(nums1.begin(),nums1.end());
+        sort(nums2.begin(),nums2.end());
+        int answer=INT_MAX;
+        for(int candidateIndex=0;candidateIndex<3;++candidateIndex){
+            int added=nums2[0]-nums1[candidateIndex],first=0,second=0;
+            while(first<(int)nums1.size()&&second<(int)nums2.size()){
+                if(nums1[first]+added==nums2[second])++second;
+                ++first;
+            }
+            if(second==(int)nums2.size())answer=min(answer,added);
+        }
+        return answer;
+    }
+};

@@ -1,1 +1,9 @@
-class Solution { fun computeArea(ax1:Int,ay1:Int,ax2:Int,ay2:Int,bx1:Int,by1:Int,bx2:Int,by2:Int):Int{val first=(ax2-ax1).toLong()*(ay2-ay1);val second=(bx2-bx1).toLong()*(by2-by1);val width=maxOf(0,minOf(ax2,bx2)-maxOf(ax1,bx1));val height=maxOf(0,minOf(ay2,by2)-maxOf(ay1,by1));return(first+second-width.toLong()*height).toInt()} }
+class Solution {
+    fun computeArea(ax1:Int,ay1:Int,ax2:Int,ay2:Int,bx1:Int,by1:Int,bx2:Int,by2:Int):Int{
+        val first=(ax2-ax1).toLong()*(ay2-ay1);
+        val second=(bx2-bx1).toLong()*(by2-by1);
+        val width=maxOf(0,minOf(ax2,bx2)-maxOf(ax1,bx1));
+        val height=maxOf(0,minOf(ay2,by2)-maxOf(ay1,by1));
+        return(first+second-width.toLong()*height).toInt()
+    }
+}

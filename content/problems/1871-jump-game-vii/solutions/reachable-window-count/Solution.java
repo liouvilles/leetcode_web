@@ -1,1 +1,13 @@
-class Solution { public boolean canReach(String s,int minJump,int maxJump){boolean[] dp=new boolean[s.length()];dp[0]=true;int reachable=0;for(int i=1;i<s.length();i++){if(i-minJump>=0&&dp[i-minJump])reachable++;if(i-maxJump-1>=0&&dp[i-maxJump-1])reachable--;dp[i]=s.charAt(i)=='0'&&reachable>0;}return dp[s.length()-1];} }
+class Solution {
+    public boolean canReach(String s,int minJump,int maxJump){
+        boolean[] dp=new boolean[s.length()];
+        dp[0]=true;
+        int reachable=0;
+        for(int i=1;i<s.length();i++){
+            if(i-minJump>=0&&dp[i-minJump])reachable++;
+            if(i-maxJump-1>=0&&dp[i-maxJump-1])reachable--;
+            dp[i]=s.charAt(i)=='0'&&reachable>0;
+        }
+        return dp[s.length()-1];
+    }
+}

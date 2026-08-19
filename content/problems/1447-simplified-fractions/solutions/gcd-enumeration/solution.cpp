@@ -1,1 +1,7 @@
-class Solution { public: vector<string> simplifiedFractions(int n){vector<string> answer;for(int denominator=2;denominator<=n;++denominator)for(int numerator=1;numerator<denominator;++numerator)if(gcd(numerator,denominator)==1)answer.push_back(to_string(numerator)+"/"+to_string(denominator));return answer;} };
+class Solution {
+    public: vector<string> simplifiedFractions(int n){
+        vector<string> answer;
+        for(int denominator=2;denominator<=n;++denominator)for(int numerator=1;numerator<denominator;++numerator)if(gcd(numerator,denominator)==1)answer.push_back(to_string(numerator)+"/"+to_string(denominator));
+        return answer;
+    }
+};

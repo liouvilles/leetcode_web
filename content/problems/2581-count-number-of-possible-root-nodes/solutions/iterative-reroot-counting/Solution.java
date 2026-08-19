@@ -1,1 +1,39 @@
-class Solution { private long key(int from,int to){return ((long)from<<32)^(to&0xffffffffL);}public int rootCount(int[][] edges,int[][] guesses,int k){int n=edges.length+1;List<Integer>[] graph=new ArrayList[n];for(int i=0;i<n;i++)graph[i]=new ArrayList<>();for(int[] edge:edges){graph[edge[0]].add(edge[1]);graph[edge[1]].add(edge[0]);}Set<Long> guessed=new HashSet<>();for(int[] guess:guesses)guessed.add(key(guess[0],guess[1]));int[] parent=new int[n],order=new int[n];Arrays.fill(parent,-2);parent[0]=-1;order[0]=0;int size=1;for(int index=0;index<size;index++){int node=order[index];for(int next:graph[node])if(next!=parent[node]){parent[next]=node;order[size++]=next;}}int rootScore=0;for(int node=1;node<n;node++)if(guessed.contains(key(parent[node],node)))rootScore++;int[] score=new int[n];score[0]=rootScore;int answer=rootScore>=k?1:0;for(int index=1;index<n;index++){int node=order[index],up=parent[node];score[node]=score[up]-(guessed.contains(key(up,node))?1:0)+(guessed.contains(key(node,up))?1:0);if(score[node]>=k)answer++;}return answer;} }
+class Solution {
+    private long key(int from,int to){
+        return ((long)from<<32)^(to&0xffffffffL);
+    }
+    public int rootCount(int[][] edges,int[][] guesses,int k){
+        int n=edges.length+1;
+        List<Integer>[] graph=new ArrayList[n];
+        for(int i=0;i<n;i++)graph[i]=new ArrayList<>();
+        for(int[] edge:edges){
+            graph[edge[0]].add(edge[1]);
+            graph[edge[1]].add(edge[0]);
+        }
+        Set<Long> guessed=new HashSet<>();
+        for(int[] guess:guesses)guessed.add(key(guess[0],guess[1]));
+        int[] parent=new int[n],order=new int[n];
+        Arrays.fill(parent,-2);
+        parent[0]=-1;
+        order[0]=0;
+        int size=1;
+        for(int index=0;index<size;index++){
+            int node=order[index];
+            for(int next:graph[node])if(next!=parent[node]){
+                parent[next]=node;
+                order[size++]=next;
+            }
+        }
+        int rootScore=0;
+        for(int node=1;node<n;node++)if(guessed.contains(key(parent[node],node)))rootScore++;
+        int[] score=new int[n];
+        score[0]=rootScore;
+        int answer=rootScore>=k?1:0;
+        for(int index=1;index<n;index++){
+            int node=order[index],up=parent[node];
+            score[node]=score[up]-(guessed.contains(key(up,node))?1:0)+(guessed.contains(key(node,up))?1:0);
+            if(score[node]>=k)answer++;
+        }
+        return answer;
+    }
+}

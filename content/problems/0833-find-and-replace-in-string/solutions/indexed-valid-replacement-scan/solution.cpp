@@ -1,1 +1,16 @@
-class Solution { public: string findReplaceString(string s,vector<int>& indices,vector<string>& sources,vector<string>& targets){unordered_map<int,int> operations;for(int i=0;i<(int)indices.size();++i)if(s.compare(indices[i],sources[i].size(),sources[i])==0)operations[indices[i]]=i;string answer;for(int index=0;index<(int)s.size();){if(!operations.count(index))answer+=s[index++];else{int operation=operations[index];answer+=targets[operation];index+=sources[operation].size();}}return answer;} };
+class Solution {
+    public: string findReplaceString(string s,vector<int>& indices,vector<string>& sources,vector<string>& targets){
+        unordered_map<int,int> operations;
+        for(int i=0;i<(int)indices.size();++i)if(s.compare(indices[i],sources[i].size(),sources[i])==0)operations[indices[i]]=i;
+        string answer;
+        for(int index=0;index<(int)s.size();){
+            if(!operations.count(index))answer+=s[index++];
+            else{
+                int operation=operations[index];
+                answer+=targets[operation];
+                index+=sources[operation].size();
+            }
+        }
+        return answer;
+    }
+};

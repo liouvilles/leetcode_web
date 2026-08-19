@@ -1,1 +1,11 @@
-class Solution { public:vector<int> divisibilityArray(string word,int m){vector<int> answer(word.size());long long remainder=0;for(int i=0;i<(int)word.size();++i){remainder=(remainder*10+word[i]-'0')%m;if(remainder==0)answer[i]=1;}return answer;} };
+class Solution {
+    public:vector<int> divisibilityArray(string word,int m){
+        vector<int> answer(word.size());
+        long long remainder=0;
+        for(int i=0;i<(int)word.size();++i){
+            remainder=(remainder*10+word[i]-'0')%m;
+            if(remainder==0)answer[i]=1;
+        }
+        return answer;
+    }
+};

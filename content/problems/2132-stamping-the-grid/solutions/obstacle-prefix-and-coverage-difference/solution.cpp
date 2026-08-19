@@ -1,1 +1,24 @@
-class Solution { public:bool possibleToStamp(vector<vector<int>>& grid,int stampHeight,int stampWidth){int rows=grid.size(),columns=grid[0].size();vector<vector<int>> prefix(rows+1,vector<int>(columns+1)),cover(rows+1,vector<int>(columns+1));for(int r=0;r<rows;++r)for(int c=0;c<columns;++c)prefix[r+1][c+1]=grid[r][c]+prefix[r][c+1]+prefix[r+1][c]-prefix[r][c];for(int r=0;r+stampHeight<=rows;++r)for(int c=0;c+stampWidth<=columns;++c){int bottom=r+stampHeight,right=c+stampWidth;int occupied=prefix[bottom][right]-prefix[r][right]-prefix[bottom][c]+prefix[r][c];if(!occupied){++cover[r][c];--cover[bottom][c];--cover[r][right];++cover[bottom][right];}}for(int r=0;r<rows;++r)for(int c=0;c<columns;++c){if(r)cover[r][c]+=cover[r-1][c];if(c)cover[r][c]+=cover[r][c-1];if(r&&c)cover[r][c]-=cover[r-1][c-1];if(!grid[r][c]&&!cover[r][c])return false;}return true;} };
+class Solution {
+    public:bool possibleToStamp(vector<vector<int>>& grid,int stampHeight,int stampWidth){
+        int rows=grid.size(),columns=grid[0].size();
+        vector<vector<int>> prefix(rows+1,vector<int>(columns+1)),cover(rows+1,vector<int>(columns+1));
+        for(int r=0;r<rows;++r)for(int c=0;c<columns;++c)prefix[r+1][c+1]=grid[r][c]+prefix[r][c+1]+prefix[r+1][c]-prefix[r][c];
+        for(int r=0;r+stampHeight<=rows;++r)for(int c=0;c+stampWidth<=columns;++c){
+            int bottom=r+stampHeight,right=c+stampWidth;
+            int occupied=prefix[bottom][right]-prefix[r][right]-prefix[bottom][c]+prefix[r][c];
+            if(!occupied){
+                ++cover[r][c];
+                --cover[bottom][c];
+                --cover[r][right];
+                ++cover[bottom][right];
+            }
+        }
+        for(int r=0;r<rows;++r)for(int c=0;c<columns;++c){
+            if(r)cover[r][c]+=cover[r-1][c];
+            if(c)cover[r][c]+=cover[r][c-1];
+            if(r&&c)cover[r][c]-=cover[r-1][c-1];
+            if(!grid[r][c]&&!cover[r][c])return false;
+        }
+        return true;
+    }
+};

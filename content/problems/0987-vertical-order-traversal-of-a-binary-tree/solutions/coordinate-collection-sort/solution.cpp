@@ -1,1 +1,26 @@
-class Solution { void collect(TreeNode* node,int row,int column,vector<array<int,3>>& nodes){if(!node)return;nodes.push_back({column,row,node->val});collect(node->left,row+1,column-1,nodes);collect(node->right,row+1,column+1,nodes);}public:vector<vector<int>> verticalTraversal(TreeNode* root){vector<array<int,3>> nodes;collect(root,0,0,nodes);sort(nodes.begin(),nodes.end());vector<vector<int>> answer;int column=INT_MIN;for(auto node:nodes){if(node[0]!=column){column=node[0];answer.push_back({});}answer.back().push_back(node[2]);}return answer;} };
+class Solution {
+    void collect(TreeNode* node,int row,int column,vector<array<int,3>>& nodes){
+        if(!node)return;
+        nodes.push_back({
+            column,row,node->val
+        });
+        collect(node->left,row+1,column-1,nodes);
+        collect(node->right,row+1,column+1,nodes);
+    }
+    public:vector<vector<int>> verticalTraversal(TreeNode* root){
+        vector<array<int,3>> nodes;
+        collect(root,0,0,nodes);
+        sort(nodes.begin(),nodes.end());
+        vector<vector<int>> answer;
+        int column=INT_MIN;
+        for(auto node:nodes){
+            if(node[0]!=column){
+                column=node[0];
+                answer.push_back({
+                });
+            }
+            answer.back().push_back(node[2]);
+        }
+        return answer;
+    }
+};

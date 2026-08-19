@@ -1,1 +1,20 @@
-class Solution { private long gcd(long a,long b){while(b!=0){long remainder=a%b;a=b;b=remainder;}return a;}public int minimizeSet(int divisor1,int divisor2,int uniqueCnt1,int uniqueCnt2){long lcm=(long)divisor1/gcd(divisor1,divisor2)*divisor2,left=1,right=2_000_000_000L;while(left<right){long middle=(left+right)/2;boolean valid=middle-middle/divisor1>=uniqueCnt1&&middle-middle/divisor2>=uniqueCnt2&&middle-middle/lcm>=uniqueCnt1+uniqueCnt2;if(valid)right=middle;else left=middle+1;}return (int)left;} }
+class Solution {
+    private long gcd(long a,long b){
+        while(b!=0){
+            long remainder=a%b;
+            a=b;
+            b=remainder;
+        }
+        return a;
+    }
+    public int minimizeSet(int divisor1,int divisor2,int uniqueCnt1,int uniqueCnt2){
+        long lcm=(long)divisor1/gcd(divisor1,divisor2)*divisor2,left=1,right=2_000_000_000L;
+        while(left<right){
+            long middle=(left+right)/2;
+            boolean valid=middle-middle/divisor1>=uniqueCnt1&&middle-middle/divisor2>=uniqueCnt2&&middle-middle/lcm>=uniqueCnt1+uniqueCnt2;
+            if(valid)right=middle;
+            else left=middle+1;
+        }
+        return (int)left;
+    }
+}

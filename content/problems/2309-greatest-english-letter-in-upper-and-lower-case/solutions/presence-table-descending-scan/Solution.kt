@@ -1,1 +1,11 @@
-class Solution { fun greatestLetter(s:String):String{val seen=BooleanArray(128);for(ch in s)seen[ch.code]=true;for(code in 'Z'.code downTo 'A'.code){val upper=code.toChar();if(seen[code]&&seen[upper.lowercaseChar().code])return upper.toString()};return ""} }
+class Solution {
+    fun greatestLetter(s:String):String{
+        val seen=BooleanArray(128);
+        for(ch in s)seen[ch.code]=true;
+        for(code in 'Z'.code downTo 'A'.code){
+            val upper=code.toChar();
+            if(seen[code]&&seen[upper.lowercaseChar().code])return upper.toString()
+        };
+        return ""
+    }
+}

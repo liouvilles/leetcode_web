@@ -1,1 +1,21 @@
-class Solution { public int minimumOperations(String num){int n=num.length(),answer=num.indexOf('0')>=0?n-1:n;String[] endings={"00","25","50","75"};for(String ending:endings){int second=-1;for(int i=n-1;i>=0;i--)if(num.charAt(i)==ending.charAt(1)){second=i;break;}if(second==-1)continue;for(int first=second-1;first>=0;first--)if(num.charAt(first)==ending.charAt(0)){answer=Math.min(answer,n-first-2);break;}}return answer;} }
+class Solution {
+    public int minimumOperations(String num){
+        int n=num.length(),answer=num.indexOf('0')>=0?n-1:n;
+        String[] endings={
+            "00","25","50","75"
+        };
+        for(String ending:endings){
+            int second=-1;
+            for(int i=n-1;i>=0;i--)if(num.charAt(i)==ending.charAt(1)){
+                second=i;
+                break;
+            }
+            if(second==-1)continue;
+            for(int first=second-1;first>=0;first--)if(num.charAt(first)==ending.charAt(0)){
+                answer=Math.min(answer,n-first-2);
+                break;
+            }
+        }
+        return answer;
+    }
+}

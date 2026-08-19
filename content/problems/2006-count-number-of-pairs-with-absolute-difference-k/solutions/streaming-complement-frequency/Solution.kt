@@ -1,1 +1,11 @@
-class Solution { fun countKDifference(nums:IntArray,k:Int):Int{val frequency=HashMap<Int,Int>();var answer=0;for(value in nums){answer+=(frequency[value-k]?:0)+(frequency[value+k]?:0);frequency[value]=(frequency[value]?:0)+1};return answer} }
+class Solution {
+    fun countKDifference(nums:IntArray,k:Int):Int{
+        val frequency=HashMap<Int,Int>();
+        var answer=0;
+        for(value in nums){
+            answer+=(frequency[value-k]?:0)+(frequency[value+k]?:0);
+            frequency[value]=(frequency[value]?:0)+1
+        };
+        return answer
+    }
+}

@@ -1,1 +1,15 @@
-class Solution { fun minimumDeletions(word:String,k:Int):Int{val frequency=IntArray(26);for(letter in word)frequency[letter-'a']++;var answer=word.length;for(lower in frequency)if(lower>0){var deletions=0;for(count in frequency)if(count>0){if(count<lower)deletions+=count else if(count>lower+k)deletions+=count-lower-k};answer=minOf(answer,deletions)};return answer} }
+class Solution {
+    fun minimumDeletions(word:String,k:Int):Int{
+        val frequency=IntArray(26);
+        for(letter in word)frequency[letter-'a']++;
+        var answer=word.length;
+        for(lower in frequency)if(lower>0){
+            var deletions=0;
+            for(count in frequency)if(count>0){
+                if(count<lower)deletions+=count else if(count>lower+k)deletions+=count-lower-k
+            };
+            answer=minOf(answer,deletions)
+        };
+        return answer
+    }
+}

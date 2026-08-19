@@ -1,1 +1,16 @@
-class CustomStack { private final int[] values;private int size=0;public CustomStack(int maxSize){values=new int[maxSize];}public void push(int x){if(size<values.length)values[size++]=x;}public int pop(){return size==0?-1:values[--size];}public void increment(int k,int val){for(int i=0;i<Math.min(k,size);i++)values[i]+=val;} }
+class CustomStack {
+    private final int[] values;
+    private int size=0;
+    public CustomStack(int maxSize){
+        values=new int[maxSize];
+    }
+    public void push(int x){
+        if(size<values.length)values[size++]=x;
+    }
+    public int pop(){
+        return size==0?-1:values[--size];
+    }
+    public void increment(int k,int val){
+        for(int i=0;i<Math.min(k,size);i++)values[i]+=val;
+    }
+}

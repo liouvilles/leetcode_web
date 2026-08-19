@@ -1,1 +1,21 @@
-class Solution { public:int countMatchingSubarrays(vector<int>& nums,vector<int>& pattern){vector<int> prefix(pattern.size());for(int i=1,matched=0;i<(int)pattern.size();++i){while(matched>0&&pattern[i]!=pattern[matched])matched=prefix[matched-1];if(pattern[i]==pattern[matched])++matched;prefix[i]=matched;}int answer=0,matched=0;for(int i=1;i<(int)nums.size();++i){int relation=(nums[i]>nums[i-1])-(nums[i]<nums[i-1]);while(matched>0&&relation!=pattern[matched])matched=prefix[matched-1];if(relation==pattern[matched])++matched;if(matched==(int)pattern.size()){++answer;matched=prefix[matched-1];}}return answer;} };
+class Solution {
+    public:int countMatchingSubarrays(vector<int>& nums,vector<int>& pattern){
+        vector<int> prefix(pattern.size());
+        for(int i=1,matched=0;i<(int)pattern.size();++i){
+            while(matched>0&&pattern[i]!=pattern[matched])matched=prefix[matched-1];
+            if(pattern[i]==pattern[matched])++matched;
+            prefix[i]=matched;
+        }
+        int answer=0,matched=0;
+        for(int i=1;i<(int)nums.size();++i){
+            int relation=(nums[i]>nums[i-1])-(nums[i]<nums[i-1]);
+            while(matched>0&&relation!=pattern[matched])matched=prefix[matched-1];
+            if(relation==pattern[matched])++matched;
+            if(matched==(int)pattern.size()){
+                ++answer;
+                matched=prefix[matched-1];
+            }
+        }
+        return answer;
+    }
+};

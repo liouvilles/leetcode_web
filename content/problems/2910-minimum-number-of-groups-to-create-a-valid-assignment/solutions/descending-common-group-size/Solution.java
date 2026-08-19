@@ -1,1 +1,22 @@
-class Solution { public int minGroupsForValidAssignment(int[] balls){Map<Integer,Integer> frequencies=new HashMap<>();for(int ball:balls)frequencies.put(ball,frequencies.getOrDefault(ball,0)+1);int smallest=balls.length;for(int frequency:frequencies.values())smallest=Math.min(smallest,frequency);for(int size=smallest;size>=1;size--){int groups=0;boolean feasible=true;for(int frequency:frequencies.values()){int quotient=frequency/size,remainder=frequency%size;if(quotient<remainder){feasible=false;break;}groups+=(frequency+size)/(size+1);}if(feasible)return groups;}return balls.length;} }
+class Solution {
+    public int minGroupsForValidAssignment(int[] balls){
+        Map<Integer,Integer> frequencies=new HashMap<>();
+        for(int ball:balls)frequencies.put(ball,frequencies.getOrDefault(ball,0)+1);
+        int smallest=balls.length;
+        for(int frequency:frequencies.values())smallest=Math.min(smallest,frequency);
+        for(int size=smallest;size>=1;size--){
+            int groups=0;
+            boolean feasible=true;
+            for(int frequency:frequencies.values()){
+                int quotient=frequency/size,remainder=frequency%size;
+                if(quotient<remainder){
+                    feasible=false;
+                    break;
+                }
+                groups+=(frequency+size)/(size+1);
+            }
+            if(feasible)return groups;
+        }
+        return balls.length;
+    }
+}

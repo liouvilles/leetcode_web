@@ -1,1 +1,19 @@
-class Solution { public:int totalSteps(vector<int>& nums){vector<pair<int,int>> stack;int answer=0;for(int value:nums){int steps=0;while(!stack.empty()&&stack.back().first<=value){steps=max(steps,stack.back().second);stack.pop_back();}steps=stack.empty()?0:steps+1;answer=max(answer,steps);stack.push_back({value,steps});}return answer;} };
+class Solution {
+    public:int totalSteps(vector<int>& nums){
+        vector<pair<int,int>> stack;
+        int answer=0;
+        for(int value:nums){
+            int steps=0;
+            while(!stack.empty()&&stack.back().first<=value){
+                steps=max(steps,stack.back().second);
+                stack.pop_back();
+            }
+            steps=stack.empty()?0:steps+1;
+            answer=max(answer,steps);
+            stack.push_back({
+                value,steps
+            });
+        }
+        return answer;
+    }
+};

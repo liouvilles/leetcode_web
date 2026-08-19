@@ -1,1 +1,11 @@
-class Solution { public: vector<int> distributeCandies(int candies,int numPeople){vector<int> answer(numPeople);for(int give=1,index=0;candies>0;++give,++index){int amount=min(candies,give);answer[index%numPeople]+=amount;candies-=amount;}return answer;} };
+class Solution {
+    public: vector<int> distributeCandies(int candies,int numPeople){
+        vector<int> answer(numPeople);
+        for(int give=1,index=0;candies>0;++give,++index){
+            int amount=min(candies,give);
+            answer[index%numPeople]+=amount;
+            candies-=amount;
+        }
+        return answer;
+    }
+};

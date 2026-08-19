@@ -1,1 +1,18 @@
-class Solution { private fun check(s:String,p:String,removable:IntArray,count:Int):Boolean{val removed=BooleanArray(s.length);for(i in 0 until count)removed[removable[i]]=true;var matched=0;for(i in s.indices)if(matched<p.length&&!removed[i]&&s[i]==p[matched])matched++;return matched==p.length};fun maximumRemovals(s:String,p:String,removable:IntArray):Int{var left=0;var right=removable.size;while(left<right){val middle=left+(right-left+1)/2;if(check(s,p,removable,middle))left=middle else right=middle-1};return left} }
+class Solution {
+    private fun check(s:String,p:String,removable:IntArray,count:Int):Boolean{
+        val removed=BooleanArray(s.length);
+        for(i in 0 until count)removed[removable[i]]=true;
+        var matched=0;
+        for(i in s.indices)if(matched<p.length&&!removed[i]&&s[i]==p[matched])matched++;
+        return matched==p.length
+    };
+    fun maximumRemovals(s:String,p:String,removable:IntArray):Int{
+        var left=0;
+        var right=removable.size;
+        while(left<right){
+            val middle=left+(right-left+1)/2;
+            if(check(s,p,removable,middle))left=middle else right=middle-1
+        };
+        return left
+    }
+}

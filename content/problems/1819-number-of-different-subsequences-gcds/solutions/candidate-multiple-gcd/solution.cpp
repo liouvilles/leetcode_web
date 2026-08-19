@@ -1,1 +1,14 @@
-class Solution { public: int countDifferentSubsequenceGCDs(vector<int>& nums){int maximum=*max_element(nums.begin(),nums.end());vector<bool> present(maximum+1);for(int value:nums)present[value]=true;int answer=0;for(int candidate=1;candidate<=maximum;++candidate){int value=0;for(int multiple=candidate;multiple<=maximum;multiple+=candidate)if(present[multiple])value=gcd(value,multiple);answer+=value==candidate;}return answer;} };
+class Solution {
+    public: int countDifferentSubsequenceGCDs(vector<int>& nums){
+        int maximum=*max_element(nums.begin(),nums.end());
+        vector<bool> present(maximum+1);
+        for(int value:nums)present[value]=true;
+        int answer=0;
+        for(int candidate=1;candidate<=maximum;++candidate){
+            int value=0;
+            for(int multiple=candidate;multiple<=maximum;multiple+=candidate)if(present[multiple])value=gcd(value,multiple);
+            answer+=value==candidate;
+        }
+        return answer;
+    }
+};

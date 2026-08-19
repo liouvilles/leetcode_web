@@ -1,1 +1,19 @@
-class Solution { double dfs(int node,int parent,int time,int target,double probability,vector<vector<int>>& graph,int limit){if(time==limit)return node==target?probability:0;int children=0;for(int next:graph[node])children+=next!=parent;if(!children)return node==target?probability:0;double answer=0;for(int next:graph[node])if(next!=parent)answer+=dfs(next,node,time+1,target,probability/children,graph,limit);return answer;}public:double frogPosition(int n,vector<vector<int>>& edges,int t,int target){vector<vector<int>> graph(n+1);for(auto& edge:edges){graph[edge[0]].push_back(edge[1]);graph[edge[1]].push_back(edge[0]);}return dfs(1,0,0,target,1,graph,t);} };
+class Solution {
+    double dfs(int node,int parent,int time,int target,double probability,vector<vector<int>>& graph,int limit){
+        if(time==limit)return node==target?probability:0;
+        int children=0;
+        for(int next:graph[node])children+=next!=parent;
+        if(!children)return node==target?probability:0;
+        double answer=0;
+        for(int next:graph[node])if(next!=parent)answer+=dfs(next,node,time+1,target,probability/children,graph,limit);
+        return answer;
+    }
+    public:double frogPosition(int n,vector<vector<int>>& edges,int t,int target){
+        vector<vector<int>> graph(n+1);
+        for(auto& edge:edges){
+            graph[edge[0]].push_back(edge[1]);
+            graph[edge[1]].push_back(edge[0]);
+        }
+        return dfs(1,0,0,target,1,graph,t);
+    }
+};

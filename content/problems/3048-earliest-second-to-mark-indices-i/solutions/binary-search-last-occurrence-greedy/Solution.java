@@ -1,1 +1,26 @@
-class Solution { public int earliestSecondToMarkIndices(int[] nums,int[] changeIndices){int left=1,right=changeIndices.length+1;while(left<right){int middle=(left+right)/2;if(canFinish(nums,changeIndices,middle))right=middle;else left=middle+1;}return left==changeIndices.length+1?-1:left;}private boolean canFinish(int[] nums,int[] changeIndices,int seconds){int[] last=new int[nums.length];Arrays.fill(last,-1);for(int time=0;time<seconds;time++)last[changeIndices[time]-1]=time;for(int time:last)if(time<0)return false;long available=0;for(int time=0;time<seconds;time++){int index=changeIndices[time]-1;if(time==last[index]){if(available<nums[index])return false;available-=nums[index];}else available++;}return true;} }
+class Solution {
+    public int earliestSecondToMarkIndices(int[] nums,int[] changeIndices){
+        int left=1,right=changeIndices.length+1;
+        while(left<right){
+            int middle=(left+right)/2;
+            if(canFinish(nums,changeIndices,middle))right=middle;
+            else left=middle+1;
+        }
+        return left==changeIndices.length+1?-1:left;
+    }
+    private boolean canFinish(int[] nums,int[] changeIndices,int seconds){
+        int[] last=new int[nums.length];
+        Arrays.fill(last,-1);
+        for(int time=0;time<seconds;time++)last[changeIndices[time]-1]=time;
+        for(int time:last)if(time<0)return false;
+        long available=0;
+        for(int time=0;time<seconds;time++){
+            int index=changeIndices[time]-1;
+            if(time==last[index]){
+                if(available<nums[index])return false;
+                available-=nums[index];
+            }else available++;
+        }
+        return true;
+    }
+}

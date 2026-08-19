@@ -1,1 +1,39 @@
-class Solution { private val mod=1_000_000_007L;private fun power(baseValue:Long,exponentValue:Long):Long{var base=baseValue;var exponent=exponentValue;var result=1L;while(exponent>0){if(exponent and 1L==1L)result=result*base%mod;base=base*base%mod;exponent=exponent shr 1};return result};fun idealArrays(n:Int,maxValue:Int):Int{val combination=LongArray(15);combination[0]=1;for(e in 1 until 15)combination[e]=combination[e-1]*(n-1L+e)%mod*power(e.toLong(),mod-2)%mod;var answer=0L;for(value in 1..maxValue){var remaining=value;var ways=1L;var factor=2;while(factor*factor<=remaining){if(remaining%factor==0){var exponent=0;while(remaining%factor==0){remaining/=factor;exponent++};ways=ways*combination[exponent]%mod};factor++};if(remaining>1)ways=ways*combination[1]%mod;answer=(answer+ways)%mod};return answer.toInt()} }
+class Solution {
+    private val mod=1_000_000_007L;
+    private fun power(baseValue:Long,exponentValue:Long):Long{
+        var base=baseValue;
+        var exponent=exponentValue;
+        var result=1L;
+        while(exponent>0){
+            if(exponent and 1L==1L)result=result*base%mod;
+            base=base*base%mod;
+            exponent=exponent shr 1
+        };
+        return result
+    };
+    fun idealArrays(n:Int,maxValue:Int):Int{
+        val combination=LongArray(15);
+        combination[0]=1;
+        for(e in 1 until 15)combination[e]=combination[e-1]*(n-1L+e)%mod*power(e.toLong(),mod-2)%mod;
+        var answer=0L;
+        for(value in 1..maxValue){
+            var remaining=value;
+            var ways=1L;
+            var factor=2;
+            while(factor*factor<=remaining){
+                if(remaining%factor==0){
+                    var exponent=0;
+                    while(remaining%factor==0){
+                        remaining/=factor;
+                        exponent++
+                    };
+                    ways=ways*combination[exponent]%mod
+                };
+                factor++
+            };
+            if(remaining>1)ways=ways*combination[1]%mod;
+            answer=(answer+ways)%mod
+        };
+        return answer.toInt()
+    }
+}

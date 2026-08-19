@@ -1,1 +1,16 @@
-class Solution { private final Map<Integer,Integer> memo=new HashMap<>();private int power(int value){if(value==1)return 0;if(memo.containsKey(value))return memo.get(value);int answer=1+power(value%2==0?value/2:3*value+1);memo.put(value,answer);return answer;}public int getKth(int lo,int hi,int k){List<Integer> values=new ArrayList<>();for(int value=lo;value<=hi;value++)values.add(value);values.sort(Comparator.comparingInt((Integer value)->power(value)).thenComparingInt(value->value));return values.get(k-1);} }
+class Solution {
+    private final Map<Integer,Integer> memo=new HashMap<>();
+    private int power(int value){
+        if(value==1)return 0;
+        if(memo.containsKey(value))return memo.get(value);
+        int answer=1+power(value%2==0?value/2:3*value+1);
+        memo.put(value,answer);
+        return answer;
+    }
+    public int getKth(int lo,int hi,int k){
+        List<Integer> values=new ArrayList<>();
+        for(int value=lo;value<=hi;value++)values.add(value);
+        values.sort(Comparator.comparingInt((Integer value)->power(value)).thenComparingInt(value->value));
+        return values.get(k-1);
+    }
+}

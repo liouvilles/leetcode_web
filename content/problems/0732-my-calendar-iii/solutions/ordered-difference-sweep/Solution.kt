@@ -1,1 +1,14 @@
-class MyCalendarThree { private val delta=java.util.TreeMap<Int,Int>();fun book(startTime:Int,endTime:Int):Int{delta[startTime]=(delta[startTime]?:0)+1;delta[endTime]=(delta[endTime]?:0)-1;var active=0;var maximum=0;for(change in delta.values){active+=change;maximum=maxOf(maximum,active)};return maximum} }
+class MyCalendarThree {
+    private val delta=java.util.TreeMap<Int,Int>();
+    fun book(startTime:Int,endTime:Int):Int{
+        delta[startTime]=(delta[startTime]?:0)+1;
+        delta[endTime]=(delta[endTime]?:0)-1;
+        var active=0;
+        var maximum=0;
+        for(change in delta.values){
+            active+=change;
+            maximum=maxOf(maximum,active)
+        };
+        return maximum
+    }
+}

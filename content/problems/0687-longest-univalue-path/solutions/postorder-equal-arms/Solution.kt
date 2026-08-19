@@ -1,1 +1,16 @@
-class Solution { fun longestUnivaluePath(root:TreeNode?):Int{var best=0;fun dfs(node:TreeNode?):Int{if(node==null)return 0;val left=dfs(node.left);val right=dfs(node.right);val leftArm=if(node.left?.`val`==node.`val`)left+1 else 0;val rightArm=if(node.right?.`val`==node.`val`)right+1 else 0;best=maxOf(best,leftArm+rightArm);return maxOf(leftArm,rightArm)};dfs(root);return best} }
+class Solution {
+    fun longestUnivaluePath(root:TreeNode?):Int{
+        var best=0;
+        fun dfs(node:TreeNode?):Int{
+            if(node==null)return 0;
+            val left=dfs(node.left);
+            val right=dfs(node.right);
+            val leftArm=if(node.left?.`val`==node.`val`)left+1 else 0;
+            val rightArm=if(node.right?.`val`==node.`val`)right+1 else 0;
+            best=maxOf(best,leftArm+rightArm);
+            return maxOf(leftArm,rightArm)
+        };
+        dfs(root);
+        return best
+    }
+}

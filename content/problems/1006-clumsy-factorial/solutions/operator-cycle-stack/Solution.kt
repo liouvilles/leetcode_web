@@ -1,1 +1,17 @@
-class Solution { fun clumsy(n:Int):Int{val stack=java.util.ArrayDeque<Int>();stack.push(n);var operation=0;for(value in n-1 downTo 1){when(operation%4){0->stack.push(stack.pop()*value);1->stack.push(stack.pop()/value);2->stack.push(value);else->stack.push(-value)};operation++};return stack.sum()} }
+class Solution {
+    fun clumsy(n:Int):Int{
+        val stack=java.util.ArrayDeque<Int>();
+        stack.push(n);
+        var operation=0;
+        for(value in n-1 downTo 1){
+            when(operation%4){
+                0->stack.push(stack.pop()*value);
+                1->stack.push(stack.pop()/value);
+                2->stack.push(value);
+                else->stack.push(-value)
+            };
+            operation++
+        };
+        return stack.sum()
+    }
+}

@@ -1,1 +1,13 @@
-class Solution { public int canBeTypedWords(String text,String brokenLetters){boolean[] broken=new boolean[26];for(char letter:brokenLetters.toCharArray())broken[letter-'a']=true;int answer=0;for(String word:text.split(" ")){boolean valid=true;for(char letter:word.toCharArray())if(broken[letter-'a'])valid=false;if(valid)answer++;}return answer;} }
+class Solution {
+    public int canBeTypedWords(String text,String brokenLetters){
+        boolean[] broken=new boolean[26];
+        for(char letter:brokenLetters.toCharArray())broken[letter-'a']=true;
+        int answer=0;
+        for(String word:text.split(" ")){
+            boolean valid=true;
+            for(char letter:word.toCharArray())if(broken[letter-'a'])valid=false;
+            if(valid)answer++;
+        }
+        return answer;
+    }
+}

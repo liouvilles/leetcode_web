@@ -1,1 +1,19 @@
-class Solution { public: int maxNonOverlapping(vector<int>& nums,int target){unordered_set<int> seen{0};int prefix=0,answer=0;for(int value:nums){prefix+=value;if(seen.count(prefix-target)){++answer;seen={0};prefix=0;}else seen.insert(prefix);}return answer;} };
+class Solution {
+    public: int maxNonOverlapping(vector<int>& nums,int target){
+        unordered_set<int> seen{
+            0
+        };
+        int prefix=0,answer=0;
+        for(int value:nums){
+            prefix+=value;
+            if(seen.count(prefix-target)){
+                ++answer;
+                seen={
+                    0
+                };
+                prefix=0;
+            }else seen.insert(prefix);
+        }
+        return answer;
+    }
+};

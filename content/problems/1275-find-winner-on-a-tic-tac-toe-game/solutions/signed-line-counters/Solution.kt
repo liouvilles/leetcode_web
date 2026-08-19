@@ -1,1 +1,19 @@
-class Solution { fun tictactoe(moves:Array<IntArray>):String{val rows=IntArray(3);val columns=IntArray(3);var diagonal=0;var antiDiagonal=0;for(i in moves.indices){val score=if(i%2==0)1 else -1;val r=moves[i][0];val c=moves[i][1];rows[r]+=score;columns[c]+=score;if(r==c)diagonal+=score;if(r+c==2)antiDiagonal+=score;if(kotlin.math.abs(rows[r])==3||kotlin.math.abs(columns[c])==3||kotlin.math.abs(diagonal)==3||kotlin.math.abs(antiDiagonal)==3)return if(score==1)"A" else "B"};return if(moves.size==9)"Draw" else "Pending"} }
+class Solution {
+    fun tictactoe(moves:Array<IntArray>):String{
+        val rows=IntArray(3);
+        val columns=IntArray(3);
+        var diagonal=0;
+        var antiDiagonal=0;
+        for(i in moves.indices){
+            val score=if(i%2==0)1 else -1;
+            val r=moves[i][0];
+            val c=moves[i][1];
+            rows[r]+=score;
+            columns[c]+=score;
+            if(r==c)diagonal+=score;
+            if(r+c==2)antiDiagonal+=score;
+            if(kotlin.math.abs(rows[r])==3||kotlin.math.abs(columns[c])==3||kotlin.math.abs(diagonal)==3||kotlin.math.abs(antiDiagonal)==3)return if(score==1)"A" else "B"
+        };
+        return if(moves.size==9)"Draw" else "Pending"
+    }
+}

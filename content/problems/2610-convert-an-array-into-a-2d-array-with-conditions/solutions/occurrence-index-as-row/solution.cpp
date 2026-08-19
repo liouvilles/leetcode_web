@@ -1,1 +1,13 @@
-class Solution { public:vector<vector<int>> findMatrix(vector<int>& nums){unordered_map<int,int> frequency;vector<vector<int>> answer;for(int value:nums){int row=frequency[value]++;if(row==(int)answer.size())answer.push_back({});answer[row].push_back(value);}return answer;} };
+class Solution {
+    public:vector<vector<int>> findMatrix(vector<int>& nums){
+        unordered_map<int,int> frequency;
+        vector<vector<int>> answer;
+        for(int value:nums){
+            int row=frequency[value]++;
+            if(row==(int)answer.size())answer.push_back({
+            });
+            answer[row].push_back(value);
+        }
+        return answer;
+    }
+};

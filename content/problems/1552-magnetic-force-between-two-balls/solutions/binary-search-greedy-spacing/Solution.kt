@@ -1,1 +1,22 @@
-class Solution { private fun feasible(position:IntArray,m:Int,distance:Int):Boolean{var count=1;var last=position[0];for(value in position)if(value-last>=distance){last=value;count++;if(count>=m)return true};return false};fun maxDistance(position:IntArray,m:Int):Int{position.sort();var left=1;var right=position.last()-position.first();while(left<right){val middle=left+(right-left+1)/2;if(feasible(position,m,middle))left=middle else right=middle-1};return left} }
+class Solution {
+    private fun feasible(position:IntArray,m:Int,distance:Int):Boolean{
+        var count=1;
+        var last=position[0];
+        for(value in position)if(value-last>=distance){
+            last=value;
+            count++;
+            if(count>=m)return true
+        };
+        return false
+    };
+    fun maxDistance(position:IntArray,m:Int):Int{
+        position.sort();
+        var left=1;
+        var right=position.last()-position.first();
+        while(left<right){
+            val middle=left+(right-left+1)/2;
+            if(feasible(position,m,middle))left=middle else right=middle-1
+        };
+        return left
+    }
+}

@@ -1,1 +1,13 @@
-class Solution { public: ListNode* mergeInBetween(ListNode* list1,int a,int b,ListNode* list2){ListNode* before=list1;for(int i=1;i<a;++i)before=before->next;ListNode* after=before;for(int i=0;i<b-a+2;++i)after=after->next;ListNode* tail=list2;while(tail->next)tail=tail->next;before->next=list2;tail->next=after;return list1;} };
+class Solution {
+    public: ListNode* mergeInBetween(ListNode* list1,int a,int b,ListNode* list2){
+        ListNode* before=list1;
+        for(int i=1;i<a;++i)before=before->next;
+        ListNode* after=before;
+        for(int i=0;i<b-a+2;++i)after=after->next;
+        ListNode* tail=list2;
+        while(tail->next)tail=tail->next;
+        before->next=list2;
+        tail->next=after;
+        return list1;
+    }
+};

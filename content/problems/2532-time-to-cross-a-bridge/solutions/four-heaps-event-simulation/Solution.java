@@ -1,1 +1,37 @@
-class Solution { public int findCrossingTime(int n,int k,int[][] time){Comparator<Integer> waiting=(a,b)->{int first=time[a][0]+time[a][2],second=time[b][0]+time[b][2];return first!=second?Integer.compare(second,first):Integer.compare(b,a);};PriorityQueue<Integer> waitLeft=new PriorityQueue<>(waiting),waitRight=new PriorityQueue<>(waiting);PriorityQueue<long[]> workLeft=new PriorityQueue<>(Comparator.comparingLong(event->event[0])),workRight=new PriorityQueue<>(Comparator.comparingLong(event->event[0]));for(int worker=0;worker<k;worker++)waitLeft.offer(worker);long current=0;int boxes=n;while(boxes>0||!waitRight.isEmpty()||!workRight.isEmpty()){while(!workLeft.isEmpty()&&workLeft.peek()[0]<=current)waitLeft.offer((int)workLeft.poll()[1]);while(!workRight.isEmpty()&&workRight.peek()[0]<=current)waitRight.offer((int)workRight.poll()[1]);if(!waitRight.isEmpty()){int worker=waitRight.poll();current+=time[worker][2];workLeft.offer(new long[]{current+time[worker][3],worker});}else if(boxes>0&&!waitLeft.isEmpty()){int worker=waitLeft.poll();current+=time[worker][0];boxes--;workRight.offer(new long[]{current+time[worker][1],worker});}else{long next=Long.MAX_VALUE;if(!workLeft.isEmpty())next=Math.min(next,workLeft.peek()[0]);if(!workRight.isEmpty())next=Math.min(next,workRight.peek()[0]);current=Math.max(current,next);}}return (int)current;} }
+class Solution {
+    public int findCrossingTime(int n,int k,int[][] time){
+        Comparator<Integer> waiting=(a,b)->{
+            int first=time[a][0]+time[a][2],second=time[b][0]+time[b][2];
+            return first!=second?Integer.compare(second,first):Integer.compare(b,a);
+        };
+        PriorityQueue<Integer> waitLeft=new PriorityQueue<>(waiting),waitRight=new PriorityQueue<>(waiting);
+        PriorityQueue<long[]> workLeft=new PriorityQueue<>(Comparator.comparingLong(event->event[0])),workRight=new PriorityQueue<>(Comparator.comparingLong(event->event[0]));
+        for(int worker=0;worker<k;worker++)waitLeft.offer(worker);
+        long current=0;
+        int boxes=n;
+        while(boxes>0||!waitRight.isEmpty()||!workRight.isEmpty()){
+            while(!workLeft.isEmpty()&&workLeft.peek()[0]<=current)waitLeft.offer((int)workLeft.poll()[1]);
+            while(!workRight.isEmpty()&&workRight.peek()[0]<=current)waitRight.offer((int)workRight.poll()[1]);
+            if(!waitRight.isEmpty()){
+                int worker=waitRight.poll();
+                current+=time[worker][2];
+                workLeft.offer(new long[]{
+                    current+time[worker][3],worker
+                });
+            }else if(boxes>0&&!waitLeft.isEmpty()){
+                int worker=waitLeft.poll();
+                current+=time[worker][0];
+                boxes--;
+                workRight.offer(new long[]{
+                    current+time[worker][1],worker
+                });
+            }else{
+                long next=Long.MAX_VALUE;
+                if(!workLeft.isEmpty())next=Math.min(next,workLeft.peek()[0]);
+                if(!workRight.isEmpty())next=Math.min(next,workRight.peek()[0]);
+                current=Math.max(current,next);
+            }
+        }
+        return (int)current;
+    }
+}

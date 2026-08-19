@@ -1,1 +1,14 @@
-class Solution { public int incremovableSubarrayCount(int[] nums){int n=nums.length,prefix=0;while(prefix+1<n&&nums[prefix]<nums[prefix+1])prefix++;if(prefix==n-1)return n*(n+1)/2;int answer=prefix+2;for(int suffix=n-1;suffix>0;suffix--){while(prefix>=0&&nums[prefix]>=nums[suffix])prefix--;answer+=prefix+2;if(nums[suffix-1]>=nums[suffix])break;}return answer;} }
+class Solution {
+    public int incremovableSubarrayCount(int[] nums){
+        int n=nums.length,prefix=0;
+        while(prefix+1<n&&nums[prefix]<nums[prefix+1])prefix++;
+        if(prefix==n-1)return n*(n+1)/2;
+        int answer=prefix+2;
+        for(int suffix=n-1;suffix>0;suffix--){
+            while(prefix>=0&&nums[prefix]>=nums[suffix])prefix--;
+            answer+=prefix+2;
+            if(nums[suffix-1]>=nums[suffix])break;
+        }
+        return answer;
+    }
+}

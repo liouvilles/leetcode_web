@@ -1,1 +1,32 @@
-class StreamChecker { static class Node{Node[] next=new Node[26];boolean end;}private final Node root=new Node();private final StringBuilder history=new StringBuilder();private int maximum;public StreamChecker(String[] words){for(String word:words){maximum=Math.max(maximum,word.length());Node node=root;for(int i=word.length()-1;i>=0;i--){int index=word.charAt(i)-'a';if(node.next[index]==null)node.next[index]=new Node();node=node.next[index];}node.end=true;}}public boolean query(char letter){history.append(letter);if(history.length()>maximum)history.deleteCharAt(0);Node node=root;for(int i=history.length()-1;i>=0;i--){node=node.next[history.charAt(i)-'a'];if(node==null)return false;if(node.end)return true;}return false;} }
+class StreamChecker {
+    static class Node{
+        Node[] next=new Node[26];
+        boolean end;
+    }
+    private final Node root=new Node();
+    private final StringBuilder history=new StringBuilder();
+    private int maximum;
+    public StreamChecker(String[] words){
+        for(String word:words){
+            maximum=Math.max(maximum,word.length());
+            Node node=root;
+            for(int i=word.length()-1;i>=0;i--){
+                int index=word.charAt(i)-'a';
+                if(node.next[index]==null)node.next[index]=new Node();
+                node=node.next[index];
+            }
+            node.end=true;
+        }
+    }
+    public boolean query(char letter){
+        history.append(letter);
+        if(history.length()>maximum)history.deleteCharAt(0);
+        Node node=root;
+        for(int i=history.length()-1;i>=0;i--){
+            node=node.next[history.charAt(i)-'a'];
+            if(node==null)return false;
+            if(node.end)return true;
+        }
+        return false;
+    }
+}

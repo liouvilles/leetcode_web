@@ -1,1 +1,13 @@
-class Solution { public: int countStudents(vector<int>& students,vector<int>& sandwiches){int count[2]={};for(int student:students)++count[student];for(int i=0;i<(int)sandwiches.size();++i){int type=sandwiches[i];if(!count[type])return sandwiches.size()-i;--count[type];}return 0;} };
+class Solution {
+    public: int countStudents(vector<int>& students,vector<int>& sandwiches){
+        int count[2]={
+        };
+        for(int student:students)++count[student];
+        for(int i=0;i<(int)sandwiches.size();++i){
+            int type=sandwiches[i];
+            if(!count[type])return sandwiches.size()-i;
+            --count[type];
+        }
+        return 0;
+    }
+};

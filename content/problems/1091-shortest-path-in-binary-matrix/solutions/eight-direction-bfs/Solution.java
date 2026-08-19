@@ -1,1 +1,25 @@
-class Solution { public int shortestPathBinaryMatrix(int[][] grid){int n=grid.length;if(grid[0][0]!=0||grid[n-1][n-1]!=0)return -1;Queue<int[]> queue=new ArrayDeque<>();queue.offer(new int[]{0,0,1});grid[0][0]=1;while(!queue.isEmpty()){int[] cell=queue.poll();if(cell[0]==n-1&&cell[1]==n-1)return cell[2];for(int dr=-1;dr<=1;dr++)for(int dc=-1;dc<=1;dc++){int r=cell[0]+dr,c=cell[1]+dc;if((dr!=0||dc!=0)&&r>=0&&r<n&&c>=0&&c<n&&grid[r][c]==0){grid[r][c]=1;queue.offer(new int[]{r,c,cell[2]+1});}}}return -1;} }
+class Solution {
+    public int shortestPathBinaryMatrix(int[][] grid){
+        int n=grid.length;
+        if(grid[0][0]!=0||grid[n-1][n-1]!=0)return -1;
+        Queue<int[]> queue=new ArrayDeque<>();
+        queue.offer(new int[]{
+            0,0,1
+        });
+        grid[0][0]=1;
+        while(!queue.isEmpty()){
+            int[] cell=queue.poll();
+            if(cell[0]==n-1&&cell[1]==n-1)return cell[2];
+            for(int dr=-1;dr<=1;dr++)for(int dc=-1;dc<=1;dc++){
+                int r=cell[0]+dr,c=cell[1]+dc;
+                if((dr!=0||dc!=0)&&r>=0&&r<n&&c>=0&&c<n&&grid[r][c]==0){
+                    grid[r][c]=1;
+                    queue.offer(new int[]{
+                        r,c,cell[2]+1
+                    });
+                }
+            }
+        }
+        return -1;
+    }
+}

@@ -1,1 +1,7 @@
-class Solution { public: bool areAlmostEqual(string s1,string s2){vector<int> mismatch;for(int i=0;i<(int)s1.size();++i)if(s1[i]!=s2[i])mismatch.push_back(i);return mismatch.empty()||(mismatch.size()==2&&s1[mismatch[0]]==s2[mismatch[1]]&&s1[mismatch[1]]==s2[mismatch[0]]);} };
+class Solution {
+    public: bool areAlmostEqual(string s1,string s2){
+        vector<int> mismatch;
+        for(int i=0;i<(int)s1.size();++i)if(s1[i]!=s2[i])mismatch.push_back(i);
+        return mismatch.empty()||(mismatch.size()==2&&s1[mismatch[0]]==s2[mismatch[1]]&&s1[mismatch[1]]==s2[mismatch[0]]);
+    }
+};

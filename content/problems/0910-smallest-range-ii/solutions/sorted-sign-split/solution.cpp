@@ -1,1 +1,11 @@
-class Solution { public: int smallestRangeII(vector<int>& nums,int k){sort(nums.begin(),nums.end());int answer=nums.back()-nums.front();for(int i=0;i+1<(int)nums.size();++i){int high=max(nums.back()-k,nums[i]+k),low=min(nums.front()+k,nums[i+1]-k);answer=min(answer,high-low);}return answer;} };
+class Solution {
+    public: int smallestRangeII(vector<int>& nums,int k){
+        sort(nums.begin(),nums.end());
+        int answer=nums.back()-nums.front();
+        for(int i=0;i+1<(int)nums.size();++i){
+            int high=max(nums.back()-k,nums[i]+k),low=min(nums.front()+k,nums[i+1]-k);
+            answer=min(answer,high-low);
+        }
+        return answer;
+    }
+};

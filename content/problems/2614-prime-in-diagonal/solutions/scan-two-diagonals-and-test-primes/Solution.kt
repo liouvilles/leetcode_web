@@ -1,1 +1,20 @@
-class Solution { private fun isPrime(value:Int):Boolean{if(value<2)return false;var divisor=2;while(divisor<=value/divisor){if(value%divisor==0)return false;divisor++};return true}fun diagonalPrime(nums:Array<IntArray>):Int{var answer=0;val n=nums.size;for(i in 0 until n){if(isPrime(nums[i][i]))answer=maxOf(answer,nums[i][i]);if(isPrime(nums[i][n-1-i]))answer=maxOf(answer,nums[i][n-1-i])};return answer} }
+class Solution {
+    private fun isPrime(value:Int):Boolean{
+        if(value<2)return false;
+        var divisor=2;
+        while(divisor<=value/divisor){
+            if(value%divisor==0)return false;
+            divisor++
+        };
+        return true
+    }
+    fun diagonalPrime(nums:Array<IntArray>):Int{
+        var answer=0;
+        val n=nums.size;
+        for(i in 0 until n){
+            if(isPrime(nums[i][i]))answer=maxOf(answer,nums[i][i]);
+            if(isPrime(nums[i][n-1-i]))answer=maxOf(answer,nums[i][n-1-i])
+        };
+        return answer
+    }
+}

@@ -1,1 +1,24 @@
-class Solution { private List<Integer>[] richerThan;private int[] quiet,answer;public int[] loudAndRich(int[][] richer,int[] quiet){int n=quiet.length;this.quiet=quiet;richerThan=new List[n];for(int i=0;i<n;i++)richerThan[i]=new ArrayList<>();for(int[] relation:richer)richerThan[relation[1]].add(relation[0]);answer=new int[n];Arrays.fill(answer,-1);for(int person=0;person<n;person++)dfs(person);return answer;}private int dfs(int person){if(answer[person]>=0)return answer[person];int best=person;for(int rich:richerThan[person]){int candidate=dfs(rich);if(quiet[candidate]<quiet[best])best=candidate;}return answer[person]=best;} }
+class Solution {
+    private List<Integer>[] richerThan;
+    private int[] quiet,answer;
+    public int[] loudAndRich(int[][] richer,int[] quiet){
+        int n=quiet.length;
+        this.quiet=quiet;
+        richerThan=new List[n];
+        for(int i=0;i<n;i++)richerThan[i]=new ArrayList<>();
+        for(int[] relation:richer)richerThan[relation[1]].add(relation[0]);
+        answer=new int[n];
+        Arrays.fill(answer,-1);
+        for(int person=0;person<n;person++)dfs(person);
+        return answer;
+    }
+    private int dfs(int person){
+        if(answer[person]>=0)return answer[person];
+        int best=person;
+        for(int rich:richerThan[person]){
+            int candidate=dfs(rich);
+            if(quiet[candidate]<quiet[best])best=candidate;
+        }
+        return answer[person]=best;
+    }
+}

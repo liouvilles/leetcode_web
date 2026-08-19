@@ -1,1 +1,12 @@
-class Solution { public:int rearrangeCharacters(string s,string target){int source[26]={},need[26]={};for(char ch:s)++source[ch-'a'];for(char ch:target)++need[ch-'a'];int answer=INT_MAX;for(int i=0;i<26;++i)if(need[i])answer=min(answer,source[i]/need[i]);return answer;} };
+class Solution {
+    public:int rearrangeCharacters(string s,string target){
+        int source[26]={
+        },need[26]={
+        };
+        for(char ch:s)++source[ch-'a'];
+        for(char ch:target)++need[ch-'a'];
+        int answer=INT_MAX;
+        for(int i=0;i<26;++i)if(need[i])answer=min(answer,source[i]/need[i]);
+        return answer;
+    }
+};

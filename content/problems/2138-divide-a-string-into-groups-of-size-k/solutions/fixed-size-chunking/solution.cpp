@@ -1,1 +1,11 @@
-class Solution { public:vector<string> divideString(string s,int k,char fill){vector<string> answer;for(int start=0;start<(int)s.size();start+=k){string value=s.substr(start,k);while((int)value.size()<k)value+=fill;answer.push_back(value);}return answer;} };
+class Solution {
+    public:vector<string> divideString(string s,int k,char fill){
+        vector<string> answer;
+        for(int start=0;start<(int)s.size();start+=k){
+            string value=s.substr(start,k);
+            while((int)value.size()<k)value+=fill;
+            answer.push_back(value);
+        }
+        return answer;
+    }
+};

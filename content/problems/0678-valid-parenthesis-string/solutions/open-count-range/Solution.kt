@@ -1,1 +1,25 @@
-class Solution { fun checkValidString(s:String):Boolean{var low=0;var high=0;for(c in s){when(c){'('->{low++;high++};')'->{low--;high--};else->{low--;high++}};if(high<0)return false;low=maxOf(low,0)};return low==0} }
+class Solution {
+    fun checkValidString(s:String):Boolean{
+        var low=0;
+        var high=0;
+        for(c in s){
+            when(c){
+                '('->{
+                    low++;
+                    high++
+                };
+                ')'->{
+                    low--;
+                    high--
+                };
+                else->{
+                    low--;
+                    high++
+                }
+            };
+            if(high<0)return false;
+            low=maxOf(low,0)
+        };
+        return low==0
+    }
+}

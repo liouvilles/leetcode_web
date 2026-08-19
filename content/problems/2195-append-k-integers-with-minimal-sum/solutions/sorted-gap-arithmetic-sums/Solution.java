@@ -1,1 +1,18 @@
-class Solution { private long range(long start,long count){return count*(2*start+count-1)/2;}public long minimalKSum(int[] nums,int k){Arrays.sort(nums);long current=1,answer=0,remaining=k;for(int value:nums){if(value<current)continue;long take=Math.min(remaining,value-current);answer+=range(current,take);remaining-=take;if(remaining==0)return answer;current=(long)value+1;}return answer+range(current,remaining);} }
+class Solution {
+    private long range(long start,long count){
+        return count*(2*start+count-1)/2;
+    }
+    public long minimalKSum(int[] nums,int k){
+        Arrays.sort(nums);
+        long current=1,answer=0,remaining=k;
+        for(int value:nums){
+            if(value<current)continue;
+            long take=Math.min(remaining,value-current);
+            answer+=range(current,take);
+            remaining-=take;
+            if(remaining==0)return answer;
+            current=(long)value+1;
+        }
+        return answer+range(current,remaining);
+    }
+}

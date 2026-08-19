@@ -1,1 +1,14 @@
-class Solution { public: int numberOfSubstrings(string text){int last[3]={-1,-1,-1},answer=0;for(int i=0;i<(int)text.size();++i){last[text[i]-'a']=i;answer+=1+min({last[0],last[1],last[2]});}return answer;} };
+class Solution {
+    public: int numberOfSubstrings(string text){
+        int last[3]={
+            -1,-1,-1
+        },answer=0;
+        for(int i=0;i<(int)text.size();++i){
+            last[text[i]-'a']=i;
+            answer+=1+min({
+                last[0],last[1],last[2]
+            });
+        }
+        return answer;
+    }
+};

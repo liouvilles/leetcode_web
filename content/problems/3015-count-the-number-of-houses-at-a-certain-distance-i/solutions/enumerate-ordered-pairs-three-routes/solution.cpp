@@ -1,1 +1,12 @@
-class Solution { public:vector<int> countOfPairs(int n,int x,int y){vector<int> answer(n);for(int first=1;first<=n;++first)for(int second=1;second<=n;++second)if(first!=second){int distance=min({abs(first-second),abs(first-x)+1+abs(y-second),abs(first-y)+1+abs(x-second)});++answer[distance-1];}return answer;} };
+class Solution {
+    public:vector<int> countOfPairs(int n,int x,int y){
+        vector<int> answer(n);
+        for(int first=1;first<=n;++first)for(int second=1;second<=n;++second)if(first!=second){
+            int distance=min({
+                abs(first-second),abs(first-x)+1+abs(y-second),abs(first-y)+1+abs(x-second)
+            });
+            ++answer[distance-1];
+        }
+        return answer;
+    }
+};

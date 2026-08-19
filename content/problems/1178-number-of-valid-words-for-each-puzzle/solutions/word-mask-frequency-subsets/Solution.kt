@@ -1,1 +1,23 @@
-class Solution { fun findNumOfValidWords(words:Array<String>,puzzles:Array<String>):List<Int>{val frequency=mutableMapOf<Int,Int>();for(word in words){var mask=0;for(ch in word)mask=mask or (1 shl (ch-'a'));if(Integer.bitCount(mask)<=7)frequency[mask]=(frequency[mask]?:0)+1};return puzzles.map{puzzle->val first=1 shl (puzzle[0]-'a');var rest=0;for(i in 1 until puzzle.length)rest=rest or (1 shl (puzzle[i]-'a'));var subset=rest;var count=0;while(true){count+=frequency[subset or first]?:0;if(subset==0)break;subset=(subset-1) and rest};count}} }
+class Solution {
+    fun findNumOfValidWords(words:Array<String>,puzzles:Array<String>):List<Int>{
+        val frequency=mutableMapOf<Int,Int>();
+        for(word in words){
+            var mask=0;
+            for(ch in word)mask=mask or (1 shl (ch-'a'));
+            if(Integer.bitCount(mask)<=7)frequency[mask]=(frequency[mask]?:0)+1
+        };
+        return puzzles.map{
+            puzzle->val first=1 shl (puzzle[0]-'a');
+            var rest=0;
+            for(i in 1 until puzzle.length)rest=rest or (1 shl (puzzle[i]-'a'));
+            var subset=rest;
+            var count=0;
+            while(true){
+                count+=frequency[subset or first]?:0;
+                if(subset==0)break;
+                subset=(subset-1) and rest
+            };
+            count
+        }
+    }
+}

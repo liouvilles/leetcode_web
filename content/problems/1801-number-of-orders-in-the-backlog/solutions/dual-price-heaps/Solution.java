@@ -1,1 +1,35 @@
-class Solution { public int getNumberOfBacklogOrders(int[][] orders){PriorityQueue<int[]> buy=new PriorityQueue<>((a,b)->b[0]-a[0]),sell=new PriorityQueue<>(Comparator.comparingInt(a->a[0]));for(int[] order:orders){int price=order[0],amount=order[1];if(order[2]==0){while(amount>0&&!sell.isEmpty()&&sell.peek()[0]<=price){int[] other=sell.peek();int traded=Math.min(amount,other[1]);amount-=traded;other[1]-=traded;if(other[1]==0)sell.poll();}if(amount>0)buy.offer(new int[]{price,amount});}else{while(amount>0&&!buy.isEmpty()&&buy.peek()[0]>=price){int[] other=buy.peek();int traded=Math.min(amount,other[1]);amount-=traded;other[1]-=traded;if(other[1]==0)buy.poll();}if(amount>0)sell.offer(new int[]{price,amount});}}long total=0;for(int[] order:buy)total+=order[1];for(int[] order:sell)total+=order[1];return (int)(total%1_000_000_007);} }
+class Solution {
+    public int getNumberOfBacklogOrders(int[][] orders){
+        PriorityQueue<int[]> buy=new PriorityQueue<>((a,b)->b[0]-a[0]),sell=new PriorityQueue<>(Comparator.comparingInt(a->a[0]));
+        for(int[] order:orders){
+            int price=order[0],amount=order[1];
+            if(order[2]==0){
+                while(amount>0&&!sell.isEmpty()&&sell.peek()[0]<=price){
+                    int[] other=sell.peek();
+                    int traded=Math.min(amount,other[1]);
+                    amount-=traded;
+                    other[1]-=traded;
+                    if(other[1]==0)sell.poll();
+                }
+                if(amount>0)buy.offer(new int[]{
+                    price,amount
+                });
+            }else{
+                while(amount>0&&!buy.isEmpty()&&buy.peek()[0]>=price){
+                    int[] other=buy.peek();
+                    int traded=Math.min(amount,other[1]);
+                    amount-=traded;
+                    other[1]-=traded;
+                    if(other[1]==0)buy.poll();
+                }
+                if(amount>0)sell.offer(new int[]{
+                    price,amount
+                });
+            }
+        }
+        long total=0;
+        for(int[] order:buy)total+=order[1];
+        for(int[] order:sell)total+=order[1];
+        return (int)(total%1_000_000_007);
+    }
+}

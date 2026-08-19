@@ -1,1 +1,15 @@
-class Solution { private Integer previous;private int best=Integer.MAX_VALUE;public int getMinimumDifference(TreeNode root){inorder(root);return best;}private void inorder(TreeNode node){if(node==null)return;inorder(node.left);if(previous!=null)best=Math.min(best,node.val-previous);previous=node.val;inorder(node.right);} }
+class Solution {
+    private Integer previous;
+    private int best=Integer.MAX_VALUE;
+    public int getMinimumDifference(TreeNode root){
+        inorder(root);
+        return best;
+    }
+    private void inorder(TreeNode node){
+        if(node==null)return;
+        inorder(node.left);
+        if(previous!=null)best=Math.min(best,node.val-previous);
+        previous=node.val;
+        inorder(node.right);
+    }
+}

@@ -1,1 +1,17 @@
-class Solution { public int numSubmat(int[][] mat){int cols=mat[0].length,answer=0;int[] height=new int[cols];for(int[] row:mat){for(int col=0;col<cols;col++)height[col]=row[col]==0?0:height[col]+1;for(int right=0;right<cols;right++){int minimum=Integer.MAX_VALUE;for(int left=right;left>=0;left--){minimum=Math.min(minimum,height[left]);answer+=minimum;}}}return answer;} }
+class Solution {
+    public int numSubmat(int[][] mat){
+        int cols=mat[0].length,answer=0;
+        int[] height=new int[cols];
+        for(int[] row:mat){
+            for(int col=0;col<cols;col++)height[col]=row[col]==0?0:height[col]+1;
+            for(int right=0;right<cols;right++){
+                int minimum=Integer.MAX_VALUE;
+                for(int left=right;left>=0;left--){
+                    minimum=Math.min(minimum,height[left]);
+                    answer+=minimum;
+                }
+            }
+        }
+        return answer;
+    }
+}

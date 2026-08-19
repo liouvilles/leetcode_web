@@ -1,1 +1,21 @@
-class Solution { int solve(vector<int>& nums,int target){int n=nums.size();vector<vector<int>> dp(n,vector<int>(n));for(int length=2;length<=n;++length){for(int left=0;left+length<=n;++left){int right=left+length-1,best=0;if(nums[left]+nums[left+1]==target)best=max(best,1+(length==2?0:dp[left+2][right]));if(nums[right-1]+nums[right]==target)best=max(best,1+(length==2?0:dp[left][right-2]));if(nums[left]+nums[right]==target)best=max(best,1+(length==2?0:dp[left+1][right-1]));dp[left][right]=best;}}return dp[0][n-1];}public:int maxOperations(vector<int>& nums){int n=nums.size(),answer=solve(nums,nums[0]+nums[1]);answer=max(answer,solve(nums,nums[n-2]+nums[n-1]));return max(answer,solve(nums,nums[0]+nums[n-1]));} };
+class Solution {
+    int solve(vector<int>& nums,int target){
+        int n=nums.size();
+        vector<vector<int>> dp(n,vector<int>(n));
+        for(int length=2;length<=n;++length){
+            for(int left=0;left+length<=n;++left){
+                int right=left+length-1,best=0;
+                if(nums[left]+nums[left+1]==target)best=max(best,1+(length==2?0:dp[left+2][right]));
+                if(nums[right-1]+nums[right]==target)best=max(best,1+(length==2?0:dp[left][right-2]));
+                if(nums[left]+nums[right]==target)best=max(best,1+(length==2?0:dp[left+1][right-1]));
+                dp[left][right]=best;
+            }
+        }
+        return dp[0][n-1];
+    }
+    public:int maxOperations(vector<int>& nums){
+        int n=nums.size(),answer=solve(nums,nums[0]+nums[1]);
+        answer=max(answer,solve(nums,nums[n-2]+nums[n-1]));
+        return max(answer,solve(nums,nums[0]+nums[n-1]));
+    }
+};

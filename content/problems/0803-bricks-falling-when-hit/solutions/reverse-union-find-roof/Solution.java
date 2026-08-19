@@ -1,1 +1,65 @@
-class Solution { public int[] hitBricks(int[][] grid,int[][] hits){int rows=grid.length,columns=grid[0].length,roof=rows*columns;int[][] state=new int[rows][columns];for(int r=0;r<rows;r++)state[r]=grid[r].clone();for(int[] hit:hits)state[hit[0]][hit[1]]--;DSU dsu=new DSU(roof+1);int[] directions={-1,0,1,0,-1};for(int r=0;r<rows;r++)for(int c=0;c<columns;c++)if(state[r][c]==1){int id=r*columns+c;if(r==0)dsu.union(id,roof);if(r>0&&state[r-1][c]==1)dsu.union(id,id-columns);if(c>0&&state[r][c-1]==1)dsu.union(id,id-1);}int[] answer=new int[hits.length];for(int i=hits.length-1;i>=0;i--){int r=hits[i][0],c=hits[i][1];state[r][c]++;if(state[r][c]!=1)continue;int before=dsu.size(roof),id=r*columns+c;if(r==0)dsu.union(id,roof);for(int d=0;d<4;d++){int nr=r+directions[d],nc=c+directions[d+1];if(nr>=0&&nr<rows&&nc>=0&&nc<columns&&state[nr][nc]==1)dsu.union(id,nr*columns+nc);}answer[i]=Math.max(0,dsu.size(roof)-before-1);}return answer;}private static class DSU{int[] parent,size;DSU(int n){parent=new int[n];size=new int[n];for(int i=0;i<n;i++){parent[i]=i;size[i]=1;}}int find(int x){while(x!=parent[x]){parent[x]=parent[parent[x]];x=parent[x];}return x;}void union(int a,int b){a=find(a);b=find(b);if(a==b)return;if(size[a]<size[b]){int t=a;a=b;b=t;}parent[b]=a;size[a]+=size[b];}int size(int x){return size[find(x)];}} }
+class Solution {
+    public int[] hitBricks(int[][] grid,int[][] hits){
+        int rows=grid.length,columns=grid[0].length,roof=rows*columns;
+        int[][] state=new int[rows][columns];
+        for(int r=0;r<rows;r++)state[r]=grid[r].clone();
+        for(int[] hit:hits)state[hit[0]][hit[1]]--;
+        DSU dsu=new DSU(roof+1);
+        int[] directions={
+            -1,0,1,0,-1
+        };
+        for(int r=0;r<rows;r++)for(int c=0;c<columns;c++)if(state[r][c]==1){
+            int id=r*columns+c;
+            if(r==0)dsu.union(id,roof);
+            if(r>0&&state[r-1][c]==1)dsu.union(id,id-columns);
+            if(c>0&&state[r][c-1]==1)dsu.union(id,id-1);
+        }
+        int[] answer=new int[hits.length];
+        for(int i=hits.length-1;i>=0;i--){
+            int r=hits[i][0],c=hits[i][1];
+            state[r][c]++;
+            if(state[r][c]!=1)continue;
+            int before=dsu.size(roof),id=r*columns+c;
+            if(r==0)dsu.union(id,roof);
+            for(int d=0;d<4;d++){
+                int nr=r+directions[d],nc=c+directions[d+1];
+                if(nr>=0&&nr<rows&&nc>=0&&nc<columns&&state[nr][nc]==1)dsu.union(id,nr*columns+nc);
+            }
+            answer[i]=Math.max(0,dsu.size(roof)-before-1);
+        }
+        return answer;
+    }
+    private static class DSU{
+        int[] parent,size;
+        DSU(int n){
+            parent=new int[n];
+            size=new int[n];
+            for(int i=0;i<n;i++){
+                parent[i]=i;
+                size[i]=1;
+            }
+        }
+        int find(int x){
+            while(x!=parent[x]){
+                parent[x]=parent[parent[x]];
+                x=parent[x];
+            }
+            return x;
+        }
+        void union(int a,int b){
+            a=find(a);
+            b=find(b);
+            if(a==b)return;
+            if(size[a]<size[b]){
+                int t=a;
+                a=b;
+                b=t;
+            }
+            parent[b]=a;
+            size[a]+=size[b];
+        }
+        int size(int x){
+            return size[find(x)];
+        }
+    }
+}

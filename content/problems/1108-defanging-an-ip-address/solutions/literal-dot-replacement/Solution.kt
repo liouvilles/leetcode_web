@@ -1,1 +1,3 @@
-class Solution { fun defangIPaddr(address:String):String=address.replace(".","[.]") }
+class Solution {
+    fun defangIPaddr(address:String):String=address.replace(".","[.]")
+}

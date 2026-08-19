@@ -1,1 +1,17 @@
-class Solution { public: int minSumOfLengths(vector<int>& arr,int target){int n=arr.size(),inf=1000000,left=0,sum=0,bestSoFar=inf,result=inf;vector<int> best(n,inf);for(int right=0;right<n;++right){sum+=arr[right];while(sum>target)sum-=arr[left++];if(sum==target){int length=right-left+1;if(left&&best[left-1]<inf)result=min(result,length+best[left-1]);bestSoFar=min(bestSoFar,length);}best[right]=bestSoFar;}return result==inf?-1:result;} };
+class Solution {
+    public: int minSumOfLengths(vector<int>& arr,int target){
+        int n=arr.size(),inf=1000000,left=0,sum=0,bestSoFar=inf,result=inf;
+        vector<int> best(n,inf);
+        for(int right=0;right<n;++right){
+            sum+=arr[right];
+            while(sum>target)sum-=arr[left++];
+            if(sum==target){
+                int length=right-left+1;
+                if(left&&best[left-1]<inf)result=min(result,length+best[left-1]);
+                bestSoFar=min(bestSoFar,length);
+            }
+            best[right]=bestSoFar;
+        }
+        return result==inf?-1:result;
+    }
+};

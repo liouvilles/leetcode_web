@@ -1,1 +1,9 @@
-class Solution { private fun dfs(node:TreeNode?,maskValue:Int):Int{if(node==null)return 0;val mask=maskValue xor (1 shl node.`val`);if(node.left==null&&node.right==null)return if(mask and (mask-1)==0)1 else 0;return dfs(node.left,mask)+dfs(node.right,mask)};fun pseudoPalindromicPaths(root:TreeNode?):Int=dfs(root,0) }
+class Solution {
+    private fun dfs(node:TreeNode?,maskValue:Int):Int{
+        if(node==null)return 0;
+        val mask=maskValue xor (1 shl node.`val`);
+        if(node.left==null&&node.right==null)return if(mask and (mask-1)==0)1 else 0;
+        return dfs(node.left,mask)+dfs(node.right,mask)
+    };
+    fun pseudoPalindromicPaths(root:TreeNode?):Int=dfs(root,0)
+}

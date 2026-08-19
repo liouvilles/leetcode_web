@@ -1,1 +1,24 @@
-class Solution { public:long long maxStrength(vector<int>& nums){sort(nums.begin(),nums.end());int negativeCount=count_if(nums.begin(),nums.end(),[](int value){return value<0;}),negativeUsed=0,chosen=0;bool hasZero=find(nums.begin(),nums.end(),0)!=nums.end();long long product=1;for(int value:nums){if(value>0){product*=value;++chosen;}else if(value<0){++negativeUsed;if(negativeCount%2&&negativeUsed==negativeCount)continue;product*=value;++chosen;}}if(chosen)return product;if(hasZero)return 0;return nums.back();} };
+class Solution {
+    public:long long maxStrength(vector<int>& nums){
+        sort(nums.begin(),nums.end());
+        int negativeCount=count_if(nums.begin(),nums.end(),[](int value){
+            return value<0;
+        }),negativeUsed=0,chosen=0;
+        bool hasZero=find(nums.begin(),nums.end(),0)!=nums.end();
+        long long product=1;
+        for(int value:nums){
+            if(value>0){
+                product*=value;
+                ++chosen;
+            }else if(value<0){
+                ++negativeUsed;
+                if(negativeCount%2&&negativeUsed==negativeCount)continue;
+                product*=value;
+                ++chosen;
+            }
+        }
+        if(chosen)return product;
+        if(hasZero)return 0;
+        return nums.back();
+    }
+};

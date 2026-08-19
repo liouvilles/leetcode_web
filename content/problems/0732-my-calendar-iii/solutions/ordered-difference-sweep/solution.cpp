@@ -1,1 +1,15 @@
-class MyCalendarThree { map<int,int> delta;public:MyCalendarThree(){}int book(int startTime,int endTime){++delta[startTime];--delta[endTime];int active=0,maximum=0;for(auto [time,change]:delta){active+=change;maximum=max(maximum,active);}return maximum;} };
+class MyCalendarThree {
+    map<int,int> delta;
+    public:MyCalendarThree(){
+    }
+    int book(int startTime,int endTime){
+        ++delta[startTime];
+        --delta[endTime];
+        int active=0,maximum=0;
+        for(auto [time,change]:delta){
+            active+=change;
+            maximum=max(maximum,active);
+        }
+        return maximum;
+    }
+};

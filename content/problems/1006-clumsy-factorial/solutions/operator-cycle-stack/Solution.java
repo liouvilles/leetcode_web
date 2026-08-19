@@ -1,1 +1,16 @@
-class Solution { public int clumsy(int n){Deque<Integer> stack=new ArrayDeque<>();stack.push(n);int operation=0;for(int value=n-1;value>=1;value--,operation++){if(operation%4==0)stack.push(stack.pop()*value);else if(operation%4==1)stack.push(stack.pop()/value);else if(operation%4==2)stack.push(value);else stack.push(-value);}int answer=0;for(int value:stack)answer+=value;return answer;} }
+class Solution {
+    public int clumsy(int n){
+        Deque<Integer> stack=new ArrayDeque<>();
+        stack.push(n);
+        int operation=0;
+        for(int value=n-1;value>=1;value--,operation++){
+            if(operation%4==0)stack.push(stack.pop()*value);
+            else if(operation%4==1)stack.push(stack.pop()/value);
+            else if(operation%4==2)stack.push(value);
+            else stack.push(-value);
+        }
+        int answer=0;
+        for(int value:stack)answer+=value;
+        return answer;
+    }
+}

@@ -1,1 +1,19 @@
-class Solution { fun allPathsSourceTarget(graph:Array<IntArray>):List<List<Int>>{val answer=mutableListOf<List<Int>>();val path=mutableListOf(0);dfs(0,graph,path,answer);return answer};private fun dfs(node:Int,graph:Array<IntArray>,path:MutableList<Int>,answer:MutableList<List<Int>>){if(node==graph.size-1){answer.add(path.toList());return};for(next in graph[node]){path.add(next);dfs(next,graph,path,answer);path.removeAt(path.lastIndex)}} }
+class Solution {
+    fun allPathsSourceTarget(graph:Array<IntArray>):List<List<Int>>{
+        val answer=mutableListOf<List<Int>>();
+        val path=mutableListOf(0);
+        dfs(0,graph,path,answer);
+        return answer
+    };
+    private fun dfs(node:Int,graph:Array<IntArray>,path:MutableList<Int>,answer:MutableList<List<Int>>){
+        if(node==graph.size-1){
+            answer.add(path.toList());
+            return
+        };
+        for(next in graph[node]){
+            path.add(next);
+            dfs(next,graph,path,answer);
+            path.removeAt(path.lastIndex)
+        }
+    }
+}

@@ -1,1 +1,13 @@
-class Solution { public:int maximumCostSubstring(string s,string chars,vector<int>& vals){vector<int> value(26);iota(value.begin(),value.end(),1);for(int i=0;i<(int)chars.size();++i)value[chars[i]-'a']=vals[i];int current=0,answer=0;for(char letter:s){current=max(0,current+value[letter-'a']);answer=max(answer,current);}return answer;} };
+class Solution {
+    public:int maximumCostSubstring(string s,string chars,vector<int>& vals){
+        vector<int> value(26);
+        iota(value.begin(),value.end(),1);
+        for(int i=0;i<(int)chars.size();++i)value[chars[i]-'a']=vals[i];
+        int current=0,answer=0;
+        for(char letter:s){
+            current=max(0,current+value[letter-'a']);
+            answer=max(answer,current);
+        }
+        return answer;
+    }
+};

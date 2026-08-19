@@ -1,1 +1,15 @@
-class Solution { fun knightDialer(n:Int):Int{val next=arrayOf(intArrayOf(4,6),intArrayOf(6,8),intArrayOf(7,9),intArrayOf(4,8),intArrayOf(0,3,9),intArrayOf(),intArrayOf(0,1,7),intArrayOf(2,6),intArrayOf(1,3),intArrayOf(2,4));val mod=1000000007L;var dp=LongArray(10){1};repeat(n-1){val updated=LongArray(10);for(from in 0..9)for(to in next[from])updated[to]=(updated[to]+dp[from])%mod;dp=updated};return (dp.sum()%mod).toInt()} }
+class Solution {
+    fun knightDialer(n:Int):Int{
+        val next=arrayOf(intArrayOf(4,6),intArrayOf(6,8),intArrayOf(7,9),intArrayOf(4,8),intArrayOf(0,3,9),intArrayOf(),intArrayOf(0,1,7),intArrayOf(2,6),intArrayOf(1,3),intArrayOf(2,4));
+        val mod=1000000007L;
+        var dp=LongArray(10){
+            1
+        };
+        repeat(n-1){
+            val updated=LongArray(10);
+            for(from in 0..9)for(to in next[from])updated[to]=(updated[to]+dp[from])%mod;
+            dp=updated
+        };
+        return (dp.sum()%mod).toInt()
+    }
+}

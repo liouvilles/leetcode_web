@@ -1,1 +1,17 @@
-class Solution { public int countCharacters(String[] words,String chars){int[] available=new int[26];for(char ch:chars.toCharArray())available[ch-'a']++;int answer=0;for(String word:words){int[] need=new int[26];boolean valid=true;for(char ch:word.toCharArray())if(++need[ch-'a']>available[ch-'a']){valid=false;break;}if(valid)answer+=word.length();}return answer;} }
+class Solution {
+    public int countCharacters(String[] words,String chars){
+        int[] available=new int[26];
+        for(char ch:chars.toCharArray())available[ch-'a']++;
+        int answer=0;
+        for(String word:words){
+            int[] need=new int[26];
+            boolean valid=true;
+            for(char ch:word.toCharArray())if(++need[ch-'a']>available[ch-'a']){
+                valid=false;
+                break;
+            }
+            if(valid)answer+=word.length();
+        }
+        return answer;
+    }
+}

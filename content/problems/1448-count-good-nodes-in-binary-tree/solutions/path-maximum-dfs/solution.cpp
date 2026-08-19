@@ -1,1 +1,10 @@
-class Solution { int dfs(TreeNode* node,int maximum){if(!node)return 0;int good=node->val>=maximum,nextMaximum=max(maximum,node->val);return good+dfs(node->left,nextMaximum)+dfs(node->right,nextMaximum);}public:int goodNodes(TreeNode* root){return dfs(root,INT_MIN);} };
+class Solution {
+    int dfs(TreeNode* node,int maximum){
+        if(!node)return 0;
+        int good=node->val>=maximum,nextMaximum=max(maximum,node->val);
+        return good+dfs(node->left,nextMaximum)+dfs(node->right,nextMaximum);
+    }
+    public:int goodNodes(TreeNode* root){
+        return dfs(root,INT_MIN);
+    }
+};

@@ -1,1 +1,12 @@
-class Solution { fun fizzBuzz(n:Int):List<String>{val answer=mutableListOf<String>();for(value in 1..n)answer.add(when{value%15==0->"FizzBuzz";value%3==0->"Fizz";value%5==0->"Buzz";else->value.toString()});return answer} }
+class Solution {
+    fun fizzBuzz(n:Int):List<String>{
+        val answer=mutableListOf<String>();
+        for(value in 1..n)answer.add(when{
+            value%15==0->"FizzBuzz";
+            value%3==0->"Fizz";
+            value%5==0->"Buzz";
+            else->value.toString()
+        });
+        return answer
+    }
+}

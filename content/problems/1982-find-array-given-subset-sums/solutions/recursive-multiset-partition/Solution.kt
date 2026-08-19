@@ -1,1 +1,31 @@
-class Solution { private val answer=mutableListOf<Int>();private fun recover(sums:IntArray){if(sums.size==1)return;val difference=sums[1]-sums[0];val count=HashMap<Int,Int>();for(value in sums)count[value]=(count[value]?:0)+1;val first=IntArray(sums.size/2);val second=IntArray(sums.size/2);var index=0;for(value in sums)if((count[value]?:0)>0){count[value]=count[value]!!-1;count[value+difference]=count[value+difference]!!-1;first[index]=value;second[index]=value+difference;index++};if(0 in first){answer.add(difference);recover(first)}else{answer.add(-difference);recover(second)}};fun recoverArray(n:Int,sums:IntArray):IntArray{sums.sort();recover(sums);return answer.toIntArray()} }
+class Solution {
+    private val answer=mutableListOf<Int>();
+    private fun recover(sums:IntArray){
+        if(sums.size==1)return;
+        val difference=sums[1]-sums[0];
+        val count=HashMap<Int,Int>();
+        for(value in sums)count[value]=(count[value]?:0)+1;
+        val first=IntArray(sums.size/2);
+        val second=IntArray(sums.size/2);
+        var index=0;
+        for(value in sums)if((count[value]?:0)>0){
+            count[value]=count[value]!!-1;
+            count[value+difference]=count[value+difference]!!-1;
+            first[index]=value;
+            second[index]=value+difference;
+            index++
+        };
+        if(0 in first){
+            answer.add(difference);
+            recover(first)
+        }else{
+            answer.add(-difference);
+            recover(second)
+        }
+    };
+    fun recoverArray(n:Int,sums:IntArray):IntArray{
+        sums.sort();
+        recover(sums);
+        return answer.toIntArray()
+    }
+}

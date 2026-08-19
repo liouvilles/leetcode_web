@@ -1,1 +1,8 @@
-class Solution { fun canConstruct(ransomNote:String,magazine:String):Boolean{val counts=IntArray(26);for(c in magazine)counts[c-'a']++;for(c in ransomNote)if(--counts[c-'a']<0)return false;return true} }
+class Solution {
+    fun canConstruct(ransomNote:String,magazine:String):Boolean{
+        val counts=IntArray(26);
+        for(c in magazine)counts[c-'a']++;
+        for(c in ransomNote)if(--counts[c-'a']<0)return false;
+        return true
+    }
+}

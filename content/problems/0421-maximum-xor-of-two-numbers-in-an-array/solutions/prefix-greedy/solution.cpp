@@ -1,1 +1,16 @@
-class Solution { public: int findMaximumXOR(vector<int>& nums){int answer=0,mask=0;for(int bit=30;bit>=0;--bit){mask|=1<<bit;unordered_set<int> prefixes;for(int value:nums)prefixes.insert(value&mask);int candidate=answer|(1<<bit);for(int prefix:prefixes)if(prefixes.count(prefix^candidate)){answer=candidate;break;}}return answer;} };
+class Solution {
+    public: int findMaximumXOR(vector<int>& nums){
+        int answer=0,mask=0;
+        for(int bit=30;bit>=0;--bit){
+            mask|=1<<bit;
+            unordered_set<int> prefixes;
+            for(int value:nums)prefixes.insert(value&mask);
+            int candidate=answer|(1<<bit);
+            for(int prefix:prefixes)if(prefixes.count(prefix^candidate)){
+                answer=candidate;
+                break;
+            }
+        }
+        return answer;
+    }
+};

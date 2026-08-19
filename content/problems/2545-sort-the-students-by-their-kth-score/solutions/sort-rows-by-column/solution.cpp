@@ -1,1 +1,8 @@
-class Solution { public:vector<vector<int>> sortTheStudents(vector<vector<int>>& score,int k){sort(score.begin(),score.end(),[&](auto& first,auto& second){return first[k]>second[k];});return score;} };
+class Solution {
+    public:vector<vector<int>> sortTheStudents(vector<vector<int>>& score,int k){
+        sort(score.begin(),score.end(),[&](auto& first,auto& second){
+            return first[k]>second[k];
+        });
+        return score;
+    }
+};

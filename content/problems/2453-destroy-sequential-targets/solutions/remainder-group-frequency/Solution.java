@@ -1,1 +1,19 @@
-class Solution { public int destroyTargets(int[] nums,int space){Map<Integer,Integer> frequency=new HashMap<>(),minimum=new HashMap<>();for(int value:nums){int remainder=value%space;frequency.merge(remainder,1,Integer::sum);minimum.merge(remainder,value,Math::min);}int best=0,answer=Integer.MAX_VALUE;for(int remainder:frequency.keySet()){int count=frequency.get(remainder),value=minimum.get(remainder);if(count>best||count==best&&value<answer){best=count;answer=value;}}return answer;} }
+class Solution {
+    public int destroyTargets(int[] nums,int space){
+        Map<Integer,Integer> frequency=new HashMap<>(),minimum=new HashMap<>();
+        for(int value:nums){
+            int remainder=value%space;
+            frequency.merge(remainder,1,Integer::sum);
+            minimum.merge(remainder,value,Math::min);
+        }
+        int best=0,answer=Integer.MAX_VALUE;
+        for(int remainder:frequency.keySet()){
+            int count=frequency.get(remainder),value=minimum.get(remainder);
+            if(count>best||count==best&&value<answer){
+                best=count;
+                answer=value;
+            }
+        }
+        return answer;
+    }
+}

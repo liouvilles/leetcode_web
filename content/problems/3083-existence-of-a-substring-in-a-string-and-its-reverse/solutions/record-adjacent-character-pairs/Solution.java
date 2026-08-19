@@ -1,1 +1,11 @@
-class Solution { public boolean isSubstringPresent(String s){boolean[][] seen=new boolean[26][26];for(int i=0;i+1<s.length();i++){int first=s.charAt(i)-'a',second=s.charAt(i+1)-'a';seen[first][second]=true;if(seen[second][first])return true;}return false;} }
+class Solution {
+    public boolean isSubstringPresent(String s){
+        boolean[][] seen=new boolean[26][26];
+        for(int i=0;i+1<s.length();i++){
+            int first=s.charAt(i)-'a',second=s.charAt(i+1)-'a';
+            seen[first][second]=true;
+            if(seen[second][first])return true;
+        }
+        return false;
+    }
+}

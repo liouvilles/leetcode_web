@@ -1,1 +1,14 @@
-class Solution { public:int countEven(int num){int answer=0;for(int value=1;value<=num;++value){int current=value,sum=0;while(current){sum+=current%10;current/=10;}answer+=sum%2==0;}return answer;} };
+class Solution {
+    public:int countEven(int num){
+        int answer=0;
+        for(int value=1;value<=num;++value){
+            int current=value,sum=0;
+            while(current){
+                sum+=current%10;
+                current/=10;
+            }
+            answer+=sum%2==0;
+        }
+        return answer;
+    }
+};

@@ -1,1 +1,24 @@
-class Solution { vector<int> toppings;int target,best;void update(int cost){int difference=abs(cost-target),bestDifference=abs(best-target);if(difference<bestDifference||(difference==bestDifference&&cost<best))best=cost;}void dfs(int index,int cost){if(index==(int)toppings.size()){update(cost);return;}dfs(index+1,cost);dfs(index+1,cost+toppings[index]);dfs(index+1,cost+2*toppings[index]);}public:int closestCost(vector<int>& baseCosts,vector<int>& toppingCosts,int inputTarget){toppings=toppingCosts;target=inputTarget;best=baseCosts[0];for(int base:baseCosts)dfs(0,base);return best;} };
+class Solution {
+    vector<int> toppings;
+    int target,best;
+    void update(int cost){
+        int difference=abs(cost-target),bestDifference=abs(best-target);
+        if(difference<bestDifference||(difference==bestDifference&&cost<best))best=cost;
+    }
+    void dfs(int index,int cost){
+        if(index==(int)toppings.size()){
+            update(cost);
+            return;
+        }
+        dfs(index+1,cost);
+        dfs(index+1,cost+toppings[index]);
+        dfs(index+1,cost+2*toppings[index]);
+    }
+    public:int closestCost(vector<int>& baseCosts,vector<int>& toppingCosts,int inputTarget){
+        toppings=toppingCosts;
+        target=inputTarget;
+        best=baseCosts[0];
+        for(int base:baseCosts)dfs(0,base);
+        return best;
+    }
+};

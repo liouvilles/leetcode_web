@@ -1,1 +1,23 @@
-class Solution { private int lowerBound(long[] values,int left,int right,long target){while(left<right){int mid=(left+right)>>>1;if(values[mid]<target)left=mid+1;else right=mid;}return left;}public int waysToSplit(int[] nums){final int MOD=1_000_000_007;int n=nums.length;long[] prefix=new long[n+1];for(int i=0;i<n;i++)prefix[i+1]=prefix[i]+nums[i];long answer=0;for(int first=1;first<=n-2;first++){int low=lowerBound(prefix,first+1,n,2*prefix[first]);int high=lowerBound(prefix,first+1,n,(prefix[n]+prefix[first])/2+1);if(high>low)answer=(answer+high-low)%MOD;}return (int)answer;} }
+class Solution {
+    private int lowerBound(long[] values,int left,int right,long target){
+        while(left<right){
+            int mid=(left+right)>>>1;
+            if(values[mid]<target)left=mid+1;
+            else right=mid;
+        }
+        return left;
+    }
+    public int waysToSplit(int[] nums){
+        final int MOD=1_000_000_007;
+        int n=nums.length;
+        long[] prefix=new long[n+1];
+        for(int i=0;i<n;i++)prefix[i+1]=prefix[i]+nums[i];
+        long answer=0;
+        for(int first=1;first<=n-2;first++){
+            int low=lowerBound(prefix,first+1,n,2*prefix[first]);
+            int high=lowerBound(prefix,first+1,n,(prefix[n]+prefix[first])/2+1);
+            if(high>low)answer=(answer+high-low)%MOD;
+        }
+        return (int)answer;
+    }
+}

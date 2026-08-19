@@ -1,1 +1,8 @@
-class Solution { fun arithmeticTriplets(nums:IntArray,diff:Int):Int{val values=nums.toHashSet();var answer=0;for(value in nums)if(value+diff in values&&value+2*diff in values)answer++;return answer} }
+class Solution {
+    fun arithmeticTriplets(nums:IntArray,diff:Int):Int{
+        val values=nums.toHashSet();
+        var answer=0;
+        for(value in nums)if(value+diff in values&&value+2*diff in values)answer++;
+        return answer
+    }
+}

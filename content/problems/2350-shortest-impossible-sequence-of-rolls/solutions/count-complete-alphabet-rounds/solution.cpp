@@ -1,1 +1,14 @@
-class Solution { public:int shortestSequence(vector<int>& rolls,int k){unordered_set<int> seen;int rounds=0;for(int roll:rolls){seen.insert(roll);if((int)seen.size()==k){++rounds;seen.clear();}}return rounds+1;} };
+class Solution {
+    public:int shortestSequence(vector<int>& rolls,int k){
+        unordered_set<int> seen;
+        int rounds=0;
+        for(int roll:rolls){
+            seen.insert(roll);
+            if((int)seen.size()==k){
+                ++rounds;
+                seen.clear();
+            }
+        }
+        return rounds+1;
+    }
+};

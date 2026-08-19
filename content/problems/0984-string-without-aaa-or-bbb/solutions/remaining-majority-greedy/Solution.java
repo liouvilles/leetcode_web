@@ -1,1 +1,17 @@
-class Solution { public String strWithout3a3b(int a,int b){StringBuilder answer=new StringBuilder();while(a>0||b>0){int n=answer.length();boolean takeA=n>=2&&answer.charAt(n-1)=='b'&&answer.charAt(n-2)=='b'||!(n>=2&&answer.charAt(n-1)=='a'&&answer.charAt(n-2)=='a')&&a>b;if(takeA){answer.append('a');a--;}else{answer.append('b');b--;}}return answer.toString();} }
+class Solution {
+    public String strWithout3a3b(int a,int b){
+        StringBuilder answer=new StringBuilder();
+        while(a>0||b>0){
+            int n=answer.length();
+            boolean takeA=n>=2&&answer.charAt(n-1)=='b'&&answer.charAt(n-2)=='b'||!(n>=2&&answer.charAt(n-1)=='a'&&answer.charAt(n-2)=='a')&&a>b;
+            if(takeA){
+                answer.append('a');
+                a--;
+            }else{
+                answer.append('b');
+                b--;
+            }
+        }
+        return answer.toString();
+    }
+}

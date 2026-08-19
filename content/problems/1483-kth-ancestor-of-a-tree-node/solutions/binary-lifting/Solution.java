@@ -1,1 +1,17 @@
-class TreeAncestor { private final int[][] up;public TreeAncestor(int n,int[] parent){int log=1;while((1<<log)<=n)log++;up=new int[log][n];up[0]=parent.clone();for(int bit=1;bit<log;bit++)for(int node=0;node<n;node++){int middle=up[bit-1][node];up[bit][node]=middle==-1?-1:up[bit-1][middle];}}public int getKthAncestor(int node,int k){for(int bit=0;bit<up.length&&node!=-1;bit++)if((k&(1<<bit))!=0)node=up[bit][node];return node;} }
+class TreeAncestor {
+    private final int[][] up;
+    public TreeAncestor(int n,int[] parent){
+        int log=1;
+        while((1<<log)<=n)log++;
+        up=new int[log][n];
+        up[0]=parent.clone();
+        for(int bit=1;bit<log;bit++)for(int node=0;node<n;node++){
+            int middle=up[bit-1][node];
+            up[bit][node]=middle==-1?-1:up[bit-1][middle];
+        }
+    }
+    public int getKthAncestor(int node,int k){
+        for(int bit=0;bit<up.length&&node!=-1;bit++)if((k&(1<<bit))!=0)node=up[bit][node];
+        return node;
+    }
+}

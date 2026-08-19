@@ -1,1 +1,21 @@
-class Solution { fun colorTheArray(n:Int,queries:Array<IntArray>):IntArray{val colors=IntArray(n);val answer=IntArray(queries.size);var pairs=0;for(i in queries.indices){val index=queries[i][0];val color=queries[i][1];val old=colors[index];if(old!=0){if(index>0&&colors[index-1]==old)pairs--;if(index+1<n&&colors[index+1]==old)pairs--};colors[index]=color;if(index>0&&colors[index-1]==color)pairs++;if(index+1<n&&colors[index+1]==color)pairs++;answer[i]=pairs};return answer} }
+class Solution {
+    fun colorTheArray(n:Int,queries:Array<IntArray>):IntArray{
+        val colors=IntArray(n);
+        val answer=IntArray(queries.size);
+        var pairs=0;
+        for(i in queries.indices){
+            val index=queries[i][0];
+            val color=queries[i][1];
+            val old=colors[index];
+            if(old!=0){
+                if(index>0&&colors[index-1]==old)pairs--;
+                if(index+1<n&&colors[index+1]==old)pairs--
+            };
+            colors[index]=color;
+            if(index>0&&colors[index-1]==color)pairs++;
+            if(index+1<n&&colors[index+1]==color)pairs++;
+            answer[i]=pairs
+        };
+        return answer
+    }
+}

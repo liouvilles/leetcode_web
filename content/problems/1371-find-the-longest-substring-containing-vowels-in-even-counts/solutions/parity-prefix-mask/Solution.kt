@@ -1,1 +1,16 @@
-class Solution { fun findTheLongestSubstring(text:String):Int{val earliest=IntArray(32){-2};earliest[0]=-1;var mask=0;var answer=0;for(i in text.indices){val vowel="aeiou".indexOf(text[i]);if(vowel>=0)mask=mask xor (1 shl vowel);if(earliest[mask]!=-2)answer=maxOf(answer,i-earliest[mask])else earliest[mask]=i};return answer} }
+class Solution {
+    fun findTheLongestSubstring(text:String):Int{
+        val earliest=IntArray(32){
+            -2
+        };
+        earliest[0]=-1;
+        var mask=0;
+        var answer=0;
+        for(i in text.indices){
+            val vowel="aeiou".indexOf(text[i]);
+            if(vowel>=0)mask=mask xor (1 shl vowel);
+            if(earliest[mask]!=-2)answer=maxOf(answer,i-earliest[mask])else earliest[mask]=i
+        };
+        return answer
+    }
+}

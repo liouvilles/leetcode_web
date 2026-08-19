@@ -1,1 +1,20 @@
-class Solution { public:bool checkValidGrid(vector<vector<int>>& grid){int n=grid.size(),total=n*n;if(grid[0][0]!=0)return false;vector<int> rows(total),cols(total);vector<bool> seen(total);for(int row=0;row<n;++row)for(int col=0;col<n;++col){int step=grid[row][col];if(step<0||step>=total||seen[step])return false;seen[step]=true;rows[step]=row;cols[step]=col;}for(int step=1;step<total;++step){int rowDiff=abs(rows[step]-rows[step-1]),colDiff=abs(cols[step]-cols[step-1]);if(rowDiff*colDiff!=2)return false;}return true;} };
+class Solution {
+    public:bool checkValidGrid(vector<vector<int>>& grid){
+        int n=grid.size(),total=n*n;
+        if(grid[0][0]!=0)return false;
+        vector<int> rows(total),cols(total);
+        vector<bool> seen(total);
+        for(int row=0;row<n;++row)for(int col=0;col<n;++col){
+            int step=grid[row][col];
+            if(step<0||step>=total||seen[step])return false;
+            seen[step]=true;
+            rows[step]=row;
+            cols[step]=col;
+        }
+        for(int step=1;step<total;++step){
+            int rowDiff=abs(rows[step]-rows[step-1]),colDiff=abs(cols[step]-cols[step-1]);
+            if(rowDiff*colDiff!=2)return false;
+        }
+        return true;
+    }
+};

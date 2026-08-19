@@ -1,1 +1,18 @@
-class Solution { public int kthSmallest(int[][] matrix,int k){int n=matrix.length,left=matrix[0][0],right=matrix[n-1][n-1];while(left<right){int middle=left+(int)(((long)right-left)/2);int count=0,row=n-1,column=0;while(row>=0&&column<n){if(matrix[row][column]<=middle){count+=row+1;column++;}else row--;}if(count<k)left=middle+1;else right=middle;}return left;} }
+class Solution {
+    public int kthSmallest(int[][] matrix,int k){
+        int n=matrix.length,left=matrix[0][0],right=matrix[n-1][n-1];
+        while(left<right){
+            int middle=left+(int)(((long)right-left)/2);
+            int count=0,row=n-1,column=0;
+            while(row>=0&&column<n){
+                if(matrix[row][column]<=middle){
+                    count+=row+1;
+                    column++;
+                }else row--;
+            }
+            if(count<k)left=middle+1;
+            else right=middle;
+        }
+        return left;
+    }
+}

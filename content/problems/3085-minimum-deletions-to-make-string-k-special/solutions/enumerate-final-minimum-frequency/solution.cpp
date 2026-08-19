@@ -1,1 +1,17 @@
-class Solution { public:int minimumDeletions(string word,int k){int frequency[26]{};for(char letter:word)++frequency[letter-'a'];int answer=word.size();for(int lower:frequency)if(lower>0){int deletions=0;for(int count:frequency)if(count>0){if(count<lower)deletions+=count;else if(count>lower+k)deletions+=count-lower-k;}answer=min(answer,deletions);}return answer;} };
+class Solution {
+    public:int minimumDeletions(string word,int k){
+        int frequency[26]{
+        };
+        for(char letter:word)++frequency[letter-'a'];
+        int answer=word.size();
+        for(int lower:frequency)if(lower>0){
+            int deletions=0;
+            for(int count:frequency)if(count>0){
+                if(count<lower)deletions+=count;
+                else if(count>lower+k)deletions+=count-lower-k;
+            }
+            answer=min(answer,deletions);
+        }
+        return answer;
+    }
+};

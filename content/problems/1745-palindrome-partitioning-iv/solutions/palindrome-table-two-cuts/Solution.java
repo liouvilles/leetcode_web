@@ -1,1 +1,12 @@
-class Solution { public boolean checkPartitioning(String text){int n=text.length();boolean[][] palindrome=new boolean[n][n];for(int length=1;length<=n;length++)for(int left=0;left+length<=n;left++){int right=left+length-1;palindrome[left][right]=text.charAt(left)==text.charAt(right)&&(length<=2||palindrome[left+1][right-1]);}for(int first=0;first<n-2;first++)for(int second=first+1;second<n-1;second++)if(palindrome[0][first]&&palindrome[first+1][second]&&palindrome[second+1][n-1])return true;return false;} }
+class Solution {
+    public boolean checkPartitioning(String text){
+        int n=text.length();
+        boolean[][] palindrome=new boolean[n][n];
+        for(int length=1;length<=n;length++)for(int left=0;left+length<=n;left++){
+            int right=left+length-1;
+            palindrome[left][right]=text.charAt(left)==text.charAt(right)&&(length<=2||palindrome[left+1][right-1]);
+        }
+        for(int first=0;first<n-2;first++)for(int second=first+1;second<n-1;second++)if(palindrome[0][first]&&palindrome[first+1][second]&&palindrome[second+1][n-1])return true;
+        return false;
+    }
+}

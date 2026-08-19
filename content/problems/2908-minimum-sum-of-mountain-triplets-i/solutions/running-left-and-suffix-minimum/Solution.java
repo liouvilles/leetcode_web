@@ -1,1 +1,14 @@
-class Solution { public int minimumSum(int[] nums){int n=nums.length;int[] rightMinimum=new int[n];rightMinimum[n-1]=nums[n-1];for(int i=n-2;i>=0;i--)rightMinimum[i]=Math.min(nums[i],rightMinimum[i+1]);int leftMinimum=nums[0],answer=Integer.MAX_VALUE;for(int j=1;j<n-1;j++){if(leftMinimum<nums[j]&&rightMinimum[j+1]<nums[j])answer=Math.min(answer,leftMinimum+nums[j]+rightMinimum[j+1]);leftMinimum=Math.min(leftMinimum,nums[j]);}return answer==Integer.MAX_VALUE?-1:answer;} }
+class Solution {
+    public int minimumSum(int[] nums){
+        int n=nums.length;
+        int[] rightMinimum=new int[n];
+        rightMinimum[n-1]=nums[n-1];
+        for(int i=n-2;i>=0;i--)rightMinimum[i]=Math.min(nums[i],rightMinimum[i+1]);
+        int leftMinimum=nums[0],answer=Integer.MAX_VALUE;
+        for(int j=1;j<n-1;j++){
+            if(leftMinimum<nums[j]&&rightMinimum[j+1]<nums[j])answer=Math.min(answer,leftMinimum+nums[j]+rightMinimum[j+1]);
+            leftMinimum=Math.min(leftMinimum,nums[j]);
+        }
+        return answer==Integer.MAX_VALUE?-1:answer;
+    }
+}

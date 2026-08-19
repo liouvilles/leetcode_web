@@ -1,1 +1,12 @@
-class Solution { public:string capitalizeTitle(string title){for(char& ch:title)ch=tolower(ch);for(int start=0;start<(int)title.size();){int end=start;while(end<(int)title.size()&&title[end]!=' ')++end;if(end-start>2)title[start]=toupper(title[start]);start=end+1;}return title;} };
+class Solution {
+    public:string capitalizeTitle(string title){
+        for(char& ch:title)ch=tolower(ch);
+        for(int start=0;start<(int)title.size();){
+            int end=start;
+            while(end<(int)title.size()&&title[end]!=' ')++end;
+            if(end-start>2)title[start]=toupper(title[start]);
+            start=end+1;
+        }
+        return title;
+    }
+};

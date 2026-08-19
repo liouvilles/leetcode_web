@@ -1,1 +1,13 @@
-class Solution { public: long long maxMatrixSum(vector<vector<int>>& matrix){long long sum=0;int negatives=0,minimum=INT_MAX;for(auto& row:matrix)for(int value:row){negatives+=value<0;int absolute=abs(value);sum+=absolute;minimum=min(minimum,absolute);}return negatives%2?sum-2LL*minimum:sum;} };
+class Solution {
+    public: long long maxMatrixSum(vector<vector<int>>& matrix){
+        long long sum=0;
+        int negatives=0,minimum=INT_MAX;
+        for(auto& row:matrix)for(int value:row){
+            negatives+=value<0;
+            int absolute=abs(value);
+            sum+=absolute;
+            minimum=min(minimum,absolute);
+        }
+        return negatives%2?sum-2LL*minimum:sum;
+    }
+};

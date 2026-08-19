@@ -1,1 +1,7 @@
-class Solution { public:int countPairs(vector<int>& nums,int k){int answer=0;for(int i=0;i<(int)nums.size();++i)for(int j=i+1;j<(int)nums.size();++j)if(nums[i]==nums[j]&&i*j%k==0)++answer;return answer;} };
+class Solution {
+    public:int countPairs(vector<int>& nums,int k){
+        int answer=0;
+        for(int i=0;i<(int)nums.size();++i)for(int j=i+1;j<(int)nums.size();++j)if(nums[i]==nums[j]&&i*j%k==0)++answer;
+        return answer;
+    }
+};

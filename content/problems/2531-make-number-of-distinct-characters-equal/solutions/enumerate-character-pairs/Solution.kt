@@ -1,1 +1,24 @@
-class Solution { fun isItPossible(word1:String,word2:String):Boolean{val first=IntArray(26);val second=IntArray(26);for(c in word1)first[c-'a']++;for(c in word2)second[c-'a']++;val distinct1=first.count{it>0};val distinct2=second.count{it>0};for(i in 0..25)if(first[i]>0)for(j in 0..25)if(second[j]>0){if(i==j){if(distinct1==distinct2)return true;continue};val next1=distinct1-(if(first[i]==1)1 else 0)+(if(first[j]==0)1 else 0);val next2=distinct2-(if(second[j]==1)1 else 0)+(if(second[i]==0)1 else 0);if(next1==next2)return true};return false} }
+class Solution {
+    fun isItPossible(word1:String,word2:String):Boolean{
+        val first=IntArray(26);
+        val second=IntArray(26);
+        for(c in word1)first[c-'a']++;
+        for(c in word2)second[c-'a']++;
+        val distinct1=first.count{
+            it>0
+        };
+        val distinct2=second.count{
+            it>0
+        };
+        for(i in 0..25)if(first[i]>0)for(j in 0..25)if(second[j]>0){
+            if(i==j){
+                if(distinct1==distinct2)return true;
+                continue
+            };
+            val next1=distinct1-(if(first[i]==1)1 else 0)+(if(first[j]==0)1 else 0);
+            val next2=distinct2-(if(second[j]==1)1 else 0)+(if(second[i]==0)1 else 0);
+            if(next1==next2)return true
+        };
+        return false
+    }
+}

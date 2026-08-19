@@ -1,1 +1,21 @@
-class Solution { fun tree2str(root:TreeNode?):String{val answer=StringBuilder();fun append(node:TreeNode?){if(node==null)return;answer.append(node.`val`);if(node.left!=null||node.right!=null){answer.append('(');append(node.left);answer.append(')')};if(node.right!=null){answer.append('(');append(node.right);answer.append(')')}};append(root);return answer.toString()} }
+class Solution {
+    fun tree2str(root:TreeNode?):String{
+        val answer=StringBuilder();
+        fun append(node:TreeNode?){
+            if(node==null)return;
+            answer.append(node.`val`);
+            if(node.left!=null||node.right!=null){
+                answer.append('(');
+                append(node.left);
+                answer.append(')')
+            };
+            if(node.right!=null){
+                answer.append('(');
+                append(node.right);
+                answer.append(')')
+            }
+        };
+        append(root);
+        return answer.toString()
+    }
+}

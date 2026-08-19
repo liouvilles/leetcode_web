@@ -1,1 +1,11 @@
-class Solution { public: int findSpecialInteger(vector<int>& arr){for(int start=0;start<(int)arr.size();){int end=start+1;while(end<(int)arr.size()&&arr[end]==arr[start])++end;if((end-start)*4>(int)arr.size())return arr[start];start=end;}return -1;} };
+class Solution {
+    public: int findSpecialInteger(vector<int>& arr){
+        for(int start=0;start<(int)arr.size();){
+            int end=start+1;
+            while(end<(int)arr.size()&&arr[end]==arr[start])++end;
+            if((end-start)*4>(int)arr.size())return arr[start];
+            start=end;
+        }
+        return -1;
+    }
+};

@@ -1,1 +1,16 @@
-class Solution { private fun longestSpan(bars:IntArray):Int{bars.sort();var best=1;var current=1;for(i in 1 until bars.size){current=if(bars[i]==bars[i-1]+1)current+1 else 1;best=maxOf(best,current)};return best+1}fun maximizeSquareHoleArea(n:Int,m:Int,hBars:IntArray,vBars:IntArray):Int{val side=minOf(longestSpan(hBars),longestSpan(vBars));return side*side} }
+class Solution {
+    private fun longestSpan(bars:IntArray):Int{
+        bars.sort();
+        var best=1;
+        var current=1;
+        for(i in 1 until bars.size){
+            current=if(bars[i]==bars[i-1]+1)current+1 else 1;
+            best=maxOf(best,current)
+        };
+        return best+1
+    }
+    fun maximizeSquareHoleArea(n:Int,m:Int,hBars:IntArray,vBars:IntArray):Int{
+        val side=minOf(longestSpan(hBars),longestSpan(vBars));
+        return side*side
+    }
+}

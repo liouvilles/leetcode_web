@@ -1,1 +1,23 @@
-class Solution { fun averageOfLevels(root:TreeNode?):List<Double>{val answer=mutableListOf<Double>();val queue=java.util.ArrayDeque<TreeNode>();queue.add(root!!);while(queue.isNotEmpty()){val size=queue.size;var sum=0L;repeat(size){val node=queue.remove();sum+=node.`val`;node.left?.let{queue.add(it)};node.right?.let{queue.add(it)}};answer.add(sum.toDouble()/size)};return answer} }
+class Solution {
+    fun averageOfLevels(root:TreeNode?):List<Double>{
+        val answer=mutableListOf<Double>();
+        val queue=java.util.ArrayDeque<TreeNode>();
+        queue.add(root!!);
+        while(queue.isNotEmpty()){
+            val size=queue.size;
+            var sum=0L;
+            repeat(size){
+                val node=queue.remove();
+                sum+=node.`val`;
+                node.left?.let{
+                    queue.add(it)
+                };
+                node.right?.let{
+                    queue.add(it)
+                }
+            };
+            answer.add(sum.toDouble()/size)
+        };
+        return answer
+    }
+}

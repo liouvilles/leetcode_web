@@ -1,1 +1,8 @@
-class Solution { fun countPrimeSetBits(left:Int,right:Int):Int{val primes=setOf(2,3,5,7,11,13,17,19);var answer=0;for(value in left..right)if(Integer.bitCount(value) in primes)answer++;return answer} }
+class Solution {
+    fun countPrimeSetBits(left:Int,right:Int):Int{
+        val primes=setOf(2,3,5,7,11,13,17,19);
+        var answer=0;
+        for(value in left..right)if(Integer.bitCount(value) in primes)answer++;
+        return answer
+    }
+}

@@ -1,1 +1,17 @@
-class Solution { public: int smallestDistancePair(vector<int>& nums,int k){sort(nums.begin(),nums.end());int left=0,right=nums.back()-nums[0];while(left<right){int middle=left+(right-left)/2,l=0;long long count=0;for(int r=0;r<(int)nums.size();++r){while(nums[r]-nums[l]>middle)++l;count+=r-l;}if(count>=k)right=middle;else left=middle+1;}return left;} };
+class Solution {
+    public: int smallestDistancePair(vector<int>& nums,int k){
+        sort(nums.begin(),nums.end());
+        int left=0,right=nums.back()-nums[0];
+        while(left<right){
+            int middle=left+(right-left)/2,l=0;
+            long long count=0;
+            for(int r=0;r<(int)nums.size();++r){
+                while(nums[r]-nums[l]>middle)++l;
+                count+=r-l;
+            }
+            if(count>=k)right=middle;
+            else left=middle+1;
+        }
+        return left;
+    }
+};

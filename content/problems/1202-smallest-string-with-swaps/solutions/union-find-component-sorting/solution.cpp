@@ -1,1 +1,25 @@
-class Solution { vector<int> parent;int find(int node){return parent[node]==node?node:parent[node]=find(parent[node]);}public:string smallestStringWithSwaps(string s,vector<vector<int>>& pairs){parent.resize(s.size());iota(parent.begin(),parent.end(),0);for(auto& pair:pairs){int a=find(pair[0]),b=find(pair[1]);if(a!=b)parent[b]=a;}unordered_map<int,vector<int>> groups;for(int i=0;i<(int)s.size();++i)groups[find(i)].push_back(i);string answer=s;for(auto& entry:groups){auto& indices=entry.second;string letters;for(int index:indices)letters+=s[index];sort(letters.begin(),letters.end());for(int i=0;i<(int)indices.size();++i)answer[indices[i]]=letters[i];}return answer;} };
+class Solution {
+    vector<int> parent;
+    int find(int node){
+        return parent[node]==node?node:parent[node]=find(parent[node]);
+    }
+    public:string smallestStringWithSwaps(string s,vector<vector<int>>& pairs){
+        parent.resize(s.size());
+        iota(parent.begin(),parent.end(),0);
+        for(auto& pair:pairs){
+            int a=find(pair[0]),b=find(pair[1]);
+            if(a!=b)parent[b]=a;
+        }
+        unordered_map<int,vector<int>> groups;
+        for(int i=0;i<(int)s.size();++i)groups[find(i)].push_back(i);
+        string answer=s;
+        for(auto& entry:groups){
+            auto& indices=entry.second;
+            string letters;
+            for(int index:indices)letters+=s[index];
+            sort(letters.begin(),letters.end());
+            for(int i=0;i<(int)indices.size();++i)answer[indices[i]]=letters[i];
+        }
+        return answer;
+    }
+};

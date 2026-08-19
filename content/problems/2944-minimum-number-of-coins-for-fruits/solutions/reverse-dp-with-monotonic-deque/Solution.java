@@ -1,1 +1,16 @@
-class Solution { public int minimumCoins(int[] prices){int n=prices.length;int[] dp=new int[n+1];Deque<Integer> deque=new ArrayDeque<>();deque.addLast(n);for(int i=n-1;i>=0;i--){int right=Math.min(n,2*i+2);while(deque.peekFirst()>right)deque.removeFirst();dp[i]=prices[i]+dp[deque.peekFirst()];while(!deque.isEmpty()&&dp[deque.peekLast()]>=dp[i])deque.removeLast();deque.addLast(i);}return dp[0];} }
+class Solution {
+    public int minimumCoins(int[] prices){
+        int n=prices.length;
+        int[] dp=new int[n+1];
+        Deque<Integer> deque=new ArrayDeque<>();
+        deque.addLast(n);
+        for(int i=n-1;i>=0;i--){
+            int right=Math.min(n,2*i+2);
+            while(deque.peekFirst()>right)deque.removeFirst();
+            dp[i]=prices[i]+dp[deque.peekFirst()];
+            while(!deque.isEmpty()&&dp[deque.peekLast()]>=dp[i])deque.removeLast();
+            deque.addLast(i);
+        }
+        return dp[0];
+    }
+}

@@ -1,1 +1,18 @@
-class Solution { public int oddEvenJumps(int[] arr){int n=arr.length;boolean[] odd=new boolean[n],even=new boolean[n];odd[n-1]=even[n-1]=true;int answer=1;TreeMap<Integer,Integer> map=new TreeMap<>();map.put(arr[n-1],n-1);for(int i=n-2;i>=0;i--){Map.Entry<Integer,Integer> higher=map.ceilingEntry(arr[i]),lower=map.floorEntry(arr[i]);if(higher!=null)odd[i]=even[higher.getValue()];if(lower!=null)even[i]=odd[lower.getValue()];if(odd[i])answer++;map.put(arr[i],i);}return answer;} }
+class Solution {
+    public int oddEvenJumps(int[] arr){
+        int n=arr.length;
+        boolean[] odd=new boolean[n],even=new boolean[n];
+        odd[n-1]=even[n-1]=true;
+        int answer=1;
+        TreeMap<Integer,Integer> map=new TreeMap<>();
+        map.put(arr[n-1],n-1);
+        for(int i=n-2;i>=0;i--){
+            Map.Entry<Integer,Integer> higher=map.ceilingEntry(arr[i]),lower=map.floorEntry(arr[i]);
+            if(higher!=null)odd[i]=even[higher.getValue()];
+            if(lower!=null)even[i]=odd[lower.getValue()];
+            if(odd[i])answer++;
+            map.put(arr[i],i);
+        }
+        return answer;
+    }
+}

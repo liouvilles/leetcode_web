@@ -1,1 +1,22 @@
-class Solution { fun minimumOperationsToMakeEqual(x:Int,y:Int):Int{if(x<=y)return y-x;val upper=2*maxOf(x,y)+12;val distance=IntArray(upper+1){-1};val queue=java.util.ArrayDeque<Int>();queue.add(x);distance[x]=0;while(queue.isNotEmpty()){val value=queue.removeFirst();if(value==y)return distance[value];val next=intArrayOf(value-1,value+1,if(value%5==0)value/5 else -1,if(value%11==0)value/11 else -1);for(candidate in next)if(candidate>=1&&candidate<=upper&&distance[candidate]<0){distance[candidate]=distance[value]+1;queue.add(candidate)}};return -1} }
+class Solution {
+    fun minimumOperationsToMakeEqual(x:Int,y:Int):Int{
+        if(x<=y)return y-x;
+        val upper=2*maxOf(x,y)+12;
+        val distance=IntArray(upper+1){
+            -1
+        };
+        val queue=java.util.ArrayDeque<Int>();
+        queue.add(x);
+        distance[x]=0;
+        while(queue.isNotEmpty()){
+            val value=queue.removeFirst();
+            if(value==y)return distance[value];
+            val next=intArrayOf(value-1,value+1,if(value%5==0)value/5 else -1,if(value%11==0)value/11 else -1);
+            for(candidate in next)if(candidate>=1&&candidate<=upper&&distance[candidate]<0){
+                distance[candidate]=distance[value]+1;
+                queue.add(candidate)
+            }
+        };
+        return -1
+    }
+}

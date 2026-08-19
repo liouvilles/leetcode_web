@@ -1,1 +1,21 @@
-class Solution { private final Set<String> visited=new HashSet<>();private final StringBuilder trail=new StringBuilder();private int k,n;public String crackSafe(int n,int k){this.n=n;this.k=k;String start="0".repeat(n-1);dfs(start);return start+trail.reverse();}private void dfs(String node){for(int digit=0;digit<k;digit++){String edge=node+digit;if(visited.add(edge)){dfs(edge.substring(edge.length()-(n-1)));trail.append(digit);}}} }
+class Solution {
+    private final Set<String> visited=new HashSet<>();
+    private final StringBuilder trail=new StringBuilder();
+    private int k,n;
+    public String crackSafe(int n,int k){
+        this.n=n;
+        this.k=k;
+        String start="0".repeat(n-1);
+        dfs(start);
+        return start+trail.reverse();
+    }
+    private void dfs(String node){
+        for(int digit=0;digit<k;digit++){
+            String edge=node+digit;
+            if(visited.add(edge)){
+                dfs(edge.substring(edge.length()-(n-1)));
+                trail.append(digit);
+            }
+        }
+    }
+}

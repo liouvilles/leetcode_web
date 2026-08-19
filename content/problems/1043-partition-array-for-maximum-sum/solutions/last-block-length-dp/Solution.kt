@@ -1,1 +1,13 @@
-class Solution { fun maxSumAfterPartitioning(arr:IntArray,k:Int):Int{val dp=IntArray(arr.size+1);for(i in 1..arr.size){var maximum=0;for(length in 1..minOf(k,i)){maximum=maxOf(maximum,arr[i-length]);dp[i]=maxOf(dp[i],dp[i-length]+maximum*length)}};return dp[arr.size]} }
+class Solution {
+    fun maxSumAfterPartitioning(arr:IntArray,k:Int):Int{
+        val dp=IntArray(arr.size+1);
+        for(i in 1..arr.size){
+            var maximum=0;
+            for(length in 1..minOf(k,i)){
+                maximum=maxOf(maximum,arr[i-length]);
+                dp[i]=maxOf(dp[i],dp[i-length]+maximum*length)
+            }
+        };
+        return dp[arr.size]
+    }
+}

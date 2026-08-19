@@ -1,1 +1,19 @@
-class Solution { public int[] lexicographicallySmallestArray(int[] nums,int limit){int n=nums.length;Integer[] order=new Integer[n];for(int i=0;i<n;i++)order[i]=i;Arrays.sort(order,(a,b)->Integer.compare(nums[a],nums[b]));int[] answer=new int[n];for(int left=0;left<n;){int right=left+1;while(right<n&&(long)nums[order[right]]-nums[order[right-1]]<=limit)right++;int[] positions=new int[right-left];for(int i=left;i<right;i++)positions[i-left]=order[i];Arrays.sort(positions);for(int offset=0;offset<positions.length;offset++)answer[positions[offset]]=nums[order[left+offset]];left=right;}return answer;} }
+class Solution {
+    public int[] lexicographicallySmallestArray(int[] nums,int limit){
+        int n=nums.length;
+        Integer[] order=new Integer[n];
+        for(int i=0;i<n;i++)order[i]=i;
+        Arrays.sort(order,(a,b)->Integer.compare(nums[a],nums[b]));
+        int[] answer=new int[n];
+        for(int left=0;left<n;){
+            int right=left+1;
+            while(right<n&&(long)nums[order[right]]-nums[order[right-1]]<=limit)right++;
+            int[] positions=new int[right-left];
+            for(int i=left;i<right;i++)positions[i-left]=order[i];
+            Arrays.sort(positions);
+            for(int offset=0;offset<positions.length;offset++)answer[positions[offset]]=nums[order[left+offset]];
+            left=right;
+        }
+        return answer;
+    }
+}

@@ -1,1 +1,11 @@
-class Solution { public int divisorSubstrings(int num,int k){String text=Integer.toString(num);int answer=0;for(int i=0;i+k<=text.length();i++){int value=Integer.parseInt(text.substring(i,i+k));if(value!=0&&num%value==0)answer++;}return answer;} }
+class Solution {
+    public int divisorSubstrings(int num,int k){
+        String text=Integer.toString(num);
+        int answer=0;
+        for(int i=0;i+k<=text.length();i++){
+            int value=Integer.parseInt(text.substring(i,i+k));
+            if(value!=0&&num%value==0)answer++;
+        }
+        return answer;
+    }
+}

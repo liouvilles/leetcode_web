@@ -1,1 +1,7 @@
-class Solution { public String restoreString(String text,int[] indices){char[] answer=new char[text.length()];for(int i=0;i<text.length();i++)answer[indices[i]]=text.charAt(i);return new String(answer);} }
+class Solution {
+    public String restoreString(String text,int[] indices){
+        char[] answer=new char[text.length()];
+        for(int i=0;i<text.length();i++)answer[indices[i]]=text.charAt(i);
+        return new String(answer);
+    }
+}

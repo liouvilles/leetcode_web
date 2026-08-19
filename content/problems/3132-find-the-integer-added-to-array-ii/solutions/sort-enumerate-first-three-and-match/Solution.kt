@@ -1,1 +1,18 @@
-class Solution { fun minimumAddedInteger(nums1:IntArray,nums2:IntArray):Int{nums1.sort();nums2.sort();var answer=Int.MAX_VALUE;for(candidateIndex in 0..2){val added=nums2[0]-nums1[candidateIndex];var first=0;var second=0;while(first<nums1.size&&second<nums2.size){if(nums1[first]+added==nums2[second])second++;first++};if(second==nums2.size)answer=minOf(answer,added)};return answer} }
+class Solution {
+    fun minimumAddedInteger(nums1:IntArray,nums2:IntArray):Int{
+        nums1.sort();
+        nums2.sort();
+        var answer=Int.MAX_VALUE;
+        for(candidateIndex in 0..2){
+            val added=nums2[0]-nums1[candidateIndex];
+            var first=0;
+            var second=0;
+            while(first<nums1.size&&second<nums2.size){
+                if(nums1[first]+added==nums2[second])second++;
+                first++
+            };
+            if(second==nums2.size)answer=minOf(answer,added)
+        };
+        return answer
+    }
+}

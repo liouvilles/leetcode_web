@@ -1,1 +1,17 @@
-class Solution { public boolean isNStraightHand(int[] hand,int groupSize){if(hand.length%groupSize!=0)return false;TreeMap<Integer,Integer> count=new TreeMap<>();for(int value:hand)count.merge(value,1,Integer::sum);while(!count.isEmpty()){int start=count.firstKey();for(int value=start;value<start+groupSize;value++){Integer frequency=count.get(value);if(frequency==null)return false;if(frequency==1)count.remove(value);else count.put(value,frequency-1);}}return true;} }
+class Solution {
+    public boolean isNStraightHand(int[] hand,int groupSize){
+        if(hand.length%groupSize!=0)return false;
+        TreeMap<Integer,Integer> count=new TreeMap<>();
+        for(int value:hand)count.merge(value,1,Integer::sum);
+        while(!count.isEmpty()){
+            int start=count.firstKey();
+            for(int value=start;value<start+groupSize;value++){
+                Integer frequency=count.get(value);
+                if(frequency==null)return false;
+                if(frequency==1)count.remove(value);
+                else count.put(value,frequency-1);
+            }
+        }
+        return true;
+    }
+}

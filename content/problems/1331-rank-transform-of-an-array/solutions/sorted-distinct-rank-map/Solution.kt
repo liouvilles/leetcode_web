@@ -1,1 +1,9 @@
-class Solution { fun arrayRankTransform(arr:IntArray):IntArray{val sorted=arr.sorted();val ranks=mutableMapOf<Int,Int>();for(value in sorted)if(value !in ranks)ranks[value]=ranks.size+1;for(i in arr.indices)arr[i]=ranks[arr[i]]!!;return arr} }
+class Solution {
+    fun arrayRankTransform(arr:IntArray):IntArray{
+        val sorted=arr.sorted();
+        val ranks=mutableMapOf<Int,Int>();
+        for(value in sorted)if(value !in ranks)ranks[value]=ranks.size+1;
+        for(i in arr.indices)arr[i]=ranks[arr[i]]!!;
+        return arr
+    }
+}

@@ -1,1 +1,16 @@
-class Solution { fun equalSubstring(s:String,t:String,maxCost:Int):Int{var left=0;var cost=0;var best=0;for(right in s.indices){cost+=kotlin.math.abs(s[right]-t[right]);while(cost>maxCost){cost-=kotlin.math.abs(s[left]-t[left]);left++};best=maxOf(best,right-left+1)};return best} }
+class Solution {
+    fun equalSubstring(s:String,t:String,maxCost:Int):Int{
+        var left=0;
+        var cost=0;
+        var best=0;
+        for(right in s.indices){
+            cost+=kotlin.math.abs(s[right]-t[right]);
+            while(cost>maxCost){
+                cost-=kotlin.math.abs(s[left]-t[left]);
+                left++
+            };
+            best=maxOf(best,right-left+1)
+        };
+        return best
+    }
+}

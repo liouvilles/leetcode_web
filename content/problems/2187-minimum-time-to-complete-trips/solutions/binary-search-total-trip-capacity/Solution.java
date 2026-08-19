@@ -1,1 +1,15 @@
-class Solution { public long minimumTime(int[] time,int totalTrips){long left=1,right=(long)Arrays.stream(time).min().getAsInt()*totalTrips;while(left<right){long middle=(left+right)/2,trips=0;for(int duration:time){trips+=middle/duration;if(trips>=totalTrips)break;}if(trips>=totalTrips)right=middle;else left=middle+1;}return left;} }
+class Solution {
+    public long minimumTime(int[] time,int totalTrips){
+        long left=1,right=(long)Arrays.stream(time).min().getAsInt()*totalTrips;
+        while(left<right){
+            long middle=(left+right)/2,trips=0;
+            for(int duration:time){
+                trips+=middle/duration;
+                if(trips>=totalTrips)break;
+            }
+            if(trips>=totalTrips)right=middle;
+            else left=middle+1;
+        }
+        return left;
+    }
+}

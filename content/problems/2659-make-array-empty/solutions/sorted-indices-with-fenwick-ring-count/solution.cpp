@@ -1,1 +1,36 @@
-class Solution { struct Fenwick{vector<int> tree;Fenwick(int n):tree(n+1){}void add(int index,int delta){for(++index;index<(int)tree.size();index+=index&-index)tree[index]+=delta;}int sum(int index){int answer=0;for(++index;index>0;index-=index&-index)answer+=tree[index];return answer;}int range(int left,int right){return left>right?0:sum(right)-(left?sum(left-1):0);}};public:long long countOperationsToEmptyArray(vector<int>& nums){int n=nums.size();vector<int> order(n);iota(order.begin(),order.end(),0);sort(order.begin(),order.end(),[&](int a,int b){return nums[a]<nums[b];});Fenwick fenwick(n);for(int i=0;i<n;++i)fenwick.add(i,1);long long answer=0;int current=0;for(int target:order){answer+=target>=current?fenwick.range(current,target):fenwick.range(current,n-1)+fenwick.range(0,target);fenwick.add(target,-1);current=(target+1)%n;}return answer;} };
+class Solution {
+    struct Fenwick{
+        vector<int> tree;
+        Fenwick(int n):tree(n+1){
+        }
+        void add(int index,int delta){
+            for(++index;index<(int)tree.size();index+=index&-index)tree[index]+=delta;
+        }
+        int sum(int index){
+            int answer=0;
+            for(++index;index>0;index-=index&-index)answer+=tree[index];
+            return answer;
+        }
+        int range(int left,int right){
+            return left>right?0:sum(right)-(left?sum(left-1):0);
+        }
+    };
+    public:long long countOperationsToEmptyArray(vector<int>& nums){
+        int n=nums.size();
+        vector<int> order(n);
+        iota(order.begin(),order.end(),0);
+        sort(order.begin(),order.end(),[&](int a,int b){
+            return nums[a]<nums[b];
+        });
+        Fenwick fenwick(n);
+        for(int i=0;i<n;++i)fenwick.add(i,1);
+        long long answer=0;
+        int current=0;
+        for(int target:order){
+            answer+=target>=current?fenwick.range(current,target):fenwick.range(current,n-1)+fenwick.range(0,target);
+            fenwick.add(target,-1);
+            current=(target+1)%n;
+        }
+        return answer;
+    }
+};

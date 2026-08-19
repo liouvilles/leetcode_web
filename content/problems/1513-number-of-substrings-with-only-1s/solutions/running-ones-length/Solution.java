@@ -1,1 +1,10 @@
-class Solution { public int numSub(String text){long answer=0,running=0,mod=1_000_000_007L;for(char value:text.toCharArray()){running=value=='1'?running+1:0;answer=(answer+running)%mod;}return (int)answer;} }
+class Solution {
+    public int numSub(String text){
+        long answer=0,running=0,mod=1_000_000_007L;
+        for(char value:text.toCharArray()){
+            running=value=='1'?running+1:0;
+            answer=(answer+running)%mod;
+        }
+        return (int)answer;
+    }
+}

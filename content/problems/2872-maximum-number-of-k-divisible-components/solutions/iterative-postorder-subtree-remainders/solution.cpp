@@ -1,1 +1,29 @@
-class Solution { public:int maxKDivisibleComponents(int n,vector<vector<int>>& edges,vector<int>& values,int k){vector<vector<int>> graph(n);for(auto& edge:edges){graph[edge[0]].push_back(edge[1]);graph[edge[1]].push_back(edge[0]);}vector<int> parent(n,-2),order(n);parent[0]=-1;order[0]=0;int length=1;for(int index=0;index<length;++index){int node=order[index];for(int next:graph[node])if(next!=parent[node]){parent[next]=node;order[length++]=next;}}vector<long long> remainder(n);for(int node=0;node<n;++node)remainder[node]=values[node]%k;int components=0;for(int index=n-1;index>=0;--index){int node=order[index];if(!remainder[node])++components;else if(parent[node]>=0)remainder[parent[node]]=(remainder[parent[node]]+remainder[node])%k;}return components;} };
+class Solution {
+    public:int maxKDivisibleComponents(int n,vector<vector<int>>& edges,vector<int>& values,int k){
+        vector<vector<int>> graph(n);
+        for(auto& edge:edges){
+            graph[edge[0]].push_back(edge[1]);
+            graph[edge[1]].push_back(edge[0]);
+        }
+        vector<int> parent(n,-2),order(n);
+        parent[0]=-1;
+        order[0]=0;
+        int length=1;
+        for(int index=0;index<length;++index){
+            int node=order[index];
+            for(int next:graph[node])if(next!=parent[node]){
+                parent[next]=node;
+                order[length++]=next;
+            }
+        }
+        vector<long long> remainder(n);
+        for(int node=0;node<n;++node)remainder[node]=values[node]%k;
+        int components=0;
+        for(int index=n-1;index>=0;--index){
+            int node=order[index];
+            if(!remainder[node])++components;
+            else if(parent[node]>=0)remainder[parent[node]]=(remainder[parent[node]]+remainder[node])%k;
+        }
+        return components;
+    }
+};

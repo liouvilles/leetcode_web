@@ -1,1 +1,7 @@
-class Solution { public List<Integer> findWordsContaining(String[] words,char x){List<Integer> answer=new ArrayList<>();for(int index=0;index<words.length;index++)if(words[index].indexOf(x)>=0)answer.add(index);return answer;} }
+class Solution {
+    public List<Integer> findWordsContaining(String[] words,char x){
+        List<Integer> answer=new ArrayList<>();
+        for(int index=0;index<words.length;index++)if(words[index].indexOf(x)>=0)answer.add(index);
+        return answer;
+    }
+}

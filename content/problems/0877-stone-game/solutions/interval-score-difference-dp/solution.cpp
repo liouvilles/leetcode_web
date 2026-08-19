@@ -1,1 +1,10 @@
-class Solution { public: bool stoneGame(vector<int>& piles){vector<int> dp=piles;for(int length=2;length<=(int)piles.size();++length)for(int left=0;left+length<=(int)piles.size();++left){int right=left+length-1;dp[left]=max(piles[left]-dp[left+1],piles[right]-dp[left]);}return dp[0]>0;} };
+class Solution {
+    public: bool stoneGame(vector<int>& piles){
+        vector<int> dp=piles;
+        for(int length=2;length<=(int)piles.size();++length)for(int left=0;left+length<=(int)piles.size();++left){
+            int right=left+length-1;
+            dp[left]=max(piles[left]-dp[left+1],piles[right]-dp[left]);
+        }
+        return dp[0]>0;
+    }
+};

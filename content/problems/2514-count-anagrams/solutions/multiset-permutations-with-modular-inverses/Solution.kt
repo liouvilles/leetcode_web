@@ -1,1 +1,28 @@
-class Solution { private val mod=1_000_000_007L;private fun power(baseInput:Long,exponentInput:Long):Long{var base=baseInput;var exponent=exponentInput;var result=1L;while(exponent>0){if(exponent and 1L==1L)result=result*base%mod;base=base*base%mod;exponent=exponent shr 1};return result}fun countAnagrams(s:String):Int{val factorial=LongArray(s.length+1);factorial[0]=1;for(i in 1 until factorial.size)factorial[i]=factorial[i-1]*i%mod;var answer=1L;for(word in s.split(" ")){val frequency=IntArray(26);for(character in word)frequency[character-'a']++;var ways=factorial[word.length];for(count in frequency)ways=ways*power(factorial[count],mod-2)%mod;answer=answer*ways%mod};return answer.toInt()} }
+class Solution {
+    private val mod=1_000_000_007L;
+    private fun power(baseInput:Long,exponentInput:Long):Long{
+        var base=baseInput;
+        var exponent=exponentInput;
+        var result=1L;
+        while(exponent>0){
+            if(exponent and 1L==1L)result=result*base%mod;
+            base=base*base%mod;
+            exponent=exponent shr 1
+        };
+        return result
+    }
+    fun countAnagrams(s:String):Int{
+        val factorial=LongArray(s.length+1);
+        factorial[0]=1;
+        for(i in 1 until factorial.size)factorial[i]=factorial[i-1]*i%mod;
+        var answer=1L;
+        for(word in s.split(" ")){
+            val frequency=IntArray(26);
+            for(character in word)frequency[character-'a']++;
+            var ways=factorial[word.length];
+            for(count in frequency)ways=ways*power(factorial[count],mod-2)%mod;
+            answer=answer*ways%mod
+        };
+        return answer.toInt()
+    }
+}

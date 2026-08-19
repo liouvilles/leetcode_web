@@ -1,1 +1,21 @@
-class Solution { int maximumDigit(int value){int answer=0;while(value){answer=max(answer,value%10);value/=10;}return answer;}public:int maxSum(vector<int>& nums){int best[10];fill(begin(best),end(best),-1);int answer=-1;for(int value:nums){int digit=maximumDigit(value);if(best[digit]!=-1)answer=max(answer,best[digit]+value);best[digit]=max(best[digit],value);}return answer;} };
+class Solution {
+    int maximumDigit(int value){
+        int answer=0;
+        while(value){
+            answer=max(answer,value%10);
+            value/=10;
+        }
+        return answer;
+    }
+    public:int maxSum(vector<int>& nums){
+        int best[10];
+        fill(begin(best),end(best),-1);
+        int answer=-1;
+        for(int value:nums){
+            int digit=maximumDigit(value);
+            if(best[digit]!=-1)answer=max(answer,best[digit]+value);
+            best[digit]=max(best[digit],value);
+        }
+        return answer;
+    }
+};

@@ -1,1 +1,10 @@
-class Solution { public int captureForts(int[] forts){int previous=-1,answer=0;for(int i=0;i<forts.length;i++)if(forts[i]!=0){if(previous>=0&&forts[previous]!=forts[i])answer=Math.max(answer,i-previous-1);previous=i;}return answer;} }
+class Solution {
+    public int captureForts(int[] forts){
+        int previous=-1,answer=0;
+        for(int i=0;i<forts.length;i++)if(forts[i]!=0){
+            if(previous>=0&&forts[previous]!=forts[i])answer=Math.max(answer,i-previous-1);
+            previous=i;
+        }
+        return answer;
+    }
+}

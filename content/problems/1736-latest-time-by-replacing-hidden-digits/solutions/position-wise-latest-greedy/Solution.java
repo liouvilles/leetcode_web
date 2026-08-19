@@ -1,1 +1,10 @@
-class Solution { public String maximumTime(String time){char[] value=time.toCharArray();if(value[0]=='?')value[0]=value[1]=='?'||value[1]<='3'?'2':'1';if(value[1]=='?')value[1]=value[0]=='2'?'3':'9';if(value[3]=='?')value[3]='5';if(value[4]=='?')value[4]='9';return new String(value);} }
+class Solution {
+    public String maximumTime(String time){
+        char[] value=time.toCharArray();
+        if(value[0]=='?')value[0]=value[1]=='?'||value[1]<='3'?'2':'1';
+        if(value[1]=='?')value[1]=value[0]=='2'?'3':'9';
+        if(value[3]=='?')value[3]='5';
+        if(value[4]=='?')value[4]='9';
+        return new String(value);
+    }
+}

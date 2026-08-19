@@ -1,1 +1,28 @@
-class RangeFreqQuery { Map<Integer,List<Integer>> positions=new HashMap<>();public RangeFreqQuery(int[] arr){for(int i=0;i<arr.length;i++)positions.computeIfAbsent(arr[i],ignored->new ArrayList<>()).add(i);}private int lower(List<Integer> values,int target){int left=0,right=values.size();while(left<right){int middle=(left+right)/2;if(values.get(middle)<target)left=middle+1;else right=middle;}return left;}private int upper(List<Integer> values,int target){int left=0,right=values.size();while(left<right){int middle=(left+right)/2;if(values.get(middle)<=target)left=middle+1;else right=middle;}return left;}public int query(int left,int right,int value){List<Integer> values=positions.getOrDefault(value,Collections.emptyList());return upper(values,right)-lower(values,left);} }
+class RangeFreqQuery {
+    Map<Integer,List<Integer>> positions=new HashMap<>();
+    public RangeFreqQuery(int[] arr){
+        for(int i=0;i<arr.length;i++)positions.computeIfAbsent(arr[i],ignored->new ArrayList<>()).add(i);
+    }
+    private int lower(List<Integer> values,int target){
+        int left=0,right=values.size();
+        while(left<right){
+            int middle=(left+right)/2;
+            if(values.get(middle)<target)left=middle+1;
+            else right=middle;
+        }
+        return left;
+    }
+    private int upper(List<Integer> values,int target){
+        int left=0,right=values.size();
+        while(left<right){
+            int middle=(left+right)/2;
+            if(values.get(middle)<=target)left=middle+1;
+            else right=middle;
+        }
+        return left;
+    }
+    public int query(int left,int right,int value){
+        List<Integer> values=positions.getOrDefault(value,Collections.emptyList());
+        return upper(values,right)-lower(values,left);
+    }
+}

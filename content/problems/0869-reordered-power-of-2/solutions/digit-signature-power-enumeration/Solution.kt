@@ -1,1 +1,12 @@
-class Solution { fun reorderedPowerOf2(n:Int):Boolean{val target=signature(n);var power=1;while(power>0&&power<=1000000000){if(signature(power)==target)return true;power=power shl 1};return false};private fun signature(value:Int)=value.toString().toCharArray().sorted().joinToString("") }
+class Solution {
+    fun reorderedPowerOf2(n:Int):Boolean{
+        val target=signature(n);
+        var power=1;
+        while(power>0&&power<=1000000000){
+            if(signature(power)==target)return true;
+            power=power shl 1
+        };
+        return false
+    };
+    private fun signature(value:Int)=value.toString().toCharArray().sorted().joinToString("")
+}

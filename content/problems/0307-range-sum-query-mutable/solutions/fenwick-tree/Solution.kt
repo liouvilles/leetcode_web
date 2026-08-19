@@ -1,1 +1,29 @@
-class NumArray(nums:IntArray){private val values=nums.clone();private val tree=IntArray(nums.size+1);init{for(i in nums.indices)add(i+1,nums[i])}private fun add(start:Int,delta:Int){var index=start;while(index<tree.size){tree[index]+=delta;index+=index and -index}}private fun prefix(start:Int):Int{var index=start;var sum=0;while(index>0){sum+=tree[index];index-=index and -index};return sum}fun update(index:Int,value:Int){val delta=value-values[index];values[index]=value;add(index+1,delta)}fun sumRange(left:Int,right:Int):Int=prefix(right+1)-prefix(left) }
+class NumArray(nums:IntArray){
+    private val values=nums.clone();
+    private val tree=IntArray(nums.size+1);
+    init{
+        for(i in nums.indices)add(i+1,nums[i])
+    }
+    private fun add(start:Int,delta:Int){
+        var index=start;
+        while(index<tree.size){
+            tree[index]+=delta;
+            index+=index and -index
+        }
+    }
+    private fun prefix(start:Int):Int{
+        var index=start;
+        var sum=0;
+        while(index>0){
+            sum+=tree[index];
+            index-=index and -index
+        };
+        return sum
+    }
+    fun update(index:Int,value:Int){
+        val delta=value-values[index];
+        values[index]=value;
+        add(index+1,delta)
+    }
+    fun sumRange(left:Int,right:Int):Int=prefix(right+1)-prefix(left)
+}

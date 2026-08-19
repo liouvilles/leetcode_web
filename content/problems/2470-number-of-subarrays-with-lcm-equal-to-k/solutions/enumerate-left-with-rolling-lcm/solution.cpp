@@ -1,1 +1,22 @@
-class Solution { long long gcd(long long a,long long b){while(b){long long remainder=a%b;a=b;b=remainder;}return a;}public:int subarrayLCM(vector<int>& nums,int k){int answer=0;for(int left=0;left<(int)nums.size();++left){long long lcm=1;for(int right=left;right<(int)nums.size();++right){lcm=lcm/gcd(lcm,nums[right])*nums[right];if(lcm>k||k%lcm)break;if(lcm==k)++answer;}}return answer;} };
+class Solution {
+    long long gcd(long long a,long long b){
+        while(b){
+            long long remainder=a%b;
+            a=b;
+            b=remainder;
+        }
+        return a;
+    }
+    public:int subarrayLCM(vector<int>& nums,int k){
+        int answer=0;
+        for(int left=0;left<(int)nums.size();++left){
+            long long lcm=1;
+            for(int right=left;right<(int)nums.size();++right){
+                lcm=lcm/gcd(lcm,nums[right])*nums[right];
+                if(lcm>k||k%lcm)break;
+                if(lcm==k)++answer;
+            }
+        }
+        return answer;
+    }
+};

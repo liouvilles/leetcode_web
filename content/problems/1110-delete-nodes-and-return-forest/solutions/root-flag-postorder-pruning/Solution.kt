@@ -1,1 +1,18 @@
-class Solution { private lateinit var deleted:Set<Int>;private val forest=mutableListOf<TreeNode>();fun delNodes(root:TreeNode?,toDelete:IntArray):List<TreeNode>{deleted=toDelete.toSet();forest.clear();dfs(root,true);return forest};private fun dfs(node:TreeNode?,isRoot:Boolean):TreeNode?{node?:return null;val remove=node.`val` in deleted;if(isRoot&&!remove)forest.add(node);node.left=dfs(node.left,remove);node.right=dfs(node.right,remove);return if(remove)null else node} }
+class Solution {
+    private lateinit var deleted:Set<Int>;
+    private val forest=mutableListOf<TreeNode>();
+    fun delNodes(root:TreeNode?,toDelete:IntArray):List<TreeNode>{
+        deleted=toDelete.toSet();
+        forest.clear();
+        dfs(root,true);
+        return forest
+    };
+    private fun dfs(node:TreeNode?,isRoot:Boolean):TreeNode?{
+        node?:return null;
+        val remove=node.`val` in deleted;
+        if(isRoot&&!remove)forest.add(node);
+        node.left=dfs(node.left,remove);
+        node.right=dfs(node.right,remove);
+        return if(remove)null else node
+    }
+}

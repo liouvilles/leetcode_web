@@ -1,1 +1,11 @@
-class Solution { public: int numberOfUniqueGoodSubsequences(string binary){long long zero=0,one=0,mod=1000000007;bool hasZero=false;for(char value:binary)if(value=='0'){zero=(zero+one)%mod;hasZero=true;}else one=(zero+one+1)%mod;return (zero+one+hasZero)%mod;} };
+class Solution {
+    public: int numberOfUniqueGoodSubsequences(string binary){
+        long long zero=0,one=0,mod=1000000007;
+        bool hasZero=false;
+        for(char value:binary)if(value=='0'){
+            zero=(zero+one)%mod;
+            hasZero=true;
+        }else one=(zero+one+1)%mod;
+        return (zero+one+hasZero)%mod;
+    }
+};

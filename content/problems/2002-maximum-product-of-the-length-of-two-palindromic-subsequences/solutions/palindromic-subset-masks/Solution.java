@@ -1,1 +1,17 @@
-class Solution { private boolean palindrome(String s,int mask){int[] indices=new int[s.length()];int size=0;for(int i=0;i<s.length();i++)if((mask&(1<<i))!=0)indices[size++]=i;for(int left=0,right=size-1;left<right;left++,right--)if(s.charAt(indices[left])!=s.charAt(indices[right]))return false;return true;}public int maxProduct(String s){int total=1<<s.length();int[] length=new int[total];for(int mask=1;mask<total;mask++)if(palindrome(s,mask))length[mask]=Integer.bitCount(mask);int answer=0;for(int first=1;first<total;first++)for(int second=first+1;second<total;second++)if((first&second)==0)answer=Math.max(answer,length[first]*length[second]);return answer;} }
+class Solution {
+    private boolean palindrome(String s,int mask){
+        int[] indices=new int[s.length()];
+        int size=0;
+        for(int i=0;i<s.length();i++)if((mask&(1<<i))!=0)indices[size++]=i;
+        for(int left=0,right=size-1;left<right;left++,right--)if(s.charAt(indices[left])!=s.charAt(indices[right]))return false;
+        return true;
+    }
+    public int maxProduct(String s){
+        int total=1<<s.length();
+        int[] length=new int[total];
+        for(int mask=1;mask<total;mask++)if(palindrome(s,mask))length[mask]=Integer.bitCount(mask);
+        int answer=0;
+        for(int first=1;first<total;first++)for(int second=first+1;second<total;second++)if((first&second)==0)answer=Math.max(answer,length[first]*length[second]);
+        return answer;
+    }
+}

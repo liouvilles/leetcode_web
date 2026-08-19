@@ -1,1 +1,10 @@
-class Solution { public: string maximumBinaryString(string binary){int first=binary.find('0');if(first==(int)string::npos)return binary;int zeros=count(binary.begin(),binary.end(),'0');string answer(binary.size(),'1');answer[first+zeros-1]='0';return answer;} };
+class Solution {
+    public: string maximumBinaryString(string binary){
+        int first=binary.find('0');
+        if(first==(int)string::npos)return binary;
+        int zeros=count(binary.begin(),binary.end(),'0');
+        string answer(binary.size(),'1');
+        answer[first+zeros-1]='0';
+        return answer;
+    }
+};

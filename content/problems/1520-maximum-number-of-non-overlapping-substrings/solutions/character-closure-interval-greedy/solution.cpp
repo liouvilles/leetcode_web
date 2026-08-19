@@ -1,1 +1,35 @@
-class Solution { public: vector<string> maxNumOfSubstrings(string text){int first[26],last[26];fill(begin(first),end(first),-1);for(int i=0;i<(int)text.size();++i){int value=text[i]-'a';if(first[value]==-1)first[value]=i;last[value]=i;}vector<pair<int,int>> intervals;for(int c=0;c<26;++c)if(first[c]!=-1){int start=first[c],end=last[c];bool valid=true;for(int i=start;i<=end;++i){int value=text[i]-'a';if(first[value]<start){valid=false;break;}end=max(end,last[value]);}if(valid)intervals.push_back({end,start});}sort(intervals.begin(),intervals.end());vector<string> answer;int previous=-1;for(auto [end,start]:intervals)if(start>previous){answer.push_back(text.substr(start,end-start+1));previous=end;}return answer;} };
+class Solution {
+    public: vector<string> maxNumOfSubstrings(string text){
+        int first[26],last[26];
+        fill(begin(first),end(first),-1);
+        for(int i=0;i<(int)text.size();++i){
+            int value=text[i]-'a';
+            if(first[value]==-1)first[value]=i;
+            last[value]=i;
+        }
+        vector<pair<int,int>> intervals;
+        for(int c=0;c<26;++c)if(first[c]!=-1){
+            int start=first[c],end=last[c];
+            bool valid=true;
+            for(int i=start;i<=end;++i){
+                int value=text[i]-'a';
+                if(first[value]<start){
+                    valid=false;
+                    break;
+                }
+                end=max(end,last[value]);
+            }
+            if(valid)intervals.push_back({
+                end,start
+            });
+        }
+        sort(intervals.begin(),intervals.end());
+        vector<string> answer;
+        int previous=-1;
+        for(auto [end,start]:intervals)if(start>previous){
+            answer.push_back(text.substr(start,end-start+1));
+            previous=end;
+        }
+        return answer;
+    }
+};

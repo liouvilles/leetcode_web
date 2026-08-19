@@ -1,1 +1,9 @@
-class Solution { public int numComponents(ListNode head,int[] nums){Set<Integer> selected=new HashSet<>();for(int value:nums)selected.add(value);int answer=0;for(ListNode node=head;node!=null;node=node.next)if(selected.contains(node.val)&&(node.next==null||!selected.contains(node.next.val)))answer++;return answer;} }
+class Solution {
+    public int numComponents(ListNode head,int[] nums){
+        Set<Integer> selected=new HashSet<>();
+        for(int value:nums)selected.add(value);
+        int answer=0;
+        for(ListNode node=head;node!=null;node=node.next)if(selected.contains(node.val)&&(node.next==null||!selected.contains(node.next.val)))answer++;
+        return answer;
+    }
+}

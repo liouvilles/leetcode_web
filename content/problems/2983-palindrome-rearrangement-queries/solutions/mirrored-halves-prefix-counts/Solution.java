@@ -1,1 +1,38 @@
-class Solution { private int range(int[][] prefix,int left,int right,int letter){return left>right?0:prefix[right+1][letter]-prefix[left][letter];}private int range(int[] prefix,int left,int right){return left>right?0:prefix[right+1]-prefix[left];}public boolean[] canMakePalindromeQueries(String s,int[][] queries){int n=s.length(),half=n/2;String first=s.substring(0,half),second=new StringBuilder(s.substring(half)).reverse().toString();int[][] firstCount=new int[half+1][26],secondCount=new int[half+1][26];int[] mismatch=new int[half+1];for(int index=0;index<half;index++){System.arraycopy(firstCount[index],0,firstCount[index+1],0,26);System.arraycopy(secondCount[index],0,secondCount[index+1],0,26);firstCount[index+1][first.charAt(index)-'a']++;secondCount[index+1][second.charAt(index)-'a']++;mismatch[index+1]=mismatch[index]+(first.charAt(index)==second.charAt(index)?0:1);}boolean[] answer=new boolean[queries.length];for(int index=0;index<queries.length;index++){int[] query=queries[index];int firstLeft=query[0],firstRight=query[1],secondLeft=n-1-query[3],secondRight=n-1-query[2];int overlapLeft=Math.max(firstLeft,secondLeft),overlapRight=Math.min(firstRight,secondRight);boolean valid=mismatch[half]-range(mismatch,firstLeft,firstRight)-range(mismatch,secondLeft,secondRight)+range(mismatch,overlapLeft,overlapRight)==0;for(int letter=0;letter<26&&valid;letter++){int availableFirst=range(firstCount,firstLeft,firstRight,letter);int requiredFirst=range(secondCount,firstLeft,firstRight,letter)-range(secondCount,overlapLeft,overlapRight,letter);int availableSecond=range(secondCount,secondLeft,secondRight,letter);int requiredSecond=range(firstCount,secondLeft,secondRight,letter)-range(firstCount,overlapLeft,overlapRight,letter);int remainingFirst=availableFirst-requiredFirst,remainingSecond=availableSecond-requiredSecond;if(remainingFirst<0||remainingSecond<0||remainingFirst!=remainingSecond)valid=false;}answer[index]=valid;}return answer;} }
+class Solution {
+    private int range(int[][] prefix,int left,int right,int letter){
+        return left>right?0:prefix[right+1][letter]-prefix[left][letter];
+    }
+    private int range(int[] prefix,int left,int right){
+        return left>right?0:prefix[right+1]-prefix[left];
+    }
+    public boolean[] canMakePalindromeQueries(String s,int[][] queries){
+        int n=s.length(),half=n/2;
+        String first=s.substring(0,half),second=new StringBuilder(s.substring(half)).reverse().toString();
+        int[][] firstCount=new int[half+1][26],secondCount=new int[half+1][26];
+        int[] mismatch=new int[half+1];
+        for(int index=0;index<half;index++){
+            System.arraycopy(firstCount[index],0,firstCount[index+1],0,26);
+            System.arraycopy(secondCount[index],0,secondCount[index+1],0,26);
+            firstCount[index+1][first.charAt(index)-'a']++;
+            secondCount[index+1][second.charAt(index)-'a']++;
+            mismatch[index+1]=mismatch[index]+(first.charAt(index)==second.charAt(index)?0:1);
+        }
+        boolean[] answer=new boolean[queries.length];
+        for(int index=0;index<queries.length;index++){
+            int[] query=queries[index];
+            int firstLeft=query[0],firstRight=query[1],secondLeft=n-1-query[3],secondRight=n-1-query[2];
+            int overlapLeft=Math.max(firstLeft,secondLeft),overlapRight=Math.min(firstRight,secondRight);
+            boolean valid=mismatch[half]-range(mismatch,firstLeft,firstRight)-range(mismatch,secondLeft,secondRight)+range(mismatch,overlapLeft,overlapRight)==0;
+            for(int letter=0;letter<26&&valid;letter++){
+                int availableFirst=range(firstCount,firstLeft,firstRight,letter);
+                int requiredFirst=range(secondCount,firstLeft,firstRight,letter)-range(secondCount,overlapLeft,overlapRight,letter);
+                int availableSecond=range(secondCount,secondLeft,secondRight,letter);
+                int requiredSecond=range(firstCount,secondLeft,secondRight,letter)-range(firstCount,overlapLeft,overlapRight,letter);
+                int remainingFirst=availableFirst-requiredFirst,remainingSecond=availableSecond-requiredSecond;
+                if(remainingFirst<0||remainingSecond<0||remainingFirst!=remainingSecond)valid=false;
+            }
+            answer[index]=valid;
+        }
+        return answer;
+    }
+}

@@ -1,1 +1,17 @@
-class Solution { vector<int> temporary;void sortValues(vector<int>& nums,int left,int right){if(left>=right)return;int middle=left+(right-left)/2;sortValues(nums,left,middle);sortValues(nums,middle+1,right);int i=left,j=middle+1,write=left;while(i<=middle||j<=right)temporary[write++]=j>right||(i<=middle&&nums[i]<=nums[j])?nums[i++]:nums[j++];for(int index=left;index<=right;++index)nums[index]=temporary[index];}public:vector<int> sortArray(vector<int>& nums){temporary.resize(nums.size());sortValues(nums,0,nums.size()-1);return nums;} };
+class Solution {
+    vector<int> temporary;
+    void sortValues(vector<int>& nums,int left,int right){
+        if(left>=right)return;
+        int middle=left+(right-left)/2;
+        sortValues(nums,left,middle);
+        sortValues(nums,middle+1,right);
+        int i=left,j=middle+1,write=left;
+        while(i<=middle||j<=right)temporary[write++]=j>right||(i<=middle&&nums[i]<=nums[j])?nums[i++]:nums[j++];
+        for(int index=left;index<=right;++index)nums[index]=temporary[index];
+    }
+    public:vector<int> sortArray(vector<int>& nums){
+        temporary.resize(nums.size());
+        sortValues(nums,0,nums.size()-1);
+        return nums;
+    }
+};

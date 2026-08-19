@@ -1,1 +1,14 @@
-class Solution { fun maxKelements(nums:IntArray,kValue:Int):Long{val heap=java.util.PriorityQueue<Int>(reverseOrder());for(value in nums)heap.offer(value);var k=kValue;var score=0L;while(k-->0){val value=heap.poll();score+=value;heap.offer((value+2)/3)};return score} }
+class Solution {
+    fun maxKelements(nums:IntArray,kValue:Int):Long{
+        val heap=java.util.PriorityQueue<Int>(reverseOrder());
+        for(value in nums)heap.offer(value);
+        var k=kValue;
+        var score=0L;
+        while(k-->0){
+            val value=heap.poll();
+            score+=value;
+            heap.offer((value+2)/3)
+        };
+        return score
+    }
+}

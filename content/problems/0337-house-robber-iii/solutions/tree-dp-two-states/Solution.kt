@@ -1,1 +1,14 @@
-class Solution { fun rob(root:TreeNode?):Int{fun dfs(node:TreeNode?):IntArray{if(node==null)return intArrayOf(0,0);val left=dfs(node.left);val right=dfs(node.right);val take=node.`val`+left[0]+right[0];val skip=maxOf(left[0],left[1])+maxOf(right[0],right[1]);return intArrayOf(skip,take)};val result=dfs(root);return maxOf(result[0],result[1])} }
+class Solution {
+    fun rob(root:TreeNode?):Int{
+        fun dfs(node:TreeNode?):IntArray{
+            if(node==null)return intArrayOf(0,0);
+            val left=dfs(node.left);
+            val right=dfs(node.right);
+            val take=node.`val`+left[0]+right[0];
+            val skip=maxOf(left[0],left[1])+maxOf(right[0],right[1]);
+            return intArrayOf(skip,take)
+        };
+        val result=dfs(root);
+        return maxOf(result[0],result[1])
+    }
+}

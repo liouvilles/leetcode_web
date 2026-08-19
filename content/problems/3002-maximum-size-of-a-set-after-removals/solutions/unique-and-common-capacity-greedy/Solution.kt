@@ -1,1 +1,13 @@
-class Solution { fun maximumSetSize(nums1:IntArray,nums2:IntArray):Int{val first=nums1.toHashSet();val second=nums2.toHashSet();val common=first.count{it in second};val half=nums1.size/2;val takeFirst=minOf(half,first.size-common);val takeSecond=minOf(half,second.size-common);return takeFirst+takeSecond+minOf(common,2*half-takeFirst-takeSecond)} }
+class Solution {
+    fun maximumSetSize(nums1:IntArray,nums2:IntArray):Int{
+        val first=nums1.toHashSet();
+        val second=nums2.toHashSet();
+        val common=first.count{
+            it in second
+        };
+        val half=nums1.size/2;
+        val takeFirst=minOf(half,first.size-common);
+        val takeSecond=minOf(half,second.size-common);
+        return takeFirst+takeSecond+minOf(common,2*half-takeFirst-takeSecond)
+    }
+}

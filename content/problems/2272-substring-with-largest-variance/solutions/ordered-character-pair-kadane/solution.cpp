@@ -1,1 +1,22 @@
-class Solution { public:int largestVariance(string s){int frequency[26]={};for(char ch:s)++frequency[ch-'a'];int answer=0;for(int major=0;major<26;++major)for(int minor=0;minor<26;++minor)if(major!=minor&&frequency[major]&&frequency[minor]){int majorCount=0,minorCount=0,remainingMinor=frequency[minor];for(char ch:s){int value=ch-'a';if(value==major)++majorCount;if(value==minor){++minorCount;--remainingMinor;}if(minorCount)answer=max(answer,majorCount-minorCount);if(majorCount<minorCount&&remainingMinor)majorCount=minorCount=0;}}return answer;} };
+class Solution {
+    public:int largestVariance(string s){
+        int frequency[26]={
+        };
+        for(char ch:s)++frequency[ch-'a'];
+        int answer=0;
+        for(int major=0;major<26;++major)for(int minor=0;minor<26;++minor)if(major!=minor&&frequency[major]&&frequency[minor]){
+            int majorCount=0,minorCount=0,remainingMinor=frequency[minor];
+            for(char ch:s){
+                int value=ch-'a';
+                if(value==major)++majorCount;
+                if(value==minor){
+                    ++minorCount;
+                    --remainingMinor;
+                }
+                if(minorCount)answer=max(answer,majorCount-minorCount);
+                if(majorCount<minorCount&&remainingMinor)majorCount=minorCount=0;
+            }
+        }
+        return answer;
+    }
+};

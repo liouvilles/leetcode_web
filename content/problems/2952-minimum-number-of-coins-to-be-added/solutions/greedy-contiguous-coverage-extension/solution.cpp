@@ -1,1 +1,15 @@
-class Solution { public:int minimumAddedCoins(vector<int>& coins,int target){sort(coins.begin(),coins.end());int index=0,answer=0;long long reach=0;while(reach<target){if(index<(int)coins.size()&&coins[index]<=reach+1)reach+=coins[index++];else{reach+=reach+1;++answer;}}return answer;} };
+class Solution {
+    public:int minimumAddedCoins(vector<int>& coins,int target){
+        sort(coins.begin(),coins.end());
+        int index=0,answer=0;
+        long long reach=0;
+        while(reach<target){
+            if(index<(int)coins.size()&&coins[index]<=reach+1)reach+=coins[index++];
+            else{
+                reach+=reach+1;
+                ++answer;
+            }
+        }
+        return answer;
+    }
+};

@@ -1,1 +1,19 @@
-class Solution { private val memo=mutableMapOf<Int,List<TreeNode>>();fun allPossibleFBT(n:Int):List<TreeNode>{if(n%2==0)return emptyList();if(n==1)return listOf(TreeNode(0));memo[n]?.let{return it};val answer=mutableListOf<TreeNode>();for(leftCount in 1 until n step 2)for(left in allPossibleFBT(leftCount))for(right in allPossibleFBT(n-1-leftCount)){val root=TreeNode(0);root.left=left;root.right=right;answer.add(root)};memo[n]=answer;return answer} }
+class Solution {
+    private val memo=mutableMapOf<Int,List<TreeNode>>();
+    fun allPossibleFBT(n:Int):List<TreeNode>{
+        if(n%2==0)return emptyList();
+        if(n==1)return listOf(TreeNode(0));
+        memo[n]?.let{
+            return it
+        };
+        val answer=mutableListOf<TreeNode>();
+        for(leftCount in 1 until n step 2)for(left in allPossibleFBT(leftCount))for(right in allPossibleFBT(n-1-leftCount)){
+            val root=TreeNode(0);
+            root.left=left;
+            root.right=right;
+            answer.add(root)
+        };
+        memo[n]=answer;
+        return answer
+    }
+}

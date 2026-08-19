@@ -1,1 +1,12 @@
-class Solution { public int longestSubsequence(int[] arr,int difference){Map<Integer,Integer> dp=new HashMap<>();int answer=0;for(int value:arr){int length=dp.getOrDefault(value-difference,0)+1;dp.put(value,Math.max(dp.getOrDefault(value,0),length));answer=Math.max(answer,length);}return answer;} }
+class Solution {
+    public int longestSubsequence(int[] arr,int difference){
+        Map<Integer,Integer> dp=new HashMap<>();
+        int answer=0;
+        for(int value:arr){
+            int length=dp.getOrDefault(value-difference,0)+1;
+            dp.put(value,Math.max(dp.getOrDefault(value,0),length));
+            answer=Math.max(answer,length);
+        }
+        return answer;
+    }
+}

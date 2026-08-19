@@ -1,1 +1,23 @@
-class Solution { fun minSumOfLengths(arr:IntArray,target:Int):Int{val inf=1_000_000;val best=IntArray(arr.size){inf};var left=0;var sum=0;var bestSoFar=inf;var result=inf;for(right in arr.indices){sum+=arr[right];while(sum>target)sum-=arr[left++];if(sum==target){val length=right-left+1;if(left>0&&best[left-1]<inf)result=minOf(result,length+best[left-1]);bestSoFar=minOf(bestSoFar,length)};best[right]=bestSoFar};return if(result==inf)-1 else result} }
+class Solution {
+    fun minSumOfLengths(arr:IntArray,target:Int):Int{
+        val inf=1_000_000;
+        val best=IntArray(arr.size){
+            inf
+        };
+        var left=0;
+        var sum=0;
+        var bestSoFar=inf;
+        var result=inf;
+        for(right in arr.indices){
+            sum+=arr[right];
+            while(sum>target)sum-=arr[left++];
+            if(sum==target){
+                val length=right-left+1;
+                if(left>0&&best[left-1]<inf)result=minOf(result,length+best[left-1]);
+                bestSoFar=minOf(bestSoFar,length)
+            };
+            best[right]=bestSoFar
+        };
+        return if(result==inf)-1 else result
+    }
+}

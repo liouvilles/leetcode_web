@@ -1,1 +1,12 @@
-class Solution { public int minOperations(int[] nums){Map<Integer,Integer> frequency=new HashMap<>();for(int value:nums)frequency.put(value,frequency.getOrDefault(value,0)+1);int operations=0;for(int count:frequency.values()){if(count==1)return -1;operations+=(count+2)/3;}return operations;} }
+class Solution {
+    public int minOperations(int[] nums){
+        Map<Integer,Integer> frequency=new HashMap<>();
+        for(int value:nums)frequency.put(value,frequency.getOrDefault(value,0)+1);
+        int operations=0;
+        for(int count:frequency.values()){
+            if(count==1)return -1;
+            operations+=(count+2)/3;
+        }
+        return operations;
+    }
+}

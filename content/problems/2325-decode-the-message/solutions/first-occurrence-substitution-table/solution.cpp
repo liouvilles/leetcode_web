@@ -1,1 +1,9 @@
-class Solution { public:string decodeMessage(string key,string message){char mapping[26]={},next='a';for(char ch:key)if(ch!=' '&&!mapping[ch-'a'])mapping[ch-'a']=next++;for(char& ch:message)if(ch!=' ')ch=mapping[ch-'a'];return message;} };
+class Solution {
+    public:string decodeMessage(string key,string message){
+        char mapping[26]={
+        },next='a';
+        for(char ch:key)if(ch!=' '&&!mapping[ch-'a'])mapping[ch-'a']=next++;
+        for(char& ch:message)if(ch!=' ')ch=mapping[ch-'a'];
+        return message;
+    }
+};

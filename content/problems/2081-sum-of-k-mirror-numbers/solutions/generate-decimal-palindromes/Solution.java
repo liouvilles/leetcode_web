@@ -1,1 +1,36 @@
-class Solution { private long palindrome(long half,boolean odd){long result=half,value=odd?half/10:half;while(value>0){result=result*10+value%10;value/=10;}return result;}private boolean basePalindrome(long value,int k){int[] digits=new int[64];int size=0;while(value>0){digits[size++]=(int)(value%k);value/=k;}for(int left=0,right=size-1;left<right;left++,right--)if(digits[left]!=digits[right])return false;return true;}public long kMirror(int k,int n){long answer=0;for(int length=1;;length++){int halfLength=(length+1)/2;long start=1;for(int i=1;i<halfLength;i++)start*=10;long end=start*10;for(long half=start;half<end;half++){long value=palindrome(half,length%2==1);if(basePalindrome(value,k)){answer+=value;if(--n==0)return answer;}}}} }
+class Solution {
+    private long palindrome(long half,boolean odd){
+        long result=half,value=odd?half/10:half;
+        while(value>0){
+            result=result*10+value%10;
+            value/=10;
+        }
+        return result;
+    }
+    private boolean basePalindrome(long value,int k){
+        int[] digits=new int[64];
+        int size=0;
+        while(value>0){
+            digits[size++]=(int)(value%k);
+            value/=k;
+        }
+        for(int left=0,right=size-1;left<right;left++,right--)if(digits[left]!=digits[right])return false;
+        return true;
+    }
+    public long kMirror(int k,int n){
+        long answer=0;
+        for(int length=1;;length++){
+            int halfLength=(length+1)/2;
+            long start=1;
+            for(int i=1;i<halfLength;i++)start*=10;
+            long end=start*10;
+            for(long half=start;half<end;half++){
+                long value=palindrome(half,length%2==1);
+                if(basePalindrome(value,k)){
+                    answer+=value;
+                    if(--n==0)return answer;
+                }
+            }
+        }
+    }
+}

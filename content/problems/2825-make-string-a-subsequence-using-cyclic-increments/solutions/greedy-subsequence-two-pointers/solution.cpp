@@ -1,1 +1,11 @@
-class Solution { public:bool canMakeSubsequence(string str1,string str2){int target=0;for(char source:str1){if(target==(int)str2.size())break;char wanted=str2[target];if(source==wanted||(source-'a'+1)%26==wanted-'a')++target;}return target==(int)str2.size();} };
+class Solution {
+    public:bool canMakeSubsequence(string str1,string str2){
+        int target=0;
+        for(char source:str1){
+            if(target==(int)str2.size())break;
+            char wanted=str2[target];
+            if(source==wanted||(source-'a'+1)%26==wanted-'a')++target;
+        }
+        return target==(int)str2.size();
+    }
+};

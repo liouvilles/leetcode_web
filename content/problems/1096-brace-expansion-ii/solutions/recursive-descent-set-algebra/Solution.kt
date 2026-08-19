@@ -1,1 +1,32 @@
-class Solution { private lateinit var expression:String;private var index=0;fun braceExpansionII(expression:String):List<String>{this.expression=expression;index=0;return parseExpression().sorted()};private fun parseExpression():MutableSet<String>{val result=parseTerm();while(index<expression.length&&expression[index]==','){index++;result.addAll(parseTerm())};return result};private fun parseTerm():MutableSet<String>{var result=mutableSetOf("");while(index<expression.length&&expression[index]!=','&&expression[index]!='}'){val factor:MutableSet<String>;if(expression[index]=='{'){index++;factor=parseExpression();index++}else factor=mutableSetOf(expression[index++].toString());val product=mutableSetOf<String>();for(left in result)for(right in factor)product.add(left+right);result=product};return result} }
+class Solution {
+    private lateinit var expression:String;
+    private var index=0;
+    fun braceExpansionII(expression:String):List<String>{
+        this.expression=expression;
+        index=0;
+        return parseExpression().sorted()
+    };
+    private fun parseExpression():MutableSet<String>{
+        val result=parseTerm();
+        while(index<expression.length&&expression[index]==','){
+            index++;
+            result.addAll(parseTerm())
+        };
+        return result
+    };
+    private fun parseTerm():MutableSet<String>{
+        var result=mutableSetOf("");
+        while(index<expression.length&&expression[index]!=','&&expression[index]!='}'){
+            val factor:MutableSet<String>;
+            if(expression[index]=='{'){
+                index++;
+                factor=parseExpression();
+                index++
+            }else factor=mutableSetOf(expression[index++].toString());
+            val product=mutableSetOf<String>();
+            for(left in result)for(right in factor)product.add(left+right);
+            result=product
+        };
+        return result
+    }
+}

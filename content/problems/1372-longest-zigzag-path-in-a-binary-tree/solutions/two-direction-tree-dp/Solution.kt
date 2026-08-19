@@ -1,1 +1,16 @@
-class Solution { private var answer=0;private fun dfs(node:TreeNode?):IntArray{if(node==null)return intArrayOf(-1,-1);val left=dfs(node.left);val right=dfs(node.right);val goLeft=left[1]+1;val goRight=right[0]+1;answer=maxOf(answer,goLeft,goRight);return intArrayOf(goLeft,goRight)};fun longestZigZag(root:TreeNode?):Int{dfs(root);return answer} }
+class Solution {
+    private var answer=0;
+    private fun dfs(node:TreeNode?):IntArray{
+        if(node==null)return intArrayOf(-1,-1);
+        val left=dfs(node.left);
+        val right=dfs(node.right);
+        val goLeft=left[1]+1;
+        val goRight=right[0]+1;
+        answer=maxOf(answer,goLeft,goRight);
+        return intArrayOf(goLeft,goRight)
+    };
+    fun longestZigZag(root:TreeNode?):Int{
+        dfs(root);
+        return answer
+    }
+}

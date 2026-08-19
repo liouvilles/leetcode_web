@@ -1,1 +1,50 @@
-class Solution { private lateinit var grid:Array<IntArray>;private var rows=0;private var columns=0;private val directions=arrayOf(intArrayOf(1,0),intArrayOf(-1,0),intArrayOf(0,1),intArrayOf(0,-1));fun containVirus(isInfected:Array<IntArray>):Int{grid=isInfected;rows=grid.size;columns=grid[0].size;var total=0;while(true){val seen=Array(rows){BooleanArray(columns)};val regions=mutableListOf<MutableList<Int>>();val frontiers=mutableListOf<MutableSet<Int>>();val walls=mutableListOf<Int>();for(r in 0 until rows)for(c in 0 until columns)if(grid[r][c]==1&&!seen[r][c]){val region=mutableListOf<Int>();val frontier=hashSetOf<Int>();val count=intArrayOf(0);dfs(r,c,seen,region,frontier,count);regions.add(region);frontiers.add(frontier);walls.add(count[0])};if(regions.isEmpty())break;var chosen=0;for(i in 1 until frontiers.size)if(frontiers[i].size>frontiers[chosen].size)chosen=i;if(frontiers[chosen].isEmpty())break;total+=walls[chosen];for(code in regions[chosen])grid[code/columns][code%columns]=-1;for(i in frontiers.indices)if(i!=chosen)for(code in frontiers[i])grid[code/columns][code%columns]=1};return total};private fun dfs(row:Int,column:Int,seen:Array<BooleanArray>,region:MutableList<Int>,frontier:MutableSet<Int>,walls:IntArray){seen[row][column]=true;region.add(row*columns+column);for(d in directions){val r=row+d[0];val c=column+d[1];if(r !in 0 until rows||c !in 0 until columns)continue;if(grid[r][c]==0){frontier.add(r*columns+c);walls[0]++}else if(grid[r][c]==1&&!seen[r][c])dfs(r,c,seen,region,frontier,walls)}} }
+class Solution {
+    private lateinit var grid:Array<IntArray>;
+    private var rows=0;
+    private var columns=0;
+    private val directions=arrayOf(intArrayOf(1,0),intArrayOf(-1,0),intArrayOf(0,1),intArrayOf(0,-1));
+    fun containVirus(isInfected:Array<IntArray>):Int{
+        grid=isInfected;
+        rows=grid.size;
+        columns=grid[0].size;
+        var total=0;
+        while(true){
+            val seen=Array(rows){
+                BooleanArray(columns)
+            };
+            val regions=mutableListOf<MutableList<Int>>();
+            val frontiers=mutableListOf<MutableSet<Int>>();
+            val walls=mutableListOf<Int>();
+            for(r in 0 until rows)for(c in 0 until columns)if(grid[r][c]==1&&!seen[r][c]){
+                val region=mutableListOf<Int>();
+                val frontier=hashSetOf<Int>();
+                val count=intArrayOf(0);
+                dfs(r,c,seen,region,frontier,count);
+                regions.add(region);
+                frontiers.add(frontier);
+                walls.add(count[0])
+            };
+            if(regions.isEmpty())break;
+            var chosen=0;
+            for(i in 1 until frontiers.size)if(frontiers[i].size>frontiers[chosen].size)chosen=i;
+            if(frontiers[chosen].isEmpty())break;
+            total+=walls[chosen];
+            for(code in regions[chosen])grid[code/columns][code%columns]=-1;
+            for(i in frontiers.indices)if(i!=chosen)for(code in frontiers[i])grid[code/columns][code%columns]=1
+        };
+        return total
+    };
+    private fun dfs(row:Int,column:Int,seen:Array<BooleanArray>,region:MutableList<Int>,frontier:MutableSet<Int>,walls:IntArray){
+        seen[row][column]=true;
+        region.add(row*columns+column);
+        for(d in directions){
+            val r=row+d[0];
+            val c=column+d[1];
+            if(r !in 0 until rows||c !in 0 until columns)continue;
+            if(grid[r][c]==0){
+                frontier.add(r*columns+c);
+                walls[0]++
+            }else if(grid[r][c]==1&&!seen[r][c])dfs(r,c,seen,region,frontier,walls)
+        }
+    }
+}

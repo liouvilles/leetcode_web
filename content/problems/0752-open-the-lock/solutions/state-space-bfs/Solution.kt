@@ -1,1 +1,28 @@
-class Solution { fun openLock(deadends:Array<String>,target:String):Int{val dead=deadends.toHashSet();if("0000" in dead)return -1;val queue=java.util.ArrayDeque<String>();val seen=hashSetOf("0000");queue.add("0000");var steps=0;while(queue.isNotEmpty()){repeat(queue.size){val state=queue.remove();if(state==target)return steps;val digits=state.toCharArray();for(i in 0..3){val original=digits[i];for(delta in intArrayOf(1,-1)){digits[i]=('0'.code+(original-'0'+delta+10)%10).toChar();val next=String(digits);if(next !in dead&&seen.add(next))queue.add(next)};digits[i]=original}};steps++};return -1} }
+class Solution {
+    fun openLock(deadends:Array<String>,target:String):Int{
+        val dead=deadends.toHashSet();
+        if("0000" in dead)return -1;
+        val queue=java.util.ArrayDeque<String>();
+        val seen=hashSetOf("0000");
+        queue.add("0000");
+        var steps=0;
+        while(queue.isNotEmpty()){
+            repeat(queue.size){
+                val state=queue.remove();
+                if(state==target)return steps;
+                val digits=state.toCharArray();
+                for(i in 0..3){
+                    val original=digits[i];
+                    for(delta in intArrayOf(1,-1)){
+                        digits[i]=('0'.code+(original-'0'+delta+10)%10).toChar();
+                        val next=String(digits);
+                        if(next !in dead&&seen.add(next))queue.add(next)
+                    };
+                    digits[i]=original
+                }
+            };
+            steps++
+        };
+        return -1
+    }
+}

@@ -1,1 +1,25 @@
-class Solution { fun movesToChessboard(board:Array<IntArray>):Int{val n=board.size;for(i in 0 until n)for(j in 0 until n)if((board[0][0] xor board[i][0] xor board[0][j] xor board[i][j])!=0)return -1;var rowSum=0;var columnSum=0;var rowMatches=0;var columnMatches=0;for(i in 0 until n){rowSum+=board[0][i];columnSum+=board[i][0];if(board[i][0]==i%2)rowMatches++;if(board[0][i]==i%2)columnMatches++};if(rowSum<n/2||rowSum>(n+1)/2||columnSum<n/2||columnSum>(n+1)/2)return -1;if(n%2==1){if(rowMatches%2==1)rowMatches=n-rowMatches;if(columnMatches%2==1)columnMatches=n-columnMatches}else{rowMatches=minOf(rowMatches,n-rowMatches);columnMatches=minOf(columnMatches,n-columnMatches)};return(rowMatches+columnMatches)/2} }
+class Solution {
+    fun movesToChessboard(board:Array<IntArray>):Int{
+        val n=board.size;
+        for(i in 0 until n)for(j in 0 until n)if((board[0][0] xor board[i][0] xor board[0][j] xor board[i][j])!=0)return -1;
+        var rowSum=0;
+        var columnSum=0;
+        var rowMatches=0;
+        var columnMatches=0;
+        for(i in 0 until n){
+            rowSum+=board[0][i];
+            columnSum+=board[i][0];
+            if(board[i][0]==i%2)rowMatches++;
+            if(board[0][i]==i%2)columnMatches++
+        };
+        if(rowSum<n/2||rowSum>(n+1)/2||columnSum<n/2||columnSum>(n+1)/2)return -1;
+        if(n%2==1){
+            if(rowMatches%2==1)rowMatches=n-rowMatches;
+            if(columnMatches%2==1)columnMatches=n-columnMatches
+        }else{
+            rowMatches=minOf(rowMatches,n-rowMatches);
+            columnMatches=minOf(columnMatches,n-columnMatches)
+        };
+        return(rowMatches+columnMatches)/2
+    }
+}

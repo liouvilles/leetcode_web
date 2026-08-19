@@ -1,1 +1,10 @@
-class Solution { fun closetTarget(words:Array<String>,target:String,startIndex:Int):Int{var answer=words.size+1;for(i in words.indices)if(words[i]==target){val difference=kotlin.math.abs(i-startIndex);answer=minOf(answer,difference,words.size-difference)};return if(answer>words.size)-1 else answer} }
+class Solution {
+    fun closetTarget(words:Array<String>,target:String,startIndex:Int):Int{
+        var answer=words.size+1;
+        for(i in words.indices)if(words[i]==target){
+            val difference=kotlin.math.abs(i-startIndex);
+            answer=minOf(answer,difference,words.size-difference)
+        };
+        return if(answer>words.size)-1 else answer
+    }
+}

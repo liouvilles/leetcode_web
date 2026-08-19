@@ -1,1 +1,17 @@
-class Solution { public: bool buddyStrings(string s,string goal){if(s.size()!=goal.size())return false;if(s==goal){unordered_set<char> seen;for(char c:s)if(!seen.insert(c).second)return true;return false;}int first=-1,second=-1;for(int i=0;i<(int)s.size();++i)if(s[i]!=goal[i]){if(first<0)first=i;else if(second<0)second=i;else return false;}return second>=0&&s[first]==goal[second]&&s[second]==goal[first];} };
+class Solution {
+    public: bool buddyStrings(string s,string goal){
+        if(s.size()!=goal.size())return false;
+        if(s==goal){
+            unordered_set<char> seen;
+            for(char c:s)if(!seen.insert(c).second)return true;
+            return false;
+        }
+        int first=-1,second=-1;
+        for(int i=0;i<(int)s.size();++i)if(s[i]!=goal[i]){
+            if(first<0)first=i;
+            else if(second<0)second=i;
+            else return false;
+        }
+        return second>=0&&s[first]==goal[second]&&s[second]==goal[first];
+    }
+};

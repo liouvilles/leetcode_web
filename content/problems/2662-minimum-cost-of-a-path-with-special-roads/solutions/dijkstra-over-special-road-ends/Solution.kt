@@ -1,1 +1,31 @@
-class Solution { private fun manhattan(x1:Int,y1:Int,x2:Int,y2:Int)=kotlin.math.abs(x1.toLong()-x2)+kotlin.math.abs(y1.toLong()-y2);fun minimumCost(start:IntArray,target:IntArray,specialRoads:Array<IntArray>):Int{val distance=LongArray(specialRoads.size){Long.MAX_VALUE};val queue=java.util.PriorityQueue<LongArray>(compareBy<LongArray>{it[0]});queue.add(longArrayOf(0,start[0].toLong(),start[1].toLong(),-1));var answer=manhattan(start[0],start[1],target[0],target[1]);while(queue.isNotEmpty()){val state=queue.poll();val cost=state[0];val x=state[1].toInt();val y=state[2].toInt();val index=state[3].toInt();if(index>=0&&cost!=distance[index])continue;answer=minOf(answer,cost+manhattan(x,y,target[0],target[1]));for(i in specialRoads.indices){val road=specialRoads[i];val next=cost+manhattan(x,y,road[0],road[1])+road[4];if(next<distance[i]){distance[i]=next;queue.add(longArrayOf(next,road[2].toLong(),road[3].toLong(),i.toLong()))}}};return answer.toInt()} }
+class Solution {
+    private fun manhattan(x1:Int,y1:Int,x2:Int,y2:Int)=kotlin.math.abs(x1.toLong()-x2)+kotlin.math.abs(y1.toLong()-y2);
+    fun minimumCost(start:IntArray,target:IntArray,specialRoads:Array<IntArray>):Int{
+        val distance=LongArray(specialRoads.size){
+            Long.MAX_VALUE
+        };
+        val queue=java.util.PriorityQueue<LongArray>(compareBy<LongArray>{
+            it[0]
+        });
+        queue.add(longArrayOf(0,start[0].toLong(),start[1].toLong(),-1));
+        var answer=manhattan(start[0],start[1],target[0],target[1]);
+        while(queue.isNotEmpty()){
+            val state=queue.poll();
+            val cost=state[0];
+            val x=state[1].toInt();
+            val y=state[2].toInt();
+            val index=state[3].toInt();
+            if(index>=0&&cost!=distance[index])continue;
+            answer=minOf(answer,cost+manhattan(x,y,target[0],target[1]));
+            for(i in specialRoads.indices){
+                val road=specialRoads[i];
+                val next=cost+manhattan(x,y,road[0],road[1])+road[4];
+                if(next<distance[i]){
+                    distance[i]=next;
+                    queue.add(longArrayOf(next,road[2].toLong(),road[3].toLong(),i.toLong()))
+                }
+            }
+        };
+        return answer.toInt()
+    }
+}

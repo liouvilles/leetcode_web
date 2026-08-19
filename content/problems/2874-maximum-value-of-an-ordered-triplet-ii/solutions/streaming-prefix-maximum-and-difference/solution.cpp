@@ -1,1 +1,12 @@
-class Solution { public:long long maximumTripletValue(vector<int>& nums){int maximum=nums[0],difference=0;long long answer=0;for(int k=1;k<(int)nums.size();++k){answer=max(answer,1LL*difference*nums[k]);difference=max(difference,maximum-nums[k]);maximum=max(maximum,nums[k]);}return answer;} };
+class Solution {
+    public:long long maximumTripletValue(vector<int>& nums){
+        int maximum=nums[0],difference=0;
+        long long answer=0;
+        for(int k=1;k<(int)nums.size();++k){
+            answer=max(answer,1LL*difference*nums[k]);
+            difference=max(difference,maximum-nums[k]);
+            maximum=max(maximum,nums[k]);
+        }
+        return answer;
+    }
+};

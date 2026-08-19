@@ -1,1 +1,18 @@
-class Solution { fun equalFrequency(word:String):Boolean{for(remove in word.indices){val frequency=IntArray(26);for(i in word.indices)if(i!=remove)frequency[word[i]-'a']++;var target=0;var valid=true;for(count in frequency)if(count>0){if(target==0)target=count else if(count!=target){valid=false;break}};if(valid)return true};return false} }
+class Solution {
+    fun equalFrequency(word:String):Boolean{
+        for(remove in word.indices){
+            val frequency=IntArray(26);
+            for(i in word.indices)if(i!=remove)frequency[word[i]-'a']++;
+            var target=0;
+            var valid=true;
+            for(count in frequency)if(count>0){
+                if(target==0)target=count else if(count!=target){
+                    valid=false;
+                    break
+                }
+            };
+            if(valid)return true
+        };
+        return false
+    }
+}

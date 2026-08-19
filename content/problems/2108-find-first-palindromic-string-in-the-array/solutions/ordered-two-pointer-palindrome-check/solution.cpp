@@ -1,1 +1,9 @@
-class Solution { bool palindrome(string word){return equal(word.begin(),word.begin()+word.size()/2,word.rbegin());}public: string firstPalindrome(vector<string>& words){for(string& word:words)if(palindrome(word))return word;return"";} };
+class Solution {
+    bool palindrome(string word){
+        return equal(word.begin(),word.begin()+word.size()/2,word.rbegin());
+    }
+    public: string firstPalindrome(vector<string>& words){
+        for(string& word:words)if(palindrome(word))return word;
+        return"";
+    }
+};

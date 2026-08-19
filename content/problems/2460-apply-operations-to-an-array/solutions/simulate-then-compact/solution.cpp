@@ -1,1 +1,12 @@
-class Solution { public:vector<int> applyOperations(vector<int>& nums){for(int i=0;i+1<(int)nums.size();++i)if(nums[i]==nums[i+1]){nums[i]*=2;nums[i+1]=0;}int write=0;for(int value:nums)if(value)nums[write++]=value;while(write<(int)nums.size())nums[write++]=0;return nums;} };
+class Solution {
+    public:vector<int> applyOperations(vector<int>& nums){
+        for(int i=0;i+1<(int)nums.size();++i)if(nums[i]==nums[i+1]){
+            nums[i]*=2;
+            nums[i+1]=0;
+        }
+        int write=0;
+        for(int value:nums)if(value)nums[write++]=value;
+        while(write<(int)nums.size())nums[write++]=0;
+        return nums;
+    }
+};

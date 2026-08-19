@@ -1,1 +1,21 @@
-class Solution { public: int maxPerformance(int n,vector<int>& speed,vector<int>& efficiency,int k){vector<int> order(n);iota(order.begin(),order.end(),0);sort(order.begin(),order.end(),[&](int a,int b){return efficiency[a]>efficiency[b];});priority_queue<int,vector<int>,greater<int>> heap;long long sum=0,answer=0;for(int index:order){heap.push(speed[index]);sum+=speed[index];if((int)heap.size()>k){sum-=heap.top();heap.pop();}answer=max(answer,sum*efficiency[index]);}return answer%1000000007;} };
+class Solution {
+    public: int maxPerformance(int n,vector<int>& speed,vector<int>& efficiency,int k){
+        vector<int> order(n);
+        iota(order.begin(),order.end(),0);
+        sort(order.begin(),order.end(),[&](int a,int b){
+            return efficiency[a]>efficiency[b];
+        });
+        priority_queue<int,vector<int>,greater<int>> heap;
+        long long sum=0,answer=0;
+        for(int index:order){
+            heap.push(speed[index]);
+            sum+=speed[index];
+            if((int)heap.size()>k){
+                sum-=heap.top();
+                heap.pop();
+            }
+            answer=max(answer,sum*efficiency[index]);
+        }
+        return answer%1000000007;
+    }
+};

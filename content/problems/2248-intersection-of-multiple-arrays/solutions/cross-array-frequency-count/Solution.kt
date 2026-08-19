@@ -1,1 +1,9 @@
-class Solution { fun intersection(nums:Array<IntArray>):List<Int>{val count=java.util.TreeMap<Int,Int>();for(array in nums)for(value in array)count[value]=(count[value]?:0)+1;return count.filterValues{it==nums.size}.keys.toList()} }
+class Solution {
+    fun intersection(nums:Array<IntArray>):List<Int>{
+        val count=java.util.TreeMap<Int,Int>();
+        for(array in nums)for(value in array)count[value]=(count[value]?:0)+1;
+        return count.filterValues{
+            it==nums.size
+        }.keys.toList()
+    }
+}

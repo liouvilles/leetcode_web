@@ -1,1 +1,22 @@
-class Solution { public: double mincostToHireWorkers(vector<int>& quality,vector<int>& wage,int k){vector<pair<double,int>> workers;for(int i=0;i<(int)quality.size();++i)workers.push_back({(double)wage[i]/quality[i],quality[i]});sort(workers.begin(),workers.end());priority_queue<int> heap;int total=0;double answer=DBL_MAX;for(auto worker:workers){heap.push(worker.second);total+=worker.second;if((int)heap.size()>k){total-=heap.top();heap.pop();}if((int)heap.size()==k)answer=min(answer,total*worker.first);}return answer;} };
+class Solution {
+    public: double mincostToHireWorkers(vector<int>& quality,vector<int>& wage,int k){
+        vector<pair<double,int>> workers;
+        for(int i=0;i<(int)quality.size();++i)workers.push_back({
+            (double)wage[i]/quality[i],quality[i]
+        });
+        sort(workers.begin(),workers.end());
+        priority_queue<int> heap;
+        int total=0;
+        double answer=DBL_MAX;
+        for(auto worker:workers){
+            heap.push(worker.second);
+            total+=worker.second;
+            if((int)heap.size()>k){
+                total-=heap.top();
+                heap.pop();
+            }
+            if((int)heap.size()==k)answer=min(answer,total*worker.first);
+        }
+        return answer;
+    }
+};

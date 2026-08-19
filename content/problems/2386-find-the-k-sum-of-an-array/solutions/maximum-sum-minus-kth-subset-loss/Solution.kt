@@ -1,1 +1,27 @@
-class Solution { fun kSum(nums:IntArray,k:Int):Long{var maximum=0L;val values=LongArray(nums.size);for(i in nums.indices){if(nums[i]>0)maximum+=nums[i];values[i]=kotlin.math.abs(nums[i].toLong())};values.sort();if(k==1)return maximum;val heap=java.util.PriorityQueue<LongArray>(compareBy{it[0]});heap.add(longArrayOf(values[0],0));var loss=0L;for(rank in 2..k){val state=heap.remove();loss=state[0];val index=state[1].toInt();if(index+1<values.size){heap.add(longArrayOf(loss+values[index+1],(index+1).toLong()));heap.add(longArrayOf(loss-values[index]+values[index+1],(index+1).toLong()))}};return maximum-loss} }
+class Solution {
+    fun kSum(nums:IntArray,k:Int):Long{
+        var maximum=0L;
+        val values=LongArray(nums.size);
+        for(i in nums.indices){
+            if(nums[i]>0)maximum+=nums[i];
+            values[i]=kotlin.math.abs(nums[i].toLong())
+        };
+        values.sort();
+        if(k==1)return maximum;
+        val heap=java.util.PriorityQueue<LongArray>(compareBy{
+            it[0]
+        });
+        heap.add(longArrayOf(values[0],0));
+        var loss=0L;
+        for(rank in 2..k){
+            val state=heap.remove();
+            loss=state[0];
+            val index=state[1].toInt();
+            if(index+1<values.size){
+                heap.add(longArrayOf(loss+values[index+1],(index+1).toLong()));
+                heap.add(longArrayOf(loss-values[index]+values[index+1],(index+1).toLong()))
+            }
+        };
+        return maximum-loss
+    }
+}

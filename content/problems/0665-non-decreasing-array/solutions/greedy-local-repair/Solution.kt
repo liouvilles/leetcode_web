@@ -1,1 +1,10 @@
-class Solution { fun checkPossibility(nums:IntArray):Boolean{var violations=0;for(i in 1 until nums.size)if(nums[i-1]>nums[i]){if(++violations>1)return false;if(i<2||nums[i]>=nums[i-2])nums[i-1]=nums[i] else nums[i]=nums[i-1]};return true} }
+class Solution {
+    fun checkPossibility(nums:IntArray):Boolean{
+        var violations=0;
+        for(i in 1 until nums.size)if(nums[i-1]>nums[i]){
+            if(++violations>1)return false;
+            if(i<2||nums[i]>=nums[i-2])nums[i-1]=nums[i] else nums[i]=nums[i-1]
+        };
+        return true
+    }
+}

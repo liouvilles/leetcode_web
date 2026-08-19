@@ -1,1 +1,13 @@
-class Solution { fun maximumScore(nums:IntArray,k:Int):Int{var left=k;var right=k;var minimum=nums[k];var answer=minimum;while(left>0||right+1<nums.size){if(left==0||right+1<nums.size&&nums[right+1]>nums[left-1])minimum=minOf(minimum,nums[++right]) else minimum=minOf(minimum,nums[--left]);answer=maxOf(answer,minimum*(right-left+1))};return answer} }
+class Solution {
+    fun maximumScore(nums:IntArray,k:Int):Int{
+        var left=k;
+        var right=k;
+        var minimum=nums[k];
+        var answer=minimum;
+        while(left>0||right+1<nums.size){
+            if(left==0||right+1<nums.size&&nums[right+1]>nums[left-1])minimum=minOf(minimum,nums[++right]) else minimum=minOf(minimum,nums[--left]);
+            answer=maxOf(answer,minimum*(right-left+1))
+        };
+        return answer
+    }
+}

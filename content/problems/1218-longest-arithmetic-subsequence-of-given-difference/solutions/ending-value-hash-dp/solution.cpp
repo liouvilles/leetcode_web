@@ -1,1 +1,12 @@
-class Solution { public: int longestSubsequence(vector<int>& arr,int difference){unordered_map<int,int> dp;int answer=0;for(int value:arr){int length=dp[value-difference]+1;dp[value]=max(dp[value],length);answer=max(answer,length);}return answer;} };
+class Solution {
+    public: int longestSubsequence(vector<int>& arr,int difference){
+        unordered_map<int,int> dp;
+        int answer=0;
+        for(int value:arr){
+            int length=dp[value-difference]+1;
+            dp[value]=max(dp[value],length);
+            answer=max(answer,length);
+        }
+        return answer;
+    }
+};

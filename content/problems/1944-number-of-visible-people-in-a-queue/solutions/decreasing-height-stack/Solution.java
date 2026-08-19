@@ -1,1 +1,15 @@
-class Solution { public int[] canSeePersonsCount(int[] heights){int[] answer=new int[heights.length];Deque<Integer> stack=new ArrayDeque<>();for(int i=heights.length-1;i>=0;i--){while(!stack.isEmpty()&&stack.peek()<heights[i]){stack.pop();answer[i]++;}if(!stack.isEmpty())answer[i]++;stack.push(heights[i]);}return answer;} }
+class Solution {
+    public int[] canSeePersonsCount(int[] heights){
+        int[] answer=new int[heights.length];
+        Deque<Integer> stack=new ArrayDeque<>();
+        for(int i=heights.length-1;i>=0;i--){
+            while(!stack.isEmpty()&&stack.peek()<heights[i]){
+                stack.pop();
+                answer[i]++;
+            }
+            if(!stack.isEmpty())answer[i]++;
+            stack.push(heights[i]);
+        }
+        return answer;
+    }
+}

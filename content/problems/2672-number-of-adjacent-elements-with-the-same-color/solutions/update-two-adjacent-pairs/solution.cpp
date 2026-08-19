@@ -1,1 +1,18 @@
-class Solution { public:vector<int> colorTheArray(int n,vector<vector<int>>& queries){vector<int> colors(n),answer;int pairs=0;for(auto& query:queries){int index=query[0],color=query[1],old=colors[index];if(old){if(index&&colors[index-1]==old)--pairs;if(index+1<n&&colors[index+1]==old)--pairs;}colors[index]=color;if(index&&colors[index-1]==color)++pairs;if(index+1<n&&colors[index+1]==color)++pairs;answer.push_back(pairs);}return answer;} };
+class Solution {
+    public:vector<int> colorTheArray(int n,vector<vector<int>>& queries){
+        vector<int> colors(n),answer;
+        int pairs=0;
+        for(auto& query:queries){
+            int index=query[0],color=query[1],old=colors[index];
+            if(old){
+                if(index&&colors[index-1]==old)--pairs;
+                if(index+1<n&&colors[index+1]==old)--pairs;
+            }
+            colors[index]=color;
+            if(index&&colors[index-1]==color)++pairs;
+            if(index+1<n&&colors[index+1]==color)++pairs;
+            answer.push_back(pairs);
+        }
+        return answer;
+    }
+};

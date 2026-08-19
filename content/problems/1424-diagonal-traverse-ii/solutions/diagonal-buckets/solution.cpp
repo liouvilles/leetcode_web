@@ -1,1 +1,12 @@
-class Solution { public: vector<int> findDiagonalOrder(vector<vector<int>>& nums){vector<vector<int>> diagonals;for(int row=0;row<(int)nums.size();++row)for(int col=0;col<(int)nums[row].size();++col){if((int)diagonals.size()<=row+col)diagonals.resize(row+col+1);diagonals[row+col].push_back(nums[row][col]);}vector<int> answer;for(auto& diagonal:diagonals)for(auto it=diagonal.rbegin();it!=diagonal.rend();++it)answer.push_back(*it);return answer;} };
+class Solution {
+    public: vector<int> findDiagonalOrder(vector<vector<int>>& nums){
+        vector<vector<int>> diagonals;
+        for(int row=0;row<(int)nums.size();++row)for(int col=0;col<(int)nums[row].size();++col){
+            if((int)diagonals.size()<=row+col)diagonals.resize(row+col+1);
+            diagonals[row+col].push_back(nums[row][col]);
+        }
+        vector<int> answer;
+        for(auto& diagonal:diagonals)for(auto it=diagonal.rbegin();it!=diagonal.rend();++it)answer.push_back(*it);
+        return answer;
+    }
+};

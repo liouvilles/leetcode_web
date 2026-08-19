@@ -1,1 +1,18 @@
-class Solution { private int factorSum(int value){int sum=0;for(int divisor=2;divisor*divisor<=value;divisor++)while(value%divisor==0){sum+=divisor;value/=divisor;}if(value>1)sum+=value;return sum;}public int smallestValue(int n){while(true){int next=factorSum(n);if(next==n)return n;n=next;}} }
+class Solution {
+    private int factorSum(int value){
+        int sum=0;
+        for(int divisor=2;divisor*divisor<=value;divisor++)while(value%divisor==0){
+            sum+=divisor;
+            value/=divisor;
+        }
+        if(value>1)sum+=value;
+        return sum;
+    }
+    public int smallestValue(int n){
+        while(true){
+            int next=factorSum(n);
+            if(next==n)return n;
+            n=next;
+        }
+    }
+}

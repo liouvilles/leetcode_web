@@ -1,1 +1,14 @@
-class Solution { public int getWinner(int[] arr,int k){int champion=arr[0],wins=0;for(int i=1;i<arr.length;i++){if(champion>arr[i])wins++;else{champion=arr[i];wins=1;}if(wins==k)return champion;}return champion;} }
+class Solution {
+    public int getWinner(int[] arr,int k){
+        int champion=arr[0],wins=0;
+        for(int i=1;i<arr.length;i++){
+            if(champion>arr[i])wins++;
+            else{
+                champion=arr[i];
+                wins=1;
+            }
+            if(wins==k)return champion;
+        }
+        return champion;
+    }
+}

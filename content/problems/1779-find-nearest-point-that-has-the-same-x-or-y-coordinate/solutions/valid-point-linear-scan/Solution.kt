@@ -1,1 +1,14 @@
-class Solution { fun nearestValidPoint(x:Int,y:Int,points:Array<IntArray>):Int{var answer=-1;var best=Int.MAX_VALUE;for(i in points.indices)if(points[i][0]==x||points[i][1]==y){val distance=kotlin.math.abs(points[i][0]-x)+kotlin.math.abs(points[i][1]-y);if(distance<best){best=distance;answer=i}};return answer} }
+class Solution {
+    fun nearestValidPoint(x:Int,y:Int,points:Array<IntArray>):Int{
+        var answer=-1;
+        var best=Int.MAX_VALUE;
+        for(i in points.indices)if(points[i][0]==x||points[i][1]==y){
+            val distance=kotlin.math.abs(points[i][0]-x)+kotlin.math.abs(points[i][1]-y);
+            if(distance<best){
+                best=distance;
+                answer=i
+            }
+        };
+        return answer
+    }
+}

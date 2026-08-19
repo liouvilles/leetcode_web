@@ -1,1 +1,26 @@
-class Solution { private val mod=1000000007;private lateinit var nums:IntArray;private lateinit var memo:Array<IntArray>;private var full=0;private fun dfs(mask:Int,last:Int):Int{if(mask==full)return 1;if(memo[mask][last]!=-1)return memo[mask][last];var ways=0L;for(next in nums.indices)if((mask and (1 shl next))==0&&(nums[last]%nums[next]==0||nums[next]%nums[last]==0))ways=(ways+dfs(mask or (1 shl next),next))%mod;memo[mask][last]=ways.toInt();return ways.toInt()};fun specialPerm(nums:IntArray):Int{this.nums=nums;full=(1 shl nums.size)-1;memo=Array(1 shl nums.size){IntArray(nums.size){-1}};var answer=0L;for(start in nums.indices)answer=(answer+dfs(1 shl start,start))%mod;return answer.toInt()} }
+class Solution {
+    private val mod=1000000007;
+    private lateinit var nums:IntArray;
+    private lateinit var memo:Array<IntArray>;
+    private var full=0;
+    private fun dfs(mask:Int,last:Int):Int{
+        if(mask==full)return 1;
+        if(memo[mask][last]!=-1)return memo[mask][last];
+        var ways=0L;
+        for(next in nums.indices)if((mask and (1 shl next))==0&&(nums[last]%nums[next]==0||nums[next]%nums[last]==0))ways=(ways+dfs(mask or (1 shl next),next))%mod;
+        memo[mask][last]=ways.toInt();
+        return ways.toInt()
+    };
+    fun specialPerm(nums:IntArray):Int{
+        this.nums=nums;
+        full=(1 shl nums.size)-1;
+        memo=Array(1 shl nums.size){
+            IntArray(nums.size){
+                -1
+            }
+        };
+        var answer=0L;
+        for(start in nums.indices)answer=(answer+dfs(1 shl start,start))%mod;
+        return answer.toInt()
+    }
+}

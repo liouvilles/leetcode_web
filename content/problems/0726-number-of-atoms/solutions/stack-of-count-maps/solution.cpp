@@ -1,1 +1,35 @@
-class Solution { public: string countOfAtoms(string formula){vector<map<string,int>> stack(1);int index=0;while(index<(int)formula.size()){if(formula[index]=='('){stack.push_back({});++index;}else if(formula[index]==')'){++index;int start=index;while(index<(int)formula.size()&&isdigit(formula[index]))++index;int multiplier=start==index?1:stoi(formula.substr(start,index-start));auto group=move(stack.back());stack.pop_back();for(auto [atom,count]:group)stack.back()[atom]+=count*multiplier;}else{int start=index++;while(index<(int)formula.size()&&islower(formula[index]))++index;string atom=formula.substr(start,index-start);start=index;while(index<(int)formula.size()&&isdigit(formula[index]))++index;int count=start==index?1:stoi(formula.substr(start,index-start));stack.back()[atom]+=count;}}string answer;for(auto [atom,count]:stack.back()){answer+=atom;if(count>1)answer+=to_string(count);}return answer;} };
+class Solution {
+    public: string countOfAtoms(string formula){
+        vector<map<string,int>> stack(1);
+        int index=0;
+        while(index<(int)formula.size()){
+            if(formula[index]=='('){
+                stack.push_back({
+                });
+                ++index;
+            }else if(formula[index]==')'){
+                ++index;
+                int start=index;
+                while(index<(int)formula.size()&&isdigit(formula[index]))++index;
+                int multiplier=start==index?1:stoi(formula.substr(start,index-start));
+                auto group=move(stack.back());
+                stack.pop_back();
+                for(auto [atom,count]:group)stack.back()[atom]+=count*multiplier;
+            }else{
+                int start=index++;
+                while(index<(int)formula.size()&&islower(formula[index]))++index;
+                string atom=formula.substr(start,index-start);
+                start=index;
+                while(index<(int)formula.size()&&isdigit(formula[index]))++index;
+                int count=start==index?1:stoi(formula.substr(start,index-start));
+                stack.back()[atom]+=count;
+            }
+        }
+        string answer;
+        for(auto [atom,count]:stack.back()){
+            answer+=atom;
+            if(count>1)answer+=to_string(count);
+        }
+        return answer;
+    }
+};

@@ -1,1 +1,19 @@
-class Solution { public: int longestStrChain(vector<string>& words){sort(words.begin(),words.end(),[](string& a,string& b){return a.size()<b.size();});unordered_map<string,int> best;int answer=1;for(string& word:words){int length=1;for(int i=0;i<(int)word.size();++i){string predecessor=word.substr(0,i)+word.substr(i+1);length=max(length,best[predecessor]+1);}best[word]=length;answer=max(answer,length);}return answer;} };
+class Solution {
+    public: int longestStrChain(vector<string>& words){
+        sort(words.begin(),words.end(),[](string& a,string& b){
+            return a.size()<b.size();
+        });
+        unordered_map<string,int> best;
+        int answer=1;
+        for(string& word:words){
+            int length=1;
+            for(int i=0;i<(int)word.size();++i){
+                string predecessor=word.substr(0,i)+word.substr(i+1);
+                length=max(length,best[predecessor]+1);
+            }
+            best[word]=length;
+            answer=max(answer,length);
+        }
+        return answer;
+    }
+};

@@ -1,1 +1,16 @@
-class Solution { public int minMoves(int[] nums,int k){List<Long> adjusted=new ArrayList<>();for(int i=0;i<nums.length;i++)if(nums[i]==1)adjusted.add((long)i-adjusted.size());long[] prefix=new long[adjusted.size()+1];for(int i=0;i<adjusted.size();i++)prefix[i+1]=prefix[i]+adjusted.get(i);long answer=Long.MAX_VALUE;for(int left=0;left+k<=adjusted.size();left++){int right=left+k-1,mid=(left+right)/2;long median=adjusted.get(mid);long cost=median*(mid-left)-(prefix[mid]-prefix[left])+(prefix[right+1]-prefix[mid+1])-median*(right-mid);answer=Math.min(answer,cost);}return (int)answer;} }
+class Solution {
+    public int minMoves(int[] nums,int k){
+        List<Long> adjusted=new ArrayList<>();
+        for(int i=0;i<nums.length;i++)if(nums[i]==1)adjusted.add((long)i-adjusted.size());
+        long[] prefix=new long[adjusted.size()+1];
+        for(int i=0;i<adjusted.size();i++)prefix[i+1]=prefix[i]+adjusted.get(i);
+        long answer=Long.MAX_VALUE;
+        for(int left=0;left+k<=adjusted.size();left++){
+            int right=left+k-1,mid=(left+right)/2;
+            long median=adjusted.get(mid);
+            long cost=median*(mid-left)-(prefix[mid]-prefix[left])+(prefix[right+1]-prefix[mid+1])-median*(right-mid);
+            answer=Math.min(answer,cost);
+        }
+        return (int)answer;
+    }
+}

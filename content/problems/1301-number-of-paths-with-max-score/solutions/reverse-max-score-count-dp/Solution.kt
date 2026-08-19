@@ -1,1 +1,38 @@
-class Solution { fun pathsWithMaxScore(board:List<String>):IntArray{val n=board.size;val mod=1000000007;val score=Array(n){IntArray(n){-1}};val ways=Array(n){IntArray(n)};score[n-1][n-1]=0;ways[n-1][n-1]=1;val directions=arrayOf(intArrayOf(1,0),intArrayOf(0,1),intArrayOf(1,1));for(r in n-1 downTo 0)for(c in n-1 downTo 0){val cell=board[r][c];if(cell=='S'||cell=='X')continue;var best=-1;var count=0;for(d in directions){val nr=r+d[0];val nc=c+d[1];if(nr<n&&nc<n&&score[nr][nc]>=0){if(score[nr][nc]>best){best=score[nr][nc];count=ways[nr][nc]}else if(score[nr][nc]==best)count=(count+ways[nr][nc])%mod}};if(best>=0){score[r][c]=best+if(cell=='E')0 else cell-'0';ways[r][c]=count}};return if(score[0][0]<0)intArrayOf(0,0) else intArrayOf(score[0][0],ways[0][0])} }
+class Solution {
+    fun pathsWithMaxScore(board:List<String>):IntArray{
+        val n=board.size;
+        val mod=1000000007;
+        val score=Array(n){
+            IntArray(n){
+                -1
+            }
+        };
+        val ways=Array(n){
+            IntArray(n)
+        };
+        score[n-1][n-1]=0;
+        ways[n-1][n-1]=1;
+        val directions=arrayOf(intArrayOf(1,0),intArrayOf(0,1),intArrayOf(1,1));
+        for(r in n-1 downTo 0)for(c in n-1 downTo 0){
+            val cell=board[r][c];
+            if(cell=='S'||cell=='X')continue;
+            var best=-1;
+            var count=0;
+            for(d in directions){
+                val nr=r+d[0];
+                val nc=c+d[1];
+                if(nr<n&&nc<n&&score[nr][nc]>=0){
+                    if(score[nr][nc]>best){
+                        best=score[nr][nc];
+                        count=ways[nr][nc]
+                    }else if(score[nr][nc]==best)count=(count+ways[nr][nc])%mod
+                }
+            };
+            if(best>=0){
+                score[r][c]=best+if(cell=='E')0 else cell-'0';
+                ways[r][c]=count
+            }
+        };
+        return if(score[0][0]<0)intArrayOf(0,0) else intArrayOf(score[0][0],ways[0][0])
+    }
+}

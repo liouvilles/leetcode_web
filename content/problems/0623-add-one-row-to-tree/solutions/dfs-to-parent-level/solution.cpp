@@ -1,1 +1,25 @@
-class Solution { void insert(TreeNode* node,int value,int current,int depth){if(!node)return;if(current==depth-1){TreeNode* oldLeft=node->left;TreeNode* oldRight=node->right;node->left=new TreeNode(value);node->right=new TreeNode(value);node->left->left=oldLeft;node->right->right=oldRight;return;}insert(node->left,value,current+1,depth);insert(node->right,value,current+1,depth);}public:TreeNode* addOneRow(TreeNode* root,int val,int depth){if(depth==1){TreeNode* added=new TreeNode(val);added->left=root;return added;}insert(root,val,1,depth);return root;} };
+class Solution {
+    void insert(TreeNode* node,int value,int current,int depth){
+        if(!node)return;
+        if(current==depth-1){
+            TreeNode* oldLeft=node->left;
+            TreeNode* oldRight=node->right;
+            node->left=new TreeNode(value);
+            node->right=new TreeNode(value);
+            node->left->left=oldLeft;
+            node->right->right=oldRight;
+            return;
+        }
+        insert(node->left,value,current+1,depth);
+        insert(node->right,value,current+1,depth);
+    }
+    public:TreeNode* addOneRow(TreeNode* root,int val,int depth){
+        if(depth==1){
+            TreeNode* added=new TreeNode(val);
+            added->left=root;
+            return added;
+        }
+        insert(root,val,1,depth);
+        return root;
+    }
+};

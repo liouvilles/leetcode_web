@@ -1,1 +1,12 @@
-class Solution { public: bool canFormArray(vector<int>& arr,vector<vector<int>>& pieces){unordered_map<int,vector<int>*> byFirst;for(auto& piece:pieces)byFirst[piece[0]]=&piece;int index=0;while(index<(int)arr.size()){if(!byFirst.count(arr[index]))return false;for(int value:*byFirst[arr[index]])if(index>=(int)arr.size()||arr[index++]!=value)return false;}return true;} };
+class Solution {
+    public: bool canFormArray(vector<int>& arr,vector<vector<int>>& pieces){
+        unordered_map<int,vector<int>*> byFirst;
+        for(auto& piece:pieces)byFirst[piece[0]]=&piece;
+        int index=0;
+        while(index<(int)arr.size()){
+            if(!byFirst.count(arr[index]))return false;
+            for(int value:*byFirst[arr[index]])if(index>=(int)arr.size()||arr[index++]!=value)return false;
+        }
+        return true;
+    }
+};

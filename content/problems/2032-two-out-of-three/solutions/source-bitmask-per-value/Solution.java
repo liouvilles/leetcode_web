@@ -1,1 +1,12 @@
-class Solution { public List<Integer> twoOutOfThree(int[] nums1,int[] nums2,int[] nums3){int[] mask=new int[101];int[][] arrays={nums1,nums2,nums3};for(int index=0;index<3;index++)for(int value:arrays[index])mask[value]|=1<<index;List<Integer> answer=new ArrayList<>();for(int value=1;value<=100;value++)if(Integer.bitCount(mask[value])>=2)answer.add(value);return answer;} }
+class Solution {
+    public List<Integer> twoOutOfThree(int[] nums1,int[] nums2,int[] nums3){
+        int[] mask=new int[101];
+        int[][] arrays={
+            nums1,nums2,nums3
+        };
+        for(int index=0;index<3;index++)for(int value:arrays[index])mask[value]|=1<<index;
+        List<Integer> answer=new ArrayList<>();
+        for(int value=1;value<=100;value++)if(Integer.bitCount(mask[value])>=2)answer.add(value);
+        return answer;
+    }
+}

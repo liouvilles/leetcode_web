@@ -1,1 +1,26 @@
-class Solution { fun countNodes(root:TreeNode?):Int{if(root==null)return 0;fun leftHeight(start:TreeNode?):Int{var node=start;var h=0;while(node!=null){h++;node=node.left};return h};fun rightHeight(start:TreeNode?):Int{var node=start;var h=0;while(node!=null){h++;node=node.right};return h};val left=leftHeight(root);val right=rightHeight(root);return if(left==right)((1L shl left)-1).toInt() else 1+countNodes(root.left)+countNodes(root.right)} }
+class Solution {
+    fun countNodes(root:TreeNode?):Int{
+        if(root==null)return 0;
+        fun leftHeight(start:TreeNode?):Int{
+            var node=start;
+            var h=0;
+            while(node!=null){
+                h++;
+                node=node.left
+            };
+            return h
+        };
+        fun rightHeight(start:TreeNode?):Int{
+            var node=start;
+            var h=0;
+            while(node!=null){
+                h++;
+                node=node.right
+            };
+            return h
+        };
+        val left=leftHeight(root);
+        val right=rightHeight(root);
+        return if(left==right)((1L shl left)-1).toInt() else 1+countNodes(root.left)+countNodes(root.right)
+    }
+}

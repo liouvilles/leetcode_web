@@ -1,1 +1,26 @@
-class Solution { fun kSimilarity(s1:String,s2:String):Int{val queue=java.util.ArrayDeque<String>();val seen=mutableSetOf(s1);queue.addLast(s1);var swaps=0;while(queue.isNotEmpty()){repeat(queue.size){val current=queue.removeFirst();if(current==s2)return swaps;var i=0;while(current[i]==s2[i])i++;for(j in i+1 until current.length)if(current[j]==s2[i]&&current[j]!=s2[j]){val chars=current.toCharArray();val temporary=chars[i];chars[i]=chars[j];chars[j]=temporary;val next=String(chars);if(seen.add(next))queue.addLast(next)}};swaps++};return -1} }
+class Solution {
+    fun kSimilarity(s1:String,s2:String):Int{
+        val queue=java.util.ArrayDeque<String>();
+        val seen=mutableSetOf(s1);
+        queue.addLast(s1);
+        var swaps=0;
+        while(queue.isNotEmpty()){
+            repeat(queue.size){
+                val current=queue.removeFirst();
+                if(current==s2)return swaps;
+                var i=0;
+                while(current[i]==s2[i])i++;
+                for(j in i+1 until current.length)if(current[j]==s2[i]&&current[j]!=s2[j]){
+                    val chars=current.toCharArray();
+                    val temporary=chars[i];
+                    chars[i]=chars[j];
+                    chars[j]=temporary;
+                    val next=String(chars);
+                    if(seen.add(next))queue.addLast(next)
+                }
+            };
+            swaps++
+        };
+        return -1
+    }
+}

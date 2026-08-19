@@ -1,1 +1,26 @@
-class Solution { private List<List<Integer>> cost;private int[] minimum;private int[][] memo;private int dfs(int index,int mask){if(index==cost.size()){int answer=0;for(int j=0;j<minimum.length;j++)if((mask&(1<<j))==0)answer+=minimum[j];return answer;}if(memo[index][mask]!=-1)return memo[index][mask];int answer=Integer.MAX_VALUE;for(int j=0;j<minimum.length;j++)answer=Math.min(answer,cost.get(index).get(j)+dfs(index+1,mask|1<<j));return memo[index][mask]=answer;}public int connectTwoGroups(List<List<Integer>> cost){this.cost=cost;int second=cost.get(0).size();minimum=new int[second];Arrays.fill(minimum,Integer.MAX_VALUE);for(List<Integer> row:cost)for(int j=0;j<second;j++)minimum[j]=Math.min(minimum[j],row.get(j));memo=new int[cost.size()][1<<second];for(int[] row:memo)Arrays.fill(row,-1);return dfs(0,0);} }
+class Solution {
+    private List<List<Integer>> cost;
+    private int[] minimum;
+    private int[][] memo;
+    private int dfs(int index,int mask){
+        if(index==cost.size()){
+            int answer=0;
+            for(int j=0;j<minimum.length;j++)if((mask&(1<<j))==0)answer+=minimum[j];
+            return answer;
+        }
+        if(memo[index][mask]!=-1)return memo[index][mask];
+        int answer=Integer.MAX_VALUE;
+        for(int j=0;j<minimum.length;j++)answer=Math.min(answer,cost.get(index).get(j)+dfs(index+1,mask|1<<j));
+        return memo[index][mask]=answer;
+    }
+    public int connectTwoGroups(List<List<Integer>> cost){
+        this.cost=cost;
+        int second=cost.get(0).size();
+        minimum=new int[second];
+        Arrays.fill(minimum,Integer.MAX_VALUE);
+        for(List<Integer> row:cost)for(int j=0;j<second;j++)minimum[j]=Math.min(minimum[j],row.get(j));
+        memo=new int[cost.size()][1<<second];
+        for(int[] row:memo)Arrays.fill(row,-1);
+        return dfs(0,0);
+    }
+}

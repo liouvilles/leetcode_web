@@ -1,1 +1,16 @@
-class Solution { public int maxSum(int[] nums1,int[] nums2){int i=0,j=0;long first=0,second=0;while(i<nums1.length&&j<nums2.length)if(nums1[i]<nums2[j])first+=nums1[i++];else if(nums1[i]>nums2[j])second+=nums2[j++];else{long common=Math.max(first,second)+nums1[i];first=second=common;i++;j++;}while(i<nums1.length)first+=nums1[i++];while(j<nums2.length)second+=nums2[j++];return (int)(Math.max(first,second)%1_000_000_007L);} }
+class Solution {
+    public int maxSum(int[] nums1,int[] nums2){
+        int i=0,j=0;
+        long first=0,second=0;
+        while(i<nums1.length&&j<nums2.length)if(nums1[i]<nums2[j])first+=nums1[i++];
+        else if(nums1[i]>nums2[j])second+=nums2[j++];
+        else{
+            long common=Math.max(first,second)+nums1[i];
+            first=second=common;
+            i++;
+            j++;
+        }while(i<nums1.length)first+=nums1[i++];
+        while(j<nums2.length)second+=nums2[j++];
+        return (int)(Math.max(first,second)%1_000_000_007L);
+    }
+}

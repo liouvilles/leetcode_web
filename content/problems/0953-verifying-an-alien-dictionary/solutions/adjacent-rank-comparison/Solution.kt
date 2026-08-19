@@ -1,1 +1,15 @@
-class Solution { fun isAlienSorted(words:Array<String>,order:String):Boolean{val rank=IntArray(26);for(i in order.indices)rank[order[i]-'a']=i;for(w in 1 until words.size){val a=words[w-1];val b=words[w];var i=0;while(i<a.length&&i<b.length&&a[i]==b[i])i++;if(i==b.length&&i<a.length)return false;if(i<a.length&&i<b.length&&rank[a[i]-'a']>rank[b[i]-'a'])return false};return true} }
+class Solution {
+    fun isAlienSorted(words:Array<String>,order:String):Boolean{
+        val rank=IntArray(26);
+        for(i in order.indices)rank[order[i]-'a']=i;
+        for(w in 1 until words.size){
+            val a=words[w-1];
+            val b=words[w];
+            var i=0;
+            while(i<a.length&&i<b.length&&a[i]==b[i])i++;
+            if(i==b.length&&i<a.length)return false;
+            if(i<a.length&&i<b.length&&rank[a[i]-'a']>rank[b[i]-'a'])return false
+        };
+        return true
+    }
+}

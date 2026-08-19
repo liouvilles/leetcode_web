@@ -1,1 +1,17 @@
-class Solution { long long count(vector<int>& nums,long long limit){long long result=0;int left=0,right=nums.size()-1;while(left<right){if((long long)nums[left]+nums[right]<=limit){result+=right-left;++left;}else --right;}return result;}public:long long countFairPairs(vector<int>& nums,int lower,int upper){sort(nums.begin(),nums.end());return count(nums,upper)-count(nums,(long long)lower-1);} };
+class Solution {
+    long long count(vector<int>& nums,long long limit){
+        long long result=0;
+        int left=0,right=nums.size()-1;
+        while(left<right){
+            if((long long)nums[left]+nums[right]<=limit){
+                result+=right-left;
+                ++left;
+            }else --right;
+        }
+        return result;
+    }
+    public:long long countFairPairs(vector<int>& nums,int lower,int upper){
+        sort(nums.begin(),nums.end());
+        return count(nums,upper)-count(nums,(long long)lower-1);
+    }
+};

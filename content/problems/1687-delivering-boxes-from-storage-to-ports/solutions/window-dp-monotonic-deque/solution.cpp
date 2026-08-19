@@ -1,1 +1,26 @@
-class Solution { public: int boxDelivering(vector<vector<int>>& boxes,int portsCount,int maxBoxes,int maxWeight){int n=boxes.size();vector<long long> weight(n+1);vector<int> change(n+2),dp(n+1);for(int i=1;i<=n;++i){weight[i]=weight[i-1]+boxes[i-1][1];change[i]=change[i-1]+(i>1&&boxes[i-1][0]!=boxes[i-2][0]);}change[n+1]=change[n];deque<int> candidates{0};for(int i=1;i<=n;++i){while(i-candidates.front()>maxBoxes||weight[i]-weight[candidates.front()]>maxWeight)candidates.pop_front();int previous=candidates.front();dp[i]=dp[previous]+change[i]-change[previous+1]+2;if(i<n){int value=dp[i]-change[i+1];while(!candidates.empty()&&dp[candidates.back()]-change[candidates.back()+1]>=value)candidates.pop_back();candidates.push_back(i);}}return dp[n];} };
+class Solution {
+    public: int boxDelivering(vector<vector<int>>& boxes,int portsCount,int maxBoxes,int maxWeight){
+        int n=boxes.size();
+        vector<long long> weight(n+1);
+        vector<int> change(n+2),dp(n+1);
+        for(int i=1;i<=n;++i){
+            weight[i]=weight[i-1]+boxes[i-1][1];
+            change[i]=change[i-1]+(i>1&&boxes[i-1][0]!=boxes[i-2][0]);
+        }
+        change[n+1]=change[n];
+        deque<int> candidates{
+            0
+        };
+        for(int i=1;i<=n;++i){
+            while(i-candidates.front()>maxBoxes||weight[i]-weight[candidates.front()]>maxWeight)candidates.pop_front();
+            int previous=candidates.front();
+            dp[i]=dp[previous]+change[i]-change[previous+1]+2;
+            if(i<n){
+                int value=dp[i]-change[i+1];
+                while(!candidates.empty()&&dp[candidates.back()]-change[candidates.back()+1]>=value)candidates.pop_back();
+                candidates.push_back(i);
+            }
+        }
+        return dp[n];
+    }
+};

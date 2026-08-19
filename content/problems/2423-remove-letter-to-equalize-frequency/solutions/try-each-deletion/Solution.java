@@ -1,1 +1,19 @@
-class Solution { public boolean equalFrequency(String word){for(int remove=0;remove<word.length();remove++){int[] frequency=new int[26];for(int i=0;i<word.length();i++)if(i!=remove)frequency[word.charAt(i)-'a']++;int target=0;boolean valid=true;for(int count:frequency)if(count>0){if(target==0)target=count;else if(count!=target){valid=false;break;}}if(valid)return true;}return false;} }
+class Solution {
+    public boolean equalFrequency(String word){
+        for(int remove=0;remove<word.length();remove++){
+            int[] frequency=new int[26];
+            for(int i=0;i<word.length();i++)if(i!=remove)frequency[word.charAt(i)-'a']++;
+            int target=0;
+            boolean valid=true;
+            for(int count:frequency)if(count>0){
+                if(target==0)target=count;
+                else if(count!=target){
+                    valid=false;
+                    break;
+                }
+            }
+            if(valid)return true;
+        }
+        return false;
+    }
+}

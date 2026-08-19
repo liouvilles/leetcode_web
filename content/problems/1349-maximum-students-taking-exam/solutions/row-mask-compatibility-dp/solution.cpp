@@ -1,1 +1,20 @@
-class Solution { public: int maxStudents(vector<vector<char>>& seats){int columns=seats[0].size();unordered_map<int,int> dp{{0,0}};for(auto& row:seats){int available=0;for(int c=0;c<columns;++c)if(row[c]=='.')available|=1<<c;unordered_map<int,int> next;for(int mask=0;mask<(1<<columns);++mask)if(!(mask&~available)&&!(mask&(mask<<1)))for(auto [previous,value]:dp)if(!(mask&(previous<<1))&&!(mask&(previous>>1)))next[mask]=max(next[mask],value+__builtin_popcount(mask));dp.swap(next);}int answer=0;for(auto [mask,value]:dp)answer=max(answer,value);return answer;} };
+class Solution {
+    public: int maxStudents(vector<vector<char>>& seats){
+        int columns=seats[0].size();
+        unordered_map<int,int> dp{
+            {
+                0,0
+            }
+        };
+        for(auto& row:seats){
+            int available=0;
+            for(int c=0;c<columns;++c)if(row[c]=='.')available|=1<<c;
+            unordered_map<int,int> next;
+            for(int mask=0;mask<(1<<columns);++mask)if(!(mask&~available)&&!(mask&(mask<<1)))for(auto [previous,value]:dp)if(!(mask&(previous<<1))&&!(mask&(previous>>1)))next[mask]=max(next[mask],value+__builtin_popcount(mask));
+            dp.swap(next);
+        }
+        int answer=0;
+        for(auto [mask,value]:dp)answer=max(answer,value);
+        return answer;
+    }
+};

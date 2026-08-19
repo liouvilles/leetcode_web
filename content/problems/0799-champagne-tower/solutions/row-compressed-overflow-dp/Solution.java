@@ -1,1 +1,12 @@
-class Solution { public double champagneTower(int poured,int query_row,int query_glass){double[] amount=new double[query_row+2];amount[0]=poured;for(int row=0;row<query_row;row++)for(int glass=row;glass>=0;glass--){double overflow=Math.max(0.0,(amount[glass]-1.0)/2.0);amount[glass]=overflow;amount[glass+1]+=overflow;}return Math.min(1.0,amount[query_glass]);} }
+class Solution {
+    public double champagneTower(int poured,int query_row,int query_glass){
+        double[] amount=new double[query_row+2];
+        amount[0]=poured;
+        for(int row=0;row<query_row;row++)for(int glass=row;glass>=0;glass--){
+            double overflow=Math.max(0.0,(amount[glass]-1.0)/2.0);
+            amount[glass]=overflow;
+            amount[glass+1]+=overflow;
+        }
+        return Math.min(1.0,amount[query_glass]);
+    }
+}

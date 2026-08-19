@@ -1,1 +1,42 @@
-class Solution { static const int MOD=1000000007;string low,high,evil;int n,m;vector<vector<int>> transition;vector<vector<array<array<int,2>,2>>> memo;int dfs(int position,int matched,int tightLow,int tightHigh){if(matched==m)return 0;if(position==n)return 1;int& cached=memo[position][matched][tightLow][tightHigh];if(cached!=-1)return cached;char from=tightLow?low[position]:'a',to=tightHigh?high[position]:'z';long long answer=0;for(char value=from;value<=to;++value)answer=(answer+dfs(position+1,transition[matched][value-'a'],tightLow&&value==from,tightHigh&&value==to))%MOD;return cached=answer;}public:int findGoodStrings(int n,string s1,string s2,string evil){this->n=n;low=s1;high=s2;this->evil=evil;m=evil.size();vector<int> prefix(m);for(int i=1;i<m;++i){int length=prefix[i-1];while(length&&evil[i]!=evil[length])length=prefix[length-1];if(evil[i]==evil[length])++length;prefix[i]=length;}transition.assign(m,vector<int>(26));for(int state=0;state<m;++state)for(int letter=0;letter<26;++letter){int length=state;char value='a'+letter;while(length&&evil[length]!=value)length=prefix[length-1];if(evil[length]==value)++length;transition[state][letter]=length;}memo.assign(n,vector<array<array<int,2>,2>>(m));for(auto& a:memo)for(auto& b:a)for(auto& c:b)c.fill(-1);return dfs(0,0,1,1);} };
+class Solution {
+    static const int MOD=1000000007;
+    string low,high,evil;
+    int n,m;
+    vector<vector<int>> transition;
+    vector<vector<array<array<int,2>,2>>> memo;
+    int dfs(int position,int matched,int tightLow,int tightHigh){
+        if(matched==m)return 0;
+        if(position==n)return 1;
+        int& cached=memo[position][matched][tightLow][tightHigh];
+        if(cached!=-1)return cached;
+        char from=tightLow?low[position]:'a',to=tightHigh?high[position]:'z';
+        long long answer=0;
+        for(char value=from;value<=to;++value)answer=(answer+dfs(position+1,transition[matched][value-'a'],tightLow&&value==from,tightHigh&&value==to))%MOD;
+        return cached=answer;
+    }
+    public:int findGoodStrings(int n,string s1,string s2,string evil){
+        this->n=n;
+        low=s1;
+        high=s2;
+        this->evil=evil;
+        m=evil.size();
+        vector<int> prefix(m);
+        for(int i=1;i<m;++i){
+            int length=prefix[i-1];
+            while(length&&evil[i]!=evil[length])length=prefix[length-1];
+            if(evil[i]==evil[length])++length;
+            prefix[i]=length;
+        }
+        transition.assign(m,vector<int>(26));
+        for(int state=0;state<m;++state)for(int letter=0;letter<26;++letter){
+            int length=state;
+            char value='a'+letter;
+            while(length&&evil[length]!=value)length=prefix[length-1];
+            if(evil[length]==value)++length;
+            transition[state][letter]=length;
+        }
+        memo.assign(n,vector<array<array<int,2>,2>>(m));
+        for(auto& a:memo)for(auto& b:a)for(auto& c:b)c.fill(-1);
+        return dfs(0,0,1,1);
+    }
+};

@@ -1,1 +1,16 @@
-class Solution { public boolean checkMove(char[][] board,int rMove,int cMove,char color){char opponent=color=='B'?'W':'B';for(int rowStep=-1;rowStep<=1;rowStep++)for(int colStep=-1;colStep<=1;colStep++){if(rowStep==0&&colStep==0)continue;int row=rMove+rowStep,col=cMove+colStep,count=0;while(row>=0&&row<board.length&&col>=0&&col<board[0].length&&board[row][col]==opponent){count++;row+=rowStep;col+=colStep;}if(count>0&&row>=0&&row<board.length&&col>=0&&col<board[0].length&&board[row][col]==color)return true;}return false;} }
+class Solution {
+    public boolean checkMove(char[][] board,int rMove,int cMove,char color){
+        char opponent=color=='B'?'W':'B';
+        for(int rowStep=-1;rowStep<=1;rowStep++)for(int colStep=-1;colStep<=1;colStep++){
+            if(rowStep==0&&colStep==0)continue;
+            int row=rMove+rowStep,col=cMove+colStep,count=0;
+            while(row>=0&&row<board.length&&col>=0&&col<board[0].length&&board[row][col]==opponent){
+                count++;
+                row+=rowStep;
+                col+=colStep;
+            }
+            if(count>0&&row>=0&&row<board.length&&col>=0&&col<board[0].length&&board[row][col]==color)return true;
+        }
+        return false;
+    }
+}

@@ -1,1 +1,13 @@
-class Solution { public: int nearestValidPoint(int x,int y,vector<vector<int>>& points){int answer=-1,best=INT_MAX;for(int i=0;i<(int)points.size();++i)if(points[i][0]==x||points[i][1]==y){int distance=abs(points[i][0]-x)+abs(points[i][1]-y);if(distance<best){best=distance;answer=i;}}return answer;} };
+class Solution {
+    public: int nearestValidPoint(int x,int y,vector<vector<int>>& points){
+        int answer=-1,best=INT_MAX;
+        for(int i=0;i<(int)points.size();++i)if(points[i][0]==x||points[i][1]==y){
+            int distance=abs(points[i][0]-x)+abs(points[i][1]-y);
+            if(distance<best){
+                best=distance;
+                answer=i;
+            }
+        }
+        return answer;
+    }
+};

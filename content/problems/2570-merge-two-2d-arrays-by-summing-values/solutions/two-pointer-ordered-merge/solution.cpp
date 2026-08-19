@@ -1,1 +1,18 @@
-class Solution { public:vector<vector<int>> mergeArrays(vector<vector<int>>& nums1,vector<vector<int>>& nums2){vector<vector<int>> answer;int first=0,second=0;while(first<(int)nums1.size()||second<(int)nums2.size()){if(second==(int)nums2.size()||(first<(int)nums1.size()&&nums1[first][0]<nums2[second][0]))answer.push_back(nums1[first++]);else if(first==(int)nums1.size()||nums2[second][0]<nums1[first][0])answer.push_back(nums2[second++]);else{answer.push_back({nums1[first][0],nums1[first][1]+nums2[second][1]});++first;++second;}}return answer;} };
+class Solution {
+    public:vector<vector<int>> mergeArrays(vector<vector<int>>& nums1,vector<vector<int>>& nums2){
+        vector<vector<int>> answer;
+        int first=0,second=0;
+        while(first<(int)nums1.size()||second<(int)nums2.size()){
+            if(second==(int)nums2.size()||(first<(int)nums1.size()&&nums1[first][0]<nums2[second][0]))answer.push_back(nums1[first++]);
+            else if(first==(int)nums1.size()||nums2[second][0]<nums1[first][0])answer.push_back(nums2[second++]);
+            else{
+                answer.push_back({
+                    nums1[first][0],nums1[first][1]+nums2[second][1]
+                });
+                ++first;
+                ++second;
+            }
+        }
+        return answer;
+    }
+};

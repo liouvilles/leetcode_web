@@ -1,1 +1,11 @@
-class Solution { public long numberOfWeeks(int[] milestones){long sum=0,maximum=0;for(int value:milestones){sum+=value;maximum=Math.max(maximum,value);}long rest=sum-maximum;return maximum<=rest+1?sum:2*rest+1;} }
+class Solution {
+    public long numberOfWeeks(int[] milestones){
+        long sum=0,maximum=0;
+        for(int value:milestones){
+            sum+=value;
+            maximum=Math.max(maximum,value);
+        }
+        long rest=sum-maximum;
+        return maximum<=rest+1?sum:2*rest+1;
+    }
+}

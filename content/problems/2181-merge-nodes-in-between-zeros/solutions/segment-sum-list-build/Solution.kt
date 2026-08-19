@@ -1,1 +1,17 @@
-class Solution { fun mergeNodes(head:ListNode?):ListNode?{val dummy=ListNode(0);var tail=dummy;var sum=0;var node=head!!.next;while(node!=null){if(node.`val`==0){tail.next=ListNode(sum);tail=tail.next!!;sum=0}else sum+=node.`val`;node=node.next};return dummy.next} }
+class Solution {
+    fun mergeNodes(head:ListNode?):ListNode?{
+        val dummy=ListNode(0);
+        var tail=dummy;
+        var sum=0;
+        var node=head!!.next;
+        while(node!=null){
+            if(node.`val`==0){
+                tail.next=ListNode(sum);
+                tail=tail.next!!;
+                sum=0
+            }else sum+=node.`val`;
+            node=node.next
+        };
+        return dummy.next
+    }
+}

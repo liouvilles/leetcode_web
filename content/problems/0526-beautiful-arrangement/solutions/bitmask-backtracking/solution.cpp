@@ -1,1 +1,16 @@
-class Solution { int n;int dfs(int position,int used){if(position>n)return 1;int count=0;for(int value=1;value<=n;++value){int bit=1<<(value-1);if(!(used&bit)&&(value%position==0||position%value==0))count+=dfs(position+1,used|bit);}return count;}public:int countArrangement(int value){n=value;return dfs(1,0);} };
+class Solution {
+    int n;
+    int dfs(int position,int used){
+        if(position>n)return 1;
+        int count=0;
+        for(int value=1;value<=n;++value){
+            int bit=1<<(value-1);
+            if(!(used&bit)&&(value%position==0||position%value==0))count+=dfs(position+1,used|bit);
+        }
+        return count;
+    }
+    public:int countArrangement(int value){
+        n=value;
+        return dfs(1,0);
+    }
+};

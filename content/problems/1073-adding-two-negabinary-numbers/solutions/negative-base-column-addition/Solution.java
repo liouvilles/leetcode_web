@@ -1,1 +1,14 @@
-class Solution { public int[] addNegabinary(int[] arr1,int[] arr2){List<Integer> reversed=new ArrayList<>();int i=arr1.length-1,j=arr2.length-1,carry=0;while(i>=0||j>=0||carry!=0){int sum=carry+(i>=0?arr1[i--]:0)+(j>=0?arr2[j--]:0),bit=sum&1;reversed.add(bit);carry=-(sum-bit)/2;}while(reversed.size()>1&&reversed.get(reversed.size()-1)==0)reversed.remove(reversed.size()-1);int[] answer=new int[reversed.size()];for(int k=0;k<answer.length;k++)answer[k]=reversed.get(answer.length-1-k);return answer;} }
+class Solution {
+    public int[] addNegabinary(int[] arr1,int[] arr2){
+        List<Integer> reversed=new ArrayList<>();
+        int i=arr1.length-1,j=arr2.length-1,carry=0;
+        while(i>=0||j>=0||carry!=0){
+            int sum=carry+(i>=0?arr1[i--]:0)+(j>=0?arr2[j--]:0),bit=sum&1;
+            reversed.add(bit);
+            carry=-(sum-bit)/2;
+        }while(reversed.size()>1&&reversed.get(reversed.size()-1)==0)reversed.remove(reversed.size()-1);
+        int[] answer=new int[reversed.size()];
+        for(int k=0;k<answer.length;k++)answer[k]=reversed.get(answer.length-1-k);
+        return answer;
+    }
+}

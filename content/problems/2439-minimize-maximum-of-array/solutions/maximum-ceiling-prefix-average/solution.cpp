@@ -1,1 +1,11 @@
-class Solution { public:int minimizeArrayValue(vector<int>& nums){long long prefix=0;int answer=0;for(int i=0;i<(int)nums.size();++i){prefix+=nums[i];answer=max(answer,(int)((prefix+i)/(i+1)));}return answer;} };
+class Solution {
+    public:int minimizeArrayValue(vector<int>& nums){
+        long long prefix=0;
+        int answer=0;
+        for(int i=0;i<(int)nums.size();++i){
+            prefix+=nums[i];
+            answer=max(answer,(int)((prefix+i)/(i+1)));
+        }
+        return answer;
+    }
+};

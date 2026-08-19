@@ -1,1 +1,12 @@
-class Solution { fun countOperations(num1Value:Int,num2Value:Int):Int{var num1=num1Value;var num2=num2Value;var operations=0;while(num1>0&&num2>0){if(num1>=num2)num1-=num2 else num2-=num1;operations++};return operations} }
+class Solution {
+    fun countOperations(num1Value:Int,num2Value:Int):Int{
+        var num1=num1Value;
+        var num2=num2Value;
+        var operations=0;
+        while(num1>0&&num2>0){
+            if(num1>=num2)num1-=num2 else num2-=num1;
+            operations++
+        };
+        return operations
+    }
+}

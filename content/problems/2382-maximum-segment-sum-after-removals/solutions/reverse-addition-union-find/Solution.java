@@ -1,1 +1,34 @@
-class Solution { int[] parent;long[] sum;private int find(int x){return parent[x]==x?x:(parent[x]=find(parent[x]));}private long union(int a,int b){a=find(a);b=find(b);if(a==b)return sum[a];parent[b]=a;sum[a]+=sum[b];return sum[a];}public long[] maximumSegmentSum(int[] nums,int[] removeQueries){int n=nums.length;parent=new int[n];sum=new long[n];boolean[] active=new boolean[n];long[] answer=new long[n];long maximum=0;for(int i=n-1;i>=0;i--){answer[i]=maximum;int index=removeQueries[i];parent[index]=index;sum[index]=nums[index];active[index]=true;if(index>0&&active[index-1])union(index,index-1);if(index+1<n&&active[index+1])union(index,index+1);maximum=Math.max(maximum,sum[find(index)]);}return answer;} }
+class Solution {
+    int[] parent;
+    long[] sum;
+    private int find(int x){
+        return parent[x]==x?x:(parent[x]=find(parent[x]));
+    }
+    private long union(int a,int b){
+        a=find(a);
+        b=find(b);
+        if(a==b)return sum[a];
+        parent[b]=a;
+        sum[a]+=sum[b];
+        return sum[a];
+    }
+    public long[] maximumSegmentSum(int[] nums,int[] removeQueries){
+        int n=nums.length;
+        parent=new int[n];
+        sum=new long[n];
+        boolean[] active=new boolean[n];
+        long[] answer=new long[n];
+        long maximum=0;
+        for(int i=n-1;i>=0;i--){
+            answer[i]=maximum;
+            int index=removeQueries[i];
+            parent[index]=index;
+            sum[index]=nums[index];
+            active[index]=true;
+            if(index>0&&active[index-1])union(index,index-1);
+            if(index+1<n&&active[index+1])union(index,index+1);
+            maximum=Math.max(maximum,sum[find(index)]);
+        }
+        return answer;
+    }
+}

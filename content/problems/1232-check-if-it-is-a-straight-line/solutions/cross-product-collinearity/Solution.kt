@@ -1,1 +1,12 @@
-class Solution { fun checkStraightLine(coordinates:Array<IntArray>):Boolean{val dx=(coordinates[1][0]-coordinates[0][0]).toLong();val dy=(coordinates[1][1]-coordinates[0][1]).toLong();for(i in 2 until coordinates.size){val x=(coordinates[i][0]-coordinates[0][0]).toLong();val y=(coordinates[i][1]-coordinates[0][1]).toLong();if(dx*y!=dy*x)return false};return true} }
+class Solution {
+    fun checkStraightLine(coordinates:Array<IntArray>):Boolean{
+        val dx=(coordinates[1][0]-coordinates[0][0]).toLong();
+        val dy=(coordinates[1][1]-coordinates[0][1]).toLong();
+        for(i in 2 until coordinates.size){
+            val x=(coordinates[i][0]-coordinates[0][0]).toLong();
+            val y=(coordinates[i][1]-coordinates[0][1]).toLong();
+            if(dx*y!=dy*x)return false
+        };
+        return true
+    }
+}

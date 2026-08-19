@@ -1,1 +1,39 @@
-class Solution { bool isPrime(int value){if(value<2)return false;if(value%2==0)return value==2;for(int divisor=3;divisor*divisor<=value;divisor+=2)if(value%divisor==0)return false;return true;}public:int mostFrequentPrime(vector<vector<int>>& mat){int directions[3]={-1,0,1};unordered_map<int,int> frequency;unordered_map<int,bool> primeCache;int rows=mat.size(),cols=mat[0].size(),answer=-1,bestCount=0;for(int startRow=0;startRow<rows;++startRow)for(int startCol=0;startCol<cols;++startCol)for(int rowStep:directions)for(int colStep:directions){if(rowStep==0&&colStep==0)continue;int row=startRow,col=startCol,value=0;while(row>=0&&row<rows&&col>=0&&col<cols){value=value*10+mat[row][col];if(value>10){auto found=primeCache.find(value);bool prime;if(found==primeCache.end())prime=primeCache[value]=isPrime(value);else prime=found->second;if(prime){int count=++frequency[value];if(count>bestCount||(count==bestCount&&value>answer)){bestCount=count;answer=value;}}}row+=rowStep;col+=colStep;}}return answer;} };
+class Solution {
+    bool isPrime(int value){
+        if(value<2)return false;
+        if(value%2==0)return value==2;
+        for(int divisor=3;divisor*divisor<=value;divisor+=2)if(value%divisor==0)return false;
+        return true;
+    }
+    public:int mostFrequentPrime(vector<vector<int>>& mat){
+        int directions[3]={
+            -1,0,1
+        };
+        unordered_map<int,int> frequency;
+        unordered_map<int,bool> primeCache;
+        int rows=mat.size(),cols=mat[0].size(),answer=-1,bestCount=0;
+        for(int startRow=0;startRow<rows;++startRow)for(int startCol=0;startCol<cols;++startCol)for(int rowStep:directions)for(int colStep:directions){
+            if(rowStep==0&&colStep==0)continue;
+            int row=startRow,col=startCol,value=0;
+            while(row>=0&&row<rows&&col>=0&&col<cols){
+                value=value*10+mat[row][col];
+                if(value>10){
+                    auto found=primeCache.find(value);
+                    bool prime;
+                    if(found==primeCache.end())prime=primeCache[value]=isPrime(value);
+                    else prime=found->second;
+                    if(prime){
+                        int count=++frequency[value];
+                        if(count>bestCount||(count==bestCount&&value>answer)){
+                            bestCount=count;
+                            answer=value;
+                        }
+                    }
+                }
+                row+=rowStep;
+                col+=colStep;
+            }
+        }
+        return answer;
+    }
+};

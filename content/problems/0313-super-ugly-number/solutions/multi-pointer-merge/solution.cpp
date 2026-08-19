@@ -1,1 +1,13 @@
-class Solution { public: int nthSuperUglyNumber(int n,vector<int>& primes){vector<int> ugly(n),pointers(primes.size());ugly[0]=1;for(int index=1;index<n;++index){long long next=LLONG_MAX;for(int i=0;i<(int)primes.size();++i)next=min(next,1LL*ugly[pointers[i]]*primes[i]);ugly[index]=next;for(int i=0;i<(int)primes.size();++i)if(1LL*ugly[pointers[i]]*primes[i]==next)++pointers[i];}return ugly.back();} };
+class Solution {
+    public: int nthSuperUglyNumber(int n,vector<int>& primes){
+        vector<int> ugly(n),pointers(primes.size());
+        ugly[0]=1;
+        for(int index=1;index<n;++index){
+            long long next=LLONG_MAX;
+            for(int i=0;i<(int)primes.size();++i)next=min(next,1LL*ugly[pointers[i]]*primes[i]);
+            ugly[index]=next;
+            for(int i=0;i<(int)primes.size();++i)if(1LL*ugly[pointers[i]]*primes[i]==next)++pointers[i];
+        }
+        return ugly.back();
+    }
+};

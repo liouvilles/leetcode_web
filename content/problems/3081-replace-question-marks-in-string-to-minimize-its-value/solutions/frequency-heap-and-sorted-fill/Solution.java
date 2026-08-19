@@ -1,1 +1,24 @@
-class Solution { public String minimizeStringValue(String s){int[] frequency=new int[26];int missing=0;for(char letter:s.toCharArray())if(letter=='?')missing++;else frequency[letter-'a']++;PriorityQueue<int[]> queue=new PriorityQueue<>((a,b)->a[0]!=b[0]?Integer.compare(a[0],b[0]):Integer.compare(a[1],b[1]));for(int letter=0;letter<26;letter++)queue.add(new int[]{frequency[letter],letter});char[] replacements=new char[missing];for(int i=0;i<missing;i++){int[] entry=queue.poll();replacements[i]=(char)('a'+entry[1]);entry[0]++;queue.add(entry);}Arrays.sort(replacements);char[] answer=s.toCharArray();int index=0;for(int i=0;i<answer.length;i++)if(answer[i]=='?')answer[i]=replacements[index++];return new String(answer);} }
+class Solution {
+    public String minimizeStringValue(String s){
+        int[] frequency=new int[26];
+        int missing=0;
+        for(char letter:s.toCharArray())if(letter=='?')missing++;
+        else frequency[letter-'a']++;
+        PriorityQueue<int[]> queue=new PriorityQueue<>((a,b)->a[0]!=b[0]?Integer.compare(a[0],b[0]):Integer.compare(a[1],b[1]));
+        for(int letter=0;letter<26;letter++)queue.add(new int[]{
+            frequency[letter],letter
+        });
+        char[] replacements=new char[missing];
+        for(int i=0;i<missing;i++){
+            int[] entry=queue.poll();
+            replacements[i]=(char)('a'+entry[1]);
+            entry[0]++;
+            queue.add(entry);
+        }
+        Arrays.sort(replacements);
+        char[] answer=s.toCharArray();
+        int index=0;
+        for(int i=0;i<answer.length;i++)if(answer[i]=='?')answer[i]=replacements[index++];
+        return new String(answer);
+    }
+}

@@ -1,1 +1,19 @@
-class Solution { fun maxNonDecreasingLength(nums1:IntArray,nums2:IntArray):Int{var endingFirst=1;var endingSecond=1;var answer=1;for(i in 1 until nums1.size){var nextFirst=1;var nextSecond=1;if(nums1[i]>=nums1[i-1])nextFirst=maxOf(nextFirst,endingFirst+1);if(nums1[i]>=nums2[i-1])nextFirst=maxOf(nextFirst,endingSecond+1);if(nums2[i]>=nums1[i-1])nextSecond=maxOf(nextSecond,endingFirst+1);if(nums2[i]>=nums2[i-1])nextSecond=maxOf(nextSecond,endingSecond+1);endingFirst=nextFirst;endingSecond=nextSecond;answer=maxOf(answer,endingFirst,endingSecond)};return answer} }
+class Solution {
+    fun maxNonDecreasingLength(nums1:IntArray,nums2:IntArray):Int{
+        var endingFirst=1;
+        var endingSecond=1;
+        var answer=1;
+        for(i in 1 until nums1.size){
+            var nextFirst=1;
+            var nextSecond=1;
+            if(nums1[i]>=nums1[i-1])nextFirst=maxOf(nextFirst,endingFirst+1);
+            if(nums1[i]>=nums2[i-1])nextFirst=maxOf(nextFirst,endingSecond+1);
+            if(nums2[i]>=nums1[i-1])nextSecond=maxOf(nextSecond,endingFirst+1);
+            if(nums2[i]>=nums2[i-1])nextSecond=maxOf(nextSecond,endingSecond+1);
+            endingFirst=nextFirst;
+            endingSecond=nextSecond;
+            answer=maxOf(answer,endingFirst,endingSecond)
+        };
+        return answer
+    }
+}

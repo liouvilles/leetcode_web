@@ -1,1 +1,23 @@
-class Solution { private String text;private int answer=0;private void dfs(int index,Set<String> used){if(index==text.length()){answer=Math.max(answer,used.size());return;}if(used.size()+text.length()-index<=answer)return;for(int end=index+1;end<=text.length();end++){String part=text.substring(index,end);if(used.add(part)){dfs(end,used);used.remove(part);}}}public int maxUniqueSplit(String s){text=s;dfs(0,new HashSet<>());return answer;} }
+class Solution {
+    private String text;
+    private int answer=0;
+    private void dfs(int index,Set<String> used){
+        if(index==text.length()){
+            answer=Math.max(answer,used.size());
+            return;
+        }
+        if(used.size()+text.length()-index<=answer)return;
+        for(int end=index+1;end<=text.length();end++){
+            String part=text.substring(index,end);
+            if(used.add(part)){
+                dfs(end,used);
+                used.remove(part);
+            }
+        }
+    }
+    public int maxUniqueSplit(String s){
+        text=s;
+        dfs(0,new HashSet<>());
+        return answer;
+    }
+}

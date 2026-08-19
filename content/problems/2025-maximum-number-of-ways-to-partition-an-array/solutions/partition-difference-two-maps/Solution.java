@@ -1,1 +1,28 @@
-class Solution { private int get(Map<Long,Integer> map,long key){return map.getOrDefault(key,0);}public int waysToPartition(int[] nums,int k){long total=0;for(int value:nums)total+=value;long[] difference=new long[nums.length];Map<Long,Integer> left=new HashMap<>(),right=new HashMap<>();long prefix=0;for(int pivot=1;pivot<nums.length;pivot++){prefix+=nums[pivot-1];difference[pivot]=2*prefix-total;right.merge(difference[pivot],1,Integer::sum);}int answer=get(right,0);for(int index=0;index<nums.length;index++){if(index>0){long value=difference[index];right.put(value,right.get(value)-1);left.merge(value,1,Integer::sum);}long delta=(long)k-nums[index];answer=Math.max(answer,get(left,delta)+get(right,-delta));}return answer;} }
+class Solution {
+    private int get(Map<Long,Integer> map,long key){
+        return map.getOrDefault(key,0);
+    }
+    public int waysToPartition(int[] nums,int k){
+        long total=0;
+        for(int value:nums)total+=value;
+        long[] difference=new long[nums.length];
+        Map<Long,Integer> left=new HashMap<>(),right=new HashMap<>();
+        long prefix=0;
+        for(int pivot=1;pivot<nums.length;pivot++){
+            prefix+=nums[pivot-1];
+            difference[pivot]=2*prefix-total;
+            right.merge(difference[pivot],1,Integer::sum);
+        }
+        int answer=get(right,0);
+        for(int index=0;index<nums.length;index++){
+            if(index>0){
+                long value=difference[index];
+                right.put(value,right.get(value)-1);
+                left.merge(value,1,Integer::sum);
+            }
+            long delta=(long)k-nums[index];
+            answer=Math.max(answer,get(left,delta)+get(right,-delta));
+        }
+        return answer;
+    }
+}

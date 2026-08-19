@@ -1,1 +1,35 @@
-class Solution { private fun matches(line:CharArray,start:Int,end:Int,word:String):Boolean{if(end-start!=word.length)return false;var forward=true;var backward=true;for(i in word.indices){val value=line[start+i];if(value!=' '&&value!=word[i])forward=false;if(value!=' '&&value!=word[word.lastIndex-i])backward=false};return forward||backward};fun placeWordInCrossword(board:Array<CharArray>,word:String):Boolean{val rows=board.size;val cols=board[0].size;for(row in 0 until rows){var start=0;for(col in 0..cols)if(col==cols||board[row][col]=='#'){if(matches(board[row],start,col,word))return true;start=col+1}};for(col in 0 until cols){val line=CharArray(rows){board[it][col]};var start=0;for(row in 0..rows)if(row==rows||line[row]=='#'){if(matches(line,start,row,word))return true;start=row+1}};return false} }
+class Solution {
+    private fun matches(line:CharArray,start:Int,end:Int,word:String):Boolean{
+        if(end-start!=word.length)return false;
+        var forward=true;
+        var backward=true;
+        for(i in word.indices){
+            val value=line[start+i];
+            if(value!=' '&&value!=word[i])forward=false;
+            if(value!=' '&&value!=word[word.lastIndex-i])backward=false
+        };
+        return forward||backward
+    };
+    fun placeWordInCrossword(board:Array<CharArray>,word:String):Boolean{
+        val rows=board.size;
+        val cols=board[0].size;
+        for(row in 0 until rows){
+            var start=0;
+            for(col in 0..cols)if(col==cols||board[row][col]=='#'){
+                if(matches(board[row],start,col,word))return true;
+                start=col+1
+            }
+        };
+        for(col in 0 until cols){
+            val line=CharArray(rows){
+                board[it][col]
+            };
+            var start=0;
+            for(row in 0..rows)if(row==rows||line[row]=='#'){
+                if(matches(line,start,row,word))return true;
+                start=row+1
+            }
+        };
+        return false
+    }
+}

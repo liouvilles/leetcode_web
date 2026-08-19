@@ -1,1 +1,22 @@
-class Solution { public:int minMovesToMakePalindrome(string s){int left=0,right=s.size()-1,moves=0;while(left<right){int match=right;while(match>left&&s[match]!=s[left])--match;if(match==left){swap(s[left],s[left+1]);++moves;}else{while(match<right){swap(s[match],s[match+1]);++match;++moves;}++left;--right;}}return moves;} };
+class Solution {
+    public:int minMovesToMakePalindrome(string s){
+        int left=0,right=s.size()-1,moves=0;
+        while(left<right){
+            int match=right;
+            while(match>left&&s[match]!=s[left])--match;
+            if(match==left){
+                swap(s[left],s[left+1]);
+                ++moves;
+            }else{
+                while(match<right){
+                    swap(s[match],s[match+1]);
+                    ++match;
+                    ++moves;
+                }
+                ++left;
+                --right;
+            }
+        }
+        return moves;
+    }
+};

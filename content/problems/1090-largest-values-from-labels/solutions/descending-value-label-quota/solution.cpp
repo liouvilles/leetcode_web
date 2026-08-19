@@ -1,1 +1,17 @@
-class Solution { public: int largestValsFromLabels(vector<int>& values,vector<int>& labels,int numWanted,int useLimit){vector<int> order(values.size());iota(order.begin(),order.end(),0);sort(order.begin(),order.end(),[&](int a,int b){return values[a]>values[b];});unordered_map<int,int> used;int sum=0,selected=0;for(int index:order)if(used[labels[index]]<useLimit){sum+=values[index];++used[labels[index]];if(++selected==numWanted)break;}return sum;} };
+class Solution {
+    public: int largestValsFromLabels(vector<int>& values,vector<int>& labels,int numWanted,int useLimit){
+        vector<int> order(values.size());
+        iota(order.begin(),order.end(),0);
+        sort(order.begin(),order.end(),[&](int a,int b){
+            return values[a]>values[b];
+        });
+        unordered_map<int,int> used;
+        int sum=0,selected=0;
+        for(int index:order)if(used[labels[index]]<useLimit){
+            sum+=values[index];
+            ++used[labels[index]];
+            if(++selected==numWanted)break;
+        }
+        return sum;
+    }
+};

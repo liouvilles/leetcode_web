@@ -1,1 +1,10 @@
-class Solution { public String[] uncommonFromSentences(String s1,String s2){String[] words=(s1+" "+s2).split(" ");Map<String,Integer> frequency=new HashMap<>();for(String word:words)frequency.merge(word,1,Integer::sum);List<String> answer=new ArrayList<>();for(String word:words)if(frequency.get(word)==1)answer.add(word);return answer.toArray(new String[0]);} }
+class Solution {
+    public String[] uncommonFromSentences(String s1,String s2){
+        String[] words=(s1+" "+s2).split(" ");
+        Map<String,Integer> frequency=new HashMap<>();
+        for(String word:words)frequency.merge(word,1,Integer::sum);
+        List<String> answer=new ArrayList<>();
+        for(String word:words)if(frequency.get(word)==1)answer.add(word);
+        return answer.toArray(new String[0]);
+    }
+}

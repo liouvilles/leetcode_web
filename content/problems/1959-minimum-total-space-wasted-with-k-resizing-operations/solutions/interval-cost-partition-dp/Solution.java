@@ -1,1 +1,22 @@
-class Solution { public int minSpaceWastedKResizing(int[] nums,int k){int n=nums.length;int[][] waste=new int[n][n];for(int left=0;left<n;left++){int maximum=0,sum=0;for(int right=left;right<n;right++){maximum=Math.max(maximum,nums[right]);sum+=nums[right];waste[left][right]=maximum*(right-left+1)-sum;}}int infinity=1_000_000_000;int[][] dp=new int[k+2][n+1];for(int[] row:dp)Arrays.fill(row,infinity);dp[0][0]=0;int answer=infinity;for(int groups=1;groups<=k+1;groups++)for(int end=1;end<=n;end++)for(int start=0;start<end;start++)if(dp[groups-1][start]<infinity)dp[groups][end]=Math.min(dp[groups][end],dp[groups-1][start]+waste[start][end-1]);for(int groups=1;groups<=k+1;groups++)answer=Math.min(answer,dp[groups][n]);return answer;} }
+class Solution {
+    public int minSpaceWastedKResizing(int[] nums,int k){
+        int n=nums.length;
+        int[][] waste=new int[n][n];
+        for(int left=0;left<n;left++){
+            int maximum=0,sum=0;
+            for(int right=left;right<n;right++){
+                maximum=Math.max(maximum,nums[right]);
+                sum+=nums[right];
+                waste[left][right]=maximum*(right-left+1)-sum;
+            }
+        }
+        int infinity=1_000_000_000;
+        int[][] dp=new int[k+2][n+1];
+        for(int[] row:dp)Arrays.fill(row,infinity);
+        dp[0][0]=0;
+        int answer=infinity;
+        for(int groups=1;groups<=k+1;groups++)for(int end=1;end<=n;end++)for(int start=0;start<end;start++)if(dp[groups-1][start]<infinity)dp[groups][end]=Math.min(dp[groups][end],dp[groups-1][start]+waste[start][end-1]);
+        for(int groups=1;groups<=k+1;groups++)answer=Math.min(answer,dp[groups][n]);
+        return answer;
+    }
+}

@@ -1,1 +1,22 @@
-class Solution { public:TreeNode* reverseOddLevels(TreeNode* root){queue<TreeNode*> pending;pending.push(root);int level=0;while(!pending.empty()){vector<TreeNode*> nodes;for(int size=pending.size();size--;) {auto node=pending.front();pending.pop();nodes.push_back(node);if(node->left){pending.push(node->left);pending.push(node->right);}}if(level%2)for(int left=0,right=nodes.size()-1;left<right;++left,--right)swap(nodes[left]->val,nodes[right]->val);++level;}return root;} };
+class Solution {
+    public:TreeNode* reverseOddLevels(TreeNode* root){
+        queue<TreeNode*> pending;
+        pending.push(root);
+        int level=0;
+        while(!pending.empty()){
+            vector<TreeNode*> nodes;
+            for(int size=pending.size();size--;) {
+                auto node=pending.front();
+                pending.pop();
+                nodes.push_back(node);
+                if(node->left){
+                    pending.push(node->left);
+                    pending.push(node->right);
+                }
+            }
+            if(level%2)for(int left=0,right=nodes.size()-1;left<right;++left,--right)swap(nodes[left]->val,nodes[right]->val);
+            ++level;
+        }
+        return root;
+    }
+};

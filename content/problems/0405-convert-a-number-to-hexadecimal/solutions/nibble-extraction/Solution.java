@@ -1,1 +1,12 @@
-class Solution { public String toHex(int num){if(num==0)return "0";char[] digits="0123456789abcdef".toCharArray();StringBuilder answer=new StringBuilder();while(num!=0){answer.append(digits[num&15]);num>>>=4;}return answer.reverse().toString();} }
+class Solution {
+    public String toHex(int num){
+        if(num==0)return "0";
+        char[] digits="0123456789abcdef".toCharArray();
+        StringBuilder answer=new StringBuilder();
+        while(num!=0){
+            answer.append(digits[num&15]);
+            num>>>=4;
+        }
+        return answer.reverse().toString();
+    }
+}

@@ -1,1 +1,15 @@
-class Solution { fun canReorderDoubled(arr:IntArray):Boolean{val count=mutableMapOf<Int,Int>();for(x in arr)count[x]=(count[x]?:0)+1;for(x in arr.toTypedArray().sortedBy{kotlin.math.abs(it)}){if(count[x]==0)continue;if((count[2*x]?:0)==0)return false;count[x]=count[x]!!-1;count[2*x]=count[2*x]!!-1};return true} }
+class Solution {
+    fun canReorderDoubled(arr:IntArray):Boolean{
+        val count=mutableMapOf<Int,Int>();
+        for(x in arr)count[x]=(count[x]?:0)+1;
+        for(x in arr.toTypedArray().sortedBy{
+            kotlin.math.abs(it)
+        }){
+            if(count[x]==0)continue;
+            if((count[2*x]?:0)==0)return false;
+            count[x]=count[x]!!-1;
+            count[2*x]=count[2*x]!!-1
+        };
+        return true
+    }
+}

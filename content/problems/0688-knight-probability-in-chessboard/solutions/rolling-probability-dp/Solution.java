@@ -1,1 +1,36 @@
-class Solution { public double knightProbability(int n,int k,int row,int column){double[][] dp=new double[n][n];dp[row][column]=1;int[][] moves={{1,2},{1,-2},{-1,2},{-1,-2},{2,1},{2,-1},{-2,1},{-2,-1}};while(k-->0){double[][] next=new double[n][n];for(int r=0;r<n;r++)for(int c=0;c<n;c++)for(int[] move:moves){int nr=r+move[0],nc=c+move[1];if(nr>=0&&nr<n&&nc>=0&&nc<n)next[nr][nc]+=dp[r][c]/8;}dp=next;}double answer=0;for(double[] line:dp)for(double probability:line)answer+=probability;return answer;} }
+class Solution {
+    public double knightProbability(int n,int k,int row,int column){
+        double[][] dp=new double[n][n];
+        dp[row][column]=1;
+        int[][] moves={
+            {
+                1,2
+            },{
+                1,-2
+            },{
+                -1,2
+            },{
+                -1,-2
+            },{
+                2,1
+            },{
+                2,-1
+            },{
+                -2,1
+            },{
+                -2,-1
+            }
+        };
+        while(k-->0){
+            double[][] next=new double[n][n];
+            for(int r=0;r<n;r++)for(int c=0;c<n;c++)for(int[] move:moves){
+                int nr=r+move[0],nc=c+move[1];
+                if(nr>=0&&nr<n&&nc>=0&&nc<n)next[nr][nc]+=dp[r][c]/8;
+            }
+            dp=next;
+        }
+        double answer=0;
+        for(double[] line:dp)for(double probability:line)answer+=probability;
+        return answer;
+    }
+}

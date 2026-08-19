@@ -1,1 +1,23 @@
-class Solution { public List<Integer> busiestServers(int k,int[] arrival,int[] load){TreeSet<Integer> available=new TreeSet<>();for(int server=0;server<k;server++)available.add(server);PriorityQueue<long[]> busy=new PriorityQueue<>(Comparator.comparingLong(state->state[0]));int[] count=new int[k];for(int i=0;i<arrival.length;i++){while(!busy.isEmpty()&&busy.peek()[0]<=arrival[i])available.add((int)busy.poll()[1]);if(available.isEmpty())continue;Integer server=available.ceiling(i%k);if(server==null)server=available.first();available.remove(server);count[server]++;busy.offer(new long[]{(long)arrival[i]+load[i],server});}int maximum=Arrays.stream(count).max().getAsInt();List<Integer> answer=new ArrayList<>();for(int server=0;server<k;server++)if(count[server]==maximum)answer.add(server);return answer;} }
+class Solution {
+    public List<Integer> busiestServers(int k,int[] arrival,int[] load){
+        TreeSet<Integer> available=new TreeSet<>();
+        for(int server=0;server<k;server++)available.add(server);
+        PriorityQueue<long[]> busy=new PriorityQueue<>(Comparator.comparingLong(state->state[0]));
+        int[] count=new int[k];
+        for(int i=0;i<arrival.length;i++){
+            while(!busy.isEmpty()&&busy.peek()[0]<=arrival[i])available.add((int)busy.poll()[1]);
+            if(available.isEmpty())continue;
+            Integer server=available.ceiling(i%k);
+            if(server==null)server=available.first();
+            available.remove(server);
+            count[server]++;
+            busy.offer(new long[]{
+                (long)arrival[i]+load[i],server
+            });
+        }
+        int maximum=Arrays.stream(count).max().getAsInt();
+        List<Integer> answer=new ArrayList<>();
+        for(int server=0;server<k;server++)if(count[server]==maximum)answer.add(server);
+        return answer;
+    }
+}

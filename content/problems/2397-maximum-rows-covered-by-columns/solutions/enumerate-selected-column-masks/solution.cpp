@@ -1,1 +1,14 @@
-class Solution { public:int maximumRows(vector<vector<int>>& matrix,int numSelect){int columns=matrix[0].size();vector<int> masks(matrix.size());for(int r=0;r<(int)matrix.size();++r)for(int c=0;c<columns;++c)if(matrix[r][c])masks[r]|=1<<c;int answer=0;for(int selected=0;selected<(1<<columns);++selected)if(__builtin_popcount(selected)==numSelect){int covered=0;for(int mask:masks)covered+=(mask&selected)==mask;answer=max(answer,covered);}return answer;} };
+class Solution {
+    public:int maximumRows(vector<vector<int>>& matrix,int numSelect){
+        int columns=matrix[0].size();
+        vector<int> masks(matrix.size());
+        for(int r=0;r<(int)matrix.size();++r)for(int c=0;c<columns;++c)if(matrix[r][c])masks[r]|=1<<c;
+        int answer=0;
+        for(int selected=0;selected<(1<<columns);++selected)if(__builtin_popcount(selected)==numSelect){
+            int covered=0;
+            for(int mask:masks)covered+=(mask&selected)==mask;
+            answer=max(answer,covered);
+        }
+        return answer;
+    }
+};

@@ -1,1 +1,24 @@
-class Solution { array<int,26> count(string& word){array<int,26> result{};for(char c:word)++result[c-'a'];return result;}public:vector<string> wordSubsets(vector<string>& words1,vector<string>& words2){array<int,26> requirement{};for(string& word:words2){auto frequencies=count(word);for(int i=0;i<26;++i)requirement[i]=max(requirement[i],frequencies[i]);}vector<string> answer;for(string& word:words1){auto frequencies=count(word);bool valid=true;for(int i=0;i<26;++i)if(frequencies[i]<requirement[i])valid=false;if(valid)answer.push_back(word);}return answer;} };
+class Solution {
+    array<int,26> count(string& word){
+        array<int,26> result{
+        };
+        for(char c:word)++result[c-'a'];
+        return result;
+    }
+    public:vector<string> wordSubsets(vector<string>& words1,vector<string>& words2){
+        array<int,26> requirement{
+        };
+        for(string& word:words2){
+            auto frequencies=count(word);
+            for(int i=0;i<26;++i)requirement[i]=max(requirement[i],frequencies[i]);
+        }
+        vector<string> answer;
+        for(string& word:words1){
+            auto frequencies=count(word);
+            bool valid=true;
+            for(int i=0;i<26;++i)if(frequencies[i]<requirement[i])valid=false;
+            if(valid)answer.push_back(word);
+        }
+        return answer;
+    }
+};

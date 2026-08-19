@@ -1,1 +1,22 @@
-class Solution { public int kIncreasing(int[] arr,int k){int answer=0;for(int start=0;start<k;start++){List<Integer> tails=new ArrayList<>();int length=0;for(int i=start;i<arr.length;i+=k){length++;int left=0,right=tails.size();while(left<right){int middle=(left+right)/2;if(tails.get(middle)<=arr[i])left=middle+1;else right=middle;}if(left==tails.size())tails.add(arr[i]);else tails.set(left,arr[i]);}answer+=length-tails.size();}return answer;} }
+class Solution {
+    public int kIncreasing(int[] arr,int k){
+        int answer=0;
+        for(int start=0;start<k;start++){
+            List<Integer> tails=new ArrayList<>();
+            int length=0;
+            for(int i=start;i<arr.length;i+=k){
+                length++;
+                int left=0,right=tails.size();
+                while(left<right){
+                    int middle=(left+right)/2;
+                    if(tails.get(middle)<=arr[i])left=middle+1;
+                    else right=middle;
+                }
+                if(left==tails.size())tails.add(arr[i]);
+                else tails.set(left,arr[i]);
+            }
+            answer+=length-tails.size();
+        }
+        return answer;
+    }
+}

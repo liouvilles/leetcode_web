@@ -1,1 +1,10 @@
-class Solution { fun containsNearbyDuplicate(nums:IntArray,k:Int):Boolean{val last=hashMapOf<Int,Int>();for(i in nums.indices){val previous=last.put(nums[i],i);if(previous!=null&&i-previous<=k)return true};return false} }
+class Solution {
+    fun containsNearbyDuplicate(nums:IntArray,k:Int):Boolean{
+        val last=hashMapOf<Int,Int>();
+        for(i in nums.indices){
+            val previous=last.put(nums[i],i);
+            if(previous!=null&&i-previous<=k)return true
+        };
+        return false
+    }
+}

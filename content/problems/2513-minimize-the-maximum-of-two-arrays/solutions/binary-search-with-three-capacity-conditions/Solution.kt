@@ -1,1 +1,23 @@
-class Solution { private fun gcd(aInput:Long,bInput:Long):Long{var a=aInput;var b=bInput;while(b!=0L){val remainder=a%b;a=b;b=remainder};return a}fun minimizeSet(divisor1:Int,divisor2:Int,uniqueCnt1:Int,uniqueCnt2:Int):Int{val lcm=divisor1.toLong()/gcd(divisor1.toLong(),divisor2.toLong())*divisor2;var left=1L;var right=2_000_000_000L;while(left<right){val middle=(left+right)/2;val valid=middle-middle/divisor1>=uniqueCnt1&&middle-middle/divisor2>=uniqueCnt2&&middle-middle/lcm>=uniqueCnt1+uniqueCnt2;if(valid)right=middle else left=middle+1};return left.toInt()} }
+class Solution {
+    private fun gcd(aInput:Long,bInput:Long):Long{
+        var a=aInput;
+        var b=bInput;
+        while(b!=0L){
+            val remainder=a%b;
+            a=b;
+            b=remainder
+        };
+        return a
+    }
+    fun minimizeSet(divisor1:Int,divisor2:Int,uniqueCnt1:Int,uniqueCnt2:Int):Int{
+        val lcm=divisor1.toLong()/gcd(divisor1.toLong(),divisor2.toLong())*divisor2;
+        var left=1L;
+        var right=2_000_000_000L;
+        while(left<right){
+            val middle=(left+right)/2;
+            val valid=middle-middle/divisor1>=uniqueCnt1&&middle-middle/divisor2>=uniqueCnt2&&middle-middle/lcm>=uniqueCnt1+uniqueCnt2;
+            if(valid)right=middle else left=middle+1
+        };
+        return left.toInt()
+    }
+}

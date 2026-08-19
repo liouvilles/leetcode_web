@@ -1,1 +1,17 @@
-class Solution { public int lenLongestFibSubseq(int[] arr){Map<Integer,Integer> index=new HashMap<>();for(int i=0;i<arr.length;i++)index.put(arr[i],i);int[][] dp=new int[arr.length][arr.length];int answer=0;for(int i=0;i<arr.length;i++)for(int j=0;j<i;j++){int previous=arr[i]-arr[j];Integer k=index.get(previous);if(previous<arr[j]&&k!=null){dp[j][i]=Math.max(3,dp[k][j]+1);answer=Math.max(answer,dp[j][i]);}}return answer;} }
+class Solution {
+    public int lenLongestFibSubseq(int[] arr){
+        Map<Integer,Integer> index=new HashMap<>();
+        for(int i=0;i<arr.length;i++)index.put(arr[i],i);
+        int[][] dp=new int[arr.length][arr.length];
+        int answer=0;
+        for(int i=0;i<arr.length;i++)for(int j=0;j<i;j++){
+            int previous=arr[i]-arr[j];
+            Integer k=index.get(previous);
+            if(previous<arr[j]&&k!=null){
+                dp[j][i]=Math.max(3,dp[k][j]+1);
+                answer=Math.max(answer,dp[j][i]);
+            }
+        }
+        return answer;
+    }
+}

@@ -1,1 +1,13 @@
-class Solution { public int largestSubmatrix(int[][] matrix){int cols=matrix[0].length,answer=0;int[] heights=new int[cols];for(int[] row:matrix){for(int col=0;col<cols;col++)heights[col]=row[col]==0?0:heights[col]+1;int[] sorted=heights.clone();Arrays.sort(sorted);for(int index=0;index<cols;index++)answer=Math.max(answer,sorted[index]*(cols-index));}return answer;} }
+class Solution {
+    public int largestSubmatrix(int[][] matrix){
+        int cols=matrix[0].length,answer=0;
+        int[] heights=new int[cols];
+        for(int[] row:matrix){
+            for(int col=0;col<cols;col++)heights[col]=row[col]==0?0:heights[col]+1;
+            int[] sorted=heights.clone();
+            Arrays.sort(sorted);
+            for(int index=0;index<cols;index++)answer=Math.max(answer,sorted[index]*(cols-index));
+        }
+        return answer;
+    }
+}

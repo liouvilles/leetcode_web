@@ -1,1 +1,15 @@
-class Solution { fun subArrayRanges(nums:IntArray):Long{var answer=0L;for(left in nums.indices){var minimum=nums[left];var maximum=nums[left];for(right in left until nums.size){minimum=minOf(minimum,nums[right]);maximum=maxOf(maximum,nums[right]);answer+=maximum-minimum}};return answer} }
+class Solution {
+    fun subArrayRanges(nums:IntArray):Long{
+        var answer=0L;
+        for(left in nums.indices){
+            var minimum=nums[left];
+            var maximum=nums[left];
+            for(right in left until nums.size){
+                minimum=minOf(minimum,nums[right]);
+                maximum=maxOf(maximum,nums[right]);
+                answer+=maximum-minimum
+            }
+        };
+        return answer
+    }
+}

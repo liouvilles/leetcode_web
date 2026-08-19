@@ -1,1 +1,14 @@
-class Solution { public:int maximumsSplicedArray(vector<int>& nums1,vector<int>& nums2){int sum1=0,sum2=0,current1=0,current2=0,best1=0,best2=0;for(int i=0;i<(int)nums1.size();++i){sum1+=nums1[i];sum2+=nums2[i];current1=max(0,current1+nums2[i]-nums1[i]);current2=max(0,current2+nums1[i]-nums2[i]);best1=max(best1,current1);best2=max(best2,current2);}return max(sum1+best1,sum2+best2);} };
+class Solution {
+    public:int maximumsSplicedArray(vector<int>& nums1,vector<int>& nums2){
+        int sum1=0,sum2=0,current1=0,current2=0,best1=0,best2=0;
+        for(int i=0;i<(int)nums1.size();++i){
+            sum1+=nums1[i];
+            sum2+=nums2[i];
+            current1=max(0,current1+nums2[i]-nums1[i]);
+            current2=max(0,current2+nums1[i]-nums2[i]);
+            best1=max(best1,current1);
+            best2=max(best2,current2);
+        }
+        return max(sum1+best1,sum2+best2);
+    }
+};

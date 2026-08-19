@@ -1,1 +1,12 @@
-class WordFilter { private final Map<String,Integer> indices=new HashMap<>();public WordFilter(String[] words){for(int index=0;index<words.length;index++){String word=words[index];for(int prefix=0;prefix<=word.length();prefix++)for(int suffix=0;suffix<=word.length();suffix++)indices.put(word.substring(0,prefix)+"#"+word.substring(suffix),index);}}public int f(String pref,String suff){return indices.getOrDefault(pref+"#"+suff,-1);} }
+class WordFilter {
+    private final Map<String,Integer> indices=new HashMap<>();
+    public WordFilter(String[] words){
+        for(int index=0;index<words.length;index++){
+            String word=words[index];
+            for(int prefix=0;prefix<=word.length();prefix++)for(int suffix=0;suffix<=word.length();suffix++)indices.put(word.substring(0,prefix)+"#"+word.substring(suffix),index);
+        }
+    }
+    public int f(String pref,String suff){
+        return indices.getOrDefault(pref+"#"+suff,-1);
+    }
+}

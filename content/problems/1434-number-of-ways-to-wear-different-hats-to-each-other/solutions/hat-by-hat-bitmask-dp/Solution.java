@@ -1,1 +1,19 @@
-class Solution { public int numberWays(List<List<Integer>> hats){int people=hats.size(),mod=1_000_000_007;List<Integer>[] wearers=new List[41];for(int hat=1;hat<=40;hat++)wearers[hat]=new ArrayList<>();for(int person=0;person<people;person++)for(int hat:hats.get(person))wearers[hat].add(person);long[] dp=new long[1<<people];dp[0]=1;for(int hat=1;hat<=40;hat++){long[] next=dp.clone();for(int mask=0;mask<dp.length;mask++)if(dp[mask]>0)for(int person:wearers[hat])if((mask&(1<<person))==0){int newMask=mask|1<<person;next[newMask]=(next[newMask]+dp[mask])%mod;}dp=next;}return (int)dp[dp.length-1];} }
+class Solution {
+    public int numberWays(List<List<Integer>> hats){
+        int people=hats.size(),mod=1_000_000_007;
+        List<Integer>[] wearers=new List[41];
+        for(int hat=1;hat<=40;hat++)wearers[hat]=new ArrayList<>();
+        for(int person=0;person<people;person++)for(int hat:hats.get(person))wearers[hat].add(person);
+        long[] dp=new long[1<<people];
+        dp[0]=1;
+        for(int hat=1;hat<=40;hat++){
+            long[] next=dp.clone();
+            for(int mask=0;mask<dp.length;mask++)if(dp[mask]>0)for(int person:wearers[hat])if((mask&(1<<person))==0){
+                int newMask=mask|1<<person;
+                next[newMask]=(next[newMask]+dp[mask])%mod;
+            }
+            dp=next;
+        }
+        return (int)dp[dp.length-1];
+    }
+}

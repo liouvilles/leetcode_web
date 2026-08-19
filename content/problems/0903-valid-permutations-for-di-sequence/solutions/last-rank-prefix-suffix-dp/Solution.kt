@@ -1,1 +1,14 @@
-class Solution { fun numPermsDISequence(s:String):Int{val mod=1000000007L;var dp=longArrayOf(1);for(relation in s){val next=LongArray(dp.size+1);if(relation=='I')for(j in 1 until next.size)next[j]=(next[j-1]+dp[j-1])%mod else for(j in dp.lastIndex downTo 0)next[j]=(next[j+1]+dp[j])%mod;dp=next};return(dp.fold(0L){sum,value->(sum+value)%mod}).toInt()} }
+class Solution {
+    fun numPermsDISequence(s:String):Int{
+        val mod=1000000007L;
+        var dp=longArrayOf(1);
+        for(relation in s){
+            val next=LongArray(dp.size+1);
+            if(relation=='I')for(j in 1 until next.size)next[j]=(next[j-1]+dp[j-1])%mod else for(j in dp.lastIndex downTo 0)next[j]=(next[j+1]+dp[j])%mod;
+            dp=next
+        };
+        return(dp.fold(0L){
+            sum,value->(sum+value)%mod
+        }).toInt()
+    }
+}

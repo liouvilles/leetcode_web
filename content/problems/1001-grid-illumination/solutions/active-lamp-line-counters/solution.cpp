@@ -1,1 +1,33 @@
-class Solution { long long key(int r,int c){return((long long)r<<32)^(unsigned int)c;}void add(unordered_map<int,int>& map,int line,int delta){map[line]+=delta;}public:vector<int> gridIllumination(int n,vector<vector<int>>& lamps,vector<vector<int>>& queries){unordered_set<long long> active;unordered_map<int,int> rows,columns,diagonals,antis;for(auto& lamp:lamps)if(active.insert(key(lamp[0],lamp[1])).second){add(rows,lamp[0],1);add(columns,lamp[1],1);add(diagonals,lamp[0]-lamp[1],1);add(antis,lamp[0]+lamp[1],1);}vector<int> answer;for(auto& query:queries){int r=query[0],c=query[1];answer.push_back(rows[r]>0||columns[c]>0||diagonals[r-c]>0||antis[r+c]>0);for(int dr=-1;dr<=1;++dr)for(int dc=-1;dc<=1;++dc){int nr=r+dr,nc=c+dc;if(nr>=0&&nr<n&&nc>=0&&nc<n&&active.erase(key(nr,nc))){add(rows,nr,-1);add(columns,nc,-1);add(diagonals,nr-nc,-1);add(antis,nr+nc,-1);}}}return answer;} };
+class Solution {
+    long long key(int r,int c){
+        return((long long)r<<32)^(unsigned int)c;
+    }
+    void add(unordered_map<int,int>& map,int line,int delta){
+        map[line]+=delta;
+    }
+    public:vector<int> gridIllumination(int n,vector<vector<int>>& lamps,vector<vector<int>>& queries){
+        unordered_set<long long> active;
+        unordered_map<int,int> rows,columns,diagonals,antis;
+        for(auto& lamp:lamps)if(active.insert(key(lamp[0],lamp[1])).second){
+            add(rows,lamp[0],1);
+            add(columns,lamp[1],1);
+            add(diagonals,lamp[0]-lamp[1],1);
+            add(antis,lamp[0]+lamp[1],1);
+        }
+        vector<int> answer;
+        for(auto& query:queries){
+            int r=query[0],c=query[1];
+            answer.push_back(rows[r]>0||columns[c]>0||diagonals[r-c]>0||antis[r+c]>0);
+            for(int dr=-1;dr<=1;++dr)for(int dc=-1;dc<=1;++dc){
+                int nr=r+dr,nc=c+dc;
+                if(nr>=0&&nr<n&&nc>=0&&nc<n&&active.erase(key(nr,nc))){
+                    add(rows,nr,-1);
+                    add(columns,nc,-1);
+                    add(diagonals,nr-nc,-1);
+                    add(antis,nr+nc,-1);
+                }
+            }
+        }
+        return answer;
+    }
+};

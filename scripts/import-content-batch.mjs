@@ -2,6 +2,7 @@ import { access, mkdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, join, relative, resolve } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { contentRoot, loadCatalog, problemDirectoryName, projectRoot } from './content-lib.mjs'
+import { formatSolutionCode } from './solution-code-format.mjs'
 
 const input = process.argv[2]
 if (!input) throw new Error('用法：node scripts/import-content-batch.mjs <batch-module.mjs>')
@@ -83,7 +84,7 @@ for (const problem of batch.problems) {
     for (const [language, filename] of Object.entries({ java: 'Solution.java', kotlin: 'Solution.kt', cpp: 'solution.cpp' })) {
       const path = join(directory, 'solutions', solution.id, filename)
       await mkdir(dirname(path), { recursive: true })
-      await writeFile(path, `${solution.code[language].trim()}\n`, { flag: 'wx' })
+      await writeFile(path, formatSolutionCode(solution.code[language], language), { flag: 'wx' })
     }
   }
 }

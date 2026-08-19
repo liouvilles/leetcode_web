@@ -1,1 +1,16 @@
-class Solution { public: int minDeletions(string text){vector<int> frequency(26);for(char letter:text)++frequency[letter-'a'];unordered_set<int> used;int deletions=0;for(int count:frequency){while(count>0&&used.count(count)){--count;++deletions;}if(count)used.insert(count);}return deletions;} };
+class Solution {
+    public: int minDeletions(string text){
+        vector<int> frequency(26);
+        for(char letter:text)++frequency[letter-'a'];
+        unordered_set<int> used;
+        int deletions=0;
+        for(int count:frequency){
+            while(count>0&&used.count(count)){
+                --count;
+                ++deletions;
+            }
+            if(count)used.insert(count);
+        }
+        return deletions;
+    }
+};

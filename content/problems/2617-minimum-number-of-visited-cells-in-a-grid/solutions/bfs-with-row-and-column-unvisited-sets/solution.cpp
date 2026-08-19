@@ -1,1 +1,45 @@
-class Solution { public:int minimumVisitedCells(vector<vector<int>>& grid){int rows=grid.size(),cols=grid[0].size();vector<set<int>> rowUnvisited(rows),colUnvisited(cols);for(int row=0;row<rows;++row)for(int col=0;col<cols;++col){rowUnvisited[row].insert(col);colUnvisited[col].insert(row);}vector<vector<int>> distance(rows,vector<int>(cols,-1));distance[0][0]=1;rowUnvisited[0].erase(0);colUnvisited[0].erase(0);queue<pair<int,int>> pending;pending.push({0,0});while(!pending.empty()){auto [row,col]=pending.front();pending.pop();int limit=grid[row][col],maximumCol=min(cols-1,col+limit);auto column=rowUnvisited[row].lower_bound(col+1);while(column!=rowUnvisited[row].end()&&*column<=maximumCol){int destination=*column;column=rowUnvisited[row].erase(column);colUnvisited[destination].erase(row);distance[row][destination]=distance[row][col]+1;pending.push({row,destination});}int maximumRow=min(rows-1,row+limit);auto line=colUnvisited[col].lower_bound(row+1);while(line!=colUnvisited[col].end()&&*line<=maximumRow){int destination=*line;line=colUnvisited[col].erase(line);rowUnvisited[destination].erase(col);distance[destination][col]=distance[row][col]+1;pending.push({destination,col});}}return distance.back().back();} };
+class Solution {
+    public:int minimumVisitedCells(vector<vector<int>>& grid){
+        int rows=grid.size(),cols=grid[0].size();
+        vector<set<int>> rowUnvisited(rows),colUnvisited(cols);
+        for(int row=0;row<rows;++row)for(int col=0;col<cols;++col){
+            rowUnvisited[row].insert(col);
+            colUnvisited[col].insert(row);
+        }
+        vector<vector<int>> distance(rows,vector<int>(cols,-1));
+        distance[0][0]=1;
+        rowUnvisited[0].erase(0);
+        colUnvisited[0].erase(0);
+        queue<pair<int,int>> pending;
+        pending.push({
+            0,0
+        });
+        while(!pending.empty()){
+            auto [row,col]=pending.front();
+            pending.pop();
+            int limit=grid[row][col],maximumCol=min(cols-1,col+limit);
+            auto column=rowUnvisited[row].lower_bound(col+1);
+            while(column!=rowUnvisited[row].end()&&*column<=maximumCol){
+                int destination=*column;
+                column=rowUnvisited[row].erase(column);
+                colUnvisited[destination].erase(row);
+                distance[row][destination]=distance[row][col]+1;
+                pending.push({
+                    row,destination
+                });
+            }
+            int maximumRow=min(rows-1,row+limit);
+            auto line=colUnvisited[col].lower_bound(row+1);
+            while(line!=colUnvisited[col].end()&&*line<=maximumRow){
+                int destination=*line;
+                line=colUnvisited[col].erase(line);
+                rowUnvisited[destination].erase(col);
+                distance[destination][col]=distance[row][col]+1;
+                pending.push({
+                    destination,col
+                });
+            }
+        }
+        return distance.back().back();
+    }
+};

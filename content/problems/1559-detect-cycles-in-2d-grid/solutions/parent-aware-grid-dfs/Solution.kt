@@ -1,1 +1,29 @@
-class Solution { private lateinit var grid:Array<CharArray>;private lateinit var seen:Array<BooleanArray>;private var rows=0;private var cols=0;private fun dfs(row:Int,col:Int,parentRow:Int,parentCol:Int):Boolean{seen[row][col]=true;val directions=arrayOf(intArrayOf(1,0),intArrayOf(-1,0),intArrayOf(0,1),intArrayOf(0,-1));for(direction in directions){val nr=row+direction[0];val nc=col+direction[1];if(nr !in 0 until rows||nc !in 0 until cols||grid[nr][nc]!=grid[row][col])continue;if(!seen[nr][nc]){if(dfs(nr,nc,row,col))return true}else if(nr!=parentRow||nc!=parentCol)return true};return false};fun containsCycle(grid:Array<CharArray>):Boolean{this.grid=grid;rows=grid.size;cols=grid[0].size;seen=Array(rows){BooleanArray(cols)};for(row in 0 until rows)for(col in 0 until cols)if(!seen[row][col]&&dfs(row,col,-1,-1))return true;return false} }
+class Solution {
+    private lateinit var grid:Array<CharArray>;
+    private lateinit var seen:Array<BooleanArray>;
+    private var rows=0;
+    private var cols=0;
+    private fun dfs(row:Int,col:Int,parentRow:Int,parentCol:Int):Boolean{
+        seen[row][col]=true;
+        val directions=arrayOf(intArrayOf(1,0),intArrayOf(-1,0),intArrayOf(0,1),intArrayOf(0,-1));
+        for(direction in directions){
+            val nr=row+direction[0];
+            val nc=col+direction[1];
+            if(nr !in 0 until rows||nc !in 0 until cols||grid[nr][nc]!=grid[row][col])continue;
+            if(!seen[nr][nc]){
+                if(dfs(nr,nc,row,col))return true
+            }else if(nr!=parentRow||nc!=parentCol)return true
+        };
+        return false
+    };
+    fun containsCycle(grid:Array<CharArray>):Boolean{
+        this.grid=grid;
+        rows=grid.size;
+        cols=grid[0].size;
+        seen=Array(rows){
+            BooleanArray(cols)
+        };
+        for(row in 0 until rows)for(col in 0 until cols)if(!seen[row][col]&&dfs(row,col,-1,-1))return true;
+        return false
+    }
+}

@@ -1,1 +1,37 @@
-class Solution { fun countOfAtoms(formula:String):String{val stack=java.util.ArrayDeque<MutableMap<String,Int>>();stack.addLast(hashMapOf());var index=0;while(index<formula.length){when(formula[index]){'('->{stack.addLast(hashMapOf());index++};')'->{index++;val start=index;while(index<formula.length&&formula[index].isDigit())index++;val multiplier=if(start==index)1 else formula.substring(start,index).toInt();val group=stack.removeLast();val parent=stack.peekLast();for((atom,count) in group)parent[atom]=(parent[atom]?:0)+count*multiplier};else->{val start=index++;while(index<formula.length&&formula[index].isLowerCase())index++;val atom=formula.substring(start,index);val numberStart=index;while(index<formula.length&&formula[index].isDigit())index++;val count=if(numberStart==index)1 else formula.substring(numberStart,index).toInt();val current=stack.peekLast();current[atom]=(current[atom]?:0)+count}}};return stack.peekLast().toSortedMap().entries.joinToString(""){(atom,count)->atom+if(count>1)count else ""}} }
+class Solution {
+    fun countOfAtoms(formula:String):String{
+        val stack=java.util.ArrayDeque<MutableMap<String,Int>>();
+        stack.addLast(hashMapOf());
+        var index=0;
+        while(index<formula.length){
+            when(formula[index]){
+                '('->{
+                    stack.addLast(hashMapOf());
+                    index++
+                };
+                ')'->{
+                    index++;
+                    val start=index;
+                    while(index<formula.length&&formula[index].isDigit())index++;
+                    val multiplier=if(start==index)1 else formula.substring(start,index).toInt();
+                    val group=stack.removeLast();
+                    val parent=stack.peekLast();
+                    for((atom,count) in group)parent[atom]=(parent[atom]?:0)+count*multiplier
+                };
+                else->{
+                    val start=index++;
+                    while(index<formula.length&&formula[index].isLowerCase())index++;
+                    val atom=formula.substring(start,index);
+                    val numberStart=index;
+                    while(index<formula.length&&formula[index].isDigit())index++;
+                    val count=if(numberStart==index)1 else formula.substring(numberStart,index).toInt();
+                    val current=stack.peekLast();
+                    current[atom]=(current[atom]?:0)+count
+                }
+            }
+        };
+        return stack.peekLast().toSortedMap().entries.joinToString(""){
+            (atom,count)->atom+if(count>1)count else ""
+        }
+    }
+}

@@ -1,1 +1,18 @@
-class Solution { public int minSwapsCouples(int[] row){int[] position=new int[row.length];for(int i=0;i<row.length;i++)position[row[i]]=i;int answer=0;for(int i=0;i<row.length;i+=2){int partner=row[i]^1;if(row[i+1]==partner)continue;int partnerSeat=position[partner],displaced=row[i+1];row[partnerSeat]=displaced;row[i+1]=partner;position[displaced]=partnerSeat;position[partner]=i+1;answer++;}return answer;} }
+class Solution {
+    public int minSwapsCouples(int[] row){
+        int[] position=new int[row.length];
+        for(int i=0;i<row.length;i++)position[row[i]]=i;
+        int answer=0;
+        for(int i=0;i<row.length;i+=2){
+            int partner=row[i]^1;
+            if(row[i+1]==partner)continue;
+            int partnerSeat=position[partner],displaced=row[i+1];
+            row[partnerSeat]=displaced;
+            row[i+1]=partner;
+            position[displaced]=partnerSeat;
+            position[partner]=i+1;
+            answer++;
+        }
+        return answer;
+    }
+}

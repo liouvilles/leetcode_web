@@ -1,1 +1,11 @@
-class Solution { public:int minimumRecolors(string blocks,int k){int white=count(blocks.begin(),blocks.begin()+k,'W'),answer=white;for(int i=k;i<(int)blocks.size();++i){white+=blocks[i]=='W';white-=blocks[i-k]=='W';answer=min(answer,white);}return answer;} };
+class Solution {
+    public:int minimumRecolors(string blocks,int k){
+        int white=count(blocks.begin(),blocks.begin()+k,'W'),answer=white;
+        for(int i=k;i<(int)blocks.size();++i){
+            white+=blocks[i]=='W';
+            white-=blocks[i-k]=='W';
+            answer=min(answer,white);
+        }
+        return answer;
+    }
+};

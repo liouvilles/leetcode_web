@@ -1,1 +1,13 @@
-class Solution { fun sortVowels(s:String):String{val all="AEIOUaeiou";val vowels=s.filter{it in all}.toCharArray();vowels.sort();val chars=s.toCharArray();var index=0;for(i in chars.indices)if(chars[i] in all)chars[i]=vowels[index++];return String(chars)} }
+class Solution {
+    fun sortVowels(s:String):String{
+        val all="AEIOUaeiou";
+        val vowels=s.filter{
+            it in all
+        }.toCharArray();
+        vowels.sort();
+        val chars=s.toCharArray();
+        var index=0;
+        for(i in chars.indices)if(chars[i] in all)chars[i]=vowels[index++];
+        return String(chars)
+    }
+}

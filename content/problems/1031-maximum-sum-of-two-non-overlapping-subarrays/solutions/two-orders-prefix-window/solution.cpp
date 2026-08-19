@@ -1,1 +1,15 @@
-class Solution { int order(vector<int>& prefix,int leftLength,int rightLength){int bestLeft=0,answer=0;for(int start=leftLength;start+rightLength<(int)prefix.size();++start){bestLeft=max(bestLeft,prefix[start]-prefix[start-leftLength]);answer=max(answer,bestLeft+prefix[start+rightLength]-prefix[start]);}return answer;}public:int maxSumTwoNoOverlap(vector<int>& nums,int firstLen,int secondLen){vector<int> prefix(nums.size()+1);partial_sum(nums.begin(),nums.end(),prefix.begin()+1);return max(order(prefix,firstLen,secondLen),order(prefix,secondLen,firstLen));} };
+class Solution {
+    int order(vector<int>& prefix,int leftLength,int rightLength){
+        int bestLeft=0,answer=0;
+        for(int start=leftLength;start+rightLength<(int)prefix.size();++start){
+            bestLeft=max(bestLeft,prefix[start]-prefix[start-leftLength]);
+            answer=max(answer,bestLeft+prefix[start+rightLength]-prefix[start]);
+        }
+        return answer;
+    }
+    public:int maxSumTwoNoOverlap(vector<int>& nums,int firstLen,int secondLen){
+        vector<int> prefix(nums.size()+1);
+        partial_sum(nums.begin(),nums.end(),prefix.begin()+1);
+        return max(order(prefix,firstLen,secondLen),order(prefix,secondLen,firstLen));
+    }
+};

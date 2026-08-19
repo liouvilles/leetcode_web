@@ -149,6 +149,9 @@ export async function loadProblemSources() {
         await access(path)
         code[language] = await readFile(path, 'utf8')
         requireText(code[language], `${solutionLabel} / ${language} 代码`)
+        if (code[language].trim().split(/\r?\n/).length < 2) {
+          throw new Error(`${solutionLabel} / ${language} 代码必须使用多行格式，不能整段压在一行`)
+        }
       }
       solutions.push({
         id: solution.id,

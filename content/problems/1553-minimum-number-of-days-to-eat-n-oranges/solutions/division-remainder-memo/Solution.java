@@ -1,1 +1,10 @@
-class Solution { private final Map<Integer,Integer> memo=new HashMap<>();public int minDays(int n){if(n<=1)return n;if(memo.containsKey(n))return memo.get(n);int answer=1+Math.min(n%2+minDays(n/2),n%3+minDays(n/3));memo.put(n,answer);return answer;} }
+class Solution {
+    private final Map<Integer,Integer> memo=new HashMap<>();
+    public int minDays(int n){
+        if(n<=1)return n;
+        if(memo.containsKey(n))return memo.get(n);
+        int answer=1+Math.min(n%2+minDays(n/2),n%3+minDays(n/3));
+        memo.put(n,answer);
+        return answer;
+    }
+}

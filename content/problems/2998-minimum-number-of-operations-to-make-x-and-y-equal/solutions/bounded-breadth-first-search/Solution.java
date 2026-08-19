@@ -1,1 +1,23 @@
-class Solution { public int minimumOperationsToMakeEqual(int x,int y){if(x<=y)return y-x;int upper=2*Math.max(x,y)+12;int[] distance=new int[upper+1];Arrays.fill(distance,-1);ArrayDeque<Integer> queue=new ArrayDeque<>();queue.add(x);distance[x]=0;while(!queue.isEmpty()){int value=queue.remove();if(value==y)return distance[value];int[] next={value-1,value+1,value%5==0?value/5:-1,value%11==0?value/11:-1};for(int candidate:next)if(candidate>=1&&candidate<=upper&&distance[candidate]<0){distance[candidate]=distance[value]+1;queue.add(candidate);}}return -1;} }
+class Solution {
+    public int minimumOperationsToMakeEqual(int x,int y){
+        if(x<=y)return y-x;
+        int upper=2*Math.max(x,y)+12;
+        int[] distance=new int[upper+1];
+        Arrays.fill(distance,-1);
+        ArrayDeque<Integer> queue=new ArrayDeque<>();
+        queue.add(x);
+        distance[x]=0;
+        while(!queue.isEmpty()){
+            int value=queue.remove();
+            if(value==y)return distance[value];
+            int[] next={
+                value-1,value+1,value%5==0?value/5:-1,value%11==0?value/11:-1
+            };
+            for(int candidate:next)if(candidate>=1&&candidate<=upper&&distance[candidate]<0){
+                distance[candidate]=distance[value]+1;
+                queue.add(candidate);
+            }
+        }
+        return -1;
+    }
+}

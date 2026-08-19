@@ -1,1 +1,10 @@
-class Solution { public int[] decrypt(int[] code,int k){int n=code.length;int[] answer=new int[n];if(k==0)return answer;int direction=k>0?1:-1,count=Math.abs(k);for(int i=0;i<n;i++)for(int step=1;step<=count;step++)answer[i]+=code[(i+direction*step+n)%n];return answer;} }
+class Solution {
+    public int[] decrypt(int[] code,int k){
+        int n=code.length;
+        int[] answer=new int[n];
+        if(k==0)return answer;
+        int direction=k>0?1:-1,count=Math.abs(k);
+        for(int i=0;i<n;i++)for(int step=1;step<=count;step++)answer[i]+=code[(i+direction*step+n)%n];
+        return answer;
+    }
+}

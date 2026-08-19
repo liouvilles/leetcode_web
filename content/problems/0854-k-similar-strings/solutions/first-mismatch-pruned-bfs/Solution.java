@@ -1,1 +1,27 @@
-class Solution { public int kSimilarity(String s1,String s2){Queue<String> queue=new ArrayDeque<>();Set<String> seen=new HashSet<>();queue.offer(s1);seen.add(s1);int swaps=0;while(!queue.isEmpty()){for(int size=queue.size();size>0;size--){String current=queue.poll();if(current.equals(s2))return swaps;int i=0;while(current.charAt(i)==s2.charAt(i))i++;for(int j=i+1;j<current.length();j++)if(current.charAt(j)==s2.charAt(i)&&current.charAt(j)!=s2.charAt(j)){char[] chars=current.toCharArray();char temporary=chars[i];chars[i]=chars[j];chars[j]=temporary;String next=new String(chars);if(seen.add(next))queue.offer(next);}}swaps++;}return -1;} }
+class Solution {
+    public int kSimilarity(String s1,String s2){
+        Queue<String> queue=new ArrayDeque<>();
+        Set<String> seen=new HashSet<>();
+        queue.offer(s1);
+        seen.add(s1);
+        int swaps=0;
+        while(!queue.isEmpty()){
+            for(int size=queue.size();size>0;size--){
+                String current=queue.poll();
+                if(current.equals(s2))return swaps;
+                int i=0;
+                while(current.charAt(i)==s2.charAt(i))i++;
+                for(int j=i+1;j<current.length();j++)if(current.charAt(j)==s2.charAt(i)&&current.charAt(j)!=s2.charAt(j)){
+                    char[] chars=current.toCharArray();
+                    char temporary=chars[i];
+                    chars[i]=chars[j];
+                    chars[j]=temporary;
+                    String next=new String(chars);
+                    if(seen.add(next))queue.offer(next);
+                }
+            }
+            swaps++;
+        }
+        return -1;
+    }
+}

@@ -1,1 +1,13 @@
-class Solution { public: vector<int> minSubsequence(vector<int>& nums){sort(nums.begin(),nums.end());int total=accumulate(nums.begin(),nums.end(),0),selected=0;vector<int> answer;for(int i=nums.size()-1;i>=0;--i){answer.push_back(nums[i]);selected+=nums[i];if(selected>total-selected)break;}return answer;} };
+class Solution {
+    public: vector<int> minSubsequence(vector<int>& nums){
+        sort(nums.begin(),nums.end());
+        int total=accumulate(nums.begin(),nums.end(),0),selected=0;
+        vector<int> answer;
+        for(int i=nums.size()-1;i>=0;--i){
+            answer.push_back(nums[i]);
+            selected+=nums[i];
+            if(selected>total-selected)break;
+        }
+        return answer;
+    }
+};

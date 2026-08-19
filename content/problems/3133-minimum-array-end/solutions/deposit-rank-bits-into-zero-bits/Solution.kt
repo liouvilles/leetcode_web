@@ -1,1 +1,16 @@
-class Solution { fun minEnd(n:Int,x:Int):Long{var remaining=n-1L;var answer=x.toLong();var bit=0;while(remaining>0){val mask=1L shl bit;if(answer and mask==0L){if(remaining and 1L==1L)answer=answer or mask;remaining=remaining shr 1};bit++};return answer} }
+class Solution {
+    fun minEnd(n:Int,x:Int):Long{
+        var remaining=n-1L;
+        var answer=x.toLong();
+        var bit=0;
+        while(remaining>0){
+            val mask=1L shl bit;
+            if(answer and mask==0L){
+                if(remaining and 1L==1L)answer=answer or mask;
+                remaining=remaining shr 1
+            };
+            bit++
+        };
+        return answer
+    }
+}

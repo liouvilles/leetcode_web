@@ -1,1 +1,21 @@
-class Solution { private lateinit var first:Array<IntArray>;private lateinit var second:Array<IntArray>;private fun dfs(row:Int,col:Int):Boolean{if(row !in second.indices||col !in second[0].indices||second[row][col]==0)return true;second[row][col]=0;var valid=first[row][col]==1;valid=dfs(row+1,col) and valid;valid=dfs(row-1,col) and valid;valid=dfs(row,col+1) and valid;valid=dfs(row,col-1) and valid;return valid};fun countSubIslands(grid1:Array<IntArray>,grid2:Array<IntArray>):Int{first=grid1;second=grid2;var answer=0;for(row in grid2.indices)for(col in grid2[0].indices)if(grid2[row][col]==1&&dfs(row,col))answer++;return answer} }
+class Solution {
+    private lateinit var first:Array<IntArray>;
+    private lateinit var second:Array<IntArray>;
+    private fun dfs(row:Int,col:Int):Boolean{
+        if(row !in second.indices||col !in second[0].indices||second[row][col]==0)return true;
+        second[row][col]=0;
+        var valid=first[row][col]==1;
+        valid=dfs(row+1,col) and valid;
+        valid=dfs(row-1,col) and valid;
+        valid=dfs(row,col+1) and valid;
+        valid=dfs(row,col-1) and valid;
+        return valid
+    };
+    fun countSubIslands(grid1:Array<IntArray>,grid2:Array<IntArray>):Int{
+        first=grid1;
+        second=grid2;
+        var answer=0;
+        for(row in grid2.indices)for(col in grid2[0].indices)if(grid2[row][col]==1&&dfs(row,col))answer++;
+        return answer
+    }
+}

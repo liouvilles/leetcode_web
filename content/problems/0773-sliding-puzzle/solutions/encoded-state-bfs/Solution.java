@@ -1,1 +1,46 @@
-class Solution { public int slidingPuzzle(int[][] board){StringBuilder builder=new StringBuilder();for(int[] row:board)for(int value:row)builder.append(value);String start=builder.toString(),target="123450";int[][] neighbors={{1,3},{0,2,4},{1,5},{0,4},{1,3,5},{2,4}};Queue<String> queue=new ArrayDeque<>();Queue<Integer> steps=new ArrayDeque<>();Set<String> visited=new HashSet<>();queue.offer(start);steps.offer(0);visited.add(start);while(!queue.isEmpty()){String state=queue.poll();int distance=steps.poll();if(state.equals(target))return distance;int zero=state.indexOf('0');for(int next:neighbors[zero]){char[] chars=state.toCharArray();char temporary=chars[zero];chars[zero]=chars[next];chars[next]=temporary;String candidate=new String(chars);if(visited.add(candidate)){queue.offer(candidate);steps.offer(distance+1);}}}return -1;} }
+class Solution {
+    public int slidingPuzzle(int[][] board){
+        StringBuilder builder=new StringBuilder();
+        for(int[] row:board)for(int value:row)builder.append(value);
+        String start=builder.toString(),target="123450";
+        int[][] neighbors={
+            {
+                1,3
+            },{
+                0,2,4
+            },{
+                1,5
+            },{
+                0,4
+            },{
+                1,3,5
+            },{
+                2,4
+            }
+        };
+        Queue<String> queue=new ArrayDeque<>();
+        Queue<Integer> steps=new ArrayDeque<>();
+        Set<String> visited=new HashSet<>();
+        queue.offer(start);
+        steps.offer(0);
+        visited.add(start);
+        while(!queue.isEmpty()){
+            String state=queue.poll();
+            int distance=steps.poll();
+            if(state.equals(target))return distance;
+            int zero=state.indexOf('0');
+            for(int next:neighbors[zero]){
+                char[] chars=state.toCharArray();
+                char temporary=chars[zero];
+                chars[zero]=chars[next];
+                chars[next]=temporary;
+                String candidate=new String(chars);
+                if(visited.add(candidate)){
+                    queue.offer(candidate);
+                    steps.offer(distance+1);
+                }
+            }
+        }
+        return -1;
+    }
+}

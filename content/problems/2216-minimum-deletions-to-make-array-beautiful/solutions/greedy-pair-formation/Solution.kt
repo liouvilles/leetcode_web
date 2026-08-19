@@ -1,1 +1,8 @@
-class Solution { fun minDeletion(nums:IntArray):Int{var deletions=0;for(i in 0 until nums.lastIndex)if((i-deletions)%2==0&&nums[i]==nums[i+1])deletions++;if((nums.size-deletions)%2==1)deletions++;return deletions} }
+class Solution {
+    fun minDeletion(nums:IntArray):Int{
+        var deletions=0;
+        for(i in 0 until nums.lastIndex)if((i-deletions)%2==0&&nums[i]==nums[i+1])deletions++;
+        if((nums.size-deletions)%2==1)deletions++;
+        return deletions
+    }
+}

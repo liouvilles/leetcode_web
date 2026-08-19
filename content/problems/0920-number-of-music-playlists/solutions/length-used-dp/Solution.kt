@@ -1,1 +1,14 @@
-class Solution { fun numMusicPlaylists(n:Int,goal:Int,k:Int):Int{val mod=1000000007L;val dp=Array(goal+1){LongArray(n+1)};dp[0][0]=1;for(length in 0 until goal)for(used in 0..n){if(used<n)dp[length+1][used+1]=(dp[length+1][used+1]+dp[length][used]*(n-used))%mod;if(used>k)dp[length+1][used]=(dp[length+1][used]+dp[length][used]*(used-k))%mod};return dp[goal][n].toInt()} }
+class Solution {
+    fun numMusicPlaylists(n:Int,goal:Int,k:Int):Int{
+        val mod=1000000007L;
+        val dp=Array(goal+1){
+            LongArray(n+1)
+        };
+        dp[0][0]=1;
+        for(length in 0 until goal)for(used in 0..n){
+            if(used<n)dp[length+1][used+1]=(dp[length+1][used+1]+dp[length][used]*(n-used))%mod;
+            if(used>k)dp[length+1][used]=(dp[length+1][used]+dp[length][used]*(used-k))%mod
+        };
+        return dp[goal][n].toInt()
+    }
+}

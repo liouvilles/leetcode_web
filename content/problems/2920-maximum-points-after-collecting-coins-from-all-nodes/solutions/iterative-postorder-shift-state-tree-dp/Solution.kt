@@ -1,1 +1,47 @@
-class Solution { fun maximumPoints(edges:Array<IntArray>,coins:IntArray,k:Int):Int{val n=coins.size;val graph=Array(n){mutableListOf<Int>()};for(edge in edges){graph[edge[0]].add(edge[1]);graph[edge[1]].add(edge[0])};val parent=IntArray(n){-2};val order=IntArray(n);parent[0]=-1;val stack=java.util.ArrayDeque<Int>();stack.addLast(0);var size=0;while(stack.isNotEmpty()){val node=stack.removeLast();order[size++]=node;for(next in graph[node])if(next!=parent[node]){parent[next]=node;stack.addLast(next)}};val maxShift=14;val states=15;val dp=Array(n){IntArray(states)};for(index in size-1 downTo 0){val node=order[index];for(shift in maxShift downTo 0){val nextShift=minOf(maxShift,shift+1);var first=(coins[node] shr shift)-k;var second=coins[node] shr nextShift;for(next in graph[node])if(parent[next]==node){first+=dp[next][shift];second+=dp[next][nextShift]};dp[node][shift]=maxOf(first,second)}};return dp[0][0]} }
+class Solution {
+    fun maximumPoints(edges:Array<IntArray>,coins:IntArray,k:Int):Int{
+        val n=coins.size;
+        val graph=Array(n){
+            mutableListOf<Int>()
+        };
+        for(edge in edges){
+            graph[edge[0]].add(edge[1]);
+            graph[edge[1]].add(edge[0])
+        };
+        val parent=IntArray(n){
+            -2
+        };
+        val order=IntArray(n);
+        parent[0]=-1;
+        val stack=java.util.ArrayDeque<Int>();
+        stack.addLast(0);
+        var size=0;
+        while(stack.isNotEmpty()){
+            val node=stack.removeLast();
+            order[size++]=node;
+            for(next in graph[node])if(next!=parent[node]){
+                parent[next]=node;
+                stack.addLast(next)
+            }
+        };
+        val maxShift=14;
+        val states=15;
+        val dp=Array(n){
+            IntArray(states)
+        };
+        for(index in size-1 downTo 0){
+            val node=order[index];
+            for(shift in maxShift downTo 0){
+                val nextShift=minOf(maxShift,shift+1);
+                var first=(coins[node] shr shift)-k;
+                var second=coins[node] shr nextShift;
+                for(next in graph[node])if(parent[next]==node){
+                    first+=dp[next][shift];
+                    second+=dp[next][nextShift]
+                };
+                dp[node][shift]=maxOf(first,second)
+            }
+        };
+        return dp[0][0]
+    }
+}

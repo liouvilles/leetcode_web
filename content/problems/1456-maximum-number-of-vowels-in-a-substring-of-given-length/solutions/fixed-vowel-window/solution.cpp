@@ -1,1 +1,14 @@
-class Solution { public: int maxVowels(string text,int k){auto vowel=[](char value){return string("aeiou").find(value)!=string::npos;};int count=0,answer=0;for(int right=0;right<(int)text.size();++right){if(vowel(text[right]))++count;if(right>=k&&vowel(text[right-k]))--count;if(right>=k-1)answer=max(answer,count);}return answer;} };
+class Solution {
+    public: int maxVowels(string text,int k){
+        auto vowel=[](char value){
+            return string("aeiou").find(value)!=string::npos;
+        };
+        int count=0,answer=0;
+        for(int right=0;right<(int)text.size();++right){
+            if(vowel(text[right]))++count;
+            if(right>=k&&vowel(text[right-k]))--count;
+            if(right>=k-1)answer=max(answer,count);
+        }
+        return answer;
+    }
+};

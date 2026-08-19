@@ -1,1 +1,12 @@
-class Solution { public int minRectanglesToCoverPoints(int[][] points,int w){Arrays.sort(points,(a,b)->Integer.compare(a[0],b[0]));int answer=0,index=0;while(index<points.length){long right=(long)points[index][0]+w;answer++;while(index<points.length&&points[index][0]<=right)index++;}return answer;} }
+class Solution {
+    public int minRectanglesToCoverPoints(int[][] points,int w){
+        Arrays.sort(points,(a,b)->Integer.compare(a[0],b[0]));
+        int answer=0,index=0;
+        while(index<points.length){
+            long right=(long)points[index][0]+w;
+            answer++;
+            while(index<points.length&&points[index][0]<=right)index++;
+        }
+        return answer;
+    }
+}

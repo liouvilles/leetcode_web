@@ -1,1 +1,28 @@
-class Solution { public:long long minimumFuelCost(vector<vector<int>>& roads,int seats){int n=roads.size()+1;vector<vector<int>> graph(n);for(auto& road:roads){graph[road[0]].push_back(road[1]);graph[road[1]].push_back(road[0]);}vector<int> parent(n,-2),order(n);parent[0]=-1;int size=1;for(int index=0;index<size;++index){int node=order[index];for(int next:graph[node])if(parent[next]==-2){parent[next]=node;order[size++]=next;}}vector<long long> people(n,1);long long fuel=0;for(int index=n-1;index>0;--index){int node=order[index];fuel+=(people[node]+seats-1)/seats;people[parent[node]]+=people[node];}return fuel;} };
+class Solution {
+    public:long long minimumFuelCost(vector<vector<int>>& roads,int seats){
+        int n=roads.size()+1;
+        vector<vector<int>> graph(n);
+        for(auto& road:roads){
+            graph[road[0]].push_back(road[1]);
+            graph[road[1]].push_back(road[0]);
+        }
+        vector<int> parent(n,-2),order(n);
+        parent[0]=-1;
+        int size=1;
+        for(int index=0;index<size;++index){
+            int node=order[index];
+            for(int next:graph[node])if(parent[next]==-2){
+                parent[next]=node;
+                order[size++]=next;
+            }
+        }
+        vector<long long> people(n,1);
+        long long fuel=0;
+        for(int index=n-1;index>0;--index){
+            int node=order[index];
+            fuel+=(people[node]+seats-1)/seats;
+            people[parent[node]]+=people[node];
+        }
+        return fuel;
+    }
+};

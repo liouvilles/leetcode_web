@@ -1,1 +1,22 @@
-class Solution { private int count(int[][] darts,double x,double y,int r){int answer=0;for(int[] point:darts){double dx=point[0]-x,dy=point[1]-y;if(dx*dx+dy*dy<=r*(double)r+1e-7)answer++;}return answer;}public int numPoints(int[][] darts,int r){int answer=1;for(int i=0;i<darts.length;i++)for(int j=i+1;j<darts.length;j++){double dx=darts[j][0]-darts[i][0],dy=darts[j][1]-darts[i][1],distance=Math.hypot(dx,dy);if(distance==0||distance>2.0*r+1e-9)continue;double middleX=(darts[i][0]+darts[j][0])/2.0,middleY=(darts[i][1]+darts[j][1])/2.0,height=Math.sqrt(Math.max(0,r*(double)r-distance*distance/4));double offsetX=-dy/distance*height,offsetY=dx/distance*height;answer=Math.max(answer,count(darts,middleX+offsetX,middleY+offsetY,r));answer=Math.max(answer,count(darts,middleX-offsetX,middleY-offsetY,r));}return answer;} }
+class Solution {
+    private int count(int[][] darts,double x,double y,int r){
+        int answer=0;
+        for(int[] point:darts){
+            double dx=point[0]-x,dy=point[1]-y;
+            if(dx*dx+dy*dy<=r*(double)r+1e-7)answer++;
+        }
+        return answer;
+    }
+    public int numPoints(int[][] darts,int r){
+        int answer=1;
+        for(int i=0;i<darts.length;i++)for(int j=i+1;j<darts.length;j++){
+            double dx=darts[j][0]-darts[i][0],dy=darts[j][1]-darts[i][1],distance=Math.hypot(dx,dy);
+            if(distance==0||distance>2.0*r+1e-9)continue;
+            double middleX=(darts[i][0]+darts[j][0])/2.0,middleY=(darts[i][1]+darts[j][1])/2.0,height=Math.sqrt(Math.max(0,r*(double)r-distance*distance/4));
+            double offsetX=-dy/distance*height,offsetY=dx/distance*height;
+            answer=Math.max(answer,count(darts,middleX+offsetX,middleY+offsetY,r));
+            answer=Math.max(answer,count(darts,middleX-offsetX,middleY-offsetY,r));
+        }
+        return answer;
+    }
+}

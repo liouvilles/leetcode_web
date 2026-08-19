@@ -1,1 +1,16 @@
-class Solution { fun relativeSortArray(arr1:IntArray,arr2:IntArray):IntArray{val frequency=IntArray(1001);for(value in arr1)frequency[value]++;var write=0;for(value in arr2)while(frequency[value]>0){arr1[write++]=value;frequency[value]--};for(value in frequency.indices)while(frequency[value]>0){arr1[write++]=value;frequency[value]--};return arr1} }
+class Solution {
+    fun relativeSortArray(arr1:IntArray,arr2:IntArray):IntArray{
+        val frequency=IntArray(1001);
+        for(value in arr1)frequency[value]++;
+        var write=0;
+        for(value in arr2)while(frequency[value]>0){
+            arr1[write++]=value;
+            frequency[value]--
+        };
+        for(value in frequency.indices)while(frequency[value]>0){
+            arr1[write++]=value;
+            frequency[value]--
+        };
+        return arr1
+    }
+}

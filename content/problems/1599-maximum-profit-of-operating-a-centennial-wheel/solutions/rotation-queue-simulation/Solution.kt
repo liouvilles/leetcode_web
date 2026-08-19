@@ -1,1 +1,21 @@
-class Solution { fun minOperationsMaxProfit(customers:IntArray,boardingCost:Int,runningCost:Int):Int{var waiting=0;var profit=0;var maximum=0;var best=-1;var rotation=0;while(rotation<customers.size||waiting>0){if(rotation<customers.size)waiting+=customers[rotation];val boarded=minOf(4,waiting);waiting-=boarded;profit+=boarded*boardingCost-runningCost;rotation++;if(profit>maximum){maximum=profit;best=rotation}};return best} }
+class Solution {
+    fun minOperationsMaxProfit(customers:IntArray,boardingCost:Int,runningCost:Int):Int{
+        var waiting=0;
+        var profit=0;
+        var maximum=0;
+        var best=-1;
+        var rotation=0;
+        while(rotation<customers.size||waiting>0){
+            if(rotation<customers.size)waiting+=customers[rotation];
+            val boarded=minOf(4,waiting);
+            waiting-=boarded;
+            profit+=boarded*boardingCost-runningCost;
+            rotation++;
+            if(profit>maximum){
+                maximum=profit;
+                best=rotation
+            }
+        };
+        return best
+    }
+}

@@ -1,1 +1,16 @@
-class Solution { public:int maxPalindromes(string s,int k){int n=s.size();vector<vector<bool>> palindrome(n,vector<bool>(n));for(int left=n-1;left>=0;--left)for(int right=left;right<n;++right)palindrome[left][right]=s[left]==s[right]&&(right-left<2||palindrome[left+1][right-1]);vector<int> dp(n+1);for(int end=0;end<n;++end){dp[end+1]=dp[end];for(int length=k;length<=k+1;++length){int start=end-length+1;if(start>=0&&palindrome[start][end])dp[end+1]=max(dp[end+1],dp[start]+1);}}return dp[n];} };
+class Solution {
+    public:int maxPalindromes(string s,int k){
+        int n=s.size();
+        vector<vector<bool>> palindrome(n,vector<bool>(n));
+        for(int left=n-1;left>=0;--left)for(int right=left;right<n;++right)palindrome[left][right]=s[left]==s[right]&&(right-left<2||palindrome[left+1][right-1]);
+        vector<int> dp(n+1);
+        for(int end=0;end<n;++end){
+            dp[end+1]=dp[end];
+            for(int length=k;length<=k+1;++length){
+                int start=end-length+1;
+                if(start>=0&&palindrome[start][end])dp[end+1]=max(dp[end+1],dp[start]+1);
+            }
+        }
+        return dp[n];
+    }
+};

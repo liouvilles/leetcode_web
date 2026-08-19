@@ -1,1 +1,26 @@
-class Solution { fun removeComments(source:Array<String>):List<String>{val answer=mutableListOf<String>();var inBlock=false;val buffer=StringBuilder();for(line in source){var index=0;while(index<line.length){if(inBlock){if(index+1<line.length&&line[index]=='*'&&line[index+1]=='/'){inBlock=false;index+=2}else index++}else if(index+1<line.length&&line[index]=='/'&&line[index+1]=='/')break else if(index+1<line.length&&line[index]=='/'&&line[index+1]=='*'){inBlock=true;index+=2}else buffer.append(line[index++])};if(!inBlock&&buffer.isNotEmpty()){answer.add(buffer.toString());buffer.setLength(0)}};return answer} }
+class Solution {
+    fun removeComments(source:Array<String>):List<String>{
+        val answer=mutableListOf<String>();
+        var inBlock=false;
+        val buffer=StringBuilder();
+        for(line in source){
+            var index=0;
+            while(index<line.length){
+                if(inBlock){
+                    if(index+1<line.length&&line[index]=='*'&&line[index+1]=='/'){
+                        inBlock=false;
+                        index+=2
+                    }else index++
+                }else if(index+1<line.length&&line[index]=='/'&&line[index+1]=='/')break else if(index+1<line.length&&line[index]=='/'&&line[index+1]=='*'){
+                    inBlock=true;
+                    index+=2
+                }else buffer.append(line[index++])
+            };
+            if(!inBlock&&buffer.isNotEmpty()){
+                answer.add(buffer.toString());
+                buffer.setLength(0)
+            }
+        };
+        return answer
+    }
+}

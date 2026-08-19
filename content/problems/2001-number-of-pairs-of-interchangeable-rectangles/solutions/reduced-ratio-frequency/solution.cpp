@@ -1,1 +1,14 @@
-class Solution { public: long long interchangeableRectangles(vector<vector<int>>& rectangles){map<pair<int,int>,int> frequency;long long answer=0;for(auto& rectangle:rectangles){int divisor=gcd(rectangle[0],rectangle[1]);pair<int,int> key={rectangle[0]/divisor,rectangle[1]/divisor};answer+=frequency[key]++;}return answer;} };
+class Solution {
+    public: long long interchangeableRectangles(vector<vector<int>>& rectangles){
+        map<pair<int,int>,int> frequency;
+        long long answer=0;
+        for(auto& rectangle:rectangles){
+            int divisor=gcd(rectangle[0],rectangle[1]);
+            pair<int,int> key={
+                rectangle[0]/divisor,rectangle[1]/divisor
+            };
+            answer+=frequency[key]++;
+        }
+        return answer;
+    }
+};

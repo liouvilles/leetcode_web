@@ -1,1 +1,8 @@
-class ParkingSystem(big:Int,medium:Int,small:Int){private val remaining=intArrayOf(0,big,medium,small);fun addCar(carType:Int):Boolean{if(remaining[carType]==0)return false;remaining[carType]--;return true}}
+class ParkingSystem(big:Int,medium:Int,small:Int){
+    private val remaining=intArrayOf(0,big,medium,small);
+    fun addCar(carType:Int):Boolean{
+        if(remaining[carType]==0)return false;
+        remaining[carType]--;
+        return true
+    }
+}

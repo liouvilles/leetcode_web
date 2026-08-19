@@ -1,1 +1,18 @@
-class Solution { fun lastNonEmptyString(s:String):String{val frequency=IntArray(26);val lastIndex=IntArray(26);for(i in s.indices){val letter=s[i]-'a';frequency[letter]++;lastIndex[letter]=i};val maximum=frequency.maxOrNull()!!;val answer=StringBuilder();for(i in s.indices){val letter=s[i]-'a';if(frequency[letter]==maximum&&lastIndex[letter]==i)answer.append(s[i])};return answer.toString()} }
+class Solution {
+    fun lastNonEmptyString(s:String):String{
+        val frequency=IntArray(26);
+        val lastIndex=IntArray(26);
+        for(i in s.indices){
+            val letter=s[i]-'a';
+            frequency[letter]++;
+            lastIndex[letter]=i
+        };
+        val maximum=frequency.maxOrNull()!!;
+        val answer=StringBuilder();
+        for(i in s.indices){
+            val letter=s[i]-'a';
+            if(frequency[letter]==maximum&&lastIndex[letter]==i)answer.append(s[i])
+        };
+        return answer.toString()
+    }
+}

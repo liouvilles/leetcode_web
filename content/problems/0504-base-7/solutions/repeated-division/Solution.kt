@@ -1,1 +1,13 @@
-class Solution { fun convertToBase7(num:Int):String{if(num==0)return "0";var value=kotlin.math.abs(num.toLong());val answer=StringBuilder();while(value>0){answer.append(value%7);value/=7};if(num<0)answer.append('-');return answer.reverse().toString()} }
+class Solution {
+    fun convertToBase7(num:Int):String{
+        if(num==0)return "0";
+        var value=kotlin.math.abs(num.toLong());
+        val answer=StringBuilder();
+        while(value>0){
+            answer.append(value%7);
+            value/=7
+        };
+        if(num<0)answer.append('-');
+        return answer.reverse().toString()
+    }
+}

@@ -1,1 +1,20 @@
-class Solution { vector<int> piles,suffix;vector<vector<int>> memo;int dfs(int index,int m){if(index>=(int)piles.size())return 0;if(2*m>=(int)piles.size()-index)return suffix[index];if(memo[index][m])return memo[index][m];int best=0;for(int take=1;take<=2*m;++take)best=max(best,suffix[index]-dfs(index+take,max(m,take)));return memo[index][m]=best;}public:int stoneGameII(vector<int>& input){piles=input;int n=piles.size();suffix.assign(n+1,0);for(int i=n-1;i>=0;--i)suffix[i]=suffix[i+1]+piles[i];memo.assign(n,vector<int>(n+1));return dfs(0,1);} };
+class Solution {
+    vector<int> piles,suffix;
+    vector<vector<int>> memo;
+    int dfs(int index,int m){
+        if(index>=(int)piles.size())return 0;
+        if(2*m>=(int)piles.size()-index)return suffix[index];
+        if(memo[index][m])return memo[index][m];
+        int best=0;
+        for(int take=1;take<=2*m;++take)best=max(best,suffix[index]-dfs(index+take,max(m,take)));
+        return memo[index][m]=best;
+    }
+    public:int stoneGameII(vector<int>& input){
+        piles=input;
+        int n=piles.size();
+        suffix.assign(n+1,0);
+        for(int i=n-1;i>=0;--i)suffix[i]=suffix[i+1]+piles[i];
+        memo.assign(n,vector<int>(n+1));
+        return dfs(0,1);
+    }
+};

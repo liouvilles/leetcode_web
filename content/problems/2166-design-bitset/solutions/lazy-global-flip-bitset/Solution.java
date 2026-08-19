@@ -1,1 +1,38 @@
-class Bitset { boolean[] bits;boolean flipped;int ones;public Bitset(int size){bits=new boolean[size];}public void fix(int idx){if(!(bits[idx]^flipped)){bits[idx]=!flipped;ones++;}}public void unfix(int idx){if(bits[idx]^flipped){bits[idx]=flipped;ones--;}}public void flip(){flipped=!flipped;ones=bits.length-ones;}public boolean all(){return ones==bits.length;}public boolean one(){return ones>0;}public int count(){return ones;}public String toString(){StringBuilder value=new StringBuilder();for(boolean bit:bits)value.append(bit^flipped?'1':'0');return value.toString();} }
+class Bitset {
+    boolean[] bits;
+    boolean flipped;
+    int ones;
+    public Bitset(int size){
+        bits=new boolean[size];
+    }
+    public void fix(int idx){
+        if(!(bits[idx]^flipped)){
+            bits[idx]=!flipped;
+            ones++;
+        }
+    }
+    public void unfix(int idx){
+        if(bits[idx]^flipped){
+            bits[idx]=flipped;
+            ones--;
+        }
+    }
+    public void flip(){
+        flipped=!flipped;
+        ones=bits.length-ones;
+    }
+    public boolean all(){
+        return ones==bits.length;
+    }
+    public boolean one(){
+        return ones>0;
+    }
+    public int count(){
+        return ones;
+    }
+    public String toString(){
+        StringBuilder value=new StringBuilder();
+        for(boolean bit:bits)value.append(bit^flipped?'1':'0');
+        return value.toString();
+    }
+}

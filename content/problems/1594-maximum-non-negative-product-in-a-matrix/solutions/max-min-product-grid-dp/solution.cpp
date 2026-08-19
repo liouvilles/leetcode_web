@@ -1,1 +1,31 @@
-class Solution { public: int maxProductPath(vector<vector<int>>& grid){int rows=grid.size(),cols=grid[0].size();vector<vector<long long>> maximum(rows,vector<long long>(cols)),minimum=maximum;maximum[0][0]=minimum[0][0]=grid[0][0];for(int row=0;row<rows;++row)for(int col=0;col<cols;++col){if(!row&&!col)continue;long long high=LLONG_MIN,low=LLONG_MAX,value=grid[row][col];if(row){high=max({high,maximum[row-1][col]*value,minimum[row-1][col]*value});low=min({low,maximum[row-1][col]*value,minimum[row-1][col]*value});}if(col){high=max({high,maximum[row][col-1]*value,minimum[row][col-1]*value});low=min({low,maximum[row][col-1]*value,minimum[row][col-1]*value});}maximum[row][col]=high;minimum[row][col]=low;}long long result=maximum.back().back();return result<0?-1:result%1000000007;} };
+class Solution {
+    public: int maxProductPath(vector<vector<int>>& grid){
+        int rows=grid.size(),cols=grid[0].size();
+        vector<vector<long long>> maximum(rows,vector<long long>(cols)),minimum=maximum;
+        maximum[0][0]=minimum[0][0]=grid[0][0];
+        for(int row=0;row<rows;++row)for(int col=0;col<cols;++col){
+            if(!row&&!col)continue;
+            long long high=LLONG_MIN,low=LLONG_MAX,value=grid[row][col];
+            if(row){
+                high=max({
+                    high,maximum[row-1][col]*value,minimum[row-1][col]*value
+                });
+                low=min({
+                    low,maximum[row-1][col]*value,minimum[row-1][col]*value
+                });
+            }
+            if(col){
+                high=max({
+                    high,maximum[row][col-1]*value,minimum[row][col-1]*value
+                });
+                low=min({
+                    low,maximum[row][col-1]*value,minimum[row][col-1]*value
+                });
+            }
+            maximum[row][col]=high;
+            minimum[row][col]=low;
+        }
+        long long result=maximum.back().back();
+        return result<0?-1:result%1000000007;
+    }
+};

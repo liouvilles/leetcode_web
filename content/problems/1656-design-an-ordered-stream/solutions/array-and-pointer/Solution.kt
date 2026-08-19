@@ -1,1 +1,10 @@
-class OrderedStream(n:Int) { private val values=arrayOfNulls<String>(n+1);private var pointer=1;fun insert(idKey:Int,value:String):List<String>{values[idKey]=value;val answer=mutableListOf<String>();while(pointer<values.size&&values[pointer]!=null)answer.add(values[pointer++]!!);return answer} }
+class OrderedStream(n:Int) {
+    private val values=arrayOfNulls<String>(n+1);
+    private var pointer=1;
+    fun insert(idKey:Int,value:String):List<String>{
+        values[idKey]=value;
+        val answer=mutableListOf<String>();
+        while(pointer<values.size&&values[pointer]!=null)answer.add(values[pointer++]!!);
+        return answer
+    }
+}

@@ -1,1 +1,15 @@
-class Solution { int minutes(string time){return stoi(time.substr(0,2))*60+stoi(time.substr(3));}public:int convertTime(string current,string correct){int difference=minutes(correct)-minutes(current),answer=0;for(int step:{60,15,5,1}){answer+=difference/step;difference%=step;}return answer;} };
+class Solution {
+    int minutes(string time){
+        return stoi(time.substr(0,2))*60+stoi(time.substr(3));
+    }
+    public:int convertTime(string current,string correct){
+        int difference=minutes(correct)-minutes(current),answer=0;
+        for(int step:{
+            60,15,5,1
+        }){
+            answer+=difference/step;
+            difference%=step;
+        }
+        return answer;
+    }
+};

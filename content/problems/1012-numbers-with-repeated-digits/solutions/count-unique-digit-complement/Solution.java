@@ -1,1 +1,20 @@
-class Solution { public int numDupDigitsAtMostN(int n){char[] digits=Integer.toString(n).toCharArray();int unique=0;for(int length=1;length<digits.length;length++)unique+=9*permutation(9,length-1);boolean[] used=new boolean[10];for(int i=0;i<digits.length;i++){int current=digits[i]-'0',start=i==0?1:0;for(int digit=start;digit<current;digit++)if(!used[digit])unique+=permutation(9-i,digits.length-i-1);if(used[current])return n-unique;used[current]=true;}return n-unique-1;}private int permutation(int choices,int count){int result=1;for(int i=0;i<count;i++)result*=choices-i;return result;} }
+class Solution {
+    public int numDupDigitsAtMostN(int n){
+        char[] digits=Integer.toString(n).toCharArray();
+        int unique=0;
+        for(int length=1;length<digits.length;length++)unique+=9*permutation(9,length-1);
+        boolean[] used=new boolean[10];
+        for(int i=0;i<digits.length;i++){
+            int current=digits[i]-'0',start=i==0?1:0;
+            for(int digit=start;digit<current;digit++)if(!used[digit])unique+=permutation(9-i,digits.length-i-1);
+            if(used[current])return n-unique;
+            used[current]=true;
+        }
+        return n-unique-1;
+    }
+    private int permutation(int choices,int count){
+        int result=1;
+        for(int i=0;i<count;i++)result*=choices-i;
+        return result;
+    }
+}

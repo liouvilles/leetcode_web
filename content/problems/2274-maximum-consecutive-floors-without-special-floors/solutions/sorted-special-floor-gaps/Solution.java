@@ -1,1 +1,8 @@
-class Solution { public int maxConsecutive(int bottom,int top,int[] special){Arrays.sort(special);int answer=special[0]-bottom;for(int i=1;i<special.length;i++)answer=Math.max(answer,special[i]-special[i-1]-1);return Math.max(answer,top-special[special.length-1]);} }
+class Solution {
+    public int maxConsecutive(int bottom,int top,int[] special){
+        Arrays.sort(special);
+        int answer=special[0]-bottom;
+        for(int i=1;i<special.length;i++)answer=Math.max(answer,special[i]-special[i-1]-1);
+        return Math.max(answer,top-special[special.length-1]);
+    }
+}

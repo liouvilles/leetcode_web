@@ -1,1 +1,21 @@
-class Solution { public: int minOperations(vector<int>& nums1,vector<int>& nums2){if(nums1.size()*6<nums2.size()||nums2.size()*6<nums1.size())return -1;int sum1=accumulate(nums1.begin(),nums1.end(),0),sum2=accumulate(nums2.begin(),nums2.end(),0);if(sum1>sum2){swap(nums1,nums2);swap(sum1,sum2);}vector<int> gains;for(int value:nums1)gains.push_back(6-value);for(int value:nums2)gains.push_back(value-1);sort(gains.rbegin(),gains.rend());int difference=sum2-sum1,operations=0;for(int gain:gains){if(difference<=0)break;difference-=gain;++operations;}return operations;} };
+class Solution {
+    public: int minOperations(vector<int>& nums1,vector<int>& nums2){
+        if(nums1.size()*6<nums2.size()||nums2.size()*6<nums1.size())return -1;
+        int sum1=accumulate(nums1.begin(),nums1.end(),0),sum2=accumulate(nums2.begin(),nums2.end(),0);
+        if(sum1>sum2){
+            swap(nums1,nums2);
+            swap(sum1,sum2);
+        }
+        vector<int> gains;
+        for(int value:nums1)gains.push_back(6-value);
+        for(int value:nums2)gains.push_back(value-1);
+        sort(gains.rbegin(),gains.rend());
+        int difference=sum2-sum1,operations=0;
+        for(int gain:gains){
+            if(difference<=0)break;
+            difference-=gain;
+            ++operations;
+        }
+        return operations;
+    }
+};

@@ -1,1 +1,14 @@
-class Solution { fun cycleLengthQueries(n:Int,queries:Array<IntArray>):IntArray{return IntArray(queries.size){index->var first=queries[index][0];var second=queries[index][1];var length=1;while(first!=second){if(first>second)first/=2 else second/=2;length++};length}} }
+class Solution {
+    fun cycleLengthQueries(n:Int,queries:Array<IntArray>):IntArray{
+        return IntArray(queries.size){
+            index->var first=queries[index][0];
+            var second=queries[index][1];
+            var length=1;
+            while(first!=second){
+                if(first>second)first/=2 else second/=2;
+                length++
+            };
+            length
+        }
+    }
+}

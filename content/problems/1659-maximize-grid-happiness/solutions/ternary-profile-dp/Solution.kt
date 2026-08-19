@@ -1,1 +1,38 @@
-class Solution { private var rows=0;private var cols=0;private var stateBase=0;private val memo=mutableMapOf<Long,Int>();private fun pair(first:Int,second:Int):Int=when{first==0||second==0->0;first==1&&second==1->-60;first==2&&second==2->40;else->-10};private fun dfs(position:Int,mask:Int,intro:Int,extro:Int):Int{if(position==rows*cols)return 0;val key=(((position.toLong()*stateBase+mask)*7+intro)*7+extro);memo[key]?.let{return it};val divisor=stateBase/3;val up=mask/divisor;val left=if(position%cols==0)0 else mask%3;val nextBase=mask%divisor*3;var best=dfs(position+1,nextBase,intro,extro);if(intro>0)best=maxOf(best,120+pair(1,up)+pair(1,left)+dfs(position+1,nextBase+1,intro-1,extro));if(extro>0)best=maxOf(best,40+pair(2,up)+pair(2,left)+dfs(position+1,nextBase+2,intro,extro-1));memo[key]=best;return best};fun getMaxGridHappiness(m:Int,n:Int,introvertsCount:Int,extrovertsCount:Int):Int{rows=m;cols=n;stateBase=1;repeat(n){stateBase*=3};memo.clear();return dfs(0,0,introvertsCount,extrovertsCount)} }
+class Solution {
+    private var rows=0;
+    private var cols=0;
+    private var stateBase=0;
+    private val memo=mutableMapOf<Long,Int>();
+    private fun pair(first:Int,second:Int):Int=when{
+        first==0||second==0->0;
+        first==1&&second==1->-60;
+        first==2&&second==2->40;
+        else->-10
+    };
+    private fun dfs(position:Int,mask:Int,intro:Int,extro:Int):Int{
+        if(position==rows*cols)return 0;
+        val key=(((position.toLong()*stateBase+mask)*7+intro)*7+extro);
+        memo[key]?.let{
+            return it
+        };
+        val divisor=stateBase/3;
+        val up=mask/divisor;
+        val left=if(position%cols==0)0 else mask%3;
+        val nextBase=mask%divisor*3;
+        var best=dfs(position+1,nextBase,intro,extro);
+        if(intro>0)best=maxOf(best,120+pair(1,up)+pair(1,left)+dfs(position+1,nextBase+1,intro-1,extro));
+        if(extro>0)best=maxOf(best,40+pair(2,up)+pair(2,left)+dfs(position+1,nextBase+2,intro,extro-1));
+        memo[key]=best;
+        return best
+    };
+    fun getMaxGridHappiness(m:Int,n:Int,introvertsCount:Int,extrovertsCount:Int):Int{
+        rows=m;
+        cols=n;
+        stateBase=1;
+        repeat(n){
+            stateBase*=3
+        };
+        memo.clear();
+        return dfs(0,0,introvertsCount,extrovertsCount)
+    }
+}

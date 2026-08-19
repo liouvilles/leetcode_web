@@ -1,1 +1,45 @@
-class Solution { private static final long MOD=1_000_000_007L;private long[] sum,square,lazy;private void apply(int node,int left,int right,long add){long length=right-left+1L;square[node]=(square[node]+2L*add%MOD*sum[node]%MOD+add*add%MOD*length%MOD)%MOD;sum[node]=(sum[node]+add*length)%MOD;lazy[node]+=add;}private void push(int node,int left,int right){long add=lazy[node];if(add==0||left==right)return;int middle=(left+right)/2;apply(node*2,left,middle,add);apply(node*2+1,middle+1,right,add);lazy[node]=0;}private void update(int node,int left,int right,int queryLeft,int queryRight){if(queryLeft<=left&&right<=queryRight){apply(node,left,right,1);return;}push(node,left,right);int middle=(left+right)/2;if(queryLeft<=middle)update(node*2,left,middle,queryLeft,queryRight);if(queryRight>middle)update(node*2+1,middle+1,right,queryLeft,queryRight);sum[node]=(sum[node*2]+sum[node*2+1])%MOD;square[node]=(square[node*2]+square[node*2+1])%MOD;}public int sumCounts(int[] nums){int n=nums.length;sum=new long[4*n];square=new long[4*n];lazy=new long[4*n];Map<Integer,Integer> last=new HashMap<>();long answer=0;for(int index=0;index<n;index++){int previous=last.getOrDefault(nums[index],-1);update(1,0,n-1,previous+1,index);answer=(answer+square[1])%MOD;last.put(nums[index],index);}return (int)answer;} }
+class Solution {
+    private static final long MOD=1_000_000_007L;
+    private long[] sum,square,lazy;
+    private void apply(int node,int left,int right,long add){
+        long length=right-left+1L;
+        square[node]=(square[node]+2L*add%MOD*sum[node]%MOD+add*add%MOD*length%MOD)%MOD;
+        sum[node]=(sum[node]+add*length)%MOD;
+        lazy[node]+=add;
+    }
+    private void push(int node,int left,int right){
+        long add=lazy[node];
+        if(add==0||left==right)return;
+        int middle=(left+right)/2;
+        apply(node*2,left,middle,add);
+        apply(node*2+1,middle+1,right,add);
+        lazy[node]=0;
+    }
+    private void update(int node,int left,int right,int queryLeft,int queryRight){
+        if(queryLeft<=left&&right<=queryRight){
+            apply(node,left,right,1);
+            return;
+        }
+        push(node,left,right);
+        int middle=(left+right)/2;
+        if(queryLeft<=middle)update(node*2,left,middle,queryLeft,queryRight);
+        if(queryRight>middle)update(node*2+1,middle+1,right,queryLeft,queryRight);
+        sum[node]=(sum[node*2]+sum[node*2+1])%MOD;
+        square[node]=(square[node*2]+square[node*2+1])%MOD;
+    }
+    public int sumCounts(int[] nums){
+        int n=nums.length;
+        sum=new long[4*n];
+        square=new long[4*n];
+        lazy=new long[4*n];
+        Map<Integer,Integer> last=new HashMap<>();
+        long answer=0;
+        for(int index=0;index<n;index++){
+            int previous=last.getOrDefault(nums[index],-1);
+            update(1,0,n-1,previous+1,index);
+            answer=(answer+square[1])%MOD;
+            last.put(nums[index],index);
+        }
+        return (int)answer;
+    }
+}

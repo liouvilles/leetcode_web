@@ -1,1 +1,13 @@
-class Solution { public int calculateMinimumHP(int[][] dungeon) { int n=dungeon[0].length; int[] dp=new int[n+1]; Arrays.fill(dp,Integer.MAX_VALUE); dp[n-1]=1; for(int r=dungeon.length-1;r>=0;r--) for(int c=n-1;c>=0;c--){ int next=Math.min(dp[c],dp[c+1]); dp[c]=Math.max(1,next-dungeon[r][c]); } return dp[0]; } }
+class Solution {
+    public int calculateMinimumHP(int[][] dungeon) {
+        int n=dungeon[0].length;
+        int[] dp=new int[n+1];
+        Arrays.fill(dp,Integer.MAX_VALUE);
+        dp[n-1]=1;
+        for(int r=dungeon.length-1;r>=0;r--) for(int c=n-1;c>=0;c--){
+            int next=Math.min(dp[c],dp[c+1]);
+            dp[c]=Math.max(1,next-dungeon[r][c]);
+        }
+        return dp[0];
+    }
+}

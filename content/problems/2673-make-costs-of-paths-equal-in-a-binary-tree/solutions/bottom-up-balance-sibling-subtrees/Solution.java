@@ -1,1 +1,11 @@
-class Solution { public int minIncrements(int n,int[] cost){int answer=0;for(int node=n/2;node>=1;node--){int left=cost[2*node-1],right=cost[2*node];answer+=Math.abs(left-right);cost[node-1]+=Math.max(left,right);}return answer;} }
+class Solution {
+    public int minIncrements(int n,int[] cost){
+        int answer=0;
+        for(int node=n/2;node>=1;node--){
+            int left=cost[2*node-1],right=cost[2*node];
+            answer+=Math.abs(left-right);
+            cost[node-1]+=Math.max(left,right);
+        }
+        return answer;
+    }
+}

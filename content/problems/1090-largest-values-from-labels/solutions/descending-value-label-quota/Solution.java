@@ -1,1 +1,15 @@
-class Solution { public int largestValsFromLabels(int[] values,int[] labels,int numWanted,int useLimit){Integer[] order=new Integer[values.length];for(int i=0;i<order.length;i++)order[i]=i;Arrays.sort(order,(a,b)->values[b]-values[a]);Map<Integer,Integer> used=new HashMap<>();int sum=0,selected=0;for(int index:order)if(used.getOrDefault(labels[index],0)<useLimit){sum+=values[index];used.merge(labels[index],1,Integer::sum);if(++selected==numWanted)break;}return sum;} }
+class Solution {
+    public int largestValsFromLabels(int[] values,int[] labels,int numWanted,int useLimit){
+        Integer[] order=new Integer[values.length];
+        for(int i=0;i<order.length;i++)order[i]=i;
+        Arrays.sort(order,(a,b)->values[b]-values[a]);
+        Map<Integer,Integer> used=new HashMap<>();
+        int sum=0,selected=0;
+        for(int index:order)if(used.getOrDefault(labels[index],0)<useLimit){
+            sum+=values[index];
+            used.merge(labels[index],1,Integer::sum);
+            if(++selected==numWanted)break;
+        }
+        return sum;
+    }
+}

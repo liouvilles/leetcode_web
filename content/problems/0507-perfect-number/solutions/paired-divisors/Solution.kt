@@ -1,1 +1,15 @@
-class Solution { fun checkPerfectNumber(num:Int):Boolean{if(num<=1)return false;var sum=1;var divisor=2;while(divisor.toLong()*divisor<=num){if(num%divisor==0){sum+=divisor;if(divisor!=num/divisor)sum+=num/divisor};divisor++};return sum==num} }
+class Solution {
+    fun checkPerfectNumber(num:Int):Boolean{
+        if(num<=1)return false;
+        var sum=1;
+        var divisor=2;
+        while(divisor.toLong()*divisor<=num){
+            if(num%divisor==0){
+                sum+=divisor;
+                if(divisor!=num/divisor)sum+=num/divisor
+            };
+            divisor++
+        };
+        return sum==num
+    }
+}

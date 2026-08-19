@@ -1,1 +1,10 @@
-class Solution { public: string removeOccurrences(string s,string part){string result;for(char value:s){result.push_back(value);if(result.size()>=part.size()&&result.compare(result.size()-part.size(),part.size(),part)==0)result.resize(result.size()-part.size());}return result;} };
+class Solution {
+    public: string removeOccurrences(string s,string part){
+        string result;
+        for(char value:s){
+            result.push_back(value);
+            if(result.size()>=part.size()&&result.compare(result.size()-part.size(),part.size(),part)==0)result.resize(result.size()-part.size());
+        }
+        return result;
+    }
+};

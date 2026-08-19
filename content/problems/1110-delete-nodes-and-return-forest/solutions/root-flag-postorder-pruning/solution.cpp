@@ -1,1 +1,20 @@
-class Solution { unordered_set<int> deleted;vector<TreeNode*> forest;TreeNode* dfs(TreeNode* node,bool isRoot){if(!node)return nullptr;bool remove=deleted.count(node->val);if(isRoot&&!remove)forest.push_back(node);node->left=dfs(node->left,remove);node->right=dfs(node->right,remove);return remove?nullptr:node;}public:vector<TreeNode*> delNodes(TreeNode* root,vector<int>& toDelete){deleted={toDelete.begin(),toDelete.end()};forest.clear();dfs(root,true);return forest;} };
+class Solution {
+    unordered_set<int> deleted;
+    vector<TreeNode*> forest;
+    TreeNode* dfs(TreeNode* node,bool isRoot){
+        if(!node)return nullptr;
+        bool remove=deleted.count(node->val);
+        if(isRoot&&!remove)forest.push_back(node);
+        node->left=dfs(node->left,remove);
+        node->right=dfs(node->right,remove);
+        return remove?nullptr:node;
+    }
+    public:vector<TreeNode*> delNodes(TreeNode* root,vector<int>& toDelete){
+        deleted={
+            toDelete.begin(),toDelete.end()
+        };
+        forest.clear();
+        dfs(root,true);
+        return forest;
+    }
+};

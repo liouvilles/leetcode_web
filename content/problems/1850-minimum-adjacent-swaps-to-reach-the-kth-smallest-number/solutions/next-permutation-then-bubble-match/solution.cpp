@@ -1,1 +1,17 @@
-class Solution { public: int getMinSwaps(string num,int k){string target=num;while(k--)next_permutation(target.begin(),target.end());int swaps=0;for(int i=0;i<(int)num.size();++i){int j=i;while(num[j]!=target[i])++j;swaps+=j-i;while(j>i){swap(num[j],num[j-1]);--j;}}return swaps;} };
+class Solution {
+    public: int getMinSwaps(string num,int k){
+        string target=num;
+        while(k--)next_permutation(target.begin(),target.end());
+        int swaps=0;
+        for(int i=0;i<(int)num.size();++i){
+            int j=i;
+            while(num[j]!=target[i])++j;
+            swaps+=j-i;
+            while(j>i){
+                swap(num[j],num[j-1]);
+                --j;
+            }
+        }
+        return swaps;
+    }
+};

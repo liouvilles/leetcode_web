@@ -1,1 +1,13 @@
-class Solution { fun findMatrix(nums:IntArray):List<List<Int>>{val frequency=HashMap<Int,Int>();val answer=mutableListOf<MutableList<Int>>();for(value in nums){val row=frequency.getOrDefault(value,0);if(row==answer.size)answer.add(mutableListOf());answer[row].add(value);frequency[value]=row+1};return answer} }
+class Solution {
+    fun findMatrix(nums:IntArray):List<List<Int>>{
+        val frequency=HashMap<Int,Int>();
+        val answer=mutableListOf<MutableList<Int>>();
+        for(value in nums){
+            val row=frequency.getOrDefault(value,0);
+            if(row==answer.size)answer.add(mutableListOf());
+            answer[row].add(value);
+            frequency[value]=row+1
+        };
+        return answer
+    }
+}

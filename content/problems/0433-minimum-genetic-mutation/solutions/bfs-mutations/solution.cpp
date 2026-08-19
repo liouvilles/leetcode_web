@@ -1,1 +1,28 @@
-class Solution { public: int minMutation(string start,string end,vector<string>& bank){if(start==end)return 0;unordered_set<string> available(bank.begin(),bank.end());if(!available.count(end))return -1;queue<string> pending;pending.push(start);string genes="ACGT";int steps=0;while(!pending.empty()){++steps;for(int size=pending.size();size>0;--size){string current=pending.front();pending.pop();for(int i=0;i<(int)current.size();++i){char original=current[i];for(char gene:genes){current[i]=gene;if(current==end)return steps;if(available.erase(current))pending.push(current);}current[i]=original;}}}return -1;} };
+class Solution {
+    public: int minMutation(string start,string end,vector<string>& bank){
+        if(start==end)return 0;
+        unordered_set<string> available(bank.begin(),bank.end());
+        if(!available.count(end))return -1;
+        queue<string> pending;
+        pending.push(start);
+        string genes="ACGT";
+        int steps=0;
+        while(!pending.empty()){
+            ++steps;
+            for(int size=pending.size();size>0;--size){
+                string current=pending.front();
+                pending.pop();
+                for(int i=0;i<(int)current.size();++i){
+                    char original=current[i];
+                    for(char gene:genes){
+                        current[i]=gene;
+                        if(current==end)return steps;
+                        if(available.erase(current))pending.push(current);
+                    }
+                    current[i]=original;
+                }
+            }
+        }
+        return -1;
+    }
+};

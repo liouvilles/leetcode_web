@@ -1,1 +1,23 @@
-class Solution { bool search(vector<double> values){if(values.size()==1)return abs(values[0]-24)<1e-6;for(int i=0;i<(int)values.size();++i)for(int j=i+1;j<(int)values.size();++j){double a=values[i],b=values[j];vector<double> rest;for(int k=0;k<(int)values.size();++k)if(k!=i&&k!=j)rest.push_back(values[k]);vector<double> candidates={a+b,a-b,b-a,a*b,a/b,b/a};for(int operation=0;operation<6;++operation){if(operation==4&&abs(b)<1e-9||operation==5&&abs(a)<1e-9)continue;rest.push_back(candidates[operation]);if(search(rest))return true;rest.pop_back();}}return false;}public:bool judgePoint24(vector<int>& cards){return search(vector<double>(cards.begin(),cards.end()));} };
+class Solution {
+    bool search(vector<double> values){
+        if(values.size()==1)return abs(values[0]-24)<1e-6;
+        for(int i=0;i<(int)values.size();++i)for(int j=i+1;j<(int)values.size();++j){
+            double a=values[i],b=values[j];
+            vector<double> rest;
+            for(int k=0;k<(int)values.size();++k)if(k!=i&&k!=j)rest.push_back(values[k]);
+            vector<double> candidates={
+                a+b,a-b,b-a,a*b,a/b,b/a
+            };
+            for(int operation=0;operation<6;++operation){
+                if(operation==4&&abs(b)<1e-9||operation==5&&abs(a)<1e-9)continue;
+                rest.push_back(candidates[operation]);
+                if(search(rest))return true;
+                rest.pop_back();
+            }
+        }
+        return false;
+    }
+    public:bool judgePoint24(vector<int>& cards){
+        return search(vector<double>(cards.begin(),cards.end()));
+    }
+};

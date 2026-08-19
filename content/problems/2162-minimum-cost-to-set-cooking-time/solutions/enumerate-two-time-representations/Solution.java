@@ -1,1 +1,22 @@
-class Solution { int startAt,moveCost,pushCost;private int cost(int minutes,int seconds){if(minutes<0||minutes>99||seconds<0||seconds>99)return Integer.MAX_VALUE;String digits=String.format("%02d%02d",minutes,seconds).replaceFirst("^0+(?!$)","");int finger=startAt,total=0;for(char ch:digits.toCharArray()){int digit=ch-'0';if(digit!=finger)total+=moveCost;total+=pushCost;finger=digit;}return total;}public int minCostSetTime(int startAt,int moveCost,int pushCost,int targetSeconds){this.startAt=startAt;this.moveCost=moveCost;this.pushCost=pushCost;int minutes=targetSeconds/60,seconds=targetSeconds%60;return Math.min(cost(minutes,seconds),cost(minutes-1,seconds+60));} }
+class Solution {
+    int startAt,moveCost,pushCost;
+    private int cost(int minutes,int seconds){
+        if(minutes<0||minutes>99||seconds<0||seconds>99)return Integer.MAX_VALUE;
+        String digits=String.format("%02d%02d",minutes,seconds).replaceFirst("^0+(?!$)","");
+        int finger=startAt,total=0;
+        for(char ch:digits.toCharArray()){
+            int digit=ch-'0';
+            if(digit!=finger)total+=moveCost;
+            total+=pushCost;
+            finger=digit;
+        }
+        return total;
+    }
+    public int minCostSetTime(int startAt,int moveCost,int pushCost,int targetSeconds){
+        this.startAt=startAt;
+        this.moveCost=moveCost;
+        this.pushCost=pushCost;
+        int minutes=targetSeconds/60,seconds=targetSeconds%60;
+        return Math.min(cost(minutes,seconds),cost(minutes-1,seconds+60));
+    }
+}

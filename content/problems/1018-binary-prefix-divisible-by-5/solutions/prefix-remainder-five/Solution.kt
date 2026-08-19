@@ -1,1 +1,11 @@
-class Solution { fun prefixesDivBy5(nums:IntArray):List<Boolean>{val answer=mutableListOf<Boolean>();var remainder=0;for(bit in nums){remainder=(remainder*2+bit)%5;answer.add(remainder==0)};return answer} }
+class Solution {
+    fun prefixesDivBy5(nums:IntArray):List<Boolean>{
+        val answer=mutableListOf<Boolean>();
+        var remainder=0;
+        for(bit in nums){
+            remainder=(remainder*2+bit)%5;
+            answer.add(remainder==0)
+        };
+        return answer
+    }
+}

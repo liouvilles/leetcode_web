@@ -1,1 +1,7 @@
-class Solution { fun countGoodTriplets(arr:IntArray,a:Int,b:Int,c:Int):Int{var answer=0;for(i in arr.indices)for(j in i+1 until arr.size)if(kotlin.math.abs(arr[i]-arr[j])<=a)for(k in j+1 until arr.size)if(kotlin.math.abs(arr[j]-arr[k])<=b&&kotlin.math.abs(arr[i]-arr[k])<=c)answer++;return answer} }
+class Solution {
+    fun countGoodTriplets(arr:IntArray,a:Int,b:Int,c:Int):Int{
+        var answer=0;
+        for(i in arr.indices)for(j in i+1 until arr.size)if(kotlin.math.abs(arr[i]-arr[j])<=a)for(k in j+1 until arr.size)if(kotlin.math.abs(arr[j]-arr[k])<=b&&kotlin.math.abs(arr[i]-arr[k])<=c)answer++;
+        return answer
+    }
+}

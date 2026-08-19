@@ -1,1 +1,10 @@
-class Solution { public:string removeDigit(string number,char digit){int remove=number.rfind(digit);for(int i=0;i+1<(int)number.size();++i)if(number[i]==digit&&number[i+1]>digit){remove=i;break;}return number.substr(0,remove)+number.substr(remove+1);} };
+class Solution {
+    public:string removeDigit(string number,char digit){
+        int remove=number.rfind(digit);
+        for(int i=0;i+1<(int)number.size();++i)if(number[i]==digit&&number[i+1]>digit){
+            remove=i;
+            break;
+        }
+        return number.substr(0,remove)+number.substr(remove+1);
+    }
+};

@@ -1,1 +1,24 @@
-class Solution { public:string discountPrices(string sentence,int discount){stringstream input(sentence);vector<string> words;string word;while(input>>word){bool valid=word.size()>1&&word[0]=='$';for(int i=1;i<(int)word.size()&&valid;++i)valid=isdigit(word[i]);if(valid){long long price=stoll(word.substr(1));ostringstream out;out<<'$'<<fixed<<setprecision(2)<<(long double)price*(100-discount)/100;word=out.str();}words.push_back(word);}string answer;for(int i=0;i<(int)words.size();++i){if(i)answer+=' ';answer+=words[i];}return answer;} };
+class Solution {
+    public:string discountPrices(string sentence,int discount){
+        stringstream input(sentence);
+        vector<string> words;
+        string word;
+        while(input>>word){
+            bool valid=word.size()>1&&word[0]=='$';
+            for(int i=1;i<(int)word.size()&&valid;++i)valid=isdigit(word[i]);
+            if(valid){
+                long long price=stoll(word.substr(1));
+                ostringstream out;
+                out<<'$'<<fixed<<setprecision(2)<<(long double)price*(100-discount)/100;
+                word=out.str();
+            }
+            words.push_back(word);
+        }
+        string answer;
+        for(int i=0;i<(int)words.size();++i){
+            if(i)answer+=' ';
+            answer+=words[i];
+        }
+        return answer;
+    }
+};

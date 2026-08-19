@@ -1,1 +1,19 @@
-class Solution { private int digitSum(long value){int sum=0;while(value>0){sum+=value%10;value/=10;}return sum;}public long makeIntegerBeautiful(long n,int target){long original=n,place=10;while(digitSum(n)>target){long remainder=n%place;if(remainder>0)n+=place-remainder;place*=10;}return n-original;} }
+class Solution {
+    private int digitSum(long value){
+        int sum=0;
+        while(value>0){
+            sum+=value%10;
+            value/=10;
+        }
+        return sum;
+    }
+    public long makeIntegerBeautiful(long n,int target){
+        long original=n,place=10;
+        while(digitSum(n)>target){
+            long remainder=n%place;
+            if(remainder>0)n+=place-remainder;
+            place*=10;
+        }
+        return n-original;
+    }
+}

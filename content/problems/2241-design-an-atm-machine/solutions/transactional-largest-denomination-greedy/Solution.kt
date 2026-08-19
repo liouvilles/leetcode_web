@@ -1,1 +1,18 @@
-class ATM { private val stock=LongArray(5);private val values=intArrayOf(20,50,100,200,500);fun deposit(banknotesCount:IntArray){for(i in 0..4)stock[i]+=banknotesCount[i]};fun withdraw(amount:Int):IntArray{val take=IntArray(5);var remaining=amount;for(i in 4 downTo 0){take[i]=minOf(stock[i],(remaining/values[i]).toLong()).toInt();remaining-=take[i]*values[i]};if(remaining!=0)return intArrayOf(-1);for(i in 0..4)stock[i]-=take[i];return take}}
+class ATM {
+    private val stock=LongArray(5);
+    private val values=intArrayOf(20,50,100,200,500);
+    fun deposit(banknotesCount:IntArray){
+        for(i in 0..4)stock[i]+=banknotesCount[i]
+    };
+    fun withdraw(amount:Int):IntArray{
+        val take=IntArray(5);
+        var remaining=amount;
+        for(i in 4 downTo 0){
+            take[i]=minOf(stock[i],(remaining/values[i]).toLong()).toInt();
+            remaining-=take[i]*values[i]
+        };
+        if(remaining!=0)return intArrayOf(-1);
+        for(i in 0..4)stock[i]-=take[i];
+        return take
+    }
+}

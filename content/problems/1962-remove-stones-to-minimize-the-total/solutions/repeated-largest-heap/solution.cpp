@@ -1,1 +1,16 @@
-class Solution { public: int minStoneSum(vector<int>& piles,int k){priority_queue<int> heap(piles.begin(),piles.end());while(k--){int value=heap.top();heap.pop();heap.push(value-value/2);}int answer=0;while(!heap.empty()){answer+=heap.top();heap.pop();}return answer;} };
+class Solution {
+    public: int minStoneSum(vector<int>& piles,int k){
+        priority_queue<int> heap(piles.begin(),piles.end());
+        while(k--){
+            int value=heap.top();
+            heap.pop();
+            heap.push(value-value/2);
+        }
+        int answer=0;
+        while(!heap.empty()){
+            answer+=heap.top();
+            heap.pop();
+        }
+        return answer;
+    }
+};

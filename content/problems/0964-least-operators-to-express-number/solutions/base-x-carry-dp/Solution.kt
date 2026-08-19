@@ -1,1 +1,23 @@
-class Solution { fun leastOpsExpressTarget(x:Int,targetInput:Int):Int{var target=targetInput;var positive=0;var negative=0;var k=0;while(target>0){val digit=target%x;target/=x;if(k==0){positive=2*digit;negative=2*(x-digit)}else{val nextPositive=minOf(positive+digit*k,negative+(digit+1)*k);val nextNegative=minOf(positive+(x-digit)*k,negative+(x-digit-1)*k);positive=nextPositive;negative=nextNegative};k++};return minOf(positive,negative+k)-1} }
+class Solution {
+    fun leastOpsExpressTarget(x:Int,targetInput:Int):Int{
+        var target=targetInput;
+        var positive=0;
+        var negative=0;
+        var k=0;
+        while(target>0){
+            val digit=target%x;
+            target/=x;
+            if(k==0){
+                positive=2*digit;
+                negative=2*(x-digit)
+            }else{
+                val nextPositive=minOf(positive+digit*k,negative+(digit+1)*k);
+                val nextNegative=minOf(positive+(x-digit)*k,negative+(x-digit-1)*k);
+                positive=nextPositive;
+                negative=nextNegative
+            };
+            k++
+        };
+        return minOf(positive,negative+k)-1
+    }
+}

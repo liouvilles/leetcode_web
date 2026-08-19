@@ -1,1 +1,17 @@
-class Solution { public boolean isRationalEqual(String s,String t){return Math.abs(value(s)-value(t))<1e-10;}private double value(String text){int dot=text.indexOf('.');double result=Double.parseDouble(text.substring(0,dot));String fraction=text.substring(dot+1);int open=fraction.indexOf('(');String nonRepeat=open<0?fraction:fraction.substring(0,open);String repeat=open<0?"":fraction.substring(open+1,fraction.length()-1);double scale=Math.pow(10,nonRepeat.length());if(!nonRepeat.isEmpty())result+=Long.parseLong(nonRepeat)/scale;if(!repeat.isEmpty())result+=Long.parseLong(repeat)/(scale*(Math.pow(10,repeat.length())-1));return result;} }
+class Solution {
+    public boolean isRationalEqual(String s,String t){
+        return Math.abs(value(s)-value(t))<1e-10;
+    }
+    private double value(String text){
+        int dot=text.indexOf('.');
+        double result=Double.parseDouble(text.substring(0,dot));
+        String fraction=text.substring(dot+1);
+        int open=fraction.indexOf('(');
+        String nonRepeat=open<0?fraction:fraction.substring(0,open);
+        String repeat=open<0?"":fraction.substring(open+1,fraction.length()-1);
+        double scale=Math.pow(10,nonRepeat.length());
+        if(!nonRepeat.isEmpty())result+=Long.parseLong(nonRepeat)/scale;
+        if(!repeat.isEmpty())result+=Long.parseLong(repeat)/(scale*(Math.pow(10,repeat.length())-1));
+        return result;
+    }
+}

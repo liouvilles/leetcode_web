@@ -1,1 +1,20 @@
-class Solution { fun maxNumberOfFamilies(n:Int,reservedSeats:Array<IntArray>):Int{val rows=mutableMapOf<Int,Int>();for(seat in reservedSeats)if(seat[1] in 2..9)rows[seat[0]]=(rows[seat[0]]?:0)or(1 shl seat[1]);var left=0;var middle=0;var right=0;for(seat in 2..5)left=left or(1 shl seat);for(seat in 4..7)middle=middle or(1 shl seat);for(seat in 6..9)right=right or(1 shl seat);var answer=(n-rows.size)*2;for(mask in rows.values){val leftFree=mask and left==0;val middleFree=mask and middle==0;val rightFree=mask and right==0;if(leftFree&&rightFree)answer+=2 else if(leftFree||middleFree||rightFree)answer++};return answer} }
+class Solution {
+    fun maxNumberOfFamilies(n:Int,reservedSeats:Array<IntArray>):Int{
+        val rows=mutableMapOf<Int,Int>();
+        for(seat in reservedSeats)if(seat[1] in 2..9)rows[seat[0]]=(rows[seat[0]]?:0)or(1 shl seat[1]);
+        var left=0;
+        var middle=0;
+        var right=0;
+        for(seat in 2..5)left=left or(1 shl seat);
+        for(seat in 4..7)middle=middle or(1 shl seat);
+        for(seat in 6..9)right=right or(1 shl seat);
+        var answer=(n-rows.size)*2;
+        for(mask in rows.values){
+            val leftFree=mask and left==0;
+            val middleFree=mask and middle==0;
+            val rightFree=mask and right==0;
+            if(leftFree&&rightFree)answer+=2 else if(leftFree||middleFree||rightFree)answer++
+        };
+        return answer
+    }
+}

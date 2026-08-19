@@ -1,1 +1,14 @@
-class Solution { fun getNoZeroIntegers(n:Int):IntArray{for(a in 1 until n)if(noZero(a)&&noZero(n-a))return intArrayOf(a,n-a);return intArrayOf()};private fun noZero(value:Int):Boolean{var number=value;while(number>0){if(number%10==0)return false;number/=10};return true} }
+class Solution {
+    fun getNoZeroIntegers(n:Int):IntArray{
+        for(a in 1 until n)if(noZero(a)&&noZero(n-a))return intArrayOf(a,n-a);
+        return intArrayOf()
+    };
+    private fun noZero(value:Int):Boolean{
+        var number=value;
+        while(number>0){
+            if(number%10==0)return false;
+            number/=10
+        };
+        return true
+    }
+}

@@ -1,1 +1,20 @@
-class Solution { private fun cost(left:Int,right:Int,start:Int):Int{if(right<=start)return start-left;if(left>=start)return right-start;val a=start-left;val b=right-start;return minOf(2*a+b,a+2*b)};fun maxTotalFruits(fruits:Array<IntArray>,startPos:Int,k:Int):Int{var left=0;var sum=0;var answer=0;for(right in fruits.indices){sum+=fruits[right][1];while(left<=right&&cost(fruits[left][0],fruits[right][0],startPos)>k)sum-=fruits[left++][1];answer=maxOf(answer,sum)};return answer} }
+class Solution {
+    private fun cost(left:Int,right:Int,start:Int):Int{
+        if(right<=start)return start-left;
+        if(left>=start)return right-start;
+        val a=start-left;
+        val b=right-start;
+        return minOf(2*a+b,a+2*b)
+    };
+    fun maxTotalFruits(fruits:Array<IntArray>,startPos:Int,k:Int):Int{
+        var left=0;
+        var sum=0;
+        var answer=0;
+        for(right in fruits.indices){
+            sum+=fruits[right][1];
+            while(left<=right&&cost(fruits[left][0],fruits[right][0],startPos)>k)sum-=fruits[left++][1];
+            answer=maxOf(answer,sum)
+        };
+        return answer
+    }
+}

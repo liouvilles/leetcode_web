@@ -1,1 +1,40 @@
-class Solution { private class DSU(n:Int){val parent=IntArray(n+1){it};val rank=IntArray(n+1);var components=n;fun find(x:Int):Int{if(parent[x]!=x)parent[x]=find(parent[x]);return parent[x]};fun union(first:Int,second:Int):Boolean{var a=find(first);var b=find(second);if(a==b)return false;if(rank[a]<rank[b]){val temporary=a;a=b;b=temporary};parent[b]=a;if(rank[a]==rank[b])rank[a]++;components--;return true}};fun maxNumEdgesToRemove(n:Int,edges:Array<IntArray>):Int{val alice=DSU(n);val bob=DSU(n);var used=0;for(edge in edges)if(edge[0]==3&&alice.union(edge[1],edge[2])){bob.union(edge[1],edge[2]);used++};for(edge in edges)if(edge[0]==1){if(alice.union(edge[1],edge[2]))used++}else if(edge[0]==2&&bob.union(edge[1],edge[2]))used++;return if(alice.components==1&&bob.components==1)edges.size-used else -1} }
+class Solution {
+    private class DSU(n:Int){
+        val parent=IntArray(n+1){
+            it
+        };
+        val rank=IntArray(n+1);
+        var components=n;
+        fun find(x:Int):Int{
+            if(parent[x]!=x)parent[x]=find(parent[x]);
+            return parent[x]
+        };
+        fun union(first:Int,second:Int):Boolean{
+            var a=find(first);
+            var b=find(second);
+            if(a==b)return false;
+            if(rank[a]<rank[b]){
+                val temporary=a;
+                a=b;
+                b=temporary
+            };
+            parent[b]=a;
+            if(rank[a]==rank[b])rank[a]++;
+            components--;
+            return true
+        }
+    };
+    fun maxNumEdgesToRemove(n:Int,edges:Array<IntArray>):Int{
+        val alice=DSU(n);
+        val bob=DSU(n);
+        var used=0;
+        for(edge in edges)if(edge[0]==3&&alice.union(edge[1],edge[2])){
+            bob.union(edge[1],edge[2]);
+            used++
+        };
+        for(edge in edges)if(edge[0]==1){
+            if(alice.union(edge[1],edge[2]))used++
+        }else if(edge[0]==2&&bob.union(edge[1],edge[2]))used++;
+        return if(alice.components==1&&bob.components==1)edges.size-used else -1
+    }
+}

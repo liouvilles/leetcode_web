@@ -1,1 +1,31 @@
-class Solution { fun minimumJumps(forbidden:IntArray,a:Int,b:Int,x:Int):Int{val limit=6000;val blocked=BooleanArray(limit+1);for(value in forbidden)if(value<=limit)blocked[value]=true;val visited=Array(limit+1){BooleanArray(2)};val queue=java.util.ArrayDeque<IntArray>();queue.add(intArrayOf(0,0,0));visited[0][0]=true;while(queue.isNotEmpty()){val state=queue.removeFirst();val position=state[0];val back=state[1];val steps=state[2];if(position==x)return steps;val forward=position+a;if(forward<=limit&&!blocked[forward]&&!visited[forward][0]){visited[forward][0]=true;queue.addLast(intArrayOf(forward,0,steps+1))};val backward=position-b;if(back==0&&backward>=0&&!blocked[backward]&&!visited[backward][1]){visited[backward][1]=true;queue.addLast(intArrayOf(backward,1,steps+1))}};return -1} }
+class Solution {
+    fun minimumJumps(forbidden:IntArray,a:Int,b:Int,x:Int):Int{
+        val limit=6000;
+        val blocked=BooleanArray(limit+1);
+        for(value in forbidden)if(value<=limit)blocked[value]=true;
+        val visited=Array(limit+1){
+            BooleanArray(2)
+        };
+        val queue=java.util.ArrayDeque<IntArray>();
+        queue.add(intArrayOf(0,0,0));
+        visited[0][0]=true;
+        while(queue.isNotEmpty()){
+            val state=queue.removeFirst();
+            val position=state[0];
+            val back=state[1];
+            val steps=state[2];
+            if(position==x)return steps;
+            val forward=position+a;
+            if(forward<=limit&&!blocked[forward]&&!visited[forward][0]){
+                visited[forward][0]=true;
+                queue.addLast(intArrayOf(forward,0,steps+1))
+            };
+            val backward=position-b;
+            if(back==0&&backward>=0&&!blocked[backward]&&!visited[backward][1]){
+                visited[backward][1]=true;
+                queue.addLast(intArrayOf(backward,1,steps+1))
+            }
+        };
+        return -1
+    }
+}

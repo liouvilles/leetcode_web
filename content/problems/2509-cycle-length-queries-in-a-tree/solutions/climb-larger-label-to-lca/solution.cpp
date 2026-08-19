@@ -1,1 +1,15 @@
-class Solution { public:vector<int> cycleLengthQueries(int n,vector<vector<int>>& queries){vector<int> answer;for(auto& query:queries){int first=query[0],second=query[1],length=1;while(first!=second){if(first>second)first/=2;else second/=2;++length;}answer.push_back(length);}return answer;} };
+class Solution {
+    public:vector<int> cycleLengthQueries(int n,vector<vector<int>>& queries){
+        vector<int> answer;
+        for(auto& query:queries){
+            int first=query[0],second=query[1],length=1;
+            while(first!=second){
+                if(first>second)first/=2;
+                else second/=2;
+                ++length;
+            }
+            answer.push_back(length);
+        }
+        return answer;
+    }
+};

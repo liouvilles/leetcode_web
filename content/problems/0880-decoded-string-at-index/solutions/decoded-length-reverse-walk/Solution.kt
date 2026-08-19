@@ -1,1 +1,15 @@
-class Solution { fun decodeAtIndex(s:String,k:Int):String{var size=0L;for(c in s)if(c.isDigit())size*=c-'0' else size++;val index=k.toLong();for(i in s.indices.reversed()){val c=s[i];if(c.isDigit())size/=c-'0' else{if(index%size==0L)return c.toString();size--}};return ""} }
+class Solution {
+    fun decodeAtIndex(s:String,k:Int):String{
+        var size=0L;
+        for(c in s)if(c.isDigit())size*=c-'0' else size++;
+        val index=k.toLong();
+        for(i in s.indices.reversed()){
+            val c=s[i];
+            if(c.isDigit())size/=c-'0' else{
+                if(index%size==0L)return c.toString();
+                size--
+            }
+        };
+        return ""
+    }
+}

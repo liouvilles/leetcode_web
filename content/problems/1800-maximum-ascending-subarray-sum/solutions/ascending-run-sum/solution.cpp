@@ -1,1 +1,10 @@
-class Solution { public: int maxAscendingSum(vector<int>& nums){int current=nums[0],answer=current;for(int i=1;i<(int)nums.size();++i){current=nums[i]>nums[i-1]?current+nums[i]:nums[i];answer=max(answer,current);}return answer;} };
+class Solution {
+    public: int maxAscendingSum(vector<int>& nums){
+        int current=nums[0],answer=current;
+        for(int i=1;i<(int)nums.size();++i){
+            current=nums[i]>nums[i-1]?current+nums[i]:nums[i];
+            answer=max(answer,current);
+        }
+        return answer;
+    }
+};

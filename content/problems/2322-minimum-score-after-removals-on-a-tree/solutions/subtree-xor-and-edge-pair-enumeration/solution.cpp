@@ -1,1 +1,54 @@
-class Solution { vector<vector<int>> graph;vector<int> nums,tin,tout,xors;int timer=0;void dfs(int node,int parent){tin[node]=timer++;xors[node]=nums[node];for(int next:graph[node])if(next!=parent){dfs(next,node);xors[node]^=xors[next];}tout[node]=timer;}bool ancestor(int a,int b){return tin[a]<=tin[b]&&tout[b]<=tout[a];}public:int minimumScore(vector<int>& values,vector<vector<int>>& edges){nums=values;int n=nums.size();graph.assign(n,{});for(auto& edge:edges){graph[edge[0]].push_back(edge[1]);graph[edge[1]].push_back(edge[0]);}tin.resize(n);tout.resize(n);xors.resize(n);dfs(0,-1);int answer=INT_MAX,total=xors[0];for(int a=1;a<n;++a)for(int b=a+1;b<n;++b){int x,y,z;if(ancestor(a,b)){x=xors[b];y=xors[a]^xors[b];z=total^xors[a];}else if(ancestor(b,a)){x=xors[a];y=xors[b]^xors[a];z=total^xors[b];}else{x=xors[a];y=xors[b];z=total^xors[a]^xors[b];}answer=min(answer,max({x,y,z})-min({x,y,z}));}return answer;} };
+class Solution {
+    vector<vector<int>> graph;
+    vector<int> nums,tin,tout,xors;
+    int timer=0;
+    void dfs(int node,int parent){
+        tin[node]=timer++;
+        xors[node]=nums[node];
+        for(int next:graph[node])if(next!=parent){
+            dfs(next,node);
+            xors[node]^=xors[next];
+        }
+        tout[node]=timer;
+    }
+    bool ancestor(int a,int b){
+        return tin[a]<=tin[b]&&tout[b]<=tout[a];
+    }
+    public:int minimumScore(vector<int>& values,vector<vector<int>>& edges){
+        nums=values;
+        int n=nums.size();
+        graph.assign(n,{
+        });
+        for(auto& edge:edges){
+            graph[edge[0]].push_back(edge[1]);
+            graph[edge[1]].push_back(edge[0]);
+        }
+        tin.resize(n);
+        tout.resize(n);
+        xors.resize(n);
+        dfs(0,-1);
+        int answer=INT_MAX,total=xors[0];
+        for(int a=1;a<n;++a)for(int b=a+1;b<n;++b){
+            int x,y,z;
+            if(ancestor(a,b)){
+                x=xors[b];
+                y=xors[a]^xors[b];
+                z=total^xors[a];
+            }else if(ancestor(b,a)){
+                x=xors[a];
+                y=xors[b]^xors[a];
+                z=total^xors[b];
+            }else{
+                x=xors[a];
+                y=xors[b];
+                z=total^xors[a]^xors[b];
+            }
+            answer=min(answer,max({
+                x,y,z
+            })-min({
+                x,y,z
+            }));
+        }
+        return answer;
+    }
+};

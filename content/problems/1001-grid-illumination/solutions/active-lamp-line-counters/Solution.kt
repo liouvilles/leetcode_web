@@ -1,1 +1,37 @@
-class Solution { fun gridIllumination(n:Int,lamps:Array<IntArray>,queries:Array<IntArray>):IntArray{fun key(r:Int,c:Int):Long{return (r.toLong() shl 32) xor (c.toLong() and 0xffffffffL)};val active=mutableSetOf<Long>();val rows=mutableMapOf<Int,Int>();val columns=mutableMapOf<Int,Int>();val diagonals=mutableMapOf<Int,Int>();val antis=mutableMapOf<Int,Int>();fun add(map:MutableMap<Int,Int>,line:Int,delta:Int){map[line]=(map[line]?:0)+delta};for(lamp in lamps)if(active.add(key(lamp[0],lamp[1]))){add(rows,lamp[0],1);add(columns,lamp[1],1);add(diagonals,lamp[0]-lamp[1],1);add(antis,lamp[0]+lamp[1],1)};return IntArray(queries.size){i->val r=queries[i][0];val c=queries[i][1];val illuminated=if((rows[r]?:0)>0||(columns[c]?:0)>0||(diagonals[r-c]?:0)>0||(antis[r+c]?:0)>0)1 else 0;for(dr in -1..1)for(dc in -1..1){val nr=r+dr;val nc=c+dc;if(nr in 0 until n&&nc in 0 until n&&active.remove(key(nr,nc))){add(rows,nr,-1);add(columns,nc,-1);add(diagonals,nr-nc,-1);add(antis,nr+nc,-1)}};illuminated}} }
+class Solution {
+    fun gridIllumination(n:Int,lamps:Array<IntArray>,queries:Array<IntArray>):IntArray{
+        fun key(r:Int,c:Int):Long{
+            return (r.toLong() shl 32) xor (c.toLong() and 0xffffffffL)
+        };
+        val active=mutableSetOf<Long>();
+        val rows=mutableMapOf<Int,Int>();
+        val columns=mutableMapOf<Int,Int>();
+        val diagonals=mutableMapOf<Int,Int>();
+        val antis=mutableMapOf<Int,Int>();
+        fun add(map:MutableMap<Int,Int>,line:Int,delta:Int){
+            map[line]=(map[line]?:0)+delta
+        };
+        for(lamp in lamps)if(active.add(key(lamp[0],lamp[1]))){
+            add(rows,lamp[0],1);
+            add(columns,lamp[1],1);
+            add(diagonals,lamp[0]-lamp[1],1);
+            add(antis,lamp[0]+lamp[1],1)
+        };
+        return IntArray(queries.size){
+            i->val r=queries[i][0];
+            val c=queries[i][1];
+            val illuminated=if((rows[r]?:0)>0||(columns[c]?:0)>0||(diagonals[r-c]?:0)>0||(antis[r+c]?:0)>0)1 else 0;
+            for(dr in -1..1)for(dc in -1..1){
+                val nr=r+dr;
+                val nc=c+dc;
+                if(nr in 0 until n&&nc in 0 until n&&active.remove(key(nr,nc))){
+                    add(rows,nr,-1);
+                    add(columns,nc,-1);
+                    add(diagonals,nr-nc,-1);
+                    add(antis,nr+nc,-1)
+                }
+            };
+            illuminated
+        }
+    }
+}

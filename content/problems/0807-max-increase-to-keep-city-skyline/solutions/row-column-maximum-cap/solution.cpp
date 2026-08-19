@@ -1,1 +1,13 @@
-class Solution { public: int maxIncreaseKeepingSkyline(vector<vector<int>>& grid){int n=grid.size();vector<int> rowMax(n),columnMax(n);for(int r=0;r<n;++r)for(int c=0;c<n;++c){rowMax[r]=max(rowMax[r],grid[r][c]);columnMax[c]=max(columnMax[c],grid[r][c]);}int answer=0;for(int r=0;r<n;++r)for(int c=0;c<n;++c)answer+=min(rowMax[r],columnMax[c])-grid[r][c];return answer;} };
+class Solution {
+    public: int maxIncreaseKeepingSkyline(vector<vector<int>>& grid){
+        int n=grid.size();
+        vector<int> rowMax(n),columnMax(n);
+        for(int r=0;r<n;++r)for(int c=0;c<n;++c){
+            rowMax[r]=max(rowMax[r],grid[r][c]);
+            columnMax[c]=max(columnMax[c],grid[r][c]);
+        }
+        int answer=0;
+        for(int r=0;r<n;++r)for(int c=0;c<n;++c)answer+=min(rowMax[r],columnMax[c])-grid[r][c];
+        return answer;
+    }
+};

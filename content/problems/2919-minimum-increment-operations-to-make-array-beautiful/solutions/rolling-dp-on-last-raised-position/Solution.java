@@ -1,1 +1,15 @@
-class Solution { private long cost(int value,int k){return Math.max(0L,(long)k-value);}public long minIncrementOperations(int[] nums,int k){long first=cost(nums[0],k),second=cost(nums[1],k),third=cost(nums[2],k);for(int i=3;i<nums.length;i++){long current=cost(nums[i],k)+Math.min(first,Math.min(second,third));first=second;second=third;third=current;}return Math.min(first,Math.min(second,third));} }
+class Solution {
+    private long cost(int value,int k){
+        return Math.max(0L,(long)k-value);
+    }
+    public long minIncrementOperations(int[] nums,int k){
+        long first=cost(nums[0],k),second=cost(nums[1],k),third=cost(nums[2],k);
+        for(int i=3;i<nums.length;i++){
+            long current=cost(nums[i],k)+Math.min(first,Math.min(second,third));
+            first=second;
+            second=third;
+            third=current;
+        }
+        return Math.min(first,Math.min(second,third));
+    }
+}

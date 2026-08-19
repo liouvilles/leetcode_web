@@ -1,1 +1,13 @@
-class Solution { fun findFarmland(land:Array<IntArray>):Array<IntArray>{val answer=mutableListOf<IntArray>();for(row in land.indices)for(col in land[0].indices)if(land[row][col]==1&&(row==0||land[row-1][col]==0)&&(col==0||land[row][col-1]==0)){var bottom=row;var right=col;while(bottom+1<land.size&&land[bottom+1][col]==1)bottom++;while(right+1<land[0].size&&land[row][right+1]==1)right++;answer.add(intArrayOf(row,col,bottom,right))};return answer.toTypedArray()} }
+class Solution {
+    fun findFarmland(land:Array<IntArray>):Array<IntArray>{
+        val answer=mutableListOf<IntArray>();
+        for(row in land.indices)for(col in land[0].indices)if(land[row][col]==1&&(row==0||land[row-1][col]==0)&&(col==0||land[row][col-1]==0)){
+            var bottom=row;
+            var right=col;
+            while(bottom+1<land.size&&land[bottom+1][col]==1)bottom++;
+            while(right+1<land[0].size&&land[row][right+1]==1)right++;
+            answer.add(intArrayOf(row,col,bottom,right))
+        };
+        return answer.toTypedArray()
+    }
+}

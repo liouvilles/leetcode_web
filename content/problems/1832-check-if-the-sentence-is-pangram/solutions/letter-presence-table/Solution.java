@@ -1,1 +1,11 @@
-class Solution { public boolean checkIfPangram(String sentence){boolean[] seen=new boolean[26];int distinct=0;for(char letter:sentence.toCharArray())if(!seen[letter-'a']){seen[letter-'a']=true;distinct++;}return distinct==26;} }
+class Solution {
+    public boolean checkIfPangram(String sentence){
+        boolean[] seen=new boolean[26];
+        int distinct=0;
+        for(char letter:sentence.toCharArray())if(!seen[letter-'a']){
+            seen[letter-'a']=true;
+            distinct++;
+        }
+        return distinct==26;
+    }
+}

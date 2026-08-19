@@ -1,1 +1,13 @@
-class Solution { public int numUniqueEmails(String[] emails){Set<String> unique=new HashSet<>();for(String email:emails){int at=email.indexOf('@');String local=email.substring(0,at),domain=email.substring(at);int plus=local.indexOf('+');if(plus>=0)local=local.substring(0,plus);unique.add(local.replace(".","")+domain);}return unique.size();} }
+class Solution {
+    public int numUniqueEmails(String[] emails){
+        Set<String> unique=new HashSet<>();
+        for(String email:emails){
+            int at=email.indexOf('@');
+            String local=email.substring(0,at),domain=email.substring(at);
+            int plus=local.indexOf('+');
+            if(plus>=0)local=local.substring(0,plus);
+            unique.add(local.replace(".","")+domain);
+        }
+        return unique.size();
+    }
+}

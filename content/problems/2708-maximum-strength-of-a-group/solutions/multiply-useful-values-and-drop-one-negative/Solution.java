@@ -1,1 +1,27 @@
-class Solution { public long maxStrength(int[] nums){Arrays.sort(nums);int negativeCount=0;boolean hasZero=false;for(int value:nums){if(value<0)negativeCount++;else if(value==0)hasZero=true;}long product=1;int chosen=0,negativeUsed=0;for(int value:nums){if(value>0){product*=value;chosen++;}else if(value<0){negativeUsed++;if(negativeCount%2==1&&negativeUsed==negativeCount)continue;product*=value;chosen++;}}if(chosen>0)return product;if(hasZero)return 0;return nums[nums.length-1];} }
+class Solution {
+    public long maxStrength(int[] nums){
+        Arrays.sort(nums);
+        int negativeCount=0;
+        boolean hasZero=false;
+        for(int value:nums){
+            if(value<0)negativeCount++;
+            else if(value==0)hasZero=true;
+        }
+        long product=1;
+        int chosen=0,negativeUsed=0;
+        for(int value:nums){
+            if(value>0){
+                product*=value;
+                chosen++;
+            }else if(value<0){
+                negativeUsed++;
+                if(negativeCount%2==1&&negativeUsed==negativeCount)continue;
+                product*=value;
+                chosen++;
+            }
+        }
+        if(chosen>0)return product;
+        if(hasZero)return 0;
+        return nums[nums.length-1];
+    }
+}

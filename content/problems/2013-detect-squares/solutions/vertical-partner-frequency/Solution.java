@@ -1,1 +1,22 @@
-class DetectSquares { Map<Integer,Map<Integer,Integer>> columns=new HashMap<>();public DetectSquares(){}public void add(int[] point){columns.computeIfAbsent(point[0],ignored->new HashMap<>()).merge(point[1],1,Integer::sum);}private int count(int x,int y){return columns.getOrDefault(x,Collections.emptyMap()).getOrDefault(y,0);}public int count(int[] point){int x=point[0],y=point[1],answer=0;for(Map.Entry<Integer,Integer> entry:columns.getOrDefault(x,Collections.emptyMap()).entrySet()){int otherY=entry.getKey();if(otherY==y)continue;int side=Math.abs(otherY-y);answer+=entry.getValue()*count(x+side,y)*count(x+side,otherY);answer+=entry.getValue()*count(x-side,y)*count(x-side,otherY);}return answer;} }
+class DetectSquares {
+    Map<Integer,Map<Integer,Integer>> columns=new HashMap<>();
+    public DetectSquares(){
+    }
+    public void add(int[] point){
+        columns.computeIfAbsent(point[0],ignored->new HashMap<>()).merge(point[1],1,Integer::sum);
+    }
+    private int count(int x,int y){
+        return columns.getOrDefault(x,Collections.emptyMap()).getOrDefault(y,0);
+    }
+    public int count(int[] point){
+        int x=point[0],y=point[1],answer=0;
+        for(Map.Entry<Integer,Integer> entry:columns.getOrDefault(x,Collections.emptyMap()).entrySet()){
+            int otherY=entry.getKey();
+            if(otherY==y)continue;
+            int side=Math.abs(otherY-y);
+            answer+=entry.getValue()*count(x+side,y)*count(x+side,otherY);
+            answer+=entry.getValue()*count(x-side,y)*count(x-side,otherY);
+        }
+        return answer;
+    }
+}

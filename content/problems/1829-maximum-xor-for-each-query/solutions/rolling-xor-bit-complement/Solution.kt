@@ -1,1 +1,13 @@
-class Solution { fun getMaximumXor(nums:IntArray,maximumBit:Int):IntArray{var current=nums.fold(0){acc,value->acc xor value};val mask=(1 shl maximumBit)-1;return IntArray(nums.size){query->val result=current xor mask;current=current xor nums[nums.lastIndex-query];result}} }
+class Solution {
+    fun getMaximumXor(nums:IntArray,maximumBit:Int):IntArray{
+        var current=nums.fold(0){
+            acc,value->acc xor value
+        };
+        val mask=(1 shl maximumBit)-1;
+        return IntArray(nums.size){
+            query->val result=current xor mask;
+            current=current xor nums[nums.lastIndex-query];
+            result
+        }
+    }
+}

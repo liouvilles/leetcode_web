@@ -1,1 +1,29 @@
-class Solution { vector<int> positions(int k,vector<vector<int>>& conditions){vector<vector<int>> graph(k+1);vector<int> indegree(k+1),position(k+1);for(auto& edge:conditions){graph[edge[0]].push_back(edge[1]);++indegree[edge[1]];}queue<int> pending;for(int value=1;value<=k;++value)if(!indegree[value])pending.push(value);int count=0;while(!pending.empty()){int value=pending.front();pending.pop();position[value]=count++;for(int next:graph[value])if(!--indegree[next])pending.push(next);}return count==k?position:vector<int>{};}public:vector<vector<int>> buildMatrix(int k,vector<vector<int>>& rowConditions,vector<vector<int>>& colConditions){auto rows=positions(k,rowConditions),columns=positions(k,colConditions);if(rows.empty()||columns.empty())return{};vector answer(k,vector<int>(k));for(int value=1;value<=k;++value)answer[rows[value]][columns[value]]=value;return answer;} };
+class Solution {
+    vector<int> positions(int k,vector<vector<int>>& conditions){
+        vector<vector<int>> graph(k+1);
+        vector<int> indegree(k+1),position(k+1);
+        for(auto& edge:conditions){
+            graph[edge[0]].push_back(edge[1]);
+            ++indegree[edge[1]];
+        }
+        queue<int> pending;
+        for(int value=1;value<=k;++value)if(!indegree[value])pending.push(value);
+        int count=0;
+        while(!pending.empty()){
+            int value=pending.front();
+            pending.pop();
+            position[value]=count++;
+            for(int next:graph[value])if(!--indegree[next])pending.push(next);
+        }
+        return count==k?position:vector<int>{
+        };
+    }
+    public:vector<vector<int>> buildMatrix(int k,vector<vector<int>>& rowConditions,vector<vector<int>>& colConditions){
+        auto rows=positions(k,rowConditions),columns=positions(k,colConditions);
+        if(rows.empty()||columns.empty())return{
+        };
+        vector answer(k,vector<int>(k));
+        for(int value=1;value<=k;++value)answer[rows[value]][columns[value]]=value;
+        return answer;
+    }
+};

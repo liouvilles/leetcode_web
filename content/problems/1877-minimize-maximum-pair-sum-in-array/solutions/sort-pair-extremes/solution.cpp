@@ -1,1 +1,8 @@
-class Solution { public: int minPairSum(vector<int>& nums){sort(nums.begin(),nums.end());int answer=0;for(int left=0,right=nums.size()-1;left<right;++left,--right)answer=max(answer,nums[left]+nums[right]);return answer;} };
+class Solution {
+    public: int minPairSum(vector<int>& nums){
+        sort(nums.begin(),nums.end());
+        int answer=0;
+        for(int left=0,right=nums.size()-1;left<right;++left,--right)answer=max(answer,nums[left]+nums[right]);
+        return answer;
+    }
+};

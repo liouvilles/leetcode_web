@@ -1,1 +1,41 @@
-class Solution { public: int minCost(vector<vector<int>>& grid){int rows=grid.size(),cols=grid[0].size();int directions[4][2]={{0,1},{0,-1},{1,0},{-1,0}};vector<vector<int>> dist(rows,vector<int>(cols,INT_MAX));deque<pair<int,int>> pending;dist[0][0]=0;pending.push_front({0,0});while(!pending.empty()){auto [row,col]=pending.front();pending.pop_front();for(int direction=0;direction<4;++direction){int nextRow=row+directions[direction][0],nextCol=col+directions[direction][1];if(nextRow<0||nextRow>=rows||nextCol<0||nextCol>=cols)continue;int weight=grid[row][col]==direction+1?0:1,newDistance=dist[row][col]+weight;if(newDistance<dist[nextRow][nextCol]){dist[nextRow][nextCol]=newDistance;if(weight)pending.push_back({nextRow,nextCol});else pending.push_front({nextRow,nextCol});}}}return dist.back().back();} };
+class Solution {
+    public: int minCost(vector<vector<int>>& grid){
+        int rows=grid.size(),cols=grid[0].size();
+        int directions[4][2]={
+            {
+                0,1
+            },{
+                0,-1
+            },{
+                1,0
+            },{
+                -1,0
+            }
+        };
+        vector<vector<int>> dist(rows,vector<int>(cols,INT_MAX));
+        deque<pair<int,int>> pending;
+        dist[0][0]=0;
+        pending.push_front({
+            0,0
+        });
+        while(!pending.empty()){
+            auto [row,col]=pending.front();
+            pending.pop_front();
+            for(int direction=0;direction<4;++direction){
+                int nextRow=row+directions[direction][0],nextCol=col+directions[direction][1];
+                if(nextRow<0||nextRow>=rows||nextCol<0||nextCol>=cols)continue;
+                int weight=grid[row][col]==direction+1?0:1,newDistance=dist[row][col]+weight;
+                if(newDistance<dist[nextRow][nextCol]){
+                    dist[nextRow][nextCol]=newDistance;
+                    if(weight)pending.push_back({
+                        nextRow,nextCol
+                    });
+                    else pending.push_front({
+                        nextRow,nextCol
+                    });
+                }
+            }
+        }
+        return dist.back().back();
+    }
+};

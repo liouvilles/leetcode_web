@@ -1,1 +1,49 @@
-class RangeModule { map<int,int> intervals;public:RangeModule(){}void addRange(int left,int right){auto it=intervals.lower_bound(left);if(it!=intervals.begin()){auto previous=prev(it);if(previous->second>=left)it=previous;}while(it!=intervals.end()&&it->first<=right){if(it->second<left){++it;continue;}left=min(left,it->first);right=max(right,it->second);it=intervals.erase(it);}intervals[left]=right;}bool queryRange(int left,int right){auto it=intervals.upper_bound(left);if(it==intervals.begin())return false;return prev(it)->second>=right;}void removeRange(int left,int right){auto it=intervals.lower_bound(left);if(it!=intervals.begin()){auto previous=prev(it);if(previous->second>left)it=previous;}vector<pair<int,int>> add;while(it!=intervals.end()&&it->first<right){int start=it->first,end=it->second;if(end<=left){++it;continue;}it=intervals.erase(it);if(start<left)add.push_back({start,left});if(end>right)add.push_back({right,end});}for(auto interval:add)intervals[interval.first]=interval.second;} };
+class RangeModule {
+    map<int,int> intervals;
+    public:RangeModule(){
+    }
+    void addRange(int left,int right){
+        auto it=intervals.lower_bound(left);
+        if(it!=intervals.begin()){
+            auto previous=prev(it);
+            if(previous->second>=left)it=previous;
+        }while(it!=intervals.end()&&it->first<=right){
+            if(it->second<left){
+                ++it;
+                continue;
+            }
+            left=min(left,it->first);
+            right=max(right,it->second);
+            it=intervals.erase(it);
+        }
+        intervals[left]=right;
+    }
+    bool queryRange(int left,int right){
+        auto it=intervals.upper_bound(left);
+        if(it==intervals.begin())return false;
+        return prev(it)->second>=right;
+    }
+    void removeRange(int left,int right){
+        auto it=intervals.lower_bound(left);
+        if(it!=intervals.begin()){
+            auto previous=prev(it);
+            if(previous->second>left)it=previous;
+        }
+        vector<pair<int,int>> add;
+        while(it!=intervals.end()&&it->first<right){
+            int start=it->first,end=it->second;
+            if(end<=left){
+                ++it;
+                continue;
+            }
+            it=intervals.erase(it);
+            if(start<left)add.push_back({
+                start,left
+            });
+            if(end>right)add.push_back({
+                right,end
+            });
+        }
+        for(auto interval:add)intervals[interval.first]=interval.second;
+    }
+};

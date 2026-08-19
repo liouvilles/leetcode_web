@@ -1,1 +1,16 @@
-class Solution { public:int minimumOperations(vector<int>& nums){int one=0,two=0,three=0;for(int value:nums){int nextOne=one+(value!=1),nextTwo=min(one,two)+(value!=2),nextThree=min({one,two,three})+(value!=3);one=nextOne;two=nextTwo;three=nextThree;}return min({one,two,three});} };
+class Solution {
+    public:int minimumOperations(vector<int>& nums){
+        int one=0,two=0,three=0;
+        for(int value:nums){
+            int nextOne=one+(value!=1),nextTwo=min(one,two)+(value!=2),nextThree=min({
+                one,two,three
+            })+(value!=3);
+            one=nextOne;
+            two=nextTwo;
+            three=nextThree;
+        }
+        return min({
+            one,two,three
+        });
+    }
+};

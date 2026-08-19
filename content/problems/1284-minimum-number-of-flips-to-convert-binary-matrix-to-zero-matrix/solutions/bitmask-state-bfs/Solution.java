@@ -1,1 +1,44 @@
-class Solution { public int minFlips(int[][] mat){int rows=mat.length,columns=mat[0].length,cells=rows*columns,start=0;for(int r=0;r<rows;r++)for(int c=0;c<columns;c++)if(mat[r][c]==1)start|=1<<(r*columns+c);int[] flips=new int[cells];int[][] directions={{0,0},{1,0},{-1,0},{0,1},{0,-1}};for(int r=0;r<rows;r++)for(int c=0;c<columns;c++)for(int[] d:directions){int nr=r+d[0],nc=c+d[1];if(nr>=0&&nr<rows&&nc>=0&&nc<columns)flips[r*columns+c]^=1<<(nr*columns+nc);}Queue<int[]> queue=new ArrayDeque<>();boolean[] seen=new boolean[1<<cells];queue.offer(new int[]{start,0});seen[start]=true;while(!queue.isEmpty()){int[] state=queue.poll();if(state[0]==0)return state[1];for(int flip:flips){int next=state[0]^flip;if(!seen[next]){seen[next]=true;queue.offer(new int[]{next,state[1]+1});}}}return -1;} }
+class Solution {
+    public int minFlips(int[][] mat){
+        int rows=mat.length,columns=mat[0].length,cells=rows*columns,start=0;
+        for(int r=0;r<rows;r++)for(int c=0;c<columns;c++)if(mat[r][c]==1)start|=1<<(r*columns+c);
+        int[] flips=new int[cells];
+        int[][] directions={
+            {
+                0,0
+            },{
+                1,0
+            },{
+                -1,0
+            },{
+                0,1
+            },{
+                0,-1
+            }
+        };
+        for(int r=0;r<rows;r++)for(int c=0;c<columns;c++)for(int[] d:directions){
+            int nr=r+d[0],nc=c+d[1];
+            if(nr>=0&&nr<rows&&nc>=0&&nc<columns)flips[r*columns+c]^=1<<(nr*columns+nc);
+        }
+        Queue<int[]> queue=new ArrayDeque<>();
+        boolean[] seen=new boolean[1<<cells];
+        queue.offer(new int[]{
+            start,0
+        });
+        seen[start]=true;
+        while(!queue.isEmpty()){
+            int[] state=queue.poll();
+            if(state[0]==0)return state[1];
+            for(int flip:flips){
+                int next=state[0]^flip;
+                if(!seen[next]){
+                    seen[next]=true;
+                    queue.offer(new int[]{
+                        next,state[1]+1
+                    });
+                }
+            }
+        }
+        return -1;
+    }
+}

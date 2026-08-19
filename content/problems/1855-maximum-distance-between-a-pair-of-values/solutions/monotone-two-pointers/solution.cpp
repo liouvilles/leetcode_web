@@ -1,1 +1,14 @@
-class Solution { public: int maxDistance(vector<int>& nums1,vector<int>& nums2){int first=0,second=0,answer=0;while(first<(int)nums1.size()&&second<(int)nums2.size()){second=max(second,first);if(second>=(int)nums2.size())break;if(nums1[first]<=nums2[second]){answer=max(answer,second-first);++second;}else ++first;}return answer;} };
+class Solution {
+    public: int maxDistance(vector<int>& nums1,vector<int>& nums2){
+        int first=0,second=0,answer=0;
+        while(first<(int)nums1.size()&&second<(int)nums2.size()){
+            second=max(second,first);
+            if(second>=(int)nums2.size())break;
+            if(nums1[first]<=nums2[second]){
+                answer=max(answer,second-first);
+                ++second;
+            }else ++first;
+        }
+        return answer;
+    }
+};

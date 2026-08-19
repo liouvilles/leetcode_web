@@ -1,1 +1,25 @@
-class Solution { public:int reachableNodes(int n,vector<vector<int>>& edges,vector<int>& restricted){vector<vector<int>> graph(n);for(auto& edge:edges){graph[edge[0]].push_back(edge[1]);graph[edge[1]].push_back(edge[0]);}vector<bool> blocked(n),seen(n);for(int node:restricted)blocked[node]=true;queue<int> pending;pending.push(0);seen[0]=true;int answer=0;while(!pending.empty()){int node=pending.front();pending.pop();++answer;for(int next:graph[node])if(!seen[next]&&!blocked[next]){seen[next]=true;pending.push(next);}}return answer;} };
+class Solution {
+    public:int reachableNodes(int n,vector<vector<int>>& edges,vector<int>& restricted){
+        vector<vector<int>> graph(n);
+        for(auto& edge:edges){
+            graph[edge[0]].push_back(edge[1]);
+            graph[edge[1]].push_back(edge[0]);
+        }
+        vector<bool> blocked(n),seen(n);
+        for(int node:restricted)blocked[node]=true;
+        queue<int> pending;
+        pending.push(0);
+        seen[0]=true;
+        int answer=0;
+        while(!pending.empty()){
+            int node=pending.front();
+            pending.pop();
+            ++answer;
+            for(int next:graph[node])if(!seen[next]&&!blocked[next]){
+                seen[next]=true;
+                pending.push(next);
+            }
+        }
+        return answer;
+    }
+};

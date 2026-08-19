@@ -1,1 +1,17 @@
-class Solution { public String decodeAtIndex(String s,int k){long size=0;for(char c:s.toCharArray())if(Character.isDigit(c))size*=c-'0';else size++;long index=k;for(int i=s.length()-1;i>=0;i--){char c=s.charAt(i);if(Character.isDigit(c))size/=c-'0';else{if(index%size==0)return Character.toString(c);size--;}}return "";} }
+class Solution {
+    public String decodeAtIndex(String s,int k){
+        long size=0;
+        for(char c:s.toCharArray())if(Character.isDigit(c))size*=c-'0';
+        else size++;
+        long index=k;
+        for(int i=s.length()-1;i>=0;i--){
+            char c=s.charAt(i);
+            if(Character.isDigit(c))size/=c-'0';
+            else{
+                if(index%size==0)return Character.toString(c);
+                size--;
+            }
+        }
+        return "";
+    }
+}

@@ -1,1 +1,18 @@
-class Solution { public: int minDeletionSize(vector<string>& strs){int columns=strs[0].size(),longest=1;vector<int> dp(columns,1);for(int j=0;j<columns;++j){for(int i=0;i<j;++i){bool compatible=true;for(string& word:strs)if(word[i]>word[j]){compatible=false;break;}if(compatible)dp[j]=max(dp[j],dp[i]+1);}longest=max(longest,dp[j]);}return columns-longest;} };
+class Solution {
+    public: int minDeletionSize(vector<string>& strs){
+        int columns=strs[0].size(),longest=1;
+        vector<int> dp(columns,1);
+        for(int j=0;j<columns;++j){
+            for(int i=0;i<j;++i){
+                bool compatible=true;
+                for(string& word:strs)if(word[i]>word[j]){
+                    compatible=false;
+                    break;
+                }
+                if(compatible)dp[j]=max(dp[j],dp[i]+1);
+            }
+            longest=max(longest,dp[j]);
+        }
+        return columns-longest;
+    }
+};

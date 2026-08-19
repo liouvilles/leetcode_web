@@ -1,1 +1,45 @@
-class Solution { public: int minFlips(vector<vector<int>>& mat){int rows=mat.size(),columns=mat[0].size(),cells=rows*columns,start=0;for(int r=0;r<rows;++r)for(int c=0;c<columns;++c)if(mat[r][c])start|=1<<(r*columns+c);vector<int> flips(cells);int directions[5][2]={{0,0},{1,0},{-1,0},{0,1},{0,-1}};for(int r=0;r<rows;++r)for(int c=0;c<columns;++c)for(auto& d:directions){int nr=r+d[0],nc=c+d[1];if(nr>=0&&nr<rows&&nc>=0&&nc<columns)flips[r*columns+c]^=1<<(nr*columns+nc);}queue<pair<int,int>> pending;vector<bool> seen(1<<cells);pending.push({start,0});seen[start]=true;while(!pending.empty()){auto [state,distance]=pending.front();pending.pop();if(!state)return distance;for(int flip:flips){int next=state^flip;if(!seen[next]){seen[next]=true;pending.push({next,distance+1});}}}return -1;} };
+class Solution {
+    public: int minFlips(vector<vector<int>>& mat){
+        int rows=mat.size(),columns=mat[0].size(),cells=rows*columns,start=0;
+        for(int r=0;r<rows;++r)for(int c=0;c<columns;++c)if(mat[r][c])start|=1<<(r*columns+c);
+        vector<int> flips(cells);
+        int directions[5][2]={
+            {
+                0,0
+            },{
+                1,0
+            },{
+                -1,0
+            },{
+                0,1
+            },{
+                0,-1
+            }
+        };
+        for(int r=0;r<rows;++r)for(int c=0;c<columns;++c)for(auto& d:directions){
+            int nr=r+d[0],nc=c+d[1];
+            if(nr>=0&&nr<rows&&nc>=0&&nc<columns)flips[r*columns+c]^=1<<(nr*columns+nc);
+        }
+        queue<pair<int,int>> pending;
+        vector<bool> seen(1<<cells);
+        pending.push({
+            start,0
+        });
+        seen[start]=true;
+        while(!pending.empty()){
+            auto [state,distance]=pending.front();
+            pending.pop();
+            if(!state)return distance;
+            for(int flip:flips){
+                int next=state^flip;
+                if(!seen[next]){
+                    seen[next]=true;
+                    pending.push({
+                        next,distance+1
+                    });
+                }
+            }
+        }
+        return -1;
+    }
+};

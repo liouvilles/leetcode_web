@@ -1,1 +1,15 @@
-class Solution { long long key(int x,int y){return (static_cast<long long>(x)<<32)^static_cast<unsigned int>(y);}public:int countPairs(vector<vector<int>>& coordinates,int k){unordered_map<long long,int> frequency;int answer=0;for(auto& point:coordinates){int x=point[0],y=point[1];for(int deltaX=0;deltaX<=k;++deltaX)answer+=frequency[key(x^deltaX,y^(k-deltaX))];++frequency[key(x,y)];}return answer;} };
+class Solution {
+    long long key(int x,int y){
+        return (static_cast<long long>(x)<<32)^static_cast<unsigned int>(y);
+    }
+    public:int countPairs(vector<vector<int>>& coordinates,int k){
+        unordered_map<long long,int> frequency;
+        int answer=0;
+        for(auto& point:coordinates){
+            int x=point[0],y=point[1];
+            for(int deltaX=0;deltaX<=k;++deltaX)answer+=frequency[key(x^deltaX,y^(k-deltaX))];
+            ++frequency[key(x,y)];
+        }
+        return answer;
+    }
+};

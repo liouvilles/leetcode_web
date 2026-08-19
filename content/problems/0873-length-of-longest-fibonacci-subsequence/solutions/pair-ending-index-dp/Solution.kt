@@ -1,1 +1,20 @@
-class Solution { fun lenLongestFibSubseq(arr:IntArray):Int{val index=arr.indices.associateBy{arr[it]};val dp=Array(arr.size){IntArray(arr.size)};var answer=0;for(i in arr.indices)for(j in 0 until i){val previous=arr[i]-arr[j];val k=index[previous];if(previous<arr[j]&&k!=null){dp[j][i]=maxOf(3,dp[k][j]+1);answer=maxOf(answer,dp[j][i])}};return answer} }
+class Solution {
+    fun lenLongestFibSubseq(arr:IntArray):Int{
+        val index=arr.indices.associateBy{
+            arr[it]
+        };
+        val dp=Array(arr.size){
+            IntArray(arr.size)
+        };
+        var answer=0;
+        for(i in arr.indices)for(j in 0 until i){
+            val previous=arr[i]-arr[j];
+            val k=index[previous];
+            if(previous<arr[j]&&k!=null){
+                dp[j][i]=maxOf(3,dp[k][j]+1);
+                answer=maxOf(answer,dp[j][i])
+            }
+        };
+        return answer
+    }
+}

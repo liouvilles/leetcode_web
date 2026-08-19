@@ -1,1 +1,13 @@
-class Solution { fun containsNearbyAlmostDuplicate(nums:IntArray,indexDiff:Int,valueDiff:Int):Boolean{val window=java.util.TreeSet<Long>();for(i in nums.indices){if(i>indexDiff)window.remove(nums[i-indexDiff-1].toLong());val value=nums[i].toLong();val candidate=window.ceiling(value-valueDiff.toLong());if(candidate!=null&&candidate<=value+valueDiff)return true;window.add(value)};return false} }
+class Solution {
+    fun containsNearbyAlmostDuplicate(nums:IntArray,indexDiff:Int,valueDiff:Int):Boolean{
+        val window=java.util.TreeSet<Long>();
+        for(i in nums.indices){
+            if(i>indexDiff)window.remove(nums[i-indexDiff-1].toLong());
+            val value=nums[i].toLong();
+            val candidate=window.ceiling(value-valueDiff.toLong());
+            if(candidate!=null&&candidate<=value+valueDiff)return true;
+            window.add(value)
+        };
+        return false
+    }
+}

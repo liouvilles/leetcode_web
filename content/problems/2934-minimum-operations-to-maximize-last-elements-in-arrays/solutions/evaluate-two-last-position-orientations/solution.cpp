@@ -1,1 +1,16 @@
-class Solution { int solve(vector<int>& a,vector<int>& b,int lastA,int lastB){int operations=0;for(int i=0;i+1<(int)a.size();++i){if(a[i]<=lastA&&b[i]<=lastB)continue;if(b[i]<=lastA&&a[i]<=lastB)++operations;else return 1000000000;}return operations;}public:int minOperations(vector<int>& nums1,vector<int>& nums2){int n=nums1.size();int answer=min(solve(nums1,nums2,nums1[n-1],nums2[n-1]),1+solve(nums1,nums2,nums2[n-1],nums1[n-1]));return answer>=1000000000?-1:answer;} };
+class Solution {
+    int solve(vector<int>& a,vector<int>& b,int lastA,int lastB){
+        int operations=0;
+        for(int i=0;i+1<(int)a.size();++i){
+            if(a[i]<=lastA&&b[i]<=lastB)continue;
+            if(b[i]<=lastA&&a[i]<=lastB)++operations;
+            else return 1000000000;
+        }
+        return operations;
+    }
+    public:int minOperations(vector<int>& nums1,vector<int>& nums2){
+        int n=nums1.size();
+        int answer=min(solve(nums1,nums2,nums1[n-1],nums2[n-1]),1+solve(nums1,nums2,nums2[n-1],nums1[n-1]));
+        return answer>=1000000000?-1:answer;
+    }
+};

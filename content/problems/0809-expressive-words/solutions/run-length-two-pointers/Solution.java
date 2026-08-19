@@ -1,1 +1,21 @@
-class Solution { public int expressiveWords(String s,String[] words){int answer=0;for(String word:words)if(stretchy(s,word))answer++;return answer;}private boolean stretchy(String target,String word){int i=0,j=0;while(i<target.length()&&j<word.length()){if(target.charAt(i)!=word.charAt(j))return false;int nextI=i+1,nextJ=j+1;while(nextI<target.length()&&target.charAt(nextI)==target.charAt(i))nextI++;while(nextJ<word.length()&&word.charAt(nextJ)==word.charAt(j))nextJ++;int a=nextI-i,b=nextJ-j;if(b>a||a!=b&&a<3)return false;i=nextI;j=nextJ;}return i==target.length()&&j==word.length();} }
+class Solution {
+    public int expressiveWords(String s,String[] words){
+        int answer=0;
+        for(String word:words)if(stretchy(s,word))answer++;
+        return answer;
+    }
+    private boolean stretchy(String target,String word){
+        int i=0,j=0;
+        while(i<target.length()&&j<word.length()){
+            if(target.charAt(i)!=word.charAt(j))return false;
+            int nextI=i+1,nextJ=j+1;
+            while(nextI<target.length()&&target.charAt(nextI)==target.charAt(i))nextI++;
+            while(nextJ<word.length()&&word.charAt(nextJ)==word.charAt(j))nextJ++;
+            int a=nextI-i,b=nextJ-j;
+            if(b>a||a!=b&&a<3)return false;
+            i=nextI;
+            j=nextJ;
+        }
+        return i==target.length()&&j==word.length();
+    }
+}

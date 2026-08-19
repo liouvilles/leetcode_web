@@ -1,1 +1,46 @@
-class Solution { fun cutOffTree(forest:List<List<Int>>):Int{val trees=mutableListOf<IntArray>();for(r in forest.indices)for(c in forest[0].indices)if(forest[r][c]>1)trees.add(intArrayOf(forest[r][c],r,c));trees.sortBy{it[0]};var row=0;var column=0;var total=0;fun bfs(sr:Int,sc:Int,tr:Int,tc:Int):Int{if(sr==tr&&sc==tc)return 0;val seen=Array(forest.size){BooleanArray(forest[0].size)};val queue=java.util.ArrayDeque<IntArray>();queue.add(intArrayOf(sr,sc));seen[sr][sc]=true;val directions=arrayOf(intArrayOf(1,0),intArrayOf(-1,0),intArrayOf(0,1),intArrayOf(0,-1));var steps=0;while(queue.isNotEmpty()){steps++;repeat(queue.size){val cell=queue.remove();for(d in directions){val r=cell[0]+d[0];val c=cell[1]+d[1];if(r !in forest.indices||c !in forest[0].indices||seen[r][c]||forest[r][c]==0)continue;if(r==tr&&c==tc)return steps;seen[r][c]=true;queue.add(intArrayOf(r,c))}}};return -1};for(tree in trees){val distance=bfs(row,column,tree[1],tree[2]);if(distance<0)return -1;total+=distance;row=tree[1];column=tree[2]};return total} }
+class Solution {
+    fun cutOffTree(forest:List<List<Int>>):Int{
+        val trees=mutableListOf<IntArray>();
+        for(r in forest.indices)for(c in forest[0].indices)if(forest[r][c]>1)trees.add(intArrayOf(forest[r][c],r,c));
+        trees.sortBy{
+            it[0]
+        };
+        var row=0;
+        var column=0;
+        var total=0;
+        fun bfs(sr:Int,sc:Int,tr:Int,tc:Int):Int{
+            if(sr==tr&&sc==tc)return 0;
+            val seen=Array(forest.size){
+                BooleanArray(forest[0].size)
+            };
+            val queue=java.util.ArrayDeque<IntArray>();
+            queue.add(intArrayOf(sr,sc));
+            seen[sr][sc]=true;
+            val directions=arrayOf(intArrayOf(1,0),intArrayOf(-1,0),intArrayOf(0,1),intArrayOf(0,-1));
+            var steps=0;
+            while(queue.isNotEmpty()){
+                steps++;
+                repeat(queue.size){
+                    val cell=queue.remove();
+                    for(d in directions){
+                        val r=cell[0]+d[0];
+                        val c=cell[1]+d[1];
+                        if(r !in forest.indices||c !in forest[0].indices||seen[r][c]||forest[r][c]==0)continue;
+                        if(r==tr&&c==tc)return steps;
+                        seen[r][c]=true;
+                        queue.add(intArrayOf(r,c))
+                    }
+                }
+            };
+            return -1
+        };
+        for(tree in trees){
+            val distance=bfs(row,column,tree[1],tree[2]);
+            if(distance<0)return -1;
+            total+=distance;
+            row=tree[1];
+            column=tree[2]
+        };
+        return total
+    }
+}

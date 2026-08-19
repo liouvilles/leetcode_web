@@ -1,1 +1,21 @@
-class Solution { public int minimumTime(int n,int[][] relations,int[] time){List<Integer>[] graph=new List[n];int[] indegree=new int[n],finish=time.clone();for(int i=0;i<n;i++)graph[i]=new ArrayList<>();for(int[] relation:relations){graph[relation[0]-1].add(relation[1]-1);indegree[relation[1]-1]++;}Queue<Integer> queue=new ArrayDeque<>();for(int i=0;i<n;i++)if(indegree[i]==0)queue.offer(i);while(!queue.isEmpty()){int course=queue.poll();for(int next:graph[course]){finish[next]=Math.max(finish[next],finish[course]+time[next]);if(--indegree[next]==0)queue.offer(next);}}return Arrays.stream(finish).max().getAsInt();} }
+class Solution {
+    public int minimumTime(int n,int[][] relations,int[] time){
+        List<Integer>[] graph=new List[n];
+        int[] indegree=new int[n],finish=time.clone();
+        for(int i=0;i<n;i++)graph[i]=new ArrayList<>();
+        for(int[] relation:relations){
+            graph[relation[0]-1].add(relation[1]-1);
+            indegree[relation[1]-1]++;
+        }
+        Queue<Integer> queue=new ArrayDeque<>();
+        for(int i=0;i<n;i++)if(indegree[i]==0)queue.offer(i);
+        while(!queue.isEmpty()){
+            int course=queue.poll();
+            for(int next:graph[course]){
+                finish[next]=Math.max(finish[next],finish[course]+time[next]);
+                if(--indegree[next]==0)queue.offer(next);
+            }
+        }
+        return Arrays.stream(finish).max().getAsInt();
+    }
+}

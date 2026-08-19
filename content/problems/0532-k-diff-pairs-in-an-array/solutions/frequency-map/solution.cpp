@@ -1,1 +1,10 @@
-class Solution { public: int findPairs(vector<int>& nums,int k){if(k<0)return 0;unordered_map<int,int> counts;for(int value:nums)++counts[value];int answer=0;for(auto [value,count]:counts)if(k==0?count>1:counts.count(value+k))++answer;return answer;} };
+class Solution {
+    public: int findPairs(vector<int>& nums,int k){
+        if(k<0)return 0;
+        unordered_map<int,int> counts;
+        for(int value:nums)++counts[value];
+        int answer=0;
+        for(auto [value,count]:counts)if(k==0?count>1:counts.count(value+k))++answer;
+        return answer;
+    }
+};

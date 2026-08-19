@@ -1,1 +1,18 @@
-class Solution { public int numOfArrays(int n,int m,int k){int mod=1_000_000_007;long[][] dp=new long[k+1][m+1];for(int maximum=1;maximum<=m;maximum++)dp[1][maximum]=1;for(int length=2;length<=n;length++){long[][] next=new long[k+1][m+1];for(int cost=1;cost<=k;cost++)for(int maximum=1;maximum<=m;maximum++){next[cost][maximum]=(next[cost][maximum]+dp[cost][maximum]*maximum)%mod;if(cost<k)for(int newMax=maximum+1;newMax<=m;newMax++)next[cost+1][newMax]=(next[cost+1][newMax]+dp[cost][maximum])%mod;}dp=next;}long answer=0;for(int maximum=1;maximum<=m;maximum++)answer=(answer+dp[k][maximum])%mod;return (int)answer;} }
+class Solution {
+    public int numOfArrays(int n,int m,int k){
+        int mod=1_000_000_007;
+        long[][] dp=new long[k+1][m+1];
+        for(int maximum=1;maximum<=m;maximum++)dp[1][maximum]=1;
+        for(int length=2;length<=n;length++){
+            long[][] next=new long[k+1][m+1];
+            for(int cost=1;cost<=k;cost++)for(int maximum=1;maximum<=m;maximum++){
+                next[cost][maximum]=(next[cost][maximum]+dp[cost][maximum]*maximum)%mod;
+                if(cost<k)for(int newMax=maximum+1;newMax<=m;newMax++)next[cost+1][newMax]=(next[cost+1][newMax]+dp[cost][maximum])%mod;
+            }
+            dp=next;
+        }
+        long answer=0;
+        for(int maximum=1;maximum<=m;maximum++)answer=(answer+dp[k][maximum])%mod;
+        return (int)answer;
+    }
+}

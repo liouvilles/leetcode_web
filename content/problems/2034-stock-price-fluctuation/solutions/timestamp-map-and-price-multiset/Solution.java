@@ -1,1 +1,26 @@
-class StockPrice { Map<Integer,Integer> prices=new HashMap<>();TreeMap<Integer,Integer> counts=new TreeMap<>();int latest=0;public StockPrice(){}public void update(int timestamp,int price){if(prices.containsKey(timestamp)){int old=prices.get(timestamp);counts.put(old,counts.get(old)-1);if(counts.get(old)==0)counts.remove(old);}prices.put(timestamp,price);counts.merge(price,1,Integer::sum);latest=Math.max(latest,timestamp);}public int current(){return prices.get(latest);}public int maximum(){return counts.lastKey();}public int minimum(){return counts.firstKey();} }
+class StockPrice {
+    Map<Integer,Integer> prices=new HashMap<>();
+    TreeMap<Integer,Integer> counts=new TreeMap<>();
+    int latest=0;
+    public StockPrice(){
+    }
+    public void update(int timestamp,int price){
+        if(prices.containsKey(timestamp)){
+            int old=prices.get(timestamp);
+            counts.put(old,counts.get(old)-1);
+            if(counts.get(old)==0)counts.remove(old);
+        }
+        prices.put(timestamp,price);
+        counts.merge(price,1,Integer::sum);
+        latest=Math.max(latest,timestamp);
+    }
+    public int current(){
+        return prices.get(latest);
+    }
+    public int maximum(){
+        return counts.lastKey();
+    }
+    public int minimum(){
+        return counts.firstKey();
+    }
+}

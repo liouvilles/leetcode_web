@@ -1,1 +1,17 @@
-class Solution { public List<Integer> getAllElements(TreeNode root1,TreeNode root2){List<Integer> first=new ArrayList<>(),second=new ArrayList<>(),answer=new ArrayList<>();inorder(root1,first);inorder(root2,second);int i=0,j=0;while(i<first.size()||j<second.size())if(j==second.size()||i<first.size()&&first.get(i)<=second.get(j))answer.add(first.get(i++));else answer.add(second.get(j++));return answer;}private void inorder(TreeNode node,List<Integer> values){if(node==null)return;inorder(node.left,values);values.add(node.val);inorder(node.right,values);} }
+class Solution {
+    public List<Integer> getAllElements(TreeNode root1,TreeNode root2){
+        List<Integer> first=new ArrayList<>(),second=new ArrayList<>(),answer=new ArrayList<>();
+        inorder(root1,first);
+        inorder(root2,second);
+        int i=0,j=0;
+        while(i<first.size()||j<second.size())if(j==second.size()||i<first.size()&&first.get(i)<=second.get(j))answer.add(first.get(i++));
+        else answer.add(second.get(j++));
+        return answer;
+    }
+    private void inorder(TreeNode node,List<Integer> values){
+        if(node==null)return;
+        inorder(node.left,values);
+        values.add(node.val);
+        inorder(node.right,values);
+    }
+}

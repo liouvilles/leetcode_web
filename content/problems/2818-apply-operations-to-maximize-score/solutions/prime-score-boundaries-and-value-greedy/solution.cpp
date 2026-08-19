@@ -1,1 +1,43 @@
-class Solution { static constexpr long long MOD=1000000007;long long power(long long base,long long exponent){long long answer=1;while(exponent){if(exponent&1)answer=answer*base%MOD;base=base*base%MOD;exponent>>=1;}return answer;}public:int maximumScore(vector<int>& nums,int k){int n=nums.size(),maximum=*max_element(nums.begin(),nums.end());vector<int> primeScore(maximum+1);for(int prime=2;prime<=maximum;++prime)if(!primeScore[prime])for(int multiple=prime;multiple<=maximum;multiple+=prime)++primeScore[multiple];vector<int> left(n),right(n),stack,order(n);for(int i=0;i<n;++i){int score=primeScore[nums[i]];while(!stack.empty()&&primeScore[nums[stack.back()]]<score)stack.pop_back();left[i]=stack.empty()?-1:stack.back();stack.push_back(i);}stack.clear();for(int i=n-1;i>=0;--i){int score=primeScore[nums[i]];while(!stack.empty()&&primeScore[nums[stack.back()]]<=score)stack.pop_back();right[i]=stack.empty()?n:stack.back();stack.push_back(i);}iota(order.begin(),order.end(),0);sort(order.begin(),order.end(),[&](int a,int b){return nums[a]>nums[b];});long long answer=1,remaining=k;for(int index:order){long long ways=1LL*(index-left[index])*(right[index]-index),used=min(remaining,ways);answer=answer*power(nums[index],used)%MOD;remaining-=used;if(!remaining)break;}return answer;} };
+class Solution {
+    static constexpr long long MOD=1000000007;
+    long long power(long long base,long long exponent){
+        long long answer=1;
+        while(exponent){
+            if(exponent&1)answer=answer*base%MOD;
+            base=base*base%MOD;
+            exponent>>=1;
+        }
+        return answer;
+    }
+    public:int maximumScore(vector<int>& nums,int k){
+        int n=nums.size(),maximum=*max_element(nums.begin(),nums.end());
+        vector<int> primeScore(maximum+1);
+        for(int prime=2;prime<=maximum;++prime)if(!primeScore[prime])for(int multiple=prime;multiple<=maximum;multiple+=prime)++primeScore[multiple];
+        vector<int> left(n),right(n),stack,order(n);
+        for(int i=0;i<n;++i){
+            int score=primeScore[nums[i]];
+            while(!stack.empty()&&primeScore[nums[stack.back()]]<score)stack.pop_back();
+            left[i]=stack.empty()?-1:stack.back();
+            stack.push_back(i);
+        }
+        stack.clear();
+        for(int i=n-1;i>=0;--i){
+            int score=primeScore[nums[i]];
+            while(!stack.empty()&&primeScore[nums[stack.back()]]<=score)stack.pop_back();
+            right[i]=stack.empty()?n:stack.back();
+            stack.push_back(i);
+        }
+        iota(order.begin(),order.end(),0);
+        sort(order.begin(),order.end(),[&](int a,int b){
+            return nums[a]>nums[b];
+        });
+        long long answer=1,remaining=k;
+        for(int index:order){
+            long long ways=1LL*(index-left[index])*(right[index]-index),used=min(remaining,ways);
+            answer=answer*power(nums[index],used)%MOD;
+            remaining-=used;
+            if(!remaining)break;
+        }
+        return answer;
+    }
+};

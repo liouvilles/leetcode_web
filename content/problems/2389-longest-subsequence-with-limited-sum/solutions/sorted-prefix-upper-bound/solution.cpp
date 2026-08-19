@@ -1,1 +1,10 @@
-class Solution { public:vector<int> answerQueries(vector<int>& nums,vector<int>& queries){sort(nums.begin(),nums.end());vector<int> prefix(nums.size()+1);partial_sum(nums.begin(),nums.end(),prefix.begin()+1);vector<int> answer;for(int query:queries)answer.push_back(upper_bound(prefix.begin(),prefix.end(),query)-prefix.begin()-1);return answer;} };
+class Solution {
+    public:vector<int> answerQueries(vector<int>& nums,vector<int>& queries){
+        sort(nums.begin(),nums.end());
+        vector<int> prefix(nums.size()+1);
+        partial_sum(nums.begin(),nums.end(),prefix.begin()+1);
+        vector<int> answer;
+        for(int query:queries)answer.push_back(upper_bound(prefix.begin(),prefix.end(),query)-prefix.begin()-1);
+        return answer;
+    }
+};

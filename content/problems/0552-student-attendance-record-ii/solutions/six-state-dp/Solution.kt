@@ -1,1 +1,24 @@
-class Solution { fun checkRecord(n:Int):Int{val mod=1000000007L;var dp=Array(2){LongArray(3)};dp[0][0]=1;repeat(n){val next=Array(2){LongArray(3)};for(a in 0..1)for(l in 0..2){val value=dp[a][l];next[a][0]=(next[a][0]+value)%mod;if(a==0)next[1][0]=(next[1][0]+value)%mod;if(l<2)next[a][l+1]=(next[a][l+1]+value)%mod};dp=next};return(dp.sumOf{it.sum() }%mod).toInt()} }
+class Solution {
+    fun checkRecord(n:Int):Int{
+        val mod=1000000007L;
+        var dp=Array(2){
+            LongArray(3)
+        };
+        dp[0][0]=1;
+        repeat(n){
+            val next=Array(2){
+                LongArray(3)
+            };
+            for(a in 0..1)for(l in 0..2){
+                val value=dp[a][l];
+                next[a][0]=(next[a][0]+value)%mod;
+                if(a==0)next[1][0]=(next[1][0]+value)%mod;
+                if(l<2)next[a][l+1]=(next[a][l+1]+value)%mod
+            };
+            dp=next
+        };
+        return(dp.sumOf{
+            it.sum()
+        }%mod).toInt()
+    }
+}

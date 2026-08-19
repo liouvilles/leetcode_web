@@ -1,1 +1,11 @@
-class Solution { fun numSpecialEquivGroups(words:Array<String>):Int=words.map{word->val even=word.filterIndexed{index,_->index%2==0}.toCharArray().sorted().joinToString("");val odd=word.filterIndexed{index,_->index%2==1}.toCharArray().sorted().joinToString("");"$even#$odd"}.toSet().size }
+class Solution {
+    fun numSpecialEquivGroups(words:Array<String>):Int=words.map{
+        word->val even=word.filterIndexed{
+            index,_->index%2==0
+        }.toCharArray().sorted().joinToString("");
+        val odd=word.filterIndexed{
+            index,_->index%2==1
+        }.toCharArray().sorted().joinToString("");
+        "$even#$odd"
+    }.toSet().size
+}

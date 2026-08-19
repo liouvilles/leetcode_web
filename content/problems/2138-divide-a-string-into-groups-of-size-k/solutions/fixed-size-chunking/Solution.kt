@@ -1,1 +1,10 @@
-class Solution { fun divideString(s:String,k:Int,fill:Char):Array<String>{return Array((s.length+k-1)/k){group->val start=group*k;val value=StringBuilder(s.substring(start,minOf(start+k,s.length)));while(value.length<k)value.append(fill);value.toString()}} }
+class Solution {
+    fun divideString(s:String,k:Int,fill:Char):Array<String>{
+        return Array((s.length+k-1)/k){
+            group->val start=group*k;
+            val value=StringBuilder(s.substring(start,minOf(start+k,s.length)));
+            while(value.length<k)value.append(fill);
+            value.toString()
+        }
+    }
+}

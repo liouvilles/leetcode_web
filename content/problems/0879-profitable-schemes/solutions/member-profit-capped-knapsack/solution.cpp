@@ -1,1 +1,14 @@
-class Solution { public: int profitableSchemes(int n,int minProfit,vector<int>& group,vector<int>& profit){const long long mod=1000000007;vector<vector<long long>> dp(n+1,vector<long long>(minProfit+1));dp[0][0]=1;for(int job=0;job<(int)group.size();++job)for(int members=n-group[job];members>=0;--members)for(int earned=minProfit;earned>=0;--earned){int next=min(minProfit,earned+profit[job]);dp[members+group[job]][next]=(dp[members+group[job]][next]+dp[members][earned])%mod;}long long answer=0;for(int members=0;members<=n;++members)answer=(answer+dp[members][minProfit])%mod;return answer;} };
+class Solution {
+    public: int profitableSchemes(int n,int minProfit,vector<int>& group,vector<int>& profit){
+        const long long mod=1000000007;
+        vector<vector<long long>> dp(n+1,vector<long long>(minProfit+1));
+        dp[0][0]=1;
+        for(int job=0;job<(int)group.size();++job)for(int members=n-group[job];members>=0;--members)for(int earned=minProfit;earned>=0;--earned){
+            int next=min(minProfit,earned+profit[job]);
+            dp[members+group[job]][next]=(dp[members+group[job]][next]+dp[members][earned])%mod;
+        }
+        long long answer=0;
+        for(int members=0;members<=n;++members)answer=(answer+dp[members][minProfit])%mod;
+        return answer;
+    }
+};

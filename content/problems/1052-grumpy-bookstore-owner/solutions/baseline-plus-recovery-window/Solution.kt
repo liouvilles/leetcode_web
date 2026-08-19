@@ -1,1 +1,13 @@
-class Solution { fun maxSatisfied(customers:IntArray,grumpy:IntArray,minutes:Int):Int{var baseline=0;var recovery=0;var best=0;for(i in customers.indices){if(grumpy[i]==0)baseline+=customers[i] else recovery+=customers[i];if(i>=minutes&&grumpy[i-minutes]==1)recovery-=customers[i-minutes];best=maxOf(best,recovery)};return baseline+best} }
+class Solution {
+    fun maxSatisfied(customers:IntArray,grumpy:IntArray,minutes:Int):Int{
+        var baseline=0;
+        var recovery=0;
+        var best=0;
+        for(i in customers.indices){
+            if(grumpy[i]==0)baseline+=customers[i] else recovery+=customers[i];
+            if(i>=minutes&&grumpy[i-minutes]==1)recovery-=customers[i-minutes];
+            best=maxOf(best,recovery)
+        };
+        return baseline+best
+    }
+}

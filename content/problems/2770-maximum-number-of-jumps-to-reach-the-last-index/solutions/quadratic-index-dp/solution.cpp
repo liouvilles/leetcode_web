@@ -1,1 +1,8 @@
-class Solution { public:int maximumJumps(vector<int>& nums,int target){vector<int> dp(nums.size(),-1);dp[0]=0;for(int end=1;end<(int)nums.size();++end)for(int start=0;start<end;++start)if(dp[start]>=0&&llabs((long long)nums[end]-nums[start])<=target)dp[end]=max(dp[end],dp[start]+1);return dp.back();} };
+class Solution {
+    public:int maximumJumps(vector<int>& nums,int target){
+        vector<int> dp(nums.size(),-1);
+        dp[0]=0;
+        for(int end=1;end<(int)nums.size();++end)for(int start=0;start<end;++start)if(dp[start]>=0&&llabs((long long)nums[end]-nums[start])<=target)dp[end]=max(dp[end],dp[start]+1);
+        return dp.back();
+    }
+};

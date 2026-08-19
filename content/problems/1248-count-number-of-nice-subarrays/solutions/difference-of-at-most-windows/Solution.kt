@@ -1,1 +1,18 @@
-class Solution { fun numberOfSubarrays(nums:IntArray,k:Int):Int=atMost(nums,k)-atMost(nums,k-1);private fun atMost(nums:IntArray,limit:Int):Int{if(limit<0)return 0;var left=0;var odd=0;var total=0;for(right in nums.indices){odd+=nums[right] and 1;while(odd>limit){odd-=nums[left] and 1;left++};total+=right-left+1};return total} }
+class Solution {
+    fun numberOfSubarrays(nums:IntArray,k:Int):Int=atMost(nums,k)-atMost(nums,k-1);
+    private fun atMost(nums:IntArray,limit:Int):Int{
+        if(limit<0)return 0;
+        var left=0;
+        var odd=0;
+        var total=0;
+        for(right in nums.indices){
+            odd+=nums[right] and 1;
+            while(odd>limit){
+                odd-=nums[left] and 1;
+                left++
+            };
+            total+=right-left+1
+        };
+        return total
+    }
+}

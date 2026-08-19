@@ -1,1 +1,19 @@
-class Solution { fun maximumsSplicedArray(nums1:IntArray,nums2:IntArray):Int{var sum1=0;var sum2=0;var current1=0;var current2=0;var best1=0;var best2=0;for(i in nums1.indices){sum1+=nums1[i];sum2+=nums2[i];current1=maxOf(0,current1+nums2[i]-nums1[i]);current2=maxOf(0,current2+nums1[i]-nums2[i]);best1=maxOf(best1,current1);best2=maxOf(best2,current2)};return maxOf(sum1+best1,sum2+best2)} }
+class Solution {
+    fun maximumsSplicedArray(nums1:IntArray,nums2:IntArray):Int{
+        var sum1=0;
+        var sum2=0;
+        var current1=0;
+        var current2=0;
+        var best1=0;
+        var best2=0;
+        for(i in nums1.indices){
+            sum1+=nums1[i];
+            sum2+=nums2[i];
+            current1=maxOf(0,current1+nums2[i]-nums1[i]);
+            current2=maxOf(0,current2+nums1[i]-nums2[i]);
+            best1=maxOf(best1,current1);
+            best2=maxOf(best2,current2)
+        };
+        return maxOf(sum1+best1,sum2+best2)
+    }
+}

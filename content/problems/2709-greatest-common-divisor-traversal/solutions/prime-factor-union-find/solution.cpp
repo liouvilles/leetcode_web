@@ -1,1 +1,38 @@
-class Solution { vector<int> parent,size;int find(int value){return parent[value]==value?value:parent[value]=find(parent[value]);}void unite(int a,int b){a=find(a);b=find(b);if(a==b)return;if(size[a]<size[b])swap(a,b);parent[b]=a;size[a]+=size[b];}public:bool canTraverseAllPairs(vector<int>& nums){int n=nums.size();if(n==1)return true;if(std::find(nums.begin(),nums.end(),1)!=nums.end())return false;int maximum=*max_element(nums.begin(),nums.end());vector<int> spf(maximum+1);for(int prime=2;prime<=maximum;++prime)if(!spf[prime])for(int multiple=prime;multiple<=maximum;multiple+=prime)if(!spf[multiple])spf[multiple]=prime;parent.resize(n);iota(parent.begin(),parent.end(),0);size.assign(n,1);unordered_map<int,int> owner;for(int i=0;i<n;++i){int value=nums[i];while(value>1){int prime=spf[value];if(owner.count(prime))unite(i,owner[prime]);else owner[prime]=i;while(value%prime==0)value/=prime;}}int root=find(0);for(int i=1;i<n;++i)if(find(i)!=root)return false;return true;} };
+class Solution {
+    vector<int> parent,size;
+    int find(int value){
+        return parent[value]==value?value:parent[value]=find(parent[value]);
+    }
+    void unite(int a,int b){
+        a=find(a);
+        b=find(b);
+        if(a==b)return;
+        if(size[a]<size[b])swap(a,b);
+        parent[b]=a;
+        size[a]+=size[b];
+    }
+    public:bool canTraverseAllPairs(vector<int>& nums){
+        int n=nums.size();
+        if(n==1)return true;
+        if(std::find(nums.begin(),nums.end(),1)!=nums.end())return false;
+        int maximum=*max_element(nums.begin(),nums.end());
+        vector<int> spf(maximum+1);
+        for(int prime=2;prime<=maximum;++prime)if(!spf[prime])for(int multiple=prime;multiple<=maximum;multiple+=prime)if(!spf[multiple])spf[multiple]=prime;
+        parent.resize(n);
+        iota(parent.begin(),parent.end(),0);
+        size.assign(n,1);
+        unordered_map<int,int> owner;
+        for(int i=0;i<n;++i){
+            int value=nums[i];
+            while(value>1){
+                int prime=spf[value];
+                if(owner.count(prime))unite(i,owner[prime]);
+                else owner[prime]=i;
+                while(value%prime==0)value/=prime;
+            }
+        }
+        int root=find(0);
+        for(int i=1;i<n;++i)if(find(i)!=root)return false;
+        return true;
+    }
+};

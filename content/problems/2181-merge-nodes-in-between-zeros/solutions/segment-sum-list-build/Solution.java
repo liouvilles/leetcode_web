@@ -1,1 +1,12 @@
-class Solution { public ListNode mergeNodes(ListNode head){ListNode dummy=new ListNode(),tail=dummy;int sum=0;for(ListNode node=head.next;node!=null;node=node.next)if(node.val==0){tail.next=new ListNode(sum);tail=tail.next;sum=0;}else sum+=node.val;return dummy.next;} }
+class Solution {
+    public ListNode mergeNodes(ListNode head){
+        ListNode dummy=new ListNode(),tail=dummy;
+        int sum=0;
+        for(ListNode node=head.next;node!=null;node=node.next)if(node.val==0){
+            tail.next=new ListNode(sum);
+            tail=tail.next;
+            sum=0;
+        }else sum+=node.val;
+        return dummy.next;
+    }
+}

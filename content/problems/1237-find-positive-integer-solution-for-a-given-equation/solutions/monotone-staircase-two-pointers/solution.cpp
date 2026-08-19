@@ -1,1 +1,18 @@
-class Solution { public: vector<vector<int>> findSolution(CustomFunction& customfunction,int z){vector<vector<int>> answer;int x=1,y=1000;while(x<=1000&&y>=1){int value=customfunction.f(x,y);if(value==z){answer.push_back({x,y});++x;--y;}else if(value<z)++x;else --y;}return answer;} };
+class Solution {
+    public: vector<vector<int>> findSolution(CustomFunction& customfunction,int z){
+        vector<vector<int>> answer;
+        int x=1,y=1000;
+        while(x<=1000&&y>=1){
+            int value=customfunction.f(x,y);
+            if(value==z){
+                answer.push_back({
+                    x,y
+                });
+                ++x;
+                --y;
+            }else if(value<z)++x;
+            else --y;
+        }
+        return answer;
+    }
+};

@@ -1,1 +1,18 @@
-class Solution { fun groupThePeople(groupSizes:IntArray):List<List<Int>>{val pending=mutableMapOf<Int,MutableList<Int>>();val answer=mutableListOf<List<Int>>();for(person in groupSizes.indices){val size=groupSizes[person];val group=pending.getOrPut(size){mutableListOf()};group.add(person);if(group.size==size){answer.add(group);pending.remove(size)}};return answer} }
+class Solution {
+    fun groupThePeople(groupSizes:IntArray):List<List<Int>>{
+        val pending=mutableMapOf<Int,MutableList<Int>>();
+        val answer=mutableListOf<List<Int>>();
+        for(person in groupSizes.indices){
+            val size=groupSizes[person];
+            val group=pending.getOrPut(size){
+                mutableListOf()
+            };
+            group.add(person);
+            if(group.size==size){
+                answer.add(group);
+                pending.remove(size)
+            }
+        };
+        return answer
+    }
+}

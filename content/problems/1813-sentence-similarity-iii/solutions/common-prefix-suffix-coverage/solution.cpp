@@ -1,1 +1,18 @@
-class Solution { public: bool areSentencesSimilar(string sentence1,string sentence2){auto split=[](string text){stringstream stream(text);vector<string> words;string word;while(stream>>word)words.push_back(word);return words;};auto first=split(sentence1),second=split(sentence2);if(first.size()>second.size())swap(first,second);int prefix=0;while(prefix<(int)first.size()&&first[prefix]==second[prefix])++prefix;int suffix=0;while(prefix+suffix<(int)first.size()&&first[first.size()-1-suffix]==second[second.size()-1-suffix])++suffix;return prefix+suffix==first.size();} };
+class Solution {
+    public: bool areSentencesSimilar(string sentence1,string sentence2){
+        auto split=[](string text){
+            stringstream stream(text);
+            vector<string> words;
+            string word;
+            while(stream>>word)words.push_back(word);
+            return words;
+        };
+        auto first=split(sentence1),second=split(sentence2);
+        if(first.size()>second.size())swap(first,second);
+        int prefix=0;
+        while(prefix<(int)first.size()&&first[prefix]==second[prefix])++prefix;
+        int suffix=0;
+        while(prefix+suffix<(int)first.size()&&first[first.size()-1-suffix]==second[second.size()-1-suffix])++suffix;
+        return prefix+suffix==first.size();
+    }
+};

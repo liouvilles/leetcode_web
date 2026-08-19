@@ -1,1 +1,10 @@
-class Solution { fun minLength(s:String):Int{val stack=CharArray(s.length);var size=0;for(current in s){if(size>0&&(stack[size-1]=='A'&&current=='B'||stack[size-1]=='C'&&current=='D'))size-- else stack[size++]=current};return size} }
+class Solution {
+    fun minLength(s:String):Int{
+        val stack=CharArray(s.length);
+        var size=0;
+        for(current in s){
+            if(size>0&&(stack[size-1]=='A'&&current=='B'||stack[size-1]=='C'&&current=='D'))size-- else stack[size++]=current
+        };
+        return size
+    }
+}

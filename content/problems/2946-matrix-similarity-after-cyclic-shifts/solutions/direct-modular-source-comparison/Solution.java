@@ -1,1 +1,10 @@
-class Solution { public boolean areSimilar(int[][] mat,int k){int columns=mat[0].length,shift=k%columns;for(int row=0;row<mat.length;row++)for(int column=0;column<columns;column++){int source=row%2==0?(column+shift)%columns:(column-shift+columns)%columns;if(mat[row][source]!=mat[row][column])return false;}return true;} }
+class Solution {
+    public boolean areSimilar(int[][] mat,int k){
+        int columns=mat[0].length,shift=k%columns;
+        for(int row=0;row<mat.length;row++)for(int column=0;column<columns;column++){
+            int source=row%2==0?(column+shift)%columns:(column-shift+columns)%columns;
+            if(mat[row][source]!=mat[row][column])return false;
+        }
+        return true;
+    }
+}

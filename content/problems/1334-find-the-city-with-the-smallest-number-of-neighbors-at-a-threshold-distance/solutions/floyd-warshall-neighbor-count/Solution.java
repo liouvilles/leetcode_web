@@ -1,1 +1,24 @@
-class Solution { public int findTheCity(int n,int[][] edges,int distanceThreshold){int infinity=1000000000;int[][] distance=new int[n][n];for(int i=0;i<n;i++){Arrays.fill(distance[i],infinity);distance[i][i]=0;}for(int[] edge:edges){distance[edge[0]][edge[1]]=distance[edge[1]][edge[0]]=Math.min(distance[edge[0]][edge[1]],edge[2]);}for(int k=0;k<n;k++)for(int i=0;i<n;i++)for(int j=0;j<n;j++)distance[i][j]=Math.min(distance[i][j],distance[i][k]+distance[k][j]);int answer=-1,bestCount=Integer.MAX_VALUE;for(int city=0;city<n;city++){int count=0;for(int other=0;other<n;other++)if(other!=city&&distance[city][other]<=distanceThreshold)count++;if(count<=bestCount){bestCount=count;answer=city;}}return answer;} }
+class Solution {
+    public int findTheCity(int n,int[][] edges,int distanceThreshold){
+        int infinity=1000000000;
+        int[][] distance=new int[n][n];
+        for(int i=0;i<n;i++){
+            Arrays.fill(distance[i],infinity);
+            distance[i][i]=0;
+        }
+        for(int[] edge:edges){
+            distance[edge[0]][edge[1]]=distance[edge[1]][edge[0]]=Math.min(distance[edge[0]][edge[1]],edge[2]);
+        }
+        for(int k=0;k<n;k++)for(int i=0;i<n;i++)for(int j=0;j<n;j++)distance[i][j]=Math.min(distance[i][j],distance[i][k]+distance[k][j]);
+        int answer=-1,bestCount=Integer.MAX_VALUE;
+        for(int city=0;city<n;city++){
+            int count=0;
+            for(int other=0;other<n;other++)if(other!=city&&distance[city][other]<=distanceThreshold)count++;
+            if(count<=bestCount){
+                bestCount=count;
+                answer=city;
+            }
+        }
+        return answer;
+    }
+}

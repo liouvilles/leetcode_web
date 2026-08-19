@@ -1,1 +1,21 @@
-class Solution { fun destroyTargets(nums:IntArray,space:Int):Int{val frequency=HashMap<Int,Int>();val minimum=HashMap<Int,Int>();for(value in nums){val remainder=value%space;frequency[remainder]=(frequency[remainder]?:0)+1;minimum[remainder]=minOf(minimum[remainder]?:Int.MAX_VALUE,value)};var best=0;var answer=Int.MAX_VALUE;for((remainder,count) in frequency){val value=minimum[remainder]!!;if(count>best||count==best&&value<answer){best=count;answer=value}};return answer} }
+class Solution {
+    fun destroyTargets(nums:IntArray,space:Int):Int{
+        val frequency=HashMap<Int,Int>();
+        val minimum=HashMap<Int,Int>();
+        for(value in nums){
+            val remainder=value%space;
+            frequency[remainder]=(frequency[remainder]?:0)+1;
+            minimum[remainder]=minOf(minimum[remainder]?:Int.MAX_VALUE,value)
+        };
+        var best=0;
+        var answer=Int.MAX_VALUE;
+        for((remainder,count) in frequency){
+            val value=minimum[remainder]!!;
+            if(count>best||count==best&&value<answer){
+                best=count;
+                answer=value
+            }
+        };
+        return answer
+    }
+}

@@ -1,1 +1,21 @@
-class Solution { public int[] executeInstructions(int n,int[] startPos,String s){int[] answer=new int[s.length()];for(int begin=0;begin<s.length();begin++){int row=startPos[0],column=startPos[1];for(int i=begin;i<s.length();i++){int nextRow=row,nextColumn=column;char command=s.charAt(i);if(command=='L')nextColumn--;else if(command=='R')nextColumn++;else if(command=='U')nextRow--;else nextRow++;if(nextRow<0||nextRow>=n||nextColumn<0||nextColumn>=n)break;row=nextRow;column=nextColumn;answer[begin]++;}}return answer;} }
+class Solution {
+    public int[] executeInstructions(int n,int[] startPos,String s){
+        int[] answer=new int[s.length()];
+        for(int begin=0;begin<s.length();begin++){
+            int row=startPos[0],column=startPos[1];
+            for(int i=begin;i<s.length();i++){
+                int nextRow=row,nextColumn=column;
+                char command=s.charAt(i);
+                if(command=='L')nextColumn--;
+                else if(command=='R')nextColumn++;
+                else if(command=='U')nextRow--;
+                else nextRow++;
+                if(nextRow<0||nextRow>=n||nextColumn<0||nextColumn>=n)break;
+                row=nextRow;
+                column=nextColumn;
+                answer[begin]++;
+            }
+        }
+        return answer;
+    }
+}

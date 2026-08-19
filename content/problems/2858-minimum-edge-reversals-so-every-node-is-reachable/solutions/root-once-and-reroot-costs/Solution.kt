@@ -1,1 +1,38 @@
-class Solution { fun minEdgeReversals(n:Int,edges:Array<IntArray>):IntArray{val graph=Array(n){mutableListOf<IntArray>()};for(edge in edges){graph[edge[0]].add(intArrayOf(edge[1],0));graph[edge[1]].add(intArrayOf(edge[0],1))};val parent=IntArray(n){-1};val edgeCost=IntArray(n);val order=IntArray(n);parent[0]=0;var size=0;var total=0;val queue=java.util.ArrayDeque<Int>();queue.add(0);while(queue.isNotEmpty()){val node=queue.remove();order[size++]=node;for(next in graph[node])if(parent[next[0]]==-1){parent[next[0]]=node;edgeCost[next[0]]=next[1];total+=next[1];queue.add(next[0])}};val answer=IntArray(n);answer[0]=total;for(index in 1 until n){val node=order[index];answer[node]=answer[parent[node]]+if(edgeCost[node]==0)1 else -1};return answer} }
+class Solution {
+    fun minEdgeReversals(n:Int,edges:Array<IntArray>):IntArray{
+        val graph=Array(n){
+            mutableListOf<IntArray>()
+        };
+        for(edge in edges){
+            graph[edge[0]].add(intArrayOf(edge[1],0));
+            graph[edge[1]].add(intArrayOf(edge[0],1))
+        };
+        val parent=IntArray(n){
+            -1
+        };
+        val edgeCost=IntArray(n);
+        val order=IntArray(n);
+        parent[0]=0;
+        var size=0;
+        var total=0;
+        val queue=java.util.ArrayDeque<Int>();
+        queue.add(0);
+        while(queue.isNotEmpty()){
+            val node=queue.remove();
+            order[size++]=node;
+            for(next in graph[node])if(parent[next[0]]==-1){
+                parent[next[0]]=node;
+                edgeCost[next[0]]=next[1];
+                total+=next[1];
+                queue.add(next[0])
+            }
+        };
+        val answer=IntArray(n);
+        answer[0]=total;
+        for(index in 1 until n){
+            val node=order[index];
+            answer[node]=answer[parent[node]]+if(edgeCost[node]==0)1 else -1
+        };
+        return answer
+    }
+}

@@ -1,1 +1,11 @@
-class MyCalendar { private final TreeMap<Integer,Integer> bookings=new TreeMap<>();public MyCalendar(){}public boolean book(int startTime,int endTime){Map.Entry<Integer,Integer> previous=bookings.floorEntry(startTime),next=bookings.ceilingEntry(startTime);if(previous!=null&&previous.getValue()>startTime||next!=null&&next.getKey()<endTime)return false;bookings.put(startTime,endTime);return true;} }
+class MyCalendar {
+    private final TreeMap<Integer,Integer> bookings=new TreeMap<>();
+    public MyCalendar(){
+    }
+    public boolean book(int startTime,int endTime){
+        Map.Entry<Integer,Integer> previous=bookings.floorEntry(startTime),next=bookings.ceilingEntry(startTime);
+        if(previous!=null&&previous.getValue()>startTime||next!=null&&next.getKey()<endTime)return false;
+        bookings.put(startTime,endTime);
+        return true;
+    }
+}

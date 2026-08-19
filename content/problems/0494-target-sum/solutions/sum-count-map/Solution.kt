@@ -1,1 +1,14 @@
-class Solution { fun findTargetSumWays(nums:IntArray,target:Int):Int{var ways=hashMapOf(0 to 1);for(value in nums){val next=hashMapOf<Int,Int>();for((sum,count) in ways){next[sum+value]=(next[sum+value]?:0)+count;next[sum-value]=(next[sum-value]?:0)+count};ways=next};return ways[target]?:0} }
+class Solution {
+    fun findTargetSumWays(nums:IntArray,target:Int):Int{
+        var ways=hashMapOf(0 to 1);
+        for(value in nums){
+            val next=hashMapOf<Int,Int>();
+            for((sum,count) in ways){
+                next[sum+value]=(next[sum+value]?:0)+count;
+                next[sum-value]=(next[sum-value]?:0)+count
+            };
+            ways=next
+        };
+        return ways[target]?:0
+    }
+}

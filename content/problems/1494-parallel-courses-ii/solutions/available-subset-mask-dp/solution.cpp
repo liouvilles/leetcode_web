@@ -1,1 +1,17 @@
-class Solution { public: int minNumberOfSemesters(int n,vector<vector<int>>& relations,int k){vector<int> prerequisite(n);for(auto& relation:relations)prerequisite[relation[1]-1]|=1<<(relation[0]-1);int total=1<<n;vector<int> dp(total,100);dp[0]=0;for(int mask=0;mask<total;++mask){if(dp[mask]==100)continue;int available=0;for(int course=0;course<n;++course)if(!(mask&(1<<course))&&(prerequisite[course]&mask)==prerequisite[course])available|=1<<course;if(__builtin_popcount((unsigned)available)<=k)dp[mask|available]=min(dp[mask|available],dp[mask]+1);else for(int subset=available;subset;subset=(subset-1)&available)if(__builtin_popcount((unsigned)subset)==k)dp[mask|subset]=min(dp[mask|subset],dp[mask]+1);}return dp.back();} };
+class Solution {
+    public: int minNumberOfSemesters(int n,vector<vector<int>>& relations,int k){
+        vector<int> prerequisite(n);
+        for(auto& relation:relations)prerequisite[relation[1]-1]|=1<<(relation[0]-1);
+        int total=1<<n;
+        vector<int> dp(total,100);
+        dp[0]=0;
+        for(int mask=0;mask<total;++mask){
+            if(dp[mask]==100)continue;
+            int available=0;
+            for(int course=0;course<n;++course)if(!(mask&(1<<course))&&(prerequisite[course]&mask)==prerequisite[course])available|=1<<course;
+            if(__builtin_popcount((unsigned)available)<=k)dp[mask|available]=min(dp[mask|available],dp[mask]+1);
+            else for(int subset=available;subset;subset=(subset-1)&available)if(__builtin_popcount((unsigned)subset)==k)dp[mask|subset]=min(dp[mask|subset],dp[mask]+1);
+        }
+        return dp.back();
+    }
+};

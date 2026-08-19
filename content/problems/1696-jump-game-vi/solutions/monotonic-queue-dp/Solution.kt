@@ -1,1 +1,15 @@
-class Solution { fun maxResult(nums:IntArray,k:Int):Int{val dp=IntArray(nums.size);dp[0]=nums[0];val deque=java.util.ArrayDeque<Int>();deque.addLast(0);for(i in 1 until nums.size){while(deque.first<i-k)deque.removeFirst();dp[i]=nums[i]+dp[deque.first];while(deque.isNotEmpty()&&dp[deque.last]<=dp[i])deque.removeLast();deque.addLast(i)};return dp.last()} }
+class Solution {
+    fun maxResult(nums:IntArray,k:Int):Int{
+        val dp=IntArray(nums.size);
+        dp[0]=nums[0];
+        val deque=java.util.ArrayDeque<Int>();
+        deque.addLast(0);
+        for(i in 1 until nums.size){
+            while(deque.first<i-k)deque.removeFirst();
+            dp[i]=nums[i]+dp[deque.first];
+            while(deque.isNotEmpty()&&dp[deque.last]<=dp[i])deque.removeLast();
+            deque.addLast(i)
+        };
+        return dp.last()
+    }
+}

@@ -1,1 +1,9 @@
-class Solution { public int[] findingUsersActiveMinutes(int[][] logs,int k){Map<Integer,Set<Integer>> minutes=new HashMap<>();for(int[] log:logs)minutes.computeIfAbsent(log[0],key->new HashSet<>()).add(log[1]);int[] answer=new int[k];for(Set<Integer> set:minutes.values())answer[set.size()-1]++;return answer;} }
+class Solution {
+    public int[] findingUsersActiveMinutes(int[][] logs,int k){
+        Map<Integer,Set<Integer>> minutes=new HashMap<>();
+        for(int[] log:logs)minutes.computeIfAbsent(log[0],key->new HashSet<>()).add(log[1]);
+        int[] answer=new int[k];
+        for(Set<Integer> set:minutes.values())answer[set.size()-1]++;
+        return answer;
+    }
+}

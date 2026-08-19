@@ -1,1 +1,16 @@
-class Solution { public: int minSetSize(vector<int>& arr){unordered_map<int,int> frequency;for(int value:arr)++frequency[value];vector<int> counts;for(auto [value,count]:frequency)counts.push_back(count);sort(counts.rbegin(),counts.rend());int removed=0,answer=0;for(int count:counts){removed+=count;++answer;if(removed*2>=(int)arr.size())break;}return answer;} };
+class Solution {
+    public: int minSetSize(vector<int>& arr){
+        unordered_map<int,int> frequency;
+        for(int value:arr)++frequency[value];
+        vector<int> counts;
+        for(auto [value,count]:frequency)counts.push_back(count);
+        sort(counts.rbegin(),counts.rend());
+        int removed=0,answer=0;
+        for(int count:counts){
+            removed+=count;
+            ++answer;
+            if(removed*2>=(int)arr.size())break;
+        }
+        return answer;
+    }
+};

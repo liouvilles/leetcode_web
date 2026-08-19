@@ -1,1 +1,16 @@
-class Solution { public int minimumAddedInteger(int[] nums1,int[] nums2){Arrays.sort(nums1);Arrays.sort(nums2);int answer=Integer.MAX_VALUE;for(int candidateIndex=0;candidateIndex<3;candidateIndex++){int added=nums2[0]-nums1[candidateIndex],first=0,second=0;while(first<nums1.length&&second<nums2.length){if(nums1[first]+added==nums2[second])second++;first++;}if(second==nums2.length)answer=Math.min(answer,added);}return answer;} }
+class Solution {
+    public int minimumAddedInteger(int[] nums1,int[] nums2){
+        Arrays.sort(nums1);
+        Arrays.sort(nums2);
+        int answer=Integer.MAX_VALUE;
+        for(int candidateIndex=0;candidateIndex<3;candidateIndex++){
+            int added=nums2[0]-nums1[candidateIndex],first=0,second=0;
+            while(first<nums1.length&&second<nums2.length){
+                if(nums1[first]+added==nums2[second])second++;
+                first++;
+            }
+            if(second==nums2.length)answer=Math.min(answer,added);
+        }
+        return answer;
+    }
+}

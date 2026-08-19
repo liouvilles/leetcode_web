@@ -1,1 +1,33 @@
-class Solution { fun networkDelayTime(times:Array<IntArray>,n:Int,k:Int):Int{val graph=Array(n+1){mutableListOf<IntArray>()};for(edge in times)graph[edge[0]].add(intArrayOf(edge[1],edge[2]));val distance=IntArray(n+1){Int.MAX_VALUE};distance[k]=0;val heap=java.util.PriorityQueue<IntArray>(compareBy{it[0]});heap.add(intArrayOf(0,k));while(heap.isNotEmpty()){val state=heap.remove();if(state[0]!=distance[state[1]])continue;for(edge in graph[state[1]]){val next=state[0]+edge[1];if(next<distance[edge[0]]){distance[edge[0]]=next;heap.add(intArrayOf(next,edge[0]))}}};var answer=0;for(node in 1..n){if(distance[node]==Int.MAX_VALUE)return -1;answer=maxOf(answer,distance[node])};return answer} }
+class Solution {
+    fun networkDelayTime(times:Array<IntArray>,n:Int,k:Int):Int{
+        val graph=Array(n+1){
+            mutableListOf<IntArray>()
+        };
+        for(edge in times)graph[edge[0]].add(intArrayOf(edge[1],edge[2]));
+        val distance=IntArray(n+1){
+            Int.MAX_VALUE
+        };
+        distance[k]=0;
+        val heap=java.util.PriorityQueue<IntArray>(compareBy{
+            it[0]
+        });
+        heap.add(intArrayOf(0,k));
+        while(heap.isNotEmpty()){
+            val state=heap.remove();
+            if(state[0]!=distance[state[1]])continue;
+            for(edge in graph[state[1]]){
+                val next=state[0]+edge[1];
+                if(next<distance[edge[0]]){
+                    distance[edge[0]]=next;
+                    heap.add(intArrayOf(next,edge[0]))
+                }
+            }
+        };
+        var answer=0;
+        for(node in 1..n){
+            if(distance[node]==Int.MAX_VALUE)return -1;
+            answer=maxOf(answer,distance[node])
+        };
+        return answer
+    }
+}

@@ -1,1 +1,17 @@
-class Solution { fun numberOfSpecialChars(word:String):Int{val lastLowercase=IntArray(26){-1};val firstUppercase=IntArray(26){word.length};for(index in word.indices){val letter=word[index];if(letter.isLowerCase())lastLowercase[letter-'a']=index else firstUppercase[letter-'A']=minOf(firstUppercase[letter-'A'],index)};var answer=0;for(index in 0 until 26)if(lastLowercase[index]!=-1&&firstUppercase[index]<word.length&&lastLowercase[index]<firstUppercase[index])answer++;return answer} }
+class Solution {
+    fun numberOfSpecialChars(word:String):Int{
+        val lastLowercase=IntArray(26){
+            -1
+        };
+        val firstUppercase=IntArray(26){
+            word.length
+        };
+        for(index in word.indices){
+            val letter=word[index];
+            if(letter.isLowerCase())lastLowercase[letter-'a']=index else firstUppercase[letter-'A']=minOf(firstUppercase[letter-'A'],index)
+        };
+        var answer=0;
+        for(index in 0 until 26)if(lastLowercase[index]!=-1&&firstUppercase[index]<word.length&&lastLowercase[index]<firstUppercase[index])answer++;
+        return answer
+    }
+}

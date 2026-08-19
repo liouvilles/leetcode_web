@@ -1,1 +1,14 @@
-class Solution { fun largestSquareArea(bottomLeft:Array<IntArray>,topRight:Array<IntArray>):Long{var answer=0L;for(i in bottomLeft.indices)for(j in i+1 until bottomLeft.size){val width=minOf(topRight[i][0],topRight[j][0])-maxOf(bottomLeft[i][0],bottomLeft[j][0]);val height=minOf(topRight[i][1],topRight[j][1])-maxOf(bottomLeft[i][1],bottomLeft[j][1]);if(width>0&&height>0){val side=minOf(width,height).toLong();answer=maxOf(answer,side*side)}};return answer} }
+class Solution {
+    fun largestSquareArea(bottomLeft:Array<IntArray>,topRight:Array<IntArray>):Long{
+        var answer=0L;
+        for(i in bottomLeft.indices)for(j in i+1 until bottomLeft.size){
+            val width=minOf(topRight[i][0],topRight[j][0])-maxOf(bottomLeft[i][0],bottomLeft[j][0]);
+            val height=minOf(topRight[i][1],topRight[j][1])-maxOf(bottomLeft[i][1],bottomLeft[j][1]);
+            if(width>0&&height>0){
+                val side=minOf(width,height).toLong();
+                answer=maxOf(answer,side*side)
+            }
+        };
+        return answer
+    }
+}

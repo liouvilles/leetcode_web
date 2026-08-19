@@ -1,1 +1,19 @@
-class Solution { fun matrixBlockSum(mat:Array<IntArray>,k:Int):Array<IntArray>{val rows=mat.size;val columns=mat[0].size;val prefix=Array(rows+1){IntArray(columns+1)};for(r in 0 until rows)for(c in 0 until columns)prefix[r+1][c+1]=mat[r][c]+prefix[r][c+1]+prefix[r+1][c]-prefix[r][c];return Array(rows){r->IntArray(columns){c->val top=maxOf(0,r-k);val bottom=minOf(rows-1,r+k);val left=maxOf(0,c-k);val right=minOf(columns-1,c+k);prefix[bottom+1][right+1]-prefix[top][right+1]-prefix[bottom+1][left]+prefix[top][left]}}} }
+class Solution {
+    fun matrixBlockSum(mat:Array<IntArray>,k:Int):Array<IntArray>{
+        val rows=mat.size;
+        val columns=mat[0].size;
+        val prefix=Array(rows+1){
+            IntArray(columns+1)
+        };
+        for(r in 0 until rows)for(c in 0 until columns)prefix[r+1][c+1]=mat[r][c]+prefix[r][c+1]+prefix[r+1][c]-prefix[r][c];
+        return Array(rows){
+            r->IntArray(columns){
+                c->val top=maxOf(0,r-k);
+                val bottom=minOf(rows-1,r+k);
+                val left=maxOf(0,c-k);
+                val right=minOf(columns-1,c+k);
+                prefix[bottom+1][right+1]-prefix[top][right+1]-prefix[bottom+1][left]+prefix[top][left]
+            }
+        }
+    }
+}

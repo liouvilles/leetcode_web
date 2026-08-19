@@ -1,1 +1,13 @@
-class Solution { fun maxMoves(grid:Array<IntArray>):Int{val rows=grid.size;val cols=grid[0].size;val dp=Array(rows){IntArray(cols)};for(col in cols-2 downTo 0)for(row in 0 until rows)for(nextRow in maxOf(0,row-1)..minOf(rows-1,row+1))if(grid[nextRow][col+1]>grid[row][col])dp[row][col]=maxOf(dp[row][col],1+dp[nextRow][col+1]);return (0 until rows).maxOf{dp[it][0]}} }
+class Solution {
+    fun maxMoves(grid:Array<IntArray>):Int{
+        val rows=grid.size;
+        val cols=grid[0].size;
+        val dp=Array(rows){
+            IntArray(cols)
+        };
+        for(col in cols-2 downTo 0)for(row in 0 until rows)for(nextRow in maxOf(0,row-1)..minOf(rows-1,row+1))if(grid[nextRow][col+1]>grid[row][col])dp[row][col]=maxOf(dp[row][col],1+dp[nextRow][col+1]);
+        return (0 until rows).maxOf{
+            dp[it][0]
+        }
+    }
+}

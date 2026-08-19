@@ -1,1 +1,29 @@
-class Solution { private val paths=arrayOf(emptyArray(),arrayOf(intArrayOf(0,-1),intArrayOf(0,1)),arrayOf(intArrayOf(-1,0),intArrayOf(1,0)),arrayOf(intArrayOf(0,-1),intArrayOf(1,0)),arrayOf(intArrayOf(0,1),intArrayOf(1,0)),arrayOf(intArrayOf(0,-1),intArrayOf(-1,0)),arrayOf(intArrayOf(0,1),intArrayOf(-1,0)));fun hasValidPath(grid:Array<IntArray>):Boolean{val rows=grid.size;val cols=grid[0].size;val seen=Array(rows){BooleanArray(cols)};val queue=java.util.ArrayDeque<IntArray>();queue.add(intArrayOf(0,0));seen[0][0]=true;while(queue.isNotEmpty()){val cell=queue.removeFirst();if(cell[0]==rows-1&&cell[1]==cols-1)return true;for(direction in paths[grid[cell[0]][cell[1]]]){val nr=cell[0]+direction[0];val nc=cell[1]+direction[1];if(nr !in 0 until rows||nc !in 0 until cols||seen[nr][nc])continue;if(paths[grid[nr][nc]].any{it[0]==-direction[0]&&it[1]==-direction[1]}){seen[nr][nc]=true;queue.addLast(intArrayOf(nr,nc))}}};return false} }
+class Solution {
+    private val paths=arrayOf(emptyArray(),arrayOf(intArrayOf(0,-1),intArrayOf(0,1)),arrayOf(intArrayOf(-1,0),intArrayOf(1,0)),arrayOf(intArrayOf(0,-1),intArrayOf(1,0)),arrayOf(intArrayOf(0,1),intArrayOf(1,0)),arrayOf(intArrayOf(0,-1),intArrayOf(-1,0)),arrayOf(intArrayOf(0,1),intArrayOf(-1,0)));
+    fun hasValidPath(grid:Array<IntArray>):Boolean{
+        val rows=grid.size;
+        val cols=grid[0].size;
+        val seen=Array(rows){
+            BooleanArray(cols)
+        };
+        val queue=java.util.ArrayDeque<IntArray>();
+        queue.add(intArrayOf(0,0));
+        seen[0][0]=true;
+        while(queue.isNotEmpty()){
+            val cell=queue.removeFirst();
+            if(cell[0]==rows-1&&cell[1]==cols-1)return true;
+            for(direction in paths[grid[cell[0]][cell[1]]]){
+                val nr=cell[0]+direction[0];
+                val nc=cell[1]+direction[1];
+                if(nr !in 0 until rows||nc !in 0 until cols||seen[nr][nc])continue;
+                if(paths[grid[nr][nc]].any{
+                    it[0]==-direction[0]&&it[1]==-direction[1]
+                }){
+                    seen[nr][nc]=true;
+                    queue.addLast(intArrayOf(nr,nc))
+                }
+            }
+        };
+        return false
+    }
+}

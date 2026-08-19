@@ -1,1 +1,32 @@
-class Solution { private static class DSU{int[] parent,rank;DSU(int n){parent=new int[n+1];rank=new int[n+1];for(int i=1;i<=n;i++)parent[i]=i;}int find(int x){return parent[x]==x?x:(parent[x]=find(parent[x]));}void union(int a,int b){a=find(a);b=find(b);if(a==b)return;if(rank[a]<rank[b]){int t=a;a=b;b=t;}parent[b]=a;if(rank[a]==rank[b])rank[a]++;}}public List<Boolean> areConnected(int n,int threshold,int[][] queries){DSU dsu=new DSU(n);for(int factor=threshold+1;factor<=n;factor++)for(int multiple=factor*2;multiple<=n;multiple+=factor)dsu.union(factor,multiple);List<Boolean> answer=new ArrayList<>();for(int[] query:queries)answer.add(dsu.find(query[0])==dsu.find(query[1]));return answer;} }
+class Solution {
+    private static class DSU{
+        int[] parent,rank;
+        DSU(int n){
+            parent=new int[n+1];
+            rank=new int[n+1];
+            for(int i=1;i<=n;i++)parent[i]=i;
+        }
+        int find(int x){
+            return parent[x]==x?x:(parent[x]=find(parent[x]));
+        }
+        void union(int a,int b){
+            a=find(a);
+            b=find(b);
+            if(a==b)return;
+            if(rank[a]<rank[b]){
+                int t=a;
+                a=b;
+                b=t;
+            }
+            parent[b]=a;
+            if(rank[a]==rank[b])rank[a]++;
+        }
+    }
+    public List<Boolean> areConnected(int n,int threshold,int[][] queries){
+        DSU dsu=new DSU(n);
+        for(int factor=threshold+1;factor<=n;factor++)for(int multiple=factor*2;multiple<=n;multiple+=factor)dsu.union(factor,multiple);
+        List<Boolean> answer=new ArrayList<>();
+        for(int[] query:queries)answer.add(dsu.find(query[0])==dsu.find(query[1]));
+        return answer;
+    }
+}

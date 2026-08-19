@@ -1,1 +1,28 @@
-class Solution { private var startAt=0;private var moveCost=0;private var pushCost=0;private fun cost(minutes:Int,seconds:Int):Int{if(minutes !in 0..99||seconds !in 0..99)return Int.MAX_VALUE;val digits=java.lang.String.format("%02d%02d",minutes,seconds).trimStart('0').ifEmpty{"0"};var finger=startAt;var total=0;for(ch in digits){val digit=ch-'0';if(digit!=finger)total+=moveCost;total+=pushCost;finger=digit};return total};fun minCostSetTime(startAt:Int,moveCost:Int,pushCost:Int,targetSeconds:Int):Int{this.startAt=startAt;this.moveCost=moveCost;this.pushCost=pushCost;val minutes=targetSeconds/60;val seconds=targetSeconds%60;return minOf(cost(minutes,seconds),cost(minutes-1,seconds+60))} }
+class Solution {
+    private var startAt=0;
+    private var moveCost=0;
+    private var pushCost=0;
+    private fun cost(minutes:Int,seconds:Int):Int{
+        if(minutes !in 0..99||seconds !in 0..99)return Int.MAX_VALUE;
+        val digits=java.lang.String.format("%02d%02d",minutes,seconds).trimStart('0').ifEmpty{
+            "0"
+        };
+        var finger=startAt;
+        var total=0;
+        for(ch in digits){
+            val digit=ch-'0';
+            if(digit!=finger)total+=moveCost;
+            total+=pushCost;
+            finger=digit
+        };
+        return total
+    };
+    fun minCostSetTime(startAt:Int,moveCost:Int,pushCost:Int,targetSeconds:Int):Int{
+        this.startAt=startAt;
+        this.moveCost=moveCost;
+        this.pushCost=pushCost;
+        val minutes=targetSeconds/60;
+        val seconds=targetSeconds%60;
+        return minOf(cost(minutes,seconds),cost(minutes-1,seconds+60))
+    }
+}

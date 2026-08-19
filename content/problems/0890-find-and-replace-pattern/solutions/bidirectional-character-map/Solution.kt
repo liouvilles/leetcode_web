@@ -1,1 +1,17 @@
-class Solution { fun findAndReplacePattern(words:Array<String>,pattern:String):List<String> = words.filter{matches(it,pattern)};private fun matches(word:String,pattern:String):Boolean{val forward=mutableMapOf<Char,Char>();val backward=mutableMapOf<Char,Char>();for(i in word.indices){val a=word[i];val b=pattern[i];if(forward.containsKey(a)&&forward[a]!=b||backward.containsKey(b)&&backward[b]!=a)return false;forward[a]=b;backward[b]=a};return true} }
+class Solution {
+    fun findAndReplacePattern(words:Array<String>,pattern:String):List<String> = words.filter{
+        matches(it,pattern)
+    };
+    private fun matches(word:String,pattern:String):Boolean{
+        val forward=mutableMapOf<Char,Char>();
+        val backward=mutableMapOf<Char,Char>();
+        for(i in word.indices){
+            val a=word[i];
+            val b=pattern[i];
+            if(forward.containsKey(a)&&forward[a]!=b||backward.containsKey(b)&&backward[b]!=a)return false;
+            forward[a]=b;
+            backward[b]=a
+        };
+        return true
+    }
+}

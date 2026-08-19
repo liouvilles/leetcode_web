@@ -1,1 +1,12 @@
-class Solution { fun decode(encoded:IntArray):IntArray{val n=encoded.size+1;var first=0;for(value in 1..n)first=first xor value;for(i in 1 until encoded.size step 2)first=first xor encoded[i];val answer=IntArray(n);answer[0]=first;for(i in encoded.indices)answer[i+1]=answer[i] xor encoded[i];return answer} }
+class Solution {
+    fun decode(encoded:IntArray):IntArray{
+        val n=encoded.size+1;
+        var first=0;
+        for(value in 1..n)first=first xor value;
+        for(i in 1 until encoded.size step 2)first=first xor encoded[i];
+        val answer=IntArray(n);
+        answer[0]=first;
+        for(i in encoded.indices)answer[i+1]=answer[i] xor encoded[i];
+        return answer
+    }
+}

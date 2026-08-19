@@ -1,1 +1,19 @@
-class Solution { public int minAbsoluteSumDiff(int[] nums1,int[] nums2){int[] sorted=nums1.clone();Arrays.sort(sorted);long total=0;int bestGain=0;for(int i=0;i<nums1.length;i++){int original=Math.abs(nums1[i]-nums2[i]);total+=original;int index=Arrays.binarySearch(sorted,nums2[i]);if(index<0)index=-index-1;int closest=Integer.MAX_VALUE;if(index<sorted.length)closest=Math.min(closest,Math.abs(sorted[index]-nums2[i]));if(index>0)closest=Math.min(closest,Math.abs(sorted[index-1]-nums2[i]));bestGain=Math.max(bestGain,original-closest);}return (int)((total-bestGain)%1_000_000_007);} }
+class Solution {
+    public int minAbsoluteSumDiff(int[] nums1,int[] nums2){
+        int[] sorted=nums1.clone();
+        Arrays.sort(sorted);
+        long total=0;
+        int bestGain=0;
+        for(int i=0;i<nums1.length;i++){
+            int original=Math.abs(nums1[i]-nums2[i]);
+            total+=original;
+            int index=Arrays.binarySearch(sorted,nums2[i]);
+            if(index<0)index=-index-1;
+            int closest=Integer.MAX_VALUE;
+            if(index<sorted.length)closest=Math.min(closest,Math.abs(sorted[index]-nums2[i]));
+            if(index>0)closest=Math.min(closest,Math.abs(sorted[index-1]-nums2[i]));
+            bestGain=Math.max(bestGain,original-closest);
+        }
+        return (int)((total-bestGain)%1_000_000_007);
+    }
+}

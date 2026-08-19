@@ -1,1 +1,27 @@
-class Solution { string text;bool dfs(int position,long long previous){if(position==(int)text.size())return true;if(!previous)return false;long long target=previous-1,value=0;for(int end=position;end<(int)text.size();++end){int digit=text[end]-'0';if(value>(LLONG_MAX-digit)/10)break;value=value*10+digit;if(value==target&&dfs(end+1,value))return true;if(value>target)break;}return false;}public:bool splitString(string s){text=s;long long first=0;for(int end=0;end+1<(int)s.size();++end){int digit=s[end]-'0';if(first>(LLONG_MAX-digit)/10)break;first=first*10+digit;if(dfs(end+1,first))return true;}return false;} };
+class Solution {
+    string text;
+    bool dfs(int position,long long previous){
+        if(position==(int)text.size())return true;
+        if(!previous)return false;
+        long long target=previous-1,value=0;
+        for(int end=position;end<(int)text.size();++end){
+            int digit=text[end]-'0';
+            if(value>(LLONG_MAX-digit)/10)break;
+            value=value*10+digit;
+            if(value==target&&dfs(end+1,value))return true;
+            if(value>target)break;
+        }
+        return false;
+    }
+    public:bool splitString(string s){
+        text=s;
+        long long first=0;
+        for(int end=0;end+1<(int)s.size();++end){
+            int digit=s[end]-'0';
+            if(first>(LLONG_MAX-digit)/10)break;
+            first=first*10+digit;
+            if(dfs(end+1,first))return true;
+        }
+        return false;
+    }
+};

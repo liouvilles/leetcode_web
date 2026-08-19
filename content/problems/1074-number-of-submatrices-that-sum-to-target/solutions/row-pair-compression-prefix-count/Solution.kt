@@ -1,1 +1,19 @@
-class Solution { fun numSubmatrixSumTarget(matrix:Array<IntArray>,target:Int):Int{var answer=0;for(top in matrix.indices){val sums=IntArray(matrix[0].size);for(bottom in top until matrix.size){for(c in sums.indices)sums[c]+=matrix[bottom][c];val frequency=mutableMapOf(0 to 1);var prefix=0;for(value in sums){prefix+=value;answer+=frequency[prefix-target]?:0;frequency[prefix]=(frequency[prefix]?:0)+1}}};return answer} }
+class Solution {
+    fun numSubmatrixSumTarget(matrix:Array<IntArray>,target:Int):Int{
+        var answer=0;
+        for(top in matrix.indices){
+            val sums=IntArray(matrix[0].size);
+            for(bottom in top until matrix.size){
+                for(c in sums.indices)sums[c]+=matrix[bottom][c];
+                val frequency=mutableMapOf(0 to 1);
+                var prefix=0;
+                for(value in sums){
+                    prefix+=value;
+                    answer+=frequency[prefix-target]?:0;
+                    frequency[prefix]=(frequency[prefix]?:0)+1
+                }
+            }
+        };
+        return answer
+    }
+}

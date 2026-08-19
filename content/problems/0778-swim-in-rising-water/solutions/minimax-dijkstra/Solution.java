@@ -1,1 +1,33 @@
-class Solution { public int swimInWater(int[][] grid){int n=grid.length;int[][] distance=new int[n][n];for(int[] row:distance)Arrays.fill(row,Integer.MAX_VALUE);distance[0][0]=grid[0][0];PriorityQueue<int[]> heap=new PriorityQueue<>(Comparator.comparingInt(a->a[0]));heap.offer(new int[]{grid[0][0],0,0});int[] directions={-1,0,1,0,-1};while(!heap.isEmpty()){int[] state=heap.poll();int time=state[0],row=state[1],column=state[2];if(time!=distance[row][column])continue;if(row==n-1&&column==n-1)return time;for(int d=0;d<4;d++){int nextRow=row+directions[d],nextColumn=column+directions[d+1];if(nextRow<0||nextRow>=n||nextColumn<0||nextColumn>=n)continue;int next=Math.max(time,grid[nextRow][nextColumn]);if(next<distance[nextRow][nextColumn]){distance[nextRow][nextColumn]=next;heap.offer(new int[]{next,nextRow,nextColumn});}}}return -1;} }
+class Solution {
+    public int swimInWater(int[][] grid){
+        int n=grid.length;
+        int[][] distance=new int[n][n];
+        for(int[] row:distance)Arrays.fill(row,Integer.MAX_VALUE);
+        distance[0][0]=grid[0][0];
+        PriorityQueue<int[]> heap=new PriorityQueue<>(Comparator.comparingInt(a->a[0]));
+        heap.offer(new int[]{
+            grid[0][0],0,0
+        });
+        int[] directions={
+            -1,0,1,0,-1
+        };
+        while(!heap.isEmpty()){
+            int[] state=heap.poll();
+            int time=state[0],row=state[1],column=state[2];
+            if(time!=distance[row][column])continue;
+            if(row==n-1&&column==n-1)return time;
+            for(int d=0;d<4;d++){
+                int nextRow=row+directions[d],nextColumn=column+directions[d+1];
+                if(nextRow<0||nextRow>=n||nextColumn<0||nextColumn>=n)continue;
+                int next=Math.max(time,grid[nextRow][nextColumn]);
+                if(next<distance[nextRow][nextColumn]){
+                    distance[nextRow][nextColumn]=next;
+                    heap.offer(new int[]{
+                        next,nextRow,nextColumn
+                    });
+                }
+            }
+        }
+        return -1;
+    }
+}

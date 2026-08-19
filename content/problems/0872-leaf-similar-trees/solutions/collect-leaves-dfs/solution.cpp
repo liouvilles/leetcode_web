@@ -1,1 +1,17 @@
-class Solution { void collect(TreeNode* node,vector<int>& leaves){if(!node)return;if(!node->left&&!node->right){leaves.push_back(node->val);return;}collect(node->left,leaves);collect(node->right,leaves);}public:bool leafSimilar(TreeNode* root1,TreeNode* root2){vector<int> first,second;collect(root1,first);collect(root2,second);return first==second;} };
+class Solution {
+    void collect(TreeNode* node,vector<int>& leaves){
+        if(!node)return;
+        if(!node->left&&!node->right){
+            leaves.push_back(node->val);
+            return;
+        }
+        collect(node->left,leaves);
+        collect(node->right,leaves);
+    }
+    public:bool leafSimilar(TreeNode* root1,TreeNode* root2){
+        vector<int> first,second;
+        collect(root1,first);
+        collect(root2,second);
+        return first==second;
+    }
+};

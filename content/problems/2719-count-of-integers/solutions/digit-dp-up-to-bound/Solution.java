@@ -1,1 +1,36 @@
-class Solution { private static final int MOD=1000000007;private char[] digits;private int minSum,maxSum;private int[][] memo;private int dfs(int pos,int sum,boolean tight){if(sum>maxSum)return 0;if(pos==digits.length)return sum>=minSum?1:0;if(!tight&&memo[pos][sum]!=-1)return memo[pos][sum];int limit=tight?digits[pos]-'0':9;long ways=0;for(int digit=0;digit<=limit;digit++)ways=(ways+dfs(pos+1,sum+digit,tight&&digit==limit))%MOD;int answer=(int)ways;if(!tight)memo[pos][sum]=answer;return answer;}private int countUpTo(String bound){digits=bound.toCharArray();memo=new int[digits.length][maxSum+1];for(int[] row:memo)Arrays.fill(row,-1);return dfs(0,0,true);}private boolean valid(String value){int sum=0;for(char ch:value.toCharArray())sum+=ch-'0';return sum>=minSum&&sum<=maxSum;}public int count(String num1,String num2,int min_sum,int max_sum){minSum=min_sum;maxSum=max_sum;long answer=(long)countUpTo(num2)-countUpTo(num1)+(valid(num1)?1:0);answer%=MOD;if(answer<0)answer+=MOD;return (int)answer;} }
+class Solution {
+    private static final int MOD=1000000007;
+    private char[] digits;
+    private int minSum,maxSum;
+    private int[][] memo;
+    private int dfs(int pos,int sum,boolean tight){
+        if(sum>maxSum)return 0;
+        if(pos==digits.length)return sum>=minSum?1:0;
+        if(!tight&&memo[pos][sum]!=-1)return memo[pos][sum];
+        int limit=tight?digits[pos]-'0':9;
+        long ways=0;
+        for(int digit=0;digit<=limit;digit++)ways=(ways+dfs(pos+1,sum+digit,tight&&digit==limit))%MOD;
+        int answer=(int)ways;
+        if(!tight)memo[pos][sum]=answer;
+        return answer;
+    }
+    private int countUpTo(String bound){
+        digits=bound.toCharArray();
+        memo=new int[digits.length][maxSum+1];
+        for(int[] row:memo)Arrays.fill(row,-1);
+        return dfs(0,0,true);
+    }
+    private boolean valid(String value){
+        int sum=0;
+        for(char ch:value.toCharArray())sum+=ch-'0';
+        return sum>=minSum&&sum<=maxSum;
+    }
+    public int count(String num1,String num2,int min_sum,int max_sum){
+        minSum=min_sum;
+        maxSum=max_sum;
+        long answer=(long)countUpTo(num2)-countUpTo(num1)+(valid(num1)?1:0);
+        answer%=MOD;
+        if(answer<0)answer+=MOD;
+        return (int)answer;
+    }
+}

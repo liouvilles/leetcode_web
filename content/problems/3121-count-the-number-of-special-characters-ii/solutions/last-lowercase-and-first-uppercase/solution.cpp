@@ -1,1 +1,15 @@
-class Solution { public:int numberOfSpecialChars(string word){int lastLowercase[26],firstUppercase[26];fill(lastLowercase,lastLowercase+26,-1);fill(firstUppercase,firstUppercase+26,word.size());for(int index=0;index<(int)word.size();++index){char letter=word[index];if(islower((unsigned char)letter))lastLowercase[letter-'a']=index;else firstUppercase[letter-'A']=min(firstUppercase[letter-'A'],index);}int answer=0;for(int index=0;index<26;++index)if(lastLowercase[index]!=-1&&firstUppercase[index]<(int)word.size()&&lastLowercase[index]<firstUppercase[index])++answer;return answer;} };
+class Solution {
+    public:int numberOfSpecialChars(string word){
+        int lastLowercase[26],firstUppercase[26];
+        fill(lastLowercase,lastLowercase+26,-1);
+        fill(firstUppercase,firstUppercase+26,word.size());
+        for(int index=0;index<(int)word.size();++index){
+            char letter=word[index];
+            if(islower((unsigned char)letter))lastLowercase[letter-'a']=index;
+            else firstUppercase[letter-'A']=min(firstUppercase[letter-'A'],index);
+        }
+        int answer=0;
+        for(int index=0;index<26;++index)if(lastLowercase[index]!=-1&&firstUppercase[index]<(int)word.size()&&lastLowercase[index]<firstUppercase[index])++answer;
+        return answer;
+    }
+};

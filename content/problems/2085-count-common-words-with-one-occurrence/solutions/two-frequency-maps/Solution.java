@@ -1,1 +1,10 @@
-class Solution { public int countWords(String[] words1,String[] words2){Map<String,Integer> first=new HashMap<>(),second=new HashMap<>();for(String word:words1)first.merge(word,1,Integer::sum);for(String word:words2)second.merge(word,1,Integer::sum);int answer=0;for(Map.Entry<String,Integer> entry:first.entrySet())if(entry.getValue()==1&&second.getOrDefault(entry.getKey(),0)==1)answer++;return answer;} }
+class Solution {
+    public int countWords(String[] words1,String[] words2){
+        Map<String,Integer> first=new HashMap<>(),second=new HashMap<>();
+        for(String word:words1)first.merge(word,1,Integer::sum);
+        for(String word:words2)second.merge(word,1,Integer::sum);
+        int answer=0;
+        for(Map.Entry<String,Integer> entry:first.entrySet())if(entry.getValue()==1&&second.getOrDefault(entry.getKey(),0)==1)answer++;
+        return answer;
+    }
+}

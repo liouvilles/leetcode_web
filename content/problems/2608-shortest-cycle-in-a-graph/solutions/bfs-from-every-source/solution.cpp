@@ -1,1 +1,28 @@
-class Solution { public:int findShortestCycle(int n,vector<vector<int>>& edges){vector<vector<int>> graph(n);for(auto& edge:edges){graph[edge[0]].push_back(edge[1]);graph[edge[1]].push_back(edge[0]);}int answer=INT_MAX;for(int source=0;source<n;++source){vector<int> distance(n,-1),parent(n,-1);queue<int> pending;distance[source]=0;pending.push(source);while(!pending.empty()){int node=pending.front();pending.pop();for(int next:graph[node]){if(distance[next]<0){distance[next]=distance[node]+1;parent[next]=node;pending.push(next);}else if(parent[node]!=next)answer=min(answer,distance[node]+distance[next]+1);}}}return answer==INT_MAX?-1:answer;} };
+class Solution {
+    public:int findShortestCycle(int n,vector<vector<int>>& edges){
+        vector<vector<int>> graph(n);
+        for(auto& edge:edges){
+            graph[edge[0]].push_back(edge[1]);
+            graph[edge[1]].push_back(edge[0]);
+        }
+        int answer=INT_MAX;
+        for(int source=0;source<n;++source){
+            vector<int> distance(n,-1),parent(n,-1);
+            queue<int> pending;
+            distance[source]=0;
+            pending.push(source);
+            while(!pending.empty()){
+                int node=pending.front();
+                pending.pop();
+                for(int next:graph[node]){
+                    if(distance[next]<0){
+                        distance[next]=distance[node]+1;
+                        parent[next]=node;
+                        pending.push(next);
+                    }else if(parent[node]!=next)answer=min(answer,distance[node]+distance[next]+1);
+                }
+            }
+        }
+        return answer==INT_MAX?-1:answer;
+    }
+};

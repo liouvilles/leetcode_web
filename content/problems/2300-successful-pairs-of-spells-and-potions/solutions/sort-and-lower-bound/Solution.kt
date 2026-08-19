@@ -1,1 +1,15 @@
-class Solution { fun successfulPairs(spells:IntArray,potions:IntArray,success:Long):IntArray{potions.sort();return IntArray(spells.size){i->val required=(success+spells[i]-1)/spells[i];var left=0;var right=potions.size;while(left<right){val middle=(left+right)/2;if(potions[middle].toLong()>=required)right=middle else left=middle+1};potions.size-left}} }
+class Solution {
+    fun successfulPairs(spells:IntArray,potions:IntArray,success:Long):IntArray{
+        potions.sort();
+        return IntArray(spells.size){
+            i->val required=(success+spells[i]-1)/spells[i];
+            var left=0;
+            var right=potions.size;
+            while(left<right){
+                val middle=(left+right)/2;
+                if(potions[middle].toLong()>=required)right=middle else left=middle+1
+            };
+            potions.size-left
+        }
+    }
+}

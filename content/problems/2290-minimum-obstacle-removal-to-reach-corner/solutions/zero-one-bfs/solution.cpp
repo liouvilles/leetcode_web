@@ -1,1 +1,33 @@
-class Solution { public:int minimumObstacles(vector<vector<int>>& grid){int rows=grid.size(),columns=grid[0].size();vector<vector<int>> distance(rows,vector<int>(columns,INT_MAX));deque<pair<int,int>> pending;distance[0][0]=0;pending.push_front({0,0});int directions[5]={1,0,-1,0,1};while(!pending.empty()){auto [row,column]=pending.front();pending.pop_front();for(int d=0;d<4;++d){int r=row+directions[d],c=column+directions[d+1];if(r<0||r>=rows||c<0||c>=columns)continue;int next=distance[row][column]+grid[r][c];if(next<distance[r][c]){distance[r][c]=next;if(grid[r][c])pending.push_back({r,c});else pending.push_front({r,c});}}}return distance[rows-1][columns-1];} };
+class Solution {
+    public:int minimumObstacles(vector<vector<int>>& grid){
+        int rows=grid.size(),columns=grid[0].size();
+        vector<vector<int>> distance(rows,vector<int>(columns,INT_MAX));
+        deque<pair<int,int>> pending;
+        distance[0][0]=0;
+        pending.push_front({
+            0,0
+        });
+        int directions[5]={
+            1,0,-1,0,1
+        };
+        while(!pending.empty()){
+            auto [row,column]=pending.front();
+            pending.pop_front();
+            for(int d=0;d<4;++d){
+                int r=row+directions[d],c=column+directions[d+1];
+                if(r<0||r>=rows||c<0||c>=columns)continue;
+                int next=distance[row][column]+grid[r][c];
+                if(next<distance[r][c]){
+                    distance[r][c]=next;
+                    if(grid[r][c])pending.push_back({
+                        r,c
+                    });
+                    else pending.push_front({
+                        r,c
+                    });
+                }
+            }
+        }
+        return distance[rows-1][columns-1];
+    }
+};

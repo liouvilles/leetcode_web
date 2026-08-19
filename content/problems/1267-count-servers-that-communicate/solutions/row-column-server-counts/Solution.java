@@ -1,1 +1,13 @@
-class Solution { public int countServers(int[][] grid){int rows=grid.length,columns=grid[0].length;int[] rowCount=new int[rows],columnCount=new int[columns];for(int r=0;r<rows;r++)for(int c=0;c<columns;c++)if(grid[r][c]==1){rowCount[r]++;columnCount[c]++;}int answer=0;for(int r=0;r<rows;r++)for(int c=0;c<columns;c++)if(grid[r][c]==1&&(rowCount[r]>1||columnCount[c]>1))answer++;return answer;} }
+class Solution {
+    public int countServers(int[][] grid){
+        int rows=grid.length,columns=grid[0].length;
+        int[] rowCount=new int[rows],columnCount=new int[columns];
+        for(int r=0;r<rows;r++)for(int c=0;c<columns;c++)if(grid[r][c]==1){
+            rowCount[r]++;
+            columnCount[c]++;
+        }
+        int answer=0;
+        for(int r=0;r<rows;r++)for(int c=0;c<columns;c++)if(grid[r][c]==1&&(rowCount[r]>1||columnCount[c]>1))answer++;
+        return answer;
+    }
+}

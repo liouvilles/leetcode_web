@@ -1,1 +1,10 @@
-class Solution { fun lengthOfLongestSubsequence(nums:List<Int>,target:Int):Int{val dp=IntArray(target+1){-1};dp[0]=0;for(value in nums)for(sum in target downTo value)if(dp[sum-value]>=0)dp[sum]=maxOf(dp[sum],dp[sum-value]+1);return dp[target]} }
+class Solution {
+    fun lengthOfLongestSubsequence(nums:List<Int>,target:Int):Int{
+        val dp=IntArray(target+1){
+            -1
+        };
+        dp[0]=0;
+        for(value in nums)for(sum in target downTo value)if(dp[sum-value]>=0)dp[sum]=maxOf(dp[sum],dp[sum-value]+1);
+        return dp[target]
+    }
+}

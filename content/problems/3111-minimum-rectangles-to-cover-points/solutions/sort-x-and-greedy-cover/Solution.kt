@@ -1,1 +1,15 @@
-class Solution { fun minRectanglesToCoverPoints(points:Array<IntArray>,w:Int):Int{points.sortWith(compareBy<IntArray>{it[0]});var answer=0;var index=0;while(index<points.size){val right=points[index][0].toLong()+w;answer++;while(index<points.size&&points[index][0].toLong()<=right)index++};return answer} }
+class Solution {
+    fun minRectanglesToCoverPoints(points:Array<IntArray>,w:Int):Int{
+        points.sortWith(compareBy<IntArray>{
+            it[0]
+        });
+        var answer=0;
+        var index=0;
+        while(index<points.size){
+            val right=points[index][0].toLong()+w;
+            answer++;
+            while(index<points.size&&points[index][0].toLong()<=right)index++
+        };
+        return answer
+    }
+}

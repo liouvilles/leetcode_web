@@ -1,1 +1,10 @@
-class Solution { fun countPoints(points:Array<IntArray>,queries:Array<IntArray>):IntArray=IntArray(queries.size){q->points.count{point->val dx=(point[0]-queries[q][0]).toLong();val dy=(point[1]-queries[q][1]).toLong();val radius=queries[q][2].toLong();dx*dx+dy*dy<=radius*radius}} }
+class Solution {
+    fun countPoints(points:Array<IntArray>,queries:Array<IntArray>):IntArray=IntArray(queries.size){
+        q->points.count{
+            point->val dx=(point[0]-queries[q][0]).toLong();
+            val dy=(point[1]-queries[q][1]).toLong();
+            val radius=queries[q][2].toLong();
+            dx*dx+dy*dy<=radius*radius
+        }
+    }
+}

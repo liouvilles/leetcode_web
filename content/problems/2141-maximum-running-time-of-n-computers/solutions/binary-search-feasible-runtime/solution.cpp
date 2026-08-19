@@ -1,1 +1,12 @@
-class Solution { public:long long maxRunTime(int n,vector<int>& batteries){long long right=accumulate(batteries.begin(),batteries.end(),0LL)/n,left=0;while(left<right){long long middle=(left+right+1)/2,available=0;for(int battery:batteries)available+=min((long long)battery,middle);if(available>=middle*n)left=middle;else right=middle-1;}return left;} };
+class Solution {
+    public:long long maxRunTime(int n,vector<int>& batteries){
+        long long right=accumulate(batteries.begin(),batteries.end(),0LL)/n,left=0;
+        while(left<right){
+            long long middle=(left+right+1)/2,available=0;
+            for(int battery:batteries)available+=min((long long)battery,middle);
+            if(available>=middle*n)left=middle;
+            else right=middle-1;
+        }
+        return left;
+    }
+};

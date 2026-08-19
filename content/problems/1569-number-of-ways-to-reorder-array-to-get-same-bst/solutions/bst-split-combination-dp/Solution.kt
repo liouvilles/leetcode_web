@@ -1,1 +1,27 @@
-class Solution { private val mod=1_000_000_007L;private lateinit var combination:Array<LongArray>;private fun ways(values:List<Int>):Long{if(values.size<=2)return 1;val root=values[0];val left=values.drop(1).filter{it<root};val right=values.drop(1).filter{it>root};return combination[values.size-1][left.size]*ways(left)%mod*ways(right)%mod};fun numOfWays(nums:IntArray):Int{val n=nums.size;combination=Array(n+1){LongArray(n+1)};for(i in 0..n){combination[i][0]=1;combination[i][i]=1;for(j in 1 until i)combination[i][j]=(combination[i-1][j-1]+combination[i-1][j])%mod};return ((ways(nums.toList())-1+mod)%mod).toInt()} }
+class Solution {
+    private val mod=1_000_000_007L;
+    private lateinit var combination:Array<LongArray>;
+    private fun ways(values:List<Int>):Long{
+        if(values.size<=2)return 1;
+        val root=values[0];
+        val left=values.drop(1).filter{
+            it<root
+        };
+        val right=values.drop(1).filter{
+            it>root
+        };
+        return combination[values.size-1][left.size]*ways(left)%mod*ways(right)%mod
+    };
+    fun numOfWays(nums:IntArray):Int{
+        val n=nums.size;
+        combination=Array(n+1){
+            LongArray(n+1)
+        };
+        for(i in 0..n){
+            combination[i][0]=1;
+            combination[i][i]=1;
+            for(j in 1 until i)combination[i][j]=(combination[i-1][j-1]+combination[i-1][j])%mod
+        };
+        return ((ways(nums.toList())-1+mod)%mod).toInt()
+    }
+}

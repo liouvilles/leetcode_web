@@ -1,1 +1,13 @@
-class Solution { public: int countPairs(vector<int>& deliciousness){const int MOD=1000000007;unordered_map<int,int> frequency;long long answer=0;for(int value:deliciousness){for(int power=1;power<=1<<21;power<<=1)answer+=frequency[power-value];answer%=MOD;++frequency[value];}return answer;} };
+class Solution {
+    public: int countPairs(vector<int>& deliciousness){
+        const int MOD=1000000007;
+        unordered_map<int,int> frequency;
+        long long answer=0;
+        for(int value:deliciousness){
+            for(int power=1;power<=1<<21;power<<=1)answer+=frequency[power-value];
+            answer%=MOD;
+            ++frequency[value];
+        }
+        return answer;
+    }
+};

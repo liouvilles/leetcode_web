@@ -1,1 +1,17 @@
-class Solution { public int minimumAverageDifference(int[] nums){long total=0,prefix=0,best=Long.MAX_VALUE;for(int value:nums)total+=value;int answer=0;for(int i=0;i<nums.length;i++){prefix+=nums[i];long left=prefix/(i+1),right=i==nums.length-1?0:(total-prefix)/(nums.length-i-1);long difference=Math.abs(left-right);if(difference<best){best=difference;answer=i;}}return answer;} }
+class Solution {
+    public int minimumAverageDifference(int[] nums){
+        long total=0,prefix=0,best=Long.MAX_VALUE;
+        for(int value:nums)total+=value;
+        int answer=0;
+        for(int i=0;i<nums.length;i++){
+            prefix+=nums[i];
+            long left=prefix/(i+1),right=i==nums.length-1?0:(total-prefix)/(nums.length-i-1);
+            long difference=Math.abs(left-right);
+            if(difference<best){
+                best=difference;
+                answer=i;
+            }
+        }
+        return answer;
+    }
+}

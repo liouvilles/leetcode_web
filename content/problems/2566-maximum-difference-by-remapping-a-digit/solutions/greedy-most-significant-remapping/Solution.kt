@@ -1,1 +1,11 @@
-class Solution { fun minMaxDifference(num:Int):Int{val digits=num.toString();val source=digits.firstOrNull{it!='9'}?:'9';val maximum=digits.replace(source,'9').toInt();val minimum=digits.replace(digits[0],'0').toInt();return maximum-minimum} }
+class Solution {
+    fun minMaxDifference(num:Int):Int{
+        val digits=num.toString();
+        val source=digits.firstOrNull{
+            it!='9'
+        }?:'9';
+        val maximum=digits.replace(source,'9').toInt();
+        val minimum=digits.replace(digits[0],'0').toInt();
+        return maximum-minimum
+    }
+}

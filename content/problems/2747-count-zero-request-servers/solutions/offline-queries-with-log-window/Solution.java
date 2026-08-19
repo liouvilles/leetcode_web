@@ -1,1 +1,22 @@
-class Solution { public int[] countServers(int n,int[][] logs,int x,int[] queries){Arrays.sort(logs,(a,b)->Integer.compare(a[1],b[1]));Integer[] order=new Integer[queries.length];for(int i=0;i<order.length;i++)order[i]=i;Arrays.sort(order,(a,b)->Integer.compare(queries[a],queries[b]));int[] frequency=new int[n+1],answer=new int[queries.length];int left=0,right=0,active=0;for(int queryIndex:order){int query=queries[queryIndex];while(right<logs.length&&logs[right][1]<=query){int server=logs[right++][0];if(frequency[server]++==0)active++;}while(left<right&&logs[left][1]<query-x){int server=logs[left++][0];if(--frequency[server]==0)active--;}answer[queryIndex]=n-active;}return answer;} }
+class Solution {
+    public int[] countServers(int n,int[][] logs,int x,int[] queries){
+        Arrays.sort(logs,(a,b)->Integer.compare(a[1],b[1]));
+        Integer[] order=new Integer[queries.length];
+        for(int i=0;i<order.length;i++)order[i]=i;
+        Arrays.sort(order,(a,b)->Integer.compare(queries[a],queries[b]));
+        int[] frequency=new int[n+1],answer=new int[queries.length];
+        int left=0,right=0,active=0;
+        for(int queryIndex:order){
+            int query=queries[queryIndex];
+            while(right<logs.length&&logs[right][1]<=query){
+                int server=logs[right++][0];
+                if(frequency[server]++==0)active++;
+            }while(left<right&&logs[left][1]<query-x){
+                int server=logs[left++][0];
+                if(--frequency[server]==0)active--;
+            }
+            answer[queryIndex]=n-active;
+        }
+        return answer;
+    }
+}

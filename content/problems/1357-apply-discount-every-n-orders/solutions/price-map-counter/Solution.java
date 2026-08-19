@@ -1,1 +1,16 @@
-class Cashier { private final int n,discount;private int counter=0;private final Map<Integer,Integer> prices=new HashMap<>();public Cashier(int n,int discount,int[] products,int[] values){this.n=n;this.discount=discount;for(int i=0;i<products.length;i++)prices.put(products[i],values[i]);}public double getBill(int[] product,int[] amount){double total=0;for(int i=0;i<product.length;i++)total+=prices.get(product[i])*amount[i];counter++;return counter%n==0?total*(100-discount)/100.0:total;} }
+class Cashier {
+    private final int n,discount;
+    private int counter=0;
+    private final Map<Integer,Integer> prices=new HashMap<>();
+    public Cashier(int n,int discount,int[] products,int[] values){
+        this.n=n;
+        this.discount=discount;
+        for(int i=0;i<products.length;i++)prices.put(products[i],values[i]);
+    }
+    public double getBill(int[] product,int[] amount){
+        double total=0;
+        for(int i=0;i<product.length;i++)total+=prices.get(product[i])*amount[i];
+        counter++;
+        return counter%n==0?total*(100-discount)/100.0:total;
+    }
+}

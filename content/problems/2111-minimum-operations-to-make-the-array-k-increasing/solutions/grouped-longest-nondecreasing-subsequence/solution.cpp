@@ -1,1 +1,17 @@
-class Solution { public:int kIncreasing(vector<int>& arr,int k){int answer=0;for(int start=0;start<k;++start){vector<int> tails;int length=0;for(int i=start;i<(int)arr.size();i+=k){++length;auto position=upper_bound(tails.begin(),tails.end(),arr[i]);if(position==tails.end())tails.push_back(arr[i]);else *position=arr[i];}answer+=length-tails.size();}return answer;} };
+class Solution {
+    public:int kIncreasing(vector<int>& arr,int k){
+        int answer=0;
+        for(int start=0;start<k;++start){
+            vector<int> tails;
+            int length=0;
+            for(int i=start;i<(int)arr.size();i+=k){
+                ++length;
+                auto position=upper_bound(tails.begin(),tails.end(),arr[i]);
+                if(position==tails.end())tails.push_back(arr[i]);
+                else *position=arr[i];
+            }
+            answer+=length-tails.size();
+        }
+        return answer;
+    }
+};

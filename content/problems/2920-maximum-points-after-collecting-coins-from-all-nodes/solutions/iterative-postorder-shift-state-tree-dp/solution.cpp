@@ -1,1 +1,39 @@
-class Solution { public:int maximumPoints(vector<vector<int>>& edges,vector<int>& coins,int k){int n=coins.size();vector<vector<int>> graph(n);for(auto& edge:edges){graph[edge[0]].push_back(edge[1]);graph[edge[1]].push_back(edge[0]);}vector<int> parent(n,-2),order,stack={0};parent[0]=-1;order.reserve(n);while(!stack.empty()){int node=stack.back();stack.pop_back();order.push_back(node);for(int next:graph[node])if(next!=parent[node]){parent[next]=node;stack.push_back(next);}}const int MAX_SHIFT=14;vector<array<int,15>> dp(n);for(int index=n-1;index>=0;--index){int node=order[index];for(int shift=MAX_SHIFT;shift>=0;--shift){int nextShift=min(MAX_SHIFT,shift+1);int first=(coins[node]>>shift)-k,second=coins[node]>>nextShift;for(int next:graph[node])if(parent[next]==node){first+=dp[next][shift];second+=dp[next][nextShift];}dp[node][shift]=max(first,second);}}return dp[0][0];} };
+class Solution {
+    public:int maximumPoints(vector<vector<int>>& edges,vector<int>& coins,int k){
+        int n=coins.size();
+        vector<vector<int>> graph(n);
+        for(auto& edge:edges){
+            graph[edge[0]].push_back(edge[1]);
+            graph[edge[1]].push_back(edge[0]);
+        }
+        vector<int> parent(n,-2),order,stack={
+            0
+        };
+        parent[0]=-1;
+        order.reserve(n);
+        while(!stack.empty()){
+            int node=stack.back();
+            stack.pop_back();
+            order.push_back(node);
+            for(int next:graph[node])if(next!=parent[node]){
+                parent[next]=node;
+                stack.push_back(next);
+            }
+        }
+        const int MAX_SHIFT=14;
+        vector<array<int,15>> dp(n);
+        for(int index=n-1;index>=0;--index){
+            int node=order[index];
+            for(int shift=MAX_SHIFT;shift>=0;--shift){
+                int nextShift=min(MAX_SHIFT,shift+1);
+                int first=(coins[node]>>shift)-k,second=coins[node]>>nextShift;
+                for(int next:graph[node])if(parent[next]==node){
+                    first+=dp[next][shift];
+                    second+=dp[next][nextShift];
+                }
+                dp[node][shift]=max(first,second);
+            }
+        }
+        return dp[0][0];
+    }
+};

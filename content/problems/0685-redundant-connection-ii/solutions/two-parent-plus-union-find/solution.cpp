@@ -1,1 +1,32 @@
-class Solution { vector<int> parent;int find(int value){return parent[value]==value?value:parent[value]=find(parent[value]);}public:vector<int> findRedundantDirectedConnection(vector<vector<int>>& edges){int n=edges.size();vector<int> directParent(n+1);int first=-1,second=-1;for(int i=0;i<n;++i){int from=edges[i][0],to=edges[i][1];if(directParent[to]==0)directParent[to]=from;else{for(int j=0;j<i;++j)if(edges[j][0]==directParent[to]&&edges[j][1]==to){first=j;break;}second=i;break;}}parent.resize(n+1);iota(parent.begin(),parent.end(),0);for(int i=0;i<n;++i){if(i==second)continue;int a=find(edges[i][0]),b=find(edges[i][1]);if(a==b)return first>=0?edges[first]:edges[i];parent[b]=a;}return edges[second];} };
+class Solution {
+    vector<int> parent;
+    int find(int value){
+        return parent[value]==value?value:parent[value]=find(parent[value]);
+    }
+    public:vector<int> findRedundantDirectedConnection(vector<vector<int>>& edges){
+        int n=edges.size();
+        vector<int> directParent(n+1);
+        int first=-1,second=-1;
+        for(int i=0;i<n;++i){
+            int from=edges[i][0],to=edges[i][1];
+            if(directParent[to]==0)directParent[to]=from;
+            else{
+                for(int j=0;j<i;++j)if(edges[j][0]==directParent[to]&&edges[j][1]==to){
+                    first=j;
+                    break;
+                }
+                second=i;
+                break;
+            }
+        }
+        parent.resize(n+1);
+        iota(parent.begin(),parent.end(),0);
+        for(int i=0;i<n;++i){
+            if(i==second)continue;
+            int a=find(edges[i][0]),b=find(edges[i][1]);
+            if(a==b)return first>=0?edges[first]:edges[i];
+            parent[b]=a;
+        }
+        return edges[second];
+    }
+};

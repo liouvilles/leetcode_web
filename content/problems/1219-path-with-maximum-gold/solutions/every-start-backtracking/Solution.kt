@@ -1,1 +1,21 @@
-class Solution { private lateinit var grid:Array<IntArray>;private var rows=0;private var columns=0;fun getMaximumGold(grid:Array<IntArray>):Int{this.grid=grid;rows=grid.size;columns=grid[0].size;var answer=0;for(r in 0 until rows)for(c in 0 until columns)answer=maxOf(answer,dfs(r,c));return answer};private fun dfs(r:Int,c:Int):Int{if(r !in 0 until rows||c !in 0 until columns||grid[r][c]==0)return 0;val gold=grid[r][c];grid[r][c]=0;val best=maxOf(dfs(r+1,c),dfs(r-1,c),dfs(r,c+1),dfs(r,c-1));grid[r][c]=gold;return gold+best} }
+class Solution {
+    private lateinit var grid:Array<IntArray>;
+    private var rows=0;
+    private var columns=0;
+    fun getMaximumGold(grid:Array<IntArray>):Int{
+        this.grid=grid;
+        rows=grid.size;
+        columns=grid[0].size;
+        var answer=0;
+        for(r in 0 until rows)for(c in 0 until columns)answer=maxOf(answer,dfs(r,c));
+        return answer
+    };
+    private fun dfs(r:Int,c:Int):Int{
+        if(r !in 0 until rows||c !in 0 until columns||grid[r][c]==0)return 0;
+        val gold=grid[r][c];
+        grid[r][c]=0;
+        val best=maxOf(dfs(r+1,c),dfs(r-1,c),dfs(r,c+1),dfs(r,c-1));
+        grid[r][c]=gold;
+        return gold+best
+    }
+}

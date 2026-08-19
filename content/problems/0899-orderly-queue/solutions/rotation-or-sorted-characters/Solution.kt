@@ -1,1 +1,11 @@
-class Solution { fun orderlyQueue(s:String,k:Int):String{if(k>1)return s.toCharArray().sorted().joinToString("");var best=s;for(shift in 1 until s.length){val candidate=s.substring(shift)+s.substring(0,shift);if(candidate<best)best=candidate};return best} }
+class Solution {
+    fun orderlyQueue(s:String,k:Int):String{
+        if(k>1)return s.toCharArray().sorted().joinToString("");
+        var best=s;
+        for(shift in 1 until s.length){
+            val candidate=s.substring(shift)+s.substring(0,shift);
+            if(candidate<best)best=candidate
+        };
+        return best
+    }
+}

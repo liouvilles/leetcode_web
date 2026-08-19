@@ -1,1 +1,15 @@
-class Solution { fun sumOfFlooredPairs(nums:IntArray):Int{val maximum=nums.maxOrNull()!!;val frequency=IntArray(maximum+1);val prefix=IntArray(maximum+1);for(value in nums)frequency[value]++;for(value in 1..maximum)prefix[value]=prefix[value-1]+frequency[value];var answer=0L;for(divisor in 1..maximum)if(frequency[divisor]>0)for(start in divisor..maximum step divisor){val count=prefix[minOf(maximum,start+divisor-1)]-prefix[start-1];answer=(answer+frequency[divisor].toLong()*(start/divisor)*count)%1_000_000_007};return answer.toInt()} }
+class Solution {
+    fun sumOfFlooredPairs(nums:IntArray):Int{
+        val maximum=nums.maxOrNull()!!;
+        val frequency=IntArray(maximum+1);
+        val prefix=IntArray(maximum+1);
+        for(value in nums)frequency[value]++;
+        for(value in 1..maximum)prefix[value]=prefix[value-1]+frequency[value];
+        var answer=0L;
+        for(divisor in 1..maximum)if(frequency[divisor]>0)for(start in divisor..maximum step divisor){
+            val count=prefix[minOf(maximum,start+divisor-1)]-prefix[start-1];
+            answer=(answer+frequency[divisor].toLong()*(start/divisor)*count)%1_000_000_007
+        };
+        return answer.toInt()
+    }
+}

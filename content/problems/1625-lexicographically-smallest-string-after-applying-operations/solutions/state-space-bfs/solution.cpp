@@ -1,1 +1,22 @@
-class Solution { public: string findLexSmallestString(string text,int a,int b){queue<string> pending;unordered_set<string> seen{text};pending.push(text);string answer=text;while(!pending.empty()){string current=pending.front();pending.pop();answer=min(answer,current);string added=current;for(int i=1;i<(int)added.size();i+=2)added[i]='0'+(added[i]-'0'+a)%10;int shift=b%current.size();string rotated=current.substr(current.size()-shift)+current.substr(0,current.size()-shift);if(seen.insert(added).second)pending.push(added);if(seen.insert(rotated).second)pending.push(rotated);}return answer;} };
+class Solution {
+    public: string findLexSmallestString(string text,int a,int b){
+        queue<string> pending;
+        unordered_set<string> seen{
+            text
+        };
+        pending.push(text);
+        string answer=text;
+        while(!pending.empty()){
+            string current=pending.front();
+            pending.pop();
+            answer=min(answer,current);
+            string added=current;
+            for(int i=1;i<(int)added.size();i+=2)added[i]='0'+(added[i]-'0'+a)%10;
+            int shift=b%current.size();
+            string rotated=current.substr(current.size()-shift)+current.substr(0,current.size()-shift);
+            if(seen.insert(added).second)pending.push(added);
+            if(seen.insert(rotated).second)pending.push(rotated);
+        }
+        return answer;
+    }
+};

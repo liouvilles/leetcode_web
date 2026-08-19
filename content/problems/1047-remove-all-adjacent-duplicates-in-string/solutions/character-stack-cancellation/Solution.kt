@@ -1,1 +1,7 @@
-class Solution { fun removeDuplicates(s:String):String{val stack=StringBuilder();for(ch in s)if(stack.isNotEmpty()&&stack.last()==ch)stack.deleteCharAt(stack.lastIndex) else stack.append(ch);return stack.toString()} }
+class Solution {
+    fun removeDuplicates(s:String):String{
+        val stack=StringBuilder();
+        for(ch in s)if(stack.isNotEmpty()&&stack.last()==ch)stack.deleteCharAt(stack.lastIndex) else stack.append(ch);
+        return stack.toString()
+    }
+}

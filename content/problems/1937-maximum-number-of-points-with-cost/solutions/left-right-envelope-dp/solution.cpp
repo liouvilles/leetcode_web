@@ -1,1 +1,16 @@
-class Solution { public: long long maxPoints(vector<vector<int>>& points){int cols=points[0].size();vector<long long> dp(points[0].begin(),points[0].end());for(int row=1;row<(int)points.size();++row){vector<long long> left(cols),right(cols),next(cols);left[0]=dp[0];for(int col=1;col<cols;++col)left[col]=max(dp[col],left[col-1]-1);right.back()=dp.back();for(int col=cols-2;col>=0;--col)right[col]=max(dp[col],right[col+1]-1);for(int col=0;col<cols;++col)next[col]=points[row][col]+max(left[col],right[col]);dp.swap(next);}return *max_element(dp.begin(),dp.end());} };
+class Solution {
+    public: long long maxPoints(vector<vector<int>>& points){
+        int cols=points[0].size();
+        vector<long long> dp(points[0].begin(),points[0].end());
+        for(int row=1;row<(int)points.size();++row){
+            vector<long long> left(cols),right(cols),next(cols);
+            left[0]=dp[0];
+            for(int col=1;col<cols;++col)left[col]=max(dp[col],left[col-1]-1);
+            right.back()=dp.back();
+            for(int col=cols-2;col>=0;--col)right[col]=max(dp[col],right[col+1]-1);
+            for(int col=0;col<cols;++col)next[col]=points[row][col]+max(left[col],right[col]);
+            dp.swap(next);
+        }
+        return *max_element(dp.begin(),dp.end());
+    }
+};

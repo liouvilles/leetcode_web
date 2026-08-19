@@ -1,1 +1,13 @@
-class Solution { public: vector<string> topKFrequent(vector<string>& words,int k){unordered_map<string,int> counts;for(string& word:words)++counts[word];vector<string> unique;for(auto& [word,count]:counts)unique.push_back(word);sort(unique.begin(),unique.end(),[&](string& a,string& b){return counts[a]!=counts[b]?counts[a]>counts[b]:a<b;});unique.resize(k);return unique;} };
+class Solution {
+    public: vector<string> topKFrequent(vector<string>& words,int k){
+        unordered_map<string,int> counts;
+        for(string& word:words)++counts[word];
+        vector<string> unique;
+        for(auto& [word,count]:counts)unique.push_back(word);
+        sort(unique.begin(),unique.end(),[&](string& a,string& b){
+            return counts[a]!=counts[b]?counts[a]>counts[b]:a<b;
+        });
+        unique.resize(k);
+        return unique;
+    }
+};

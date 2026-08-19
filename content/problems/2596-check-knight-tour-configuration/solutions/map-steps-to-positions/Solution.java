@@ -1,1 +1,20 @@
-class Solution { public boolean checkValidGrid(int[][] grid){int n=grid.length,total=n*n;if(grid[0][0]!=0)return false;int[] rows=new int[total],cols=new int[total];boolean[] seen=new boolean[total];for(int row=0;row<n;row++)for(int col=0;col<n;col++){int step=grid[row][col];if(step<0||step>=total||seen[step])return false;seen[step]=true;rows[step]=row;cols[step]=col;}for(int step=1;step<total;step++){int rowDiff=Math.abs(rows[step]-rows[step-1]),colDiff=Math.abs(cols[step]-cols[step-1]);if(rowDiff*colDiff!=2)return false;}return true;} }
+class Solution {
+    public boolean checkValidGrid(int[][] grid){
+        int n=grid.length,total=n*n;
+        if(grid[0][0]!=0)return false;
+        int[] rows=new int[total],cols=new int[total];
+        boolean[] seen=new boolean[total];
+        for(int row=0;row<n;row++)for(int col=0;col<n;col++){
+            int step=grid[row][col];
+            if(step<0||step>=total||seen[step])return false;
+            seen[step]=true;
+            rows[step]=row;
+            cols[step]=col;
+        }
+        for(int step=1;step<total;step++){
+            int rowDiff=Math.abs(rows[step]-rows[step-1]),colDiff=Math.abs(cols[step]-cols[step-1]);
+            if(rowDiff*colDiff!=2)return false;
+        }
+        return true;
+    }
+}

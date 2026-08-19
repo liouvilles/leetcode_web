@@ -1,1 +1,11 @@
-class Solution { public: int numSub(string text){const long long mod=1000000007;long long answer=0,running=0;for(char value:text){running=value=='1'?running+1:0;answer=(answer+running)%mod;}return answer;} };
+class Solution {
+    public: int numSub(string text){
+        const long long mod=1000000007;
+        long long answer=0,running=0;
+        for(char value:text){
+            running=value=='1'?running+1:0;
+            answer=(answer+running)%mod;
+        }
+        return answer;
+    }
+};

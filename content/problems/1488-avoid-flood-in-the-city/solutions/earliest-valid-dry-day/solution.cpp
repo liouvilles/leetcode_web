@@ -1,1 +1,21 @@
-class Solution { public: vector<int> avoidFlood(vector<int>& rains){vector<int> answer(rains.size(),1);unordered_map<int,int> lastRain;set<int> dryDays;for(int day=0;day<(int)rains.size();++day)if(!rains[day])dryDays.insert(day);else{int lake=rains[day];answer[day]=-1;if(lastRain.count(lake)){auto dry=dryDays.upper_bound(lastRain[lake]);if(dry==dryDays.end())return {};answer[*dry]=lake;dryDays.erase(dry);}lastRain[lake]=day;}return answer;} };
+class Solution {
+    public: vector<int> avoidFlood(vector<int>& rains){
+        vector<int> answer(rains.size(),1);
+        unordered_map<int,int> lastRain;
+        set<int> dryDays;
+        for(int day=0;day<(int)rains.size();++day)if(!rains[day])dryDays.insert(day);
+        else{
+            int lake=rains[day];
+            answer[day]=-1;
+            if(lastRain.count(lake)){
+                auto dry=dryDays.upper_bound(lastRain[lake]);
+                if(dry==dryDays.end())return {
+                };
+                answer[*dry]=lake;
+                dryDays.erase(dry);
+            }
+            lastRain[lake]=day;
+        }
+        return answer;
+    }
+};

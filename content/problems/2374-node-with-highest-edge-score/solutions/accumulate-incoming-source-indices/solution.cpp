@@ -1,1 +1,9 @@
-class Solution { public:int edgeScore(vector<int>& edges){vector<long long> scores(edges.size());for(int i=0;i<(int)edges.size();++i)scores[edges[i]]+=i;int answer=0;for(int i=1;i<(int)edges.size();++i)if(scores[i]>scores[answer])answer=i;return answer;} };
+class Solution {
+    public:int edgeScore(vector<int>& edges){
+        vector<long long> scores(edges.size());
+        for(int i=0;i<(int)edges.size();++i)scores[edges[i]]+=i;
+        int answer=0;
+        for(int i=1;i<(int)edges.size();++i)if(scores[i]>scores[answer])answer=i;
+        return answer;
+    }
+};

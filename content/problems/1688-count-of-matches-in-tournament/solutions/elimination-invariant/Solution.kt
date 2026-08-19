@@ -1,1 +1,3 @@
-class Solution { fun numberOfMatches(n:Int):Int=n-1 }
+class Solution {
+    fun numberOfMatches(n:Int):Int=n-1
+}

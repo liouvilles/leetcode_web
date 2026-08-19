@@ -1,1 +1,17 @@
-class Solution { fun countCharacters(words:Array<String>,chars:String):Int{val available=IntArray(26);for(ch in chars)available[ch-'a']++;var answer=0;for(word in words){val need=IntArray(26);var valid=true;for(ch in word)if(++need[ch-'a']>available[ch-'a']){valid=false;break};if(valid)answer+=word.length};return answer} }
+class Solution {
+    fun countCharacters(words:Array<String>,chars:String):Int{
+        val available=IntArray(26);
+        for(ch in chars)available[ch-'a']++;
+        var answer=0;
+        for(word in words){
+            val need=IntArray(26);
+            var valid=true;
+            for(ch in word)if(++need[ch-'a']>available[ch-'a']){
+                valid=false;
+                break
+            };
+            if(valid)answer+=word.length
+        };
+        return answer
+    }
+}

@@ -1,1 +1,22 @@
-class Solution { public:vector<int> closestPrimes(int left,int right){vector<bool> prime(right+1,true);prime[0]=false;if(right>=1)prime[1]=false;for(int value=2;value*value<=right;++value)if(prime[value])for(int multiple=value*value;multiple<=right;multiple+=value)prime[multiple]=false;int previous=-1,best=INT_MAX;vector<int> answer{-1,-1};for(int value=max(2,left);value<=right;++value)if(prime[value]){if(previous>=0&&value-previous<best){best=value-previous;answer={previous,value};}previous=value;}return answer;} };
+class Solution {
+    public:vector<int> closestPrimes(int left,int right){
+        vector<bool> prime(right+1,true);
+        prime[0]=false;
+        if(right>=1)prime[1]=false;
+        for(int value=2;value*value<=right;++value)if(prime[value])for(int multiple=value*value;multiple<=right;multiple+=value)prime[multiple]=false;
+        int previous=-1,best=INT_MAX;
+        vector<int> answer{
+            -1,-1
+        };
+        for(int value=max(2,left);value<=right;++value)if(prime[value]){
+            if(previous>=0&&value-previous<best){
+                best=value-previous;
+                answer={
+                    previous,value
+                };
+            }
+            previous=value;
+        }
+        return answer;
+    }
+};

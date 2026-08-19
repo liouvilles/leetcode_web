@@ -1,1 +1,17 @@
-class Solution { public int carFleet(int target,int[] position,int[] speed){Integer[] order=new Integer[position.length];for(int i=0;i<order.length;i++)order[i]=i;Arrays.sort(order,(a,b)->Integer.compare(position[b],position[a]));int fleets=0;double last=-1;for(int index:order){double time=(double)(target-position[index])/speed[index];if(time>last){fleets++;last=time;}}return fleets;} }
+class Solution {
+    public int carFleet(int target,int[] position,int[] speed){
+        Integer[] order=new Integer[position.length];
+        for(int i=0;i<order.length;i++)order[i]=i;
+        Arrays.sort(order,(a,b)->Integer.compare(position[b],position[a]));
+        int fleets=0;
+        double last=-1;
+        for(int index:order){
+            double time=(double)(target-position[index])/speed[index];
+            if(time>last){
+                fleets++;
+                last=time;
+            }
+        }
+        return fleets;
+    }
+}

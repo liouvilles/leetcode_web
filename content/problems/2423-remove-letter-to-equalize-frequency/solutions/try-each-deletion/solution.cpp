@@ -1,1 +1,19 @@
-class Solution { public:bool equalFrequency(string word){for(int remove=0;remove<(int)word.size();++remove){int frequency[26]={},target=0;bool valid=true;for(int i=0;i<(int)word.size();++i)if(i!=remove)++frequency[word[i]-'a'];for(int count:frequency)if(count){if(!target)target=count;else if(count!=target){valid=false;break;}}if(valid)return true;}return false;} };
+class Solution {
+    public:bool equalFrequency(string word){
+        for(int remove=0;remove<(int)word.size();++remove){
+            int frequency[26]={
+            },target=0;
+            bool valid=true;
+            for(int i=0;i<(int)word.size();++i)if(i!=remove)++frequency[word[i]-'a'];
+            for(int count:frequency)if(count){
+                if(!target)target=count;
+                else if(count!=target){
+                    valid=false;
+                    break;
+                }
+            }
+            if(valid)return true;
+        }
+        return false;
+    }
+};

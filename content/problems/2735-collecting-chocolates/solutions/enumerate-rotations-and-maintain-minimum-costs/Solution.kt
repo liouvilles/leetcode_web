@@ -1,1 +1,18 @@
-class Solution { fun minCost(nums:IntArray,x:Int):Long{val n=nums.size;val best=nums.clone();var answer=best.sumOf{it.toLong()};for(rotations in 1 until n){var current=rotations.toLong()*x;for(i in 0 until n){best[i]=minOf(best[i],nums[(i-rotations+n)%n]);current+=best[i]};answer=minOf(answer,current)};return answer} }
+class Solution {
+    fun minCost(nums:IntArray,x:Int):Long{
+        val n=nums.size;
+        val best=nums.clone();
+        var answer=best.sumOf{
+            it.toLong()
+        };
+        for(rotations in 1 until n){
+            var current=rotations.toLong()*x;
+            for(i in 0 until n){
+                best[i]=minOf(best[i],nums[(i-rotations+n)%n]);
+                current+=best[i]
+            };
+            answer=minOf(answer,current)
+        };
+        return answer
+    }
+}

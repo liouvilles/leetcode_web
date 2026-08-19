@@ -1,1 +1,13 @@
-class Solution { public int[] nextLargerNodes(ListNode head){List<Integer> values=new ArrayList<>();for(ListNode node=head;node!=null;node=node.next)values.add(node.val);int[] answer=new int[values.size()];Deque<Integer> stack=new ArrayDeque<>();for(int i=0;i<values.size();i++){while(!stack.isEmpty()&&values.get(stack.peek())<values.get(i))answer[stack.pop()]=values.get(i);stack.push(i);}return answer;} }
+class Solution {
+    public int[] nextLargerNodes(ListNode head){
+        List<Integer> values=new ArrayList<>();
+        for(ListNode node=head;node!=null;node=node.next)values.add(node.val);
+        int[] answer=new int[values.size()];
+        Deque<Integer> stack=new ArrayDeque<>();
+        for(int i=0;i<values.size();i++){
+            while(!stack.isEmpty()&&values.get(stack.peek())<values.get(i))answer[stack.pop()]=values.get(i);
+            stack.push(i);
+        }
+        return answer;
+    }
+}

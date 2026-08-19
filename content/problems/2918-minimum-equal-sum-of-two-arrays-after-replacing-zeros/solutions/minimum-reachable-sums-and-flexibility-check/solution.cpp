@@ -1,1 +1,20 @@
-class Solution { public:long long minSum(vector<int>& nums1,vector<int>& nums2){long long first=0,second=0;int zerosFirst=0,zerosSecond=0;for(int value:nums1){if(value==0){++first;++zerosFirst;}else first+=value;}for(int value:nums2){if(value==0){++second;++zerosSecond;}else second+=value;}if((first<second&&!zerosFirst)||(second<first&&!zerosSecond))return -1;return max(first,second);} };
+class Solution {
+    public:long long minSum(vector<int>& nums1,vector<int>& nums2){
+        long long first=0,second=0;
+        int zerosFirst=0,zerosSecond=0;
+        for(int value:nums1){
+            if(value==0){
+                ++first;
+                ++zerosFirst;
+            }else first+=value;
+        }
+        for(int value:nums2){
+            if(value==0){
+                ++second;
+                ++zerosSecond;
+            }else second+=value;
+        }
+        if((first<second&&!zerosFirst)||(second<first&&!zerosSecond))return -1;
+        return max(first,second);
+    }
+};

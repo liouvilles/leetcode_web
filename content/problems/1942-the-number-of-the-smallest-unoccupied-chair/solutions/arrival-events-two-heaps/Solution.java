@@ -1,1 +1,22 @@
-class Solution { public int smallestChair(int[][] times,int targetFriend){int n=times.length;int[][] events=new int[n][3];for(int i=0;i<n;i++)events[i]=new int[]{times[i][0],times[i][1],i};Arrays.sort(events,Comparator.comparingInt(a->a[0]));PriorityQueue<Integer> available=new PriorityQueue<>();for(int i=0;i<n;i++)available.offer(i);PriorityQueue<int[]> busy=new PriorityQueue<>(Comparator.comparingInt(a->a[0]));for(int[] event:events){while(!busy.isEmpty()&&busy.peek()[0]<=event[0])available.offer(busy.poll()[1]);int chair=available.poll();if(event[2]==targetFriend)return chair;busy.offer(new int[]{event[1],chair});}return -1;} }
+class Solution {
+    public int smallestChair(int[][] times,int targetFriend){
+        int n=times.length;
+        int[][] events=new int[n][3];
+        for(int i=0;i<n;i++)events[i]=new int[]{
+            times[i][0],times[i][1],i
+        };
+        Arrays.sort(events,Comparator.comparingInt(a->a[0]));
+        PriorityQueue<Integer> available=new PriorityQueue<>();
+        for(int i=0;i<n;i++)available.offer(i);
+        PriorityQueue<int[]> busy=new PriorityQueue<>(Comparator.comparingInt(a->a[0]));
+        for(int[] event:events){
+            while(!busy.isEmpty()&&busy.peek()[0]<=event[0])available.offer(busy.poll()[1]);
+            int chair=available.poll();
+            if(event[2]==targetFriend)return chair;
+            busy.offer(new int[]{
+                event[1],chair
+            });
+        }
+        return -1;
+    }
+}

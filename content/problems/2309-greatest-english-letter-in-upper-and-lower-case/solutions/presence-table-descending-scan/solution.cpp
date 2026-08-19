@@ -1,1 +1,9 @@
-class Solution { public:string greatestLetter(string s){bool seen[128]={};for(char ch:s)seen[(int)ch]=true;for(char upper='Z';upper>='A';--upper)if(seen[(int)upper]&&seen[(int)tolower(upper)])return string(1,upper);return "";} };
+class Solution {
+    public:string greatestLetter(string s){
+        bool seen[128]={
+        };
+        for(char ch:s)seen[(int)ch]=true;
+        for(char upper='Z';upper>='A';--upper)if(seen[(int)upper]&&seen[(int)tolower(upper)])return string(1,upper);
+        return "";
+    }
+};

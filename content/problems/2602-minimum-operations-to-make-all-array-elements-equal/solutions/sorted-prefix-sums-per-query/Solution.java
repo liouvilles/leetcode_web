@@ -1,1 +1,19 @@
-class Solution { public List<Long> minOperations(int[] nums,int[] queries){Arrays.sort(nums);long[] prefix=new long[nums.length+1];for(int i=0;i<nums.length;i++)prefix[i+1]=prefix[i]+nums[i];List<Long> answer=new ArrayList<>();for(int query:queries){int left=0,right=nums.length;while(left<right){int middle=(left+right)/2;if(nums[middle]<query)left=middle+1;else right=middle;}long cost=(long)query*left-prefix[left]+prefix[nums.length]-prefix[left]-(long)query*(nums.length-left);answer.add(cost);}return answer;} }
+class Solution {
+    public List<Long> minOperations(int[] nums,int[] queries){
+        Arrays.sort(nums);
+        long[] prefix=new long[nums.length+1];
+        for(int i=0;i<nums.length;i++)prefix[i+1]=prefix[i]+nums[i];
+        List<Long> answer=new ArrayList<>();
+        for(int query:queries){
+            int left=0,right=nums.length;
+            while(left<right){
+                int middle=(left+right)/2;
+                if(nums[middle]<query)left=middle+1;
+                else right=middle;
+            }
+            long cost=(long)query*left-prefix[left]+prefix[nums.length]-prefix[left]-(long)query*(nums.length-left);
+            answer.add(cost);
+        }
+        return answer;
+    }
+}

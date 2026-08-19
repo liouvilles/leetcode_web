@@ -1,1 +1,10 @@
-class Solution { public: double findMaxAverage(vector<int>& nums,int k){long long window=accumulate(nums.begin(),nums.begin()+k,0LL),best=window;for(int right=k;right<(int)nums.size();++right){window+=nums[right]-nums[right-k];best=max(best,window);}return(double)best/k;} };
+class Solution {
+    public: double findMaxAverage(vector<int>& nums,int k){
+        long long window=accumulate(nums.begin(),nums.begin()+k,0LL),best=window;
+        for(int right=k;right<(int)nums.size();++right){
+            window+=nums[right]-nums[right-k];
+            best=max(best,window);
+        }
+        return(double)best/k;
+    }
+};

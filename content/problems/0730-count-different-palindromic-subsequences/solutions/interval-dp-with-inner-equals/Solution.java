@@ -1,1 +1,24 @@
-class Solution { public int countPalindromicSubsequences(String s){int n=s.length();long mod=1000000007L;long[][] dp=new long[n][n];for(int i=n-1;i>=0;i--){dp[i][i]=1;for(int j=i+1;j<n;j++){if(s.charAt(i)!=s.charAt(j))dp[i][j]=dp[i+1][j]+dp[i][j-1]-dp[i+1][j-1];else{int low=i+1,high=j-1;while(low<=high&&s.charAt(low)!=s.charAt(i))low++;while(low<=high&&s.charAt(high)!=s.charAt(i))high--;long inner=dp[i+1][j-1];if(low>high)dp[i][j]=2*inner+2;else if(low==high)dp[i][j]=2*inner+1;else dp[i][j]=2*inner-dp[low+1][high-1];}dp[i][j]=(dp[i][j]%mod+mod)%mod;}}return(int)dp[0][n-1];} }
+class Solution {
+    public int countPalindromicSubsequences(String s){
+        int n=s.length();
+        long mod=1000000007L;
+        long[][] dp=new long[n][n];
+        for(int i=n-1;i>=0;i--){
+            dp[i][i]=1;
+            for(int j=i+1;j<n;j++){
+                if(s.charAt(i)!=s.charAt(j))dp[i][j]=dp[i+1][j]+dp[i][j-1]-dp[i+1][j-1];
+                else{
+                    int low=i+1,high=j-1;
+                    while(low<=high&&s.charAt(low)!=s.charAt(i))low++;
+                    while(low<=high&&s.charAt(high)!=s.charAt(i))high--;
+                    long inner=dp[i+1][j-1];
+                    if(low>high)dp[i][j]=2*inner+2;
+                    else if(low==high)dp[i][j]=2*inner+1;
+                    else dp[i][j]=2*inner-dp[low+1][high-1];
+                }
+                dp[i][j]=(dp[i][j]%mod+mod)%mod;
+            }
+        }
+        return(int)dp[0][n-1];
+    }
+}

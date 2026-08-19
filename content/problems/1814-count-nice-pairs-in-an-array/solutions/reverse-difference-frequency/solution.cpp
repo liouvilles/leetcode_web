@@ -1,1 +1,19 @@
-class Solution { int reverseValue(int value){int result=0;while(value){result=result*10+value%10;value/=10;}return result;}public:int countNicePairs(vector<int>& nums){unordered_map<int,int> frequency;long long answer=0;for(int value:nums){int key=value-reverseValue(value);answer+=frequency[key]++;}return answer%1000000007;} };
+class Solution {
+    int reverseValue(int value){
+        int result=0;
+        while(value){
+            result=result*10+value%10;
+            value/=10;
+        }
+        return result;
+    }
+    public:int countNicePairs(vector<int>& nums){
+        unordered_map<int,int> frequency;
+        long long answer=0;
+        for(int value:nums){
+            int key=value-reverseValue(value);
+            answer+=frequency[key]++;
+        }
+        return answer%1000000007;
+    }
+};

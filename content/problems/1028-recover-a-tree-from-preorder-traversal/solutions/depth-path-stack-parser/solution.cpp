@@ -1,1 +1,23 @@
-class Solution { public: TreeNode* recoverFromPreorder(string traversal){vector<TreeNode*> stack;TreeNode* root=nullptr;int index=0;while(index<(int)traversal.size()){int depth=0;while(index<(int)traversal.size()&&traversal[index]=='-'){++depth;++index;}int value=0;while(index<(int)traversal.size()&&isdigit(traversal[index]))value=value*10+traversal[index++]-'0';while((int)stack.size()>depth)stack.pop_back();TreeNode* node=new TreeNode(value);if(stack.empty())root=node;else if(!stack.back()->left)stack.back()->left=node;else stack.back()->right=node;stack.push_back(node);}return root;} };
+class Solution {
+    public: TreeNode* recoverFromPreorder(string traversal){
+        vector<TreeNode*> stack;
+        TreeNode* root=nullptr;
+        int index=0;
+        while(index<(int)traversal.size()){
+            int depth=0;
+            while(index<(int)traversal.size()&&traversal[index]=='-'){
+                ++depth;
+                ++index;
+            }
+            int value=0;
+            while(index<(int)traversal.size()&&isdigit(traversal[index]))value=value*10+traversal[index++]-'0';
+            while((int)stack.size()>depth)stack.pop_back();
+            TreeNode* node=new TreeNode(value);
+            if(stack.empty())root=node;
+            else if(!stack.back()->left)stack.back()->left=node;
+            else stack.back()->right=node;
+            stack.push_back(node);
+        }
+        return root;
+    }
+};

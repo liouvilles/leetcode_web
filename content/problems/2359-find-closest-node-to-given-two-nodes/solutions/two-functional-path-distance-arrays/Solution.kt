@@ -1,1 +1,25 @@
-class Solution { private fun distances(edges:IntArray,startValue:Int):IntArray{val distance=IntArray(edges.size){-1};var node=startValue;var steps=0;while(node!=-1&&distance[node]==-1){distance[node]=steps++;node=edges[node]};return distance};fun closestMeetingNode(edges:IntArray,node1:Int,node2:Int):Int{val first=distances(edges,node1);val second=distances(edges,node2);var answer=-1;var best=Int.MAX_VALUE;for(i in edges.indices)if(first[i]>=0&&second[i]>=0&&maxOf(first[i],second[i])<best){best=maxOf(first[i],second[i]);answer=i};return answer} }
+class Solution {
+    private fun distances(edges:IntArray,startValue:Int):IntArray{
+        val distance=IntArray(edges.size){
+            -1
+        };
+        var node=startValue;
+        var steps=0;
+        while(node!=-1&&distance[node]==-1){
+            distance[node]=steps++;
+            node=edges[node]
+        };
+        return distance
+    };
+    fun closestMeetingNode(edges:IntArray,node1:Int,node2:Int):Int{
+        val first=distances(edges,node1);
+        val second=distances(edges,node2);
+        var answer=-1;
+        var best=Int.MAX_VALUE;
+        for(i in edges.indices)if(first[i]>=0&&second[i]>=0&&maxOf(first[i],second[i])<best){
+            best=maxOf(first[i],second[i]);
+            answer=i
+        };
+        return answer
+    }
+}

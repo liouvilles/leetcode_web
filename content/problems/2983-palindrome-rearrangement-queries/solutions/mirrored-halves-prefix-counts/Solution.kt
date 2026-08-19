@@ -1,1 +1,45 @@
-class Solution { private fun range(prefix:Array<IntArray>,left:Int,right:Int,letter:Int)=if(left>right)0 else prefix[right+1][letter]-prefix[left][letter];private fun range(prefix:IntArray,left:Int,right:Int)=if(left>right)0 else prefix[right+1]-prefix[left];fun canMakePalindromeQueries(s:String,queries:Array<IntArray>):BooleanArray{val n=s.length;val half=n/2;val first=s.substring(0,half);val second=s.substring(half).reversed();val firstCount=Array(half+1){IntArray(26)};val secondCount=Array(half+1){IntArray(26)};val mismatch=IntArray(half+1);for(index in 0 until half){firstCount[index].copyInto(firstCount[index+1]);secondCount[index].copyInto(secondCount[index+1]);firstCount[index+1][first[index]-'a']++;secondCount[index+1][second[index]-'a']++;mismatch[index+1]=mismatch[index]+if(first[index]==second[index])0 else 1};return BooleanArray(queries.size){index->val query=queries[index];val firstLeft=query[0];val firstRight=query[1];val secondLeft=n-1-query[3];val secondRight=n-1-query[2];val overlapLeft=maxOf(firstLeft,secondLeft);val overlapRight=minOf(firstRight,secondRight);var valid=mismatch[half]-range(mismatch,firstLeft,firstRight)-range(mismatch,secondLeft,secondRight)+range(mismatch,overlapLeft,overlapRight)==0;for(letter in 0 until 26){if(!valid)break;val availableFirst=range(firstCount,firstLeft,firstRight,letter);val requiredFirst=range(secondCount,firstLeft,firstRight,letter)-range(secondCount,overlapLeft,overlapRight,letter);val availableSecond=range(secondCount,secondLeft,secondRight,letter);val requiredSecond=range(firstCount,secondLeft,secondRight,letter)-range(firstCount,overlapLeft,overlapRight,letter);val remainingFirst=availableFirst-requiredFirst;val remainingSecond=availableSecond-requiredSecond;if(remainingFirst<0||remainingSecond<0||remainingFirst!=remainingSecond)valid=false};valid} } }
+class Solution {
+    private fun range(prefix:Array<IntArray>,left:Int,right:Int,letter:Int)=if(left>right)0 else prefix[right+1][letter]-prefix[left][letter];
+    private fun range(prefix:IntArray,left:Int,right:Int)=if(left>right)0 else prefix[right+1]-prefix[left];
+    fun canMakePalindromeQueries(s:String,queries:Array<IntArray>):BooleanArray{
+        val n=s.length;
+        val half=n/2;
+        val first=s.substring(0,half);
+        val second=s.substring(half).reversed();
+        val firstCount=Array(half+1){
+            IntArray(26)
+        };
+        val secondCount=Array(half+1){
+            IntArray(26)
+        };
+        val mismatch=IntArray(half+1);
+        for(index in 0 until half){
+            firstCount[index].copyInto(firstCount[index+1]);
+            secondCount[index].copyInto(secondCount[index+1]);
+            firstCount[index+1][first[index]-'a']++;
+            secondCount[index+1][second[index]-'a']++;
+            mismatch[index+1]=mismatch[index]+if(first[index]==second[index])0 else 1
+        };
+        return BooleanArray(queries.size){
+            index->val query=queries[index];
+            val firstLeft=query[0];
+            val firstRight=query[1];
+            val secondLeft=n-1-query[3];
+            val secondRight=n-1-query[2];
+            val overlapLeft=maxOf(firstLeft,secondLeft);
+            val overlapRight=minOf(firstRight,secondRight);
+            var valid=mismatch[half]-range(mismatch,firstLeft,firstRight)-range(mismatch,secondLeft,secondRight)+range(mismatch,overlapLeft,overlapRight)==0;
+            for(letter in 0 until 26){
+                if(!valid)break;
+                val availableFirst=range(firstCount,firstLeft,firstRight,letter);
+                val requiredFirst=range(secondCount,firstLeft,firstRight,letter)-range(secondCount,overlapLeft,overlapRight,letter);
+                val availableSecond=range(secondCount,secondLeft,secondRight,letter);
+                val requiredSecond=range(firstCount,secondLeft,secondRight,letter)-range(firstCount,overlapLeft,overlapRight,letter);
+                val remainingFirst=availableFirst-requiredFirst;
+                val remainingSecond=availableSecond-requiredSecond;
+                if(remainingFirst<0||remainingSecond<0||remainingFirst!=remainingSecond)valid=false
+            };
+            valid
+        }
+    }
+}

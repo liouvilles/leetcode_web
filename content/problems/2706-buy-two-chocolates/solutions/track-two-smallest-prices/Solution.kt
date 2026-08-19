@@ -1,1 +1,11 @@
-class Solution { fun buyChoco(prices:IntArray,money:Int):Int{var first=Int.MAX_VALUE;var second=Int.MAX_VALUE;for(price in prices)if(price<first){second=first;first=price}else if(price<second)second=price;return if(first+second<=money)money-first-second else money} }
+class Solution {
+    fun buyChoco(prices:IntArray,money:Int):Int{
+        var first=Int.MAX_VALUE;
+        var second=Int.MAX_VALUE;
+        for(price in prices)if(price<first){
+            second=first;
+            first=price
+        }else if(price<second)second=price;
+        return if(first+second<=money)money-first-second else money
+    }
+}

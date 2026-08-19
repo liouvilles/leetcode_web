@@ -1,1 +1,14 @@
-class Solution { public:vector<int> smallestSubarrays(vector<int>& nums){int last[32];fill(begin(last),end(last),-1);vector<int> answer(nums.size());for(int i=nums.size()-1;i>=0;--i){for(int bit=0;bit<32;++bit)if(nums[i]&(1<<bit))last[bit]=i;int farthest=i;for(int position:last)farthest=max(farthest,position);answer[i]=farthest-i+1;}return answer;} };
+class Solution {
+    public:vector<int> smallestSubarrays(vector<int>& nums){
+        int last[32];
+        fill(begin(last),end(last),-1);
+        vector<int> answer(nums.size());
+        for(int i=nums.size()-1;i>=0;--i){
+            for(int bit=0;bit<32;++bit)if(nums[i]&(1<<bit))last[bit]=i;
+            int farthest=i;
+            for(int position:last)farthest=max(farthest,position);
+            answer[i]=farthest-i+1;
+        }
+        return answer;
+    }
+};

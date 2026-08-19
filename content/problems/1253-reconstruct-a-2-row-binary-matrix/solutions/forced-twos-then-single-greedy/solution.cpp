@@ -1,1 +1,26 @@
-class Solution { public: vector<vector<int>> reconstructMatrix(int upper,int lower,vector<int>& colsum){vector<int> top(colsum.size()),bottom(colsum.size());for(int i=0;i<(int)colsum.size();++i)if(colsum[i]==2){top[i]=bottom[i]=1;--upper;--lower;}if(upper<0||lower<0)return {};for(int i=0;i<(int)colsum.size();++i)if(colsum[i]==1){if(upper>0){top[i]=1;--upper;}else{bottom[i]=1;--lower;}}if(upper||lower)return {};return {top,bottom};} };
+class Solution {
+    public: vector<vector<int>> reconstructMatrix(int upper,int lower,vector<int>& colsum){
+        vector<int> top(colsum.size()),bottom(colsum.size());
+        for(int i=0;i<(int)colsum.size();++i)if(colsum[i]==2){
+            top[i]=bottom[i]=1;
+            --upper;
+            --lower;
+        }
+        if(upper<0||lower<0)return {
+        };
+        for(int i=0;i<(int)colsum.size();++i)if(colsum[i]==1){
+            if(upper>0){
+                top[i]=1;
+                --upper;
+            }else{
+                bottom[i]=1;
+                --lower;
+            }
+        }
+        if(upper||lower)return {
+        };
+        return {
+            top,bottom
+        };
+    }
+};

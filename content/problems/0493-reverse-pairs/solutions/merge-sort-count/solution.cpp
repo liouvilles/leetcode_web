@@ -1,1 +1,20 @@
-class Solution { vector<int> buffer;int sortCount(vector<int>& nums,int left,int right){if(left>=right)return 0;int middle=(left+right)/2,count=sortCount(nums,left,middle)+sortCount(nums,middle+1,right),j=middle+1;for(int i=left;i<=middle;++i){while(j<=right&&(long long)nums[i]>2LL*nums[j])++j;count+=j-middle-1;}int i=left,k=left;j=middle+1;while(i<=middle||j<=right)buffer[k++]=j>right||(i<=middle&&nums[i]<=nums[j])?nums[i++]:nums[j++];for(k=left;k<=right;++k)nums[k]=buffer[k];return count;}public:int reversePairs(vector<int>& nums){buffer.resize(nums.size());return sortCount(nums,0,nums.size()-1);} };
+class Solution {
+    vector<int> buffer;
+    int sortCount(vector<int>& nums,int left,int right){
+        if(left>=right)return 0;
+        int middle=(left+right)/2,count=sortCount(nums,left,middle)+sortCount(nums,middle+1,right),j=middle+1;
+        for(int i=left;i<=middle;++i){
+            while(j<=right&&(long long)nums[i]>2LL*nums[j])++j;
+            count+=j-middle-1;
+        }
+        int i=left,k=left;
+        j=middle+1;
+        while(i<=middle||j<=right)buffer[k++]=j>right||(i<=middle&&nums[i]<=nums[j])?nums[i++]:nums[j++];
+        for(k=left;k<=right;++k)nums[k]=buffer[k];
+        return count;
+    }
+    public:int reversePairs(vector<int>& nums){
+        buffer.resize(nums.size());
+        return sortCount(nums,0,nums.size()-1);
+    }
+};

@@ -1,1 +1,19 @@
-class Solution { long long priceSum(long long number,int x){long long value=number+1,total=0;for(int bit=x-1;bit<60;bit+=x){long long half=1LL<<bit,cycle=half<<1;total+=(value/cycle)*half+max(0LL,value%cycle-half);}return total;}public:long long findMaximumNumber(long long k,int x){long long low=0,high=(k+1)<<x;while(low<high){long long middle=low+(high-low)/2;if(priceSum(middle,x)<=k)low=middle+1;else high=middle;}return low-1;} };
+class Solution {
+    long long priceSum(long long number,int x){
+        long long value=number+1,total=0;
+        for(int bit=x-1;bit<60;bit+=x){
+            long long half=1LL<<bit,cycle=half<<1;
+            total+=(value/cycle)*half+max(0LL,value%cycle-half);
+        }
+        return total;
+    }
+    public:long long findMaximumNumber(long long k,int x){
+        long long low=0,high=(k+1)<<x;
+        while(low<high){
+            long long middle=low+(high-low)/2;
+            if(priceSum(middle,x)<=k)low=middle+1;
+            else high=middle;
+        }
+        return low-1;
+    }
+};

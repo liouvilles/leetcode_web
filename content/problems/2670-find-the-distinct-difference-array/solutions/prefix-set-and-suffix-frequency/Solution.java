@@ -1,1 +1,16 @@
-class Solution { public int[] distinctDifferenceArray(int[] nums){Map<Integer,Integer> suffix=new HashMap<>();for(int value:nums)suffix.merge(value,1,Integer::sum);Set<Integer> prefix=new HashSet<>();int[] answer=new int[nums.length];for(int i=0;i<nums.length;i++){int value=nums[i],remaining=suffix.get(value)-1;if(remaining==0)suffix.remove(value);else suffix.put(value,remaining);prefix.add(value);answer[i]=prefix.size()-suffix.size();}return answer;} }
+class Solution {
+    public int[] distinctDifferenceArray(int[] nums){
+        Map<Integer,Integer> suffix=new HashMap<>();
+        for(int value:nums)suffix.merge(value,1,Integer::sum);
+        Set<Integer> prefix=new HashSet<>();
+        int[] answer=new int[nums.length];
+        for(int i=0;i<nums.length;i++){
+            int value=nums[i],remaining=suffix.get(value)-1;
+            if(remaining==0)suffix.remove(value);
+            else suffix.put(value,remaining);
+            prefix.add(value);
+            answer[i]=prefix.size()-suffix.size();
+        }
+        return answer;
+    }
+}

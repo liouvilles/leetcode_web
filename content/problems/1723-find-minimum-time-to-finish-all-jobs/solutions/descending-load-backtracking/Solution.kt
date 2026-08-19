@@ -1,1 +1,27 @@
-class Solution { private var best=0;private lateinit var jobs:IntArray;private lateinit var loads:IntArray;private fun dfs(index:Int){if(index==jobs.size){best=minOf(best,loads.maxOrNull()!!);return};val seen=mutableSetOf<Int>();for(worker in loads.indices){if(!seen.add(loads[worker])||loads[worker]+jobs[index]>=best)continue;loads[worker]+=jobs[index];dfs(index+1);loads[worker]-=jobs[index];if(loads[worker]==0)break}};fun minimumTimeRequired(jobs:IntArray,k:Int):Int{jobs.sortDescending();this.jobs=jobs;loads=IntArray(k);best=jobs.sum();dfs(0);return best} }
+class Solution {
+    private var best=0;
+    private lateinit var jobs:IntArray;
+    private lateinit var loads:IntArray;
+    private fun dfs(index:Int){
+        if(index==jobs.size){
+            best=minOf(best,loads.maxOrNull()!!);
+            return
+        };
+        val seen=mutableSetOf<Int>();
+        for(worker in loads.indices){
+            if(!seen.add(loads[worker])||loads[worker]+jobs[index]>=best)continue;
+            loads[worker]+=jobs[index];
+            dfs(index+1);
+            loads[worker]-=jobs[index];
+            if(loads[worker]==0)break
+        }
+    };
+    fun minimumTimeRequired(jobs:IntArray,k:Int):Int{
+        jobs.sortDescending();
+        this.jobs=jobs;
+        loads=IntArray(k);
+        best=jobs.sum();
+        dfs(0);
+        return best
+    }
+}

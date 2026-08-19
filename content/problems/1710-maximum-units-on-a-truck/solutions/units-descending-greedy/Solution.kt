@@ -1,1 +1,16 @@
-class Solution { fun maximumUnits(boxTypes:Array<IntArray>,truckSizeValue:Int):Int{boxTypes.sortByDescending{it[1]};var truckSize=truckSizeValue;var answer=0;for(type in boxTypes){val take=minOf(type[0],truckSize);answer+=take*type[1];truckSize-=take;if(truckSize==0)break};return answer} }
+class Solution {
+    fun maximumUnits(boxTypes:Array<IntArray>,truckSizeValue:Int):Int{
+        boxTypes.sortByDescending{
+            it[1]
+        };
+        var truckSize=truckSizeValue;
+        var answer=0;
+        for(type in boxTypes){
+            val take=minOf(type[0],truckSize);
+            answer+=take*type[1];
+            truckSize-=take;
+            if(truckSize==0)break
+        };
+        return answer
+    }
+}

@@ -1,1 +1,23 @@
-class Solution { public List<Integer> findNumOfValidWords(String[] words,String[] puzzles){Map<Integer,Integer> frequency=new HashMap<>();for(String word:words){int mask=0;for(char ch:word.toCharArray())mask|=1<<(ch-'a');if(Integer.bitCount(mask)<=7)frequency.merge(mask,1,Integer::sum);}List<Integer> answer=new ArrayList<>();for(String puzzle:puzzles){int first=1<<(puzzle.charAt(0)-'a'),rest=0;for(int i=1;i<puzzle.length();i++)rest|=1<<(puzzle.charAt(i)-'a');int count=0,subset=rest;while(true){count+=frequency.getOrDefault(subset|first,0);if(subset==0)break;subset=(subset-1)&rest;}answer.add(count);}return answer;} }
+class Solution {
+    public List<Integer> findNumOfValidWords(String[] words,String[] puzzles){
+        Map<Integer,Integer> frequency=new HashMap<>();
+        for(String word:words){
+            int mask=0;
+            for(char ch:word.toCharArray())mask|=1<<(ch-'a');
+            if(Integer.bitCount(mask)<=7)frequency.merge(mask,1,Integer::sum);
+        }
+        List<Integer> answer=new ArrayList<>();
+        for(String puzzle:puzzles){
+            int first=1<<(puzzle.charAt(0)-'a'),rest=0;
+            for(int i=1;i<puzzle.length();i++)rest|=1<<(puzzle.charAt(i)-'a');
+            int count=0,subset=rest;
+            while(true){
+                count+=frequency.getOrDefault(subset|first,0);
+                if(subset==0)break;
+                subset=(subset-1)&rest;
+            }
+            answer.add(count);
+        }
+        return answer;
+    }
+}

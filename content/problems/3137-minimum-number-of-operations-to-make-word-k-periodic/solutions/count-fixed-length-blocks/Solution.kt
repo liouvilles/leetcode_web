@@ -1,1 +1,15 @@
-class Solution { fun minimumOperationsToMakeKPeriodic(word:String,k:Int):Int{val frequency=HashMap<String,Int>();var maximum=0;var start=0;while(start<word.length){val block=word.substring(start,start+k);val count=(frequency[block]?:0)+1;frequency[block]=count;maximum=maxOf(maximum,count);start+=k};return word.length/k-maximum} }
+class Solution {
+    fun minimumOperationsToMakeKPeriodic(word:String,k:Int):Int{
+        val frequency=HashMap<String,Int>();
+        var maximum=0;
+        var start=0;
+        while(start<word.length){
+            val block=word.substring(start,start+k);
+            val count=(frequency[block]?:0)+1;
+            frequency[block]=count;
+            maximum=maxOf(maximum,count);
+            start+=k
+        };
+        return word.length/k-maximum
+    }
+}

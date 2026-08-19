@@ -1,1 +1,14 @@
-class Solution { public: vector<string> uncommonFromSentences(string s1,string s2){stringstream stream(s1+" "+s2);vector<string> words,answer;unordered_map<string,int> frequency;string word;while(stream>>word){words.push_back(word);++frequency[word];}for(string& value:words)if(frequency[value]==1)answer.push_back(value);return answer;} };
+class Solution {
+    public: vector<string> uncommonFromSentences(string s1,string s2){
+        stringstream stream(s1+" "+s2);
+        vector<string> words,answer;
+        unordered_map<string,int> frequency;
+        string word;
+        while(stream>>word){
+            words.push_back(word);
+            ++frequency[word];
+        }
+        for(string& value:words)if(frequency[value]==1)answer.push_back(value);
+        return answer;
+    }
+};

@@ -1,1 +1,18 @@
-class Solution { fun minCharacters(a:String,b:String):Int{val first=IntArray(26);val second=IntArray(26);for(letter in a)first[letter-'a']++;for(letter in b)second[letter-'a']++;var answer=a.length+b.length;for(letter in 0 until 26)answer=minOf(answer,a.length+b.length-first[letter]-second[letter]);var prefixFirst=0;var prefixSecond=0;for(boundary in 0 until 25){prefixFirst+=first[boundary];prefixSecond+=second[boundary];answer=minOf(answer,a.length-prefixFirst+prefixSecond,b.length-prefixSecond+prefixFirst)};return answer} }
+class Solution {
+    fun minCharacters(a:String,b:String):Int{
+        val first=IntArray(26);
+        val second=IntArray(26);
+        for(letter in a)first[letter-'a']++;
+        for(letter in b)second[letter-'a']++;
+        var answer=a.length+b.length;
+        for(letter in 0 until 26)answer=minOf(answer,a.length+b.length-first[letter]-second[letter]);
+        var prefixFirst=0;
+        var prefixSecond=0;
+        for(boundary in 0 until 25){
+            prefixFirst+=first[boundary];
+            prefixSecond+=second[boundary];
+            answer=minOf(answer,a.length-prefixFirst+prefixSecond,b.length-prefixSecond+prefixFirst)
+        };
+        return answer
+    }
+}

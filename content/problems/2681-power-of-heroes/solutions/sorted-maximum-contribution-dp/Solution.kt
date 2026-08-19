@@ -1,1 +1,15 @@
-class Solution { fun sumOfPower(nums:IntArray):Int{val mod=1_000_000_007L;nums.sort();var answer=0L;var prefix=0L;for(number in nums){val value=number.toLong();val square=value*value%mod;answer=(answer+square*((value+prefix)%mod))%mod;prefix=(2*prefix+value)%mod};return answer.toInt()} }
+class Solution {
+    fun sumOfPower(nums:IntArray):Int{
+        val mod=1_000_000_007L;
+        nums.sort();
+        var answer=0L;
+        var prefix=0L;
+        for(number in nums){
+            val value=number.toLong();
+            val square=value*value%mod;
+            answer=(answer+square*((value+prefix)%mod))%mod;
+            prefix=(2*prefix+value)%mod
+        };
+        return answer.toInt()
+    }
+}

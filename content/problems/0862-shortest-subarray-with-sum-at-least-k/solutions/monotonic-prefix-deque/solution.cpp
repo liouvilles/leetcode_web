@@ -1,1 +1,16 @@
-class Solution { public: int shortestSubarray(vector<int>& nums,int k){vector<long long> prefix(nums.size()+1);for(int i=0;i<(int)nums.size();++i)prefix[i+1]=prefix[i]+nums[i];deque<int> candidates;int answer=nums.size()+1;for(int right=0;right<(int)prefix.size();++right){while(!candidates.empty()&&prefix[right]-prefix[candidates.front()]>=k){answer=min(answer,right-candidates.front());candidates.pop_front();}while(!candidates.empty()&&prefix[candidates.back()]>=prefix[right])candidates.pop_back();candidates.push_back(right);}return answer>(int)nums.size()?-1:answer;} };
+class Solution {
+    public: int shortestSubarray(vector<int>& nums,int k){
+        vector<long long> prefix(nums.size()+1);
+        for(int i=0;i<(int)nums.size();++i)prefix[i+1]=prefix[i]+nums[i];
+        deque<int> candidates;
+        int answer=nums.size()+1;
+        for(int right=0;right<(int)prefix.size();++right){
+            while(!candidates.empty()&&prefix[right]-prefix[candidates.front()]>=k){
+                answer=min(answer,right-candidates.front());
+                candidates.pop_front();
+            }while(!candidates.empty()&&prefix[candidates.back()]>=prefix[right])candidates.pop_back();
+            candidates.push_back(right);
+        }
+        return answer>(int)nums.size()?-1:answer;
+    }
+};

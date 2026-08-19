@@ -1,1 +1,10 @@
-class Solution { fun maxSum(grid:Array<IntArray>):Int{var answer=0;for(row in 0 until grid.size-2)for(column in 0 until grid[0].size-2){val sum=grid[row][column]+grid[row][column+1]+grid[row][column+2]+grid[row+1][column+1]+grid[row+2][column]+grid[row+2][column+1]+grid[row+2][column+2];answer=maxOf(answer,sum)};return answer} }
+class Solution {
+    fun maxSum(grid:Array<IntArray>):Int{
+        var answer=0;
+        for(row in 0 until grid.size-2)for(column in 0 until grid[0].size-2){
+            val sum=grid[row][column]+grid[row][column+1]+grid[row][column+2]+grid[row+1][column+1]+grid[row+2][column]+grid[row+2][column+1]+grid[row+2][column+2];
+            answer=maxOf(answer,sum)
+        };
+        return answer
+    }
+}

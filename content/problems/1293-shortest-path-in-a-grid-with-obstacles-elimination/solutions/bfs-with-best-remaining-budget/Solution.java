@@ -1,1 +1,39 @@
-class Solution { public int shortestPath(int[][] grid,int k){int rows=grid.length,columns=grid[0].length;if(rows==1&&columns==1)return 0;int[][] best=new int[rows][columns];for(int[] row:best)Arrays.fill(row,-1);Queue<int[]> queue=new ArrayDeque<>();queue.offer(new int[]{0,0,k,0});best[0][0]=k;int[][] directions={{1,0},{-1,0},{0,1},{0,-1}};while(!queue.isEmpty()){int[] state=queue.poll();for(int[] d:directions){int r=state[0]+d[0],c=state[1]+d[1];if(r<0||r>=rows||c<0||c>=columns)continue;int remaining=state[2]-grid[r][c];if(remaining<0||remaining<=best[r][c])continue;if(r==rows-1&&c==columns-1)return state[3]+1;best[r][c]=remaining;queue.offer(new int[]{r,c,remaining,state[3]+1});}}return -1;} }
+class Solution {
+    public int shortestPath(int[][] grid,int k){
+        int rows=grid.length,columns=grid[0].length;
+        if(rows==1&&columns==1)return 0;
+        int[][] best=new int[rows][columns];
+        for(int[] row:best)Arrays.fill(row,-1);
+        Queue<int[]> queue=new ArrayDeque<>();
+        queue.offer(new int[]{
+            0,0,k,0
+        });
+        best[0][0]=k;
+        int[][] directions={
+            {
+                1,0
+            },{
+                -1,0
+            },{
+                0,1
+            },{
+                0,-1
+            }
+        };
+        while(!queue.isEmpty()){
+            int[] state=queue.poll();
+            for(int[] d:directions){
+                int r=state[0]+d[0],c=state[1]+d[1];
+                if(r<0||r>=rows||c<0||c>=columns)continue;
+                int remaining=state[2]-grid[r][c];
+                if(remaining<0||remaining<=best[r][c])continue;
+                if(r==rows-1&&c==columns-1)return state[3]+1;
+                best[r][c]=remaining;
+                queue.offer(new int[]{
+                    r,c,remaining,state[3]+1
+                });
+            }
+        }
+        return -1;
+    }
+}

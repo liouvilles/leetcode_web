@@ -1,1 +1,16 @@
-class Solution { fun reorderLogFiles(logs:Array<String>):Array<String>{return logs.withIndex().sortedWith(Comparator{a,b->val sa=a.value.indexOf(' ');val sb=b.value.indexOf(' ');val da=a.value[sa+1].isDigit();val db=b.value[sb+1].isDigit();if(da&&db)a.index-b.index else if(da!=db)if(da)1 else -1 else{val content=a.value.substring(sa+1).compareTo(b.value.substring(sb+1));if(content!=0)content else a.value.substring(0,sa).compareTo(b.value.substring(0,sb))}}).map{it.value}.toTypedArray()} }
+class Solution {
+    fun reorderLogFiles(logs:Array<String>):Array<String>{
+        return logs.withIndex().sortedWith(Comparator{
+            a,b->val sa=a.value.indexOf(' ');
+            val sb=b.value.indexOf(' ');
+            val da=a.value[sa+1].isDigit();
+            val db=b.value[sb+1].isDigit();
+            if(da&&db)a.index-b.index else if(da!=db)if(da)1 else -1 else{
+                val content=a.value.substring(sa+1).compareTo(b.value.substring(sb+1));
+                if(content!=0)content else a.value.substring(0,sa).compareTo(b.value.substring(0,sb))
+            }
+        }).map{
+            it.value
+        }.toTypedArray()
+    }
+}

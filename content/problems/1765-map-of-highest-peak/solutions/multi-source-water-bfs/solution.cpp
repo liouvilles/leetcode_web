@@ -1,1 +1,36 @@
-class Solution { public: vector<vector<int>> highestPeak(vector<vector<int>>& isWater){int rows=isWater.size(),cols=isWater[0].size();vector<vector<int>> height(rows,vector<int>(cols));queue<pair<int,int>> pending;for(int row=0;row<rows;++row)for(int col=0;col<cols;++col)if(isWater[row][col])pending.push({row,col});else height[row][col]=-1;int directions[4][2]={{1,0},{-1,0},{0,1},{0,-1}};while(!pending.empty()){auto [currentRow,currentCol]=pending.front();pending.pop();for(auto& direction:directions){int row=currentRow+direction[0],col=currentCol+direction[1];if(row>=0&&row<rows&&col>=0&&col<cols&&height[row][col]<0){height[row][col]=height[currentRow][currentCol]+1;pending.push({row,col});}}}return height;} };
+class Solution {
+    public: vector<vector<int>> highestPeak(vector<vector<int>>& isWater){
+        int rows=isWater.size(),cols=isWater[0].size();
+        vector<vector<int>> height(rows,vector<int>(cols));
+        queue<pair<int,int>> pending;
+        for(int row=0;row<rows;++row)for(int col=0;col<cols;++col)if(isWater[row][col])pending.push({
+            row,col
+        });
+        else height[row][col]=-1;
+        int directions[4][2]={
+            {
+                1,0
+            },{
+                -1,0
+            },{
+                0,1
+            },{
+                0,-1
+            }
+        };
+        while(!pending.empty()){
+            auto [currentRow,currentCol]=pending.front();
+            pending.pop();
+            for(auto& direction:directions){
+                int row=currentRow+direction[0],col=currentCol+direction[1];
+                if(row>=0&&row<rows&&col>=0&&col<cols&&height[row][col]<0){
+                    height[row][col]=height[currentRow][currentCol]+1;
+                    pending.push({
+                        row,col
+                    });
+                }
+            }
+        }
+        return height;
+    }
+};

@@ -1,1 +1,9 @@
-class Solution { public: string decodeCiphertext(string encodedText,int rows){int cols=encodedText.size()/rows;string answer;for(int start=0;start<cols;++start)for(int row=0,col=start;row<rows&&col<cols;++row,++col)answer+=encodedText[row*cols+col];while(!answer.empty()&&answer.back()==' ')answer.pop_back();return answer;} };
+class Solution {
+    public: string decodeCiphertext(string encodedText,int rows){
+        int cols=encodedText.size()/rows;
+        string answer;
+        for(int start=0;start<cols;++start)for(int row=0,col=start;row<rows&&col<cols;++row,++col)answer+=encodedText[row*cols+col];
+        while(!answer.empty()&&answer.back()==' ')answer.pop_back();
+        return answer;
+    }
+};

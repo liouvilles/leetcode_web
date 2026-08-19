@@ -1,1 +1,23 @@
-class Solution { fun countMatchingSubarrays(nums:IntArray,pattern:IntArray):Int{val prefix=IntArray(pattern.size);var matched=0;for(i in 1 until pattern.size){while(matched>0&&pattern[i]!=pattern[matched])matched=prefix[matched-1];if(pattern[i]==pattern[matched])matched++;prefix[i]=matched};var answer=0;matched=0;for(i in 1 until nums.size){val relation=nums[i].compareTo(nums[i-1]);while(matched>0&&relation!=pattern[matched])matched=prefix[matched-1];if(relation==pattern[matched])matched++;if(matched==pattern.size){answer++;matched=prefix[matched-1]}};return answer} }
+class Solution {
+    fun countMatchingSubarrays(nums:IntArray,pattern:IntArray):Int{
+        val prefix=IntArray(pattern.size);
+        var matched=0;
+        for(i in 1 until pattern.size){
+            while(matched>0&&pattern[i]!=pattern[matched])matched=prefix[matched-1];
+            if(pattern[i]==pattern[matched])matched++;
+            prefix[i]=matched
+        };
+        var answer=0;
+        matched=0;
+        for(i in 1 until nums.size){
+            val relation=nums[i].compareTo(nums[i-1]);
+            while(matched>0&&relation!=pattern[matched])matched=prefix[matched-1];
+            if(relation==pattern[matched])matched++;
+            if(matched==pattern.size){
+                answer++;
+                matched=prefix[matched-1]
+            }
+        };
+        return answer
+    }
+}

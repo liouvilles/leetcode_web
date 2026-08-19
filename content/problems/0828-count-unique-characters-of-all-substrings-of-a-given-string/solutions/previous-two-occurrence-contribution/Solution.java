@@ -1,1 +1,15 @@
-class Solution { public int uniqueLetterString(String s){int[][] positions=new int[26][2];for(int[] row:positions)Arrays.fill(row,-1);int answer=0;for(int i=0;i<s.length();i++){int c=s.charAt(i)-'A';answer+=(positions[c][1]-positions[c][0])*(i-positions[c][1]);positions[c][0]=positions[c][1];positions[c][1]=i;}for(int[] position:positions)answer+=(position[1]-position[0])*(s.length()-position[1]);return answer;} }
+class Solution {
+    public int uniqueLetterString(String s){
+        int[][] positions=new int[26][2];
+        for(int[] row:positions)Arrays.fill(row,-1);
+        int answer=0;
+        for(int i=0;i<s.length();i++){
+            int c=s.charAt(i)-'A';
+            answer+=(positions[c][1]-positions[c][0])*(i-positions[c][1]);
+            positions[c][0]=positions[c][1];
+            positions[c][1]=i;
+        }
+        for(int[] position:positions)answer+=(position[1]-position[0])*(s.length()-position[1]);
+        return answer;
+    }
+}

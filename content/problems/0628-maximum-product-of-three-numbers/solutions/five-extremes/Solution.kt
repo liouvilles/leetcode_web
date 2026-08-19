@@ -1,1 +1,24 @@
-class Solution { fun maximumProduct(nums:IntArray):Int{var first=Int.MIN_VALUE;var second=Int.MIN_VALUE;var third=Int.MIN_VALUE;var low1=Int.MAX_VALUE;var low2=Int.MAX_VALUE;for(value in nums){if(value>=first){third=second;second=first;first=value}else if(value>=second){third=second;second=value}else if(value>third)third=value;if(value<=low1){low2=low1;low1=value}else if(value<low2)low2=value};return maxOf(first.toLong()*second*third,first.toLong()*low1*low2).toInt()} }
+class Solution {
+    fun maximumProduct(nums:IntArray):Int{
+        var first=Int.MIN_VALUE;
+        var second=Int.MIN_VALUE;
+        var third=Int.MIN_VALUE;
+        var low1=Int.MAX_VALUE;
+        var low2=Int.MAX_VALUE;
+        for(value in nums){
+            if(value>=first){
+                third=second;
+                second=first;
+                first=value
+            }else if(value>=second){
+                third=second;
+                second=value
+            }else if(value>third)third=value;
+            if(value<=low1){
+                low2=low1;
+                low1=value
+            }else if(value<low2)low2=value
+        };
+        return maxOf(first.toLong()*second*third,first.toLong()*low1*low2).toInt()
+    }
+}

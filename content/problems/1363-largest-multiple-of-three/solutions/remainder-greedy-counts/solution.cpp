@@ -1,1 +1,23 @@
-class Solution { public: string largestMultipleOfThree(vector<int>& digits){int count[10]={},sum=0;for(int digit:digits){++count[digit];sum+=digit;}auto remove=[&](int remainder,int amount){for(int digit=0;digit<=9&&amount;digit++)while(count[digit]&&digit%3==remainder&&amount){--count[digit];--amount;}return amount==0;};int remainder=sum%3;if(remainder==1&&!remove(1,1)&&!remove(2,2))return "";if(remainder==2&&!remove(2,1)&&!remove(1,2))return "";string answer;for(int digit=9;digit>=0;--digit)answer+=string(count[digit],char('0'+digit));return !answer.empty()&&answer[0]=='0'?"0":answer;} };
+class Solution {
+    public: string largestMultipleOfThree(vector<int>& digits){
+        int count[10]={
+        },sum=0;
+        for(int digit:digits){
+            ++count[digit];
+            sum+=digit;
+        }
+        auto remove=[&](int remainder,int amount){
+            for(int digit=0;digit<=9&&amount;digit++)while(count[digit]&&digit%3==remainder&&amount){
+                --count[digit];
+                --amount;
+            }
+            return amount==0;
+        };
+        int remainder=sum%3;
+        if(remainder==1&&!remove(1,1)&&!remove(2,2))return "";
+        if(remainder==2&&!remove(2,1)&&!remove(1,2))return "";
+        string answer;
+        for(int digit=9;digit>=0;--digit)answer+=string(count[digit],char('0'+digit));
+        return !answer.empty()&&answer[0]=='0'?"0":answer;
+    }
+};

@@ -1,1 +1,14 @@
-class Solution { public int profitableSchemes(int n,int minProfit,int[] group,int[] profit){long mod=1000000007L;long[][] dp=new long[n+1][minProfit+1];dp[0][0]=1;for(int job=0;job<group.length;job++)for(int members=n-group[job];members>=0;members--)for(int earned=minProfit;earned>=0;earned--){int next=Math.min(minProfit,earned+profit[job]);dp[members+group[job]][next]=(dp[members+group[job]][next]+dp[members][earned])%mod;}long answer=0;for(int members=0;members<=n;members++)answer=(answer+dp[members][minProfit])%mod;return(int)answer;} }
+class Solution {
+    public int profitableSchemes(int n,int minProfit,int[] group,int[] profit){
+        long mod=1000000007L;
+        long[][] dp=new long[n+1][minProfit+1];
+        dp[0][0]=1;
+        for(int job=0;job<group.length;job++)for(int members=n-group[job];members>=0;members--)for(int earned=minProfit;earned>=0;earned--){
+            int next=Math.min(minProfit,earned+profit[job]);
+            dp[members+group[job]][next]=(dp[members+group[job]][next]+dp[members][earned])%mod;
+        }
+        long answer=0;
+        for(int members=0;members<=n;members++)answer=(answer+dp[members][minProfit])%mod;
+        return(int)answer;
+    }
+}

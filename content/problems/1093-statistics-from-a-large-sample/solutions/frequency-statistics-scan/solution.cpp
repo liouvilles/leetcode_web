@@ -1,1 +1,25 @@
-class Solution { int kth(vector<int>& count,int rank){int cumulative=0;for(int value=0;value<(int)count.size();++value){cumulative+=count[value];if(cumulative>=rank)return value;}return -1;}public:vector<double> sampleStats(vector<int>& count){int minimum=-1,maximum=0,mode=0,total=0;long long sum=0;for(int value=0;value<(int)count.size();++value)if(count[value]){if(minimum<0)minimum=value;maximum=value;total+=count[value];sum+=(long long)value*count[value];if(count[value]>count[mode])mode=value;}double median=(kth(count,(total+1)/2)+kth(count,(total+2)/2))/2.0;return {(double)minimum,(double)maximum,(double)sum/total,median,(double)mode};} };
+class Solution {
+    int kth(vector<int>& count,int rank){
+        int cumulative=0;
+        for(int value=0;value<(int)count.size();++value){
+            cumulative+=count[value];
+            if(cumulative>=rank)return value;
+        }
+        return -1;
+    }
+    public:vector<double> sampleStats(vector<int>& count){
+        int minimum=-1,maximum=0,mode=0,total=0;
+        long long sum=0;
+        for(int value=0;value<(int)count.size();++value)if(count[value]){
+            if(minimum<0)minimum=value;
+            maximum=value;
+            total+=count[value];
+            sum+=(long long)value*count[value];
+            if(count[value]>count[mode])mode=value;
+        }
+        double median=(kth(count,(total+1)/2)+kth(count,(total+2)/2))/2.0;
+        return {
+            (double)minimum,(double)maximum,(double)sum/total,median,(double)mode
+        };
+    }
+};

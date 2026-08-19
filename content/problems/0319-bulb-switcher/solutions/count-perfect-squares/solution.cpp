@@ -1,1 +1,5 @@
-class Solution { public: int bulbSwitch(int n){return sqrt(n);} };
+class Solution {
+    public: int bulbSwitch(int n){
+        return sqrt(n);
+    }
+};

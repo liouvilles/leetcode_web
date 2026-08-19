@@ -1,1 +1,21 @@
-class Solution { public int[] nodesBetweenCriticalPoints(ListNode head){ListNode previous=head,current=head.next;int index=1,first=-1,last=-1,minimum=Integer.MAX_VALUE;while(current.next!=null){if((current.val>previous.val&&current.val>current.next.val)||(current.val<previous.val&&current.val<current.next.val)){if(first<0)first=index;else minimum=Math.min(minimum,index-last);last=index;}previous=current;current=current.next;index++;}return minimum==Integer.MAX_VALUE?new int[]{-1,-1}:new int[]{minimum,last-first};} }
+class Solution {
+    public int[] nodesBetweenCriticalPoints(ListNode head){
+        ListNode previous=head,current=head.next;
+        int index=1,first=-1,last=-1,minimum=Integer.MAX_VALUE;
+        while(current.next!=null){
+            if((current.val>previous.val&&current.val>current.next.val)||(current.val<previous.val&&current.val<current.next.val)){
+                if(first<0)first=index;
+                else minimum=Math.min(minimum,index-last);
+                last=index;
+            }
+            previous=current;
+            current=current.next;
+            index++;
+        }
+        return minimum==Integer.MAX_VALUE?new int[]{
+            -1,-1
+        }:new int[]{
+            minimum,last-first
+        };
+    }
+}

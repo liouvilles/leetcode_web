@@ -1,1 +1,21 @@
-class Solution { fun maxProfitAssignment(difficulty:IntArray,profit:IntArray,worker:IntArray):Int{val jobs=difficulty.indices.map{intArrayOf(difficulty[it],profit[it])}.sortedBy{it[0]};worker.sort();var answer=0;var best=0;var index=0;for(ability in worker){while(index<jobs.size&&jobs[index][0]<=ability){best=maxOf(best,jobs[index][1]);index++};answer+=best};return answer} }
+class Solution {
+    fun maxProfitAssignment(difficulty:IntArray,profit:IntArray,worker:IntArray):Int{
+        val jobs=difficulty.indices.map{
+            intArrayOf(difficulty[it],profit[it])
+        }.sortedBy{
+            it[0]
+        };
+        worker.sort();
+        var answer=0;
+        var best=0;
+        var index=0;
+        for(ability in worker){
+            while(index<jobs.size&&jobs[index][0]<=ability){
+                best=maxOf(best,jobs[index][1]);
+                index++
+            };
+            answer+=best
+        };
+        return answer
+    }
+}

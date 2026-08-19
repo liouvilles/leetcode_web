@@ -1,1 +1,23 @@
-class Solution { fun countRectangles(rectangles:Array<IntArray>,points:Array<IntArray>):IntArray{val widths=Array(101){mutableListOf<Int>()};for(rectangle in rectangles)widths[rectangle[1]].add(rectangle[0]);for(bucket in widths)bucket.sort();return IntArray(points.size){p->var answer=0;for(height in points[p][1]..100){val bucket=widths[height];var left=0;var right=bucket.size;while(left<right){val middle=(left+right)/2;if(bucket[middle]<points[p][0])left=middle+1 else right=middle};answer+=bucket.size-left};answer}} }
+class Solution {
+    fun countRectangles(rectangles:Array<IntArray>,points:Array<IntArray>):IntArray{
+        val widths=Array(101){
+            mutableListOf<Int>()
+        };
+        for(rectangle in rectangles)widths[rectangle[1]].add(rectangle[0]);
+        for(bucket in widths)bucket.sort();
+        return IntArray(points.size){
+            p->var answer=0;
+            for(height in points[p][1]..100){
+                val bucket=widths[height];
+                var left=0;
+                var right=bucket.size;
+                while(left<right){
+                    val middle=(left+right)/2;
+                    if(bucket[middle]<points[p][0])left=middle+1 else right=middle
+                };
+                answer+=bucket.size-left
+            };
+            answer
+        }
+    }
+}

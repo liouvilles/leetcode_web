@@ -1,1 +1,13 @@
-class Solution { public:vector<vector<int>> findWinners(vector<vector<int>>& matches){map<int,int> losses;for(auto& match:matches){losses.try_emplace(match[0],0);++losses[match[1]];}vector<vector<int>> answer(2);for(auto [player,count]:losses)if(!count)answer[0].push_back(player);else if(count==1)answer[1].push_back(player);return answer;} };
+class Solution {
+    public:vector<vector<int>> findWinners(vector<vector<int>>& matches){
+        map<int,int> losses;
+        for(auto& match:matches){
+            losses.try_emplace(match[0],0);
+            ++losses[match[1]];
+        }
+        vector<vector<int>> answer(2);
+        for(auto [player,count]:losses)if(!count)answer[0].push_back(player);
+        else if(count==1)answer[1].push_back(player);
+        return answer;
+    }
+};

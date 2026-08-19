@@ -1,1 +1,6 @@
-class Solution { fun findIndices(nums:IntArray,indexDifference:Int,valueDifference:Int):IntArray{for(i in nums.indices)for(j in i+indexDifference until nums.size)if(kotlin.math.abs(nums[i]-nums[j])>=valueDifference)return intArrayOf(i,j);return intArrayOf(-1,-1)} }
+class Solution {
+    fun findIndices(nums:IntArray,indexDifference:Int,valueDifference:Int):IntArray{
+        for(i in nums.indices)for(j in i+indexDifference until nums.size)if(kotlin.math.abs(nums[i]-nums[j])>=valueDifference)return intArrayOf(i,j);
+        return intArrayOf(-1,-1)
+    }
+}

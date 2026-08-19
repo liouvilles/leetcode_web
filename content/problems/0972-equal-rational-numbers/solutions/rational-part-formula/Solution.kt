@@ -1,1 +1,15 @@
-class Solution { fun isRationalEqual(s:String,t:String):Boolean=kotlin.math.abs(value(s)-value(t))<1e-10;private fun value(text:String):Double{val dot=text.indexOf('.');var result=text.substring(0,dot).toDouble();val fraction=text.substring(dot+1);val open=fraction.indexOf('(');val nonRepeat=if(open<0)fraction else fraction.substring(0,open);val repeat=if(open<0)"" else fraction.substring(open+1,fraction.length-1);val scale=Math.pow(10.0,nonRepeat.length.toDouble());if(nonRepeat.isNotEmpty())result+=nonRepeat.toLong()/scale;if(repeat.isNotEmpty())result+=repeat.toLong()/(scale*(Math.pow(10.0,repeat.length.toDouble())-1));return result} }
+class Solution {
+    fun isRationalEqual(s:String,t:String):Boolean=kotlin.math.abs(value(s)-value(t))<1e-10;
+    private fun value(text:String):Double{
+        val dot=text.indexOf('.');
+        var result=text.substring(0,dot).toDouble();
+        val fraction=text.substring(dot+1);
+        val open=fraction.indexOf('(');
+        val nonRepeat=if(open<0)fraction else fraction.substring(0,open);
+        val repeat=if(open<0)"" else fraction.substring(open+1,fraction.length-1);
+        val scale=Math.pow(10.0,nonRepeat.length.toDouble());
+        if(nonRepeat.isNotEmpty())result+=nonRepeat.toLong()/scale;
+        if(repeat.isNotEmpty())result+=repeat.toLong()/(scale*(Math.pow(10.0,repeat.length.toDouble())-1));
+        return result
+    }
+}
