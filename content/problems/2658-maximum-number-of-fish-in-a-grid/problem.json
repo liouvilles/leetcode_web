@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2658,
+  "slug": "maximum-number-of-fish-in-a-grid",
+  "title": "网格图中鱼的最大数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-043",
+  "studyTags": [
+    "数组",
+    "深度优先搜索",
+    "广度优先搜索",
+    "矩阵"
+  ],
+  "summary": "网格中零是陆地，正数是水域鱼数；可从任意水格出发在四邻水格间移动，求能捕获的最大鱼数。",
+  "insight": "每个四连通正数分量代表一次出发可覆盖的全部水域。遍历网格，对尚未访问的正数格做 BFS，累加分量鱼数并取最大值；把访问值置零即可原地标记。",
+  "pitfalls": [
+    "不能经过值为零的陆地",
+    "可任选起点所以比较所有连通分量",
+    "访问时先清零避免重复入队"
+  ],
+  "solutions": [
+    {
+      "id": "flood-fill-component-sums",
+      "title": "洪泛搜索连通分量鱼数",
+      "kind": "最优",
+      "idea": "逐个累加四连通水域总和。",
+      "steps": [
+        "answer=0，扫描每个格子",
+        "遇到正数格加入队列并置零",
+        "BFS 弹出格子累加原值，四邻正数格入队并清零",
+        "一个分量结束后更新 answer",
+        "返回最大值"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(mn)"
+      },
+      "files": {
+        "java": "solutions/flood-fill-component-sums/Solution.java",
+        "kotlin": "solutions/flood-fill-component-sums/Solution.kt",
+        "cpp": "solutions/flood-fill-component-sums/solution.cpp"
+      }
+    }
+  ]
+}

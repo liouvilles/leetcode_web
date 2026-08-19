@@ -1,0 +1,1 @@
+class Solution { public int minExtraChar(String s,String[] dictionary){Set<String> words=new HashSet<>(Arrays.asList(dictionary));int[] dp=new int[s.length()+1];for(int end=1;end<=s.length();end++){dp[end]=dp[end-1]+1;for(int start=0;start<end;start++)if(words.contains(s.substring(start,end)))dp[end]=Math.min(dp[end],dp[start]);}return dp[s.length()];} }

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2679,
+  "slug": "sum-in-a-matrix",
+  "title": "矩阵中的和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-043",
+  "studyTags": [
+    "数组",
+    "排序",
+    "矩阵",
+    "模拟"
+  ],
+  "summary": "重复从矩阵每行删除一个最大值，并把本轮删除值中的最大者加入答案，直到为空，求最终分数。",
+  "insight": "每行升序排序后，第 t 轮删除的就是相同倒数位置的元素；轮次顺序不影响总和，因此逐列取所有行该位置的最大值并累加即可。",
+  "pitfalls": [
+    "每轮每一行都删除一个值",
+    "重复值按各自元素处理",
+    "排序后从任一统一方向逐列取最大都等价"
+  ],
+  "solutions": [
+    {
+      "id": "sort-each-row-and-column-maxima",
+      "title": "逐行排序后取列最大值",
+      "kind": "最优",
+      "idea": "把各轮行最大值对齐成排序后的列。",
+      "steps": [
+        "对 grid 每行升序排序",
+        "answer=0",
+        "对每列 col，找所有 row 的 grid[row][col] 最大值",
+        "累加列最大值",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(mn log n)",
+        "space": "O(log n) sorting"
+      },
+      "files": {
+        "java": "solutions/sort-each-row-and-column-maxima/Solution.java",
+        "kotlin": "solutions/sort-each-row-and-column-maxima/Solution.kt",
+        "cpp": "solutions/sort-each-row-and-column-maxima/solution.cpp"
+      }
+    }
+  ]
+}

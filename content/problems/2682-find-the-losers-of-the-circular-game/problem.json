@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2682,
+  "slug": "find-the-losers-of-the-circular-game",
+  "title": "找出转圈游戏输家",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-043",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "模拟"
+  ],
+  "summary": "n 位朋友围成圈，从一号开始，第 i 轮把球顺时针传 i*k 步；某人第二次接球时结束，返回从未接球者编号。",
+  "insight": "用布尔数组记录已接球者，当前位置重复前按轮数递增计算下一位置。循环结束后收集所有未标记的一基编号即可。",
+  "pitfalls": [
+    "一号玩家在游戏开始时已接到球",
+    "第 i 轮步数是 i*k",
+    "编号循环需对 n 取模",
+    "答案按编号递增"
+  ],
+  "solutions": [
+    {
+      "id": "visited-cycle-simulation",
+      "title": "访问标记循环模拟",
+      "kind": "最优",
+      "idea": "严格按轮次更新持球位置直至重复。",
+      "steps": [
+        "visited[n]=false，current=0，round=1",
+        "while !visited[current]",
+        "标记 current",
+        "current=(current+round*k)%n，round++",
+        "扫描未访问下标并加入 index+1",
+        "返回答案"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/visited-cycle-simulation/Solution.java",
+        "kotlin": "solutions/visited-cycle-simulation/Solution.kt",
+        "cpp": "solutions/visited-cycle-simulation/solution.cpp"
+      }
+    }
+  ]
+}

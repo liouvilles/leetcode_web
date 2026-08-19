@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2661,
+  "slug": "first-completely-painted-row-or-column",
+  "title": "找出叠涂元素",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-043",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "矩阵"
+  ],
+  "summary": "mat 含一到 mn 的不同整数，按 arr 顺序逐个涂色对应格子，返回首次出现整行或整列全部涂色的 arr 下标。",
+  "insight": "预先建立数值到 (row,col) 的映射。每涂一个格就增加对应行、列计数；任一计数达到列数或行数时立即返回当前下标。",
+  "pitfalls": [
+    "返回 arr 的下标而非元素值",
+    "首次完成后要立即返回",
+    "行完成阈值是列数，列完成阈值是行数"
+  ],
+  "solutions": [
+    {
+      "id": "value-position-map-and-line-counts",
+      "title": "数值坐标映射与行列计数",
+      "kind": "最优",
+      "idea": "在线检测刚涂格子所在行列是否完成。",
+      "steps": [
+        "建立 position[value]=row*cols+col",
+        "rowCount、colCount 置零",
+        "按 i 扫描 arr，解码对应 row、col",
+        "分别递增行列计数",
+        "若 rowCount[row]==cols 或 colCount[col]==rows 返回 i"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(mn)"
+      },
+      "files": {
+        "java": "solutions/value-position-map-and-line-counts/Solution.java",
+        "kotlin": "solutions/value-position-map-and-line-counts/Solution.kt",
+        "cpp": "solutions/value-position-map-and-line-counts/solution.cpp"
+      }
+    }
+  ]
+}

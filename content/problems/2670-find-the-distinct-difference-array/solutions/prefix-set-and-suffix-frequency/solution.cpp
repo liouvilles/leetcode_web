@@ -1,0 +1,1 @@
+class Solution { public:vector<int> distinctDifferenceArray(vector<int>& nums){unordered_map<int,int> suffix;for(int value:nums)++suffix[value];unordered_set<int> prefix;vector<int> answer(nums.size());for(int i=0;i<(int)nums.size();++i){int value=nums[i];if(!--suffix[value])suffix.erase(value);prefix.insert(value);answer[i]=prefix.size()-suffix.size();}return answer;} };

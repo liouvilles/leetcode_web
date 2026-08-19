@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minExtraChar",
+  "parameterTypes": [
+    "string",
+    "stringArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "leetscode 只有 s 额外",
+      "args": [
+        "leetscode",
+        [
+          "leet",
+          "code",
+          "leetcode"
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "say 是三个额外字符",
+      "args": [
+        "sayhelloworld",
+        [
+          "hello",
+          "world"
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "a 与 bc 完整覆盖 abc",
+      "args": [
+        "abc",
+        [
+          "a",
+          "bc"
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

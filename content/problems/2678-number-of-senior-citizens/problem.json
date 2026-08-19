@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2678,
+  "slug": "number-of-senior-citizens",
+  "title": "老人的数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-043",
+  "studyTags": [
+    "数组",
+    "字符串"
+  ],
+  "summary": "每条乘客信息是固定格式字符串，其中第 12、13 个字符表示两位年龄，统计年龄严格大于六十的乘客。",
+  "insight": "直接读取下标 11 和 12 的两个数字构造年龄，无需解析其他字段。",
+  "pitfalls": [
+    "年龄等于六十不计入",
+    "字符串下标从零开始",
+    "年龄字段固定为两位"
+  ],
+  "solutions": [
+    {
+      "id": "parse-fixed-age-digits",
+      "title": "解析固定位置年龄",
+      "kind": "最优",
+      "idea": "逐条读取两位年龄并比较。",
+      "steps": [
+        "answer=0",
+        "遍历 detail",
+        "age=(detail[11]-0)*10+(detail[12]-0)",
+        "age>60 则 answer++",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/parse-fixed-age-digits/Solution.java",
+        "kotlin": "solutions/parse-fixed-age-digits/Solution.kt",
+        "cpp": "solutions/parse-fixed-age-digits/solution.cpp"
+      }
+    }
+  ]
+}

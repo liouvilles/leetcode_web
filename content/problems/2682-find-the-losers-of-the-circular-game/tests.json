@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "circularGameLosers",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "五人步长二时四五号未接球",
+      "args": [
+        5,
+        2
+      ],
+      "expected": [
+        4,
+        5
+      ]
+    },
+    {
+      "name": "步长等于人数时只有一号接球",
+      "args": [
+        4,
+        4
+      ],
+      "expected": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "name": "单人游戏没有输家",
+      "args": [
+        1,
+        1
+      ],
+      "expected": []
+    }
+  ]
+}

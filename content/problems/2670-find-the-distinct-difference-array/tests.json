@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "distinctDifferenceArray",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "全不同数组差值等差递增",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": [
+        -3,
+        -1,
+        1,
+        3,
+        5
+      ]
+    },
+    {
+      "name": "重复值数组逐步变化",
+      "args": [
+        [
+          3,
+          2,
+          3,
+          4,
+          2
+        ]
+      ],
+      "expected": [
+        -2,
+        -1,
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "name": "两个相同值的前后缀差",
+      "args": [
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": [
+        0,
+        1
+      ]
+    }
+  ]
+}

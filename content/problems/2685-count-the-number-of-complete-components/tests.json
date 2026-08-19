@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countCompleteComponents",
+  "parameterTypes": [
+    "int",
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三角形边与孤立点共三个完全分量",
+      "args": [
+        6,
+        [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "三节点非完全分量不计",
+      "args": [
+        6,
+        [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            3,
+            5
+          ]
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "三个孤立点都是完全分量",
+      "args": [
+        3,
+        []
+      ],
+      "expected": 3
+    }
+  ]
+}

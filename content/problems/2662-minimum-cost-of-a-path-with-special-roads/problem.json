@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": 2662,
+  "slug": "minimum-cost-of-a-path-with-special-roads",
+  "title": "前往目标的最小代价",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-043",
+  "studyTags": [
+    "数组",
+    "图论",
+    "堆（优先队列）",
+    "最短路"
+  ],
+  "summary": "平面上可按曼哈顿距离付费任意移动，并可使用若干从指定起点到终点的有向特殊道路，求 start 到 target 的最小代价。",
+  "insight": "真正改变普通步行几何结构的只有特殊道路终点。把 start 和每条道路终点作为 Dijkstra 状态；从当前点可步行到任一道路起点再支付道路费用到其终点，也可直接步行到 target。正权保证 Dijkstra 首次确定最小代价。",
+  "pitfalls": [
+    "特殊道路是有向的",
+    "道路之间可通过普通步行衔接",
+    "直接步行到目标始终是候选",
+    "代价中间值用 long 更稳妥"
+  ],
+  "solutions": [
+    {
+      "id": "dijkstra-over-special-road-ends",
+      "title": "特殊道路终点上的 Dijkstra",
+      "kind": "最优",
+      "idea": "只把使用特殊道路后的落点加入最短路状态。",
+      "steps": [
+        "distance[i] 表示到第 i 条道路终点的最小代价",
+        "最小堆先放 start、代价零",
+        "弹出当前坐标与代价，用 cost+曼哈顿距离到 target 更新答案",
+        "对每条道路计算 cost+走到 road.start+road.cost",
+        "若改善该道路终点距离则入堆",
+        "返回答案"
+      ],
+      "complexity": {
+        "time": "O(r² log r)",
+        "space": "O(r)"
+      },
+      "files": {
+        "java": "solutions/dijkstra-over-special-road-ends/Solution.java",
+        "kotlin": "solutions/dijkstra-over-special-road-ends/Solution.kt",
+        "cpp": "solutions/dijkstra-over-special-road-ends/solution.cpp"
+      }
+    }
+  ]
+}

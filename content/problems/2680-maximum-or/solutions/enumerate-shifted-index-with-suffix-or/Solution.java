@@ -1,0 +1,1 @@
+class Solution { public long maximumOr(int[] nums,int k){long[] suffix=new long[nums.length+1];for(int i=nums.length-1;i>=0;i--)suffix[i]=suffix[i+1]|nums[i];long prefix=0,answer=0;for(int i=0;i<nums.length;i++){answer=Math.max(answer,prefix|((long)nums[i]<<k)|suffix[i+1]);prefix|=nums[i];}return answer;} }

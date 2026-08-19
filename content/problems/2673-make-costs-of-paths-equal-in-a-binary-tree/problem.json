@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": 2673,
+  "slug": "make-costs-of-paths-equal-in-a-binary-tree",
+  "title": "使二叉树所有路径值相等的最小代价",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-043",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "贪心",
+    "树",
+    "二叉树"
+  ],
+  "summary": "满二叉树节点从一编号，节点有正代价；每次可把任一节点代价加一，求使根到所有叶路径代价和相等的最少增加次数。",
+  "insight": "对任一父节点，左右子树内部先各自平衡后，只需把较小的根到叶和补到较大值，代价是两侧和之差；随后向父节点传播较大的平衡后路径和。按数组下标从底向上即可完成树形 DP。",
+  "pitfalls": [
+    "只能增加不能减少",
+    "cost 数组下标比节点编号小一",
+    "每个内部节点的两个孩子编号是 2i 与 2i+1",
+    "差值累加后传播最大子路径和"
+  ],
+  "solutions": [
+    {
+      "id": "bottom-up-balance-sibling-subtrees",
+      "title": "自底向上平衡兄弟子树",
+      "kind": "最优",
+      "idea": "每个节点汇总其平衡后统一根叶和。",
+      "steps": [
+        "answer=0",
+        "node 从 n/2 递减到一",
+        "left=cost[2*node-1]，right=cost[2*node]",
+        "answer+=abs(left-right)",
+        "cost[node-1]+=max(left,right)",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/bottom-up-balance-sibling-subtrees/Solution.java",
+        "kotlin": "solutions/bottom-up-balance-sibling-subtrees/Solution.kt",
+        "cpp": "solutions/bottom-up-balance-sibling-subtrees/solution.cpp"
+      }
+    }
+  ]
+}

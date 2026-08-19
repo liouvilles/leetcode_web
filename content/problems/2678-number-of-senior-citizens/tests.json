@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countSeniors",
+  "parameterTypes": [
+    "stringArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "七十五与九十二岁两位老人",
+      "args": [
+        [
+          "7868190130M7522",
+          "5303914400F9211",
+          "9273338290F4010"
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "二十与五十六岁均不计",
+      "args": [
+        [
+          "1313579440F2036",
+          "2921522980M5644"
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "恰好六十岁不属于严格大于",
+      "args": [
+        [
+          "1234567890M6011"
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

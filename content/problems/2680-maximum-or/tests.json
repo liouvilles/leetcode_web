@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumOr",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "左移九可得到三十",
+      "args": [
+        [
+          12,
+          9
+        ],
+        1
+      ],
+      "expected": 30
+    },
+    {
+      "name": "左移八两位得到三十五",
+      "args": [
+        [
+          8,
+          1,
+          2
+        ],
+        2
+      ],
+      "expected": 35
+    },
+    {
+      "name": "单个一左移五位为三十二",
+      "args": [
+        [
+          1
+        ],
+        5
+      ],
+      "expected": 32
+    }
+  ]
+}

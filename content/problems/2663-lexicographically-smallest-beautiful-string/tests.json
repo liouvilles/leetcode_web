@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "smallestBeautifulString",
+  "parameterTypes": [
+    "string",
+    "int"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "末尾进位后最小后缀为 a",
+      "args": [
+        "abcz",
+        26
+      ],
+      "expected": "abda"
+    },
+    {
+      "name": "四字母范围内 dc 已无后继",
+      "args": [
+        "dc",
+        4
+      ],
+      "expected": ""
+    },
+    {
+      "name": "abc 的最小美丽后继为 abd",
+      "args": [
+        "abc",
+        4
+      ],
+      "expected": "abd"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class Solution { private int score(int[] player){int total=0;for(int i=0;i<player.length;i++)total+=player[i]*((i>0&&player[i-1]==10||i>1&&player[i-2]==10)?2:1);return total;}public int isWinner(int[] player1,int[] player2){int first=score(player1),second=score(player2);return first==second?0:first>second?1:2;} }

@@ -1,0 +1,1 @@
+class Solution { fun minExtraChar(s:String,dictionary:Array<String>):Int{val words=dictionary.toHashSet();val dp=IntArray(s.length+1);for(end in 1..s.length){dp[end]=dp[end-1]+1;for(start in 0 until end)if(s.substring(start,end) in words)dp[end]=minOf(dp[end],dp[start])};return dp[s.length]} }

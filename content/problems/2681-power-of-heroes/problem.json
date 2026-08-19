@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": 2681,
+  "slug": "power-of-heroes",
+  "title": "英雄的力量",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-043",
+  "studyTags": [
+    "数组",
+    "数学",
+    "动态规划",
+    "排序",
+    "前缀和"
+  ],
+  "summary": "非空子序列力量定义为最大值平方乘最小值，求所有子序列力量之和并对 10^9+7 取模。",
+  "insight": "升序处理并固定当前 value 为最大值。包含它的子序列中，只有它时最小值为 value；此前元素子集的最小值贡献和用 prefix 维护。当前贡献为 value²*(value+prefix)，随后加入 value 后新的最小值贡献和变为 2*prefix+value。",
+  "pitfalls": [
+    "子序列按下标选择，重复值仍贡献多份",
+    "所有乘法都要及时取模",
+    "当前值既可能是最大值也可能同时是最小值"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-maximum-contribution-dp",
+      "title": "排序后按最大值计算贡献",
+      "kind": "最优",
+      "idea": "滚动维护此前非空子集的最小值总贡献。",
+      "steps": [
+        "排序 nums",
+        "answer=prefix=0",
+        "逐个 value",
+        "square=value² mod MOD",
+        "answer+=square*(value+prefix)",
+        "prefix=(2*prefix+value)%MOD",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(log n) sorting"
+      },
+      "files": {
+        "java": "solutions/sorted-maximum-contribution-dp/Solution.java",
+        "kotlin": "solutions/sorted-maximum-contribution-dp/Solution.kt",
+        "cpp": "solutions/sorted-maximum-contribution-dp/solution.cpp"
+      }
+    }
+  ]
+}

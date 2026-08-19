@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "problemCount": 1896,
-  "solutionCount": 1923,
-  "implementationCount": 5769,
+  "problemCount": 1921,
+  "solutionCount": 1948,
+  "implementationCount": 5844,
   "problems": [
     {
       "id": 1,
@@ -28390,6 +28390,381 @@
       ],
       "status": "published",
       "batch": "batch-042",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2657,
+      "slug": "find-the-prefix-common-array-of-two-arrays",
+      "title": "找到两个数组的前缀公共数组",
+      "studyTags": [
+        "数组",
+        "哈希表"
+      ],
+      "status": "published",
+      "batch": "batch-043",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2658,
+      "slug": "maximum-number-of-fish-in-a-grid",
+      "title": "网格图中鱼的最大数目",
+      "studyTags": [
+        "数组",
+        "深度优先搜索",
+        "广度优先搜索",
+        "矩阵"
+      ],
+      "status": "published",
+      "batch": "batch-043",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2659,
+      "slug": "make-array-empty",
+      "title": "将数组清空",
+      "studyTags": [
+        "数组",
+        "贪心",
+        "树状数组",
+        "排序"
+      ],
+      "status": "published",
+      "batch": "batch-043",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2660,
+      "slug": "determine-the-winner-of-a-bowling-game",
+      "title": "保龄球游戏的获胜者",
+      "studyTags": [
+        "数组",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-043",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2661,
+      "slug": "first-completely-painted-row-or-column",
+      "title": "找出叠涂元素",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "矩阵"
+      ],
+      "status": "published",
+      "batch": "batch-043",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2662,
+      "slug": "minimum-cost-of-a-path-with-special-roads",
+      "title": "前往目标的最小代价",
+      "studyTags": [
+        "数组",
+        "图论",
+        "堆（优先队列）",
+        "最短路"
+      ],
+      "status": "published",
+      "batch": "batch-043",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2663,
+      "slug": "lexicographically-smallest-beautiful-string",
+      "title": "字典序最小的美丽字符串",
+      "studyTags": [
+        "字符串",
+        "贪心"
+      ],
+      "status": "published",
+      "batch": "batch-043",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2670,
+      "slug": "find-the-distinct-difference-array",
+      "title": "找出不同元素数目差数组",
+      "studyTags": [
+        "数组",
+        "哈希表"
+      ],
+      "status": "published",
+      "batch": "batch-043",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2671,
+      "slug": "frequency-tracker",
+      "title": "频率跟踪器",
+      "studyTags": [
+        "哈希表",
+        "设计"
+      ],
+      "status": "published",
+      "batch": "batch-043",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2672,
+      "slug": "number-of-adjacent-elements-with-the-same-color",
+      "title": "有相同颜色的相邻元素数目",
+      "studyTags": [
+        "数组"
+      ],
+      "status": "published",
+      "batch": "batch-043",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2673,
+      "slug": "make-costs-of-paths-equal-in-a-binary-tree",
+      "title": "使二叉树所有路径值相等的最小代价",
+      "studyTags": [
+        "数组",
+        "动态规划",
+        "贪心",
+        "树",
+        "二叉树"
+      ],
+      "status": "published",
+      "batch": "batch-043",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2678,
+      "slug": "number-of-senior-citizens",
+      "title": "老人的数目",
+      "studyTags": [
+        "数组",
+        "字符串"
+      ],
+      "status": "published",
+      "batch": "batch-043",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2679,
+      "slug": "sum-in-a-matrix",
+      "title": "矩阵中的和",
+      "studyTags": [
+        "数组",
+        "排序",
+        "矩阵",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-043",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2680,
+      "slug": "maximum-or",
+      "title": "最大或值",
+      "studyTags": [
+        "数组",
+        "贪心",
+        "位运算",
+        "前缀和"
+      ],
+      "status": "published",
+      "batch": "batch-043",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2681,
+      "slug": "power-of-heroes",
+      "title": "英雄的力量",
+      "studyTags": [
+        "数组",
+        "数学",
+        "动态规划",
+        "排序",
+        "前缀和"
+      ],
+      "status": "published",
+      "batch": "batch-043",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2682,
+      "slug": "find-the-losers-of-the-circular-game",
+      "title": "找出转圈游戏输家",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-043",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2683,
+      "slug": "neighboring-bitwise-xor",
+      "title": "相邻值的按位异或",
+      "studyTags": [
+        "数组",
+        "位运算"
+      ],
+      "status": "published",
+      "batch": "batch-043",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2684,
+      "slug": "maximum-number-of-moves-in-a-grid",
+      "title": "矩阵中移动的最大次数",
+      "studyTags": [
+        "数组",
+        "动态规划",
+        "矩阵"
+      ],
+      "status": "published",
+      "batch": "batch-043",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2685,
+      "slug": "count-the-number-of-complete-components",
+      "title": "统计完全连通分量的数量",
+      "studyTags": [
+        "深度优先搜索",
+        "广度优先搜索",
+        "图论"
+      ],
+      "status": "published",
+      "batch": "batch-043",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2696,
+      "slug": "minimum-string-length-after-removing-substrings",
+      "title": "删除子串后的字符串最小长度",
+      "studyTags": [
+        "字符串",
+        "栈",
+        "模拟"
+      ],
+      "status": "published",
+      "batch": "batch-043",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2697,
+      "slug": "lexicographically-smallest-palindrome",
+      "title": "字典序最小回文串",
+      "studyTags": [
+        "双指针",
+        "字符串",
+        "贪心"
+      ],
+      "status": "published",
+      "batch": "batch-043",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2698,
+      "slug": "find-the-punishment-number-of-an-integer",
+      "title": "求一个整数的惩罚数",
+      "studyTags": [
+        "数学",
+        "回溯"
+      ],
+      "status": "published",
+      "batch": "batch-043",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2699,
+      "slug": "modify-graph-edge-weights",
+      "title": "修改图中的边权",
+      "studyTags": [
+        "图论",
+        "堆（优先队列）",
+        "最短路"
+      ],
+      "status": "published",
+      "batch": "batch-043",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2706,
+      "slug": "buy-two-chocolates",
+      "title": "购买两块巧克力",
+      "studyTags": [
+        "数组",
+        "贪心",
+        "排序"
+      ],
+      "status": "published",
+      "batch": "batch-043",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2707,
+      "slug": "extra-characters-in-a-string",
+      "title": "字符串中的额外字符",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "字符串",
+        "动态规划"
+      ],
+      "status": "published",
+      "batch": "batch-043",
       "solutionCount": 1,
       "testCount": 3,
       "qualityGate": "tested"

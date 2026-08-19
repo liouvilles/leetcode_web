@@ -1,0 +1,1 @@
+class Solution { public int minLength(String s){char[] stack=new char[s.length()];int size=0;for(char current:s.toCharArray()){if(size>0&&(stack[size-1]=='A'&&current=='B'||stack[size-1]=='C'&&current=='D'))size--;else stack[size++]=current;}return size;} }

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minLength",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "连续消除后剩余两个字符",
+      "args": [
+        "ABFCACDB"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "没有可删除相邻子串",
+      "args": [
+        "ACBBD"
+      ],
+      "expected": 5
+    },
+    {
+      "name": "AB 与 CD 均删除为空",
+      "args": [
+        "ABCD"
+      ],
+      "expected": 0
+    }
+  ]
+}

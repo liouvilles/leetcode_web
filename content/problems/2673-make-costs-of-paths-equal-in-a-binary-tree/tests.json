@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minIncrements",
+  "parameterTypes": [
+    "int",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "七节点经典树最少增加六",
+      "args": [
+        7,
+        [
+          1,
+          5,
+          2,
+          2,
+          3,
+          3,
+          1
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "两个叶子代价相同无需增加",
+      "args": [
+        3,
+        [
+          5,
+          3,
+          3
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "较小叶子补三即可平衡",
+      "args": [
+        3,
+        [
+          1,
+          2,
+          5
+        ]
+      ],
+      "expected": 3
+    }
+  ]
+}

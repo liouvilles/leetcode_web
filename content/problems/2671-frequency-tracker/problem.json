@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2671,
+  "slug": "frequency-tracker",
+  "title": "频率跟踪器",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-043",
+  "studyTags": [
+    "哈希表",
+    "设计"
+  ],
+  "summary": "设计结构支持添加一个数字、删除一个已有数字实例，以及查询当前是否存在出现次数恰为给定频率的数字。",
+  "insight": "一张表 numberCount 记录数字频率，另一张表 frequencyCount 记录有多少个数字处于某个正频率。数字从 old 变到 new 时分别减少 old 桶、增加 new 桶，查询便可 O(1) 判断桶是否非空。",
+  "pitfalls": [
+    "删除不存在数字时不做任何事",
+    "零频率数字不纳入 frequencyCount",
+    "多个数字可共享同一频率桶"
+  ],
+  "solutions": [
+    {
+      "id": "number-and-frequency-count-maps",
+      "title": "数字频次与频次桶双映射",
+      "kind": "最优",
+      "idea": "每次更新同步迁移数字所在的频率桶。",
+      "steps": [
+        "实现 change(number,newCount)：旧频率桶减一，新正频率桶加一并更新数字表",
+        "add 调 change(old+1)",
+        "deleteOne 仅在 old>0 时调 change(old-1)",
+        "hasFrequency 返回 frequencyCount[frequency]>0"
+      ],
+      "complexity": {
+        "time": "每次操作 O(1) average",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/number-and-frequency-count-maps/Solution.java",
+        "kotlin": "solutions/number-and-frequency-count-maps/Solution.kt",
+        "cpp": "solutions/number-and-frequency-count-maps/solution.cpp"
+      }
+    }
+  ]
+}

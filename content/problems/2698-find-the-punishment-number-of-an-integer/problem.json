@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2698,
+  "slug": "find-the-punishment-number-of-an-integer",
+  "title": "求一个整数的惩罚数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-043",
+  "studyTags": [
+    "数学",
+    "回溯"
+  ],
+  "summary": "若 i² 的十进制字符串能划分成若干连续子串且对应整数和等于 i，则 i 合格；求一到 n 所有合格 i 的平方和。",
+  "insight": "对每个 i 对 i² 的数字串做分割回溯。状态为当前位置与已累加和，逐步扩展当前片段；累加超过 i 时可剪枝。字符串长度很短，枚举所有分割足够。",
+  "pitfalls": [
+    "分割必须覆盖全部数字且保持顺序",
+    "含前导零片段按正常整数值处理",
+    "最终累加的是 i² 而不是 i"
+  ],
+  "solutions": [
+    {
+      "id": "backtrack-digit-partitions",
+      "title": "回溯枚举平方数字分割",
+      "kind": "最优",
+      "idea": "逐个判断平方字符串能否分段求和到原数。",
+      "steps": [
+        "对 value=1..n 计算 square 与 digits",
+        "dfs(index,sum)",
+        "index 到末尾时返回 sum==value",
+        "从 index 扩展 number，若 sum+number>value 停止；任一递归成功则合格",
+        "合格时 answer+=square",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n * 2^digits)",
+        "space": "O(digits)"
+      },
+      "files": {
+        "java": "solutions/backtrack-digit-partitions/Solution.java",
+        "kotlin": "solutions/backtrack-digit-partitions/Solution.kt",
+        "cpp": "solutions/backtrack-digit-partitions/solution.cpp"
+      }
+    }
+  ]
+}

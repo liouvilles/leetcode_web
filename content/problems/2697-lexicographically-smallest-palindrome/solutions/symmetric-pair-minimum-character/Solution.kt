@@ -1,0 +1,1 @@
+class Solution { fun makeSmallestPalindrome(s:String):String{val value=s.toCharArray();var left=0;var right=value.lastIndex;while(left<right){val smaller=minOf(value[left],value[right]);value[left]=smaller;value[right]=smaller;left++;right--};return String(value)} }

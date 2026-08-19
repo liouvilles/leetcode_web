@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2670,
+  "slug": "find-the-distinct-difference-array",
+  "title": "找出不同元素数目差数组",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-043",
+  "studyTags": [
+    "数组",
+    "哈希表"
+  ],
+  "summary": "difference[i] 等于前缀 nums[0..i] 的不同值数减去后缀 nums[i+1..n-1] 的不同值数，返回整个数组。",
+  "insight": "先用频次表表示完整后缀。扫描 i 时先从后缀删除 nums[i] 的一次出现，频次归零就移除该键；再把它加入前缀集合，两边集合大小之差就是答案。",
+  "pitfalls": [
+    "后缀不包含当前位置",
+    "前缀包含当前位置",
+    "重复值只有频次归零时才从后缀不同值数中消失"
+  ],
+  "solutions": [
+    {
+      "id": "prefix-set-and-suffix-frequency",
+      "title": "前缀集合与后缀频次",
+      "kind": "最优",
+      "idea": "单次扫描动态移动当前位置元素。",
+      "steps": [
+        "suffix 统计 nums 全部频次，prefix 为空",
+        "对每个 value",
+        "suffix[value]--，为零则移除",
+        "prefix.add(value)",
+        "answer[i]=prefix.size-suffix.size",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/prefix-set-and-suffix-frequency/Solution.java",
+        "kotlin": "solutions/prefix-set-and-suffix-frequency/Solution.kt",
+        "cpp": "solutions/prefix-set-and-suffix-frequency/solution.cpp"
+      }
+    }
+  ]
+}

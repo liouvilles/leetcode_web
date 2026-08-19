@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "buyChoco",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "一和二恰好花完三元",
+      "args": [
+        [
+          1,
+          2,
+          2
+        ],
+        3
+      ],
+      "expected": 0
+    },
+    {
+      "name": "最便宜两块也买不起",
+      "args": [
+        [
+          3,
+          2,
+          3
+        ],
+        3
+      ],
+      "expected": 3
+    },
+    {
+      "name": "花三元后剩七元",
+      "args": [
+        [
+          5,
+          1,
+          2
+        ],
+        10
+      ],
+      "expected": 7
+    }
+  ]
+}

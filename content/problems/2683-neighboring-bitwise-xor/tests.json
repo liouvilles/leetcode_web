@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "doesValidArrayExist",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "boolean",
+  "cases": [
+    {
+      "name": "一一零总异或为零",
+      "args": [
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "两个一也可由循环数组产生",
+      "args": [
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "一零总异或非零无解",
+      "args": [
+        [
+          1,
+          0
+        ]
+      ],
+      "expected": false
+    }
+  ]
+}

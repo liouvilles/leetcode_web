@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2684,
+  "slug": "maximum-number-of-moves-in-a-grid",
+  "title": "矩阵中移动的最大次数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-043",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "矩阵"
+  ],
+  "summary": "可从第一列任意格开始，每步向右上、正右或右下移动且目标值必须严格更大，求最多移动次数。",
+  "insight": "令 dp[row][col] 为从该格出发最多还能移动几次。最后一列为零，从右向左检查下一列三个候选；只有值更大时才能用 1+dp 转移，最终取第一列最大值。",
+  "pitfalls": [
+    "可以从第一列任意行开始",
+    "比较必须严格大于",
+    "答案是移动次数而非访问格数"
+  ],
+  "solutions": [
+    {
+      "id": "right-to-left-grid-dp",
+      "title": "从右向左网格动态规划",
+      "kind": "最优",
+      "idea": "由下一列的已知最优值计算当前格。",
+      "steps": [
+        "dp 全零",
+        "col 从倒数第二列到零",
+        "对每个 row 枚举 nextRow=row-1..row+1",
+        "若行有效且 grid[nextRow][col+1]>grid[row][col]，更新 1+dp[nextRow][col+1]",
+        "返回 max dp[row][0]"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(mn)"
+      },
+      "files": {
+        "java": "solutions/right-to-left-grid-dp/Solution.java",
+        "kotlin": "solutions/right-to-left-grid-dp/Solution.kt",
+        "cpp": "solutions/right-to-left-grid-dp/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "matrixSum",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "四行三列最终分数十五",
+      "args": [
+        [
+          [
+            7,
+            2,
+            1
+          ],
+          [
+            6,
+            4,
+            2
+          ],
+          [
+            6,
+            5,
+            3
+          ],
+          [
+            3,
+            2,
+            1
+          ]
+        ]
+      ],
+      "expected": 15
+    },
+    {
+      "name": "单元素矩阵分数为一",
+      "args": [
+        [
+          [
+            1
+          ]
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "两行两列取四与三共七",
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      ],
+      "expected": 7
+    }
+  ]
+}

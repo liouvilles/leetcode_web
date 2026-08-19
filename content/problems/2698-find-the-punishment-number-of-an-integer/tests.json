@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "punishmentNumber",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "十以内一九十合格平方和一百八十二",
+      "args": [
+        10
+      ],
+      "expected": 182
+    },
+    {
+      "name": "三十七以内惩罚数一千四百七十八",
+      "args": [
+        37
+      ],
+      "expected": 1478
+    },
+    {
+      "name": "一自身合格",
+      "args": [
+        1
+      ],
+      "expected": 1
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2697,
+  "slug": "lexicographically-smallest-palindrome",
+  "title": "字典序最小回文串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-043",
+  "studyTags": [
+    "双指针",
+    "字符串",
+    "贪心"
+  ],
+  "summary": "可把字符串中的字符替换成任意小写字母，要求用最少替换使其成为回文；在所有最少方案中字典序最小。",
+  "insight": "每对对称字符相同则无需修改；不同时最少只需改一个，且把较大字符改成较小字符能让结果字典序最小。因此双指针把每对都设为二者较小值。",
+  "pitfalls": [
+    "先满足最少修改次数，再比较字典序",
+    "每个不相等对恰修改一次",
+    "中间字符无需变化"
+  ],
+  "solutions": [
+    {
+      "id": "symmetric-pair-minimum-character",
+      "title": "对称字符取较小值",
+      "kind": "最优",
+      "idea": "独立处理所有对称位置。",
+      "steps": [
+        "value=s.toCharArray",
+        "left=0、right=n-1",
+        "while left<right",
+        "smaller=min(value[left],value[right])",
+        "两侧都写 smaller，指针内移",
+        "返回字符串"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/symmetric-pair-minimum-character/Solution.java",
+        "kotlin": "solutions/symmetric-pair-minimum-character/Solution.kt",
+        "cpp": "solutions/symmetric-pair-minimum-character/solution.cpp"
+      }
+    }
+  ]
+}

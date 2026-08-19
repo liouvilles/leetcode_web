@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "makeSmallestPalindrome",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "string",
+  "cases": [
+    {
+      "name": "egcfe 最小回文为 efcfe",
+      "args": [
+        "egcfe"
+      ],
+      "expected": "efcfe"
+    },
+    {
+      "name": "abcd 两对各取较小字符",
+      "args": [
+        "abcd"
+      ],
+      "expected": "abba"
+    },
+    {
+      "name": "seven 变为 neven",
+      "args": [
+        "seven"
+      ],
+      "expected": "neven"
+    }
+  ]
+}

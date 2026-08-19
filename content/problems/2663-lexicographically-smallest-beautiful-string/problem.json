@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2663,
+  "slug": "lexicographically-smallest-beautiful-string",
+  "title": "字典序最小的美丽字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-043",
+  "studyTags": [
+    "字符串",
+    "贪心"
+  ],
+  "summary": "美丽字符串只用前 k 个小写字母且不含长度二或更长的回文子串；给定一个美丽串 s，求字典序严格更大的最小同长度美丽串，不存在返回空串。",
+  "insight": "禁止所有长度至少二的回文等价于新字符不能等于前一位或前两位。像进位一样从右向左寻找可增大的位置，尝试最小更大字符；一旦成功，后缀每位都贪心填入不冲突的最小字符，就得到全局字典序最小答案。",
+  "pitfalls": [
+    "只需检查距离一和二的字符即可排除所有回文",
+    "修改位置必须严格增大原字符",
+    "失败时继续向更高位进位",
+    "后缀要从 a 起逐位选最小合法字符"
+  ],
+  "solutions": [
+    {
+      "id": "right-to-left-increment-and-greedy-fill",
+      "title": "从右进位并贪心填后缀",
+      "kind": "最优",
+      "idea": "找到最靠右可增大位置后构造最小合法尾部。",
+      "steps": [
+        "chars=s.toCharArray",
+        "i 从 n-1 到零",
+        "candidate 从 chars[i]+1 到第 k 个字母",
+        "若 candidate 与 i-1、i-2 都不同，写入该位",
+        "对 j=i+1..n-1，从 a 起选与前一、前二不同的最小字符",
+        "立即返回结果",
+        "所有位置均失败返回空串"
+      ],
+      "complexity": {
+        "time": "O(nk)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/right-to-left-increment-and-greedy-fill/Solution.java",
+        "kotlin": "solutions/right-to-left-increment-and-greedy-fill/Solution.kt",
+        "cpp": "solutions/right-to-left-increment-and-greedy-fill/solution.cpp"
+      }
+    }
+  ]
+}

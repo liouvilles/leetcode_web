@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "isWinner",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "第一名全中后两次翻倍获胜",
+      "args": [
+        [
+          4,
+          10,
+          7,
+          9
+        ],
+        [
+          6,
+          5,
+          2,
+          3
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "第二名连续全中获胜",
+      "args": [
+        [
+          3,
+          5,
+          7,
+          6
+        ],
+        [
+          8,
+          10,
+          10,
+          2
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "相同单次得分平局",
+      "args": [
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

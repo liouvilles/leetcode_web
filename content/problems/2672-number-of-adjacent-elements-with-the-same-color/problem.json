@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2672,
+  "slug": "number-of-adjacent-elements-with-the-same-color",
+  "title": "有相同颜色的相邻元素数目",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-043",
+  "studyTags": [
+    "数组"
+  ],
+  "summary": "长度 n 的数组初始未着色；每次查询把一个位置改为正颜色，返回每次操作后相邻且颜色相同的下标对数量。",
+  "insight": "一次改色只会影响 index 与左右邻居的至多两对关系。修改前若旧色非零且与邻居相同就从计数减一；写入新色后，再把新形成的相同非零关系加回。",
+  "pitfalls": [
+    "未着色的零不算颜色相同对",
+    "重复设置相同颜色应先减后加，结果不变",
+    "只检查有效左右邻居"
+  ],
+  "solutions": [
+    {
+      "id": "update-two-adjacent-pairs",
+      "title": "增量更新左右两对关系",
+      "kind": "最优",
+      "idea": "维护当前颜色数组和全局相邻同色对数。",
+      "steps": [
+        "colors 全零，pairs=0",
+        "对 query[index,newColor]",
+        "若 colors[index]!=0，分别检查左右同色关系并 pairs--",
+        "写 colors[index]=newColor",
+        "检查左右新同色关系并 pairs++",
+        "记录 pairs"
+      ],
+      "complexity": {
+        "time": "O(n + queries.length)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/update-two-adjacent-pairs/Solution.java",
+        "kotlin": "solutions/update-two-adjacent-pairs/Solution.kt",
+        "cpp": "solutions/update-two-adjacent-pairs/solution.cpp"
+      }
+    }
+  ]
+}

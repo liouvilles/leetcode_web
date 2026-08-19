@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": 2659,
+  "slug": "make-array-empty",
+  "title": "将数组清空",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-043",
+  "studyTags": [
+    "数组",
+    "贪心",
+    "树状数组",
+    "排序"
+  ],
+  "summary": "每次若数组首元素是当前最小值就删除，否则把首元素移到末尾；数组元素互异，求清空数组的操作次数。",
+  "insight": "元素删除顺序固定为数值升序。Fenwick 树维护原下标中仍存在的元素；设当前队首对应原下标 current，到目标下标 target 的操作数就是环形区间内存活元素数（包含 target）。删除 target 后队首从 target+1 继续。",
+  "pitfalls": [
+    "移动与删除都各算一次操作",
+    "区间计数只包含仍存活元素",
+    "target 位于 current 左侧时要拆成尾段与头段",
+    "答案使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "sorted-indices-with-fenwick-ring-count",
+      "title": "排序下标与 Fenwick 环形计数",
+      "kind": "最优",
+      "idea": "按值顺序查询从当前队首到目标的存活数量。",
+      "steps": [
+        "按 nums 值升序排序原下标 order",
+        "Fenwick 初始每个位置为一",
+        "current=0，answer=0",
+        "遍历 target：若 target>=current 查询 [current,target]，否则查询 [current,n-1]+[0,target]",
+        "累加区间存活数，Fenwick 删除 target",
+        "current=(target+1)%n",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/sorted-indices-with-fenwick-ring-count/Solution.java",
+        "kotlin": "solutions/sorted-indices-with-fenwick-ring-count/Solution.kt",
+        "cpp": "solutions/sorted-indices-with-fenwick-ring-count/solution.cpp"
+      }
+    }
+  ]
+}

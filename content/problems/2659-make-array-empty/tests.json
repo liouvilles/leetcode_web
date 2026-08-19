@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "countOperationsToEmptyArray",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "long",
+  "cases": [
+    {
+      "name": "先轮转两次再依次删除共五次",
+      "args": [
+        [
+          3,
+          4,
+          -1
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "删除三前需要把四轮转一次",
+      "args": [
+        [
+          1,
+          2,
+          4,
+          3
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "已经升序只需三次删除",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 3
+    }
+  ]
+}

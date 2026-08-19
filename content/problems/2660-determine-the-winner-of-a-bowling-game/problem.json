@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": 2660,
+  "slug": "determine-the-winner-of-a-bowling-game",
+  "title": "保龄球游戏的获胜者",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-043",
+  "studyTags": [
+    "数组",
+    "模拟"
+  ],
+  "summary": "两名玩家各有若干次投球；若某次投球的前一或前二次中出现十瓶全中，则本次得分翻倍，比较总分并返回胜者编号，平局返回零。",
+  "insight": "独立扫描每名玩家，从当前位置检查 i-1 和 i-2 是否为十，按一倍或两倍累加即可。",
+  "pitfalls": [
+    "全中翻倍影响后续两次而不是自身",
+    "两次条件同时满足也只翻一倍",
+    "总分相同返回零"
+  ],
+  "solutions": [
+    {
+      "id": "direct-score-simulation",
+      "title": "直接模拟两局计分",
+      "kind": "最优",
+      "idea": "用此前两个原始投球值判断倍率。",
+      "steps": [
+        "实现 score(player)",
+        "i 从零扫描，multiplier 为前一或前二值等于十时二，否则一",
+        "累加 multiplier*player[i]",
+        "比较两人分数返回一、二或零"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/direct-score-simulation/Solution.java",
+        "kotlin": "solutions/direct-score-simulation/Solution.kt",
+        "cpp": "solutions/direct-score-simulation/solution.cpp"
+      }
+    }
+  ]
+}
