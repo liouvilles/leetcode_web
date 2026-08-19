@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": 2612,
+  "slug": "minimum-reverse-operations",
+  "title": "最少翻转操作数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-042",
+  "studyTags": [
+    "数组",
+    "广度优先搜索",
+    "有序集合"
+  ],
+  "summary": "长度 n 的二进制数组仅位置 p 为一，禁止一到达 banned 下标；每次反转任意长度 k 的子数组，求一到每个位置的最少操作数。",
+  "insight": "一当前在 i，反转左端 l 后会到 j=2l+k-1-i。合法 l 是一个连续区间，所以可达 j 也是同奇偶、步长二的连续区间。BFS 保证最短路；把尚未访问且非禁止的下标按奇偶放入两个有序集合，就能只枚举区间内真正未访问的节点，每个下标最多删除一次。",
+  "pitfalls": [
+    "反转区间必须完整落在数组内且包含当前位置",
+    "同一次扩展可达位置奇偶固定",
+    "起点即使在集合范围内也不能重复访问",
+    "banned 位置从一开始就不加入集合"
+  ],
+  "solutions": [
+    {
+      "id": "bfs-with-parity-ordered-sets",
+      "title": "BFS 配合奇偶有序集合",
+      "kind": "最优",
+      "idea": "把每次可达的等差区间转换为有序集合范围删除。",
+      "steps": [
+        "标记 banned，distance 全为 -1、distance[p]=0",
+        "把除 p 和 banned 外的下标按 index%2 加入两个 TreeSet",
+        "BFS 弹出 i",
+        "left=max(0,i-k+1)，right=min(i,n-k)",
+        "minimum=2*left+k-1-i，maximum=2*right+k-1-i",
+        "在 minimum 奇偶集合中反复取 >=minimum 且 <=maximum 的最小下标，删除、赋距离并入队",
+        "返回 distance"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/bfs-with-parity-ordered-sets/Solution.java",
+        "kotlin": "solutions/bfs-with-parity-ordered-sets/Solution.kt",
+        "cpp": "solutions/bfs-with-parity-ordered-sets/solution.cpp"
+      }
+    }
+  ]
+}

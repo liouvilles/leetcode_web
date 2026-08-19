@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2640,
+  "slug": "find-the-score-of-all-prefixes-of-an-array",
+  "title": "一个数组所有前缀的分数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-042",
+  "studyTags": [
+    "数组",
+    "前缀和"
+  ],
+  "summary": "转换数组 conv[i]=nums[i]+max(nums[0..i])，第 i 个前缀分数为 conv[0..i] 之和，返回所有前缀分数。",
+  "insight": "一次扫描同时维护前缀最大值 maximum 和转换值累计和 score；每个位置把 nums[i]+maximum 加入 score 即得到答案。",
+  "pitfalls": [
+    "最大值包含当前位置",
+    "前缀分数使用 long",
+    "答案每个位置对应截至该位置的累计值"
+  ],
+  "solutions": [
+    {
+      "id": "running-maximum-and-prefix-score",
+      "title": "滚动最大值与前缀分数",
+      "kind": "最优",
+      "idea": "无需显式构造转换数组。",
+      "steps": [
+        "maximum=0，score=0",
+        "从左到右扫描 nums",
+        "maximum=max(maximum,nums[i])",
+        "score+=nums[i]+maximum",
+        "answer[i]=score",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1) excluding output"
+      },
+      "files": {
+        "java": "solutions/running-maximum-and-prefix-score/Solution.java",
+        "kotlin": "solutions/running-maximum-and-prefix-score/Solution.kt",
+        "cpp": "solutions/running-maximum-and-prefix-score/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": 2607,
+  "slug": "make-k-subarray-sums-equal",
+  "title": "使子数组元素和相等",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-042",
+  "studyTags": [
+    "数组",
+    "数学",
+    "贪心",
+    "排序",
+    "数论"
+  ],
+  "summary": "数组视为环形，每次可把任一元素加一或减一，求让所有长度为 k 的环形子数组和相等的最少操作数。",
+  "insight": "相邻两个长度 k 的窗口和相等，等价于 arr[i]=arr[(i+k) mod n]。步长 k 在模 n 下形成 gcd(n,k) 个独立环，每个环内元素必须变成同一个值；绝对距离和由中位数最小化。",
+  "pitfalls": [
+    "数组按环形下标处理",
+    "分组数是 gcd(n,k)",
+    "偶数组任选两个中位数之一代价相同",
+    "答案使用 long"
+  ],
+  "solutions": [
+    {
+      "id": "gcd-groups-to-medians",
+      "title": "最大公约数分组取中位数",
+      "kind": "最优",
+      "idea": "分别优化每个步长环的绝对偏差。",
+      "steps": [
+        "groups=gcd(n,k)",
+        "对 start=0..groups-1 收集 start,start+groups,... 的值",
+        "排序该组并取中位数",
+        "累加所有值与中位数的绝对差",
+        "返回总操作数"
+      ],
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/gcd-groups-to-medians/Solution.java",
+        "kotlin": "solutions/gcd-groups-to-medians/Solution.kt",
+        "cpp": "solutions/gcd-groups-to-medians/solution.cpp"
+      }
+    }
+  ]
+}

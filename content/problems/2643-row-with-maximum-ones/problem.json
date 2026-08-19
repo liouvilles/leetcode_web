@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2643,
+  "slug": "row-with-maximum-ones",
+  "title": "一最多的行",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-042",
+  "studyTags": [
+    "数组",
+    "矩阵"
+  ],
+  "summary": "统计二进制矩阵每行的一数量，返回一最多的行下标和数量；平局取最小下标。",
+  "insight": "按行从上到下扫描并计数，只在当前数量严格大于历史最大值时更新，便会自然保留平局中的最小下标。",
+  "pitfalls": [
+    "返回两个元素 [row,count]",
+    "平局不能覆盖较早行",
+    "矩阵行不保证有序"
+  ],
+  "solutions": [
+    {
+      "id": "row-scan-count-ones",
+      "title": "逐行计数一",
+      "kind": "最优",
+      "idea": "维护严格更大的最佳行。",
+      "steps": [
+        "bestRow=bestCount=0",
+        "从 row=0 开始",
+        "累加该行所有值",
+        "若 count>bestCount，更新行号与计数",
+        "返回 [bestRow,bestCount]"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/row-scan-count-ones/Solution.java",
+        "kotlin": "solutions/row-scan-count-ones/Solution.kt",
+        "cpp": "solutions/row-scan-count-ones/solution.cpp"
+      }
+    }
+  ]
+}

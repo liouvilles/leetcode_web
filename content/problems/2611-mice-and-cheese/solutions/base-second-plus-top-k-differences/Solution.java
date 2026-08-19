@@ -1,0 +1,1 @@
+class Solution { public int miceAndCheese(int[] reward1,int[] reward2,int k){int[] difference=new int[reward1.length];int answer=0;for(int i=0;i<reward1.length;i++){answer+=reward2[i];difference[i]=reward1[i]-reward2[i];}Arrays.sort(difference);for(int i=difference.length-k;i<difference.length;i++)answer+=difference[i];return answer;} }

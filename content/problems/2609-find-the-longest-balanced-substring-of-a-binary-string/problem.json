@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2609,
+  "slug": "find-the-longest-balanced-substring-of-a-binary-string",
+  "title": "最长平衡子字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-042",
+  "studyTags": [
+    "字符串"
+  ],
+  "summary": "二进制字符串的平衡子串由连续 k 个零紧接连续 k 个一组成，求最长平衡子串长度。",
+  "insight": "按游程扫描：每轮先统计连续零数 zeros，再统计紧随其后的连续一数 ones，这一对游程能形成的最长平衡串长度为 2*min(zeros,ones)。取所有相邻零一游程的最大值。",
+  "pitfalls": [
+    "零必须全部位于一之前",
+    "零和一数量必须相等",
+    "全零或全一答案为零"
+  ],
+  "solutions": [
+    {
+      "id": "scan-zero-one-runs",
+      "title": "扫描相邻零一游程",
+      "kind": "最优",
+      "idea": "逐段计算可配对的零与一数量。",
+      "steps": [
+        "index=answer=0",
+        "while index<n",
+        "统计从 index 开始的连续零个数",
+        "继续统计紧随的连续一个数",
+        "answer=max(answer,2*min(zeros,ones))",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/scan-zero-one-runs/Solution.java",
+        "kotlin": "solutions/scan-zero-one-runs/Solution.kt",
+        "cpp": "solutions/scan-zero-one-runs/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findDelayedArrivalTime",
+  "parameterTypes": [
+    "int",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "十五点延误五小时到二十点",
+      "args": [
+        15,
+        5
+      ],
+      "expected": 20
+    },
+    {
+      "name": "跨越午夜后在零点到达",
+      "args": [
+        13,
+        11
+      ],
+      "expected": 0
+    },
+    {
+      "name": "零点无延误仍为零点",
+      "args": [
+        0,
+        0
+      ],
+      "expected": 0
+    }
+  ]
+}

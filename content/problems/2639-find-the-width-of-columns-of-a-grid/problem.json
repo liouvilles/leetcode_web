@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2639,
+  "slug": "find-the-width-of-columns-of-a-grid",
+  "title": "查询网格图中每一列的宽度",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-042",
+  "studyTags": [
+    "数组",
+    "矩阵"
+  ],
+  "summary": "矩阵每一列宽度定义为该列整数十进制字符串长度的最大值，负号也计入，返回各列宽度。",
+  "insight": "逐列把每个整数转换为字符串并取长度最大值，语言自带整数转字符串会自然处理零与负号。",
+  "pitfalls": [
+    "负号占一个字符",
+    "零的宽度是一",
+    "每列独立取最大值"
+  ],
+  "solutions": [
+    {
+      "id": "scan-string-length-per-column",
+      "title": "逐列统计十进制字符串长度",
+      "kind": "最优",
+      "idea": "直接枚举所有单元格更新列最大值。",
+      "steps": [
+        "answer 长度为列数",
+        "遍历每一行和列",
+        "width=toString(grid[row][col]).length",
+        "answer[col]=max(answer[col],width)",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(mn)",
+        "space": "O(1) excluding output"
+      },
+      "files": {
+        "java": "solutions/scan-string-length-per-column/Solution.java",
+        "kotlin": "solutions/scan-string-length-per-column/Solution.kt",
+        "cpp": "solutions/scan-string-length-per-column/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2616,
+  "slug": "minimize-the-maximum-difference-of-pairs",
+  "title": "最小化数对的最大差值",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-042",
+  "studyTags": [
+    "数组",
+    "二分查找",
+    "贪心",
+    "排序"
+  ],
+  "summary": "从数组下标中选择 p 对互不重复的数对，最小化这些数对差的绝对值中的最大值。",
+  "insight": "给定差值上限 d，排序后从左到右遇到相邻差不超过 d 就立即配对，可得到最多不交叠数对；若能达到 p 对则 d 可行。可行性对 d 单调，因此二分最小上限。",
+  "pitfalls": [
+    "每个下标最多属于一对",
+    "p 为零时答案为零",
+    "可行性贪心配对后要跳过两个元素"
+  ],
+  "solutions": [
+    {
+      "id": "binary-search-and-adjacent-greedy",
+      "title": "二分答案与相邻贪心配对",
+      "kind": "最优",
+      "idea": "检查固定上限下最多能形成多少对。",
+      "steps": [
+        "排序 nums",
+        "left=0，right=max-min",
+        "二分 middle",
+        "扫描 i：若 nums[i+1]-nums[i]<=middle，pairs++、i+=2，否则 i++",
+        "pairs>=p 则收缩 right，否则提升 left",
+        "返回 left"
+      ],
+      "complexity": {
+        "time": "O(n log n + n log range)",
+        "space": "O(log n) sorting"
+      },
+      "files": {
+        "java": "solutions/binary-search-and-adjacent-greedy/Solution.java",
+        "kotlin": "solutions/binary-search-and-adjacent-greedy/Solution.kt",
+        "cpp": "solutions/binary-search-and-adjacent-greedy/solution.cpp"
+      }
+    }
+  ]
+}

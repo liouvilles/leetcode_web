@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "miceAndCheese",
+  "parameterTypes": [
+    "intArray",
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "选择差值最大的两块得到十五",
+      "args": [
+        [
+          1,
+          1,
+          3,
+          4
+        ],
+        [
+          4,
+          4,
+          1,
+          1
+        ],
+        2
+      ],
+      "expected": 15
+    },
+    {
+      "name": "奖励相同且第一只吃全部",
+      "args": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        2
+      ],
+      "expected": 2
+    },
+    {
+      "name": "选择第一块得到九分",
+      "args": [
+        [
+          5,
+          1
+        ],
+        [
+          2,
+          4
+        ],
+        1
+      ],
+      "expected": 9
+    }
+  ]
+}

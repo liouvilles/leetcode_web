@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "problemCount": 1871,
-  "solutionCount": 1898,
-  "implementationCount": 5694,
+  "problemCount": 1896,
+  "solutionCount": 1923,
+  "implementationCount": 5769,
   "problems": [
     {
       "id": 1,
@@ -28018,6 +28018,378 @@
       ],
       "status": "published",
       "batch": "batch-041",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2605,
+      "slug": "form-smallest-number-from-two-digit-arrays",
+      "title": "从两个数字数组里生成最小数字",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "枚举"
+      ],
+      "status": "published",
+      "batch": "batch-042",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2606,
+      "slug": "find-the-substring-with-maximum-cost",
+      "title": "找到最大开销的子字符串",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "字符串",
+        "动态规划"
+      ],
+      "status": "published",
+      "batch": "batch-042",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2607,
+      "slug": "make-k-subarray-sums-equal",
+      "title": "使子数组元素和相等",
+      "studyTags": [
+        "数组",
+        "数学",
+        "贪心",
+        "排序",
+        "数论"
+      ],
+      "status": "published",
+      "batch": "batch-042",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2608,
+      "slug": "shortest-cycle-in-a-graph",
+      "title": "图中的最短环",
+      "studyTags": [
+        "广度优先搜索",
+        "图论"
+      ],
+      "status": "published",
+      "batch": "batch-042",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2609,
+      "slug": "find-the-longest-balanced-substring-of-a-binary-string",
+      "title": "最长平衡子字符串",
+      "studyTags": [
+        "字符串"
+      ],
+      "status": "published",
+      "batch": "batch-042",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2610,
+      "slug": "convert-an-array-into-a-2d-array-with-conditions",
+      "title": "转换二维数组",
+      "studyTags": [
+        "数组",
+        "哈希表"
+      ],
+      "status": "published",
+      "batch": "batch-042",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2611,
+      "slug": "mice-and-cheese",
+      "title": "老鼠和奶酪",
+      "studyTags": [
+        "数组",
+        "贪心",
+        "排序"
+      ],
+      "status": "published",
+      "batch": "batch-042",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2612,
+      "slug": "minimum-reverse-operations",
+      "title": "最少翻转操作数",
+      "studyTags": [
+        "数组",
+        "广度优先搜索",
+        "有序集合"
+      ],
+      "status": "published",
+      "batch": "batch-042",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2614,
+      "slug": "prime-in-diagonal",
+      "title": "对角线上的质数",
+      "studyTags": [
+        "数组",
+        "数学",
+        "矩阵",
+        "数论"
+      ],
+      "status": "published",
+      "batch": "batch-042",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2615,
+      "slug": "sum-of-distances",
+      "title": "等值距离和",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "前缀和"
+      ],
+      "status": "published",
+      "batch": "batch-042",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2616,
+      "slug": "minimize-the-maximum-difference-of-pairs",
+      "title": "最小化数对的最大差值",
+      "studyTags": [
+        "数组",
+        "二分查找",
+        "贪心",
+        "排序"
+      ],
+      "status": "published",
+      "batch": "batch-042",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2617,
+      "slug": "minimum-number-of-visited-cells-in-a-grid",
+      "title": "网格图中最少访问的格子数",
+      "studyTags": [
+        "数组",
+        "广度优先搜索",
+        "有序集合",
+        "矩阵"
+      ],
+      "status": "published",
+      "batch": "batch-042",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2639,
+      "slug": "find-the-width-of-columns-of-a-grid",
+      "title": "查询网格图中每一列的宽度",
+      "studyTags": [
+        "数组",
+        "矩阵"
+      ],
+      "status": "published",
+      "batch": "batch-042",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2640,
+      "slug": "find-the-score-of-all-prefixes-of-an-array",
+      "title": "一个数组所有前缀的分数",
+      "studyTags": [
+        "数组",
+        "前缀和"
+      ],
+      "status": "published",
+      "batch": "batch-042",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2641,
+      "slug": "cousins-in-binary-tree-ii",
+      "title": "二叉树的堂兄弟节点 II",
+      "studyTags": [
+        "树",
+        "广度优先搜索",
+        "二叉树"
+      ],
+      "status": "published",
+      "batch": "batch-042",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2642,
+      "slug": "design-graph-with-shortest-path-calculator",
+      "title": "设计可以求最短路径的图类",
+      "studyTags": [
+        "图论",
+        "设计",
+        "最短路"
+      ],
+      "status": "published",
+      "batch": "batch-042",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2643,
+      "slug": "row-with-maximum-ones",
+      "title": "一最多的行",
+      "studyTags": [
+        "数组",
+        "矩阵"
+      ],
+      "status": "published",
+      "batch": "batch-042",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2644,
+      "slug": "find-the-maximum-divisibility-score",
+      "title": "找出可整除性得分最大的整数",
+      "studyTags": [
+        "数组",
+        "枚举"
+      ],
+      "status": "published",
+      "batch": "batch-042",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2645,
+      "slug": "minimum-additions-to-make-valid-string",
+      "title": "构造有效字符串的最少插入数",
+      "studyTags": [
+        "字符串",
+        "贪心"
+      ],
+      "status": "published",
+      "batch": "batch-042",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2646,
+      "slug": "minimize-the-total-price-of-the-trips",
+      "title": "最小化旅行的价格总和",
+      "studyTags": [
+        "数组",
+        "动态规划",
+        "树",
+        "深度优先搜索",
+        "图论"
+      ],
+      "status": "published",
+      "batch": "batch-042",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2651,
+      "slug": "calculate-delayed-arrival-time",
+      "title": "计算列车到站时间",
+      "studyTags": [
+        "数学"
+      ],
+      "status": "published",
+      "batch": "batch-042",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2652,
+      "slug": "sum-multiples",
+      "title": "倍数求和",
+      "studyTags": [
+        "数学",
+        "枚举"
+      ],
+      "status": "published",
+      "batch": "batch-042",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2653,
+      "slug": "sliding-subarray-beauty",
+      "title": "滑动子数组的美丽值",
+      "studyTags": [
+        "数组",
+        "哈希表",
+        "滑动窗口",
+        "计数"
+      ],
+      "status": "published",
+      "batch": "batch-042",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2654,
+      "slug": "minimum-number-of-operations-to-make-all-array-elements-equal-to-1",
+      "title": "使数组所有元素变成 1 的最少操作次数",
+      "studyTags": [
+        "数组",
+        "数学",
+        "数论",
+        "最大公约数"
+      ],
+      "status": "published",
+      "batch": "batch-042",
+      "solutionCount": 1,
+      "testCount": 3,
+      "qualityGate": "tested"
+    },
+    {
+      "id": 2656,
+      "slug": "maximum-sum-with-exactly-k-elements",
+      "title": "K 个元素的最大和",
+      "studyTags": [
+        "数组",
+        "贪心"
+      ],
+      "status": "published",
+      "batch": "batch-042",
       "solutionCount": 1,
       "testCount": 3,
       "qualityGate": "tested"

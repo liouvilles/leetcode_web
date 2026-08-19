@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": 2656,
+  "slug": "maximum-sum-with-exactly-k-elements",
+  "title": "K 个元素的最大和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-042",
+  "studyTags": [
+    "数组",
+    "贪心"
+  ],
+  "summary": "重复 k 次选择数组元素加入分数，并把选中值加一放回，求最大分数。",
+  "insight": "每次选择当前最大值既得到最高即时收益，又让它继续保持最大并增加一。因此始终选择初始最大值，所得序列为 maximum、maximum+1、…、maximum+k-1，可直接求等差和。",
+  "pitfalls": [
+    "同一下标可以重复选择",
+    "每次选择后值永久加一",
+    "公式中的乘法在约束内返回 int"
+  ],
+  "solutions": [
+    {
+      "id": "repeat-current-maximum-formula",
+      "title": "反复选择最大值的等差和",
+      "kind": "最优",
+      "idea": "用等差数列公式避免模拟。",
+      "steps": [
+        "maximum=max(nums)",
+        "返回 k*maximum+k*(k-1)/2"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/repeat-current-maximum-formula/Solution.java",
+        "kotlin": "solutions/repeat-current-maximum-formula/Solution.kt",
+        "cpp": "solutions/repeat-current-maximum-formula/solution.cpp"
+      }
+    }
+  ]
+}

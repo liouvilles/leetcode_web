@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2614,
+  "slug": "prime-in-diagonal",
+  "title": "对角线上的质数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-042",
+  "studyTags": [
+    "数组",
+    "数学",
+    "矩阵",
+    "数论"
+  ],
+  "summary": "在正方形矩阵主对角线与副对角线的元素中，返回最大的质数；不存在则返回零。",
+  "insight": "只需枚举每一行的 grid[i][i] 与 grid[i][n-1-i]，用试除到平方根判断质数并维护最大值。",
+  "pitfalls": [
+    "一不是质数",
+    "奇数阶中心元素会被检查两次但不影响答案",
+    "两条对角线都要覆盖"
+  ],
+  "solutions": [
+    {
+      "id": "scan-two-diagonals-and-test-primes",
+      "title": "扫描双对角线并试除判质数",
+      "kind": "最优",
+      "idea": "检查至多 2n 个候选值。",
+      "steps": [
+        "实现 isPrime：小于二为 false，枚举 divisor<=value/divisor",
+        "answer=0",
+        "i 从零到 n-1，检查主对角与副对角两个值",
+        "质数则更新 answer",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(n sqrt(maxValue))",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/scan-two-diagonals-and-test-primes/Solution.java",
+        "kotlin": "solutions/scan-two-diagonals-and-test-primes/Solution.kt",
+        "cpp": "solutions/scan-two-diagonals-and-test-primes/solution.cpp"
+      }
+    }
+  ]
+}

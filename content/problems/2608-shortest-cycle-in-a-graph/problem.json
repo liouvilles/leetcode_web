@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": 2608,
+  "slug": "shortest-cycle-in-a-graph",
+  "title": "图中的最短环",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-042",
+  "studyTags": [
+    "广度优先搜索",
+    "图论"
+  ],
+  "summary": "给定无向简单图，返回其中最短环的边数；没有环则返回负一。",
+  "insight": "以每个节点为源点做 BFS。若扫描边 u-v 时 v 已访问且 v 不是 u 的父节点，这条非树边与两条 BFS 路径组成环，长度为 dist[u]+dist[v]+1；枚举所有源点可覆盖最短环。",
+  "pitfalls": [
+    "无向父边不能误判成二元环",
+    "图可能不连通",
+    "答案未更新时返回 -1"
+  ],
+  "solutions": [
+    {
+      "id": "bfs-from-every-source",
+      "title": "逐源 BFS 检测非树边",
+      "kind": "最优",
+      "idea": "用最短层数计算经过每条非树边的环长。",
+      "steps": [
+        "构建无向邻接表",
+        "answer=无穷",
+        "对 source 初始化 dist=-1、parent=-1 并 BFS",
+        "首次访问 next 时记录 dist 和 parent",
+        "若 next 已访问且不是 node 的 parent，更新 dist[node]+dist[next]+1",
+        "全部完成后返回最小值或 -1"
+      ],
+      "complexity": {
+        "time": "O(n(n+m))",
+        "space": "O(n+m)"
+      },
+      "files": {
+        "java": "solutions/bfs-from-every-source/Solution.java",
+        "kotlin": "solutions/bfs-from-every-source/Solution.kt",
+        "cpp": "solutions/bfs-from-every-source/solution.cpp"
+      }
+    }
+  ]
+}

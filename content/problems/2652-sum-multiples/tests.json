@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "sumOfMultiples",
+  "parameterTypes": [
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "七以内符合值之和二十一",
+      "args": [
+        7
+      ],
+      "expected": 21
+    },
+    {
+      "name": "十以内符合值之和四十",
+      "args": [
+        10
+      ],
+      "expected": 40
+    },
+    {
+      "name": "二以内没有符合值",
+      "args": [
+        2
+      ],
+      "expected": 0
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maxDivScore",
+  "parameterTypes": [
+    "intArray",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三整除三个元素得分最高",
+      "args": [
+        [
+          4,
+          7,
+          9,
+          3,
+          9
+        ],
+        [
+          5,
+          2,
+          3
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "五与七平局时取五",
+      "args": [
+        [
+          20,
+          14,
+          21,
+          10
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "单元素十二可被三整除",
+      "args": [
+        [
+          12
+        ],
+        [
+          8,
+          6,
+          3
+        ]
+      ],
+      "expected": 3
+    }
+  ]
+}

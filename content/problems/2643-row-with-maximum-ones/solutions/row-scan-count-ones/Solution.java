@@ -1,0 +1,1 @@
+class Solution { public int[] rowAndMaximumOnes(int[][] mat){int bestRow=0,bestCount=0;for(int row=0;row<mat.length;row++){int count=0;for(int value:mat[row])count+=value;if(count>bestCount){bestCount=count;bestRow=row;}}return new int[]{bestRow,bestCount};} }

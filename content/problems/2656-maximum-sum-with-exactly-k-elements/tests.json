@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximizeSum",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "选择五六七得到十八",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        3
+      ],
+      "expected": 18
+    },
+    {
+      "name": "两个五中反复选择得到十一",
+      "args": [
+        [
+          5,
+          5,
+          5
+        ],
+        2
+      ],
+      "expected": 11
+    },
+    {
+      "name": "单元素选择一次",
+      "args": [
+        [
+          1
+        ],
+        1
+      ],
+      "expected": 1
+    }
+  ]
+}

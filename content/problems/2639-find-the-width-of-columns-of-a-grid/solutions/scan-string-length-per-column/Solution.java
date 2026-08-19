@@ -1,0 +1,1 @@
+class Solution { public int[] findColumnWidth(int[][] grid){int[] answer=new int[grid[0].length];for(int[] row:grid)for(int col=0;col<row.length;col++)answer[col]=Math.max(answer[col],String.valueOf(row[col]).length());return answer;} }

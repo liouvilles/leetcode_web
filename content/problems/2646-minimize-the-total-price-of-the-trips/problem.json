@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": 2646,
+  "slug": "minimize-the-total-price-of-the-trips",
+  "title": "最小化旅行的价格总和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-042",
+  "studyTags": [
+    "数组",
+    "动态规划",
+    "树",
+    "深度优先搜索",
+    "图论"
+  ],
+  "summary": "树上每次旅行路径费用为沿途节点价格和；可选择若干互不相邻节点把价格减半，求所有旅行总费用最小值。",
+  "insight": "先为每次旅行找到唯一路径，累计每个节点被经过的次数 usage。之后问题变成树上带权独立集：节点基础总成本为 usage*price；dpNotHalf 可让每个孩子自由取较小状态，dpHalf 则强制所有孩子不减半。",
+  "pitfalls": [
+    "减半节点在所有旅行中都使用半价",
+    "相邻节点不能同时减半",
+    "路径包含起点与终点",
+    "先汇总路径次数再做一次树形 DP"
+  ],
+  "solutions": [
+    {
+      "id": "path-usage-plus-tree-independent-set-dp",
+      "title": "路径计数与树上独立集 DP",
+      "kind": "最优",
+      "idea": "把多次旅行成本压缩为节点权重后优化减半选择。",
+      "steps": [
+        "构建树邻接表",
+        "对每个 trip DFS 寻找起终点唯一路径，给路径节点 usage++",
+        "树形 DFS 返回 [notHalf,half]",
+        "notHalf=usage*price+Σmin(child states)",
+        "half=usage*price/2+Σchild.notHalf",
+        "返回根两个状态最小值"
+      ],
+      "complexity": {
+        "time": "O((trips+n)n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/path-usage-plus-tree-independent-set-dp/Solution.java",
+        "kotlin": "solutions/path-usage-plus-tree-independent-set-dp/Solution.kt",
+        "cpp": "solutions/path-usage-plus-tree-independent-set-dp/solution.cpp"
+      }
+    }
+  ]
+}

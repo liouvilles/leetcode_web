@@ -1,0 +1,1 @@
+class Solution { fun miceAndCheese(reward1:IntArray,reward2:IntArray,k:Int):Int{val difference=IntArray(reward1.size);var answer=0;for(i in reward1.indices){answer+=reward2[i];difference[i]=reward1[i]-reward2[i]};difference.sort();for(i in difference.size-k until difference.size)answer+=difference[i];return answer} }

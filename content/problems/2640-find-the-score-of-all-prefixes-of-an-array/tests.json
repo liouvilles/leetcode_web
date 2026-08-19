@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findPrefixScore",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "longArray",
+  "cases": [
+    {
+      "name": "经典五元素前缀分数",
+      "args": [
+        [
+          2,
+          3,
+          7,
+          5,
+          10
+        ]
+      ],
+      "expected": [
+        4,
+        10,
+        24,
+        36,
+        56
+      ]
+    },
+    {
+      "name": "幂次数组分数逐次翻倍",
+      "args": [
+        [
+          1,
+          1,
+          2,
+          4,
+          8,
+          16
+        ]
+      ],
+      "expected": [
+        2,
+        4,
+        8,
+        16,
+        32,
+        64
+      ]
+    },
+    {
+      "name": "单元素分数为自身两倍",
+      "args": [
+        [
+          5
+        ]
+      ],
+      "expected": [
+        10
+      ]
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "maximumCostSubstring",
+  "parameterTypes": [
+    "string",
+    "string",
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "高负权 d 被舍弃后两个 a 最优",
+      "args": [
+        "adaa",
+        "d",
+        [
+          -1000
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "所有字符负权时选择空串",
+      "args": [
+        "abc",
+        "abc",
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "x 与 y 连续得到三十五",
+      "args": [
+        "xyz",
+        "xz",
+        [
+          10,
+          -20
+        ]
+      ],
+      "expected": 35
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": 2606,
+  "slug": "find-the-substring-with-maximum-cost",
+  "title": "找到最大开销的子字符串",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-042",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "字符串",
+    "动态规划"
+  ],
+  "summary": "每个小写字母默认价值为字母序号，chars 中字符改用对应 vals，求任意子字符串的最大价值，允许选择空串。",
+  "insight": "把字符串转成权值数组后就是最大子数组和。Kadane 算法维护以当前位置结尾的最大非负价值 current，并更新全局最大值；重置为零也代表选择空串。",
+  "pitfalls": [
+    "chars 中的覆盖值可能为负",
+    "未覆盖字母价值从一到二十六",
+    "空串价值零，所以答案不会为负"
+  ],
+  "solutions": [
+    {
+      "id": "kadane-on-character-values",
+      "title": "字符权值上的 Kadane",
+      "kind": "最优",
+      "idea": "在线计算最大连续权值和。",
+      "steps": [
+        "初始化 value[a..z]=1..26",
+        "用 chars 和 vals 覆盖对应价值",
+        "current=answer=0",
+        "扫描 s：current=max(0,current+value[letter])",
+        "answer=max(answer,current)",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(|s| + 26)",
+        "space": "O(26)"
+      },
+      "files": {
+        "java": "solutions/kadane-on-character-values/Solution.java",
+        "kotlin": "solutions/kadane-on-character-values/Solution.kt",
+        "cpp": "solutions/kadane-on-character-values/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "replaceValueInTree",
+  "parameterTypes": [
+    "treeNode"
+  ],
+  "returnType": "treeNode",
+  "cases": [
+    {
+      "name": "经典树按堂兄弟层和替换",
+      "args": [
+        [
+          5,
+          4,
+          9,
+          1,
+          10,
+          null,
+          7
+        ]
+      ],
+      "expected": [
+        0,
+        0,
+        0,
+        7,
+        7,
+        null,
+        11
+      ]
+    },
+    {
+      "name": "根的两个孩子都没有堂兄弟",
+      "args": [
+        [
+          3,
+          1,
+          2
+        ]
+      ],
+      "expected": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "单节点根替换为零",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": [
+        0
+      ]
+    }
+  ]
+}

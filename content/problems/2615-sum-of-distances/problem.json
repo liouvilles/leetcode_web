@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2615,
+  "slug": "sum-of-distances",
+  "title": "等值距离和",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-042",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "前缀和"
+  ],
+  "summary": "对每个下标 i，求所有满足 nums[j]=nums[i] 的下标 j 与 i 的绝对距离之和。",
+  "insight": "先统计每个值的总出现次数与下标总和，再从左到右维护已见次数和下标和。左侧贡献为 i*leftCount-leftSum；右侧由总量扣除左侧与当前位置后，贡献为 rightSum-i*rightCount。",
+  "pitfalls": [
+    "答案数组使用 long",
+    "当前位置自身距离为零且要从右侧总量中扣除",
+    "相同值的统计相互独立"
+  ],
+  "solutions": [
+    {
+      "id": "value-count-and-index-sums",
+      "title": "按值维护次数与下标和",
+      "kind": "最优",
+      "idea": "用左右两侧计数和位置总和计算绝对距离。",
+      "steps": [
+        "第一遍构建 totalCount[value] 与 totalSum[value]",
+        "leftCount、leftSum 初始空",
+        "第二遍对 index、value 读取左侧统计",
+        "计算 leftCost=index*count-sum",
+        "由总统计减去左侧与 index 得到右侧 count/sum 并计算 rightCost",
+        "answer[index]=两者之和，再更新左侧统计"
+      ],
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "files": {
+        "java": "solutions/value-count-and-index-sums/Solution.java",
+        "kotlin": "solutions/value-count-and-index-sums/Solution.kt",
+        "cpp": "solutions/value-count-and-index-sums/solution.cpp"
+      }
+    }
+  ]
+}

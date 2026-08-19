@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2644,
+  "slug": "find-the-maximum-divisibility-score",
+  "title": "找出可整除性得分最大的整数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-042",
+  "studyTags": [
+    "数组",
+    "枚举"
+  ],
+  "summary": "除数的可整除性得分是 nums 中能被它整除的元素数，返回得分最大除数；平局取数值最小者。",
+  "insight": "直接枚举每个 divisor 并扫描 nums 计数。更新条件按 (score 更大) 或 (score 相同且 divisor 更小) 即可完整表达排序规则。",
+  "pitfalls": [
+    "除数数组可能不是有序的",
+    "平局比较除数本身而非下标",
+    "所有得分可能都为零"
+  ],
+  "solutions": [
+    {
+      "id": "enumerate-divisors-and-count",
+      "title": "枚举除数统计整除数",
+      "kind": "最优",
+      "idea": "对每个候选独立计算得分。",
+      "steps": [
+        "bestScore=-1，answer=最大整数",
+        "遍历 divisor",
+        "count nums 中 value%divisor==0",
+        "若 count>bestScore 或平局且 divisor<answer，更新",
+        "返回 answer"
+      ],
+      "complexity": {
+        "time": "O(nums.length * divisors.length)",
+        "space": "O(1)"
+      },
+      "files": {
+        "java": "solutions/enumerate-divisors-and-count/Solution.java",
+        "kotlin": "solutions/enumerate-divisors-and-count/Solution.kt",
+        "cpp": "solutions/enumerate-divisors-and-count/solution.cpp"
+      }
+    }
+  ]
+}

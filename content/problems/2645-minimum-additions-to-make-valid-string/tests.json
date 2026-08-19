@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "addMinimum",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "单个 b 需要补 a 与 c",
+      "args": [
+        "b"
+      ],
+      "expected": 2
+    },
+    {
+      "name": "三个 a 分属三组共补六个字符",
+      "args": [
+        "aaa"
+      ],
+      "expected": 6
+    },
+    {
+      "name": "完整 abc 无需插入",
+      "args": [
+        "abc"
+      ],
+      "expected": 0
+    }
+  ]
+}

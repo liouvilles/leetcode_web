@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "diagonalPrime",
+  "parameterTypes": [
+    "intMatrix"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "副对角三不是最大且主对角十一最大",
+      "args": [
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            5,
+            6,
+            7
+          ],
+          [
+            9,
+            10,
+            11
+          ]
+        ]
+      ],
+      "expected": 11
+    },
+    {
+      "name": "中心十七为最大质数",
+      "args": [
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            5,
+            17,
+            7
+          ],
+          [
+            9,
+            11,
+            10
+          ]
+        ]
+      ],
+      "expected": 17
+    },
+    {
+      "name": "单个合数没有质数",
+      "args": [
+        [
+          [
+            4
+          ]
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

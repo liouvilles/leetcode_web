@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minOperations",
+  "parameterTypes": [
+    "intArray"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三和四先制造一再传播共四次",
+      "args": [
+        [
+          2,
+          6,
+          3,
+          4
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "所有元素公因数为二时无解",
+      "args": [
+        [
+          2,
+          10,
+          6,
+          14
+        ]
+      ],
+      "expected": -1
+    },
+    {
+      "name": "已经全是一无需操作",
+      "args": [
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

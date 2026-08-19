@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "minimizeMax",
+  "parameterTypes": [
+    "intArray",
+    "int"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "可选两对且最大差为一",
+      "args": [
+        [
+          10,
+          1,
+          2,
+          7,
+          1,
+          3
+        ],
+        2
+      ],
+      "expected": 1
+    },
+    {
+      "name": "两个二可组成零差数对",
+      "args": [
+        [
+          4,
+          2,
+          1,
+          2
+        ],
+        1
+      ],
+      "expected": 0
+    },
+    {
+      "name": "无需选择数对时答案为零",
+      "args": [
+        [
+          1,
+          100
+        ],
+        0
+      ],
+      "expected": 0
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "getSubarrayBeauty",
+  "parameterTypes": [
+    "intArray",
+    "int",
+    "int"
+  ],
+  "returnType": "intArray",
+  "cases": [
+    {
+      "name": "三个窗口第二小负数",
+      "args": [
+        [
+          1,
+          -1,
+          -3,
+          -2,
+          3
+        ],
+        3,
+        2
+      ],
+      "expected": [
+        -1,
+        -2,
+        -2
+      ]
+    },
+    {
+      "name": "全负数组每对第二小值",
+      "args": [
+        [
+          -1,
+          -2,
+          -3,
+          -4,
+          -5
+        ],
+        2,
+        2
+      ],
+      "expected": [
+        -1,
+        -2,
+        -3,
+        -4
+      ]
+    },
+    {
+      "name": "窗口没有负数时均为零",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        2,
+        1
+      ],
+      "expected": [
+        0,
+        0
+      ]
+    }
+  ]
+}

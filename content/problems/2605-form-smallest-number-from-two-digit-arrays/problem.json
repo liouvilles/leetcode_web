@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": 2605,
+  "slug": "form-smallest-number-from-two-digit-arrays",
+  "title": "从两个数字数组里生成最小数字",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-042",
+  "studyTags": [
+    "数组",
+    "哈希表",
+    "枚举"
+  ],
+  "summary": "从两个仅含一到九且内部互异的数组各使用至少一个数字，生成不含前导零的最小整数。",
+  "insight": "一位数一定小于任何两位数，因此若两数组有共同数字，应取最小共同数字。否则只能各取一个数字组成两位数，把两个数组最小值中较小的放在十位即可。",
+  "pitfalls": [
+    "共同数字只需使用一次即可同时满足两个数组",
+    "无共同数字时恰好使用两个数字最优",
+    "数组数字范围不含零"
+  ],
+  "solutions": [
+    {
+      "id": "smallest-common-else-two-minima",
+      "title": "优先共同数字，否则组合两个最小值",
+      "kind": "最优",
+      "idea": "先检查一位答案，再构造最小两位答案。",
+      "steps": [
+        "用布尔集合记录 nums1",
+        "扫描 nums2 求最小共同数字，有则返回",
+        "求两个数组各自最小值 first、second",
+        "返回 10*min(first,second)+max(first,second)"
+      ],
+      "complexity": {
+        "time": "O(n + m)",
+        "space": "O(10)"
+      },
+      "files": {
+        "java": "solutions/smallest-common-else-two-minima/Solution.java",
+        "kotlin": "solutions/smallest-common-else-two-minima/Solution.kt",
+        "cpp": "solutions/smallest-common-else-two-minima/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "mode": "function",
+  "method": "findTheLongestBalancedSubstring",
+  "parameterTypes": [
+    "string"
+  ],
+  "returnType": "int",
+  "cases": [
+    {
+      "name": "三个零后接三个一得到六",
+      "args": [
+        "01000111"
+      ],
+      "expected": 6
+    },
+    {
+      "name": "两个零可与两个一配对",
+      "args": [
+        "00111"
+      ],
+      "expected": 4
+    },
+    {
+      "name": "全一字符串没有平衡子串",
+      "args": [
+        "111"
+      ],
+      "expected": 0
+    }
+  ]
+}

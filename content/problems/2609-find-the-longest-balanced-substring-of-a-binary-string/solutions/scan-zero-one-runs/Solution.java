@@ -1,0 +1,1 @@
+class Solution { public int findTheLongestBalancedSubstring(String s){int index=0,answer=0;while(index<s.length()){int zeros=0,ones=0;while(index<s.length()&&s.charAt(index)=='0'){zeros++;index++;}while(index<s.length()&&s.charAt(index)=='1'){ones++;index++;}answer=Math.max(answer,2*Math.min(zeros,ones));}return answer;} }

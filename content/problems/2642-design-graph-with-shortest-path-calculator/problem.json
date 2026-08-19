@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": 2642,
+  "slug": "design-graph-with-shortest-path-calculator",
+  "title": "设计可以求最短路径的图类",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-042",
+  "studyTags": [
+    "图论",
+    "设计",
+    "最短路"
+  ],
+  "summary": "维护一个带正权有向图，支持新增边以及查询任意两节点的最短路径，不可达返回负一。",
+  "insight": "节点数最多一百，可在构造时用 Floyd-Warshall 得到全源最短路。新增边 u→v,w 后，任意新最短路若使用它，形态必为 i→u + w + v→j；枚举所有 i,j 以 O(n²) 增量更新即可。",
+  "pitfalls": [
+    "图是有向图",
+    "同一对节点可能已有更短间接路径",
+    "不可达距离不能参与加法",
+    "正权保证新边无需在最短路中重复使用"
+  ],
+  "solutions": [
+    {
+      "id": "floyd-warshall-with-edge-update",
+      "title": "Floyd 全源最短路与增量加边",
+      "kind": "最优",
+      "idea": "矩阵直接回答查询并用新边松弛所有节点对。",
+      "steps": [
+        "distance 对角为零、其余为无穷，载入初始边最小权",
+        "执行 Floyd-Warshall",
+        "addEdge 若 weight 不小于现有 distance[u][v] 可直接结束",
+        "否则对所有 i,j 用 distance[i][u]+weight+distance[v][j] 松弛",
+        "shortestPath 返回矩阵值或 -1"
+      ],
+      "complexity": {
+        "time": "构造 O(n³)，加边 O(n²)，查询 O(1)",
+        "space": "O(n²)"
+      },
+      "files": {
+        "java": "solutions/floyd-warshall-with-edge-update/Solution.java",
+        "kotlin": "solutions/floyd-warshall-with-edge-update/Solution.kt",
+        "cpp": "solutions/floyd-warshall-with-edge-update/solution.cpp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": 2617,
+  "slug": "minimum-number-of-visited-cells-in-a-grid",
+  "title": "网格图中最少访问的格子数",
+  "status": "published",
+  "qualityGate": "tested",
+  "batch": "batch-042",
+  "studyTags": [
+    "数组",
+    "广度优先搜索",
+    "有序集合",
+    "矩阵"
+  ],
+  "summary": "从左上角出发，位于 (r,c) 时可向右或向下移动至多 grid[r][c] 格，求到右下角最少访问格子数，不可达返回负一。",
+  "insight": "把每个格子作为无权图节点做 BFS，但不能逐格枚举长跳跃区间。为每行维护尚未访问列集合、每列维护尚未访问行集合；扩展时只从对应有序集合取落在可达区间的坐标并立即从行列两集合删除，因此每个格子仅被发现一次。",
+  "pitfalls": [
+    "答案包含起点和终点",
+    "值为零的格子无法继续移动",
+    "访问格子时必须同时从行集合和列集合删除",
+    "有序集合范围枚举后再从同一下界继续 ceiling"
+  ],
+  "solutions": [
+    {
+      "id": "bfs-with-row-and-column-unvisited-sets",
+      "title": "BFS 与行列未访问集合",
+      "kind": "最优",
+      "idea": "用有序集合跳过已访问和不可达坐标。",
+      "steps": [
+        "每行 TreeSet 放所有列，每列 TreeSet 放所有行",
+        "distance 全 -1，起点为一并从两集合删除",
+        "BFS 弹出 (row,col)",
+        "在 row 集合中枚举 (col,min(cols-1,col+grid)) 的未访问列，赋距离、从行列集合删除并入队",
+        "在 col 集合中同理枚举向下区间",
+        "返回右下距离"
+      ],
+      "complexity": {
+        "time": "O(mn log(mn))",
+        "space": "O(mn)"
+      },
+      "files": {
+        "java": "solutions/bfs-with-row-and-column-unvisited-sets/Solution.java",
+        "kotlin": "solutions/bfs-with-row-and-column-unvisited-sets/Solution.kt",
+        "cpp": "solutions/bfs-with-row-and-column-unvisited-sets/solution.cpp"
+      }
+    }
+  ]
+}
